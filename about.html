@@ -21,13 +21,27 @@ body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
 
-/* Шапка сайта */
-header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100}
-.nav-container{display:flex;justify-content:between;align-items:center;height:70px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--blue);font-size:1.2rem}
-nav{display:flex;gap:1.5rem}
-nav a{font-weight:500;color:var(--text2);transition:color 0.2s}
-nav a:hover, nav a.active{color:var(--blue);font-weight:600}
+/* Шапка сайта и стили вашего меню */
+header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
+nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-flags{display:flex;gap:4px}
+.flag-ua{background:linear-gradient(to bottom, #0057B7 50%, #FFD700 50%)}
+.flag-ch{background:#D52B1E;position:relative;display:flex;align-items:center;justify-content:center}
+.flag-ch::before, .flag-ch::after{content:'';background:#fff;position:absolute}
+.flag-ch::before{width:4px;height:12px}
+.flag-ch::after{width:12px;height:4px}
+.brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column}
+.brand small{font-size:11px;color:var(--text3);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s}
+.nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
+.btn-donate-nav{background:none;border:none;color:var(--red);font-weight:600;font-size:15px}
+.nav-r{display:flex;align-items:center;gap:15px}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px}
+.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px}
+.lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600}
 
 /* Контент страницы */
 .page-content{padding:4rem 0}
@@ -42,15 +56,35 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <body>
 
 <header>
-  <div class="container nav-container" style="display:flex; justify-content:space-between;">
-    <a href="index.html" class="logo">UAGZ</a>
-    <nav>
-      <a href="index.html">Головна</a>
-      <a href="about.html" class="active">Про центр</a>
-      <a href="#help">Допомога</a>
-      <a href="#events">Події</a>
-    </nav>
-  </div>
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-flags">
+        <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
+        <div class="flag-ch" style="width:18px;height:18px}</div>
+      </div>
+      <div>
+        <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" id="nl-1">Головна</a></li>
+      <li><a href="about.html" class="active" id="nl-2">Про центр</a></li>
+      <li><a href="index.html#help" id="nl-3">Допомога</a></li>
+      <li><a href="index.html#events" id="nl-4">Події</a></li>
+      <li><a href="#">Knowledge Center</a></li>
+      <li><a href="#" id="nl-5">Оголошення</a></li>
+      <li><a href="#" id="nl-6">Волонтерство</a></li>
+      <li><button class="btn-donate-nav" onclick="mOpen('r')" id="btn-donate-nav">❤️ Donate</button></li>
+      <li><a href="index.html#contacts" id="nl-8">Контакти</a></li>
+    </ul>
+    <div class="nav-r">
+      <div class="lang-sw">
+        <button class="lb on" onclick="setLang('ua')">UA</button>
+        <button class="lb" onclick="setLang('de')">DE</button>
+      </div>
+      <button class="btn-solid" id="nav-cta" onclick="mOpen('r')">Отримати допомогу</button>
+    </div>
+  </nav>
 </header>
 
 <main class="container page-content">

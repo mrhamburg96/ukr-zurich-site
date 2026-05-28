@@ -20,10 +20,20 @@ a{text-decoration:none;color:inherit}
 /* Шапка сайта */
 header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
-.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
-.brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
-.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2}
-.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
+
+/* ЛОГОТИП С ФЛАГАМИ */
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:360px}
+.flags-logo{display:flex;flex-direction:column;gap:2px;width:24px;flex-shrink:0}
+.flag-ua{width:24px;height:14px;background:linear-gradient(to bottom, #0057B7 50%, #FFDD00 50%);border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.flag-ch{width:24px;height:14px;background:#D52B1E;position:relative;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.flag-ch::before, .flag-ch::after{content:"";background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.flag-ch::before{width:8px;height:2.5px}
+.flag-ch::after{width:2.5px;height:8px}
+
+.brand{font-weight:700;color:var(--blue);font-size:1.4rem;display:flex;flex-direction:column;line-height:1.1}
+.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;margin-top:2px}
+
+.nav-links{display:flex;align-items:center;column-gap:1.2rem;row-gap:0.4rem;list-style:none;flex-wrap:wrap;max-width:600px}
 .nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
 .nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
 .btn-donate-nav{background:none;border:none;color:#D52B1E;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
@@ -31,7 +41,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
 .lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap}
+.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
 
 /* Контент */
 .page-content{padding:4rem 0}
@@ -51,25 +61,29 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <header>
   <nav>
     <a class="nav-logo" href="index.html">
-      <span class="brand">UAGZ<small id="nav-sub">Ukrainisches Integrations- und Gemeindezentrum Zürich</small></span>
+      <div class="flags-logo">
+        <div class="flag-ua"></div>
+        <div class="flag-ch"></div>
+      </div>
+      <span class="brand">UAGZ<small>Ukrainisches Integrations- und Gemeindezentrum Zürich</small></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html" id="nl-1">Startseite</a></li>
-      <li><a href="about.html" id="nl-2">Über uns</a></li>
-      <li><a href="help.html" class="active" id="nl-3">Hilfe</a></li>
-      <li><a href="events.html" id="nl-4">Veranstaltungen</a></li>
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="about.html">Über uns</a></li>
+      <li><a href="help.html" class="active">Hilfe</a></li>
+      <li><a href="events.html">Veranstaltungen</a></li>
       <li><a href="#">Knowledge Center</a></li>
-      <li><a href="#" id="nl-5">Ankündigungen</a></li>
-      <li><a href="#" id="nl-6">Freiwilligenarbeit</a></li>
-      <li><button class="btn-donate-nav" id="btn-donate-nav">❤️ Donate</button></li>
-      <li><a href="../index.html#contacts" id="nl-8">Kontakte</a></li>
+      <li><a href="#">Ankündigungen</a></li>
+      <li><a href="#">Freiwilligenarbeit</a></li>
+      <li><button class="btn-donate-nav">❤️ Donate</button></li>
+      <li><a href="../index.html#contacts">Kontakte</a></li>
     </ul>
     <div class="nav-r">
       <div class="lang-sw">
         <a href="../help.html" class="lb" style="display:inline-block; text-decoration:none; text-align:center; line-height:1.6;">UA</a>
         <button class="lb on">DE</button>
       </div>
-      <button class="btn-solid" id="nav-cta">Hilfe erhalten</button>
+      <button class="btn-solid">Hilfe erhalten</button>
     </div>
   </nav>
 </header>
@@ -85,7 +99,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     </div>
     <div class="card">
       <h3>🗣️ Sprachkurse</h3>
-      <p style="color:var(--text2)">Integrations- und Konversationsclubs für deutsche Sprache für Erwachense und Kinder aller Niveaus.</p>
+      <p style="color:var(--text2)">Integrations- und Konversationsclubs für deutsche Sprache für Erwachsene und Kinder aller Niveaus.</p>
     </div>
     <div class="card">
       <h3>🏠 Wohnen und Anpassung</h3>

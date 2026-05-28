@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Über uns — UAGZ</title>
 <link rel="icon" type="image/png" href="../favicon.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -20,20 +20,26 @@ a{text-decoration:none;color:inherit}
 /* Шапка сайта */
 header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
-.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
 .brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
-.brand small{font-size:10px;color:var(--text3);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none}
-.nav-links a{font-weight:500;color:var(--text2)}
-.nav-links a.active{color:var(--blue);font-weight:600}
-.nav-r{display:flex;align-items:center;gap:15px}
-.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px}
+.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2}
+.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
+.nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
+.btn-donate-nav{background:none;border:none;color:#D52B1E;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
 .lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600}
+.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap}
 
+/* Контент */
 .page-content{padding:4rem 0}
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem}
+.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
+
+/* Подвал */
+footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 </style>
 </head>
 <body>
@@ -41,29 +47,47 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 <header>
   <nav>
     <a class="nav-logo" href="index.html">
-      <div class="brand">UAGZ<small>Ukrainisches Integrations- und Gemeindezentrum Zürich</small></div>
+      <span class="brand">UAGZ<small id="nav-sub">Ukrainisches Integrations- und Gemeindezentrum Zürich</small></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="about.html" class="active">Über uns</a></li>
-      <li><a href="help.html">Hilfe</a></li>
-      <li><a href="events.html">Veranstaltungen</a></li>
-      <li><a href="../index.html#contacts">Kontakte</a></li>
+      <li><a href="index.html" id="nl-1">Startseite</a></li>
+      <li><a href="about.html" class="active" id="nl-2">Über uns</a></li>
+      <li><a href="help.html" id="nl-3">Hilfe</a></li>
+      <li><a href="events.html" id="nl-4">Veranstaltungen</a></li>
+      <li><a href="#">Knowledge Center</a></li>
+      <li><a href="#" id="nl-5">Ankündigungen</a></li>
+      <li><a href="#" id="nl-6">Freiwilligenarbeit</a></li>
+      <li><button class="btn-donate-nav" id="btn-donate-nav">❤️ Donate</button></li>
+      <li><a href="../index.html#contacts" id="nl-8">Kontakte</a></li>
     </ul>
     <div class="nav-r">
       <div class="lang-sw">
-        <a href="../about.html" class="lb" style="display:inline-block; text-decoration:none;">UA</a>
+        <a href="../about.html" class="lb" style="display:inline-block; text-decoration:none; text-align:center; line-height:1.6;">UA</a>
         <button class="lb on">DE</button>
       </div>
-      <button class="btn-solid">Hilfe erhalten</button>
+      <button class="btn-solid" id="nav-cta">Hilfe erhalten</button>
     </div>
   </nav>
 </header>
 
 <main class="container page-content">
   <h1 class="page-title">Über unser Zentrum</h1>
-  <p style="color:var(--text2); font-size:1.1rem;">Das Ukrainische Integrations- und Gemeindezentrum Zürich (UAGZ) wurde gegründet, um Ukrainerinnen und Ukrainer in der Schweiz zu unterstützen. Wir helfen bei der Anpassung, dem Erlernen der Sprache, rechtlichen Fragen und organisieren kulturelle sowie bildungspolitische Veranstaltungen.</p>
+  <p style="color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem; max-width:800px;">Das Ukrainische Integrations- und Gemeindezentrum Zürich (UAGZ) wurde gegründet, um Ukrainerinnen und Ukrainer in der Schweiz zu unterstützen. Wir helfen bei der Anpassung, dem Erlernen der Sprache, rechtlichen Fragen und organisieren kulturelle sowie bildungspolitische Veranstaltungen.</p>
+  <p style="color:var(--text2); font-size:1.1rem; max-width:800px;">Hier können Sie eine detailliertere Geschichte des Zentrums schreiben, über das Team, Ihre Werte und Ziele berichten.</p>
 </main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3 style="margin-bottom:1rem;color:var(--text)">UAGZ Zürich</h3>
+      <p style="color:var(--text2)">Gemeindezentrum für Hilfe und Integration</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:1rem;color:var(--text)">Kontakte</h3>
+      <p style="color:var(--text2)">Email: info@ukr-zurich.ch</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

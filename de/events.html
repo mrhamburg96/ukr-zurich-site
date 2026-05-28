@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veranstaltungen — UAGZ</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1A56C4;--blue-dark:#0F3A8A;--blue-light:#E8F1FD;
+  --text:#111827;--text2:#4B5563;--text3:#9CA3AF;
+  --border:#E5E7EB;--surface:#F9FAFB;
+}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+
+/* Шапка сайта */
+header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
+nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
+.brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
+.brand small{font-size:10px;color:var(--text3);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none}
+.nav-links a{font-weight:500;color:var(--text2)}
+.nav-links a.active{color:var(--blue);font-weight:600}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px}
+.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
+.lb.on{background:#fff;color:var(--blue)}
+.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600}
+
+/* Контент */
+.page-content{padding:4rem 0}
+.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem}
+.event-list{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.event-item{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:1.5rem;gap:20px}
+.event-date{background:var(--blue-light);color:var(--blue);padding:0.75rem;border-radius:8px;font-weight:700;text-align:center;min-width:80px}
+.event-info{flex-grow:1}
+.event-info h3{font-size:1.3rem;margin-bottom:0.25rem}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <div class="brand">UAGZ<small>Ukrainisches Integrations- und Gemeindezentrum Zürich</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="about.html">Über uns</a></li>
+      <li><a href="help.html">Hilfe</a></li>
+      <li><a href="events.html" class="active">Veranstaltungen</a></li>
+      <li><a href="../index.html#contacts">Kontakte</a></li>
+    </ul>
+    <div class="nav-r">
+      <div class="lang-sw">
+        <a href="../events.html" class="lb" style="display:inline-block; text-decoration:none;">UA</a>
+        <button class="lb on">DE</button>
+      </div>
+      <button class="btn-solid">Hilfe erhalten</button>
+    </div>
+  </nav>
+</header>
+
+<main class="container page-content">
+  <h1 class="page-title">Kommende Veranstaltungen</h1>
+  <p style="color:var(--text2); font-size:1.1rem;">Nehmen Sie an unseren Treffen, Vorträgen und kulturellen Aktivitäten in Zürich teil.</p>
+  
+  <div class="event-list">
+    <div class="event-item">
+      <div class="event-date">30 MAI<br><span style="font-size:12px;font-weight:400">18:00</span></div>
+      <div class="event-info">
+        <h3>☕ Sprachcafé (Deutsch)</h3>
+        <p style="color:var(--text2)">Kommunikationspraxis für die Niveaustufen A2-B1. Treffen in gemütlicher Runde bei Kaffee.</p>
+      </div>
+    </div>
+    
+    <div class="event-item">
+      <div class="event-date">03 JUN<br><span style="font-size:12px;font-weight:400">15:00</span></div>
+      <div class="event-info">
+        <h3>🎨 Kreativ-Workshop für Kinder</h3>
+        <p style="color:var(--text2)">Malen und Basteln für Kinder von 6 bis 12 Jahren. Alle Materialien werden vom Zentrum bereitgestellt.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

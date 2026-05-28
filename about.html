@@ -21,27 +21,27 @@ body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
 
-/* Шапка сайта и стили вашего меню */
+/* Фикс шапки из Screenshot_4.png */
 header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo-flags{display:flex;gap:4px}
-.flag-ua{background:linear-gradient(to bottom, #0057B7 50%, #FFD700 50%)}
-.flag-ch{background:#D52B1E;position:relative;display:flex;align-items:center;justify-content:center}
+nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
+.nav-logo-flags{display:flex;gap:4px;flex-shrink:0}
+.flag-ua{background:linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);width:26px;height:18px;flex-shrink:0}
+.flag-ch{background:#D52B1E;width:18px;height:18px;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .flag-ch::before, .flag-ch::after{content:'';background:#fff;position:absolute}
 .flag-ch::before{width:4px;height:12px}
 .flag-ch::after{width:12px;height:4px}
-.brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column}
-.brand small{font-size:11px;color:var(--text3);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
-.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s}
+.brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
+.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;white-space:normal;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
 .nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
-.btn-donate-nav{background:none;border:none;color:var(--red);font-weight:600;font-size:15px}
-.nav-r{display:flex;align-items:center;gap:15px}
-.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px}
-.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px}
+.btn-donate-nav{background:none;border:none;color:var(--red);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
+.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600}
+.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0}
 
 /* Контент страницы */
 .page-content{padding:4rem 0}
@@ -59,8 +59,8 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <nav>
     <a class="nav-logo" href="index.html">
       <div class="nav-logo-flags">
-        <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
-        <div class="flag-ch" style="width:18px;height:18px}</div>
+        <div class="flag-ua"><div class="t"></div><div class="b"></div></div>
+        <div class="flag-ch"></div>
       </div>
       <div>
         <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
@@ -74,15 +74,15 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <li><a href="#">Knowledge Center</a></li>
       <li><a href="#" id="nl-5">Оголошення</a></li>
       <li><a href="#" id="nl-6">Волонтерство</a></li>
-      <li><button class="btn-donate-nav" onclick="mOpen('r')" id="btn-donate-nav">❤️ Donate</button></li>
+      <li><button class="btn-donate-nav" id="btn-donate-nav">❤️ Donate</button></li>
       <li><a href="index.html#contacts" id="nl-8">Контакти</a></li>
     </ul>
     <div class="nav-r">
       <div class="lang-sw">
-        <button class="lb on" onclick="setLang('ua')">UA</button>
-        <button class="lb" onclick="setLang('de')">DE</button>
+        <button class="lb on">UA</button>
+        <button class="lb">DE</button>
       </div>
-      <button class="btn-solid" id="nav-cta" onclick="mOpen('r')">Отримати допомогу</button>
+      <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
     </div>
   </nav>
 </header>

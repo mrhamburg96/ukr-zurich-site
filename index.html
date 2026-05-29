@@ -710,6 +710,20 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </footer>
 
 <script>
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.pathname.includes('/de/') || window.location.search.includes('lang=de')) {
+    if (typeof setLang === 'function') {
+      setLang('de');
+    }
+  }
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === 'de/index.html' || href === '../index.html' || href === 'de/') {
+      link.setAttribute('href', 'index.html');
+    }
+  });
+});
+</script>
 // ════════════════════════════════════════════
 // TRANSLATIONS
 // ════════════════════════════════════════════

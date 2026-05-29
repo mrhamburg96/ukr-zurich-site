@@ -61,33 +61,34 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 <header>
   <nav>
-    <a class="nav-logo" href="index.html">
-      <div class="nav-logo-flags">
-        <div class="flag-ua"><div class="t"></div><div class="b"></div></div>
-        <div class="flag-ch"></div>
-      </div>
-      <div>
-        <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
-      </div>
-    </a>
-   <ul class="nav-links">
-  <li><a href="index.html" class="active" id="m-home">Головна</a></li>
-  <li><a href="about.html" id="m-about">Про нас</a></li>
-  <li><a href="help.html" id="m-help">Допомога</a></li>
-  <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="#" id="m-knowledge">Knowledge Center</a></li>
-  <li><a href="#" id="m-announcements">Оголошення</a></li>
-  <li><a href="#" id="m-volunteering">Волонтерство</a></li>
-  <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
-  <li><a href="#contacts" id="m-contacts">Контакти</a></li>
-</ul>
-    <div class="lang-sw">
-  <button class="lb on">UA</button>
-  <a href="de/events.html" class="lb" style="display:inline-block; text-decoration:none; text-align:center; line-height:1.6;">DE</a>
-</div>
-      <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
+  <a class="nav-logo" href="./index.html">
+    <div class="flags-logo">
+      <div class="flag-ua"></div>
+      <div class="flag-ch"></div>
     </div>
-  </nav>
+    <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+  </a>
+  
+  <ul class="nav-links">
+    <li><a href="./index.html" id="m-home">Головна</a></li>
+    <li><a href="about.html" id="m-about">Про нас</a></li>
+    <li><a href="help.html" id="m-help">Допомога</a></li>
+    <li><a href="events.html" id="m-events">Заходи</a></li>
+    <li><a href="#" id="m-knowledge">Knowledge Center</a></li>
+    <li><a href="#" id="m-announcements">Оголошення</a></li>
+    <li><a href="#" id="m-volunteering">Волонтерство</a></li>
+    <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
+    <li><a href="#contacts" id="m-contacts">Контакти</a></li>
+  </ul>
+  
+  <div class="nav-r">
+    <div class="lang-sw">
+      <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+      <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+    </div>
+    <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
+  </div>
+</nav>
 </header>
 
 <main class="container page-content">

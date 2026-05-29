@@ -1095,24 +1095,32 @@ const T = {
 // LANGUAGE SWITCHER
 // ════════════════════════════════════════════
 function setLang(lang) {
-  // toggle buttons
   document.querySelectorAll('.lb').forEach(b => {
-    b.classList.toggle('on', b.textContent.trim() === lang.toUpperCase());
+    b.classList.toggle('on', b.textContent.trim().toUpperCase() === lang.toUpperCase());
   });
+
   const dict = T[lang];
+  if (!dict) return;
+
   for (const [id, val] of Object.entries(dict)) {
-    if (id === 'email-inp') {
-      const el = document.getElementById(id);
-      if (el) el.placeholder = val;
-      continue;
-    }
     const el = document.getElementById(id);
     if (!el) continue;
-    if (el.tagName === 'INPUT') { el.placeholder = val; continue; }
-    el.innerHTML = val;
+
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else {
+      el.innerHTML = val;
+    }
   }
+
   document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+  localStorage.setItem('selectedLang', lang);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'ua';
+  setLang(savedLang);
+});
 
 // ════════════════════════════════════════════
 // MODAL

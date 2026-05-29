@@ -679,7 +679,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <div class="flag-ch" style="width:15px;height:15px"></div>
         <span class="footer-logo-name">UAGZ</span>
       </div>
-      <p class="footer-desc" id="f-desc">Український інтеграційний та громадський中心 Цюриха<br>Gemeinnütziger Verein · © 2025 UAGZ</p>
+      <p class="footer-desc" id="f-desc">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2025 UAGZ</p>
       <div class="footer-addr" id="f-addr">📍 Albisriederplatz 1, 8003 Zürich<br>✉️ info@uagz.ch<br>📞 +41 76 123 45 67</div>
     </div>
     <div class="fc">
@@ -710,12 +710,41 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  if (window.location.pathname.includes('/de/') || window.location.href.includes('lang=de') || document.referrer.includes('/de/')) {
-    if (typeof setLang === 'function') {
-      setLang('de');
+function setLang(lang) {
+  localStorage.setItem('site_lang', lang);
+  
+  document.querySelectorAll('.lb').forEach(b => {
+    b.classList.toggle('on', b.textContent.trim() === lang.toUpperCase());
+  });
+  
+  const dict = T[lang];
+  if (!dict) return;
+  
+  for (const [id, val] of Object.entries(dict)) {
+    if (id === 'email-inp') {
+      const el = document.getElementById(id);
+      if (el) el.placeholder = val;
+      continue;
     }
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.tagName === 'INPUT') { 
+      el.placeholder = val; 
+      continue; 
+    }
+    el.innerHTML = val;
   }
+  document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  let currentLang = localStorage.getItem('site_lang') || 'ua';
+  
+  if (window.location.pathname.includes('/de/') || window.location.search.includes('lang=de') || document.referrer.includes('/de/')) {
+    currentLang = 'de';
+  }
+  
+  setLang(currentLang);
 
   document.querySelectorAll('a').forEach(link => {
     const href = link.getAttribute('href');
@@ -724,7 +753,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+function mOpen(tab) {
+  document.getElementById('mOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mTab(tab || 'r');
+}
+function mClose() {
+  document.getElementById('mOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function mTab(t) {
+  ['r','l'].forEach(x => {
+    document.getElementById('tab-'+x).classList.toggle('on', x===t);
+    document.getElementById('p-'+x).classList.toggle('on', x===t);
+  });
+}
+function pickCat(el) {
+  document.querySelectorAll('.cbt').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('i-cat').value = el.textContent.trim();
+}
 </script>
+</body>
+</html>
 // ════════════════════════════════════════════
 // TRANSLATIONS
 // ════════════════════════════════════════════

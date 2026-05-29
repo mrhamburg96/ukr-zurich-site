@@ -1096,11 +1096,11 @@ const T = {
 // ════════════════════════════════════════════
 function setLang(lang) {
   document.querySelectorAll('.lb').forEach(b => {
-    b.classList.toggle('on', b.textContent.trim().toUpperCase() === lang.toUpperCase());
+    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
   });
 
+  if (typeof T === 'undefined' || !T[lang]) return;
   const dict = T[lang];
-  if (!dict) return;
 
   for (const [id, val] of Object.entries(dict)) {
     const el = document.getElementById(id);

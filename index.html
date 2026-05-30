@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -764,7 +765,7 @@ const T = {
     "c5": "Студент",
     "c6": "Інше",
     "s-t": "Ласкаво просимо до спільноти!",
-    "s-s": "Перевірте вашу電子не електронну пошту для підтвердження реєстрації.",
+    "s-s": "Перевірте вашу електронну пошту для підтвердження реєстрації.",
     "h-badge": "Офіційна NGO · Zürich",
     "h-t": "Український інтеграційний та громадський центр Цюриха",
     "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
@@ -1094,6 +1095,7 @@ const T = {
 // ════════════════════════════════════════════
 // LANGUAGE SWITCHER
 // ════════════════════════════════════════════
+<script>
 function setLang(lang) {
   document.querySelectorAll('.lb').forEach(b => {
     b.classList.toggle('on', b.getAttribute('data-lang') === lang);
@@ -1121,6 +1123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('selectedLang') || 'ua';
   setLang(savedLang);
 });
+</script>
 
 // ════════════════════════════════════════════
 // MODAL

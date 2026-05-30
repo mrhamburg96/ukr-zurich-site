@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -40,9 +39,6 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .flag-ch::before{content:'';position:absolute;background:#fff;width:56%;height:20%;top:50%;left:50%;transform:translate(-50%,-50%)}
 .flag-ch::after{content:'';position:absolute;background:#fff;width:20%;height:56%;top:50%;left:50%;transform:translate(-50%,-50%)}
 
-/* ── ICONS (SVG inline replacements) ─── */
-.icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-
 /* ── MODAL ──────────────────────────── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(17,24,39,0.55);z-index:600;align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.open{display:flex}
@@ -65,7 +61,7 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .cat-g{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.25rem}
 .cbt{border:1px solid var(--border);border-radius:8px;padding:8px 4px;text-align:center;cursor:pointer;font-size:10px;font-weight:600;color:var(--text2);background:#fff;transition:all .15s;line-height:1.3}
 .cbt:hover,.cbt.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.cbt .ce{font-size:17px;display:block;margin-bottom:2px}.cbt .ce-svg{display:block;margin:0 auto 4px;stroke:var(--blue)}.cbt.on .ce-svg{stroke:#fff}
+.cbt .ce font-size:17px;display:block;margin-bottom:2px}.cbt .ce-svg{display:block;margin:0 auto 4px;stroke:var(--blue)}.cbt.on .ce-svg{stroke:#fff}
 .divdr{text-align:center;font-size:11px;color:var(--text3);margin:.65rem 0;position:relative}
 .divdr::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
 .divdr span{background:#fff;padding:0 10px;position:relative}
@@ -84,7 +80,6 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px;gap:.75rem}
 .nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
 .nav-logo-flags{display:flex;align-items:center;gap:4px}
-.logo-heart{color:var(--yellow);font-size:20px}
 .brand{font-size:14px;font-weight:700;color:var(--blue);line-height:1.1}
 .brand small{font-size:9px;color:var(--text3);font-weight:400;display:block}
 .nav-links{display:flex;gap:.1rem;list-style:none}
@@ -94,10 +89,7 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .lang-sw{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .lb{background:none;border:none;padding:4px 9px;font-size:11px;font-weight:700;color:var(--text3);cursor:pointer;transition:all .15s}
 .lb.on{background:var(--blue);color:#fff}
-.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700}
-.btn-outline:hover{background:var(--blue-light)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700}.btn-donate-nav{background:var(--yellow);color:#333;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-.btn-solid:hover{background:var(--blue-dark)}
+.btn-donate-nav{background:var(--yellow);color:#333;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
 
 /* ── HERO ───────────────────────────── */
 .hero{position:relative;overflow:hidden;min-height:360px;background:#EBF2FF}
@@ -111,190 +103,100 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .hero h1{font-size:2.2rem;font-weight:800;color:#000000;line-height:1.15;margin-bottom:.75rem}
 .hero-sub{font-size:14px;color:#000000;font-weight:600;margin-bottom:1.5rem;line-height:1.7;text-shadow: 0 0 8px rgba(255,255,255,0.9)}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn-hero-main{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:700}
+.btn-hero-main{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:700;text-align:center}
 .btn-hero-main:hover{background:var(--blue-dark)}
-.btn-hero-sec{background:#fff;color:var(--blue);border:1.5px solid var(--blue);border-radius:8px;padding:11px 22px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
-.btn-hero-sec:hover{background:var(--blue-light)}
 
-/* ── TG WIDGET (top-right) ─── */
+/* ── TG WIDGET ─── */
 .tg-widget{background:#fff;border-radius:14px;padding:1.1rem;box-shadow:0 8px 32px rgba(26,86,196,.12);width:220px;flex-shrink:0;align-self:flex-start}
 .tg-widget h4{font-size:12px;font-weight:700;color:var(--text);margin-bottom:.7rem;text-align:center}
 .tg-channel-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#229ED9;color:#fff;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:600;width:100%;margin-bottom:.6rem}
-.tg-qr{background:var(--surface);border-radius:8px;height:72px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3);border:1px solid var(--border)}
-.tg-note{font-size:9px;color:var(--text3);text-align:center;margin-top:.4rem}
 
-/* ── STRIP: Чим ми допомагаємо ─ */
-.strip{background:#fff;padding:1rem 1.5rem;border-bottom:1px solid var(--border)}
-.strip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
-.strip-head span{font-size:15px;font-weight:700}
-.strip-head a{font-size:12px;color:var(--blue);font-weight:600}
-.svc-row{display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
-.svc{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 3px;border-radius:8px;cursor:pointer;transition:background .15s}
-.svc:hover{background:var(--blue-light)}
-.svc-ic{width:36px;height:36px;border-radius:9px;background:var(--blue-light);display:flex;align-items:center;justify-content:center}
-.svc-ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.6}
-.svc span{font-size:9.5px;color:var(--text2);font-weight:500;line-height:1.3;text-align:center}
+/* ── СТИЛИ ДЛЯ ИНТЕРАКТИВНЫХ ОКОН ПОМОЩИ ─── */
+.help-directions-section { padding: 4rem 0; background: #fff; border-top: 1px solid var(--border); }
+.dir-grid-new {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+}
+.dir-card-new {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  text-align: left;
+}
+.dir-card-new:hover, .dir-card-new.active {
+  border-color: #1A56C4;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(26, 86, 196, 0.08);
+  transform: translateY(-2px);
+}
+.dir-icon-new { font-size: 2rem; margin-bottom: 0.25rem; }
+.dir-card-new h3 { font-size: 1.15rem; color: #111827; font-weight: 700; line-height: 1.3; margin: 0; }
+.dir-card-new p { font-size: 13.5px; color: #4B5563; line-height: 1.4; margin: 0; }
 
-/* ── HOW IT WORKS ─────────────── */
-.how-sec{background:#fff;padding:2rem 1.5rem}
-.how-tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-bg);border:1px solid rgba(245,197,24,.4);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:#92700A;margin-bottom:.6rem}
-.how-h1{font-size:1.6rem;font-weight:800;margin-bottom:.3rem}
-.how-sub{font-size:13px;color:var(--text2);margin-bottom:1.5rem}
-.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
-.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem}
-.step-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;position:relative}
-.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:.6rem;color:#fff}
-.sn1{background:var(--blue)}
-.sn2{background:var(--yellow)}
-.sn3{background:var(--green)}
-.sn2{color:#333}
-.step-icon{margin-bottom:.5rem}
-.step-icon svg{width:36px;height:36px;stroke:var(--text2);fill:none;stroke-width:1.4}
-.step-card h4{font-size:12px;font-weight:700;margin-bottom:.25rem}
-.step-card p{font-size:11px;color:var(--text2);line-height:1.5}
-.step-arr{position:absolute;top:38px;right:-14px;color:var(--border);font-size:20px;z-index:1}
-.how-photo-col{display:flex;flex-direction:column;gap:.75rem}
-.how-photo{border-radius:14px;overflow:hidden;height:200px}
-.quote-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.quote-card p{font-size:12px;color:var(--text2);font-style:italic;line-height:1.55;margin-bottom:.5rem}
-.quote-author{display:flex;align-items:center;gap:.5rem}
-.quote-av{width:28px;height:28px;border-radius:50%;overflow:hidden;flex-shrink:0}
-.quote-name{font-size:11px;font-weight:600;color:var(--text)}
-.quote-loc{font-size:10px;color:var(--text3)}
-.how-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem}
-.team-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem}
-.team-card h3{font-size:13px;font-weight:700;margin-bottom:.3rem}
-.team-card p{font-size:11px;color:var(--text2);margin-bottom:.6rem;line-height:1.5}
-.team-avs{display:flex;margin-bottom:.5rem}
-.tav{width:32px;height:32px;border-radius:50%;border:2px solid #fff;overflow:hidden;margin-left:-7px;flex-shrink:0}
-.tav:first-child{margin-left:0}
-.stats-card{background:var(--blue-light);border:1px solid rgba(26,86,196,.15);border-radius:12px;padding:1rem;display:flex;flex-direction:column;justify-content:center;gap:.75rem}
-.stat-row{display:flex;align-items:center;gap:.6rem}
-.stat-ic{width:36px;height:36px;background:var(--blue-light);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.stat-ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.6}
-.stat-big{font-size:1.3rem;font-weight:800;color:var(--blue);line-height:1}
-.stat-lbl{font-size:10px;color:var(--text2);line-height:1.3}
-.qc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem}
-.qc-card h3{font-size:13px;font-weight:700;margin-bottom:.6rem}
-.qc-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer}
-.qc-row:last-child{border-bottom:none}
-.qc-left{display:flex;align-items:center;gap:.6rem}
-.qc-ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.qc-ic svg{width:16px;height:16px;stroke-width:1.8;fill:none}
-.qc-name{font-size:12px;font-weight:600}
-.qc-val{font-size:10px;color:var(--blue)}
-.qc-arr{color:var(--text3);font-size:12px}
+.dir-details-panel {
+  display: none;
+  grid-column: 1 / -1;
+  background: #E8F1FD;
+  border: 1px solid rgba(26, 86, 196, 0.2);
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-top: 0.5rem;
+  animation: fadeInDir 0.3s ease;
+}
+.dir-details-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.dir-details-text h4 { color: #0F3A8A; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 700; }
+.dir-details-text ul { list-style: none; padding-left: 0; margin-top: 0.75rem; }
+.dir-details-text ul li { position: relative; padding-left: 18px; margin-bottom: 6px; font-size: 14.5px; color: #111827; }
+.dir-details-text ul li::before { content: "•"; color: #1A56C4; position: absolute; left: 0; font-weight: bold; }
 
-/* ── THREE COL ─────────────────── */
-.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;padding:1.5rem;background:var(--surface);border-top:1px solid var(--border)}
-.col-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.7rem}
-.col-hd h3{font-size:13px;font-weight:800}
-.col-hd a{font-size:11px;color:var(--blue);font-weight:600}
-.news-item{padding:.6rem 0;border-bottom:1px solid var(--border)}
-.news-item:last-child{border-bottom:none}
-.badge{display:inline-block;border-radius:5px;padding:2px 8px;font-size:9px;font-weight:700;margin-bottom:3px;text-transform:uppercase}
-.b-urg{background:#FEE2E2;color:#B91C1C}
-.b-new{background:var(--blue-light);color:var(--blue)}
-.b-ev{background:var(--green-bg);color:var(--green)}
-.b-home{background:#DBEAFE;color:#1E40AF}
-.b-job{background:var(--green-bg);color:var(--green)}
-.b-svc{background:#FEF3C7;color:#92700A}
-.news-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px;line-height:1.4}
-.news-meta{font-size:10px;color:var(--text3)}
-.ev-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.ev-row:last-child{border-bottom:none}
-.ev-date{width:40px;height:40px;background:var(--blue);color:#fff;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-size:8px;text-transform:uppercase;line-height:1}
-.ev-date strong{font-size:15px;font-weight:800}
-.ev-info h4{font-size:11px;font-weight:600;line-height:1.4}
-.ev-info p{font-size:10px;color:var(--text3)}
+.btn-dir-cta {
+  background: #1A56C4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-dir-cta:hover { background: #0F3A8A; color: #fff; }
 
-/* ── FOR WHOM ─────────────────── */
-.forwhom{padding:1.5rem;background:#fff;border-top:1px solid var(--border)}
-.fw-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem}
-.fw-head .sec-title{font-size:1.1rem;font-weight:800}
-.fw-head a{font-size:11px;color:var(--blue);font-weight:600}
-.whom-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:.5rem}
-.whom-item{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:10px 4px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:all .15s}
-.whom-item:hover{background:var(--surface);border-color:var(--border)}
-.whom-ic{width:44px;height:44px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center}
-.whom-ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.5}
-.whom-item span{font-size:10px;color:var(--text2);font-weight:500;text-align:center;line-height:1.3}
-
-/* ── DIRECTIONS ─────────────────── */
-.dir-sec{padding:1.5rem;background:var(--surface);border-top:1px solid var(--border)}
-.dir-sec-head{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}
-.dir-sec-head svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:2}
-.dir-h1{font-size:1.4rem;font-weight:800;margin-bottom:.2rem}
-.dir-sub{font-size:13px;color:var(--text2);margin-bottom:.35rem}
-.dir-sub u{text-decoration-color:var(--blue)}
-.dir-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.25rem}
-.dstat{display:flex;align-items:center;gap:.6rem}
-.dstat-ic{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.dstat-ic svg{width:18px;height:18px;stroke-width:1.6;fill:none}
-.dstat-n{font-size:1.1rem;font-weight:800;line-height:1}
-.dstat-l{font-size:10px;color:var(--text2);line-height:1.3}
-.dir-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem}
-.dir-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s,box-shadow .18s}
-.dir-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.09)}
-.dir-photo{height:150px;position:relative;overflow:hidden;background:#e8f1fd}
-.dir-photo img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .3s}
-.dir-card:hover .dir-photo img{transform:scale(1.06)}
-.dir-ic{position:absolute;top:8px;left:8px;width:32px;height:32px;background:rgba(255,255,255,.92);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.dir-ic svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.8}
-.dir-body{padding:.6rem .75rem .75rem}
-.dir-title{font-size:11.5px;font-weight:700;margin-bottom:2px;line-height:1.3}
-.dir-desc{font-size:10px;color:var(--text3);line-height:1.4}
-.dir-cta-row{background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;margin-top:.75rem}
-.dir-cta-left{display:flex;align-items:center;gap:.75rem}
-.dir-cta-ic{width:40px;height:40px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.dir-cta-ic svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.6}
-.dir-cta-left h4{font-size:13px;font-weight:700}
-.dir-cta-left p{font-size:11px;color:var(--text2)}
-.dir-cta-btns{display:flex;gap:.5rem}
-
-/* ── CTA GRID ─────────────────── */
-.cta-sec{padding:1.5rem;background:#fff;border-top:1px solid var(--border)}
-.cta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
-.cta-card{border-radius:12px;padding:1.1rem;display:flex;flex-direction:column;gap:.4rem}
-.cc-blue{background:var(--blue)}
-.cc-blue h3,.cc-blue p{color:#fff}
-.cc-outline{background:#fff;border:1px solid var(--border)}
-.cc-yellow{background:var(--yellow-bg);border:1px solid rgba(245,197,24,.35)}
-.cc-light{background:var(--surface);border:1px solid var(--border)}
-.cta-card h3{font-size:13px;font-weight:700}
-.cta-card p{font-size:11px;color:var(--text2);line-height:1.5;flex:1}
-.cc-blue p{color:rgba(255,255,255,.8)}
-.ctabtn{border-radius:7px;padding:9px 13px;font-size:12px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;justify-content:center;margin-top:.25rem;font-family:inherit}
-.cb-w{background:#fff;color:var(--blue)}
-.cb-b{background:var(--blue);color:#fff}
-.cb-g{background:var(--green);color:#fff}
-.cb-y{background:var(--yellow);color:#333}
-.email-r{display:flex;gap:5px;margin-top:.25rem}
-.email-r input{flex:1;border:1px solid var(--border);border-radius:7px;padding:8px 10px;font-size:12px;font-family:inherit;outline:none}
-.email-r button{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 12px;font-size:13px}
-
-/* ── TRUST ─────────────────────── */
-.trust{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 1.5rem}
-.trust-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.trust-item{display:flex;align-items:center;gap:.5rem}
-.trust-ic{width:30px;height:30px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.trust-ic svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:1.8}
-.trust-text{font-size:11.5px;font-weight:600;color:var(--text2)}
-.trust-avs{display:flex}
-.tav2{width:28px;height:28px;border-radius:50%;border:2px solid #fff;overflow:hidden;margin-left:-6px;flex-shrink:0}
-.tav2:first-child{margin-left:0}
+@keyframes fadeInDir {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* ── FOOTER ─────────────────────── */
 footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.footer-logo{display:flex;align-items:center;gap:.6rem;margin-bom:tto.65rem}
+.footer-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:0.65rem}
 .footer-logo-name{font-size:14px;font-weight:700;color:#fff}
 .footer-desc{font-size:11px;line-height:1.8;margin-bottom:.6rem}
 .footer-addr{font-size:11px;line-height:2}
 .fc h4{font-size:9px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem}
 .fc a{display:block;font-size:11px;color:rgba(255,255,255,.55);margin-bottom:.35rem;transition:color .15s}
 .fc a:hover{color:var(--yellow)}
-.fc a.green-link{color:#4ADE80}
 .hgrid{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11px}
 .hday{color:rgba(255,255,255,.35)}
 .hopen{color:#4ADE80;font-weight:600}
@@ -303,93 +205,23 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 .footer-flag-row{display:flex;align-items:center;gap:5px}
 
 @media(max-width:1024px){
-  .svc-row{grid-template-columns:repeat(5,1fr)}
-  .how-grid{grid-template-columns:1fr}.how-photo{height:180px}
-  .how-bottom{grid-template-columns:1fr 1fr}
-  .dir-grid{grid-template-columns:repeat(3,1fr)}
-  .three-col{grid-template-columns:1fr}
-  .whom-grid{grid-template-columns:repeat(4,1fr)}
-  .cta-grid{grid-template-columns:repeat(2,1fr)}
+  .dir-grid-new{grid-template-columns:repeat(3,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  nav{padding:0 1rem}
   .nav-links{display:none}
   .hero-inner{flex-direction:column;align-items:flex-start;min-height:auto;padding:2rem 1rem}
   .tg-widget{width:100%;max-width:320px}
-  .dir-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-row{grid-template-columns:1fr}
-  .cta-grid{grid-template-columns:1fr}
-  .whom-grid{grid-template-columns:repeat(4,1fr)}
+  .dir-grid-new{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr}
-  .how-bottom{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .dir-grid-new{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════ MODAL ═══════════════════════════════════ -->
-<div class="modal-overlay" id="mOverlay" onclick="if(event.target===this)mClose()">
-<div class="modal">
-  <div class="modal-hd">
-    <div><h2 id="mh-t">Приєднуйтесь до спільноти</h2><p id="mh-s">Реєстрація безкоштовна · Для українців у Швейцарії</p></div>
-    <button class="modal-x" onclick="mClose()">✕</button>
-  </div>
-  <div style="display:flex;border-bottom:1px solid var(--border)">
-    <button class="mtab on" id="tab-r" onclick="mTab('r')"><span id="t-reg">Реєстрація</span></button>
-    <button class="mtab" id="tab-l" onclick="mTab('l')"><span id="t-log">Вхід</span></button>
-  </div>
-  <!-- REGISTER -->
-  <div class="mpanel on" id="p-r">
-    <div id="reg-form">
-      <div class="frow">
-        <div class="fg"><label id="l-fn">Ім'я</label><input type="text" placeholder="Олена"></div>
-        <div class="fg"><label id="l-ln">Прізвище</label><input type="text" placeholder="Коваленко"></div>
-      </div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="email@example.com"></div>
-      <div class="fg"><label id="l-ph">Телефон (опційно)</label><input type="tel" placeholder="+41 79 000 00 00"></div>
-      <div class="fg"><label id="l-pw">Пароль</label><input type="password" placeholder="Мінімум 8 символів"></div>
-      <div class="fg">
-        <label id="l-cat">Я — (оберіть категорію)</label>
-        <div class="cat-g">
-          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span id="c1">Новоприбул(-а)</span></div>
-          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span id="c2">Мама з дітьми</span></div>
-          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span id="c3">Волонтер</span></div>
-          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span id="c4">Шукаю роботу</span></div>
-          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-7 10 7M12 22V12"/><path d="M9 22v-6h6v6"/></svg><span id="c5">Студент</span></div>
-          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="c6">Інше</span></div>
-        </div>
-      </div>
-      <div class="divdr"><span id="l-or">або зареєструватися через</span></div>
-      <div class="soc">
-        <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
-        <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z"/></svg> Telegram</button>
-      </div>
-      <button class="fsub" id="l-sub" onclick="doReg()">Зареєструватися безкоштовно</button>
-      <p class="fnote" id="l-terms">Реєструючись, ви погоджуєтесь з умовами використання та політикою конфіденційності.</p>
-    </div>
-    <div id="reg-ok" class="success" style="display:none">
-      <div class="si">🎉</div>
-      <h3 id="s-t">Ласкаво просимо до спільноти!</h3>
-      <p id="s-s">Перевірте вашу електронну пошту для підтвердження реєстрації.</p>
-    </div>
-  </div>
-  <!-- LOGIN -->
-  <div class="mpanel" id="p-l">
-    <div class="fg"><label>Email</label><input type="email" placeholder="email@example.com"></div>
-    <div class="fg"><label id="l-pw2">Пароль</label><input type="password" placeholder="••••••••"></div>
-    <div style="text-align:right;margin-bottom:.65rem"><a href="#" style="font-size:12px;color:var(--blue);font-weight:500" id="l-fp">Забули пароль?</a></div>
-    <div class="divdr"><span id="l-or2">або увійти через</span></div>
-    <div class="soc">
-      <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
-      <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z"/></svg> Telegram</button>
-    </div>
-    <button class="fsub" id="l-sub2">Увійти</button>
-  </div>
-</div>
-</div>
-
-<!-- ═══════ NAV ═══════════════════════════════════════ -->
 <nav>
   <a class="nav-logo" href="./">
     <div class="nav-logo-flags">
@@ -400,24 +232,23 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
     </div>
   </a>
- <ul class="nav-links">
-  <li><a href="index.html" id="m-home">Головна</a></li>
-  <li><a href="about.html" id="m-about">Про нас</a></li>
-  <li><a href="help.html" id="m-help">Допомога</a></li>
-  <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
-  <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
-  <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
-  <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
-  <li><a href="#contacts" id="m-contacts">Контакти</a></li>
-</ul>
- <div class="lang-sw">
-  <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
-  <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
-</div>
+  <ul class="nav-links">
+    <li><a href="index.html" id="m-home">Головна</a></li>
+    <li><a href="about.html" id="m-about">Про нас</a></li>
+    <li><a href="help.html" id="m-help">Допомога</a></li>
+    <li><a href="events.html" id="m-events">Заходи</a></li>
+    <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
+    <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
+    <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
+    <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
+    <li><a href="#contacts" id="m-contacts">Контакти</a></li>
+  </ul>
+  <div class="lang-sw">
+    <button class="lb on" id="btn-ua" onclick="setLanguage('ua')">UA</button>
+    <button class="lb" id="btn-de" onclick="setLanguage('de')">DE</button>
+  </div>
 </nav>
 
-<!-- ═══════ HERO ════════════════════════════════════ -->
 <div class="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
@@ -429,250 +260,98 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <span class="hero-logo-text">UAGZ</span>
         <span class="hero-logo-sub" id="h-badge">Офіційна NGO · Zürich</span>
       </div>
-      <h1 id="h-t">Український інтеграційний та громадський центр Цюриха</h1>
+      <h1 id="h-t">Український інтеграционный центр Цюриха</h1>
       <p class="hero-sub" id="h-s">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
       <div class="hero-btns">
-        <a href="help.html" class="btn-hero-main" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="h-b1">Отримати допомогу</a>
-        <button class="btn-hero-sec" onclick="mOpen('r')" id="h-b2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
-          <span id="h-b2t">Долучитися до громади</span>
-        </button>
+        <a href="help.html" class="btn-hero-main" id="h-btn">Отримати допомогу</a>
       </div>
     </div>
+    
+    <div class="tg-widget">
+      <h4 id="tg-title">Наш Telegram канал</h4>
+      <a href="https://t.me/uagz_ch" target="_blank" class="tg-channel-btn">📣 Приєднатися</a>
     </div>
-</div>
-
-<!-- ═══════ STRIP: Чим ми допомагаємо ════════════════ -->
-<div class="strip">
-  <div class="strip-head">
-    <span id="sv-h">Чим ми допомагаємо</span>
-    <a href="#" id="sv-a">Дивитися всі послуги →</a>
-  </div>
-  <div class="svc-row">
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><span id="s1">Гуманітарна допомога</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><span id="s2">Продукти</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><span id="s3">Інтеграція та консультації</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><span id="s4">Курси нім. мови</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><span id="s5">Допомога з документами</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><span id="s6">Пошук роботи</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><span id="s7">Події для дітей</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><span id="s8">Волонтерство</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span id="s9">Community support</span></div>
   </div>
 </div>
 
-<!-- ═══════ HOW IT WORKS ══════════════════════════════ -->
-<section class="how-sec">
-  <div class="how-tag">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#92700A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-    <span id="how-tag">Як це працює</span>
-  </div>
-  <div class="how-h1" id="how-h1">Просто. Швидко. Людяно.</div>
-  <div class="how-sub" id="how-sub">Ми зробили процес отримання допомоги максимально простим і зрозумілим.</div>
-  <div class="how-grid">
-    <div>
-      <div class="steps-row">
-        <div class="step-card">
-          <div class="step-num sn1">1</div>
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
-          <h4 id="st1-h">Подайте заявку</h4>
-          <p id="st1-p">Заповніть просту форму на сайті — це займе лише кілька хвилин.</p>
-          <div class="step-arr">···›</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num sn2">2</div>
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.2 1.19 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-          <h4 id="st2-h">Ми зв'яжемося з вами</h4>
-          <p id="st2-p">Наш координатор зв'яжеться з вами та допоможе визначити ваш запит.</p>
-          <div class="step-arr">···›</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num sn3">3</div>
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-          <h4 id="st3-h">Отримайте допомогу або консультацію</h4>
-          <p id="st3-p">Ви отримаєте необхідну підтримку, інформацію або консультацію.</p>
-        </div>
-      </div>
-      <!-- BOTTOM ROW: Team + Stats + Quick Contact -->
-      <div class="how-bottom">
-        <div class="team-card">
-          <h3 id="team-h">Ми поруч з вами</h3>
-          <p id="team-p">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
-          <div class="team-avs">
-            <div class="tav"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=70" alt=""></div>
-            <div class="tav"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=70" alt=""></div>
-            <div class="tav"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=70" alt=""></div>
-            <div class="tav"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=70" alt=""></div>
-            <div class="tav" style="background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff">+</div>
-          </div>
-          <a href="#" style="font-size:11px;color:var(--blue);font-weight:600" id="team-l">Дізнатися більше про команду →</a>
-        </div>
-        <div class="stats-card">
-          <div class="stat-row">
-            <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-            <div><div class="stat-big">5000+</div><div class="stat-lbl" id="stat-1">людей отримали підтримку</div></div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-            <div><div class="stat-big">100+</div><div class="stat-lbl" id="stat-2">волонтерів щодня допомагають громаді</div></div>
-          </div>
-        </div>
-        <div class="qc-card">
-          <h3 id="qc-h">Швидкий зв'язок</h3>
-          <div class="qc-row">
-            <div class="qc-left">
-              <div class="qc-ic" style="background:#E3F2FD"><svg style="stroke:#229ED9" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z" fill="#229ED9" stroke="none"/></svg></div>
-              <div><div class="qc-name">Telegram</div><div class="qc-val">t.me/ukr_zurich</div></div>
-            </div><span class="qc-arr">›</span>
-          </div>
-          <div class="qc-row">
-            <div class="qc-left">
-              <div class="qc-ic" style="background:#E8F5E9"><svg style="stroke:#25A244" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.2 1.19 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-              <div><div class="qc-name">WhatsApp</div><div class="qc-val">+41 76 123 45 67</div></div>
-            </div><span class="qc-arr">›</span>
-          </div>
-          <div class="qc-row">
-            <div class="qc-left">
-              <div class="qc-ic" style="background:var(--blue-light)"><svg style="stroke:var(--blue)" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><div class="qc-name">Email</div><div class="qc-val">info@uagz.ch</div></div>
-            </div><span class="qc-arr">›</span>
-          </div>
-        </div>
-      </div>
+<section class="help-directions-section">
+  <h2 id="dir-main-title" style="font-size: 2.2rem; font-weight: 800; text-align: center; color: #111827; margin: 0 0 0.5rem 0;">Чим ми допомагаємо</h2>
+  <p id="dir-main-sub" style="color: #4B5563; text-align: center; margin: 0 0 2rem 0; font-size: 1.1rem;">Оберіть напрямок, щоб отримати інформацію або надіслати запит.</p>
+
+  <div class="dir-grid-new">
+    <div class="dir-card-new" onclick="toggleDirPanel(1, this)">
+      <div class="dir-icon-new">📦</div>
+      <h3 id="d1-h">Гуманітарна допомога</h3>
+      <p id="d1-p">Продукти, одяг, засоби гігієни та інша підтримка.</p>
     </div>
-    <div class="how-photo-col">
-      <div class="how-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80" alt="UAGZ team" style="width:100%;height:100%;object-fit:cover;object-position:center 20%"></div>
-      <div class="quote-card">
-        <p id="q-t">"Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ!"</p>
-        <div class="quote-author">
-          <div class="quote-av"><img src="data:image/jpeg;base64,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" alt=""></div>
-          <div><div class="quote-name" id="q-n">Олена</div><div class="quote-loc">Zürich</div></div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(2, this)">
+      <div class="dir-icon-new">📄</div>
+      <h3 id="d2-h">Консультації та документи</h3>
+      <p id="d2-p">Допомога з формами, заявами та офіційними листами.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(3, this)">
+      <div class="dir-icon-new">🤝</div>
+      <h3 id="d3-h">Інтеграція та адаптація</h3>
+      <p id="d3-p">Підтримка новоприбулих на кожному етапі.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(4, this)">
+      <div class="dir-icon-new">🗣️</div>
+      <h3 id="d4-h">Курси німецької мови</h3>
+      <p id="d4-p">Безкоштовні та доступні курси для всіх рівнів.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(5, this)">
+      <div class="dir-icon-new">💼</div>
+      <h3 id="d5-h">Пошук работы та кар'єра</h3>
+      <p id="d5-p">Консультації, резюме, вакансії та контакти.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(6, this)">
+      <div class="dir-icon-new">🏠</div>
+      <h3 id="d6-h">Житло та побутові питання</h3>
+      <p id="d6-p">Пошук житла, реєстрація, страхування, рахунки.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(7, this)">
+      <div class="dir-icon-new">🏥</div>
+      <h3 id="d7-h">Здоров'я та лікарі</h3>
+      <p id="d7-p">Медичне страхування, лікарі та невідкладна допомога.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(8, this)">
+      <div class="dir-icon-new">🎨</div>
+      <h3 id="d8-h">Події для дітей</h3>
+      <p id="d8-p">Творчі заняття, табори, свята та дитячі групи.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(9, this)">
+      <div class="dir-icon-new">❤️</div>
+      <h3 id="d9-h">Волонтерство та участь</h3>
+      <p id="d9-p">Долучайтеся та допомагайте разом із нами.</p>
+    </div>
+
+    <div class="dir-card-new" onclick="toggleDirPanel(10, this)">
+      <div class="dir-icon-new">💬</div>
+      <h3 id="d10-h">Community підтримка</h3>
+      <p id="d10-p">Моральна підтримка, зустрічі, клуби та дружнє середовище.</p>
+    </div>
+
+    <div class="dir-details-panel" id="dirDetailsPanel">
+      <div class="dir-details-content">
+        <div class="dir-details-text">
+          <h4 id="panel-title">Назва напрямку</h4>
+          <div id="panel-links"></div>
         </div>
+        <a href="help.html" class="btn-dir-cta" id="panel-btn">Подати запит</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ THREE COL: Актуально / Події / Оголошення ═ -->
-<div class="three-col">
-  <div>
-    <div class="col-hd"><h3 id="tc1">Актуально зараз</h3><a href="#" id="tc1l">Переглянути все →</a></div>
-    <div class="news-item"><span class="badge b-urg" id="b1">Терміново</span><div class="news-title" id="n1t">Гуманітарна видача продуктів</div><div class="news-meta" id="n1m">18 травня, 10:00–14:00 · Albisriederplatz 1</div></div>
-    <div class="news-item"><span class="badge b-new" id="b2">Новина</span><div class="news-title" id="n2t">Нові курси німецької мови для початківців</div><div class="news-meta" id="n2m">Реєстрація відкрита</div></div>
-    <div class="news-item"><span class="badge b-ev" id="b3">Подія</span><div class="news-title">Community Evening</div><div class="news-meta" id="n3m">24 травня, 18:00 · Gemeinschaftszentrum</div></div>
-  </div>
-  <div>
-    <div class="col-hd"><h3 id="tc2">Події найближчим часом</h3><a href="#" id="tc2l">Всі події →</a></div>
-    <div class="ev-row"><div class="ev-date"><strong>18</strong><span id="mo1">ТРАВ</span></div><div class="ev-info"><h4 id="e1t">Дитячий театр-студія "Чомучки"</h4><p id="e1d">Сб, 12:00–14:00</p></div></div>
-    <div class="ev-row"><div class="ev-date" style="background:var(--green)"><strong>21</strong><span id="mo2">ТРАВ</span></div><div class="ev-info"><h4 id="e2t">Мовний клуб (німецька) Рівень A1–A2</h4><p id="e2d">Вт, 18:30–20:00</p></div></div>
-    <div class="ev-row"><div class="ev-date" style="background:var(--yellow)"><strong style="color:#333">24</strong><span id="mo3" style="color:rgba(0,0,0,.6)">ТРАВ</span></div><div class="ev-info"><h4 id="e3t">Community Evening · Знайомства та спілкування</h4><p id="e3d">Пт, 18:00–21:00</p></div></div>
-  </div>
-  <div>
-    <div class="col-hd"><h3 id="tc3">Нові оголошення</h3><a href="#" id="tc3l">Всі оголошення →</a></div>
-    <div class="news-item"><span class="badge b-home" id="ab1">Житло</span><div class="news-title" id="a1t">Здається кімната в Цюриху · 800 CHF/міс.</div><div class="news-meta" id="a1m">Сьогодні, 10:15</div></div>
-    <div class="news-item"><span class="badge b-job" id="ab2">Робота</span><div class="news-title" id="a2t">Потрібна няня для дитини 4 роки · Teilzeit</div><div class="news-meta" id="a2m">Сьогодні, 09:40</div></div>
-    <div class="news-item"><span class="badge b-svc" id="ab3">Послуги</span><div class="news-title" id="a3t">Переклади документів (укр/нім) · Швидко та якісно</div><div class="news-meta" id="a3m">Сьогодні, 08:30</div></div>
-  </div>
-</div>
-
-<!-- ═══════ FOR WHOM ══════════════════════════════════ -->
-<section class="forwhom">
-  <div class="fw-head"><div class="sec-title" id="fw-h">Для кого наш центр?</div><a href="#" id="fw-l">Переглянути всі можливості →</a></div>
-  <div class="whom-grid">
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span id="w1">Новоприбулі</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div><span id="w2">Мами з дітьми</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M12 15h.01"/></svg></div><span id="w3">Люди зі статусом S</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><span id="w4">Волонтери</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><span id="w5">Бізнес</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-7 10 7M12 22V12"/><path d="M9 22v-6h6v6"/></svg></div><span id="w6">Студенти</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><span id="w7">Люди в пошуку роботи</span></div>
-    <div class="whom-item"><div class="whom-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span id="w8">Пенсіонери</span></div>
-  </div>
-</section>
-
-<!-- ═══════ DIRECTIONS ════════════════════════════════ -->
-<section class="dir-sec">
-  <div class="dir-sec-head">
-    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-  </div>
-  <div class="dir-h1" id="dir-h1">Чим ми допомагаємо</div>
-  <div class="dir-sub" id="dir-sub">Ми поруч у важливих питаннях <u>щодня</u>.</div>
-  <div class="dir-stats">
-    <div class="dstat"><div class="dstat-ic" style="background:var(--blue-light)"><svg style="stroke:var(--blue)" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div><div class="dstat-n" style="color:var(--blue)">1000+</div><div class="dstat-l" id="ds1">Людей отримали допомогу</div></div></div>
-    <div class="dstat"><div class="dstat-ic" style="background:#FEF9E7"><svg style="stroke:var(--yellow)" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><div class="dstat-n" style="color:#92700A">200+</div><div class="dstat-l" id="ds2">Волонтерів у спільноті</div></div></div>
-    <div class="dstat"><div class="dstat-ic" style="background:var(--green-bg)"><svg style="stroke:var(--green)" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="dstat-n" style="color:var(--green)">50+</div><div class="dstat-l" id="ds3">Заходів щомісяця</div></div></div>
-    <div class="dstat"><div class="dstat-ic" style="background:#FEF9E7"><svg style="stroke:var(--yellow)" viewBox="0 0 24 24"><path d="M16 11h6v10H2V11h6M9 7l3-5 3 5"/><path d="M12 2v14"/></svg></div><div><div class="dstat-n" style="color:#92700A">Працюємо</div><div class="dstat-l" id="ds4">для українців у Цюриху</div></div></div>
-  </div>
-  <div class="dir-grid">
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d1">Гуманітарна допомога</div><div class="dir-desc" id="d1d">Продукти, одяг, засоби гігієни та інша підтримка.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d2">Консультації та документи</div><div class="dir-desc" id="d2d">Допомога з формами, заявами та офіційними листами.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80&fit=crop&crop=faces,top" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d3">Інтеграція та адаптація</div><div class="dir-desc" id="d3d">Підтримка новоприбулих на кожному етапі.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d4">Курси німецької мови</div><div class="dir-desc" id="d4d">Безкоштовні та доступні курси для всіх рівнів.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d5">Пошук роботи та кар'єра</div><div class="dir-desc" id="d5d">Консультації, резюме, вакансії та контакти.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d6">Житло та побутові питання</div><div class="dir-desc" id="d6d">Пошук житла, реєстрація, страхування, рахунки.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80&fit=crop&crop=face" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d7">Здоров'я та лікарі</div><div class="dir-desc" id="d7d">Медичне страхування, лікарі та невідкладна допомога.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d8">Події для дітей</div><div class="dir-desc" id="d8d">Творчі заняття, табори, свята та дитячі групи.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d9">Волонтерство та участь</div><div class="dir-desc" id="d9d">Долучайтеся та допомагайте разом із нами.</div></div></div>
-    <div class="dir-card"><div class="dir-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80" alt=""><div class="dir-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div></div><div class="dir-body"><div class="dir-title" id="d10">Community підтримка</div><div class="dir-desc" id="d10d">Моральна підтримка, зустрічі, клуби та дружнє середовище.</div></div></div>
-  </div>
-  <!-- CTA ROW under directions -->
-  <div class="dir-cta-row">
-    <div class="dir-cta-left">
-      <div class="dir-cta-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div><h4 id="cta-row-h">Не знаєте, з чого почати?</h4><p id="cta-row-p">Напишіть нам — ми підкажемо, як можемо допомогти саме вам.</p></div>
-    </div>
-    <div class="dir-cta-btns">
-      <button class="ctabtn cb-b" style="font-size:13px;padding:10px 18px"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z"/></svg> Telegram</button>
-      <button class="ctabtn cb-g" style="font-size:13px;padding:10px 18px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.2 1.19 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> WhatsApp</button>
-      <button class="ctabtn" style="font-size:13px;padding:10px 18px;background:#fff;color:var(--blue);border:1.5px solid var(--blue)" id="cta-row-btn" onclick="mOpen('r')">Отримати допомогу</button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ CTA GRID ══════════════════════════════════ -->
-<section class="cta-sec">
-  <div class="cta-grid">
-    <div class="cta-card cc-blue">
-      <h3 id="cta1h">Долучайтеся до спільноти!</h3>
-      <p id="cta1p">Станьте частиною української громади у Цюриху.</p>
-      <button class="ctabtn cb-w"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--blue)"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z"/></svg><span id="cta1b">Приєднатися в Telegram</span></button>
-    </div>
-    <div class="cta-card cc-outline">
-      <h3 id="cta2h">Станьте волонтером</h3>
-      <p id="cta2p">Ваш час і знання можуть змінити чиєсь життя.</p>
-      <button class="ctabtn" style="background:var(--surface);color:var(--blue);border:1.5px solid var(--blue)" id="cta2b">Заповнити форму</button>
-    </div>
-    <div class="cta-card cc-yellow">
-      <h3 id="cta3h">Підтримайте центр</h3>
-      <p id="cta3p">Ваша підтримка допомагає нам допомагати іншим.</p>
-      <button class="ctabtn cb-y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span id="cta3b">Підтримати</span></button>
-    </div>
-    <div class="cta-card cc-light">
-      <h3 id="cta4h">Підпишіться на новини</h3>
-      <p id="cta4p">Отримуйте важливу інформацію та анонси подій.</p>
-      <div class="email-r"><input type="email" id="email-inp" placeholder="Ваш email"><button>›</button></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ TRUST ═════════════════════════════════════ -->
-<div class="trust">
-  <div class="trust-inner">
-    <div class="trust-item"><div class="trust-ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><span class="trust-text" id="tr1">Офіційна NGO у Цюриху</span></div>
-    <div class="trust-item"><div class="trust-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><span class="trust-text" id="tr2">Прозорість та звітність</span></div>
-    <div class="trust-item"><div class="trust-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><span class="trust-text" id="tr3">Понад 50 партнерів</span></div>
-    <div class="trust-item"><div class="trust-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><span class="trust-text" id="tr4">Реальні люди та реальні історії</span></div>
-    <div class="trust-avs">
-      <div class="tav2"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=56&q=70" alt=""></div>
-      <div class="tav2"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=56&q=70" alt=""></div>
-      <div class="tav2"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=56&q=70" alt=""></div>
-      <div class="tav2"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=56&q=70" alt=""></div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════ FOOTER ════════════════════════════════════ -->
-<footer>
+<footer id="contacts">
   <div class="footer-grid">
     <div>
       <div class="footer-logo">
@@ -685,7 +364,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
     <div class="fc">
       <h4 id="fc1h">Контакти</h4>
-      <a href="http://googleusercontent.com/maps.google.com/2" target="_blank" rel="noopener" id="fc1-addr">Albisriederplatz 1, 8003 Zürich</a>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" id="fc1-addr">Albisriederplatz 1, 8003 Zürich</a>
       <a href="mailto:info@uagz.ch">info@uagz.ch</a>
       <a href="tel:+41761234567" id="fc1-tel">+41 76 123 45 67</a>
     </div>
@@ -719,440 +398,124 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </div>
 </footer>
-// ════════════════════════════════════════════
-// TRANSLATIONS, LANGUAGE SWITCHER & MODAL
-// ════════════════════════════════════════════
+
 <script>
-const T = {
-  ua: {
-    "m-home": "Головна",
-    "m-about": "Про нас",
-    "m-help": "Допомога",
-    "m-events": "Заходи",
-    "m-knowledge": "Knowledge Center",
-    "m-announcements": "Оголошення",
-    "m-volunteering": "Волонтерство",
-    "m-donate": "❤️ Донат",
-    "m-contacts": "Контакти",
-    "nav-sub": "Український інтеграційний та громадський中心 Цюриха",
-    "nl-1": "Головна",
-    "nl-2": "Про центр",
-    "nl-3": "Допомога",
-    "nl-4": "Події",
-    "nl-5": "Оголошення",
-    "nl-6": "Волонтерство",
-    "nl-8": "Контакти",
-    "nav-cta": "Отримати допомогу",
-    "mh-t": "Приєднуйтесь до спільноти",
-    "mh-s": "Реєстрація безкоштовна · Для українців у Швейцарії",
-    "t-reg": "Реєстрація",
-    "t-log": "Вхід",
-    "l-fn": "Ім'я",
-    "l-ln": "Прізвище",
-    "l-ph": "Телефон (опційно)",
-    "l-pw": "Пароль",
-    "l-pw2": "Пароль",
-    "l-cat": "Я — (оберіть категорію)",
-    "l-or": "або зареєструватися через",
-    "l-or2": "або увійти через",
-    "l-sub": "Зареєструватися безкоштовно",
-    "l-sub2": "Увійти",
-    "l-fp": "Забули пароль?",
-    "l-terms": "Реєструючись, ви погоджуєтесь з умовами використання та політикою конфіденційності.",
-    "c1": "Новоприбул(-а)",
-    "c2": "Мама з дітьми",
-    "c3": "Волонтер",
-    "c4": "Шукаю роботу",
-    "c5": "Студент",
-    "c6": "Інше",
-    "s-t": "Ласкаво просимо до спільноти!",
-    "s-s": "Перевірте вашу електронну пошту для підтвердження реєстрації.",
-    "h-badge": "Офіційна NGO · Zürich",
-    "h-t": "Український інтеграційний та громадський центр Цюриха",
-    "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
-    "h-b1": "Отримати допомогу",
-    "h-b2t": "Долучитися до громади",
-    "tg-t": "Приєднуйся до нашої спільноти!",
-    "tg-btn": "Приєднатися",
-    "tg-note": "Telegram · новини та оголошення",
-    "sv-h": "Чим мы допомагаємо",
-    "sv-a": "Дивитися всі послуги →",
-    "s1": "Гуманітарна допомога",
-    "s2": "Продукти",
-    "s3": "Інтеграція та консультації",
-    "s4": "Курси нім. мови",
-    "s5": "Допомога з документами",
-    "s6": "Пошук роботи",
-    "s7": "Events для дітей",
-    "s8": "Волонтерство",
-    "s9": "Community support",
-    "how-tag": "Як це працює",
-    "how-h1": "Просто. Швидко. Людяно.",
-    "how-sub": "Ми зробили процес отримання допомоги максимально простим і зрозумілим.",
-    "st1-h": "Подайте заявку",
-    "st1-p": "Заповніть просту форму на сайті — це займе лише кілька хвилин.",
-    "st2-h": "Ми зв'яжемося з вами",
-    "st2-p": "Наш координатор зв'яжеться з вами та допоможе визначити ваш запит.",
-    "st3-h": "Отримай допомогу або консультацію",
-    "st3-p": "Ви отримаєте необхідну підтримку, інформацію або консультацію.",
-    "team-h": "Ми поруч з вами",
-    "team-p": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
-    "team-l": "Дізнатися більше про команду →",
-    "stat-1": "людей отримали підтримку",
-    "stat-2": "волонтерів щодня допомагають громаді",
-    "qc-h": "Швидкий зв'язок",
-    "q-t": "\"Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ!\"",
-    "q-n": "Олена",
-    "tc1": "Актуально зараз",
-    "tc1l": "Переглянути все →",
-    "b1": "Терміново",
-    "n1t": "Гуманітарна видача продуктів",
-    "n1m": "18 травня, 10:00–14:00 · Albisriederplatz 1",
-    "b2": "Новина",
-    "n2t": "Нові курси німецької мови для початківців",
-    "n2m": "Реєстрація відкрита",
-    "b3": "Подія",
-    "n3m": "24 травня, 18:00 · Gemeinschaftszentrum",
-    "tc2": "Події найближчим часом",
-    "tc2l": "Всі події →",
-    "mo1": "ТРАВ",
-    "e1t": "Дитячий театр-студія \"Чомучки\"",
-    "e1d": "Сб, 12:00–14:00",
-    "mo2": "ТРАВ",
-    "e2t": "Мовний клуб (нім.) Рівень A1–A2",
-    "e2d": "Вт, 18:30–20:00",
-    "mo3": "ТРАВ",
-    "e3t": "Community Evening · Знайомства",
-    "e3d": "Пт, 18:00–21:00",
-    "tc3": "Нові оголошення",
-    "tc3l": "Всі оголошення →",
-    "ab1": "Житло",
-    "a1t": "Здається кімната в Цюриху · 800 CHF/міс.",
-    "a1m": "Сьогодні, 10:15",
-    "ab2": "Робота",
-    "a2t": "Потрібна няня для дитини 4 роки · Teilzeit",
-    "a2m": "Сьогодні, 09:40",
-    "ab3": "Послуги",
-    "a3t": "Переклади документів (укр/нім)",
-    "a3m": "Сьогодні, 08:30",
-    "fw-h": "Для кого наш centre?",
-    "fw-l": "Переглянути всі можливості →",
-    "w1": "Новоприбулі",
-    "w2": "Мами з дітьми",
-    "w3": "Люди зі статусом S",
-    "w4": "Волонтери",
-    "w5": "Бізнес",
-    "w6": "Студенти",
-    "w7": "Люди в пошуку роботи",
-    "w8": "Пенсіонери",
-    "dir-h1": "Чим ми допомагаємо",
-    "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
-    "ds1": "Людей отримали допомогу",
-    "ds2": "Волонтерів у спільноті",
-    "ds3": "Заходів щомісяця",
-    "ds4": "for Ukrainians in Zürich",
-    "d1": "Гуманітарна допомога",
-    "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
-    "d2": "Консультації та документи",
-    "d2d": "Допомога з формами, заявами та офіційними листами.",
-    "d3": "Інтеграція та адаптація",
-    "d3d": "Підтримка новоприбулих на кожному етапі.",
-    "d4": "Курси німецької мови",
-    "d4d": "Безкоштовні та доступні курси для всіх рівнів.",
-    "d5": "Пошук роботи та кар'єра",
-    "d5d": "Консультації, резюме, вакансії та контакти.",
-    "d6": "Житло та побутові питання",
-    "d6d": "Пошук житла, реєстрація, страхування, рахунки.",
-    "d7": "Здоров'я та лікарі",
-    "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
-    "d8": "Події для дітей",
-    "d8d": "Творчі заняття, табори, свята та дитячі групи.",
-    "d9": "Волонтерство та участь",
-    "d9d": "Долучайтеся та допомагайте разом із нами.",
-    "d10": "Community підтримка",
-    "d10d": "Моральна підтримка, зустрічі, клуби та дружнє середовище.",
-    "cta-row-h": "Не знаєте, з чого почати?",
-    "cta-row-p": "Напишіть нам — ми підкажемо, як можемо допомогти саме вам.",
-    "cta-row-btn": "Отримати допомогу",
-    "cta1h": "Долучайтеся до спільноти!",
-    "cta1p": "Станьте частиною української громади у Цюриху.",
-    "cta1b": "Приєднатися в Telegram",
-    "cta2h": "Станьте волонтером",
-    "cta2p": "Ваш час і знання можуть змінити чиєсь життя.",
-    "cta2b": "Заповнити форму",
-    "cta3h": "Підтримайте центр",
-    "cta3p": "Ваша підтримка допомагає нам допомагати іншим.",
-    "cta3b": "Підтримати",
-    "cta4h": "Підпишіться на новини",
-    "cta4p": "Отримуйте важливу інформацію та анонси подій.",
-    "email-inp": "Ваш email",
-    "tr1": "Офіційна NGO у Цюриху",
-    "tr2": "Прозорість та звітність",
-    "tr3": "Понад 50 партнерів",
-    "tr4": "Реальні люди та реальні історії",
-    "fc1h": "Контакти",
-    "fc2h": "Ми в соцмережах",
-    "fc3h": "Години роботи",
-    "fc4h": "Корисні посилання",
-    "fc1-addr": "Albisriederplatz 1, 8003 Zürich",
-    "fc1-tel": "+41 76 123 45 67",
-    "hd1": "Пн–Пт",
-    "hd2": "Субота",
-    "hd3": "Неділя",
-    "hd3v": "Зачинено",
-    "f-stat": "Статути (PDF)",
-    "f-impressum": "Impressum",
-    "f-privacy": "Datenschutz",
-    "f-terms": "Terms of Use",
-    "f-location": "Цюрих, Швейцарія",
-    "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "f-copy": "Зроблено з ❤️ для українців у Швейцарії · © 2026 UAGZ. All rights reserved."
-  },
-  de: {
-    "m-home": "Startseite",
-    "m-about": "Über uns",
-    "m-help": "Hilfe",
-    "m-events": "Veranstaltungen",
-    "m-knowledge": "Knowledge Center",
-    "m-announcements": "Ankündigungen",
-    "m-volunteering": "Freiwilligenarbeit",
-    "m-donate": "❤️ Donate",
-    "m-contacts": "Kontakte",
-    "nav-sub": "Unterstützungs- und Integrationszentrum",
-    "nl-1": "Startseite",
-    "nl-2": "Über uns",
-    "nl-3": "Hilfe",
-    "nl-4": "Veranstaltungen",
-    "nl-5": "Ankündigungen",
-    "nl-6": "Ehrenamt",
-    "nl-8": "Kontakt",
-    "nav-cta": "Hilfe erhalten",
-    "mh-t": "Der Community beitreten",
-    "mh-s": "Kostenlose Registrierung · Nur für Ukrainer in der Schweiz",
-    "t-reg": "Registrierung",
-    "t-log": "Anmelden",
-    "l-fn": "Vorname",
-    "l-ln": "Nachname",
-    "l-ph": "Telefon (optional)",
-    "l-pw": "Passwort",
-    "l-pw2": "Passwort",
-    "l-cat": "Ich bin — (Kategorie wählen)",
-    "l-or": "oder registrieren mit",
-    "l-or2": "oder anmelden mit",
-    "l-sub": "Kostenlos registrieren",
-    "l-sub2": "Anmelden",
-    "l-fp": "Passwort vergessen?",
-    "l-terms": "Mit der Registrierung stimmen Sie den Nutzungsbedingungen zu.",
-    "c1": "Neuankömmling",
-    "c2": "Mutter mit Kindern",
-    "c3": "Ehrenamtlich",
-    "c4": "Jobsuchend",
-    "c5": "Student",
-    "c6": "Sonstiges",
-    "s-t": "Willkommen in der Community!",
-    "s-s": "Überprüfen Sie Ihre E-Mail zur Bestätigung.",
-    "h-badge": "Offizielle NGO · Zürich",
-    "h-t": "Willkommen bei UAGZ",
-    "h-s": "Wir unterstützen Ukrainerinnen und Ukrainer in der Schweiz. Unser Zentrum bietet Hilfe bei der sozialen Anpassung, dem Erlernen der Sprache, rechtlichen Fragen sowie der Organisation von Bildungs- und Kulturveranstaltungen im Kanton Zürich.",
-    "h-b1": "Hilfe erhalten",
-    "h-b2t": "Der Gemeinschaft beitreten",
-    "tg-t": "Tritt unserer Community bei!",
-    "tg-btn": "Beitreten",
-    "tg-note": "Telegram · Nachrichten und Ankündigungen",
-    "sv-h": "Wie wir helfen",
-    "sv-a": "Alle Leistungen →",
-    "s1": "Humanitäre Hilfe",
-    "s2": "Lebensmittel",
-    "s3": "Integration & Beratung",
-    "s4": "Deutschkurse",
-    "s5": "Dokumentenhilfe",
-    "s6": "Jobsuche",
-    "s7": "Kinderangebote",
-    "s8": "Ehrenamt",
-    "s9": "Community",
-    "how-tag": "So funktioniert es",
-    "how-h1": "Einfach. Schnell. Menschlich.",
-    "how-sub": "Wir haben den Hilfeprozess so einfach und verständlich wie möglich gestaltet.",
-    "st1-h": "Antrag stellen",
-    "st1-p": "Füllen Sie das einfache Formular aus — es dauert nur wenige Minuten.",
-    "st2-h": "Wir melden uns bei Ihnen",
-    "st2-p": "Unser Koordinator kontaktiert Sie und hilft, Ihren Bedarf zu ermitteln.",
-    "st3-h": "Hilfe oder Beratung erhalten",
-    "st3-p": "Sie erhalten die erforderliche Unterstützung, Informationen oder Beratung.",
-    "team-h": "Wir sind für Sie da",
-    "team-p": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
-    "team-l": "Mehr über das Team →",
-    "stat-1": "Personen erhielten Unterstützung",
-    "stat-2": "Ehrenamtliche helfen täglich der Gemeinde",
-    "qc-h": "Schnellkontakt",
-    "q-t": "\"Ich erhielt Antworten auf alle meine Fragen und fühlte Unterstützung vom ersten Tag an. Danke UAGZ!\"",
-    "q-n": "Olena",
-    "tc1": "Aktuell",
-    "tc1l": "Alle anzeigen →",
-    "b1": "Dringend",
-    "n1t": "Humanitäre Lebensmittelausgabe",
-    "n1m": "18. Mai, 10:00–14:00 · Albisriederplatz 1",
-    "b2": "Neuigkeit",
-    "n2t": "Neue Deutschkurse für Anfänger",
-    "n2m": "Anmeldung offen",
-    "b3": "Veranstaltung",
-    "n3m": "24. Mai, 18:00 · Gemeinschaftszentrum",
-    "tc2": "Bevorstehende Veranstaltungen",
-    "tc2l": "Alle Veranstaltungen →",
-    "mo1": "MAI",
-    "e1t": "Kinder-Workshop «Ukrainische Stickerei»",
-    "e1d": "Sa., 12:00–14:00",
-    "mo2": "MAI",
-    "e2t": "Sprachclub (Deutsch) Niveau A1–A2",
-    "e2d": "Di., 18:30–20:00",
-    "mo3": "MAI",
-    "e3t": "Community Evening · Kennenlernen",
-    "e3d": "Fr., 18:00–21:00",
-    "tc3": "Bevorstehende Veranstaltungen",
-    "tc3l": "Alle Veranstaltungen →",
-    "ab1": "Wohnung",
-    "a1t": "Zimmer in Zürich · 800 CHF/Monat",
-    "a1m": "Heute, 10:15",
-    "ab2": "Arbeit",
-    "a2t": "Babysitter gesucht · Teilzeit",
-    "a2m": "Heute, 09:40",
-    "ab3": "Dienste",
-    "a3t": "Dokumentenübersetzung (ukr/de)",
-    "a3m": "Heute, 08:30",
-    "fw-h": "Für wen ist unser Zentrum?",
-    "fw-l": "Alle Möglichkeiten →",
-    "w1": "Neuankömmlinge",
-    "w2": "Mütter mit Kindern",
-    "w3": "Personen mit Status S",
-    "w4": "Ehrenamtliche",
-    "w5": "Unternehmen",
-    "w6": "Studierende",
-    "w7": "Arbeitssuchende",
-    "w8": "Rentner",
-    "dir-h1": "Unsere Angebote",
-    "dir-sub": "Wir sind täglich bei wichtigen Fragen für Sie <u>da</u>.",
-    "ds1": "Personen erhielten Hilfe",
-    "ds2": "Ehrenamtliche in der Community",
-    "ds3": "Veranstaltungen monatlich",
-    "ds4": "for Ukrainians in Zürich",
-    "d1": "Humanitäre Hilfe",
-    "d1d": "Lebensmittel, Kleidung, Hygieneartikel.",
-    "d2": "Beratung & Dokumente",
-    "d2d": "Hilfe mit Formularen und offiziellen Schreiben.",
-    "d3": "Integration & Adaptation",
-    "d3d": "Unterstützung von Neuankömmlingen.",
-    "d4": "Deutschkurse",
-    "d4d": "Kostenlose Kurse für alle Niveaus.",
-    "d5": "Jobsuche & Karriere",
-    "d5d": "Beratung, Lebenslauf, Stellenangebote.",
-    "d6": "Wohnen & Alltag",
-    "d6d": "Wohnungssuche, Anmeldung, Versicherung.",
-    "d7": "Gesundheit & Ärzte",
-    "d7d": "Krankenversicherung, Ärzte, Notfall.",
-    "d8": "Kinderangebote",
-    "d8d": "Kreativkurse, Lager, Feste, Kindergruppen.",
-    "d9": "Ehrenamt & Teilnahme",
-    "d9d": "Machen Sie mit und helfen Sie.",
-    "d10": "Community-Unterstützung",
-    "d10d": "Treffen, Clubs und freundliche Atmosphäre.",
-    "cta-row-h": "Wissen Sie nicht, wo Sie anfangen sollen?",
-    "cta-row-p": "Schreiben Sie uns — wir helfen Ihnen weiter.",
-    "cta-row-btn": "Hilfe erhalten",
-    "cta1h": "Der Community beitreten!",
-    "cta1p": "Werden Sie Teil der ukrainischen Gemeinschaft in Zürich.",
-    "cta1b": "Telegram beitreten",
-    "cta2h": "Werden Sie Ehrenamtlicher",
-    "cta2p": "Ihre Zeit und Ihr Wissen können das Leben verändern.",
-    "cta2b": "Formular ausfüllen",
-    "cta3h": "Unterstützen Sie das Zentrum",
-    "cta3p": "Ihre Unterstützung hilft uns, anderen zu helfen.",
-    "cta3b": "Unterstützen",
-    "cta4h": "Newsletter abonnieren",
-    "cta4p": "Erhalten Sie wichtige Informationen.",
-    "email-inp": "Ihre E-Mail",
-    "tr1": "Offizielle NGO in Zürich",
-    "tr2": "Transparenz und Rechenschaft",
-    "tr3": "Über 50 Partner",
-    "tr4": "Echte Menschen und echte Geschichten",
-    "fc1h": "Kontakt",
-    "fc2h": "Social Media",
-    "fc3h": "Öffnungszeiten",
-    "fc4h": "Nützliche Links",
-    "fc1-addr": "Albisriederplatz 1, 8003 Zürich",
-    "fc1-tel": "+41 76 123 45 67",
-    "hd1": "Mo–Fr",
-    "hd2": "Samstag",
-    "hd3": "Sonntag",
-    "hd3v": "Geschlossen",
-    "f-stat": "Satzung (PDF)",
-    "f-impressum": "Impressum",
-    "f-privacy": "Datenschutz",
-    "f-terms": "Nutzungsbedingungen",
-    "f-location": "Zürich, Schweiz",
-    "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "f-copy": "Mit ❤️ hergestellt für Ukrainer in der Schweiz · © 2026 UAGZ. All rights reserved."
+  // Словарь для основных текстов
+  const T = {
+    ua: {
+      "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+      "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи",
+      "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство",
+      "h-badge": "Офіційна NGO · Zürich",
+      "h-t": "Український інтеграційний та громадський центр Цюриха",
+      "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
+      "h-btn": "Отримати допомогу", "tg-title": "Наш Telegram канал",
+      "dir-main-title": "Чим ми допомагаємо",
+      "dir-main-sub": "Оберіть напрямок, щоб отримати інформацію або надіслати запит."
+    },
+    de: {
+      "nav-sub": "Ukrainisches Integrations- und Kulturzentrum Zürich",
+      "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen",
+      "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Ehrenamt",
+      "h-badge": "Offizielle NGO · Zürich",
+      "h-t": "Ukrainisches Integrationszentrum Zürich",
+      "h-s": "Unterstützung, Veranstaltungen, Gemeinschaft, humanitäre Hilfe und neue Möglichkeiten für Ukrainer in der Schweiz.",
+      "h-btn": "Hilfe erhalten", "tg-title": "Unser Telegram-Kanal",
+      "dir-main-title": "Wie wir helfen",
+      "dir-main-sub": "Wählen Sie einen Bereich, um Informationen zu erhalten oder eine Anfrage zu senden."
+    }
+  };
+
+  // Данные для раскрывающихся плиток
+  const dirData = {
+    ua: {
+      1: { title: "📦 Гуманітарна допомога", items: ["Видача продуктових наборів", "Одяг для дітей та дорослих", "Засоби гігієни та першої необхідності"], btn: "Отримати допомогу" },
+      2: { title: "📄 Консультації та документи", items: ["Заповнення швейцарських формулярів", "Переклад та написання офіційних листів", "Юридичні поради щодо статусу S"], btn: "Записатись на консультацію" },
+      3: { title: "🤝 Інтеграція та адаптація", items: ["Гайд перших кроків у Цюриху", "Закріплення за індивідуальним волонтером-наставником", "Культурні програми знайомства зі Швейцарією"], btn: "Потрібен куратор" },
+      4: { title: "🗣️ Курси німецької мови", items: ["Розмовні клуби (рівні А1-В2)", "Інтенсивні курси для початківців", "Матеріали та лекції для самонавчання"], btn: "Записатись на курс" },
+      5: { title: "💼 Пошук роботи та кар'єра", items: ["Переклад та адаптація резюме (CV) під швейцарські стандарти", "Підготовка до співбесіди та розбір локального ринку вакансій", "Контакти прямих роботодавців"], btn: "Допомога з працевлаштуванням" },
+      6: { title: "🏠 Житло та побутові питання", items: ["Правила пошуку квартири у кантоні Цюрих", "Реєстрація за місцем проживання (Gemeinde)", "Розбір рахунків та комунальних послуг"], btn: "Запит щодо житла" },
+      7: { title: "🏥 Здоров'я та лікарі", items: ["Оформлення та вибір медичного страхування (Krankenkasse)", "Пошук україномовних лікарів у Цюриху", "Інструкції на випадок невідкладної допомоги"], btn: "Медична консультація" },
+      8: { title: "🎨 Події для дітей", items: ["Дитячі творчі майстерні та гуртки", "Екскурсії, свята та розваги вихідного дня", "Мовні табори під час шкільних канікул"], btn: "Записати дитину" },
+      9: { title: "❤️ Волонтерство та участь", items: ["Анкета для реєстрації нових волонтерів", "Поточні збори, гуманітарні місії та потреби центру", "Можливість запустити свій власний проєкт у UAGZ"], btn: "Стати волонтером" },
+      10: { title: "💬 Community підтримка", items: ["Психологічні групи взаємодопомоги з фахівцями", "Вечори настільних ігор та перегляду кіно", "Зустрічі жіночого клубу та інтеграційні кав'ярні"], btn: "Приєднатися до зустрічі" }
+    },
+    de: {
+      1: { title: "📦 Humanitäre Hilfe", items: ["Ausgabe von Lebensmittelpaketen", "Kleidung für Kinder und Erwachsene", "Hygieneprodukte und lebenswichtige Güter"], btn: "Hilfe erhalten" },
+      2: { title: "📄 Beratung & Dokumente", items: ["Ausfüllen von Schweizer Formularen", "Übersetzung und Verfassung offizieller Briefe", "Rechtliche Beratung zum Schutzstatus S"], btn: "Beratungstermin buchen" },
+      3: { title: "🤝 Integration & Adaptation", items: ["Leitfaden für die ersten Schritte in Zürich", "Zuteilung eines individuellen Mentors", "Kulturprogramme zum Kennenlernen der Schweiz"], btn: "Mentor anfordern" },
+      4: { title: "🗣️ Deutschkurse", items: ["Sprachcafés und Konversationsklubs (A1-B2)", "Intensivkurse für Anfänger", "Materialien und Vorträge zum Selbststudium"], btn: "Für Kurs anmelden" },
+      5: { title: "💼 Jobsuche & Karriere", items: ["Anpassung des Lebenslaufs (CV) an Schweizer Standards", "Vorbereitung auf Vorstellungsgespräche", "Kontakte zu direkten Arbeitgebern"], btn: "Unterstützung bei Jobsuche" },
+      6: { title: "🏠 Wohnen & Alltag", items: ["Regeln für die Wohnungssuche im Kanton Zürich", "Wohnsitzanmeldung bei की Gemeinde", "Verständnis von Nebenkosten und Rechnungen"], btn: "Wohnungsanfrage" },
+      7: { title: "🏥 Gesundheit & Ärzte", items: ["Abschluss und Auswahl der Krankenkasse", "Suche nach ukrainischsprachigen Ärzten in Zürich", "Anweisungen für medizinische Notfälle"], btn: "Medizinische Beratung" },
+      8: { title: "🎨 Kinderangebote", items: ["Kreativ-Workshops und Kurse für Kinder", "Ausflüge, Feste und Wochenendunterhaltung", "Sprachcamps während der Schulferien"], btn: "Kind anmelden" },
+      9: { title: "❤️ Ehrenamt & Teilnahme", items: ["Anmeldeformular für neue Freiwillige", "Aktuelle Sammlungen und Bedarfe des Zentrums", "Möglichkeit, ein eigenes Projekt bei UAGZ zu starten"], btn: "Freiwilliger werden" },
+      10: { title: "💬 Community-Unterstützung", items: ["Psychologische Selbsthilfegruppen mit Fachleuten", "Spiele- und Filmabende", "Treffen des Frauenclubs und Integrationscafés"], btn: "An Treffen teilnehmen" }
+    }
+  };
+
+  let currentActiveId = null;
+  let currentLang = 'ua';
+
+  function toggleDirPanel(id, cardEl) {
+    const panel = document.getElementById('dirDetailsPanel');
+    const data = dirData[currentLang][id];
+    
+    if (currentActiveId === id) {
+      panel.style.display = 'none';
+      cardEl.classList.remove('active');
+      currentActiveId = null;
+      return;
+    }
+
+    document.querySelectorAll('.dir-card-new').forEach(c => c.classList.remove('active'));
+    cardEl.classList.add('active');
+
+    document.getElementById('panel-title').innerText = data.title;
+    document.getElementById('panel-btn').innerText = data.btn;
+    
+    let listHtml = '<ul>';
+    data.items.forEach(item => { listHtml += `<li>${item}</li>`; });
+    listHtml += '</ul>';
+    document.getElementById('panel-links').innerHTML = listHtml;
+
+    cardEl.parentNode.insertBefore(panel, cardEl.nextSibling);
+    panel.style.display = 'block';
+    
+    currentActiveId = id;
   }
-};
 
-function setLang(lang) {
-  document.querySelectorAll('.lb').forEach(b => {
-    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
-  });
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('selectedLang', lang);
 
-  if (typeof T === 'undefined' || !T[lang]) return;
-  const dict = T[lang];
+    // Меняем активную кнопку в меню
+    document.getElementById('btn-ua').classList.toggle('on', lang === 'ua');
+    document.getElementById('btn-de').classList.toggle('on', lang === 'de');
 
-  for (const [id, val] of Object.entries(dict)) {
-    const el = document.getElementById(id);
-    if (!el) continue;
+    // Переводим обычные элементы страницы
+    for (let key in T[lang]) {
+      const el = document.getElementById(key);
+      if (el) el.innerText = T[lang][key];
+    }
 
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else {
-      el.innerHTML = val;
+    // Если открыта какая-то плитка, переводим и её контент на лету
+    if (currentActiveId !== null) {
+      const data = dirData[lang][currentActiveId];
+      document.getElementById('panel-title').innerText = data.title;
+      document.getElementById('panel-btn').innerText = data.btn;
+      let listHtml = '<ul>';
+      data.items.forEach(item => { listHtml += `<li>${item}</li>`; });
+      listHtml += '</ul>';
+      document.getElementById('panel-links').innerHTML = listHtml;
     }
   }
 
-  document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
-  localStorage.setItem('selectedLang', lang);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('selectedLang') || 'ua';
-  setLang(savedLang);
-});
-
-function mOpen(tab) {
-  document.getElementById('mOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  mTab(tab || 'r');
-}
-
-function mClose() {
-  document.getElementById('mOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function mTab(t) {
-  ['r','l'].forEach(x => {
-    document.getElementById('tab-'+x).classList.toggle('on', x===t);
-    document.getElementById('p-'+x).classList.toggle('on', x===t);
+  // При первой загрузке проверяем сохраненный язык
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'ua';
+    setLanguage(savedLang);
   });
-}
-
-function pickCat(el) {
-  document.querySelectorAll('.cbt').forEach(b => b.classList.remove('on'));
-  el.classList.add('on');
-}
-
-function doReg() {
-  document.getElementById('reg-form').style.display = 'none';
-  document.getElementById('reg-ok').style.display = 'block';
-}
-
-document.addEventListener('keydown', e => { 
-  if (e.key === 'Escape') mClose(); 
-});
 </script>
 </body>
 </html>

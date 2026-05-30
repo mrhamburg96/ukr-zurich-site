@@ -411,10 +411,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><button class="btn-donate-nav" id="btn-donate-nav">❤️ Donate</button></li>
     <li><a href="#contacts" id="nl-8">Контакти</a></li>
   </ul>
-  <div class="lang-sw">
-    <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
-    <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
-  </div>
+ <div class="lang-sw">
+  <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+  <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+</div>
 </nav>
 
 <!-- ═══════ HERO ════════════════════════════════════ -->
@@ -1093,7 +1093,7 @@ const T = {
   }
 };
 // ════════════════════════════════════════════
-// LANGUAGE SWITCHER
+// LANGUAGE SWITCHER & MODAL SCRIPTS
 // ════════════════════════════════════════════
 <script>
 function setLang(lang) {
@@ -1123,35 +1123,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('selectedLang') || 'ua';
   setLang(savedLang);
 });
-</script>
 
-// ════════════════════════════════════════════
-// MODAL
-// ════════════════════════════════════════════
 function mOpen(tab) {
   document.getElementById('mOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   mTab(tab || 'r');
 }
+
 function mClose() {
   document.getElementById('mOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+
 function mTab(t) {
   ['r','l'].forEach(x => {
     document.getElementById('tab-'+x).classList.toggle('on', x===t);
     document.getElementById('p-'+x).classList.toggle('on', x===t);
   });
 }
+
 function pickCat(el) {
   document.querySelectorAll('.cbt').forEach(b => b.classList.remove('on'));
   el.classList.add('on');
 }
+
 function doReg() {
   document.getElementById('reg-form').style.display = 'none';
   document.getElementById('reg-ok').style.display = 'block';
 }
-document.addEventListener('keydown', e => { if(e.key==='Escape') mClose(); });
+
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape') mClose(); 
+});
 </script>
 </body>
 </html>

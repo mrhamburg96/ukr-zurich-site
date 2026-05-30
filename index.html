@@ -720,8 +720,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </footer>
 // ════════════════════════════════════════════
-// TRANSLATIONS
+// TRANSLATIONS, LANGUAGE SWITCHER & MODAL
 // ════════════════════════════════════════════
+<script>
 const T = {
   ua: {
     "m-home": "Головна",
@@ -733,7 +734,7 @@ const T = {
     "m-volunteering": "Волонтерство",
     "m-donate": "❤️ Донат",
     "m-contacts": "Контакти",
-    "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+    "nav-sub": "Український інтеграційний та громадський中心 Цюриха",
     "nl-1": "Головна",
     "nl-2": "Про центр",
     "nl-3": "Допомога",
@@ -1092,10 +1093,7 @@ const T = {
     "f-copy": "Mit ❤️ hergestellt für Ukrainer in der Schweiz · © 2026 UAGZ. All rights reserved."
   }
 };
-// ════════════════════════════════════════════
-// LANGUAGE SWITCHER & MODAL SCRIPTS
-// ════════════════════════════════════════════
-<script>
+
 function setLang(lang) {
   document.querySelectorAll('.lb').forEach(b => {
     b.classList.toggle('on', b.getAttribute('data-lang') === lang);

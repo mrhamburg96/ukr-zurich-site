@@ -107,13 +107,16 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 <script>
 function setLang(lang) {
+  // 1. Переключаем класс подсветки кнопок
   document.querySelectorAll('.lb').forEach(b => {
     b.classList.toggle('on', b.getAttribute('data-lang') === lang);
   });
 
+  // 2. Проверяем наличие словаря перевода
   if (typeof T === 'undefined' || !T[lang]) return;
   const dict = T[lang];
 
+  // 3. Заменяем тексты по ID
   for (const [id, val] of Object.entries(dict)) {
     const el = document.getElementById(id);
     if (!el) continue;
@@ -125,10 +128,12 @@ function setLang(lang) {
     }
   }
 
+  // 4. Меняем язык документа и сохраняем выбор
   document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
   localStorage.setItem('selectedLang', lang);
 }
 
+// Автозапуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('selectedLang') || 'ua';
   setLang(savedLang);

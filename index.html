@@ -404,11 +404,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><a href="about.html" id="nl-2">Про центр</a></li>
     <li><a href="help.html" id="nl-3">Допомога</a></li>
     <li><a href="events.html" id="nl-4">Події</a></li>
-    <li><a href="knowledge.html">Knowledge Center</a></li>
-    <li><a href="announcements.html">Оголошення</a></li>
-    <li><a href="volunteering.html">Волонтерство</a></li>
+    <li><a href="knowledge.html" id="nav-knowledge">Knowledge Center</a></li>
+    <li><a href="announcements.html" id="nav-announcements">Оголошення</a></li>
+    <li><a href="volunteering.html" id="nav-volunteering">Волонтерство</a></li>
     <li><button class="btn-donate-nav" id="btn-donate-nav">Donate</button></li>
-    <li><a href="about.html">Контакти</a></li>
+    <li><a href="about.html" id="nav-contacts">Контакти</a></li>
   </ul>
  <div class="lang-sw">
   <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
@@ -682,35 +682,42 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <div class="footer-logo">
         <div class="footer-logo-name">UAGZ</div>
       </div>
-      <p class="footer-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.</p>
+      <!-- Добавили id для перевода описания -->
+      <p class="footer-desc" id="f-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.</p>
       <p class="footer-addr">Zürich, Switzerland<br>Email: info@uagz.ch</p>
     </div>
+    
     <div class="fc">
-      <h4>Центр</h4>
-      <a href="about.html">Про нас</a>
-      <a href="help.html">Послуги</a>
-      <a href="events.html">Події</a>
-      <a href="#">Оголошення</a>
+      <h4 id="f-title-center">Центр</h4>
+      <a href="about.html" id="f-about">Про нас</a>
+      <a href="help.html" id="f-services">Послуги</a>
+      <a href="events.html" id="f-events">Події</a>
+      <!-- Заменили # на правильный файл announcements.html -->
+      <a href="announcements.html" id="f-announcements">Оголошення</a>
     </div>
+    
     <div class="fc">
-      <h4>Корисне</h4>
-      <a href="#">Knowledge Center</a>
-      <a href="#">Часті питання (FAQ)</a>
-      <a href="#" class="green-link">Термінова допомога</a>
+      <h4 id="f-title-useful">Корисне</h4>
+      <!-- Заменили # на правильный файл knowledge.html -->
+      <a href="knowledge.html" id="f-knowledge">Knowledge Center</a>
+      <a href="#" id="f-faq">Часті питання (FAQ)</a>
+      <a href="#" class="green-link" id="f-urgent">Термінова допомога</a>
     </div>
+    
     <div class="fc">
-      <h4>Години роботи</h4>
+      <h4 id="f-title-hours">Години роботи</h4>
       <div class="hgrid">
-        <span class="hday">Пн-Пт:</span><span class="hopen">09:00 - 18:00</span>
-        <span class="hday">Сб:</span><span class="hopen">10:00 - 15:00</span>
-        <span class="hday">Нд:</span><span class="hclosed">Зачинено</span>
+        <span class="hday" id="f-day-wf">Пн-Пт:</span><span class="hopen">09:00 - 18:00</span>
+        <span class="hday" id="f-day-sat">Сб:</span><span class="hopen">10:00 - 15:00</span>
+        <span class="hday" id="f-day-sun">Нд:</span><span class="hclosed" id="f-closed">Зачинено</span>
       </div>
     </div>
   </div>
+  
   <div class="footer-bottom">
     <div>&copy; 2026 UAGZ. All rights reserved.</div>
     <div class="footer-flag-row">
-      <span>Разом для майбутнього</span>
+      <span id="f-together">Разом для майбутнього</span>
     </div>
   </div>
 </footer>

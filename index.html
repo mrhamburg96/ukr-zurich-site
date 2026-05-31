@@ -31,6 +31,50 @@ a{text-decoration:none;color:inherit}
 img{display:block;width:100%;height:100%;object-fit:cover}
 button{font-family:'Inter',sans-serif;cursor:pointer}
 
+/* ─── НАШИ НОВЫЕ СТИЛИ ДЛЯ ВЫПАДАЮЩИХ ОКОН ─── */
+.svc {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column !important; /* Текст выпадает строго вниз */
+  align-items: stretch !important;   
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Строка с иконкой, текстом и стрелочкой */
+.svc-main-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Маленькая стрелочка справа */
+.dir-arrow {
+  margin-left: auto;
+  font-size: 10px;
+  color: #a0aec0;
+  transition: transform 0.3s ease;
+}
+
+/* Скрытое описание (выпадающее окошко) */
+.dir-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.2s ease;
+  padding-top: 0;
+}
+
+.dir-desc p {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.4;
+  margin: 10px 0 5px 0;
+  padding-left: 34px; /* Текст встает вровень с заголовком */
+}
+/* ─────────────────────────────────────────── */
+
 /* ── FLAGS ─────────────────── */
 .flag-ua{display:flex;flex-direction:column;border-radius:3px;overflow:hidden;flex-shrink:0}
 .flag-ua .t{background:var(--blue);flex:1}

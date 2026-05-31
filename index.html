@@ -39,51 +39,10 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .flag-ch::before{content:'';position:absolute;background:#fff;width:56%;height:20%;top:50%;left:50%;transform:translate(-50%,-50%)}
 .flag-ch::after{content:'';position:absolute;background:#fff;width:20%;height:56%;top:50%;left:50%;transform:translate(-50%,-50%)}
 
-/* ── ICONS ─── */
-.icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-
-/* ── MODAL ──────────────────────────── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(17,24,39,0.55);z-index:600;align-items:center;justify-content:center;padding:1rem}
-.modal-overlay.open{display:flex}
-.modal{background:#fff;border-radius:16px;width:100%;max-width:460px;box-shadow:0 24px 64px rgba(0,0,0,0.18)}
-.modal-hd{background:linear-gradient(135deg,#0F3A8A,var(--blue));padding:1.25rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;border-radius:16px 16px 0 0}
-.modal-hd h2{color:#fff;font-size:1rem;font-weight:700}
-.modal-hd p{color:rgba(255,255,255,.7);font-size:11px;margin-top:2px}
-.modal-x{background:rgba(255,255,255,.15);border:none;color:#fff;width:26px;height:26px;border-radius:50%;font-size:14px;margin-left:.75rem;flex-shrink:0}
-.modal-x:hover{background:rgba(255,255,255,.28)}
-.modal-tabs{display:flex;border-bottom:1px solid var(--border)}
-.mtab{flex:1;padding:11px;text-align:center;font-size:13px;font-weight:600;color:var(--text3);border-bottom:2px solid transparent;cursor:pointer;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none}
-.mtab.on{color:var(--blue);border-bottom-color:var(--blue)}
-.mpanel{display:none;padding:1.25rem 1.5rem 1.5rem}
-.mpanel.on{display:block}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.fg{margin-bottom:.75rem}
-.fg label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:3px}
-.fg input{width:100%;border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:13px;font-family:inherit;outline:none;transition:border-color .15s}
-.fg input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,196,.08)}
-.cat-g{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.25rem}
-.cbt{border:1px solid var(--border);border-radius:8px;padding:8px 4px;text-align:center;cursor:pointer;font-size:10px;font-weight:600;color:var(--text2);background:#fff;transition:all .15s;line-height:1.3}
-.cbt:hover,.cbt.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.cbt .ce{font-size:17px;display:block;margin-bottom:2px}.cbt .ce-svg{display:block;margin:0 auto 4px;stroke:var(--blue)}.cbt.on .ce-svg{stroke:#fff}
-.divdr{text-align:center;font-size:11px;color:var(--text3);margin:.65rem 0;position:relative}
-.divdr::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
-.divdr span{background:#fff;padding:0 10px;position:relative}
-.soc{display:flex;gap:.5rem;margin-bottom:.5rem}
-.socbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border);border-radius:8px;padding:9px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;font-family:inherit}
-.socbtn:hover{background:var(--surface)}
-.fsub{width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:11px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
-.fsub:hover{background:var(--blue-dark)}
-.fnote{font-size:11px;color:var(--text3);text-align:center;margin-top:.6rem;line-height:1.5}
-.success{text-align:center;padding:.5rem 0 1rem}
-.success .si{font-size:2.8rem;margin-bottom:.6rem}
-.success h3{font-size:1rem;font-weight:700;margin-bottom:.35rem}
-.success p{font-size:13px;color:var(--text2)}
-
 /* ── NAV ────────────────────────────── */
 nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px;gap:.75rem}
 .nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
 .nav-logo-flags{display:flex;align-items:center;gap:4px}
-.logo-heart{color:var(--yellow);font-size:20px}
 .brand{font-size:14px;font-weight:700;color:var(--blue);line-height:1.1}
 .brand small{font-size:9px;color:var(--text3);font-weight:400;display:block}
 .nav-links{display:flex;gap:.1rem;list-style:none}
@@ -93,10 +52,6 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .lang-sw{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .lb{background:none;border:none;padding:4px 9px;font-size:11px;font-weight:700;color:var(--text3);cursor:pointer;transition:all .15s}
 .lb.on{background:var(--blue);color:#fff}
-.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700}
-.btn-outline:hover{background:var(--blue-light)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700}.btn-donate-nav{background:var(--yellow);color:#333;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-.btn-solid:hover{background:var(--blue-dark)}
 
 /* ── HERO ───────────────────────────── */
 .hero{position:relative;overflow:hidden;min-height:360px;background:#EBF2FF}
@@ -109,26 +64,23 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .hero-logo-sub{font-size:11px;color:var(--text3)}
 .hero h1{font-size:2.2rem;font-weight:800;color:#000000;line-height:1.15;margin-bottom:.75rem}
 .hero-sub{font-size:14px;color:#000000;font-weight:600;margin-bottom:1.5rem;line-height:1.7;text-shadow: 0 0 8px rgba(255,255,255,0.9)}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn-hero-main{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:700}
+.btn-hero-main{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:700;display:inline-block}
 .btn-hero-main:hover{background:var(--blue-dark)}
-.btn-hero-sec{background:#fff;color:var(--blue);border:1.5px solid var(--blue);border-radius:8px;padding:11px 22px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
-.btn-hero-sec:hover{background:var(--blue-light)}
 
-/* ── TG WIDGET (top-right) ─── */
+/* ── TG WIDGET ─── */
 .tg-widget{background:#fff;border-radius:14px;padding:1.1rem;box-shadow:0 8px 32px rgba(26,86,196,.12);width:220px;flex-shrink:0;align-self:flex-start}
 .tg-widget h4{font-size:12px;font-weight:700;color:var(--text);margin-bottom:.7rem;text-align:center}
 .tg-channel-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#229ED9;color:#fff;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:600;width:100%;margin-bottom:.6rem}
 .tg-qr{background:var(--surface);border-radius:8px;height:72px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3);border:1px solid var(--border)}
 .tg-note{font-size:9px;color:var(--text3);text-align:center;margin-top:.4rem}
 
-/* ── СТИЛИ ДЛЯ ИНТЕРАКТИВНЫХ ОКОН ПОМОЩИ (НОВАЯ СЕКТОРНАЯ СЕТКА) ─── */
+/* ── ИНТЕРАКТИВНЫЕ ОКНА ПОМОЩИ ─── */
 .dir-sec-new {padding:2rem 1.5rem; background:var(--surface); border-top:1px solid var(--border)}
 .dir-grid-new {display:grid; grid-template-columns:repeat(5, 1fr); gap:.7rem; margin-top: 1.25rem;}
 .dir-card-new {background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; cursor:pointer; transition:transform .18s, box-shadow .18s}
 .dir-card-new:hover, .dir-card-new.active {transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.09); border-color: var(--blue);}
 .dir-photo-new {height:150px; position:relative; overflow:hidden; background:#e8f1fd}
-.dir-photo-new img {width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .3s}
+.dir-photo-new img {width:100%; height:100%; object-fit:cover; transition:transform .3s}
 .dir-card-new:hover .dir-photo-new img {transform:scale(1.06)}
 .dir-ic-new {position:absolute; top:8px; left:8px; width:32px; height:32px; background:rgba(255,255,255,.92); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;}
 .dir-body-new {padding:.6rem .75rem .75rem}
@@ -141,7 +93,7 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .dir-details-text ul {list-style:none; padding-left:0}
 .dir-details-text ul li {position:relative; padding-left:15px; margin-bottom:4px; font-size:12px; color:#111827}
 .dir-details-text ul li::before {content:"•"; color:#1A56C4; position:absolute; left:0; font-weight:bold}
-.btn-dir-cta {background:#1A56C4; color:#fff; border:none; border-radius:8px; padding:10px 20px; font-size:12px; font-weight:700; text-decoration:none; transition:background .2s}
+.btn-dir-cta {background:#1A56C4; color:#fff; border:none; border-radius:8px; padding:10px 20px; font-size:12px; font-weight:700; text-decoration:none; transition:background .2s; display:inline-block}
 .btn-dir-cta:hover {background:#0F3A8A; color:#fff;}
 @keyframes fadeInDir { from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:translateY(0)} }
 
@@ -181,43 +133,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </head>
 <body>
 
-<!-- MODAL OVERLAY -->
-<div class="modal-overlay" id="mOverlay" onclick="if(event.target===this)mClose()">
-<div class="modal">
-  <div class="modal-hd">
-    <div><h2 id="mh-t">Приєднуйтесь до спільноти</h2><p id="mh-s">Реєстрація безкоштовна · Для українців у Швейцарії</p></div>
-    <button class="modal-x" onclick="mClose()">✕</button>
-  </div>
-  <div style="display:flex;border-bottom:1px solid var(--border)">
-    <button class="mtab on" id="tab-r" onclick="mTab('r')"><span id="t-reg">Реєстрація</span></button>
-    <button class="mtab" id="tab-l" onclick="mTab('l')"><span id="t-log">Вхід</span></button>
-  </div>
-  <div class="mpanel on" id="p-r">
-    <div id="reg-form">
-      <div class="frow">
-        <div class="fg"><label id="l-fn">Ім'я</label><input type="text" placeholder="Олена"></div>
-        <div class="fg"><label id="l-ln">Прізвище</label><input type="text" placeholder="Коваленко"></div>
-      </div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="email@example.com"></div>
-      <div class="fg"><label id="l-ph">Телефон (опційно)</label><input type="tel" placeholder="+41 79 000 00 00"></div>
-      <div class="fg"><label id="l-pw">Пароль</label><input type="password" placeholder="Мінімум 8 symbols"></div>
-      <div class="fg">
-        <label id="l-cat">Я — (оберіть категорію)</label>
-        <div class="cat-g">
-          <div class="cbt" onclick="pickCat(this)"><span id="c1">Новоприбул(-а)</span></div>
-          <div class="cbt" onclick="pickCat(this)"><span id="c2">Мама з дітьми</span></div>
-          <div class="cbt" onclick="pickCat(this)"><span id="c3">Волонтер</span></div>
-          <div class="cbt" onclick="pickCat(this)"><span id="c4">Шукаю роботу</span></div>
-          <div class="cbt" onclick="pickCat(this)"><span id="c5">Студент</span></div>
-          <div class="cbt" onclick="pickCat(this)"><span id="c6">Інше</span></div>
-        </div>
-      </div>
-      <button class="fsub" id="l-sub" onclick="doReg()">Зареєструватися</button>
-    </div>
-  </div>
-</div>
-</div>
-
 <!-- NAVIGATION -->
 <nav>
   <a class="nav-logo" href="./">
@@ -235,9 +150,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><a href="help.html" id="m-help">Допомога</a></li>
     <li><a href="events.html" id="m-events">Заходи</a></li>
   </ul>
-  <div class="lang-sw">
-    <button class="lb on" id="btn-ua" onclick="setLanguage('ua')">UA</button>
-    <button class="lb" id="btn-de" onclick="setLanguage('de')">DE</button>
+  <div class="nav-r">
+    <div class="lang-sw">
+      <button class="lb on" id="btn-ua" onclick="setLanguage('ua')">UA</button>
+      <button class="lb" id="btn-de" onclick="setLanguage('de')">DE</button>
+    </div>
   </div>
 </nav>
 
@@ -253,7 +170,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <span class="hero-logo-text">UAGZ</span>
         <span class="hero-logo-sub" id="h-badge">Офіційна NGO · Zürich</span>
       </div>
-      <h1 id="h-t">Український інтеграционный та громадський центр Цюриха</h1>
+      <h1 id="h-t">Український інтеграційний та громадський центр Цюриха</h1>
       <p class="hero-sub" id="h-s">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
       <div class="hero-btns">
         <a href="help.html" class="btn-hero-main" id="h-btn">Отримати допомогу</a>
@@ -295,7 +212,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <div class="dir-body-new"><h3 class="dir-title-new" id="d5-h">Дитячі програми</h3><p class="dir-desc-new" id="d5-p">Інтеграційні табори, творчі гуртки, психолог.</p></div>
     </div>
 
-    <!-- Информационная панель, которая открывается по клику -->
+    <!-- Информационная панель под сеткой карт -->
     <div class="dir-details-panel" id="dirDetailsPanel">
       <div class="dir-details-content">
         <div class="dir-details-text">
@@ -318,7 +235,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <div class="footer-logo">
         <div class="footer-logo-name">UAGZ</div>
       </div>
-      <p class="footer-desc" id="f-desc">Український інтеграційний та громадський центр Цюриха — некомерційна організація, що допомагає українцям адаптуватися до життя у Швейцарії.</p>
+      <p class="footer-desc" id="f-desc">Український інтеграційний та громадський центр Цюриха — некомерційна開放 організація, що допомагає українцям адаптуватися до життя у Швейцарії.</p>
       <p class="footer-addr">📍 Zürich, Switzerland</p>
     </div>
     <div class="fc">
@@ -426,7 +343,6 @@ function setLanguage(lang) {
 
 function toggleDirPanel(id, cardEl) {
   const panel = document.getElementById('dirDetailsPanel');
-  
   document.querySelectorAll('.dir-card-new').forEach(c => c.classList.remove('active'));
   
   if (activeDirId === id) {
@@ -453,22 +369,6 @@ function updatePanelContent(id) {
   });
   
   document.getElementById('panelBtn').innerText = data.btn;
-}
-
-function mClose() { document.getElementById('mOverlay').classList.remove('open'); }
-function mTab(t) {
-  document.getElementById('tab-r').classList.toggle('on', t === 'r');
-  document.getElementById('tab-l').classList.toggle('on', t === 'l');
-  document.getElementById('p-r').classList.toggle('on', t === 'r');
-  document.getElementById('p-l').classList.toggle('on', t === 'l');
-}
-function pickCat(el) {
-  document.querySelectorAll('.cbt').forEach(b => b.classList.remove('on'));
-  el.classList.add('on');
-}
-function doReg() {
-  document.getElementById('reg-form').style.display = 'none';
-  document.getElementById('reg-ok').style.display = 'block';
 }
 </script>
 </body>

@@ -458,16 +458,89 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <span>WhatsApp Group</span>
     </a>
   </div>
-  <div class="svc-row">
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><span id="s1">Гуманітарна допомога</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><span id="s2">Продукти</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><span id="s3">Інтеграція та консультації</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><span id="s4">Курси нім. мови</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><span id="s5">Допомога з документами</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><span id="s6">Пошук роботи</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><span id="s7">Події для дітей</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><span id="s8">Волонтерство</span></div>
-    <div class="svc"><div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span id="s9">Community support</span></div>
+ <div class="svc-row">
+    
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+        <span id="s1">Гуманітарна допомога</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c1-d">Продукти, одяг, засоби гігієни та інша адресна чи загальна підтримка для тих, хто цього потребує.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+        <span id="s2">Продукти</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c2-d">Регулярна видача та координація продуктових наборів і першочергових товарів побуту.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <span id="s3">Інтеграція та консультації</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c3-d">Перші кроки у Швейцарії, знайомство з місцевою культурою, законами та інтеграційні заходи.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 20V2h13.5v20H6.5A2.5 2.5 0 014 19.5z"/></svg></div>
+        <span id="s4">Курси нім. мови</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c4-d">Заняття з розмовної німецької мови різних рівнів під керівництвом досвідчених волонтерів.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <span id="s5">Допомога з документами</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c5-d">Допомога у заповненні офіційних бланків, анкет, перекладі листів та взаємодії із соціальними службами.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+        <span id="s6">Пошук роботи</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c6-d">Консультації щодо складання резюме (CV) за швейцарськими стандартами та пошуку актуальних вакансій.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <span id="s7">Події для дітей</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c7-d">Дитячі гуртки, майстер-класи, святкові зустрічі та розвиваючі ігри у безпечному колі однолітків.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <span id="s8">Волонтерство</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c8-d">Можливість долучитися до нашої команди, допомогти іншим та отримати корисний досвід у Швейцарії.</p></div>
+    </div>
+
+    <div class="svc" onclick="toggleDirCard(this)">
+      <div class="svc-main-info">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <span id="s9">Community support</span>
+        <span class="dir-arrow">▼</span>
+      </div>
+      <div class="dir-desc"><p id="c9-d">Дружні зустрічі, розмовні клуби, взаємопідтримка всередині громади та культурні вечори.</p></div>
+    </div>
+
   </div>
 </div>
 <!-- ═══════ HOW IT WORKS ══════════════════════════════ -->

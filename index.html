@@ -1114,12 +1114,10 @@ function setLang(lang) {
   for (let id in dict[lang]) {
     let el = document.getElementById(id);
     if (el) {
-      // ПРОВЕРКА: Если элемент — это поле ввода (input), переводим его подсказку
       if (el.tagName === 'INPUT') {
-        el.placeholder = dict[lang][id];
+        el.placeholder = dict[lang][id]; // Меняем подсказку для инпутов
       } else {
-        // Для всех остальных тегов переводим текст внутри
-        el.innerHTML = dict[lang][id];
+        el.innerHTML = dict[lang][id]; // Меняем текст для остальных тегов
       }
     }
   }
@@ -1128,7 +1126,6 @@ function setLang(lang) {
   document.querySelectorAll('[data-ua][data-de]').forEach(el => {
     let text = el.getAttribute('data-' + lang);
     if (text) {
-      // ПРОВЕРКА: Если дата-атрибут навешан на инпут, меняем placeholder
       if (el.tagName === 'INPUT') {
         el.placeholder = text;
       } else {
@@ -1137,9 +1134,10 @@ function setLang(lang) {
     }
   });
 
-  // 3. Подсветка активных кнопок переключателя языков
+  // 3. Исправлено: Подсветка активных кнопок через data-lang
   document.querySelectorAll('.lang-sw .lb').forEach(btn => {
-    if (btn.getAttribute('onclick').includes(lang) || (lang === 'ua' && btn.getAttribute('onclick').includes('uk'))) {
+    let btnLang = btn.getAttribute('data-lang');
+    if (btnLang === lang) {
       btn.classList.add('on');
     } else {
       btn.classList.remove('on');
@@ -1151,9 +1149,7 @@ function setLang(lang) {
 
 document.addEventListener("DOMContentLoaded", () => {
   let savedLang = localStorage.getItem('selectedLang') || 'ua';
-  
   if (savedLang === 'uk') savedLang = 'ua'; 
-  
   setLang(savedLang);
 });
 </script>

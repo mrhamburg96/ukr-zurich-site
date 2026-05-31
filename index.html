@@ -1131,6 +1131,41 @@ document.addEventListener("DOMContentLoaded", () => {
   let savedLang = localStorage.getItem('selectedLang') || 'ua';
   if (savedLang === 'uk') savedLang = 'ua'; 
   setLang(savedLang);
+  // Автоперевод верхнего ряда иконок по тексту
+const currentLang = lang; // или ваша переменная, которая хранит активный язык ('ua' или 'de')
+
+// Находим абсолютно все элементы на странице
+document.querySelectorAll('h1, h2, h3, h4, span, a, div').forEach(elem => {
+    const text = elem.textContent.trim();
+    
+    if (currentLang === 'de') {
+        // Если переключаем на немецкий:
+        if (text === 'Чим ми допомагаємо') elem.textContent = 'Wie wir helfen';
+        if (text === 'Дивитися всі послуги →') elem.textContent = 'Alle Angebote anzeigen →';
+        if (text === 'Гуманітарна допомога') elem.textContent = 'Humanitäre Hilfe';
+        if (text === 'Продукти') elem.textContent = 'Lebensmittel';
+        if (text === 'Інтеграція та консультації') elem.textContent = 'Integration & Anpassung';
+        if (text === 'Курси нім. мови') elem.textContent = 'Deutschkurse';
+        if (text === 'Допомога з документами') elem.textContent = 'Beratung & Dokumente';
+        if (text === 'Пошук роботи') elem.textContent = 'Jobsuche & Karriere';
+        if (text === 'Події для дітей') elem.textContent = 'Angebote für Kinder';
+        if (text === 'Волонтерство') elem.textContent = 'Freiwilligenarbeit';
+        if (text === 'Community support') elem.textContent = 'Kultur & Freizeit';
+    } else {
+        // Если возвращаем украинский:
+        if (text === 'Wie wir helfen') elem.textContent = 'Чим ми допомагаємо';
+        if (text === 'Alle Angebote anzeigen →') elem.textContent = 'Дивитися всі послуги →';
+        if (text === 'Humanitäre Hilfe') elem.textContent = 'Гуманітарна допомога';
+        if (text === 'Lebensmittel') elem.textContent = 'Продукти';
+        if (text === 'Integration & Anpassung') elem.textContent = 'Інтеграція та консультації';
+        if (text === 'Deutschkurse') elem.textContent = 'Курси нім. мови';
+        if (text === 'Beratung & Dokumente') elem.textContent = 'Допомога з документами';
+        if (text === 'Jobsuche & Karriere') elem.textContent = 'Пошук роботи';
+        if (text === 'Angebote für Kinder') elem.textContent = 'Події для дітей';
+        if (text === 'Freiwilligenarbeit') elem.textContent = 'Волонтерство';
+        if (text === 'Kultur & Freizeit') elem.textContent = 'Community support';
+    }
+});
 });
 </script>
 </body>

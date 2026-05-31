@@ -618,12 +618,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <div class="dir-cta-left">
       <div class="dir-cta-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
       <div>
-        <h4>Потрібна індивідуальна консультація?</h4>
-        <p>Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
+        <h4 id="cta-h">Потрібна індивідуальна консультація?</h4>
+        <p id="cta-p">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
       </div>
     </div>
     <div class="dir-cta-btns">
-      <a href="mailto:info@uagz.ch" class="btn-solid" style="text-decoration:none">Зв'язатися</a>
+      <a href="mailto:info@uagz.ch" class="btn-solid" id="cta-b" style="text-decoration:none">Зв'язатися</a>
     </div>
   </div>
 </section>
@@ -865,6 +865,25 @@ const dict = {
     "w6": "Студенти",
     "w7": "Люди в пошуку роботи",
     "w8": "Пенсіонери"
+    "dir-h1": "Чим ми допомагаємо",
+    "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
+    "ds1": "Людей отримали допомогу",
+    "ds2": "Волонтерів у спільноті",
+    "ds3": "Заходів щомісяця",
+    "ds4": "для українців у Цюриху",
+    "d1": "Гуманітарна допомога", "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
+    "d2": "Консультації та документи", "d2d": "Допомога з формами, заявами та офіційними листами.",
+    "d3": "Інтеграція та адаптація", "d3d": "Підтримка новоприбулих на кожному етапі.",
+    "d4": "Курси німецької мови", "d4d": "Безкоштовні та доступні курси для всіх рівнів.",
+    "d5": "Пошук роботи та кар'єра", "d5d": "Консультації, резюме, вакансії та контакти.",
+    "d6": "Житло та побутові питання", "d6d": "Пошук житла, реєстрація, страхування, рахунки.",
+    "d7": "Здоров'я та лікарі", "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
+    "d8": "Події для дітей", "d8d": "Творчі заняття, табори, свята та дитячі групи.",
+    "d9": "Волонтерство та участь", "d9d": "Долучайтеся та допомагайте разом із нами.",
+    "d10": "Культура та дозвілля", "d10d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
+    "cta-h": "Потрібна індивідуальна консультація?",
+    "cta-p": "Напишіть нам, і ми знайдемо відповідного спеціаліста.",
+    "cta-b": "Зв'язатися"
   },
   de: {
     "how-tag": "Wie es funktioniert",
@@ -984,6 +1003,25 @@ const dict = {
     "w6": "Studierende",
     "w7": "Arbeitssuchende",
     "w8": "Rentnerinnen & Rentner"
+    "dir-h1": "Wie wir helfen",
+    "dir-sub": "Wir unterstützen Sie täglich bei wichtigen Fragen.",
+    "ds1": "Menschen haben Hilfe erhalten",
+    "ds2": "Freiwillige in der Gemeinschaft",
+    "ds3": "Veranstaltungen monatlich",
+    "ds4": "für Ukrainer in Zürich",
+    "d1": "Humanitäre Hilfe", "d1d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
+    "d2": "Beratung & Dokumente", "d2d": "Hilfe beim Ausfüllen von Formularen, Anträgen und behördlichen Schreiben.",
+    "d3": "Integration & Anpassung", "d3d": "Unterstützung für Neuankömmlinge in jeder Phase.",
+    "d4": "Deutschkurse", "d4d": "Kostenlose und zugängliche Kurse für alle Niveaustufen.",
+    "d5": "Jobsuche & Karriere", "d5d": "Beratung, Lebenslauf-Erstellung, Stellenangebote und Kontakte.",
+    "d6": "Wohnen & Alltagsfragen", "d6d": "Wohnungssuche, Anmeldung, Krankenkassen und Rechnungen.",
+    "d7": "Gesundheit & Ärzte", "d7d": "Krankenversicherung, Arztsuche und medizinische Notfallhilfe.",
+    "d8": "Angebote für Kinder", "d8d": "Kreativkurse, Ferienlager, Feste und Kindergruppen.",
+    "d9": "Freiwilligenarbeit", "d9d": "Engagieren Sie sich und helfen Sie gemeinsam mit uns.",
+    "d10": "Kultur & Freizeit", "d10d": "Treffen, Interessenclubs und integrative Veranstaltungen.",
+    "cta-h": "Benötigen Sie eine individuelle Beratung?",
+    "cta-p": "Schreiben Sie uns und wir finden die passende Fachperson für Sie.",
+    "cta-b": "Kontakt aufnehmen"
   }
 };
 

@@ -47,11 +47,15 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .page-content{padding:4rem 0; max-width:850px; margin:0 auto;}
 .page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
 
-/* Стилі для нової статті */
+/* Стилі для зображень та статті */
 .about-p{color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem;}
 .about-h2{font-size:1.7rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; color:var(--blue-dark)}
-.img-wrap{margin:2rem 0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-.img-wrap img{width:100%; height:auto; display:block}
+
+.img-wrap{margin:2rem 0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08); background:#f4f4f4;}
+.img-wrap img{width:100%; height:450px; display:block; object-fit:cover;}
+/* Окреме налаштування для фото команди, щоб обличчя фокусувалися по центру */
+.img-wrap img.img-team{object-position:center 20%;}
+
 .img-caption{background:var(--surface); padding:12px; font-size:13px; color:var(--text2); text-align:center; border-top:1px solid var(--border)}
 .about-list{margin-bottom:1.5rem; padding-left:20px}
 .about-list li{margin-bottom:8px; color:var(--text2); font-size:1.05rem}
@@ -106,9 +110,9 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <p id="ab-p1" class="about-p"></p>
   <p id="ab-p2" class="about-p"></p>
 
-  <!-- Зображення 1: Команда -->
+  <!-- Зображення 1: Команда центру (Повне зображення з фокусом на обличчях) -->
   <div class="img-wrap">
-    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200&h=630" alt="UAGZ Team">
+    <img class="img-team" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" alt="UAGZ Team">
     <div id="ab-cap1" class="img-caption"></div>
   </div>
 
@@ -128,7 +132,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Зображення 2: Логістика продуктів -->
   <div class="img-wrap">
-    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1200&h=630" alt="Food Rescue">
+    <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=1200" alt="Food Rescue Logistics">
     <div id="ab-cap2" class="img-caption"></div>
   </div>
 
@@ -146,7 +150,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Зображення 3: Мовні курси / Інтеграція -->
   <div class="img-wrap">
-    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200&h=630" alt="Integration Support">
+    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" alt="Integration Support & Learning">
     <div id="ab-cap3" class="img-caption"></div>
   </div>
 
@@ -237,7 +241,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "s9": "Community support",
     "how-tag": "Як це працює",
     "how-h1": "Просто. Швидко. Людяно.",
-    "how-sub": "Ми зробили процес отримання допомоги максимально простим і зрозумілим.",
+    "how-sub": "Ми зробили процес отримання допомоги максимально простом і зрозумілим.",
     "st1-h": "Подайте заявку",
     "st1-p": "Заповніть просту форму на сайті — це займе лише кілька хвилин.",
     "st2-h": "Ми зв'яжемося з вами",
@@ -321,7 +325,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "d10": "Community підтримка",
     "d10d": "Моральна підтримка, зустрічі, клуби та дружнє середовище.",
     "cta-row-h": "Не знаєте, з чого почати?",
-    "cta-row-p": "Напишіть нам — ми підкажемо, як можемо допомогти саме вам.",
+    "cta-row-p": "Напишіть нам — ми підкажемо, як можем допомогти саме вам.",
     "cta-row-btn": "Отримати допомогу",
     "cta1h": "Долучайтеся до спільноти!",
     "cta1p": "Станьте частиною української громади у Цюриху.",
@@ -356,7 +360,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "f-location": "Цюрих, Швейцарія",
     "f-copy": "Зроблено з ❤️ для українців у Швейцарії · © 2026 UAGZ. All rights reserved.",
     
-    /* Нові додані тексти без видалення старих */
+    /* Нові додані тексти без видаления старих */
     "ab-title": "Хто ми: Про проєкт Ukrainisches Integrations- und Sozialzentrum Zürich (UISZ)",
     "ab-p1": "У самому серці Цюриха, об'єднуючи зусилля української громади та релігійних мереж, створюється нова сторінка підтримки — Ukrainisches Integrations- und Sozialzentrum Zürich (скорочено UISZ або Ukrainisches Zentrum Zürich).",
     "ab-p2": "Ми є незалежною неприбутковою організацією, що створюється у юридичній формі gemeinnütziger Verein (благодійна асоціація за швейцарським законодавством). Наша мета — побудувати стабільний, прозорий та ефективний місток між швейцарським суспільством та українцями, які знайшли тут тимчасовий притулок або потребують допомоги.",
@@ -376,9 +380,9 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "ab-g2": "Головною платформою інтеграції та адаптації.",
     "ab-g3": "Осередком взаємодопомоги та солідарності.",
     "ab-g4": "Гуманітарним та соціальним хабом (Hub) у місті Zürich.",
-    "ab-cap3": "Інтеграція починається зі спілкування, вивчення мови та спільної роботи",
+    "ab-cap3": "Integration починається зі спілкування, вивчення мови та спільної роботи",
     "ab-h2-4": "Новий рівень: Статус Gemeinnützigkeit",
-    "ab-p7": "Сьогодні ми активно працюємо над отриманням офіційного швейцарського статусу Gemeinnützigkeit (суспільна корисність / благодійність). Це відкриє для нашої організації принципово нові можливості: офіційно приймати донати (donations), вести некомерційний прозорий облік (NGO accounting), отримувати податкові пільги для партнерів, діяти як повністю визнана організація (recognized NGO), подаватися на великі міські гранти, розширювати мережі безкоштовних курсів та ефективно співпрацювати з містом Zürich, локальними NGO та релігійними мережами (church networks).",
+    "ab-p7": "Сьогодні мы активно працюємо над отриманням офіційного швейцарського статусу Gemeinnützigkeit (суспільна корисність / благодійність). Це відкриє для нашої організації принципово нові можливості: офіційно приймати донати (donations), вести некомерційний прозорий облік (NGO accounting), отримувати податкові пільги для партнерів, діяти як повністю визнана організація (recognized NGO), подаватися на великі міські гранти, розширювати мережі безкоштовних курсів та ефективно співпрацювати з містом Zürich, локальними NGO та релігійними мережами (church networks).",
     "ab-quote": "Символічним стартом та точкою відліку для нашої концепції став день <strong>24 травня 2026 року (Божа Неділя)</strong>. Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру. Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.",
     "ab-p8": "Запрошуємо до співпраці волонтерів, представників бізнесу та партнерських організацій! Разом ми сильніші."
   },
@@ -569,7 +573,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     /* Нові додані німецькі тексти */
     "ab-title": "Über uns: Das Projekt Ukrainisches Integrations- und Sozialzentrum Zürich (UISZ)",
     "ab-p1": "Im Herzen von Zürich entsteht durch die Bündelung der Kräfte der ukrainischen Gemeinschaft und kirchlicher Netzwerke ein neues Kapitel der Unterstützung — das Ukrainische Integrations- und Sozialzentrum Zürich (kurz UISZ oder Ukrainisches Zentrum Zürich).",
-    "ab-p2": "Wir sind eine unabhängige gemeinnützige Organisation, die in der Rechtsform eines gemeinnützigen Vereins (nach schweizerischem Recht) gegründet wird. Unser Ziel ist es, eine stabile, transparente und effiziente Brücke zwischen der Schweizer Gesellschaft und den Ukrainern zu schlagen, die hier Zuflucht gefunden haben oder Unterstützung benötigen.",
+    "ab-p2": "Wir sind eine unabhängige gemeinnötige Organisation, die in der Rechtsform eines gemeinnützigen Vereins (nach schweizerischem Recht) gegründet wird. Unser Ziel ist es, eine stabile, transparente und effiziente Brücke zwischen der Schweizer Gesellschaft und den Ukrainern zu schlagen, die hier Zuflucht gefunden haben oder Unterstützung benötigen.",
     "ab-cap1": "UISZ — Ein Raum des Vertrauens, der Entwicklung und der Zusammenarbeit in Zürich",
     "ab-h2-1": "Unsere Mission und Werte",
     "ab-p3": "Die Schweiz hat Tausende von ukrainischen Familien herzlich aufgenommen, aber der Weg der Integration, des Spracherwerbs und der Anpassung an neue rechtliche und soziale Realitäten erfordert kontinuierliche Unterstützung. Das UISZ ist nicht nur ein Büro oder eine Ausgabestelle für Hilfe. Es ist ein Raum, in dem Schweizer Erfahrung in der Sozialarbeit mit ukrainischer Resilienz, gegenseitiger Hilfe und Kultur verbunden wird.",

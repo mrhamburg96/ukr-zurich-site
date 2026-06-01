@@ -54,8 +54,8 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .img-wrap{margin:2rem 0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08); background:#f4f4f4;}
 .img-wrap img{width:100%; height:450px; display:block; object-fit:cover;}
 
-/* Фикс: выравнивание по верхнему краю (top), чтобы головы людей не обрезались */
-.img-wrap img.img-team{object-position:center top;}
+/* Фикс: выравнивание по верхнему краю (top) для команды и логистики */
+.img-wrap img.img-team, .img-wrap img {object-position: center top;}
 
 .img-caption{background:var(--surface); padding:12px; font-size:13px; color:var(--text2); text-align:center; border-top:1px solid var(--border)}
 .about-list{margin-bottom:1.5rem; padding-left:20px}

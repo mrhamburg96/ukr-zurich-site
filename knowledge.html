@@ -43,10 +43,62 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .page-content{padding:4rem 0}
 .page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
 .grid-knowledge{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin-top:2rem}
-.card{border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;background:#fff;transition:transform 0.2s, box-shadow 0.2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 10px 15px -3px rgba(0,0,0,0.05)}
-.card h3{color:var(--blue);margin-bottom:0.75rem;font-size:1.2rem}
-.card a{color:var(--blue);display:inline-block;margin-top:1rem;font-weight:600}
+
+/* Оновлені стилі для карток з картинками */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+.card-image-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.card-content h3 {
+  color: var(--blue-dark);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.card-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+.read-more-link {
+  color: var(--blue);
+  display: inline-block;
+  font-weight: 600;
+  transition: color 0.2s, transform 0.2s;
+  align-self: flex-start;
+}
+.read-more-link:hover {
+  color: var(--blue-dark);
+  transform: translateX(4px);
+}
 
 /* Подвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
@@ -69,7 +121,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <li><a href="about.html" id="m-about">Про нас</a></li>
   <li><a href="help.html" id="m-help">Допомога</a></li>
   <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
+  <li><a href="knowledge.html" class="active" id="m-knowledge">Knowledge Center</a></li>
   <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
   <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
   <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
@@ -87,25 +139,43 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 <main class="container page-content">
   <h1 class="page-title" id="kn-title">Knowledge Center</h1>
-  <p id="kn-sub" style="color:var(--text2); font-size:1.1rem; max-width:700px;">Корисні інструкции, посилання та гайди про життя та інтеграцію у Швейцарії.</p>
+  <p id="kn-sub" style="color:var(--text2); font-size:1.1rem; max-width:700px;">Корисні інструкции, посилання та гайди про життя та інтеграцію у原始Швейцарії.</p>
   
   <div class="grid-knowledge">
+    <!-- Картка 1: Статус S -->
     <div class="card">
-      <div class="card">
-  <h3 id="kn-card1-h">ℹ️ Все про статус S у 2026 році</h3>
-  <p id="kn-card1-p" style="color:var(--text2)">Права, обов'язки, продовження дозволу на проживання та актуальні правила перебування.</p>
-  <!-- Фікс: Замінено "#" на назву нашого нового файлу "status-s.html" -->
-  <a href="status-s.html" id="kn-card1-a">Читати далі →</a>
-</div>
-    <div class="card">
-      <h3 id="kn-card2-h">💼 Як знайти роботу в Цюриху</h3>
-      <p id="kn-card2-p" style="color:var(--text2)">Складання резюме (CV) за швейцарскими стандартами, локальні сайти вакансій та дозвіл на роботу.</p>
-      <a href="#" id="kn-card2-a">Читати далі →</a>
+      <div class="card-image-wrap">
+        <img src="https://images.pexels.com/photos/4814061/pexels-photo-4814061.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Status S Switzerland">
+      </div>
+      <div class="card-content">
+        <h3 id="kn-card1-h">Все про статус S у 2026 році</h3>
+        <p id="kn-card1-p" style="color:var(--text2)">Права, обов'язки, продовження дозволу на проживання та актуальні правила перебування.</p>
+        <a href="status-s.html" id="kn-card1-a" class="read-more-link">Читати далі →</a>
+      </div>
     </div>
+
+    <!-- Картка 2: Пошук роботи -->
     <div class="card">
-      <h3 id="kn-card3-h">🏥 Медична система: Інструкція</h3>
-      <p id="kn-card3-p" style="color:var(--text2)">Як працює медична страховка (Krankenkasse), як знайти сімейного лікаря та куди звертатися у екстрених випадках.</p>
-      <a href="#" id="kn-card3-a">Читати далі →</a>
+      <div class="card-image-wrap">
+        <img src="https://images.pexels.com/photos/7005615/pexels-photo-7005615.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Job Search Zurich">
+      </div>
+      <div class="card-content">
+        <h3 id="kn-card2-h">Як знайти роботу в Цюриху</h3>
+        <p id="kn-card2-p" style="color:var(--text2)">Складання резюме (CV) за швейцарськими стандартами, локальні сайти вакансій та дозвіл на роботу.</p>
+        <a href="find-job.html" id="kn-card2-a" class="read-more-link">Читати далі →</a>
+      </div>
+    </div>
+
+    <!-- Картка 3: Медична система -->
+    <div class="card">
+      <div class="card-image-wrap">
+        <img src="https://images.pexels.com/photos/4056865/pexels-photo-4056865.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Medical System Switzerland">
+      </div>
+      <div class="card-content">
+        <h3 id="kn-card3-h">Медична система: Інструкція</h3>
+        <p id="kn-card3-p" style="color:var(--text2)">Як працює медична страховка (Krankenkasse), як знайти сімейного лікаря та куди звертатися у екстрених випадках.</p>
+        <a href="medical-guide.html" id="kn-card3-a" class="read-more-link">Читати далі →</a>
+      </div>
     </div>
   </div>
 </main>
@@ -128,19 +198,19 @@ const T = {
   ua: {
     "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     "kn-title": "Knowledge Center",
-    "kn-sub": "Корисні інструкции, посилання та гайди про життя та інтеграцію у Швейцарії.",
-    "kn-card1-h": "ℹ️ Все про статус S у 2026 році", "kn-card1-p": "Права, обов'язки, продовження дозволу на проживання та актуальні правила перебування.", "kn-card1-a": "Читати далі →",
-    "kn-card2-h": "💼 Як знайти роботу в Цюриху", "kn-card2-p": "Складання резюме (CV) за швейцарскими стандартами, локальні сайти вакансій та дозвіл на роботу.", "kn-card2-a": "Читати далі →",
-    "kn-card3-h": "🏥 Медична система: Інструкція", "kn-card3-p": "Як працює медична страховка (Krankenkasse), як знайти сімейного лікаря та куди звертатися у екстрених випадках.", "kn-card3-a": "Читати далі →",
+    "kn-sub": "Корисні інструкції, посилання та гайди про життя та інтеграцію у Швейцарії.",
+    "kn-card1-h": "Все про статус S у 2026 році", "kn-card1-p": "Права, обов'язки, продовження дозволу на проживання та актуальні правила перебування.", "kn-card1-a": "Читати далі →",
+    "kn-card2-h": "Як знайти роботу в Цюриху", "kn-card2-p": "Складання резюме (CV) за швейцарськими стандартами, локальні сайти вакансій та дозвіл на роботу.", "kn-card2-a": "Читати далі →",
+    "kn-card3-h": "Медична система: Інструкція", "kn-card3-p": "Як працює медична страховка (Krankenkasse), як знайти сімейного лікаря та куди звертатися у екстрених випадках.", "kn-card3-a": "Читати далі →",
     "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
   },
   de: {
     "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
     "kn-title": "Knowledge Center",
     "kn-sub": "Nützliche Leitfäden, Links und Anleitungen zum Leben und zur Integration in der Schweiz.",
-    "kn-card1-h": "ℹ️ Alles zum Schutzstatus S im Jahr 2026", "kn-card1-p": "Rechte, Pflichten, Verlängerung der Aufenthaltsbewilligung und aktuelle Regeln.", "kn-card1-a": "Weiterlesen →",
-    "kn-card2-h": "💼 Jobsuche in Zürich", "kn-card2-p": "Erstellung eines Lebenslaufs nach Schweizer Standards, lokale Stellenbörsen und Arbeitsbewilligung.", "kn-card2-a": "Weiterlesen →",
-    "kn-card3-h": "🏥 Gesundheitssystem: Leitfaden", "kn-card3-p": "Wie die Krankenkasse funktioniert, wie man einen Hausarzt findet und wohin man sich im Notfall wendet.", "kn-card3-a": "Weiterlesen →",
+    "kn-card1-h": "Alles zum Schutzstatus S im Jahr 2026", "kn-card1-p": "Rechte, Pflichten, Verlängerung der Aufenthaltsbewilligung und aktuelle Regeln.", "kn-card1-a": "Weiterlesen →",
+    "kn-card2-h": "Jobsuche in Zürich", "kn-card2-p": "Erstellung eines Lebenslaufs nach Schweizer Standards, lokale Stellenbörsen und Arbeitsbewilligung.", "kn-card2-a": "Weiterlesen →",
+    "kn-card3-h": "Gesundheitssystem: Leitfaden", "kn-card3-p": "Wie die Krankenkasse funktioniert, wie man einen Hausarzt findet und wohin man sich im Notfall wendet.", "kn-card3-a": "Weiterlesen →",
     "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
   }
 };

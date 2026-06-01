@@ -44,8 +44,23 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
 
 /* Контент */
-.page-content{padding:4rem 0}
+.page-content{padding:4rem 0; max-width:850px; margin:0 auto;}
 .page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
+
+/* Стилі для нової статті */
+.about-p{color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem;}
+.about-h2{font-size:1.7rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; color:var(--blue-dark)}
+.img-wrap{margin:2rem 0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.img-wrap img{width:100%; height:auto; display:block}
+.img-caption{background:var(--surface); padding:12px; font-size:13px; color:var(--text2); text-align:center; border-top:1px solid var(--border)}
+.about-list{margin-bottom:1.5rem; padding-left:20px}
+.about-list li{margin-bottom:8px; color:var(--text2); font-size:1.05rem}
+.goals-box{background:var(--blue-light); padding:20px; border-radius:8px; margin-bottom:2rem}
+.goals-list{list-style:none}
+.goals-list li{margin-bottom:10px; color:var(--text); font-weight:500; font-size:1.05rem}
+.goals-list li::before{content:"➔"; color:var(--blue); font-weight:bold; margin-right:10px}
+.goals-list li:last-child{margin-bottom:0}
+.about-quote{border-left:4px solid #F5C518; background:#FFFBEA; padding:15px; margin:2rem 0; border-radius:0 8px 8px 0; font-style:italic; font-size:1.05rem}
 
 /* Подвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
@@ -88,8 +103,59 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 <main class="container page-content">
   <h1 id="ab-title" class="page-title">Про наш centre</h1>
-  <p id="ab-p1" style="color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem; max-width:800px;">Український інтеграційний та громадський центр Цюриха (UAGZ) створений для підтримки українців, які опинилися у Швейцарії. Ми допомагаємо з адаптацією, вивченням мови, юридичними питаннями та організовуємо культурні й освітні події.</p>
-  <p id="ab-p2" style="color:var(--text2); font-size:1.1rem; max-width:800px;">Тут ви можете написати більш детальну історію центру, розповісти про команду, ваші цінності та цілі.</p>
+  <p id="ab-p1" class="about-p"></p>
+  <p id="ab-p2" class="about-p"></p>
+
+  <!-- Зображення 1: Команда -->
+  <div class="img-wrap">
+    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200&h=630" alt="UAGZ Team">
+    <div id="ab-cap1" class="img-caption"></div>
+  </div>
+
+  <h2 id="ab-h2-1" class="about-h2"></h2>
+  <p id="ab-p3" class="about-p"></p>
+
+  <h2 id="ab-h2-2" class="about-h2"></h2>
+  <p id="ab-p4" class="about-p"></p>
+  
+  <ul class="about-list">
+    <li id="ab-li1"></li>
+    <li id="ab-li2"></li>
+    <li id="ab-li3"></li>
+  </ul>
+  
+  <p id="ab-p5" class="about-p"></p>
+
+  <!-- Зображення 2: Логістика продуктів -->
+  <div class="img-wrap">
+    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1200&h=630" alt="Food Rescue">
+    <div id="ab-cap2" class="img-caption"></div>
+  </div>
+
+  <h2 id="ab-h2-3" class="about-h2"></h2>
+  <p id="ab-p6" class="about-p"></p>
+  
+  <div class="goals-box">
+    <ul class="goals-list">
+      <li id="ab-g1"></li>
+      <li id="ab-g2"></li>
+      <li id="ab-g3"></li>
+      <li id="ab-g4"></li>
+    </ul>
+  </div>
+
+  <!-- Зображення 3: Мовні курси / Інтеграція -->
+  <div class="img-wrap">
+    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200&h=630" alt="Integration Support">
+    <div id="ab-cap3" class="img-caption"></div>
+  </div>
+
+  <h2 id="ab-h2-4" class="about-h2"></h2>
+  <p id="ab-p7" class="about-p"></p>
+
+  <div id="ab-quote" class="about-quote"></div>
+  
+  <p id="ab-p8" style="font-size: 1.1rem; font-weight: 600; text-align: center; margin-top: 2rem; color: var(--blue);"></p>
 </main>
 
 <footer>
@@ -118,9 +184,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "m-donate": "❤️ Донат",
     "m-contacts": "Контакти",
     "nav-sub": "Український інтеграційний та громадський центр Цюриха",
-    "ab-title": "Про наш центр",
-    "ab-p1": "Український інтеграційний та громадський центр Цюриха (UAGZ) створений для підтримки українців, які опинилися у Швейцарії. Ми допомагаємо з адаптацією, вивченням мови, юридичними питаннями та організовуємо культурні й освітні події.",
-    "ab-p2": "Тут ви можете написати більш детальну історію центру, розповісти про команду, ваші цінності та цілі.",
     "nl-1": "Головна",
     "nl-2": "Про центр",
     "nl-3": "Допомога",
@@ -291,8 +354,33 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "f-privacy": "Datenschutz",
     "f-terms": "Terms of Use",
     "f-location": "Цюрих, Швейцарія",
-    "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "f-copy": "Зроблено з ❤️ для українців у Швейцарії · © 2026 UAGZ. All rights reserved."
+    "f-copy": "Зроблено з ❤️ для українців у Швейцарії · © 2026 UAGZ. All rights reserved.",
+    
+    /* Нові додані тексти без видалення старих */
+    "ab-title": "Хто ми: Про проєкт Ukrainisches Integrations- und Sozialzentrum Zürich (UISZ)",
+    "ab-p1": "У самому серці Цюриха, об'єднуючи зусилля української громади та релігійних мереж, створюється нова сторінка підтримки — Ukrainisches Integrations- und Sozialzentrum Zürich (скорочено UISZ або Ukrainisches Zentrum Zürich).",
+    "ab-p2": "Ми є незалежною неприбутковою організацією, що створюється у юридичній формі gemeinnütziger Verein (благодійна асоціація за швейцарським законодавством). Наша мета — побудувати стабільний, прозорий та ефективний місток між швейцарським суспільством та українцями, які знайшли тут тимчасовий притулок або потребують допомоги.",
+    "ab-cap1": "UISZ — простір довіри, розвитку та взаємодії в Цюриху",
+    "ab-h2-1": "Наша місія та цінності",
+    "ab-p3": "Швейцарія тепло прийняла тисячі українських родин, але шлях інтеграції, вивчення мови та адаптації до нових юридичних і соціальних реалій вимагає постійної підтримки. UISZ — це не просто офіс чи пункт видачі допомоги. Це простір, де швейцарський досвід соціальної роботи поєднується з українською незламністю, взаємодопомогою та культурою.",
+    "ab-h2-2": "Модель роботи: Найкращий швейцарський досвід",
+    "ab-p4": "Ми не вигадуємо велосипед — ми беремо найкращі, перевірені десятиліттями швейцарські практики соціальної допомоги та адаптуємо їх під потреби нашої громади. У своїй діяльності ми надихаємося та орієнтуємося на стандарти таких відомих інституцій, як:",
+    "ab-li1": "<strong>Buchegg Social Works</strong> (системна соціальна робота та підтримка особистості);",
+    "ab-li2": "<strong>Caritas</strong> (глибока гуманітарна та юридична експертиза);",
+    "ab-li3": "<strong>Schweizer Tafel</strong> та <strong>Tischlein deck dich</strong> (професійний порятунок продуктів та логістика продовольчої допомоги).",
+    "ab-p5": "Одним із ключових напрямків UISZ є запуск масштабної системи Food Distribution (рятування та дистрибуція продуктів). Це екологічна та соціальна місія. Ланцюжок постачання працює злагоджено: непродані якісні продукти з великих супермаркетів (Migros / Coop / Lidl / Aldi) потрапляють до наших Food Rescue партнерів, сортуються волонтерами в нашому центрі та оперативно видаються українській громаді та людям у потребі. Це дозволяє зменшувати кількість харчових відходів у кантоні та забезпечувати родини якісним харчуванням.",
+    "ab-cap2": "Прозорий ланцюжок логістики: від порятунку якісних продуктів до підтримки родин",
+    "ab-h2-3": "Стратегічні цілі: Куди ми рухаємося?",
+    "ab-p6": "Організація створюється із чітким баченням майбутнього. Наша мета — вже через 1 рік стати:",
+    "ab-g1": "Центром української community in Zürich №1 — головним місцем зустрічі та сили.",
+    "ab-g2": "Головною платформою інтеграції та адаптації.",
+    "ab-g3": "Осередком взаємодопомоги та солідарності.",
+    "ab-g4": "Гуманітарним та соціальним хабом (Hub) у місті Zürich.",
+    "ab-cap3": "Інтеграція починається зі спілкування, вивчення мови та спільної роботи",
+    "ab-h2-4": "Новий рівень: Статус Gemeinnützigkeit",
+    "ab-p7": "Сьогодні ми активно працюємо над отриманням офіційного швейцарського статусу Gemeinnützigkeit (суспільна корисність / благодійність). Це відкриє для нашої організації принципово нові можливості: офіційно приймати донати (donations), вести некомерційний прозорий облік (NGO accounting), отримувати податкові пільги для партнерів, діяти як повністю визнана організація (recognized NGO), подаватися на великі міські гранти, розширювати мережі безкоштовних курсів та ефективно співпрацювати з містом Zürich, локальними NGO та релігійними мережами (church networks).",
+    "ab-quote": "Символічним стартом та точкою відліку для нашої концепції став день <strong>24 травня 2026 року (Божа Неділя)</strong>. Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру. Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.",
+    "ab-p8": "Запрошуємо до співпраці волонтерів, представників бізнесу та партнерських організацій! Разом ми сильніші."
   },
   de: {
     "m-home": "Startseite",
@@ -305,9 +393,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "m-donate": "❤️ Donate",
     "m-contacts": "Kontakte",
     "nav-sub": "Unterstützungs- und Integrationszentrum",
-    "ab-title": "Über unser Zentrum",
-    "ab-p1": "Das Ukrainische Unterstützungs- und Integrationszentrum Zürich (UAGZ) wurde ins Leben gerufen, um Ukrainerinnen und Ukrainer in der Schweiz zu unterstützen. Wir helfen bei der sozialen Anpassung, dem Spracherwerb, rechtlichen Fragen und organisieren kulturelle sowie bildende Veranstaltungen.",
-    "ab-p2": "Hier können Sie eine detailliertere Geschichte des Zentrums verfassen, über das Team berichten sowie Ihre Werte und Ziele vorstellen.",
     "nl-1": "Startseite",
     "nl-2": "Über uns",
     "nl-3": "Hilfe",
@@ -479,7 +564,33 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "f-terms": "Nutzungsbedingungen",
     "f-location": "Zürich, Schweiz",
     "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "f-copy": "Mit ❤️ hergestellt für Ukrainer in der Schweiz · © 2026 UAGZ. All rights reserved."
+    "f-copy": "Mit ❤️ hergestellt für Ukrainer in der Schweiz · © 2026 UAGZ. All rights reserved.",
+
+    /* Нові додані німецькі тексти */
+    "ab-title": "Über uns: Das Projekt Ukrainisches Integrations- und Sozialzentrum Zürich (UISZ)",
+    "ab-p1": "Im Herzen von Zürich entsteht durch die Bündelung der Kräfte der ukrainischen Gemeinschaft und kirchlicher Netzwerke ein neues Kapitel der Unterstützung — das Ukrainische Integrations- und Sozialzentrum Zürich (kurz UISZ oder Ukrainisches Zentrum Zürich).",
+    "ab-p2": "Wir sind eine unabhängige gemeinnützige Organisation, die in der Rechtsform eines gemeinnützigen Vereins (nach schweizerischem Recht) gegründet wird. Unser Ziel ist es, eine stabile, transparente und effiziente Brücke zwischen der Schweizer Gesellschaft und den Ukrainern zu schlagen, die hier Zuflucht gefunden haben oder Unterstützung benötigen.",
+    "ab-cap1": "UISZ — Ein Raum des Vertrauens, der Entwicklung und der Zusammenarbeit in Zürich",
+    "ab-h2-1": "Unsere Mission und Werte",
+    "ab-p3": "Die Schweiz hat Tausende von ukrainischen Familien herzlich aufgenommen, aber der Weg der Integration, des Spracherwerbs und der Anpassung an neue rechtliche und soziale Realitäten erfordert kontinuierliche Unterstützung. Das UISZ ist nicht nur ein Büro oder eine Ausgabestelle für Hilfe. Es ist ein Raum, in dem Schweizer Erfahrung in der Sozialarbeit mit ukrainischer Resilienz, gegenseitiger Hilfe und Kultur verbunden wird.",
+    "ab-h2-2": "Arbeitsmodell: Beste Schweizer Praktiken",
+    "ab-p4": "Wir erfinden das Rad nicht neu — wir übernehmen die besten, jahrzehntelang bewährten Schweizer Praktiken der sozialen Unterstützung und passen sie an die Bedürfnisse unserer Gemeinschaft an. In unserer Arbeit orientieren wir uns an den Standards bekannter Institutionen wie:",
+    "ab-li1": "<strong>Buchegg Social Works</strong> (systematische Sozialarbeit und persönliche Unterstützung);",
+    "ab-li2": "<strong>Caritas</strong> (tiefe humanitäre und rechtliche Expertise);",
+    "ab-li3": "<strong>Schweizer Tafel</strong> und <strong>Tischlein deck dich</strong> (professionelle Lebensmittelrettung und Logistik).",
+    "ab-p5": "Einer der Kernbereiche des UISZ ist der Aufbau eines umfassenden Food Distribution Systems (Lebensmittelrettung und -verteilung). Dies ist eine ökologische und soziale Mission. Die Lieferkette funktioniert reibungslos: Unverkaufte, qualitativ hochwertige Lebensmittel aus grossen Supermärkten (Migros / Coop / Lidl / Aldi) gehen an unsere Food Rescue Partner, werden von Freiwilligen in unserem Zentrum sortiert und zeitnah an die ukrainische Gemeinschaft und Bedürftige verteilt. Dies reduziert Food Waste im Kanton und sichert Familien hochwertige Nahrungsmittel.",
+    "ab-cap2": "Transparente Logistikkette: Von der Rettung hochwertiger Lebensmittel bis zur Unterstützung von Familien",
+    "ab-h2-3": "Strategische Ziele: Wohin gehen wir?",
+    "ab-p6": "Die Organisation wird mit einer klaren Vision für die Zukunft gegründet. Unser Ziel ist es, bereits nach einem Jahr Folgendes zu werden:",
+    "ab-g1": "Das ukrainische Gemeinschaftszentrum in Zürich Nr. 1 — der Hauptort für Begegnung und Kraft.",
+    "ab-g2": "Die wichtigste Plattform für Integration und Anpassung.",
+    "ab-g3": "Ein Zentrum der gegenseitigen Hilfe und Solidarität.",
+    "ab-g4": "Ein humanitärer und sozialer Hub in der Stadt Zürich.",
+    "ab-cap3": "Integration beginnt mit Kommunikation, Spracherwerb und gemeinsamer Arbeit",
+    "ab-h2-4": "Nächste Stufe: Status der Gemeinnützigkeit",
+    "ab-p7": "Heute arbeiten wir aktiv an der Erlangung des offiziellen Schweizer Status der Gemeinnützigkeit. Dies wird unserer Organisation völlig neue Möglichkeiten eröffnen: offizielle Spenden (donations) entgegenzunehmen, eine transparente NGO-Buchhaltung zu führen, Steuervergünstigungen für Partner zu erhalten, als anerkannte NGO (recognized NGO) zu agieren, städtische Fördergelder zu beantragen, kostenlose Kurse auszubauen und effektiv mit der Stadt Zürich, lokalen NGOs und kirchlichen Netzwerken (church networks) zusammenzuarbeiten.",
+    "ab-quote": "Der symbolische Start und Bezugspunkt für unser Konzept war der <strong>24. Mai 2026 (Zionssonntag)</strong>. An diesem Tag wurden die Vision, die Mission und der langfristige Entwicklungsplan unseres Zentrums endgültig festgelegt. Wir glauben, dass diese Arbeit gesegnet ist, und jeder Beitrag einen Baustein in die Zukunft unserer Gemeinschaft legt.",
+    "ab-p8": "Wir laden Freiwillige, Wirtschaftsvertreter und Partnerorganisationen zur Zusammenarbeit ein! Gemeinsam sind wir stärker."
   }
 };
 

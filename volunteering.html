@@ -42,19 +42,19 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 /* Контент */
 .page-content{padding:3rem 0; max-width:850px; margin:0 auto;}
 
-/* Исправленные стили для квадратного баннера 1024х1024 */
+/* Баннер проекту */
 .volunteers-banner {
   width: 100%;
-  max-width: 450px; /* Ограничиваем ширину квадрата на больших экранах */
-  aspect-ratio: 1 / 1; /* Жестко сохраняет пропорции квадрата 1:1 */
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius);
-  background-image: url('volunteers-logo.jpg'); /* Убедитесь, что расширение (.jpg или .png) верное */
-  background-size: contain; /* Картинка полностью вписывается без обрезки краев */
+  background-image: url('volunteers-logo.jpg');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
   overflow: hidden;
-  margin: 1rem auto 2.5rem auto; /* Выравниваем баннер строго по центру страницы */
+  margin: 1rem auto 2.5rem auto;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .volunteers-overlay {
@@ -79,18 +79,21 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   letter-spacing: 0.5px;
 }
 
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text);text-align:center;}
+.page-title{font-size:2.2rem;font-weight:800;margin-bottom:1.5rem;color:var(--text);text-align:center;line-height:1.3;}
+.section-title{font-size:2rem;font-weight:800;margin-top:4rem;margin-bottom:1.5rem;color:var(--text);text-align:center;}
 .vol-section{max-width:800px; margin: 0 auto;}
-.vol-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:2rem}
-.vol-box h2{color:var(--blue);margin-bottom:1rem}
+.article-text p {margin-bottom: 1.4rem; font-size: 1.05rem; color: var(--text2); line-height: 1.75; text-align: justify;}
+.vol-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:1.5rem}
+.vol-box h2{color:var(--blue);margin-bottom:1rem;font-size:1.4rem}
 
 /* Підвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 
-/* Адаптивность заголовков */
 @media (max-width: 768px) {
-  .page-title { font-size: 2rem; }
+  .page-title { font-size: 1.7rem; }
+  .section-title { font-size: 1.5rem; }
+  .article-text p { text-align: left; }
 }
 </style>
 </head>
@@ -103,44 +106,49 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="flag-ua"></div>
       <div class="flag-ch"></div>
     </div>
-    <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    <span class="brand">UAGZ<small id="nav-sub"></small></span>
   </a>
   <ul class="nav-links">
-  <li><a href="index.html" id="m-home">Головна</a></li>
-  <li><a href="about.html" id="m-about">Про нас</a></li>
-  <li><a href="help.html" id="m-help">Допомога</a></li>
-  <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
-  <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
-  <li><a href="volunteering.html" class="active" id="m-volunteering">Волонтерство</a></li>
-  <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
-  <li><a href="#contacts" id="m-contacts">Контакти</a></li>
-</ul>
+    <li><a href="index.html" id="m-home"></a></li>
+    <li><a href="about.html" id="m-about"></a></li>
+    <li><a href="help.html" id="m-help"></a></li>
+    <li><a href="events.html" id="m-events"></a></li>
+    <li><a href="knowledge.html" id="m-knowledge"></a></li>
+    <li><a href="announcements.html" id="m-announcements"></a></li>
+    <li><a href="volunteering.html" class="active" id="m-volunteering"></a></li>
+    <li><button class="btn-donate-nav" id="m-donate"></button></li>
+    <li><a href="#contacts" id="m-contacts"></a></li>
+  </ul>
   <div class="nav-r">
     <div class="lang-sw">
-      <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+      <button class="lb" data-lang="ua" onclick="setLang('ua')">UA</button>
       <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
     </div>
-    <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
+    <button class="btn-solid" id="nav-cta"></button>
   </div>
  </nav>
 </header>
 
 <main class="container page-content">
-  <!-- Баннер волонтерського руху (теперь квадратный и адаптивный) -->
+  <!-- 1. Баннер проекту -->
   <div class="volunteers-banner">
     <div class="volunteers-overlay">
-      <span class="volunteers-badge" id="vol-badge">Наше волонтерство</span>
+      <span class="volunteers-badge" id="vol-badge"></span>
     </div>
   </div>
 
-  <h1 class="page-title" id="vol-title">Стати волонтером</h1>
+  <!-- 2. Екологічна стаття (Одразу під баннером) -->
+  <h1 class="page-title" id="eco-title"></h1>
+  <div class="vol-section article-text" id="eco-text"></div>
+
+  <!-- 3. Блок "Стати волонтером" (Опущений нижче) -->
+  <h2 class="section-title" id="vol-title"></h2>
   <div class="vol-section">
-    <p id="vol-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;">Ваш час, знання та підтримка можуть суттєво змінити життя українців, які опинилися у кантоні Цюрих.</p>
+    <p id="vol-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;"></p>
     
     <div class="vol-box">
-      <h2 id="vol-box-h">Як ви можете допомогти?</h2>
-      <p id="vol-box-p" style="color:var(--text2)">Нам завжди потрібні викладачі німецької мови, перекладачі, організатори дитячих заходів та координатори проєктів. Навіть 2 години вашого часу на тиждень — це величезний внесок.</p>
+      <h2 id="vol-box-h"></h2>
+      <p id="vol-box-p" style="color:var(--text2)"></p>
     </div>
   </div>
 </main>
@@ -148,12 +156,12 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <footer id="contacts">
   <div class="container footer-grid">
     <div>
-      <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)">UAGZ Цюрих</h3>
-      <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
+      <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)"></h3>
+      <p id="f-desc" style="color:var(--text2)"></p>
     </div>
     <div>
-      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)">Контакти</h3>
-      <p id="f-contact-info" style="color:var(--text2)">Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz</p>
+      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)"></h3>
+      <p id="f-contact-info" style="color:var(--text2)"></p>
     </div>
   </div>
 </footer>
@@ -163,6 +171,12 @@ const T = {
   ua: {
     "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     "vol-badge": "Наше волонтерство",
+    
+    // Розширена екологічна стаття (UA)
+    "eco-title": "Чистий Цюрих: Екологічна ініціатива нашої громади разом із мерією міста",
+    "eco-text": "<p>Збереження навколишнього середовища, підтримання чистоти та дбайливе ставлення до простору, який став для багатьох із нас надійним і безпечним тимчасовим прихистком, є невід'ємною частиною успішної інтеграції українців у швейцарське суспільство. Наш інтеграційний центр радий оголосити про офіційний запуск нової масштабної екологічної програми, спрямованої на регулярне прибирання, благоустрій та роздільний збір сміття в зелених зонах, парках і на узбережжях міських водойм. Ця важлива та довгострокова ініціатива — наш спільний спосіб щиро подякувати місту та його мешканцям за гостинність, виявити повагу до місцевої культури та зробити свій вагомий, видимий внесок у збереження унікальної локальної екосистеми Швейцарії.</p><p>Головною рушійною силою, серцем і натхненням цього екологічного проекту є наші неймовірні, активні та небайдужі волонтери. Кожні вихідні команди однодумців вирушають на заздалегідь визначені локації міста, які потребують підвищеної уваги та турботи після робочого тижня або масових заходів. Ми зосереджуємо зусилля на популярних міських парках, громадських зонах відпочинку вздовж мальовничого Цюрихського озера, а також на лісових масивах і пішохідних маршрутах на околицях кантону. Наш центр повністю бере на себе забезпечення всіх учасників акції необхідним професійним інвентарем: ми надаємо міцні екологічні пакети для різних типів відходів, захисні рукавички, фірмові жилети та спеціальні безпечні інструменти для збору дрібного сміття.</p><p>Ключовою особливістю та гордістю нашої програми є пряма й тісна співпраця з офіційними міськими службами Цюриха, які відповідають за утилізацію, екологію та вторинну переробку (ERZ Entsorgung + Recycling Zürich). Представники мерії надають нам усебічную організаційну підтримку, координують логістику та допомагають із моментальним вивезенням і правильним розподілом зібраних матеріалів на спеціальних станціях. Крім того, у рамках цього партнерства швейцарські фахівці регулярно проводять для наших волонтерів ексклюзивні та надзвичайно корисні майстер-класи. Під час цих зустрічей учасники детально вивчають суворі місцеві стандарти роздільного сортування, дізнаються про тонкощі циклічної економіки та правила утилізації різних побутових матеріалів, від пластику до складних органічних сполук.</p><p>Екологічна програма не лише допомагає природі, а й виконує важливу соціальну місію, об'єднуючи людей навколо спільної корисної справи. Це чудовий простір для живого спілкування, знайомства з новими друзями, обміну досвідом та практикування мови в невимушеній дружній атмосфері на свіжому повітрі. Ми запрошуємо кожного члена нашої громади, незалежно від віку чи професії, долучитися до нашої великої еко-команди. Навіть кілька годин вашого часу, проведених із користю в суботу чи неділю, стануть значним внеском у спільне майбутнє. Приєднуйтесь до ініціативи UAGZ, підтримуйте чистоту довкілля та змінюйте світ на краще разом із нами — адже разом ми здатні зробити Цюрих ще чистішим, затишнішим і красивішим!</p>",
+    
+    // Блок волонтерства (UA)
     "vol-title": "Стати волонтером",
     "vol-p1": "Ваш час, знання та підтримка можуть суттєво змінити життя українців, які опинилися у кантоні Цюрих.",
     "vol-box-h": "Як ви можете допомогти?",
@@ -172,6 +186,12 @@ const T = {
   de: {
     "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
     "vol-badge": "Unser Ehrenamt",
+    
+    // Розширена екологічна стаття (DE)
+    "eco-title": "Sauberes Zürich: Ökologische Initiative unserer Gemeinschaft in Zusammenarbeit mit der Stadt Zürich",
+    "eco-text": "<p>Der Schutz der Umwelt, die Aufrechterhaltung der Sauberkeit und der sorgsame Umgang mit dem Raum, der für viele von uns zu einem sicheren vorübergehenden Zuhause geworden ist, sind ein wesentlicher Bestandteil der erfolgreichen Integration von Ukrainern in die Schweizer Gesellschaft. Unser Integrationszentrum freut sich, den offiziellen Start eines neuen, großangelegten Umweltprogramms bekannt zu geben, das auf die regelmäßige Reinigung, Verschönerung und Mülltrennung in Grünanlagen, Parks und an den Ufern städtischer Gewässer abzielt. Diese wichtige und langfristige Initiative ist unser gemeinsamer Weg, der Stadt und ihren Bewohnern für ihre Gastfreundschaft aufrichtig zu danken, Respekt gegenüber der lokalen Kultur zu zeigen und einen bedeutenden, sichtbaren Beitrag zum Erhalt des einzigartigen Ökosystems der Schweiz zu leisten.</p><p>Die treibende Kraft, das Herz und die Inspiration dieses Umweltprojekts sind unsere großartigen, aktiven und engagierten Freiwilligen. Jedes Wochenende machen sich Teams von Gleichgesinnten auf den Weg zu vorab festgelegten Standorten in der Stadt, die nach der Arbeitswoche oder Massenveranstaltungen besondere Aufmerksamkeit und Pflege benötigen. Wir konzentrieren unsere Bemühungen auf beliebte Stadtparks, öffentliche Erholungsgebiete entlang des malerischen Zürichsees sowie auf Waldgebiete und Wanderwege in den Außenbezirken des Kantons. Unser Zentrum übernimmt vollständig die Bereitstellung der notwendigen professionellen Ausrüstung für alle Teilnehmer der Aktion: Wir stellen reißfeste Öko-Müllsäcke für verschiedene Abfallarten, Schutzhandschuhe, Markenwesten und spezielle Sicherheitswerkzeuge für das Sammeln von Kleingut zur Verfügung.</p><p>Das Hauptmerkmal und der Stolz unseres Programms ist die direkte und enge Zusammenarbeit mit den offiziellen Dienststellen der Stadt Zürich, die für Entsorgung, Umwelt und Recycling zuständig sind (ERZ Entsorgung + Recycling Zürich). Vertreter der Stadtverwaltung bieten uns umfassende organisatorische Unterstützung, koordinieren die Logistik und helfen beim sofortigen Abtransport sowie der korrekten Zuweisung der gesammelten Materialien an spezialisierten Stationen. Darüber hinaus führen Schweizer Fachleute im Rahmen dieser Partnerships regelmäßig exklusive und äußerst nützliche Workshops für unsere Freiwilligen durch. Bei diesen Treffen lernen die Teilnehmer die strengen lokalen Standards der Mülltrennung im Detail kennen und erfahren alles über die Feinheiten der Kreislaufwirtschaft sowie die Regeln für die Entsorgung verschiedener Haushaltsmaterialien, von Plastik bis hin zu komplexen organischen Verbindungen.</p><p>Das Umweltprogramm hilft nicht nur der Natur, sondern erfüllt auch eine wichtige soziale Mission, indem es Menschen für eine gemeinsame gute Sache zusammenbringt. Es bietet einen wunderbaren Raum für lebendigen Austausch, das Knüpfen neuer Kontakte, das Teilen von Erfahrungen und das Üben der Sprache in einer entspannten, freundlichen Atmosphäre an der frischen Luft. Wir laden jedes Mitglied unserer Gemeinschaft ein, unabhängig von Alter oder Beruf, Teil unseres großen Öko-Teams zu werden. Schon wenige Stunden Ihrer Zeit, die Sie am Samstag oder Sonntag sinnvoll verbringen, sind ein wertvoller Beitrag zu unserer gemeinsamen Zukunft. Schließen Sie sich der UAGZ-Initiative auf unserer Website an, unterstützen Sie die Sauberkeit der Umwelt und verändern Sie die Welt mit uns zum Besseren – denn gemeinsam können wir Zürich noch sauberer, gemütlicher und schöner machen!</p>",
+    
+    // Блок волонтерства (DE)
     "vol-title": "Freiwilliger werden",
     "vol-p1": "Ihre Zeit, Ihr Wissen und Ihre Unterstützung können das Leben von Ukrainern im Kanton Zürich entscheidend verändern.",
     "vol-box-h": "Wie können Sie helfen?",
@@ -179,16 +199,18 @@ const T = {
     "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
   }
 };
+
 function setLang(lang){
-  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===lang));
-  if(!T[lang])return;
-  for(const[id,val]of Object.entries(T[lang])){
+  const currentLang = lang || localStorage.getItem('selectedLang') || 'ua';
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===currentLang));
+  if(!T[currentLang])return;
+  for(const[id,val]of Object.entries(T[currentLang])){
     const el=document.getElementById(id); if(el) el.innerHTML=val;
   }
-  document.documentElement.lang=lang==='ua'?'uk':'de';
-  localStorage.setItem('selectedLang',lang);
+  document.documentElement.lang=currentLang==='ua'?'uk':'de';
+  localStorage.setItem('selectedLang',currentLang);
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('selectedLang')||'ua'));
+document.addEventListener('DOMContentLoaded',()=>setLang());
 </script>
 </body>
 </html>

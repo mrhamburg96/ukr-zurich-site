@@ -16,8 +16,6 @@
 body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
-
-/* Шапка */
 header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
 .nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
@@ -38,60 +36,53 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
 .btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
-
-/* Контент */
-.page-content{padding:3rem 0; max-width:850px; margin:0 auto;}
-
-/* Адаптивний квадратний баннер проекту */
+.page-content{padding:3rem 0; max-width:850px; margin:0 auto}
 .sport-banner {
-  width: 100%;
-  max-width: 450px;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius);
-  background-image: url('sport-world.jpg'); /* Ваше зображення з репозиторію */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  margin: 1rem auto 2.5rem auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width:100%;
+  max-width:450px;
+  aspect-ratio:1/1;
+  border-radius:var(--radius);
+  background-image:url('sport-world.jpg');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+  margin:1rem auto 2.5rem auto;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 .sport-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.25));
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.25));
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
 }
 .sport-badge {
-  background: #E51212; /* Динамічний червоний колір для спорту */
-  color: #fff;
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  background:#E51212;
+  color:#fff;
+  padding:6px 14px;
+  font-size:12px;
+  font-weight:700;
+  border-radius:20px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
 }
-
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text);text-align:center;}
-.sport-section{max-width:800px; margin: 0 auto;}
+.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text);text-align:center}
+.sport-section{max-width:800px; margin:0 auto}
+.sport-p1{color:var(--text2); font-size:1.1rem; text-align:center}
 .sport-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:2rem}
 .sport-box h2{color:var(--blue);margin-bottom:1rem;font-size:1.4rem}
 .sport-list{margin-left:1.2rem; margin-top:1rem; color:var(--text2)}
 .sport-list li{margin-bottom:0.5rem}
-
-/* Підвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
-
 @media (max-width: 768px) {
-  .page-title { font-size: 2rem; }
+  .page-title { font-size:2rem }
 }
 </style>
 </head>
@@ -104,25 +95,25 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="flag-ua"></div>
       <div class="flag-ch"></div>
     </div>
-    <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    <span class="brand">UAGZ<small id="nav-sub"></small></span>
   </a>
   <ul class="nav-links">
-  <li><a href="index.html" id="m-home">Головна</a></li>
-  <li><a href="about.html" id="m-about">Про нас</a></li>
-  <li><a href="help.html" id="m-help">Допомога</a></li>
-  <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
-  <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
-  <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
-  <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
-  <li><a href="#contacts" id="m-contacts">Контакти</a></li>
-</ul>
+    <li><a href="index.html" id="m-home"></a></li>
+    <li><a href="about.html" id="m-about"></a></li>
+    <li><a href="help.html" id="m-help"></a></li>
+    <li><a href="events.html" id="m-events"></a></li>
+    <li><a href="knowledge.html" id="m-knowledge"></a></li>
+    <li><a href="announcements.html" id="m-announcements"></a></li>
+    <li><a href="volunteering.html" id="m-volunteering"></a></li>
+    <li><button class="btn-donate-nav" id="m-donate"></button></li>
+    <li><a href="#contacts" id="m-contacts"></a></li>
+  </ul>
   <div class="nav-r">
     <div class="lang-sw">
-      <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+      <button class="lb" data-lang="ua" onclick="setLang('ua')">UA</button>
       <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
     </div>
-    <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
+    <button class="btn-solid" id="nav-cta"></button>
   </div>
  </nav>
 </header>
@@ -130,24 +121,19 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <main class="container page-content">
   <div class="sport-banner">
     <div class="sport-overlay">
-      <span class="sport-badge" id="sp-badge">Спорт та здоров'я</span>
+      <span class="sport-badge" id="sp-badge"></span>
     </div>
   </div>
 
-  <h1 class="page-title" id="sp-title">Спорт-ти СВІТ! Спортивні програми</h1>
+  <h1 class="page-title" id="sp-title"></h1>
   
   <div class="sport-section">
-    <p id="sp-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;">Фізична активність, здоровий спосіб життя та знайомство з новими друзями в кантоні Цюрих.</p>
+    <p class="sport-p1" id="sp-p1"></p>
     
     <div class="sport-box">
-      <h2 id="sp-box-h">Наші регулярні спортивні активності:</h2>
-      <p id="sp-box-p" style="color:var(--text2)">Ми прагнемо підтримувати здоров'я української громади та створювати простір для активного відпочинку. У рамках нашого центру доступні такі напрямки:</p>
-      <ul class="sport-list" id="sp-list">
-        <li>Футбол та командні ігри для дорослих і дітей;</li>
-        <li>Групові тренування на свіжому повітрі та фітнес;</li>
-        <li>Йога, розтяжка та ментальне розвантаження;</li>
-        <li>Спільні спортивні походи та виїзди у гори.</li>
-      </ul>
+      <h2 id="sp-box-h"></h2>
+      <p id="sp-box-p"></p>
+      <ul class="sport-list" id="sp-list"></ul>
     </div>
   </div>
 </main>
@@ -155,12 +141,12 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <footer id="contacts">
   <div class="container footer-grid">
     <div>
-      <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)">UAGZ Цюрих</h3>
-      <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
+      <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)"></h3>
+      <p id="f-desc" style="color:var(--text2)"></p>
     </div>
     <div>
-      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)">Контакти</h3>
-      <p id="f-contact-info" style="color:var(--text2)">Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz</p>
+      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)"></h3>
+      <p id="f-contact-info" style="color:var(--text2)"></p>
     </div>
   </div>
 </footer>
@@ -171,33 +157,34 @@ const T = {
     "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     "sp-badge": "Спорт та здоров'я",
     "sp-title": "Спорт-ти СВІТ! Спортивні програми",
-    "sp-p1": "Фізична активність, здоровий спосіб lifestyle та знайомство з новими друзями в кантоні Цюрих.",
+    "sp-p1": "Фізична активність, здоровий спосіб життя та знайомство з новими друзями в кантоні Цюрих.",
     "sp-box-h": "Наші регулярні спортивні активності:",
     "sp-box-p": "Ми прагнемо підтримувати здоров'я української громади та створювати простір для активного відпочинку. У рамках нашого центру доступні такі напрямки:",
-    "sp-list": "<li>Футбол та командні ігри для дорослих і дітей;</li><li>Групові тренування на свіжому повітрі та фітнес;</li><li>Йога, розтяжка та ментальне розвантаження;</li><li>Спільні спортивні походи та виїзди у гори.</li>",
+    "sp-list": "<li>Футбол та командні ігри для дорослих і дітей;</li><li>Групові тренування на свіжому повітрі та фітнес;</li><li>Йога, розтяжка та ментальне розвантаження;</li><li>Спільні спортивные походи та виїзди у гори.</li>",
     "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
   },
   de: {
-    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstütзungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
+    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
     "sp-badge": "Sport & Gesundheit",
     "sp-title": "Sport-ti SWIT! Sportprogramme",
     "sp-p1": "Körperliche Aktivität, gesunder Lebensstil und das Knüpfen neuer Kontakte im Kanton Zürich.",
     "sp-box-h": "Unsere regelmäßigen Sportaktivitäten:",
     "sp-box-p": "Wir wollen die Gesundheit der ukrainischen Gemeinschaft unterstützen und Raum für aktive Erholung bieten. Folgende Bereiche sind verfügbar:",
-    "sp-list": "<li>Fußball und Teamsport für Erwachsene und Kinder;</li><li>Gruppentraining im Freien und Fitness;</li><li>Yoga, Stretching und mentale Entspannung;</li><li>Gemeinsame Sportwanderungen und Ausflüge in die Berge.</li>",
+    "sp-list": "<li>Fußball und Teamsport für Erwachene und Kinder;</li><li>Gruppentraining im Freien und Fitness;</li><li>Yoga, Stretching und mentale Entspannung;</li><li>Gemeinsame Sportwanderungen und Ausflüge in die Berge.</li>",
     "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
   }
 };
 function setLang(lang){
-  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===lang));
-  if(!T[lang])return;
-  for(const[id,val]of Object.entries(T[lang])){
+  const currentLang = lang || localStorage.getItem('selectedLang') || 'ua';
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===currentLang));
+  if(!T[currentLang])return;
+  for(const[id,val]of Object.entries(T[currentLang])){
     const el=document.getElementById(id); if(el) el.innerHTML=val;
   }
-  document.documentElement.lang=lang==='ua'?'uk':'de';
-  localStorage.setItem('selectedLang',lang);
+  document.documentElement.lang=currentLang==='ua'?'uk':'de';
+  localStorage.setItem('selectedLang',currentLang);
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('selectedLang')||'ua'));
+document.addEventListener('DOMContentLoaded',()=>setLang());
 </script>
 </body>
 </html>

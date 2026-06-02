@@ -37,19 +37,19 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
 .btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
 .page-content{padding:3rem 0; max-width:850px; margin:0 auto}
+/* Новый горизонтальный баннер 1500х1000 */
 .sport-banner {
-  width:100%;
-  max-width:450px;
-  aspect-ratio:1/1;
-  border-radius:var(--radius);
-  background-image:url('sport-world baner.jpg');
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
-  position:relative;
-  overflow:hidden;
-  margin:1rem auto 2.5rem auto;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  width: 100%;
+  height: 380px; /* Фиксированная комфортная высота для больших экранов */
+  border-radius: var(--radius);
+  background-image: url('sport-world baner.jpg'); /* Ваше новое имя файла с пробелом */
+  background-size: cover; /* Картинка заполнит весь баннер без пустых полей */
+  background-repeat: no-repeat;
+  background-position: center 30%; /* Сдвигает фокус чуть выше центра, чтобы лица не обрезались */
+  position: relative;
+  overflow: hidden;
+  margin: 1rem auto 2.5rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .sport-overlay {
   position:absolute;

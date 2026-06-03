@@ -863,22 +863,23 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </div>
 
-  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
-    <div class="dir-photo">
-      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=80" alt="Діти">
-      <div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
-    </div>
-    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
-      <div class="dir-title" id="d8" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        <span>Події для дітей</span>
-        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
-      </div>
-      <div class="dir-desc" id="d8d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
-        <div style="padding-top: 8px;">Творчі заняття, табори, свята та дитячі групи.</div>
-      </div>
+  <a href="events.html" class="dir-card" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit;">
+  <div class="dir-photo">
+    <img src="children.jpg" alt="Події для дітей">
+    <div class="dir-ic">
+      <svg viewBox="0 0 24 24">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+      </svg>
     </div>
   </div>
-
+  <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+    <div class="dir-title" id="d8" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <span>Події для дітей</span>
+    </div>
+  </div>
+</a>
   <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
     <div class="dir-photo">
       <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&q=80" alt="Волонтерство">

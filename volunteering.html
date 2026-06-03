@@ -90,10 +90,78 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 
+/* ================= АДАПТАЦІЯ ПІД МОБІЛЬНУ ВЕРСІЮ ================= */
 @media (max-width: 768px) {
-  .page-title { font-size: 1.7rem; }
-  .section-title { font-size: 1.5rem; }
-  .article-text p { text-align: left; }
+  /* Адаптація шапки */
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 1rem;
+  }
+  .nav-logo {
+    max-width: 100%;
+    justify-content: center;
+  }
+  .nav-links {
+    justify-content: center;
+    gap: 0.9rem 1.2rem;
+  }
+  .nav-links a {
+    font-size: 13.5px;
+  }
+  .nav-r {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+    gap: 20px;
+  }
+
+  /* Оптимізація контенту сторінки */
+  .page-content {
+    padding: 2rem 0;
+  }
+  .volunteers-banner {
+    max-width: 290px; /* Смарт-розмір для логотипу на телефонах */
+    margin-bottom: 1.5rem;
+  }
+  .page-title { 
+    font-size: 1.6rem; 
+    padding: 0 0.5rem;
+  }
+  .section-title { 
+    font-size: 1.45rem; 
+    margin-top: 2.5rem;
+  }
+  
+  /* Читабельний текст на мобілці */
+  .article-text p { 
+    text-align: left; 
+    font-size: 0.98rem;
+    line-height: 1.65;
+    padding: 0 0.5rem;
+    margin-bottom: 1.1rem;
+  }
+  .vol-section {
+    padding: 0 0.5rem;
+  }
+  .vol-section p {
+    font-size: 1rem !important;
+  }
+  .vol-box {
+    padding: 1.5rem 1.1rem;
+  }
+  
+  /* Підвал */
+  footer {
+    margin-top: 3rem;
+    padding: 2.5rem 0;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
 }
 </style>
 </head>
@@ -137,11 +205,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     </div>
   </div>
 
-  <!-- 2. Екологічна стаття (Одразу під баннером) -->
+  <!-- 2. Екологічна стаття -->
   <h1 class="page-title" id="eco-title"></h1>
   <div class="vol-section article-text" id="eco-text"></div>
 
-  <!-- 3. Блок "Стати волонтером" (Опущений нижче) -->
+  <!-- 3. Блок "Стати волонтером" -->
   <h2 class="section-title" id="vol-title"></h2>
   <div class="vol-section">
     <p id="vol-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;"></p>
@@ -174,7 +242,7 @@ const T = {
     
     // Розширена екологічна стаття (UA)
     "eco-title": "Чистий Цюрих: Екологічна ініціатива нашої громади разом із мерією міста",
-    "eco-text": "<p>Збереження навколишнього середовища, підтримання чистоти та дбайливе ставлення до простору, який став для багатьох із нас надійним і безпечним тимчасовим прихистком, є невід'ємною частиною успішної інтеграції українців у швейцарське суспільство. Наш інтеграційний центр радий оголосити про офіційний запуск нової масштабної екологічної програми, спрямованої на регулярне прибирання, благоустрій та роздільний збір сміття в зелених зонах, парках і на узбережжях міських водойм. Ця важлива та довгострокова ініціатива — наш спільний спосіб щиро подякувати місту та його мешканцям за гостинність, виявити повагу до місцевої культури та зробити свій вагомий, видимий внесок у збереження унікальної локальної екосистеми Швейцарії.</p><p>Головною рушійною силою, серцем і натхненням цього екологічного проекту є наші неймовірні, активні та небайдужі волонтери. Кожні вихідні команди однодумців вирушають на заздалегідь визначені локації міста, які потребують підвищеної уваги та турботи після робочого тижня або масових заходів. Ми зосереджуємо зусилля на популярних міських парках, громадських зонах відпочинку вздовж мальовничого Цюрихського озера, а також на лісових масивах і пішохідних маршрутах на околицях кантону. Наш центр повністю бере на себе забезпечення всіх учасників акції необхідним професійним інвентарем: ми надаємо міцні екологічні пакети для різних типів відходів, захисні рукавички, фірмові жилети та спеціальні безпечні інструменти для збору дрібного сміття.</p><p>Ключовою особливістю та гордістю нашої програми є пряма й тісна співпраця з офіційними міськими службами Цюриха, які відповідають за утилізацію, екологію та вторинну переробку (ERZ Entsorgung + Recycling Zürich). Представники мерії надають нам усебічную організаційну підтримку, координують логістику та допомагають із моментальним вивезенням і правильним розподілом зібраних матеріалів на спеціальних станціях. Крім того, у рамках цього партнерства швейцарські фахівці регулярно проводять для наших волонтерів ексклюзивні та надзвичайно корисні майстер-класи. Під час цих зустрічей учасники детально вивчають суворі місцеві стандарти роздільного сортування, дізнаються про тонкощі циклічної економіки та правила утилізації різних побутових матеріалів, від пластику до складних органічних сполук.</p><p>Екологічна програма не лише допомагає природі, а й виконує важливу соціальну місію, об'єднуючи людей навколо спільної корисної справи. Це чудовий простір для живого спілкування, знайомства з новими друзями, обміну досвідом та практикування мови в невимушеній дружній атмосфері на свіжому повітрі. Ми запрошуємо кожного члена нашої громади, незалежно від віку чи професії, долучитися до нашої великої еко-команди. Навіть кілька годин вашого часу, проведених із користю в суботу чи неділю, стануть значним внеском у спільне майбутнє. Приєднуйтесь до ініціативи UAGZ, підтримуйте чистоту довкілля та змінюйте світ на краще разом із нами — адже разом ми здатні зробити Цюрих ще чистішим, затишнішим і красивішим!</p>",
+    "eco-text": "<p>Збереження навколишнього середовища, підтримання чистоти та дбайливе ставлення до простору, який став для багатьох із нас надійним і безпечним тимчасовим прихистком, є невід'ємною частиною успішної інтеграції українців у швейцарське суспільство. Наш інтеграційний центр радий оголосити про офіційний запуск нової масштабної екологічної програми, спрямованої на регулярне прибирання, благоустрій та роздільний збір сміття в зелених зонах, парках і на узбережжях міських водойм. Ця важлива та довгострокова ініціатива — наш спільний спосіб щиро подякувати місту та його мешканцям за гостинність, виявити повагу до місцевої культури та зробити свій вагомий, видимий внесок у збереження унікальної локальної екосистеми Швейцарії.</p><p>Головною рушійною силою, серцем і натхненням цього екологічного проекту є наші неймовірні, активні та небайдужі волонтери. Кожні вихідні команди однодумців вирушають на заздалегідь визначені локації міста, які потребують підвищеної уваги та турботи після робочого тижня або масових заходів. Ми зосереджуємо зусилля на популярних міських парках, громадських зонах відпочинку вздовж мальовничого Цюрихського озера, а також на лісових масивах і пішохідних маршрутах на околицях кантону. Наш центр повністю бере на себе забезпечення всіх учасників акції необхідним професійним інвентарем: мы надаємо міцні екологічні пакети для різних типів відходів, захисні рукавички, фірмові жилети та спеціальні безпечні інструменти для збору дрібного сміття.</p><p>Ключовою особливістю та гордістю нашої програми є пряма й тісна співпраця з офіційними міськими службами Цюриха, які відповідають за утилізацію, екологію та вторинну переробку (ERZ Entsorgung + Recycling Zürich). Представники мерії надають нам усебічную організаційну підтримку, координують логістику та допомагають із моментальним вивезенням і правильним розподілом зібраних матеріалів на спеціальних станціях. Крім того, у рамках цього партнерства швейцарські фахівці регулярно проводять для наших волонтерів ексклюзивні та надзвичайно корисні майстер-класи. Під час цих зустрічей учасники детально вивчають суворі місцеві стандарти роздільного сортування, дізнаються про тонкощі циклічної економіки та правила утилізації різних побутових матеріалів, від пластику до складних органічних сполук.</p><p>Екологічна програма не лише допомагає природі, а й виконує важливу соціальну місію, об'єднуючи людей навколо спільної корисної справи. Це чудовий простір для живого спілкування, знайомства з новими друзями, обміну досвідом та практикування мови в невимушеній дружній атмосфері на свіжому повітрі. Ми запрошуємо кожного члена нашої громади, незалежно від віку чи професії, долучитися до нашої великої еко-команди. Навіть кілька годин вашого часу, проведених із користю в суботу чи неділю, стануть значним внеском у спільне майбутнє. Приєднуйтесь до ініціативи UAGZ, підтримуйте чистоту довкілля та змінюйте світ на краще разом із нами — адже разом ми здатні зробити Цюрих ще чистішим, затишнішим і красивішим!</p>",
     
     // Блок волонтерства (UA)
     "vol-title": "Стати волонтером",
@@ -189,7 +257,7 @@ const T = {
     
     // Розширена екологічна стаття (DE)
     "eco-title": "Sauberes Zürich: Ökologische Initiative unserer Gemeinschaft in Zusammenarbeit mit der Stadt Zürich",
-    "eco-text": "<p>Der Schutz der Umwelt, die Aufrechterhaltung der Sauberkeit und der sorgsame Umgang mit dem Raum, der für viele von uns zu einem sicheren vorübergehenden Zuhause geworden ist, sind ein wesentlicher Bestandteil der erfolgreichen Integration von Ukrainern in die Schweizer Gesellschaft. Unser Integrationszentrum freut sich, den offiziellen Start eines neuen, großangelegten Umweltprogramms bekannt zu geben, das auf die regelmäßige Reinigung, Verschönerung und Mülltrennung in Grünanlagen, Parks und an den Ufern städtischer Gewässer abzielt. Diese wichtige und langfristige Initiative ist unser gemeinsamer Weg, der Stadt und ihren Bewohnern für ihre Gastfreundschaft aufrichtig zu danken, Respekt gegenüber der lokalen Kultur zu zeigen und einen bedeutenden, sichtbaren Beitrag zum Erhalt des einzigartigen Ökosystems der Schweiz zu leisten.</p><p>Die treibende Kraft, das Herz und die Inspiration dieses Umweltprojekts sind unsere großartigen, aktiven und engagierten Freiwilligen. Jedes Wochenende machen sich Teams von Gleichgesinnten auf den Weg zu vorab festgelegten Standorten in der Stadt, die nach der Arbeitswoche oder Massenveranstaltungen besondere Aufmerksamkeit und Pflege benötigen. Wir konzentrieren unsere Bemühungen auf beliebte Stadtparks, öffentliche Erholungsgebiete entlang des malerischen Zürichsees sowie auf Waldgebiete und Wanderwege in den Außenbezirken des Kantons. Unser Zentrum übernimmt vollständig die Bereitstellung der notwendigen professionellen Ausrüstung für alle Teilnehmer der Aktion: Wir stellen reißfeste Öko-Müllsäcke für verschiedene Abfallarten, Schutzhandschuhe, Markenwesten und spezielle Sicherheitswerkzeuge für das Sammeln von Kleingut zur Verfügung.</p><p>Das Hauptmerkmal und der Stolz unseres Programms ist die direkte und enge Zusammenarbeit mit den offiziellen Dienststellen der Stadt Zürich, die für Entsorgung, Umwelt und Recycling zuständig sind (ERZ Entsorgung + Recycling Zürich). Vertreter der Stadtverwaltung bieten uns umfassende organisatorische Unterstützung, koordinieren die Logistik und helfen beim sofortigen Abtransport sowie der korrekten Zuweisung der gesammelten Materialien an spezialisierten Stationen. Darüber hinaus führen Schweizer Fachleute im Rahmen dieser Partnerships regelmäßig exklusive und äußerst nützliche Workshops für unsere Freiwilligen durch. Bei diesen Treffen lernen die Teilnehmer die strengen lokalen Standards der Mülltrennung im Detail kennen und erfahren alles über die Feinheiten der Kreislaufwirtschaft sowie die Regeln für die Entsorgung verschiedener Haushaltsmaterialien, von Plastik bis hin zu komplexen organischen Verbindungen.</p><p>Das Umweltprogramm hilft nicht nur der Natur, sondern erfüllt auch eine wichtige soziale Mission, indem es Menschen für eine gemeinsame gute Sache zusammenbringt. Es bietet einen wunderbaren Raum für lebendigen Austausch, das Knüpfen neuer Kontakte, das Teilen von Erfahrungen und das Üben der Sprache in einer entspannten, freundlichen Atmosphäre an der frischen Luft. Wir laden jedes Mitglied unserer Gemeinschaft ein, unabhängig von Alter oder Beruf, Teil unseres großen Öko-Teams zu werden. Schon wenige Stunden Ihrer Zeit, die Sie am Samstag oder Sonntag sinnvoll verbringen, sind ein wertvoller Beitrag zu unserer gemeinsamen Zukunft. Schließen Sie sich der UAGZ-Initiative auf unserer Website an, unterstützen Sie die Sauberkeit der Umwelt und verändern Sie die Welt mit uns zum Besseren – denn gemeinsam können wir Zürich noch sauberer, gemütlicher und schöner machen!</p>",
+    "eco-text": "<p>Der Schutz der Umwelt, die Aufrechterhaltung der Sauberkeit und der sorgsame Umgang mit dem Raum, der für viele von uns zu einem sicheren vorübergehenden Zuhause geworden ist, sind ein wesentlicher Bestandteil der erfolgreichen Integration von Ukrainern in die Schweizer Gesellschaft. Unser Integrationszentrum freut sich, den offiziellen Start eines neuen, großangelegten Umweltprogramms bekannt zu geben, das auf die regelmäßige Reinigung, Verschönerung und Mülltrennung in Grünanlagen, Parks und an den Ufern städtischer Gewässer abzielt. Diese wichtige und langfristige Initiative ist unser gemeinsamer Weg, der Stadt und ihren Bewohnern für ihre Gastfreundschaft aufrichtig zu danken, Respekt gegenüber der lokalen Kultur zu zeigen und einen bedeutenden, sichtbaren Beitrag zum Erhalt des einzigartigen Ökosystems der Schweiz zu leisten.</p><p>Die treibende Kraft, das Herz und die Inspiration dieses Umweltprojekts sind unsere großartigen, aktiven und engagierten Freiwilligen. Jedes Wochenende machen sich Teams von Gleichgesinnten auf den Weg zu vorab festgelegten Standorten in der Stadt, die nach der Arbeitswoche oder Massenveranstaltungen besondere Aufmerksamkeit und Pflege benötigen. Wir konzentrieren unsere Bemühungen auf beliebte Stadtparks, öffentliche Erholungsgebiete entlang des malerischen Zürichsees sowie auf Waldgebiete und Wanderwege in den Außenbezirken des Kantons. Unser Zentrum übernimmt vollständig die Bereitstellung der notwendigen professionellen Ausrüstung für alle Teilnehmer der Aktion: Wir stellen reißfeste Öko-Müllsäcke für verschiedene Abfallarten, Schutzhandschuhe, Markenwesten und spezielle Sicherheitswerkzeuge für das Sammeln von Kleingut zur Verfügung.</p><p>Das Hauptmerkmal und der Stolz unseres Programms ist die direkte und enge Zusammenarbeit mit den offiziellen Dienststellen der Stadt Zürich, die für Entsorgung, Umwelt und Recycling zuständig sind (ERZ Entsorgung + Recycling Zürich). Vertreter der Stadtverwaltung bieten uns umfassende organisatorische Unterstützung, koordinieren die Logistik und helfen beim sofortigen Abtransport sowie der korrekten Zuweisung der gesammelten Materialien an spezialisierten Stationen. Darüber hinaus führen Schweizer Fachleute im Rahmen dieser Partnerships regelmäßig exklusive und äußerst nützliche Workshops für unsere Freiwilligen durch. Bei diesen Treffen lernen die Teilnehmer die strengen lokalen Standards der Mülltrennung im Detail kennen und erfahren alles über die Feinheiten der Kreislaufwirtschaft sowie die Regeln für die Entsorgung verschiedener Haushaltsmaterialien, von Plastik bis hin zu komplexen organischen Verbindungen.</p><p>Das Umweltprogramm hilft nicht nur der Natur, sondern erfüllt auch eine wichtige soziale Mission, indem es Menschen für eine gemeinsame gute Sache zusammenbringt. Es bietet einen wunderbaren Raum für lebendigen Austausch, das Knüpfen neuer Kontakte, das Teilen von Erfahrungen und das Üben der Sprache in einer entspannten, freundlichen Atmosphäre an der frischen Luft. Wir laden jedes Mitglied unserer Gemeinschaft ein, unabhängig von Alter oder Beruf, Teil unseres großen Öko-Teams zu werden. Schon wenige Stunden Ihrer Zeit, die Sie am Samstag oder Sonntag sinnvoll verbringen, sind ein wertvoller Beitrag zu unserer gemeinsamen Zukunft. Schließen Sie sich der UAGZ-Initiative auf unserer Website an, unterstützen Sie die Sauberkeit der Umwelt und verändern Sie die Welt mit uns zum Bettren – denn gemeinsam können wir Zürich noch sauberer, gemütlicher und schöner machen!</p>",
     
     // Блок волонтерства (DE)
     "vol-title": "Freiwilliger werden",

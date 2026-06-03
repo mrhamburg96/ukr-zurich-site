@@ -355,18 +355,58 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .cta-grid{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:768px){
-  nav{padding:0 1rem}
-  .nav-links{display:none}
-  .hero-inner{flex-direction:column;align-items:flex-start;min-height:auto;padding:2rem 1rem}
-  .tg-widget{width:100%;max-width:320px}
-  .dir-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-row{grid-template-columns:1fr}
-  .cta-grid{grid-template-columns:1fr}
-  .whom-grid{grid-template-columns:repeat(4,1fr)}
-  .footer-grid{grid-template-columns:1fr}
-  .how-bottom{grid-template-columns:1fr}
+/* ================= ОБ'ЄДНАНА МОБІЛЬНА ВЕРСІЯ (768px) ================= */
+@media (max-width: 768px) {
+  /* Налаштування шапки (вертикальне меню замість приховання) */
+  nav {
+    flex-direction: column; 
+    align-items: center;
+    gap: 12px;
+    padding: 10px 1rem;
+  }
+  .nav-links {
+    display: flex;          /* Змінено з none на flex, щоб меню НЕ зникало */
+    justify-content: center; 
+    gap: 0.8rem;
+  }
+  .nav-links a {
+    font-size: 13px; 
+  }
+  .nav-r {
+    width: 100%;
+    justify-content: center; 
+    margin-top: 5px;
+  }
+
+  /* Ваші інші адаптивні стилі головної сторінки */
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  .tg-widget {
+    width: 100%;
+    max-width: 320px;
+  }
+  .dir-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .steps-row,
+  .cta-grid,
+  .how-bottom,
+  .footer-grid {
+    grid-template-columns: 1fr; /* Усе стає в один зручний стовпчик */
+  }
+  .whom-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .footer-grid {
+    text-align: center; /* Центруємо контакти у підвалі */
+  }
 }
+/* ===================================================================== */
+
 </style>
 </head>
 <body>

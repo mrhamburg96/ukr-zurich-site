@@ -65,10 +65,11 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 .member-photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 180px;        /* Збільшили ширину кола */
+  height: 180px;       /* Збільшили висоту кола */
+  border-radius: 50%;  /* Залишаємо коло */
+  object-fit: cover;   /* Фото заповнює коло без спотворення пропорцій */
+  object-position: center 20%; /* Центрує кадр, фокусуючись ближче до обличчя */
   margin: 0 auto 1.5rem auto;
   border: 3px solid var(--blue-light);
   display: block;

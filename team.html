@@ -65,11 +65,11 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 .member-photo {
-  width: 180px;        /* Збільшили ширину кола */
-  height: 180px;       /* Збільшили висоту кола */
-  border-radius: 50%;  /* Залишаємо коло */
-  object-fit: cover;   /* Фото заповнює коло без спотворення пропорцій */
-  object-position: center 20%; /* Центрує кадр, фокусуючись ближче до обличчя */
+  width: 180px;        
+  height: 180px;       
+  border-radius: 50%;  
+  object-fit: cover;   
+  object-position: center 20%; 
   margin: 0 auto 1.5rem auto;
   border: 3px solid var(--blue-light);
   display: block;
@@ -97,6 +97,75 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 /* Підвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:5rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+
+/* ================= АДАПТАЦІЯ ПІД МОБІЛЬНУ ВЕРСІЮ ================= */
+@media (max-width: 768px) {
+  /* Оптимізація шапки навігації */
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 1rem;
+  }
+  .nav-logo {
+    max-width: 100%;
+    justify-content: center;
+  }
+  .nav-links {
+    justify-content: center;
+    gap: 0.9rem 1.2rem;
+  }
+  .nav-links a {
+    font-size: 13.5px;
+  }
+  .nav-r {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+    gap: 20px;
+  }
+
+  /* Оптимізація контенту сторінки */
+  .page-content {
+    padding: 2.5rem 0;
+  }
+  .page-header {
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  .page-title {
+    font-size: 1.9rem;
+  }
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Мобільна сітка команди */
+  .team-grid {
+    grid-template-columns: 1fr; /* Картки шикуються строго в один стовпчик */
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  .team-card {
+    padding: 2rem 1rem;
+  }
+  .member-photo {
+    width: 160px; /* Трохи менший діаметр кола для балансу на маленькому екрані */
+    height: 160px;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Підвал */
+  footer {
+    margin-top: 3.5rem;
+    padding: 2.5rem 0;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
 </style>
 </head>
 <body>
@@ -139,7 +208,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <div class="team-grid">
     
-    <!-- 1. Oleksandr Sadych -->
     <div class="team-card">
       <img src="team1.jpg" alt="Oleksandr Sadych" class="member-photo">
       <div class="member-name">Oleksandr Sadych</div>
@@ -147,7 +215,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="member-bio" id="m1-bio"></div>
     </div>
 
-    <!-- 2. Yuliana Kuranda-Koval -->
     <div class="team-card">
       <img src="team2.jpg" alt="Yuliana Kuranda-Koval" class="member-photo">
       <div class="member-name">Yuliana Kuranda-Koval</div>
@@ -155,7 +222,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="member-bio" id="m2-bio"></div>
     </div>
 
-    <!-- 3. Olena Samorodova -->
     <div class="team-card">
       <img src="team3.jpg" alt="Olena Samorodova" class="member-photo">
       <div class="member-name">Olena Samorodova</div>
@@ -163,7 +229,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="member-bio" id="m3-bio"></div>
     </div>
 
-    <!-- 4. Oleksiy Matyunin -->
     <div class="team-card">
       <img src="team4.jpg" alt="Oleksiy Matyunin" class="member-photo">
       <div class="member-name">Oleksiy Matyunin</div>
@@ -171,7 +236,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="member-bio" id="m4-bio"></div>
     </div>
 
-    <!-- 5. Vadym Lepsky -->
     <div class="team-card">
       <img src="team5.jpg" alt="Vadym Lepsky" class="member-photo">
       <div class="member-name">Vadym Lepsky</div>
@@ -179,7 +243,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="member-bio" id="m5-bio"></div>
     </div>
 
-    <!-- 6. Dmitry Hil -->
     <div class="team-card">
       <img src="team6.jpg" alt="Dmitry Hil" class="member-photo">
       <div class="member-name">Dmitry Hil</div>
@@ -187,7 +250,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       <div class="member-bio" id="m6-bio"></div>
     </div>
 
-    <!-- 7. Mykola Kravtsov -->
     <div class="team-card">
       <img src="team7.jpg" alt="Mykola Kravtsov" class="member-photo">
       <div class="member-name">Mykola Kravtsov</div>
@@ -223,7 +285,7 @@ const T = {
     "m1-role": "Координатор центру", "m1-bio": "Забезпечує загальну організацію процесів центру та комунікацію з партнерами.",
     "m2-role": "Інтеграційний консультант", "m2-bio": "Допомагає адаптуватися до життя в кантоні, консультує з побутових та соціальних питань.",
     "m3-role": "Організатор заходів", "m3-bio": "Керує культурними, освітніми та дитячими проектами нашого центру.",
-    "m4-role": "Юридичний радник", "m4-bio": "Надає первинні консультації щодо швейцарського законодавства та оформлення документів.",
+    "m4-role": "Юридичний радник", "m4-bio": "Надає первинні консультації щодо швейцарського законодавства та оформлення документов.",
     "m5-role": "Координатор волонтерів", "m5-bio": "Керує волонтерською мережею та розподіляє завдання екологічних та соціальних програм.",
     "m6-role": "Технічний спеціаліст / ІТ", "m6-bio": "Відповідає за цифрову інфраструктуру, роботу платформи та інформаційну підтримку.",
     "m7-role": "Соціальний ментор", "m7-bio": "Супроводжує новоприбулих громадян, допомагаючи зорієнтуватися в новому мовному середовищі.",

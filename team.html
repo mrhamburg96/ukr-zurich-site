@@ -39,16 +39,16 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
 .btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
 
-/* Контент сторінки команди */
+/* Контент */
 .page-content{padding:4rem 0;}
 .page-header{text-align:center; max-width:700px; margin:0 auto 4rem auto;}
 .page-title{font-size:2.5rem;font-weight:800;color:var(--text);margin-bottom:1rem}
 .page-subtitle{font-size:1.15rem;color:var(--text2)}
 
-/* Адаптивна сітка команди */
+/* Сітка команди */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   margin-top: 2rem;
 }
@@ -56,7 +56,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -64,25 +64,23 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
-
-/* Стиль для фото учасників (квадрат 1:1 зі згладженими кутами) */
 .member-photo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%; /* Круглі фотографії, можна змінити на 16px для квадратів */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 1.5rem auto;
   border: 3px solid var(--blue-light);
   display: block;
 }
 .member-name {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 .member-role {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--blue);
   margin-bottom: 1rem;
@@ -98,11 +96,6 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 /* Підвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:5rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
-
-@media (max-width: 768px) {
-  .page-title { font-size: 2rem; }
-  .team-grid { gap: 1.5rem; }
-}
 </style>
 </head>
 <body>
@@ -145,25 +138,60 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <div class="team-grid">
     
+    <!-- 1. Oleksandr Sadych -->
     <div class="team-card">
-      <img src="team1.jpg" alt="Олена Ковальчук" class="member-photo">
-      <div class="member-name" id="m1-name"></div>
+      <img src="team1.jpg" alt="Oleksandr Sadych" class="member-photo">
+      <div class="member-name">Oleksandr Sadych</div>
       <div class="member-role" id="m1-role"></div>
       <div class="member-bio" id="m1-bio"></div>
     </div>
 
+    <!-- 2. Yuliana Kuranda-Koval -->
     <div class="team-card">
-      <img src="team2.jpg" alt="Марк Шнідер" class="member-photo">
-      <div class="member-name" id="m2-name"></div>
+      <img src="team2.jpg" alt="Yuliana Kuranda-Koval" class="member-photo">
+      <div class="member-name">Yuliana Kuranda-Koval</div>
       <div class="member-role" id="m2-role"></div>
       <div class="member-bio" id="m2-bio"></div>
     </div>
 
+    <!-- 3. Olena Samorodova -->
     <div class="team-card">
-      <img src="team3.jpg" alt="Анна Петренко" class="member-photo">
-      <div class="member-name" id="m3-name"></div>
+      <img src="team3.jpg" alt="Olena Samorodova" class="member-photo">
+      <div class="member-name">Olena Samorodova</div>
       <div class="member-role" id="m3-role"></div>
       <div class="member-bio" id="m3-bio"></div>
+    </div>
+
+    <!-- 4. Oleksiy Matyunin -->
+    <div class="team-card">
+      <img src="team4.jpg" alt="Oleksiy Matyunin" class="member-photo">
+      <div class="member-name">Oleksiy Matyunin</div>
+      <div class="member-role" id="m4-role"></div>
+      <div class="member-bio" id="m4-bio"></div>
+    </div>
+
+    <!-- 5. Vadym Lepsky -->
+    <div class="team-card">
+      <img src="team5.jpg" alt="Vadym Lepsky" class="member-photo">
+      <div class="member-name">Vadym Lepsky</div>
+      <div class="member-role" id="m5-role"></div>
+      <div class="member-bio" id="m5-bio"></div>
+    </div>
+
+    <!-- 6. Dmitry Hil -->
+    <div class="team-card">
+      <img src="team6.jpg" alt="Dmitry Hil" class="member-photo">
+      <div class="member-name">Dmitry Hil</div>
+      <div class="member-role" id="m6-role"></div>
+      <div class="member-bio" id="m6-bio"></div>
+    </div>
+
+    <!-- 7. Mykola Kravtsov -->
+    <div class="team-card">
+      <img src="team7.jpg" alt="Mykola Kravtsov" class="member-photo">
+      <div class="member-name">Mykola Kravtsov</div>
+      <div class="member-role" id="m7-role"></div>
+      <div class="member-bio" id="m7-bio"></div>
     </div>
 
   </div>
@@ -188,20 +216,16 @@ const T = {
     "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     
     "t-title": "Наша команда",
-    "t-subtitle": "Ми говоримо вашою мовою, знаємо ваші виклики та допомагаємо впевнено інтегруватися у життя в Швейцарії.",
+    "t-subtitle": "Ми об'єднали зусилля, щоб допомагати українцям у Швейцарії швидко інтегруватися, отримувати підтримку та розвивати громаду.",
     
-    // Дані учасників (UA)
-    "m1-name": "Олена Ковальчук",
-    "m1-role": "Директорка центру",
-    "m1-bio": "Засновниця центру UAGZ. Координує стратегічний розвиток та взаємодію зі швейцарськими державними органами кантону Цюрих.",
-    
-    "m2-name": "Марк Шнідер",
-    "m2-role": "Юрист / Консультант",
-    "m2-bio": "Експерт із швейцарського міграційного та трудового права. Допомагає розібратися з документами, дозволами на проживання та контрактами.",
-    
-    "m3-name": "Анна Петренко",
-    "m3-role": "Координаторка проектів",
-    "m3-bio": "Організовує інтеграційні заходи, мовні курси та дитячі програми. Завжди на зв'язку з нашими волонтерами.",
+    // Ролі та Описи (UA)
+    "m1-role": "Координатор центру", "m1-bio": "Забезпечує загальну організацію процесів центру та комунікацію з партнерами.",
+    "m2-role": "Інтеграційний консультант", "m2-bio": "Допомагає адаптуватися до життя в кантоні, консультує з побутових та соціальних питань.",
+    "m3-role": "Організатор заходів", "m3-bio": "Керує культурними, освітніми та дитячими проектами нашого центру.",
+    "m4-role": "Юридичний радник", "m4-bio": "Надає первинні консультації щодо швейцарського законодавства та оформлення документів.",
+    "m5-role": "Координатор волонтерів", "m5-bio": "Керує волонтерською мережею та розподіляє завдання екологічних та соціальних програм.",
+    "m6-role": "Технічний спеціаліст / ІТ", "m6-bio": "Відповідає за цифрову інфраструктуру, роботу платформи та інформаційну підтримку.",
+    "m7-role": "Соціальний ментор", "m7-bio": "Супроводжує новоприбулих громадян, допомагаючи зорієнтуватися в новому мовному середовищі.",
     
     "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
   },
@@ -209,20 +233,16 @@ const T = {
     "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
     
     "t-title": "Unser Team",
-    "t-subtitle": "Wir sprechen Ihre Sprache, kennen Ihre Herausforderungen und helfen Ihnen, sich erfolgreich in der Schweiz zu integrieren.",
+    "t-subtitle": "Wir haben unsere Kräfte gebündelt, um Ukrainern in der Schweiz bei der schnellen Integration, Unterstützung und Gemeindeentwicklung zu helfen.",
     
-    // Дані учасників (DE)
-    "m1-name": "Olena Kovalchuk",
-    "m1-role": "Zentrumsleiterin",
-    "m1-bio": "Gründerin von UAGZ. Koordiniert die strategische Entwicklung und die Zusammenarbeit mit den Schweizer Behörden im Kanton Zürich.",
-    
-    "m2-name": "Marc Schnyder",
-    "m2-role": "Rechtsberater",
-    "m2-bio": "Experte für Schweizer Migrations- und Arbeitsrecht. Hilft bei Fragen zu Dokumenten, Aufenthaltsbewilligungen und Verträgen.",
-    
-    "m3-name": "Anna Petrenko",
-    "m3-role": "Projektkoordinatorin",
-    "m3-bio": "Organisiert Integrationsveranstaltungen, Sprachkurse und Kinderprogramme. Sie ist die Hauptansprechpartnerin für unsere Freiwilligen.",
+    // Ролі та Описи (DE)
+    "m1-role": "Zentrumskoordinator", "m1-bio": "Sorgt für die allgemeine Organisation der Prozesse des Zentrums und die Kommunikation mit Partnern.",
+    "m2-role": "Integrationsberaterin", "m2-bio": "Hilft bei der Anpassung an das Leben im Kanton und berät in Alltags- und Sozialfragen.",
+    "m3-role": "Veranstaltungsorganisatorin", "m3-bio": "Leitet kulturelle, bildungspolitische und kinderbezogene Projekte unseres Zentrums.",
+    "m4-role": "Rechtsberater", "m4-bio": "Bietet Erstberatung zum Schweizer Recht und zur Dokumentenabwicklung.",
+    "m5-role": "Freiwilligenkoordinator", "m5-bio": "Leitet das Freiwilligennetzwerk und verteilt Aufgaben für Umwelt- und Sozialprogramme.",
+    "m6-role": "IT-Spezialist", "m6-bio": "Verantwortlich für die digitale Infrastruktur, den Plattformbetrieb und die Informationsunterstützung.",
+    "m7-role": "Sozialer Mentor", "m7-bio": "Begleitet Neuankömmlinge und hilft ihnen, sich in der neuen Sprachumgebung zurechtzufinden.",
     
     "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
   }

@@ -356,53 +356,67 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 /* ================= ОБ'ЄДНАНА МОБІЛЬНА ВЕРСІЯ (768px) ================= */
+/* ================= ПОЛНАЯ МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (768px) ================= */
 @media (max-width: 768px) {
-  /* Налаштування шапки (вертикальне меню замість приховання) */
+  /* 1. Исправление шапки */
   nav {
-    flex-direction: column; 
-    align-items: center;
-    gap: 12px;
-    padding: 10px 1rem;
+    flex-direction: column !important; /* Выстраиваем логотип, меню и кнопку вертикально */
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 10px 1rem !important;
+  }
+  .nav-logo {
+    max-width: 100% !important;
+    justify-content: center !important;
   }
   .nav-links {
-    display: flex;          /* Змінено з none на flex, щоб меню НЕ зникало */
-    justify-content: center; 
-    gap: 0.8rem;
+    display: flex !important;          /* Гарантируем, что меню ВИДНО */
+    flex-wrap: wrap !important;        /* Разрешаем ссылкам переноситься на второй ряд, если их много */
+    justify-content: center !important; 
+    gap: 10px 15px !important;
+    padding: 0 !important;
   }
   .nav-links a {
-    font-size: 13px; 
+    font-size: 13.5px !important;      /* Оптимальный размер для пальца */
   }
   .nav-r {
-    width: 100%;
-    justify-content: center; 
-    margin-top: 5px;
+    width: 100% !important;
+    justify-content: center !important; 
+    margin-top: 5px !important;
+    gap: 15px !important;
+  }
+  .btn-solid {
+    padding: 8px 14px !important;     /* Делаем кнопку "Отримати допомогу" чуть компактнее */
+    font-size: 13px !important;
   }
 
-  /* Ваші інші адаптивні стилі головної сторінки */
+  /* 2. Исправление главного экрана (Hero) */
   .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: auto;
-    padding: 2rem 1rem;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 2rem 1rem !important;
   }
   .tg-widget {
-    width: 100%;
-    max-width: 320px;
+    width: 100% !important;
+    max-width: 100% !important;       /* Виджет Телеграма теперь не будет вылезать за края */
+    margin-top: 1.5rem !important;
   }
-  .dir-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .steps-row,
-  .cta-grid,
-  .how-bottom,
+
+  /* 3. Сброс ВСЕХ сеток в один столбик (Чтобы ничего не сжималось по горизонтали) */
+  .dir-grid, 
+  .steps-row, 
+  .cta-grid, 
+  .whom-grid, 
+  .how-bottom, 
   .footer-grid {
-    grid-template-columns: 1fr; /* Усе стає в один зручний стовпчик */
+    grid-template-columns: 1fr !important; /* Строго одна карточка на строку! */
+    gap: 1.5rem !important;
   }
-  .whom-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+
+  /* 4. Центрирование текстов для удобства чтения с телефона */
   .footer-grid {
-    text-align: center; /* Центруємо контакти у підвалі */
+    text-align: center !important;
   }
 }
 /* ===================================================================== */

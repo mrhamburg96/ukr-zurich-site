@@ -17,24 +17,28 @@ body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
 
-/* Шапка */
+/* Шапка сайта */
 header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
-.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
+
+/* ЛОГОТИП С ФЛАГАМИ */
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:360px}
 .flags-logo{display:flex;flex-direction:column;gap:2px;width:24px;flex-shrink:0}
-.flag-ua{width:24px;height:14px;background:linear-gradient(to bottom, #0057B7 50%, #FFDD00 50%);border-radius:2px}
-.flag-ch{width:24px;height:14px;background:#D52B1E;position:relative;border-radius:2px}
+.flag-ua{width:24px;height:14px;background:linear-gradient(to bottom, #0057B7 50%, #FFDD00 50%);border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.flag-ch{width:24px;height:14px;background:#D52B1E;position:relative;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
 .flag-ch::before, .flag-ch::after{content:"";background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
 .flag-ch::before{width:8px;height:2.5px}
 .flag-ch::after{width:2.5px;height:8px}
+
 .brand{font-weight:700;color:var(--blue);font-size:1.4rem;display:flex;flex-direction:column;line-height:1.1}
 .brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
+
+.nav-links{display:flex;align-items:center;column-gap:1.2rem;row-gap:0.4rem;list-style:none;flex-wrap:wrap;max-width:600px}
 .nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
 .nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
 .btn-donate-nav{background:none;border:none;color:#D52B1E;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
 .nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
-.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
 .lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
 .lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
 .btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
@@ -43,66 +47,88 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .page-content{padding:4rem 0}
 .page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
 .grid-knowledge{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin-top:2rem}
-
-/* Оновлені стилі для карток з картинками */
-.card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-}
-.card-image-wrap {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: #f4f4f4;
-}
-.card-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.card-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.card-content h3 {
-  color: var(--blue-dark);
-  margin-bottom: 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-.card-content p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-.read-more-link {
-  color: var(--blue);
-  display: inline-block;
-  font-weight: 600;
-  transition: color 0.2s, transform 0.2s;
-  align-self: flex-start;
-}
-.read-more-link:hover {
-  color: var(--blue-dark);
-  transform: translateX(4px);
-}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;background:#fff;transition:transform 0.2s, box-shadow 0.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 15px -3px rgba(0,0,0,0.05)}
+.card h3{color:var(--blue);margin-bottom:0.75rem;font-size:1.3rem}
+.card ul{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.5rem}
+.card ul li a{color:var(--blue);font-weight:500}
+.card ul li a:hover{text-decoration:underline}
 
 /* Подвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+
+/* ================= АДАПТИВНИЙ БЛОК ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (ДО 768px) ================= */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 10px 1rem !important;
+  }
+  .nav-logo {
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+  .brand {
+    align-items: center !important;
+  }
+  .brand small {
+    text-align: center !important;
+  }
+  .nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px 15px !important;
+    padding: 0 !important;
+  }
+  .nav-links a {
+    font-size: 14px !important;
+  }
+  .nav-r {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 5px !important;
+    gap: 15px !important;
+  }
+  .btn-solid {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+  .page-content {
+    padding: 2rem 0 !important;
+  }
+  .page-title {
+    font-size: 1.85rem !important;
+    margin-bottom: 1rem !important;
+    padding: 0 0.5rem !important;
+    text-align: center !important;
+  }
+  #page-knowledge-sub {
+    padding: 0 1rem !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    margin: 0 auto !important;
+  }
+  .grid-knowledge {
+    grid-template-columns: 1fr !important;
+    padding: 0 0.5rem !important;
+    gap: 1rem !important;
+  }
+  .card {
+    padding: 1.25rem !important;
+  }
+  .card h3 {
+    font-size: 1.15rem !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+  }
+}
+/* ========================================================================== */
 </style>
 </head>
 <body>
@@ -116,17 +142,19 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     </div>
     <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
   </a>
+  
   <ul class="nav-links">
   <li><a href="index.html" id="m-home">Головна</a></li>
   <li><a href="about.html" id="m-about">Про нас</a></li>
   <li><a href="help.html" id="m-help">Допомога</a></li>
   <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" class="active" id="m-knowledge">Knowledge Center</a></li>
+  <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
   <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
   <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
   <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
   <li><a href="#contacts" id="m-contacts">Контакти</a></li>
 </ul>
+  
   <div class="nav-r">
     <div class="lang-sw">
       <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
@@ -138,49 +166,38 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </header>
 
 <main class="container page-content">
-  <h1 class="page-title" id="kn-title">Knowledge Center</h1>
-  <p id="kn-sub" style="color:var(--text2); font-size:1.1rem; max-width:700px;">Корисні інструкції, посилання та гайди про життя та інтеграцію у Швейцарії.</p>
+  <h1 class="page-title" id="page-knowledge-title">База знань (Knowledge Center)</h1>
+  <p id="page-knowledge-sub" style="color:var(--text2); font-size:1.1rem; max-width:700px;">Корисні матеріали, інструкції та офіційні посилання для українців у Швейцарії.</p>
   
   <div class="grid-knowledge">
-    <!-- Картка 1: Статус S -->
     <div class="card">
-      <div class="card-image-wrap">
-        <img src="flag-swiss.jpg" alt="Status S Switzerland">
-      </div>
-      <div class="card-content">
-        <h3 id="kn-card1-h">Все про статус S у 2026 році</h3>
-        <p id="kn-card1-p" style="color:var(--text2)">Права, обов'язки, продовження дозволу на проживання та актуальні правила перебування.</p>
-        <a href="status-s.html" id="kn-card1-a" class="read-more-link">Читати далі →</a>
-      </div>
+      <h3 id="card-docs-h">📁 Документи та Статус S</h3>
+      <p id="card-docs-p" style="color:var(--text2)">Основна інформація про перебування в країні.</p>
+      <ul>
+        <li><a href="#" id="link-docs-1">Як продовжити статус S</a></li>
+        <li><a href="#" id="link-docs-2">Реєстрація за місцем проживання</a></li>
+      </ul>
     </div>
-
-    <!-- Картка 2: Пошук роботи -->
     <div class="card">
-      <div class="card-image-wrap">
-        <img src="work-swiss.jpg" alt="Job Search Zurich">
-      </div>
-      <div class="card-content">
-        <h3 id="kn-card2-h">Як знайти роботу в Цюриху</h3>
-        <p id="kn-card2-p" style="color:var(--text2)">Складання резюме (CV) за швейцарськими стандартами, локальні сайти вакансій та дозвіл на роботу.</p>
-        <a href="find-job.html" id="kn-card2-a" class="read-more-link">Читати далі →</a>
-      </div>
+      <h3 id="card-job-h">💼 Робота та Фінанси</h3>
+      <p id="card-job-p" style="color:var(--text2)">Працевлаштування та відкриття банківських рахунків.</p>
+      <ul>
+        <li><a href="#" id="link-job-1">Дозвіл на роботу у Цюриху</a></li>
+        <li><a href="#" id="link-job-2">Як скласти резюме (СV)</a></li>
+      </ul>
     </div>
-
-    <!-- Картка 3: Медична система -->
     <div class="card">
-      <div class="card-image-wrap">
-        <img src="doktor-swiss.jpg" alt="Medical System Switzerland">
-      </div>
-      <div class="card-content">
-        <h3 id="kn-card3-h">Медична система: Інструкція</h3>
-        <p id="kn-card3-p" style="color:var(--text2)">Як працює медична страховка (Krankenkasse), як знайти сімейного лікаря та куди звертатися у екстрених випадках.</p>
-        <a href="medical-guide.html" id="kn-card3-a" class="read-more-link">Читати далі →</a>
-      </div>
+      <h3 id="card-edu-h">🏫 Освіта та Школа</h3>
+      <p id="card-edu-p" style="color:var(--text2)">Інформація для батьків та студентів.</p>
+      <ul>
+        <li><a href="#" id="link-edu-1">Запис дитини до школи</a></li>
+        <li><a href="#" id="link-edu-2">Курси німецької мови</a></li>
+      </ul>
     </div>
   </div>
 </main>
 
-<footer id="contacts">
+<footer>
   <div class="container footer-grid">
     <div>
       <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)">UAGZ Цюрих</h3>
@@ -188,42 +205,115 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     </div>
     <div>
       <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)">Контакти</h3>
-      <p id="f-contact-info" style="color:var(--text2)">Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz</p>
+      <p style="color:var(--text2)">Email: info@ukr-zurich.ch</p>
     </div>
   </div>
 </footer>
 
 <script>
-const T = {
+  const T = {
   ua: {
-    "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
-    "kn-title": "Knowledge Center",
-    "kn-sub": "Корисні інструкції, посилання та гайди про життя та інтеграцію у Швейцарії.",
-    "kn-card1-h": "Все про статус S у 2026 році", "kn-card1-p": "Права, обов'язки, продовження дозволу на проживання та актуальні правила перебування.", "kn-card1-a": "Читати далі →",
-    "kn-card2-h": "Як знайти роботу в Цюриху", "kn-card2-p": "Складання резюме (CV) за швейцарськими стандартами, локальні сайти вакансій та дозвіл на роботу.", "kn-card2-a": "Читати далі →",
-    "kn-card3-h": "Медична система: Інструкція", "kn-card3-p": "Як працює медична страховка (Krankenkasse), як знайти сімейного лікаря та куди звертатися у екстрених випадках.", "kn-card3-a": "Читати далі →",
-    "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
+    "m-home": "Головна",
+    "m-about": "Про нас",
+    "m-help": "Допомога",
+    "m-events": "Заходи",
+    "m-knowledge": "Knowledge Center",
+    "m-announcements": "Оголошення",
+    "m-volunteering": "Волонтерство",
+    "m-donate": "❤️ Донат",
+    "m-contacts": "Контакти",
+    "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+    "nav-cta": "Отримати допомогу",
+    
+    // Центральный контент страницы "Knowledge Center"
+    "page-knowledge-title": "База знань (Knowledge Center)",
+    "page-knowledge-sub": "Корисні матеріали, інструкції та офіційні посилання для українців у Швейцарії.",
+    "card-docs-h": "📁 Документи та Статус S",
+    "card-docs-p": "Основна інформація про перебування в країні.",
+    "link-docs-1": "Як продовжити статус S",
+    "link-docs-2": "Реєстрація за місцем проживання",
+    
+    "card-job-h": "💼 Робота та Фінанси",
+    "card-job-p": "Працевлаштування та відкриття банківських рахунків.",
+    "link-job-1": "Дозвіл на роботу у Цюриху",
+    "link-job-2": "Як скласти резюме (СV)",
+    
+    "card-edu-h": "🏫 Освіта та Школа",
+    "card-edu-p": "Інформація для батьків та студентів.",
+    "link-edu-1": "Запис дитини до школи",
+    "link-edu-2": "Курси німецької мови",
+    
+    // Подвал
+    "f-title": "UAGZ Цюрих",
+    "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
+    "fc1h": "Контакти"
   },
   de: {
-    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
-    "kn-title": "Knowledge Center",
-    "kn-sub": "Nützliche Leitfäden, Links und Anleitungen zum Leben und zur Integration in der Schweiz.",
-    "kn-card1-h": "Alles zum Schutzstatus S im Jahr 2026", "kn-card1-p": "Rechte, Pflichten, Verlängerung der Aufenthaltsbewilligung und aktuelle Regeln.", "kn-card1-a": "Weiterlesen →",
-    "kn-card2-h": "Jobsuche in Zürich", "kn-card2-p": "Erstellung eines Lebenslaufs nach Schweizer Standards, lokale Stellenbörsen und Arbeitsbewilligung.", "kn-card2-a": "Weiterlesen →",
-    "kn-card3-h": "Gesundheitssystem: Leitfaden", "kn-card3-p": "Wie die Krankenkasse funktioniert, wie man einen Hausarzt findet und wohin man sich im Notfall wendet.", "kn-card3-a": "Weiterlesen →",
-    "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
+    "m-home": "Startseite",
+    "m-about": "Über uns",
+    "m-help": "Hilfe",
+    "m-events": "Veranstaltungen",
+    "m-knowledge": "Knowledge Center",
+    "m-announcements": "Ankündigungen",
+    "m-volunteering": "Freiwilligenarbeit",
+    "m-donate": "❤️ Donate",
+    "m-contacts": "Kontakte",
+    "nav-sub": "Unterstützungs- und Integrationszentrum",
+    "nav-cta": "Hilfe erhalten",
+    
+    // Немецкий перевод для центрального контента страницы "Knowledge Center"
+    "page-knowledge-title": "Knowledge Center (Wissensdatenbank)",
+    "page-knowledge-sub": "Nützliche Materialien, Anleitungen und offizielle Links für Ukrainerinnen und Ukrainer in der Schweiz.",
+    "card-docs-h": "📁 Dokumente & Schutzstatus S",
+    "card-docs-p": "Wichtige Informationen zu Ihrem Aufenthalt im Land.",
+    "link-docs-1": "Schutzstatus S verlängern",
+    "link-docs-2": "Wohnsitzregistrierung",
+    
+    "card-job-h": "💼 Arbeit & Finanzen",
+    "card-job-p": "Arbeitssuche und Eröffnung von Bankkonten.",
+    "link-job-1": "Arbeitsbewilligung in Zürich",
+    "link-job-2": "Lebenslauf (CV) erstellen",
+    
+    "card-edu-h": "🏫 Bildung & Schule",
+    "card-edu-p": "Informationen für Eltern und Studierende.",
+    "link-edu-1": "Schulanmeldung für Kinder",
+    "link-edu-2": "Deutschkurse",
+    
+    // Подвал
+    "f-title": "UAGZ Zürich",
+    "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
+    "fc1h": "Kontakt"
   }
 };
-function setLang(lang){
-  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===lang));
-  if(!T[lang])return;
-  for(const[id,val]of Object.entries(T[lang])){
-    const el=document.getElementById(id); if(el) el.innerHTML=val;
+
+function setLang(lang) {
+  document.querySelectorAll('.lb').forEach(b => {
+    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+  });
+
+  if (typeof T === 'undefined' || !T[lang]) return;
+  const dict = T[lang];
+
+  for (const [id, val] of Object.entries(dict)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else {
+      el.innerHTML = val;
+    }
   }
-  document.documentElement.lang=lang==='ua'?'uk':'de';
-  localStorage.setItem('selectedLang',lang);
+
+  document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+  localStorage.setItem('selectedLang', lang);
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('selectedLang')||'ua'));
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'ua';
+  setLang(savedLang);
+});
 </script>
+
 </body>
 </html>

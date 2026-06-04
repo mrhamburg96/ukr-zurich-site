@@ -242,34 +242,98 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <p id="nr-sub" style="color:var(--text2); font-size:1.1rem; text-align: center;">Свіжі матеріали, офіційні заяви та корисна інформація для української громади.</p>
   
   <div class="status-articles">
-    
-    <!-- Статья 1 -->
-    <div class="accordion-item">
-      <button class="accordion-trigger" onclick="toggleArticle(this)">
-        <span id="nr-h1">Зміни в отриманні фінансової допомоги</span>
-        <span class="arrow">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <p id="nr-p1">Тут буде детальний опис статті про фінансову допомогу, нові правила розрахунку виплат canton Zürich та корисні посилання для реєстрації.</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Статья 2 -->
-    <div class="accordion-item">
-      <button class="accordion-trigger" onclick="toggleArticle(this)">
-        <span id="nr-h2">Безкоштовні курси німецької мови від центру</span>
-        <span class="arrow">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-inner">
-          <p id="nr-p2">Інформація про запуск нових мовних груп для рівнів А1, А2 та В1. Розклад занять, правила реєстрації та умови відвідування лекцій.</p>
-        </div>
-      </div>
-    </div>
+  
+  <!-- Статья 1 (Полный текст реформы 2026) -->
+  <div class="accordion-item">
+    <button class="accordion-trigger" onclick="toggleArticle(this)">
+      <span id="nr-h1">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="accordion-content">
+      <div class="accordion-inner">
+        
+        <p id="nr-p1" class="article-p"></p>
+        <p id="nr-p2" class="article-p"></p>
+        <p id="nr-p3" class="article-p"></p>
 
+        <h3 id="nr-sub1"></h3>
+        <p id="nr-p4" class="article-p"></p>
+        <p id="nr-p5" class="article-p"></p>
+        <ul class="article-list">
+          <li id="nr-li1"></li>
+          <li id="nr-li2"></li>
+          <li id="nr-li3"></li>
+        </ul>
+
+        <h3 id="nr-sub2"></h3>
+        <p id="nr-p6" class="article-p"></p>
+        <p id="nr-p7" class="article-p"></p>
+        <p id="nr-p8" class="article-p"></p>
+
+        <h3 id="nr-sub3"></h3>
+        <p id="nr-p9" class="article-p"></p>
+        <p id="nr-p10" class="article-p"></p>
+
+        <h3 id="nr-sub4"></h3>
+        <p id="nr-p11" class="article-p"></p>
+        <ul class="article-list">
+          <li id="nr-li4"></li>
+          <li id="nr-li5"></li>
+        </ul>
+        <p id="nr-p12" class="article-p"></p>
+
+        <h3 id="nr-sub5"></h3>
+        <p id="nr-p13" class="article-p"></p>
+        <p id="nr-p14" class="article-p"></p>
+        <ul class="article-list">
+          <li id="nr-li6"></li>
+          <li id="nr-li7"></li>
+        </ul>
+
+        <!-- Адаптивная таблица изменений -->
+        <h3 id="nr-table-title" style="margin-top:2rem; margin-bottom:1rem; color:var(--blue);"></h3>
+        <div style="overflow-x: auto; width: 100%; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 2rem;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+            <thead>
+              <tr style="background: var(--surface); border-bottom: 2px solid var(--border);">
+                <th id="th-param" style="padding: 12px; font-weight: 700;"></th>
+                <th id="th-was" style="padding: 12px; font-weight: 700;"></th>
+                <th id="th-now" style="padding: 12px; font-weight: 700;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td id="td-p1-c1" style="padding: 12px; font-weight: 600;"></td>
+                <td id="td-p1-c2" style="padding: 12px; color: var(--text2);"></td>
+                <td id="td-p1-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td id="td-p2-c1" style="padding: 12px; font-weight: 600;"></td>
+                <td id="td-p2-c2" style="padding: 12px; color: var(--text2);"></td>
+                <td id="td-p2-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td id="td-p3-c1" style="padding: 12px; font-weight: 600;"></td>
+                <td id="td-p3-c2" style="padding: 12px; color: var(--text2);"></td>
+                <td id="td-p3-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+              </tr>
+              <tr>
+                <td id="td-p4-c1" style="padding: 12px; font-weight: 600;"></td>
+                <td id="td-p4-c2" style="padding: 12px; color: var(--text2);"></td>
+                <td id="td-p4-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p id="nr-p15" class="article-p" style="font-weight: 500;"></p>
+        <p id="nr-p16" class="article-p"></p>
+
+      </div>
+    </div>
   </div>
+
+</div>
 </main>
 
 <footer id="contacts">

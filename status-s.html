@@ -144,20 +144,13 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     padding: 8px 14px !important;
     font-size: 13px !important;
   }
-  .page-content {
-    padding: 2rem 0 !important;
-  }
-  .page-title {
-    font-size: 1.85rem !important;
-    margin-bottom: 1rem !important;
-    padding: 0 0.5rem !important;
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
     text-align: center !important;
   }
-  /* Адаптация текстовых блоков и списков про Статус S */
-  .page-content p, .page-content ul, .page-content ol {
-    padding: 0 0.5rem !important;
-    font-size: 14.5px !important;
-  }
+  
+  /* Адаптация картинок */
   .page-content img {
     max-width: 100% !important;
     height: auto !important;
@@ -169,11 +162,9 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
   }
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    text-align: center !important;
-    .page-content {
+
+  /* --- СТИЛИ ДЛЯ ТЕКСТА И СТАТЕЙ --- */
+  .page-content {
     padding: 1.5rem 0 !important;
   }
   .page-content p {
@@ -192,6 +183,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     padding-left: 1.5rem !important;
     padding-right: 0.5rem !important;
     margin-bottom: 1.25rem !important;
+    font-size: 15px !important;
   }
 }
 /* ========================================================================== */

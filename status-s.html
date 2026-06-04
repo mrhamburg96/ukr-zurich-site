@@ -84,10 +84,25 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 }
 
 .page-title{font-size:2.3rem;font-weight:800;margin-bottom:1.5rem;color:var(--text);line-height:1.2}
-
 .article-meta{display:flex; gap:15px; color:var(--text3); font-size:13px; margin-bottom:2rem; border-bottom:1px solid var(--border); padding-bottom:1rem;}
-.article-p{color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem; heading-shift: 2px}
+.article-p{color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem;}
 .article-h2{font-size:1.6rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; color:var(--blue-dark)}
+
+/* Кнопка Читати далі */
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.read-more-btn:hover {
+  color: var(--blue-dark);
+  transform: translateX(4px);
+}
 
 /* Інформаційні плашки */
 .info-alert{background:#FFFBEA; border-left:4px solid #F5C518; padding:20px; border-radius:0 8px 8px 0; margin:2rem 0;}
@@ -101,12 +116,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 
-/* Адаптивність банера */
-@media (max-width: 768px) {
-  .article-banner { height: 160px; }
-  .page-title { font-size: 1.8rem; }
-}
- /* ================= АДАПТИВНИЙ БЛОК ДЛЯ СТРАНИЦЫ STATUS-S ================= */
+/* ================= АДАПТИВНИЙ БЛОК ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ ================= */
 @media (max-width: 768px) {
   nav {
     flex-direction: column !important;
@@ -150,12 +160,21 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     text-align: center !important;
   }
   
-  /* Адаптация картинок */
+  .article-banner { height: 160px; }
+  
+  /* Зменшений мобільний заголовок */
+  .page-title { 
+    font-size: 1.5rem !important; 
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+    padding: 0 0.5rem !important;
+    text-align: center !important;
+  }
+
   .page-content img {
     max-width: 100% !important;
     height: auto !important;
   }
-  /* Если на странице есть таблицы с данными */
   table {
     display: block !important;
     width: 100% !important;
@@ -173,6 +192,10 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     color: var(--text2) !important;
     margin-bottom: 1rem !important;
     padding: 0 0.5rem !important;
+  }
+  .read-more-btn {
+    padding: 0 0.5rem !important;
+    font-size: 15px !important;
   }
   .page-content h2, .page-content h3 {
     padding: 0 0.5rem !important;
@@ -226,13 +249,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <main class="container page-content">
   <a href="knowledge.html" class="back-link" id="st-back">← Назад до знань</a>
   
-  <!-- Банер статті -->
   <div class="article-banner">
     <div class="banner-overlay">
       <span class="banner-badge" id="st-badge">Актуально у 2026 році</span>
     </div>
   </div>
- 
 
   <h1 id="st-title" class="page-title">Все про статус S у 2026 році</h1>
   
@@ -258,6 +279,8 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <h2 id="st-h2-2" class="article-h2"></h2>
   <p id="st-p3" class="article-p"></p>
+  
+  <a href="new-real.html" class="read-more-btn" id="st-more">Читати далі →</a>
   
   <h2 id="st-h2-3" class="article-h2"></h2>
   <p id="st-p4" class="article-p"></p>
@@ -296,12 +319,12 @@ const T = {
     /* Тексти статті */
     "st-back": "← Назад до Knowledge Center",
     "st-badge": "Актуально у 2026 році",
-    "st-title": " Все про статус S у 2026 році: Права, обов'язки та актуальні правила",
+    "st-title": "Все про статус S у 2026 році: Права, обов'язки та актуальні правила",
     "st-date": "Оновлено: Червень 2026",
     "st-author": "Категорія: Юридична інформація / Інтеграція",
     "st-p1": "Статус тимчасового захисту (Статус S) надає українцям право на проживання, медичне страхування, працевлаштування та соціальну підтримку у Швейцарії. У 2026 році Федеральна рада Швейцарії продовжує підтримувати цей механізм, адаптуючи правила до поточних інтеграційних вимог кантонів, з особливим фокусом на вивчення мови та пошук роботи.",
     "st-box-title": "⚠️ Терміни дії та автоматичне продовження",
-    "st-box-p": "Зверніть увагу, що картки дозволу на проживання (Ausweis S) мають обмежений термін дії, проте сам статус продовжується централізовано. Міграційні органи кантонів зазвичай надсилають офіційні листи-інструкції за кілька тижнів до закінчення терміну дії вашої поточної картки.",
+    "st-box-p": "Зверніть увагу, що картки дозволу на проживання (Ausweis S) мають обмежений термін дії, проте сам статус продовжується централізовано. Міграційні органи кантонів зазвичай надсилають офіційні листи-инструкції за кілька тижнів до закінчення терміну дії вашої поточної картки.",
     "st-h2-1": "Основні права, які надає статус S:",
     "st-p2": "Кожна особа, яка має офіційно підтверджений статус S у Швейцарії, має законне право на:",
     "st-li1": "<strong>Право на проживання:</strong> Легальне перебування у Швейцарії з можливістю розміщення в кантональних центрах або приватних помешканнях.",
@@ -309,6 +332,7 @@ const T = {
     "st-li3": "<strong>Соціальна та медична допомога:</strong> Безкоштовне базове медичне страхування (Krankenkasse) та щомісячні виплати для покриття базових потреб, якщо особа не має достатнього власного доходу.",
     "st-h2-2": "Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження",
     "st-p3": "Швейцарська конфедерація тривалий час залишалася одним із найбільш надійних європейських прихистків для українців, які шукали порятунку від жахіть війни. Запроваджений у березні 2022 року особливий статус тимчасового захисту (митна категорія — дозвіл на проживання типу S) дозволив десяткам тисяч родин адаптуватися до життя в новій країні. Проте станом на 2026 рік міграційна політика Берна зазнала фундаментальних змін.",
+    "st-more": "Читати далі →",
     "st-h2-3": "Подорожі за межі Швейцарії та повернення",
     "st-p4": "Короткострокові поїздки в інші країни Шенгенської зони дозволені за наявності чинного закордонного паспорта та діючого Ausweis S. Подорожі до України можливі виключно за поважних причин (наприклад, відвідування тяжкохворих родичів) на обмежений термін. Тривале перебування в Україні або регулярні поїздки без узгодження з SEM можуть призвести до негайного скасування та анулювання статусу S."
   },
@@ -332,7 +356,7 @@ const T = {
     "st-badge": "Aktuell im Jahr 2026",
     "st-title": "Alles über den Schutzstatus S im Jahr 2026: Rechte, Pflichten und Regeln",
     "st-date": "Aktualisiert: Juni 2026",
-    "st-author": "Kategorie: Rechtsинформация / Integration",
+    "st-author": "Kategorie: Rechtsinformation / Integration",
     "st-p1": "Der vorübergehende Schutzstatus (Status S) gewährt Ukrainern das Recht auf Aufenthalt, Krankenversicherung, Beschäftigung und soziale Unterstützung in der Schweiz. Im Jahr 2026 führt der Bundesrat diesen Mechanismen weiter und passt die Regeln an die aktuellen Integrationsanforderungen der Kantone an, mit besonderem Fokus auf Spracherwerb und Arbeitsmarkintegration.",
     "st-box-title": "⚠️ Gültigkeitsdauer und automatische Verlängerung",
     "st-box-p": "Bitte beachten Sie, dass die Ausweiskarten (Ausweis S) befristet sind, der Schutzstatus jedoch zentral verlängert wird. Die kantonalen Migrationsämter versenden in der Regel einige Wochen vor Ablauf des aktuellen Ausweises offizielle Informationsbriefe zur Erneuerung.",
@@ -343,6 +367,7 @@ const T = {
     "st-li3": "<strong>Sozial- und Medizinische Hilfe:</strong> Kostenlose obligatorische Krankenversicherung (Krankenkasse) und monatliche Unterstützung zur Deckung des Grundbedarfs, sofern kein ausreichendes eigenes Einkommen erzielt wird.",
     "st-h2-2": "Erwerbstätigkeit und Spracherwerb",
     "st-p3": "Im Jahr 2026 legt die Schweizer Regierung einen verstärkten Fokus auf die wirtschaftliche Integration der Ukrainer. Die Kantone fordern und finanzieren aktiv den Besuch von Intensiv-Deutschkursen. Die Arbeitsaufnahme hat höchste Priorität: Wer Sozialhilfe bezieht, ist verpflichtet, mit den Regionalen Arbeitsvermittlungszentren (RAV) zusammenzuarbeiten und aktiv nach Stellen zu suchen.",
+    "st-more": "Weiterlesen →",
     "st-h2-3": "Reisen ausserhalb der Schweiz und Rückkehr",
     "st-p4": "Kurzzeitige Reisen in andere Schengen-Staaten sind mit einem gültigen Reisepass und dem Ausweis S erlaubt. Reisen in die Ukraine sind nur aus triftigen Gründen (z. B. Besuch schwer erkrankter Angehöriger) für begrenzte Zeit zulässig. Ein längerer Aufenthalt in der Ukraine oder regelmässige Reisen ohne vorherige Genehmigung des SEM können zum sofortigen Widerruf des Status S führen."
   }

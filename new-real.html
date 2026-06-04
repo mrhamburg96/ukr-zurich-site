@@ -41,7 +41,11 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 
 /* Контент */
 .page-content{padding:4rem 0}
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
+.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text);text-align:center;}
+.article-p{color:var(--text2); margin-bottom:1.25rem; font-size:1.05rem;}
+.accordion-inner h3{font-size:1.3rem; font-weight:700; margin-top:2rem; margin-bottom:1rem; color:var(--blue-dark);}
+.article-list{margin-bottom:1.5rem; padding-left:20px; list-style-type: disc;}
+.article-list li{margin-bottom:10px; color:var(--text2); font-size:1.05rem}
 
 /* Стили Аккордеона (Статей) */
 .status-articles {
@@ -145,7 +149,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     text-align: center !important;
   }
   
-  /* Адаптация картинок и таблиц */
   .page-content img {
     max-width: 100% !important;
     height: auto !important;
@@ -157,7 +160,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Настройки уменьшенного мобильного заголовка */
   .page-title {
     font-size: 1.5rem !important;
     line-height: 1.3 !important;
@@ -166,7 +168,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     text-align: center !important;
   }
 
-  /* Мобильные стили для аккордеонов и текста */
   .status-articles {
     padding: 0 0.5rem !important;
     gap: 0.75rem !important;
@@ -202,7 +203,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     font-size: 15px !important;
   }
 }
-/* ========================================================================== */
 </style>
 </head>
 <body>
@@ -239,7 +239,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 <main class="container page-content">
   <h1 class="page-title" id="nr-title">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</h1>
-  <p id="nr-sub" style="color:var(--text2); font-size:1.1rem; text-align: center;">Свіжі матеріали, офіційні заяви та корисна інформація для української громади.</p>
+  <p id="nr-sub" style="color:var(--text2); font-size:1.1rem; text-align: center; margin-bottom: 2rem;">Свіжі матеріали, офіційні заяви та корисна інформація для української громади.</p>
   
   <div class="status-articles">
   
@@ -355,18 +355,18 @@ const T = {
     "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz",
     
-    "nr-title": "Актуальні новини та важливі події 2026",
+    "nr-title": "Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
     
     /* СЛОВАРЬ ДЛЯ СТАТЬИ 1 */
     "nr-h1": "Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження",
     "nr-p1": "Швейцарська конфедерація тривалий час залишалася одним із найбільш надійних європейських прихистків для українців, які шукали порятунку від жахіть війни. Запроваджений у березні 2022 року особливий статус тимчасового захисту (митна категорія — дозвіл на проживання типу S) дозволив десяткам тисяч родин адаптуватися до життя в новій країні. Проте станом на 2026 рік міграційна політика Берна зазнала фундаментальних змін.",
-    "nr-p2": "Швейцарський уряд (Федеральна рада) спільно з Державним секретаріатом з питань міграції (SEM) переглянув правила гри. З одного боку, країна офіційно продовжила дію особливого режиму для українців, координуючи свої дії з директивами Європейського Союзу. З іншого — запроваджено жорсткі обмеження та критерії, які розділили шукачів притулку на категорії та докорінно змінили правила перетину кордонів.",
+    "nr-p2": "Швейцарський уряд (Федеральна рада) спільно з Державним секретаріатом з питань міграції (SEM) переглянув правила гри. З одного боку, країна офіційно продовжила дію особливого режиму для українців, координуючи свої дії з директивами Європейського Союзу. З іншого — запроваджено жорсткі обмеження та criteria, які розділили шукачів притулку на категорії та докорінно змінили правила перетину кордонів.",
     "nr-p3": "Що саме змінилося в швейцарських законах та підзаконних актах, до чого готуватися новоприбулим і які нові обов’язки з’явилися у тих, хто вже має заповітну картку S? Розбираємося детально.",
     
     "nr-sub1": "1. Продовження до 2027 року: стабільність для тих, хто вже адаптувався",
-    "nr-p4": "Головна і найважливіша новина, яка принесла полегшення багатьом українським родинам, — Федеральна рада ухвалила офіційне рішення не скасовувати статус захисту S щонайменше до 4 березня 2027 року. Це рішення уряд обґрунтував тим, що попри тривалість конфлікту, загальна безпекова ситуація в Україні залишається нестабільною, а повернення мільйонів людей у зону бойових дій є неможливим.",
-    "nr-p5": "Разом із самим статусом уряд продовжил фінансування так званої «Програми S» — комплексу інтеграційних заходів. Конфедерація продовжує виділяти кантонам по 3000 швейцарських франків (CHF) на рік на кожну особу. Ці кошти спрямовуються на:",
+    "nr-p4": "Головна і найважливіша новина, яка принесла полегшення бачатьом українським родинам — Федеральна рада ухвалила офіційне рішення не скасовувати статус захисту S щонайменше до 4 березня 2027 року. Це рішення уряд обґрунтував тим, що попри тривалість конфлікту, загальна безпекова ситуація в Україні залишається нестабільною, а повернення мільйонів людей у зону бойових дій є неможливим.",
+    "nr-p5": "Разом із самим статусом уряд продовжив фінансування так званої «Програми S» — комплексу інтеграційних заходів. Конфедерація продовжує виділяти кантонам по 3000 швейцарських франків (CHF) на рік на кожну особу. Ці кошти спрямовуються на:",
     "nr-li1": "Інтенсивне вивчення державних мов Швейцарії (німецької, французької або італійської — залежно від регіону);",
     "nr-li2": "Професійне навчання та програми перекваліфікації;",
     "nr-li3": "Роботу регіональних центрів зайнятості (RAV) для прискореного працевлаштування.",
@@ -383,7 +383,7 @@ const T = {
     "nr-sub4": "4. Нові правила подорожей: ліміти на візити додому",
     "nr-p11": "Згідно з оновленими інструкціями SEM, правила контролю за перетином кордонів стали значно жорсткішими:",
     "nr-li4": "<strong>Короткострокові візити до України:</strong> домашні візити обмежені лімітом у 15 днів на півріччя (6 місяців).",
-    "nr-li5": "<strong>Подорожі в інші країни:</strong> Перебувать за межами Швейцарії в третіх країнах без спеціального дозволу можна не більше 2 місяців.",
+    "nr-li5": "<strong>Подорожі в інші країни:</strong> Перебувати за межами Швейцарії в третіх країнах без спеціального дозволу можна не більше 2 місяців.",
     "nr-p12": "Якщо міграційна служба зафіксує перевищення ліміту перебування в Україні (понад 15 днів за 6 місяців), статус S буде негайно анульовано без права відновлення.",
     
     "nr-sub5": "5. Що буде далі? Горизонт після 2027 року",
@@ -395,21 +395,13 @@ const T = {
     /* ТАБЛИЦА */
     "nr-table-title": "Зведена таблиця ключових змін:",
     "th-param": "Параметр закону", "th-was": "Як було раніше", "th-now": "Як діє зараз (у 2026 році)",
-    "td-p1-c1": "Термін дії статусу S", "td-p1-c2": "Продовжувався щорічно", "td-p1-c3": "Офіційно продовжено до 4 березня 2027 року",
+    "td-p1-c1": "Termін дії статусу S", "td-p1-c2": "Продовжувався щорічно", "td-p1-c3": "Офіційно продовжено до 4 березня 2027 року",
     "td-p2-c1": "Географія надання захисту", "td-p2-c2": "Вся територія України без винятків", "td-p2-c3": "Західні області (7 регіонів) визнані безпечними; у статусі відмовляють",
     "td-p3-c1": "Візити в Україну", "td-p3-c2": "До 15 днів на квартал", "td-p3-c3": "Не більше 15 днів на півріччя (6 місяців)",
     "td-p4-c1": "Цільовий рівень зайнятості", "td-p4-c2": "Без чітких планок", "td-p4-c3": "Встановлено планку працевлаштування у 40%",
     
     "nr-p15": "Швейцарія залишається гуманною та солідарною з Україною, проте період «автоматичної та беззастережної» підтримки трансформувався в епоху прагматизму.",
     "nr-p16": "Для українців у Швейцарії це означає лише одне — час для невизначеності минув. Вивчення мови, офіційне працевлаштування та суворе дотримання міграційних правил є єдиним ключем до безпечного перебування в Альпійській республіці."
-    "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
-    "nr-title": "Актуальні новини та важливі події 2026",
-    "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
-    "nr-h1": "Зміни в отриманні фінансової допомоги", 
-    "nr-p1": "Тут буде детальний опис статті про фінансову допомогу, нові правила розрахунку виплат canton Zürich та корисні посилання для реєстрації.",
-    "nr-h2": "Безкоштовні курси німецької мови від центру", 
-    "nr-p2": "Інформація про запуск нових мовних груп для рівнів А1, А2 та В1. Розклад занять, правила реєстрації та умови відвідування лекцій.",
-    "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
   },
   de: {
     "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
@@ -420,7 +412,7 @@ const T = {
     
     /* СЛОВАРЬ ДЛЯ СТАТЬИ 1 (DE ЗАГЛУШКИ) */
     "nr-h1": "Neue Realitäten des Status S in der Schweiz: Kurs auf Integration und geografische Einschränkungen",
-    "nr-p1": "Die Schweizerische Eidgenossenschaft blieb lange Zeit einer der zuverlässigsten europäischen Zufluchtsorte...",
+    "nr-p1": "Die Schweizerische Eidgenossenschaft blieb lange Zeit einer der zuverlässigsten europäischen Zufluchtsorte für Ukrainer...",
     "nr-p2": "Der Bundesrat hat gemeinsam mit dem Staatssekretariat für Migration (SEM) die Regeln überarbeitet...",
     "nr-p3": "Was genau hat sich geändert? Hier finden Sie die Details.",
     "nr-sub1": "1. Verlängerung bis 2027", "nr-p4": "Der Bundesrat hat beschlossen, den Status S bis zum 4. März 2027 zu verlängern...", "nr-p5": "Gleichzeitig wurde die Finanzierung des S-Programms verlängert...",
@@ -428,7 +420,7 @@ const T = {
     "nr-sub2": "2. Geografische Einschränkungen", "nr-p6": "Automatische Gewährung des Status S gilt nicht mehr für 7 westliche Regionen...", "nr-p7": "Dazu gehören: Wolyn, Riwne, Lwiw, Ternopil, Transkarpatien, Iwano-Frankiwsk, Czernowitz...", "nr-p8": "Wichtig: Dies gilt nur für Neuanträge...",
     "nr-sub3": "3. Arbeitsmarktquote von 40%", "nr-p9": "Die Erwerbsquote von Ukrainern soll 40% erreichen...", "nr-p10": "Die Kantone fordern eine aktive Arbeitsaktivität über das RAV...",
     "nr-sub4": "4. Neue Reiseregeln", "nr-p11": "Die Richtlinien des SEM wurden verschärft...", 
-    "nr-li4": "Heimatลаndbesuche: Max. 15 Tage pro Halbjahr.", "nr-li5": "Drittstaaten: Max. 2 Monate.",
+    "nr-li4": "Heimatlandbesuche: Max. 15 Tage pro Halbjahr.", "nr-li5": "Drittstaaten: Max. 2 Monate.",
     "nr-p12": "Bei Überschreitung droht der sofortige Widerruf des Status S...",
     "nr-sub5": "5. Wie geht es nach 2027 weiter?", "nr-p13": "Die Schweiz wird die Strategie der EU spiegeln...", "nr-p14": "Zwei Szenarien werden geprüft:",
     "nr-li6": "Freiwillige Rückkehrprogramme...", "nr-li7": "Statuswechsel (B-Ausweis) bei erfolgreicher Integration...",
@@ -440,14 +432,6 @@ const T = {
     "td-p4-c1": "Erwerbsquote", "td-p4-c2": "Keine festen Vorgaben", "td-p4-c3": "Zielquote liegt bei 40%",
     "nr-p15": "Die Schweiz bleibt solidarisch, setzt jedoch verstärkt auf Pragmatismus.",
     "nr-p16": "Spracherwerb und Erwerbstätigkeit sind der Schlüssel für einen stabilen Aufenthalt."
-    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
-    "nr-title": "Aktuelle Nachrichten und wichtige Ereignisse 2026",
-    "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
-    "nr-h1": "Änderungen beim Erhalt von finanzieller Unterstützung", 
-    "nr-p1": "Hier finden Sie eine detaillierte Beschreibung des Artikels über finanzielle Hilfe, neue Regeln für die Berechnung von Auszahlungen im Kanton Zürich und nützliche Links zur Registrierung.",
-    "nr-h2": "Kostenlose Deutschkurse vom Zentrum", 
-    "nr-p2": "Informationen über den Start neuer Sprachgruppen für die Niveaustufen A1, A2 und B1. Kursplan, Anmelderegeln und Teilnahmebedingungen.",
-    "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
   }
 };
 

@@ -70,6 +70,77 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 /* Подвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+
+/* ================= КОРЕГУВАННЯ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (768px) ================= */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 10px 1rem !important;
+  }
+  .nav-logo {
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+  .nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px 15px !important;
+    padding: 0 !important;
+  }
+  .nav-links a {
+    font-size: 13.5px !important;
+  }
+  .nav-r {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 5px !important;
+    gap: 15px !important;
+  }
+  .btn-solid {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+  .page-content {
+    padding: 2rem 0 !important;
+  }
+  .page-title {
+    font-size: 1.85rem !important;
+    margin-bottom: 1rem !important;
+    padding: 0 0.5rem !important;
+  }
+  .about-p, .about-h2, .about-list, .goals-box {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .about-p {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .about-h2 {
+    font-size: 1.4rem !important;
+    margin-top: 1.8rem !important;
+  }
+  .img-wrap {
+    margin: 1.5rem 0 !important;
+    border-radius: 8px !important;
+  }
+  .img-wrap img {
+    height: 240px !important; /* Зменшуємо висоту банерів на телефонах */
+  }
+  .img-caption {
+    font-size: 12px !important;
+    padding: 10px !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+  }
+}
+/* ===================================================================== */
 </style>
 </head>
 <body>
@@ -90,7 +161,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <li><a href="help.html" id="m-help">Допомога</a></li>
   <li><a href="events.html" id="m-events">Заходи</a></li>
   <li><a href="knowledge.html" id="m-knowledge">Knowledge Center</a></li>
-  <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
+  <li><a href="announcements.html" id="m-announcements">Оговорення</a></li>
   <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
   <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
   <li><a href="#contacts" id="m-contacts">Контакти</a></li>
@@ -322,7 +393,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "d9d": "Долучайтеся та допомагайте разом із нами.",
     "d10": "Community підтримка",
     "d10d": "Моральна підтримка, зустрічі, клуби та дружнє середовище.",
-    "cta-row-h": "Не знаєте, з чого почати?",
+    "cta-row-h": "Не знаєте, з чего почати?",
     "cta-row-p": "Напишіть нам — ми підкажемо, як можем допомогти саме вам.",
     "cta-row-btn": "Отримати допомогу",
     "cta1h": "Долучайтеся до спільноти!",
@@ -366,7 +437,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "ab-h2-1": "Наша місія та цінності",
     "ab-p3": "Швейцарія тепло прийняла тисячі українських родин, але шлях інтеграції, вивчення мови та адаптації до нових юридичних і соціальних реалій вимагає постійної підтримки. UISZ — це не просто офіс чи пункт видачі допомоги. Це простір, де швейцарський досвід соціальної роботи поєднується з українською незламністю, взаємодопомогою та культурою.",
     "ab-h2-2": "Модель роботи: Найкращий швейцарський досвід",
-    "ab-p4": "Ми не вигадуємо велосипед — ми беремо найкращі, перевірені десятиліттями швейцарські практики соціальної допомоги та адаптуємо their під потреби нашої громади. У своїй діяльності ми надихаємося та орієнтуємося на стандарти таких відомих інституцій, як:",
+    "ab-p4": "Ми не вигадуємо велосипед — ми беремо найкращі, перевірені десятиліттями швейцарські практики соціальної допомоги та адаптуємо their під потреби нашої громади. У своїй діяльності мы надихаємося та орієнтуємося на стандарти таких відомих інституцій, як:",
     "ab-li1": "<strong>Buchegg Social Works</strong> (системна соціальна робота та підтримка особистості);",
     "ab-li2": "<strong>Caritas</strong> (глибока гуманітарна та юридична експертиза);",
     "ab-li3": "<strong>Schweizer Tafel</strong> та <strong>Tischlein deck dich</strong> (професійний порятунок продуктів та логістика продовольчої допомоги).",
@@ -381,7 +452,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "ab-cap3": "Integration починається зі спілкування, вивчення мови та спільної роботи",
     "ab-h2-4": "Новий рівень: Status Gemeinnützigkeit",
     "ab-p7": "Сьогодні мы активно працюємо над отриманням офіційного швейцарського статусу Gemeinnützigkeit (суспільна корисність / благодійність). Це відкриє для нашої організації принципово нові можливості: офіційно приймати донати (donations), вести некомерційний прозорий облік (NGO accounting), отримувати податкові пільги для партнерів, діяти як повністю визнана організація (recognized NGO), подаватися на великі міські гранти, розширювати мережі безкоштовних курсів та ефективно співпрацювати з містом Zürich, локальними NGO та релігійними мережами (church networks).",
-    "ab-quote": "Символічним стартом та точкою відліку для нашої концепції став день <strong>24 травня 2026 року (Божа Неділя)</strong>. Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру. Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.",
+    "ab-quote": "Символічним стартом та точкою відліку для нашої концепції став день <strong>24 травня 2026 года (Божа Неділя)</strong>. Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру. Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.",
     "ab-p8": "Запрошуємо до співпраці волонтерів, представників бізнесу та партнерських організацій! Разом ми сильніші."
   },
   de: {
@@ -462,7 +533,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "stat-2": "Ehrenamtliche helfen täglich der Gemeinde",
     "qc-h": "Schnellkontakt",
     "q-t": "\"Ich erhielt Antworten auf alle meine Fragen und fühlte Unterstützung vom ersten Tag an. Danke UAGZ!\"",
-    "q-n": "Olena",
+    "q-n": "Auszeit",
     "tc1": "Aktuell",
     "tc1l": "Alle anzeigen →",
     "b1": "Dringend",
@@ -574,7 +645,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "ab-p2": "Wir sind eine unabhängige gemeinnützige Organisation, die in der Rechtsform eines gemeinnützigen Vereins (nach schweizerischem Recht) gegründet wird. Unser Ziel ist es, eine stabile, transparente und effiziente Brücke zwischen der Schweizer Gesellschaft und den Ukrainern zu schlagen, die hier Zuflucht gefunden haben oder Unterstützung benötigen.",
     "ab-cap1": "UISZ — Ein Raum des Vertrauens, der Entwicklung und der Zusammenarbeit in Zürich",
     "ab-h2-1": "Unsere Mission und Werte",
-    "ab-p3": "Die Schweiz hat Tausende von ukrainischen Familien herzlich aufgenommen, aber der Weg der Integration, des Spracherwerbs und der Anpassung an neue rechtliche und soziale Realitäten erfordert kontinuierliche Unterstützung. Das UISZ is nicht nur ein Büro oder eine Ausgabestelle für Hilfe. Es ist ein Raum, in dem Schweizer Erfahrung in der Sozialarbeit mit ukrainischer Resilienz, gegenseitiger Hilfe und Kultur verbunden wird.",
+    "ab-p3": "Die Schweiz hat Tausende von ukrainischen Familien herzlich aufgenommen, aber der Weg der Integration, des Spracherwerbs und der Anpassung an neue rechtliche und soziale Realitäten erfordert kontinuierliche Unterstützung. Das UISZ ist nicht nur ein Büro oder eine Ausgabestelle für Hilfe. Es ist ein Raum, in dem Schweizer Erfahrung in der Sozialarbeit mit ukrainischer Resilienz, gegenseitiger Hilfe und Kultur verbunden wird.",
     "ab-h2-2": "Arbeitsmodell: Beste Schweizer Praktiken",
     "ab-p4": "Wir erfinden das Rad nicht neu — wir übernehmen die besten, jahrzehntelang bewährten Schweizer Praktiken der sozialen Unterstützung und passen sie an die Bedürfnisse unserer Gemeinschaft an. In unserer Arbeit orientieren wir uns an den Standards bekannter Institutionen wie:",
     "ab-li1": "<strong>Buchegg Social Works</strong> (systematische Sozialarbeit und persönliche Unterstützung);",

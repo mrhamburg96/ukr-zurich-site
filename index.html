@@ -444,7 +444,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 .hero {
   position: relative !important;
   width: 100% !important;
-  /* Идеально держит пропорции фотографии, убирая пустые блоки */
+  /* Четко держит пропорции исходного фото на ПК */
   aspect-ratio: 16 / 7.1 !important; 
   background-image: url('main.jpg') !important;
   background-size: cover !important;
@@ -453,22 +453,22 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   overflow: hidden !important;
 }
 
-/* Опускаем контент вниз и прижимаем строго к ЛЕВОМУ краю */
+/* Смещаем контент в ЛЕВЫЙ ВЕРХНИЙ угол */
 .hero-inner {
   position: absolute !important;
   inset: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-end !important;
-  align-items: flex-start !important; /* Смещение влево */
-  text-align: left !important;         /* Текст по левому краю */
-  padding: 0 0 2rem 4rem !important;   /* Отступы: слева 4rem, чтобы не липло к экрану */
+  justify-content: flex-start !important; /* Поднимает текст вверх */
+  align-items: flex-start !important;    /* Прижимает текст влево */
+  text-align: left !important;            /* Выравнивание строк по левому краю */
+  padding: 3.5rem 0 0 4rem !important;    /* Отступы: сверху 3.5rem (под шапку), слева 4rem */
   box-sizing: border-box !important;
   z-index: 2 !important;
 }
 
 .hero-text {
-  max-width: 550px !important; /* Ограничиваем ширину, чтобы текст не лез на лица справа */
+  max-width: 520px !important; /* Ограничение ширины, чтобы строки не ложились на лица */
   width: 100% !important;
 }
 
@@ -477,7 +477,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   align-items: center !important;
   justify-content: flex-start !important;
   gap: 8px !important;
-  margin-bottom: 8px !important;
+  margin-bottom: 12px !important;
 }
 
 .hero-logo-text {
@@ -486,29 +486,30 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 #h-badge {
-  color: #64748b !important;
+  color: #475569 !important;
 }
 
-/* ГЛАВНЫЙ ЗАГОЛОВОК: Чёрный, без теней */
+/* ЧЕРНЫЙ ЗАГОЛОВОК ВВЕРХУ (с легким размытием фона для четкости на небе) */
 #h-t {
-  font-size: 1.85rem !important; /* Чуть уменьшили, чтобы аккуратно лег на воду слева */
-  color: #1e293b !important;    /* Строго чёрный/угольный цвет */
+  font-size: 1.85rem !important;
+  color: #1e293b !important;   /* Глубокий черный цвет текста */
   font-weight: 800 !important;
   line-height: 1.25 !important;
-  margin: 0 0 8px 0 !important;
-  text-shadow: none !important;  /* Убрали старую белую/темную тень */
+  margin: 0 0 10px 0 !important;
+  /* Едва заметный белый контур, чтобы черный текст читался даже на ярком солнце/облаках */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.9) !important;
 }
 
-/* ПОДЗАГОЛОВОК: Тёмно-серый для идеального контраста */
+/* ЧЕРНЫЙ ПОДЗАГОЛОВОК */
 #h-s {
   font-size: 1rem !important;
-  color: #334155 !important;    /* Тёмный читабельный цвет */
+  color: #334155 !important;   /* Читабельный темный оттенок */
   line-height: 1.4 !important;
-  margin: 0 0 20px 0 !important;
-  text-shadow: none !important;  /* Убрали тень */
+  margin: 0 0 22px 0 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Кнопки выстраиваются по левому краю */
+/* Кнопки аккуратно выстроены слева под текстом */
 .hero-btns {
   display: flex !important;
   flex-direction: row !important;
@@ -526,19 +527,21 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 
-/* 📱 АДАПТАЦИЯ ДЛЯ СМАРТФОНОВ (СТРОГО В ЛЕВОМ УГЛУ НА ВОДЕ) */
+/* 📱 АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
 @media (max-width: 768px) {
   .hero {
-    /* Делаем баннер на мобильных чуть выше, сохраняя читаемость */
+    /* На мобильных сохраняем высоту кадра, чтобы лица были крупными */
     aspect-ratio: 16 / 10.5 !important; 
   }
 
   .hero-inner {
-    padding: 0 0 0.8rem 0.8rem !important; /* Уменьшаем отступы для экранов телефонов */
+    /* На смартфонах опускаем блок чуть ниже на воду, чтобы не перекрывать узкую верхнюю часть */
+    justify-content: flex-end !important; 
+    padding: 0 0 0.8rem 0.8rem !important; /* Минимальные отступы от краев экрана телефона */
   }
 
   .hero-text {
-    max-width: 280px !important; /* Текст гарантированно не зайдет на лица на узком экране */
+    max-width: 270px !important; /* Текст компактно сгруппирован слева от людей */
   }
 
   .hero-logo-row {
@@ -549,17 +552,19 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .hero-logo-text { font-size: 10px !important; }
   #h-badge { font-size: 8px !important; }
 
-  /* Ультра-компактный чёрный шрифт для мобильной воды */
+  /* Адаптивные микро-размеры шрифтов для смартфонов */
   #h-t {
     font-size: 11px !important; 
     line-height: 1.2 !important;
     margin: 0 0 3px 0 !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
   }
 
   #h-s {
     font-size: 8px !important;
     line-height: 1.25 !important;
     margin: 0 0 8px 0 !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
   }
 
   .hero-btns {
@@ -572,7 +577,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     border-radius: 4px !important;
   }
   
-  /* Адаптация остальных блоков сайта */
+  /* Исправление остальных адаптивных блоков сайта */
   .dir-grid, .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
@@ -683,7 +688,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <span class="hero-logo-text">UAGZ</span>
         <span class="hero-logo-sub" id="h-badge">Официальная NGO · Zürich</span>
       </div>
-      <h1 id="h-t">Украинский интеграционный та громадский центр Цюриха</h1>
+      <h1 id="h-t">Український інтеграційний та громадський центр Цюриха</h1>
       <p class="hero-sub" id="h-s">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
       <div class="hero-btns">
         <a href="help.html" class="btn-hero-main" id="h-b1">Отримати допомогу</a>

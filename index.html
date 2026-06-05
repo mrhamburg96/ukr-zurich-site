@@ -444,28 +444,28 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 @media (max-width: 768px) {
   /* 1. Исправление шапки */
   nav {
-    position: relative !important;     /* Убираем наплывание на баннер, теперь баннер начнется СТРОГО под меню */
-    background: #ffffff !important;    /* Делаем фон шапки чисто белым */
-    flex-direction: column !important; /* Выстраиваем логотип, меню и кнопку вертикально */
+    position: relative !important;     /* Шапка больше не наплывает */
+    background: #ffffff !important;    /* Чисто белый фон */
+    flex-direction: column !important; 
     align-items: center !important;
     gap: 12px !important;
     padding: 12px 1rem !important;
-    height: auto !important;           /* Разрешаем шапке растянуться по высоте под мобильное меню */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Добавляем легкую красивую тень снизу */
+    height: auto !important;           
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
   }
   .nav-logo {
     max-width: 100% !important;
     justify-content: center !important;
   }
   .nav-links {
-    display: flex !important;          /* Гарантируем, что меню ВИДНО */
-    flex-wrap: wrap !important;        /* Разрешаем ссылкам переноситься на второй ряд, если их много */
+    display: flex !important;          
+    flex-wrap: wrap !important;        
     justify-content: center !important; 
     gap: 10px 15px !important;
     padding: 0 !important;
   }
   .nav-links a {
-    font-size: 13.5px !important;      /* Оптимальный размер для пальца */
+    font-size: 13.5px !important;      
   }
   .nav-r {
     width: 100% !important;
@@ -474,88 +474,83 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     gap: 15px !important;
   }
   .btn-solid {
-    padding: 8px 14px !important;     /* Делаем кнопку "Отримати допомогу" чуть компактнее */
+    padding: 8px 14px !important;     
     font-size: 13px !important;
   }
 
- /* 2. Исправление главного экрана (Картинка ПОЛНОСТЬЮ + Текст поверх) */
+  /* 2. Надежное исправление главного экрана (Картинка сверху, текст снизу в рамке) */
   hero {
-    min-height: auto !important; /* Убираем фиксированную высоту ПК */
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
-    /* Идеальная пропорция, чтобы картинка 16:9 вместе с текстом и кнопками полностью уместилась на экране */
-    aspect-ratio: 1 / 1.1 !important; 
+    min-height: auto !important;       /* Убираем высоту ПК */
+    display: flex !important;
+    flex-direction: column !important; /* Выстраиваем строго: сначала фото, потом текст */
+    background: #EBF2FF !important;    /* Мягкий фон, который уберет белую дыру */
+    padding: 0 !important;
     overflow: hidden !important;
-    background: #EBF2FF !important; /* Голубой фон в тон неба */
   }
 
   .hero-img {
-    position: absolute !important;
-    inset: 0 !important;
+    position: relative !important;     /* Возвращаем картинку в нормальный порядок */
     width: 100% !important;
-    /* Картинка займет верхнюю часть баннера, чтобы не мешать кнопкам */
-    height: 65% !important; 
-    /* 🌟 ВОТ ОНО: Картинка теперь сжимается ПОЛНОСТЬЮ, ни один пиксель по бокам не отрежется */
-    background-size: contain !important; 
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;   /* Фото будет ровно 16:9, как на ПК */
+    background-size: contain !important; /* Картинка сожмется целиком, люди НЕ режутся */
     background-repeat: no-repeat !important;
-    background-position: center top !important; 
+    background-position: center top !important;
+    order: 1 !important;               /* Картинка строго первая */
   }
 
   .hero-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    background: none !important; /* Убираем темный фильтр, картинка будет светлой и чистой */
+    display: none !important;          /* Убираем темную пелену, фото будет ярким */
   }
 
   .hero-inner {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 2 !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    /* Смещаем контент к нижней части, чтобы текст и кнопки красиво легли под лицами людей */
-    justify-content: flex-end !important; 
     align-items: center !important;
     text-align: center !important;
-    padding: 1rem 1rem 1.5rem 1rem !important;
+    padding: 1.5rem 1rem !important;
+    margin: 0 !important;
     box-sizing: border-box !important;
-    background: none !important;
+    background: #F3F4F6 !important;    /* 🌟 Мягкая серая плашка под текстом, чтобы блок смотрелся единым целым */
+    order: 2 !important;               /* Текст строго под картинкой */
   }
 
   .hero-text h1 {
-    font-size: 1.35rem !important;   /* Компактный размер для мобильного */
-    color: #111827 !important;       /* Делаем текст ТЕМНЫМ, так как под ним будет светлая часть */
+    font-size: 1.4rem !important;      /* Четкий читаемый размер для смартфона */
+    color: #111827 !important;         /* Темный цвет букв */
     line-height: 1.25 !important;
-    margin-bottom: 0.5rem !important;
-    font-weight: 800 !important;
-    text-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff !important; /* Белое свечение вокруг букв для идеальной читаемости */
+    margin-top: 0 !important;
+    margin-bottom: 0.75rem !important;
+    text-shadow: none !important;
   }
   
   .hero-sub {
-    color: #374151 !important;       /* Темный читаемый подзаголовок */
-    font-size: 12px !important;
+    color: #4B5563 !important;         
+    font-size: 13px !important;
     line-height: 1.4 !important;
-    margin-bottom: 1rem !important;
-    font-weight: 600 !important;
-    text-shadow: 0 0 8px #ffffff !important;
+    margin-bottom: 1.5rem !important;
+    text-shadow: none !important;
   }
 
   .hero-btns {
-    width: 100% !important;
+    display: flex !important;
     justify-content: center !important;
-    gap: 8px !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
 
   .btn-hero-main, .btn-hero-sec {
-    padding: 10px 16px !important;
-    font-size: 12.5px !important;
+    padding: 10px 20px !important;
+    font-size: 13px !important;
   }
 
   .tg-widget {
     width: 100% !important;
-    max-width: 290px !important;
-    margin-top: 0.6rem !important;
+    max-width: 100% !important;
+    margin-top: 1.5rem !important;
   }
 
   /* 3. Сброс ВСЕХ сеток в один столбик */
@@ -576,6 +571,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 } /* <-- Закрывающая скобка всего мобильного блока @media */
 /* ===================================================================== */
+</style>
 </style>
 </head>
 <body>

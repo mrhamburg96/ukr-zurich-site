@@ -444,7 +444,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 .hero {
   position: relative !important;
   width: 100% !important;
-  /* Четко держит пропорции исходного фото на ПК */
   aspect-ratio: 16 / 7.1 !important; 
   background-image: url('main.jpg') !important;
   background-size: cover !important;
@@ -453,22 +452,22 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   overflow: hidden !important;
 }
 
-/* Смещаем контент в ЛЕВЫЙ ВЕРХНИЙ угол */
+/* На ПК: Смещаем контент в ЛЕВЫЙ ВЕРХНИЙ угол */
 .hero-inner {
   position: absolute !important;
   inset: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important; /* Поднимает текст вверх */
-  align-items: flex-start !important;    /* Прижимает текст влево */
-  text-align: left !important;            /* Выравнивание строк по левому краю */
-  padding: 3.5rem 0 0 4rem !important;    /* Отступы: сверху 3.5rem (под шапку), слева 4rem */
+  justify-content: flex-start !important; /* На ПК — вверху */
+  align-items: flex-start !important;    /* На ПК — слева */
+  text-align: left !important;            
+  padding: 3.5rem 0 0 4rem !important;    /* Отступ сверху под меню */
   box-sizing: border-box !important;
   z-index: 2 !important;
 }
 
 .hero-text {
-  max-width: 520px !important; /* Ограничение ширины, чтобы строки не ложились на лица */
+  max-width: 520px !important; 
   width: 100% !important;
 }
 
@@ -489,27 +488,23 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   color: #475569 !important;
 }
 
-/* ЧЕРНЫЙ ЗАГОЛОВОК ВВЕРХУ (с легким размытием фона для четкости на небе) */
 #h-t {
   font-size: 1.85rem !important;
-  color: #1e293b !important;   /* Глубокий черный цвет текста */
+  color: #1e293b !important;   
   font-weight: 800 !important;
   line-height: 1.25 !important;
   margin: 0 0 10px 0 !important;
-  /* Едва заметный белый контур, чтобы черный текст читался даже на ярком солнце/облаках */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.9) !important;
 }
 
-/* ЧЕРНЫЙ ПОДЗАГОЛОВОК */
 #h-s {
   font-size: 1rem !important;
-  color: #334155 !important;   /* Читабельный темный оттенок */
+  color: #334155 !important;   
   line-height: 1.4 !important;
   margin: 0 0 22px 0 !important;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Кнопки аккуратно выстроены слева под текстом */
 .hero-btns {
   display: flex !important;
   flex-direction: row !important;
@@ -527,57 +522,76 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 
-/* 📱 АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
+/* 📱 ЖЕСТКАЯ КОРРЕКЦИЯ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (СПАСАЕМ ТЕКСТ И КНОПКИ) */
 @media (max-width: 768px) {
   .hero {
-    /* На мобильных сохраняем высоту кадра, чтобы лица были крупными */
-    aspect-ratio: 16 / 10.5 !important; 
+    aspect-ratio: 16 / 11.5 !important; /* Сделали баннер чуть выше, чтобы гарантировать простор */
   }
 
   .hero-inner {
-    /* На смартфонах опускаем блок чуть ниже на воду, чтобы не перекрывать узкую верхнюю часть */
+    /* Опускаем текст в левый НИЖНИЙ угол на воду, подальше от белого меню */
     justify-content: flex-end !important; 
-    padding: 0 0 0.8rem 0.8rem !important; /* Минимальные отступы от краев экрана телефона */
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 0 0 0.8rem 0.8rem !important; /* Безопасные отступы от краев экрана */
   }
 
   .hero-text {
-    max-width: 270px !important; /* Текст компактно сгруппирован слева от людей */
+    max-width: 280px !important; 
+    display: block !important;  /* Гарантируем видимость */
+    visibility: visible !important;
   }
 
   .hero-logo-row {
+    display: flex !important;
     gap: 4px !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 3px !important;
   }
   
-  .hero-logo-text { font-size: 10px !important; }
-  #h-badge { font-size: 8px !important; }
+  .hero-logo-text { font-size: 11px !important; color: #1e293b !important; }
+  #h-badge { font-size: 9px !important; color: #475569 !important; }
 
-  /* Адаптивные микро-размеры шрифтов для смартфонов */
+  /* Возвращаем и фиксируем черный шрифт */
   #h-t {
-    font-size: 11px !important; 
+    display: block !important;
+    font-size: 12px !important; 
     line-height: 1.2 !important;
-    margin: 0 0 3px 0 !important;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
+    margin: 0 0 4px 0 !important;
+    color: #1e293b !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9) !important;
   }
 
   #h-s {
-    font-size: 8px !important;
-    line-height: 1.25 !important;
-    margin: 0 0 8px 0 !important;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
+    display: block !important;
+    font-size: 8.5px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 10px 0 !important;
+    color: #334155 !important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.9) !important;
   }
 
   .hero-btns {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
     gap: 6px !important;
+    visibility: visible !important;
   }
 
   .btn-hero-main, .btn-hero-sec {
-    padding: 5px 8px !important;
-    font-size: 9px !important;
+    display: inline-flex !important;
+    padding: 6px 10px !important;
+    font-size: 9.5px !important;
     border-radius: 4px !important;
   }
   
-  /* Исправление остальных адаптивных блоков сайта */
+  /* Исправление отображения навигации и элементов UA/DE */
+  nav {
+    position: relative !important;
+    z-index: 10 !important; /* Меню остается сверху, но не налезает на текст */
+  }
+  
+  /* Восстановление остальных блоков сайта */
   .dir-grid, .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;

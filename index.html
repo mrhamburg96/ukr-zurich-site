@@ -420,13 +420,29 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     gap: 1.5rem !important;
   }
 
-  /* 4. Центрирование текстов для удобства чтения с телефона */
+ /* 4. Центрирование текстов для удобства чтения с телефона */
   .footer-grid {
     text-align: center !important;
   }
-}
-/* ===================================================================== */
 
+  /* 2. Исправление главного экрана (Hero) */
+  .hero-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 1.5rem 1rem !important; /* Делаем отступы чуть компактнее */
+    min-height: auto !important;     /* Убираем жесткую высоту */
+  }
+  hero {
+    min-height: auto !important;     /* Убираем жесткую высоту */
+    aspect-ratio: 4 / 3 !important;  /* Задаем аккуратные мобильные пропорции */
+  }
+  .hero-text h1 {
+    font-size: 1.6rem !important;    /* Немного уменьшаем заголовок */
+  }
+
+} /* <-- ВОТ ЭТА СКОБКА закрывает весь мобильный блок @media! Она должна быть здесь */
+/* ===================================================================== */
 </style>
 </head>
 <body>

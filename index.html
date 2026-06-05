@@ -400,12 +400,32 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
-  /* 2. Исправление главного экрана (Hero) */
+ /* 2. Исправление главного экрана (Hero) */
   .hero-inner {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 2rem 1rem !important;
+    padding: 1.5rem 1rem !important; /* Сделали отступы чуть компактнее, чтобы текст не прижимался к краям */
+    min-height: auto !important;     /* Убираем жесткую высоту */
+    
+    /* Добавляем легкий белый фон под текст, чтобы он отлично читался на фоне лиц */
+    background: rgba(255, 255, 255, 0.75) !important; 
+    border-radius: 12px;
+    margin: 10px !important;
+  }
+
+  hero {
+    min-height: auto !important;     /* Убираем жесткую высоту */
+    aspect-ratio: 4 / 3 !important;  /* Задаем аккуратные мобильные пропорции */
+  }
+
+  /* СДВИГАЕМ КАРТИНКУ, ЧТОБЫ ВЕРНУТЬ ЛЮДЕЙ В КАДР: */
+  .hero-img {
+    background-position: 75% center !important; /* Фокусируемся на правой части фото, где стоят люди */
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem !important;    /* Немного уменьшаем заголовок, чтобы он красиво смотрелся на экране телефона */
   }
   .tg-widget {
     width: 100% !important;

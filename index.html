@@ -478,82 +478,96 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
-  /* 2. Исправление главного экрана (Бесшовный стык, крупные лица) */
+  /* 2. Исправление главного экрана (Наложение текста прямо на фото) */
   hero {
     min-height: auto !important;
-    display: flex !important;
-    flex-direction: column !important; /* Картинка сверху, текст строго под ней */
-    background: #EBF2FF !important;    /* Фирменный голубой фон объединяет весь блок */
-    padding: 0 !important;
-    margin: 0 !important;
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    /* Задаем вертикальную рамку (высота чуть больше ширины), чтобы поместился и текст, и фото */
+    aspect-ratio: 1 / 1.25 !important; 
+    overflow: hidden !important;
+    background: #111827 !important;
   }
 
   .hero-img {
-    position: relative !important;
+    position: absolute !important;
+    inset: 0 !important;
     width: 100% !important;
-    height: auto !important;
-    /* Пропорция 16:7 делает картинку чуть крупнее, приближая лица */
-    aspect-ratio: 16 / 7 !important;   
-    background-size: cover !important;  /* Картинка заполняет мобильный блок сочно */
-    /* Сдвигаем фокус на 73% вправо (прямо на людей), убирая пустой левый край моста */
-    background-position: 73% center !important; 
+    height: 100% !important;
+    background-size: cover !important; 
+    /* 🎯 Важнейшая настройка: сдвигаем картинку так, чтобы лица людей были сверху по центру */
+    background-position: 73% 15% !important; 
     background-repeat: no-repeat !important;
-    margin: 0 !important;
-    padding: 0 !important;
   }
 
+  /* 🌟 Градиентная подложка: плавно затемняем только нижнюю часть фото под текстом */
   .hero-overlay {
-    display: none !important; /* Полностью убираем затемнение, картинка яркая */
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    z-index: 1 !important;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.75) 100%
+    ) !important;
   }
 
   .hero-inner {
-    position: relative !important;
-    width: 100% !important;
-    min-height: auto !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
     display: flex !important;
     flex-direction: column !important;
+    /* Прижимаем весь контент к нижнему краю, оставляя верхнюю часть для лиц */
+    justify-content: flex-end !important; 
     align-items: center !important;
     text-align: center !important;
-    /* Убираем верхний отступ, чтобы убрать белую дыру и прижать текст к фото */
-    padding: 1.25rem 1rem 1.75rem 1rem !important; 
-    margin: 0 !important;
+    padding: 1.5rem 1rem !important;
     box-sizing: border-box !important;
-    background: #EBF2FF !important; /* Бесшовное продолжение нежно-голубого фона */
+    background: none !important;
   }
 
   .hero-text h1 {
-    font-size: 1.4rem !important;      
-    color: #111827 !important;         /* Глубокий темный цвет для идеального контраста */
+    font-size: 1.35rem !important; 
+    color: #ffffff !important; /* Перекрашиваем буквы в белый для контраста */
     line-height: 1.25 !important;
     margin-top: 0 !important;
-    margin-bottom: 0.75rem !important;
-    text-shadow: none !important;
+    margin-bottom: 0.6rem !important;
+    font-weight: 800 !important;
+    /* Добавляем тень, чтобы буквы читались на любом фоне */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important; 
   }
   
   .hero-sub {
-    color: #374151 !important;         
-    font-size: 13px !important;
+    color: #E5E7EB !important; /* Нежно-белый подзаголовок */
+    font-size: 12.5px !important;
     line-height: 1.4 !important;
     margin-bottom: 1.25rem !important;
-    text-shadow: none !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
   }
 
   .hero-btns {
     display: flex !important;
+    flex-direction: row !important;
     justify-content: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
     width: 100% !important;
   }
 
   .btn-hero-main, .btn-hero-sec {
-    padding: 10px 18px !important;
-    font-size: 13px !important;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
   }
 
   .tg-widget {
     width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1.25rem !important;
+    max-width: 290px !important;
+    margin-top: 1rem !important;
   }
 
   /* 3. Сброс ВСЕХ сеток в один столбик */
@@ -572,7 +586,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     text-align: center !important;
   }
 
-} /* <-- Закрывает мобильный режим */
+} /* <-- Конец мобильного блока */
 /* ===================================================================== */
 </style>
 </head>

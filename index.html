@@ -478,76 +478,84 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
-  /* 2. Исправление главного экрана (Текст ПОВЕРХ картинки в рамке) */
+ /* 2. Исправление главного экрана (Картинка ПОЛНОСТЬЮ + Текст поверх) */
   hero {
-    min-height: auto !important;       /* Убираем жесткую компьютерную высоту */
+    min-height: auto !important; /* Убираем фиксированную высоту ПК */
     position: relative !important;
     display: block !important;
     width: 100% !important;
-    aspect-ratio: 4 / 3 !important;    /* Фиксируем рамку баннера на телефоне */
+    /* Идеальная пропорция, чтобы картинка 16:9 вместе с текстом и кнопками полностью уместилась на экране */
+    aspect-ratio: 1 / 1.1 !important; 
     overflow: hidden !important;
-    background: #EBF2FF !important;
+    background: #EBF2FF !important; /* Голубой фон в тон неба */
   }
 
   .hero-img {
-    position: absolute !important;     /* Картинка снова уходит в фон */
+    position: absolute !important;
     inset: 0 !important;
     width: 100% !important;
-    height: 100% !important;
-    background-size: cover !important; 
-    background-position: 70% center !important; /* Мягко сдвигаем фокус, чтобы видеть людей */
+    /* Картинка займет верхнюю часть баннера, чтобы не мешать кнопкам */
+    height: 65% !important; 
+    /* 🌟 ВОТ ОНО: Картинка теперь сжимается ПОЛНОСТЬЮ, ни один пиксель по бокам не отрежется */
+    background-size: contain !important; 
+    background-repeat: no-repeat !important;
+    background-position: center top !important; 
   }
 
   .hero-overlay {
     position: absolute !important;
     inset: 0 !important;
-    background: rgba(0, 0, 0, 0.3) !important; /* Затемняем фон, чтобы белый текст читался идеально */
+    background: none !important; /* Убираем темный фильтр, картинка будет светлой и чистой */
   }
 
   .hero-inner {
-    position: absolute !important;     /* Накладываем текст и виджет прямо на картинку */
+    position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Собираем всё строго по центру рамки */
+    /* Смещаем контент к нижней части, чтобы текст и кнопки красиво легли под лицами людей */
+    justify-content: flex-end !important; 
     align-items: center !important;
     text-align: center !important;
-    padding: 1rem !important;
+    padding: 1rem 1rem 1.5rem 1rem !important;
     box-sizing: border-box !important;
-    background: none !important;       /* Убираем мешавший белый фон */
+    background: none !important;
   }
 
   .hero-text h1 {
-    font-size: 1.4rem !important;      /* Делаем заголовок компактнее для телефона */
-    color: #ffffff !important;         /* Перекрашиваем в белый цвет */
-    line-height: 1.2 !important;
+    font-size: 1.35rem !important;   /* Компактный размер для мобильного */
+    color: #111827 !important;       /* Делаем текст ТЕМНЫМ, так как под ним будет светлая часть */
+    line-height: 1.25 !important;
     margin-bottom: 0.5rem !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important; /* Сильная тень, чтобы буквы не сливались с фоном */
+    font-weight: 800 !important;
+    text-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff !important; /* Белое свечение вокруг букв для идеальной читаемости */
   }
   
   .hero-sub {
-    color: #ffffff !important;         /* Делаем подзаголовок белым */
+    color: #374151 !important;       /* Темный читаемый подзаголовок */
     font-size: 12px !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
     margin-bottom: 1rem !important;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 8px #ffffff !important;
   }
 
   .hero-btns {
+    width: 100% !important;
     justify-content: center !important;
     gap: 8px !important;
   }
 
   .btn-hero-main, .btn-hero-sec {
-    padding: 10px 16px !important;     /* Компактные кнопки, чтобы помещались на экране */
+    padding: 10px 16px !important;
     font-size: 12.5px !important;
   }
 
   .tg-widget {
     width: 100% !important;
-    max-width: 290px !important;       /* Ограничиваем ширину виджета в мобильной рамке */
-    margin-top: 0.5rem !important;
+    max-width: 290px !important;
+    margin-top: 0.6rem !important;
   }
 
   /* 3. Сброс ВСЕХ сеток в один столбик */

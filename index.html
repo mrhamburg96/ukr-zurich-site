@@ -478,16 +478,15 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
-  /* 2. Исправление главного экрана (Наложение текста прямо на фото) */
+  /* 2. Наложение текста на картинку (База из 01.jpeg) */
   hero {
     min-height: auto !important;
     position: relative !important;
     display: block !important;
     width: 100% !important;
-    /* Задаем вертикальную рамку (высота чуть больше ширины), чтобы поместился и текст, и фото */
-    aspect-ratio: 1 / 1.25 !important; 
+    /* Оптимальная пропорция, чтобы поместился уменьшенный текст и кнопки */
+    aspect-ratio: 1 / 1.15 !important; 
     overflow: hidden !important;
-    background: #111827 !important;
   }
 
   .hero-img {
@@ -496,12 +495,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     width: 100% !important;
     height: 100% !important;
     background-size: cover !important; 
-    /* 🎯 Важнейшая настройка: сдвигаем картинку так, чтобы лица людей были сверху по центру */
-    background-position: 73% 15% !important; 
+    /* 🎯 Позиционирование из файла 01.jpeg, чтобы лица были крупные и по центру */
+    background-position: 73% center !important; 
     background-repeat: no-repeat !important;
   }
 
-  /* 🌟 Градиентная подложка: плавно затемняем только нижнюю часть фото под текстом */
+  /* 🌟 Градиент, чтобы белый уменьшенный текст не сливался с городом и одеждой */
   .hero-overlay {
     position: absolute !important;
     inset: 0 !important;
@@ -509,8 +508,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     z-index: 1 !important;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.45) 50%,
       rgba(0, 0, 0, 0.75) 100%
     ) !important;
   }
@@ -521,7 +520,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     z-index: 2 !important;
     display: flex !important;
     flex-direction: column !important;
-    /* Прижимаем весь контент к нижнему краю, оставляя верхнюю часть для лиц */
+    /* Опускаем контент пониже, чтобы открыть лица людей сверху */
     justify-content: flex-end !important; 
     align-items: center !important;
     text-align: center !important;
@@ -530,26 +529,28 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     background: none !important;
   }
 
+  /* 🌟 Уменьшаем размер шрифта, как вы просили */
   .hero-text h1 {
-    font-size: 1.35rem !important; 
-    color: #ffffff !important; /* Перекрашиваем буквы в белый для контраста */
+    font-size: 1.25rem !important;    /* Компактный размер для мобильного */
+    color: #ffffff !important;         /* Строго белый цвет */
     line-height: 1.25 !important;
     margin-top: 0 !important;
-    margin-bottom: 0.6rem !important;
+    margin-bottom: 0.5rem !important;
     font-weight: 800 !important;
-    /* Добавляем тень, чтобы буквы читались на любом фоне */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; 
   }
   
+  /* 🌟 Уменьшаем подзаголовок */
   .hero-sub {
-    color: #E5E7EB !important; /* Нежно-белый подзаголовок */
-    font-size: 12.5px !important;
-    line-height: 1.4 !important;
+    color: #E5E7EB !important;         
+    font-size: 11.5px !important;      /* Компактно и аккуратно */
+    line-height: 1.35 !important;
     margin-bottom: 1.25rem !important;
     font-weight: 500 !important;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
   }
 
+  /* Кнопки в один ряд */
   .hero-btns {
     display: flex !important;
     flex-direction: row !important;
@@ -558,15 +559,16 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     width: 100% !important;
   }
 
+  /* Делаем сами кнопки чуть компактнее для экрана */
   .btn-hero-main, .btn-hero-sec {
-    padding: 10px 14px !important;
-    font-size: 12px !important;
+    padding: 10px 12px !important;
+    font-size: 11.5px !important;
     white-space: nowrap !important;
   }
 
   .tg-widget {
     width: 100% !important;
-    max-width: 290px !important;
+    max-width: 280px !important;
     margin-top: 1rem !important;
   }
 
@@ -586,7 +588,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     text-align: center !important;
   }
 
-} /* <-- Конец мобильного блока */
+} /* <-- Конец медиа-запроса */
 /* ===================================================================== */
 </style>
 </head>

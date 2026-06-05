@@ -400,72 +400,66 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
- /* 2. Исправление главного экрана (Hero) */
+ /* 2. Новое исправление главного экрана (Hero) */
+  hero {
+    min-height: auto !important;
+    background: #EBF2FF !important; /* Фон в тон картинки */
+  }
+
+  .hero-img {
+    position: relative !important;   /* Перестраиваем картинку в обычный порядок */
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important; /* Пропорции как на компьютере */
+    background-size: contain !important; /* Картинка сжимается целиком, люди не режутся! */
+    background-position: center top !important;
+  }
+
   .hero-inner {
+    position: relative !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 1.5rem 1rem !important; /* Сделали отступы чуть компактнее, чтобы текст не прижимался к краям */
-    min-height: auto !important;     /* Убираем жесткую высоту */
-    
-    /* Добавляем легкий белый фон под текст, чтобы он отлично читался на фоне лиц */
-    background: rgba(255, 255, 255, 0.75) !important; 
-    border-radius: 12px;
-    margin: 10px !important;
-  }
-
-  hero {
-    min-height: auto !important;     /* Убираем жесткую высоту */
-    aspect-ratio: 4 / 3 !important;  /* Задаем аккуратные мобильные пропорции */
-  }
-
-  /* СДВИГАЕМ КАРТИНКУ, ЧТОБЫ ВЕРНУТЬ ЛЮДЕЙ В КАДР: */
-  .hero-img {
-    background-position: 75% center !important; /* Фокусируемся на правой части фото, где стоят люди */
+    padding: 1.5rem 1rem !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    background: #ffffff !important; /* Переносим текст на чистый белый фон ПОД картинку */
   }
 
   .hero-text h1 {
-    font-size: 1.6rem !important;    /* Немного уменьшаем заголовок, чтобы он красиво смотрелся на экране телефона */
+    font-size: 1.5rem !important;    /* Компактный размер заголовка */
+    color: #111827 !important;
+    margin-top: 0.5rem;
   }
+  
+  .hero-sub {
+    color: #4B5563 !important;
+    font-size: 13px !important;
+    text-shadow: none !important;    /* Убираем ставшие ненужными тени */
+  }
+
   .tg-widget {
     width: 100% !important;
-    max-width: 100% !important;       /* Виджет Телеграма теперь не будет вылезать за края */
+    max-width: 100% !important;
     margin-top: 1.5rem !important;
   }
 
-  /* 3. Сброс ВСЕХ сеток в один столбик (Чтобы ничего не сжималось по горизонтали) */
+  /* 3. Сброс ВСЕХ сеток в один столбик */
   .dir-grid, 
   .steps-row, 
   .cta-grid, 
   .whom-grid, 
   .how-bottom, 
   .footer-grid {
-    grid-template-columns: 1fr !important; /* Строго одна карточка на строку! */
+    grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
 
- /* 4. Центрирование текстов для удобства чтения с телефона */
+  /* 4. Центрирование текстов в футере */
   .footer-grid {
     text-align: center !important;
   }
 
-  /* 2. Исправление главного экрана (Hero) */
-  .hero-inner {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 1.5rem 1rem !important; /* Делаем отступы чуть компактнее */
-    min-height: auto !important;     /* Убираем жесткую высоту */
-  }
-  hero {
-    min-height: auto !important;     /* Убираем жесткую высоту */
-    aspect-ratio: 4 / 3 !important;  /* Задаем аккуратные мобильные пропорции */
-  }
-  .hero-text h1 {
-    font-size: 1.6rem !important;    /* Немного уменьшаем заголовок */
-  }
-
-} /* <-- ВОТ ЭТА СКОБКА закрывает весь мобильный блок @media! Она должна быть здесь */
+} /* <-- Закрывающая скобка всего мобильного блока @media */
 /* ===================================================================== */
 </style>
 </head>

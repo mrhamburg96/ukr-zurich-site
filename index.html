@@ -440,177 +440,141 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 /* ================= ОБ'ЄДНАНА МОБІЛЬНА ВЕРСІЯ (768px) ================= */
-/* ================= ПОЛНАЯ МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (768px) ================= */
+/* ================= ЕДИНЫЙ СТИЛЬ БАННЕРА ДЛЯ ПК И МОБИЛЬНЫХ ================= */
+.hero {
+  position: relative !important;
+  width: 100% !important;
+  /* Жестко держит пропорцию картинки main.jpg на любых экранах, не давая тексту выпадать */
+  aspect-ratio: 16 / 7.5 !important; 
+  background-image: url('main.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden !important;
+}
+
+/* Затемнение нижней части фотографии для идеального контраста */
+.hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.75) 100%
+  ) !important;
+  z-index: 1 !important;
+}
+
+/* Контейнер опускает контент строго на воду в самый низ */
+.hero-inner {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 0 1.5rem 2.5rem 1.5rem !important; /* Отступ снизу на ПК */
+  box-sizing: border-box !important;
+  z-index: 2 !important;
+}
+
+.hero-text {
+  max-width: 900px !important;
+  width: 100% !important;
+}
+
+.hero-logo-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+#h-t {
+  font-size: 2.5rem !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 10px 0 !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6) !important;
+}
+
+#h-s {
+  font-size: 1.15rem !important;
+  color: #f3f4f6 !important;
+  margin: 0 0 25px 0 !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+}
+
+.hero-btns {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  gap: 15px !important;
+}
+
+.btn-hero-main, .btn-hero-sec {
+  padding: 12px 24px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* 📱 А ТЕПЕРЬ СТИЛИ ТОЛЬКО ДЛЯ СМАРТФОНОВ (УМЕНЬШАЕМ ШРИФТЫ ВНУТРИ ФОТО) */
 @media (max-width: 768px) {
-  /* 1. Настройка шапки */
-  nav {
-    position: relative !important;
-    background: #ffffff !important;
-    flex-direction: column !important; 
-    align-items: center !important;
-    gap: 10px !important;
-    padding: 10px 1rem !important;
-    height: auto !important;           
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important; 
-  }
-  .nav-logo {
-    max-width: 100% !important;
-    justify-content: center !important;
-  }
-  .nav-links {
-    display: flex !important;          
-    flex-wrap: wrap !important;        
-    justify-content: center !important; 
-    gap: 8px 12px !important;
-    padding: 0 !important;
-  }
-  .nav-links a {
-    font-size: 13px !important;      
-  }
-  .nav-r {
-    width: 100% !important;
-    justify-content: center !important; 
-    margin-top: 5px !important;
-    gap: 12px !important;
-  }
-  .btn-solid {
-    padding: 6px 12px !important;     
-    font-size: 12px !important;
-  }
-
-  /* 2. Наложение текста строго ВНУТРЬ рамок фотографии main.jpg */
   .hero {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: initial !important;
-    /* Удерживает высоту баннера идеально по форме картинки, убирая пустой блок внизу */
-    aspect-ratio: 16 / 10.2 !important; 
-    overflow: hidden !important;
-    background: #ffffff !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    /* На мобильных пропорция картинки становится чуть выше, чтобы лица были крупнее */
+    aspect-ratio: 16 / 10.5 !important; 
   }
 
-  .hero-mobile-img {
-    display: block !important;
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    z-index: 1 !important;
-  }
-
-  .hero-img {
-    display: none !important;
-  }
-
-  /* Затемнение нижней части фото для читаемости текста */
-  .hero-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    display: block !important;
-    z-index: 2 !important;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.2) 40%,
-      rgba(0, 0, 0, 0.7) 100- - - - - - %
-    ) !important;
-  }
-
-  /* Позиционируем контейнер с текстом в самый низ фотографии */
   .hero-inner {
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    z-index: 3 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important; 
-    align-items: center !important;
-    text-align: center !important;
-    padding: 0.4rem 0.6rem 0.5rem 0.6rem !important; /* Микро-отступы */
-    box-sizing: border-box !important;
-    background: none !important;
-  }
-
-  .hero-text {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 0.6rem 0.6rem 0.6rem !important; /* Текст садится на самый край воды */
   }
 
   .hero-logo-row {
-    justify-content: center !important;
-    margin-bottom: 2px !important;
     gap: 4px !important;
-  }
-
-  /* Минимизируем шрифт главного заголовка */
-  #h-t {
-    font-size: 12px !important;    
-    color: #ffffff !important;        
-    line-height: 1.2 !important;
-    margin: 0 0 2px 0 !important;
-    font-weight: 800 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important; 
+    margin-bottom: 2px !important;
   }
   
-  /* Минимизируем подзаголовок */
+  .hero-logo-text { font-size: 10px !important; }
+  #h-badge { font-size: 8px !important; }
+
+  /* Ультра-микро шрифты, чтобы поместились на воде */
+  #h-t {
+    font-size: 11px !important; 
+    line-height: 1.15 !important;
+    margin: 0 0 2px 0 !important;
+  }
+
   #h-s {
-    color: #f3f4f6 !important;         
-    font-size: 8px !important;       
+    font-size: 7.5px !important;
     line-height: 1.2 !important;
-    margin: 0 0 5px 0 !important;
-    font-weight: 400 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
+    margin: 0 0 6px 0 !important;
   }
 
-  /* Кнопки строго в один горизонтальный ряд на воде */
   .hero-btns {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
     gap: 6px !important;
-    width: 100% !important;
-    margin: 0 !important;
   }
 
-  /* Делаем кнопки маленькими и аккуратными */
   .btn-hero-main, .btn-hero-sec {
-    padding: 5px 8px !important;     
-    font-size: 9px !important;       
-    white-space: nowrap !important;   
+    padding: 5px 8px !important;
+    font-size: 9px !important;
     border-radius: 4px !important;
-    flex: 1 !important;
-    max-width: 140px !important;
-    text-align: center !important;
-    height: auto !important;
   }
-
-  .tg-widget {
-    display: none !important; 
-  }
-
-  /* 3. Сброс остальных сеток сайта в один столбик */
-  .dir-grid, 
-  .steps-row, 
-  .cta-grid, 
-  .whom-grid, 
-  .how-bottom, 
-  .footer-grid {
+  
+  /* Сброс остальных сеток сайта в один столбик, чтобы не ломался низ */
+  .dir-grid, .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
+  .footer-grid { text-align: center !important; }
+} /* <--- Теперь скобка медиа-запроса закрывается корректно */
 
-  .footer-grid {
-    text-align: center !important;
-  }
-}
 /* ===================================================================== */
 </style>
 </head>

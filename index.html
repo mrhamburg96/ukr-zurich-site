@@ -143,10 +143,10 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .btn-solid:hover{background:var(--blue-dark)}
 
 /* ── HERO ───────────────────────────── */
-.hero{position:relative;overflow:hidden;min-height:360px;background:#EBF2FF}
+hero{position:relative;overflow:hidden;min-height:480px;background:#EBF2FF} /* Увеличили высоту с 360px до 480px */
 .hero-img{position:absolute;inset:0;background:url('main.jpg') center/cover no-repeat}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.0) 100%)}
-.hero-inner{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;padding:2.5rem 1.5rem;min-height:360px;max-width:1200px;margin:0 auto;gap:1.5rem}
+.hero-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1.5rem;min-height:480px;max-width:1200px;margin:0 auto;gap:1.5rem} /* Изменили flex-start на center и увеличили высоту до 480px */
 .hero-text{max-width:480px}
 .hero-logo-row{display:flex;align-items:center;gap:8px;margin-bottom:1rem}
 .hero-logo-text{font-size:13px;font-weight:600;color:var(--blue)}
@@ -256,7 +256,7 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid va
 .fw-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem}
 .fw-head .sec-title{font-size:1.1rem;font-weight:800}
 .fw-head a{font-size:11px;color:var(--blue);font-weight:600}
-.whom-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:.5rem}
+.whom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem} /* Изменено с 8 на 4 для десктопа (по вашему медиа-запросу было 4) */
 .whom-item{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:10px 4px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:all .15s}
 .whom-item:hover{background:var(--surface);border-color:var(--border)}
 .whom-ic{width:44px;height:44px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center}
@@ -339,9 +339,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 .fc a:hover{color:var(--yellow)}
 .fc a.green-link{color:#4ADE80}
 .hgrid{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11px}
-.hday{color:rgba(255,255,255,.35)}
-.hopen{color:#4ADE80;font-weight:600}
-.hclosed{color:rgba(255,255,255,.4)}
+.hgrid .hday{color:rgba(255,255,255,.35)}
+.hgrid .hopen{color:#4ADE80;font-weight:600}
+.hgrid .hclosed{color:rgba(255,255,255,.4)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:10px;flex-wrap:wrap;gap:.4rem}
 .footer-flag-row{display:flex;align-items:center;gap:5px}
 
@@ -396,6 +396,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     align-items: center !important;
     text-align: center !important;
     padding: 2rem 1rem !important;
+    min-height: 480px !important; /* Также гарантируем высоту на мобильных */
+  }
+  hero {
+    min-height: 480px !important;
   }
   .tg-widget {
     width: 100% !important;

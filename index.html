@@ -478,15 +478,16 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
-  /* 2. Наложение текста на картинку (База из 01.jpeg) */
+  /* 2. Наложение уменьшенного контента СТРОГО поверх базы 01.jpeg */
   hero {
-    min-height: auto !important;
+    min-height: auto !important;       /* Отменяем фиксированную высоту ПК */
     position: relative !important;
     display: block !important;
     width: 100% !important;
-    /* Оптимальная пропорция, чтобы поместился уменьшенный текст и кнопки */
-    aspect-ratio: 1 / 1.15 !important; 
+    /* 🌟 ЖЕСТКАЯ ПРОПОРЦИЯ КАРТИНКИ 01.jpeg: гарантирует, что фото не растянется вертикально */
+    aspect-ratio: 16 / 10.5 !important; 
     overflow: hidden !important;
+    background: #EBF2FF !important;
   }
 
   .hero-img {
@@ -495,12 +496,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     width: 100% !important;
     height: 100% !important;
     background-size: cover !important; 
-    /* 🎯 Позиционирование из файла 01.jpeg, чтобы лица были крупные и по центру */
-    background-position: 73% center !important; 
+    /* 🎯 Идеальная посадка кадра из 01.jpeg: панорама и люди видны полностью */
+    background-position: center center !important; 
     background-repeat: no-repeat !important;
   }
 
-  /* 🌟 Градиент, чтобы белый уменьшенный текст не сливался с городом и одеждой */
+  /* 🌟 Градиентная шторка снизу вверх, чтобы уменьшенный белый текст читался на воде */
   .hero-overlay {
     position: absolute !important;
     inset: 0 !important;
@@ -508,9 +509,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     z-index: 1 !important;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.15) 0%,
-      rgba(0, 0, 0, 0.45) 50%,
-      rgba(0, 0, 0, 0.75) 100%
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.35) 45%,
+      rgba(0, 0, 0, 0.65) 100%
     ) !important;
   }
 
@@ -520,56 +521,57 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     z-index: 2 !important;
     display: flex !important;
     flex-direction: column !important;
-    /* Опускаем контент пониже, чтобы открыть лица людей сверху */
+    /* Сдвигаем всё к самому низу (на воду), чтобы лица людей оставались полностью открытыми */
     justify-content: flex-end !important; 
     align-items: center !important;
     text-align: center !important;
-    padding: 1.5rem 1rem !important;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem !important; /* Минимальные отступы для экономии места */
     box-sizing: border-box !important;
     background: none !important;
   }
 
-  /* 🌟 Уменьшаем размер шрифта, как вы просили */
+  /* 🌟 Максимальное уменьшение шрифта заголовка */
   .hero-text h1 {
-    font-size: 1.25rem !important;    /* Компактный размер для мобильного */
-    color: #ffffff !important;         /* Строго белый цвет */
-    line-height: 1.25 !important;
+    font-size: 0.95rem !important;    /* Шрифт стал очень компактным, чтобы не занимать много места */
+    color: #ffffff !important;        /* Белый цвет поверх градиента */
+    line-height: 1.2 !important;
     margin-top: 0 !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.25rem !important;
     font-weight: 800 !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important; 
   }
   
-  /* 🌟 Уменьшаем подзаголовок */
+  /* 🌟 Максимальное уменьшение подзаголовка */
   .hero-sub {
-    color: #E5E7EB !important;         
-    font-size: 11.5px !important;      /* Компактно и аккуратно */
-    line-height: 1.35 !important;
-    margin-bottom: 1.25rem !important;
+    color: #F3F4F6 !important;         
+    font-size: 8.5px !important;       /* Миниатюрный размер, текст поместится в одну-две строчки */
+    line-height: 1.25 !important;
+    margin-bottom: 0.4rem !important;
     font-weight: 500 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
   }
 
-  /* Кнопки в один ряд */
+  /* 🌟 Выстраиваем кнопки строго в один аккуратный горизонтальный ряд */
   .hero-btns {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     width: 100% !important;
+    margin-bottom: 0.2rem !important;
   }
 
-  /* Делаем сами кнопки чуть компактнее для экрана */
+  /* 🌟 Делаем кнопки маленькими и компактными, чтобы они встали рядышком на воде */
   .btn-hero-main, .btn-hero-sec {
-    padding: 10px 12px !important;
-    font-size: 11.5px !important;
-    white-space: nowrap !important;
+    padding: 6px 10px !important;     /* Компактные отступы внутри кнопок */
+    font-size: 9.5px !important;       /* Маленький аккуратный размер букв */
+    white-space: nowrap !important;   /* Запрещаем тексту в кнопках переноситься */
+    border-radius: 6px !important;
   }
 
+  /* Скрываем на мобильном виджет Telegram внутри баннера, если он не влезает по высоте рамки */
   .tg-widget {
-    width: 100% !important;
-    max-width: 280px !important;
-    margin-top: 1rem !important;
+    display: none !important; 
   }
 
   /* 3. Сброс ВСЕХ сеток в один столбик */
@@ -588,7 +590,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     text-align: center !important;
   }
 
-} /* <-- Конец медиа-запроса */
+} /* <-- Конец мобильного блока */
 /* ===================================================================== */
 </style>
 </head>

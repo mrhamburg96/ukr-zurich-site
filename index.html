@@ -478,47 +478,76 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
- /* 2. Новое исправление главного экрана (Hero) */
+  /* 2. Исправление главного экрана (Текст ПОВЕРХ картинки в рамке) */
   hero {
-    min-height: auto !important;
-    background: #EBF2FF !important; /* Фон в тон картинки */
+    min-height: auto !important;       /* Убираем жесткую компьютерную высоту */
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;    /* Фиксируем рамку баннера на телефоне */
+    overflow: hidden !important;
+    background: #EBF2FF !important;
   }
 
   .hero-img {
-    position: relative !important;   /* Перестраиваем картинку в обычный порядок */
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important; /* Пропорции как на компьютере */
-    background-size: contain !important; /* Картинка сжимается целиком, люди не режутся! */
-    background-position: center top !important;
+    position: absolute !important;     /* Картинка снова уходит в фон */
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important; 
+    background-position: 70% center !important; /* Мягко сдвигаем фокус, чтобы видеть людей */
+  }
+
+  .hero-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.3) !important; /* Затемняем фон, чтобы белый текст читался идеально */
   }
 
   .hero-inner {
-    position: relative !important;
+    position: absolute !important;     /* Накладываем текст и виджет прямо на картинку */
+    inset: 0 !important;
+    z-index: 2 !important;
+    display: flex !important;
     flex-direction: column !important;
+    justify-content: center !important; /* Собираем всё строго по центру рамки */
     align-items: center !important;
     text-align: center !important;
-    padding: 1.5rem 1rem !important;
-    margin: 0 !important;
-    min-height: auto !important;
-    background: #ffffff !important; /* Переносим текст на чистый белый фон ПОД картинку */
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+    background: none !important;       /* Убираем мешавший белый фон */
   }
 
   .hero-text h1 {
-    font-size: 1.5rem !important;    /* Компактный размер заголовка */
-    color: #111827 !important;
-    margin-top: 0.5rem;
+    font-size: 1.4rem !important;      /* Делаем заголовок компактнее для телефона */
+    color: #ffffff !important;         /* Перекрашиваем в белый цвет */
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important; /* Сильная тень, чтобы буквы не сливались с фоном */
   }
   
   .hero-sub {
-    color: #4B5563 !important;
-    font-size: 13px !important;
-    text-shadow: none !important;    /* Убираем ставшие ненужными тени */
+    color: #ffffff !important;         /* Делаем подзаголовок белым */
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .hero-btns {
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .btn-hero-main, .btn-hero-sec {
+    padding: 10px 16px !important;     /* Компактные кнопки, чтобы помещались на экране */
+    font-size: 12.5px !important;
   }
 
   .tg-widget {
     width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1.5rem !important;
+    max-width: 290px !important;       /* Ограничиваем ширину виджета в мобильной рамке */
+    margin-top: 0.5rem !important;
   }
 
   /* 3. Сброс ВСЕХ сеток в один столбик */

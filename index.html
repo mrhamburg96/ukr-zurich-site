@@ -458,10 +458,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   inset: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important; /* На ПК — вверху */
-  align-items: flex-start !important;    /* На ПК — слева */
+  justify-content: flex-start !important;
+  align-items: flex-start !important;    
   text-align: left !important;            
-  padding: 3.5rem 0 0 4rem !important;    /* Отступ сверху под меню */
+  padding: 3.5rem 0 0 4rem !important;    
   box-sizing: border-box !important;
   z-index: 2 !important;
 }
@@ -522,23 +522,82 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 
-/* 📱 ЖЕСТКАЯ КОРРЕКЦИЯ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (СПАСАЕМ ТЕКСТ И КНОПКИ) */
+/* 📱 ПОЛНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ (768px) — ИСПРАВЛЕНИЕ ШАПКИ И ПОИСК UA/DE */
 @media (max-width: 768px) {
+  
+  /* ГАРАНТИРУЕМ ВИДИМОСТЬ ВСЕЙ ШАПКИ */
+  nav {
+    display: flex !important;
+    position: relative !important;
+    background: #ffffff !important;
+    flex-direction: column !important; /* Выстраиваем элементы вертикально */
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px 1rem !important;
+    height: auto !important; /* Убираем фиксированную высоту, чтобы ничего не зажималось */
+    min-height: initial !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important; 
+    z-index: 100 !important;
+  }
+
+  .nav-logo {
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Ссылки меню встают по центру */
+  .nav-links {
+    display: flex !important;          
+    flex-wrap: wrap !important;        
+    justify-content: center !important; 
+    gap: 8px 12px !important;
+    padding: 0 !important;
+    visibility: visible !important;
+  }
+
+  .nav-links a {
+    font-size: 13px !important;      
+  }
+
+  /* ВОЗВРАЩАЕМ ПРАВЫЙ БЛОК (Языки UA/DE и кнопку Поддержать) НА ЭКРАН */
+  .nav-r {
+    display: flex !important;          /* Принудительно включаем отображение */
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;            /* Растягиваем на всю ширину для центрирования */
+    justify-content: center !important; /* Центрируем переключатель и кнопку */
+    align-items: center !important;
+    margin-top: 5px !important;
+    gap: 15px !important;
+  }
+
+  /* Делаем кнопки языков и поддержки адаптивными под тачбары */
+  .lang-switcher {
+    display: flex !important;
+    gap: 6px !important;
+  }
+
+  .btn-solid {
+    padding: 6px 12px !important;     
+    font-size: 12px !important;
+  }
+
+  /* ЖЕСТКАЯ КОРРЕКЦИЯ БАННЕРА (ТЕКСТ НА ВОДЕ, КНОПКИ ВИДНЫ) */
   .hero {
-    aspect-ratio: 16 / 11.5 !important; /* Сделали баннер чуть выше, чтобы гарантировать простор */
+    aspect-ratio: 16 / 11.5 !important; 
   }
 
   .hero-inner {
-    /* Опускаем текст в левый НИЖНИЙ угол на воду, подальше от белого меню */
     justify-content: flex-end !important; 
     align-items: flex-start !important;
     text-align: left !important;
-    padding: 0 0 0.8rem 0.8rem !important; /* Безопасные отступы от краев экрана */
+    padding: 0 0 0.8rem 0.8rem !important; 
   }
 
   .hero-text {
     max-width: 280px !important; 
-    display: block !important;  /* Гарантируем видимость */
+    display: block !important;
     visibility: visible !important;
   }
 
@@ -551,7 +610,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .hero-logo-text { font-size: 11px !important; color: #1e293b !important; }
   #h-badge { font-size: 9px !important; color: #475569 !important; }
 
-  /* Возвращаем и фиксируем черный шрифт */
   #h-t {
     display: block !important;
     font-size: 12px !important; 
@@ -585,13 +643,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     border-radius: 4px !important;
   }
   
-  /* Исправление отображения навигации и элементов UA/DE */
-  nav {
-    position: relative !important;
-    z-index: 10 !important; /* Меню остается сверху, но не налезает на текст */
-  }
-  
-  /* Восстановление остальных блоков сайта */
+  /* Сброс остальных сеток сайта в один столбик */
   .dir-grid, .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;

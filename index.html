@@ -444,8 +444,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 @media (max-width: 768px) {
   /* 1. Исправление шапки */
   nav {
-    position: relative !important;     /* Шапка больше не наплывает */
-    background: #ffffff !important;    /* Чисто белый фон */
+    position: relative !important;
+    background: #ffffff !important;
     flex-direction: column !important; 
     align-items: center !important;
     gap: 12px !important;
@@ -478,79 +478,87 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 13px !important;
   }
 
-  /* 2. Надежное исправление главного экрана (Картинка сверху, текст снизу в рамке) */
+  /* 2. Исправление главного экрана (Люди крупно + Контент в рамке) */
   hero {
-    min-height: auto !important;       /* Убираем высоту ПК */
-    display: flex !important;
-    flex-direction: column !important; /* Выстраиваем строго: сначала фото, потом текст */
-    background: #EBF2FF !important;    /* Мягкий фон, который уберет белую дыру */
-    padding: 0 !important;
+    min-height: auto !important;       /* Сбрасываем высоту ПК */
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 4.5 !important;  /* Увеличиваем высоту баннера, чтобы поместился весь контент */
     overflow: hidden !important;
+    background: #EBF2FF !important;
   }
 
   .hero-img {
-    position: relative !important;     /* Возвращаем картинку в нормальный порядок */
+    position: absolute !important;     
+    inset: 0 !important;
     width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important;   /* Фото будет ровно 16:9, как на ПК */
-    background-size: contain !important; /* Картинка сожмется целиком, люди НЕ режутся */
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    order: 1 !important;               /* Картинка строго первая */
+    height: 100% !important;
+    background-size: cover !important; /* 🌟 Картинка больше не сжимается в микро-полоску, она заполняет весь блок */
+    background-position: 73% center !important; /* 🎯 Фокусируемся строго на людях! Пустой левый край панорамы уходит за экран */
   }
 
   .hero-overlay {
-    display: none !important;          /* Убираем темную пелену, фото будет ярким */
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.15) !important; /* Легкая тонировка фона */
   }
 
   .hero-inner {
-    position: relative !important;
-    width: 100% !important;
-    min-height: auto !important;
+    position: absolute !important;     /* Накладываем текст СТРОГО ПОВЕРХ картинки */
+    inset: 0 !important;
+    z-index: 2 !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: center !important; /* Центрируем содержимое */
     align-items: center !important;
     text-align: center !important;
-    padding: 1.5rem 1rem !important;
-    margin: 0 !important;
+    padding: 1rem !important;
     box-sizing: border-box !important;
-    background: #F3F4F6 !important;    /* 🌟 Мягкая серая плашка под текстом, чтобы блок смотрелся единым целым */
-    order: 2 !important;               /* Текст строго под картинкой */
+    
+    /* 🌟 ПОДЛОЖКА: Создаем эффект "стекла" поверх лиц, чтобы и людей было видно, и черный текст читался идеально */
+    background: rgba(255, 255, 255, 0.82) !important; 
+    backdrop-filter: blur(4px); /* Размываем фон за текстом для премиального вида */
+    margin: 12px !important;   /* Красивые отступы, формирующие рамку карточки */
+    border-radius: 16px !important;
+    height: calc(100% - 24px) !important; /* Удерживаем в рамках hero */
   }
 
   .hero-text h1 {
-    font-size: 1.4rem !important;      /* Четкий читаемый размер для смартфона */
-    color: #111827 !important;         /* Темный цвет букв */
+    font-size: 1.35rem !important;     /* Аккуратный мобильный размер заголовка */
+    color: #111827 !important;         /* Строгий черный цвет */
     line-height: 1.25 !important;
     margin-top: 0 !important;
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 800 !important;
     text-shadow: none !important;
   }
   
   .hero-sub {
-    color: #4B5563 !important;         
-    font-size: 13px !important;
+    color: #374151 !important;         /* Читаемый подзаголовок */
+    font-size: 12px !important;
     line-height: 1.4 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: 600 !important;
     text-shadow: none !important;
   }
 
   .hero-btns {
     display: flex !important;
     justify-content: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
     width: 100% !important;
   }
 
   .btn-hero-main, .btn-hero-sec {
-    padding: 10px 20px !important;
-    font-size: 13px !important;
+    padding: 10px 14px !important;     /* Кнопки аккуратно встанут в один ряд */
+    font-size: 12px !important;
   }
 
   .tg-widget {
     width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1.5rem !important;
+    max-width: 280px !important;       /* Ограничиваем ширину виджета */
+    margin-top: 0.5rem !important;
   }
 
   /* 3. Сброс ВСЕХ сеток в один столбик */
@@ -571,7 +579,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 } /* <-- Закрывающая скобка всего мобильного блока @media */
 /* ===================================================================== */
-</style>
 </style>
 </head>
 <body>

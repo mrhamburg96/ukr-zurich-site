@@ -444,8 +444,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 .hero {
   position: relative !important;
   width: 100% !important;
-  /* Жестко держит пропорцию картинки main.jpg на любых экранах, не давая тексту выпадать */
-  aspect-ratio: 16 / 7.5 !important; 
+  /* Идеально держит пропорции фотографии, убирая пустые блоки */
+  aspect-ratio: 16 / 7.1 !important; 
   background-image: url('main.jpg') !important;
   background-size: cover !important;
   background-position: center center !important;
@@ -453,87 +453,92 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   overflow: hidden !important;
 }
 
-/* Затемнение нижней части фотографии для идеального контраста */
-.hero-overlay {
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.1) 40%,
-    rgba(0, 0, 0, 0.75) 100%
-  ) !important;
-  z-index: 1 !important;
-}
-
-/* Контейнер опускает контент строго на воду в самый низ */
+/* Опускаем контент вниз и прижимаем строго к ЛЕВОМУ краю */
 .hero-inner {
   position: absolute !important;
   inset: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-end !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding: 0 1.5rem 2.5rem 1.5rem !important; /* Отступ снизу на ПК */
+  align-items: flex-start !important; /* Смещение влево */
+  text-align: left !important;         /* Текст по левому краю */
+  padding: 0 0 2rem 4rem !important;   /* Отступы: слева 4rem, чтобы не липло к экрану */
   box-sizing: border-box !important;
   z-index: 2 !important;
 }
 
 .hero-text {
-  max-width: 900px !important;
+  max-width: 550px !important; /* Ограничиваем ширину, чтобы текст не лез на лица справа */
   width: 100% !important;
 }
 
 .hero-logo-row {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   gap: 8px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
 }
 
+.hero-logo-text {
+  color: #1e293b !important;
+  font-weight: 700 !important;
+}
+
+#h-badge {
+  color: #64748b !important;
+}
+
+/* ГЛАВНЫЙ ЗАГОЛОВОК: Чёрный, без теней */
 #h-t {
-  font-size: 2.5rem !important;
-  color: #ffffff !important;
+  font-size: 1.85rem !important; /* Чуть уменьшили, чтобы аккуратно лег на воду слева */
+  color: #1e293b !important;    /* Строго чёрный/угольный цвет */
   font-weight: 800 !important;
-  line-height: 1.2 !important;
-  margin: 0 0 10px 0 !important;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6) !important;
+  line-height: 1.25 !important;
+  margin: 0 0 8px 0 !important;
+  text-shadow: none !important;  /* Убрали старую белую/темную тень */
 }
 
+/* ПОДЗАГОЛОВОК: Тёмно-серый для идеального контраста */
 #h-s {
-  font-size: 1.15rem !important;
-  color: #f3f4f6 !important;
-  margin: 0 0 25px 0 !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+  font-size: 1rem !important;
+  color: #334155 !important;    /* Тёмный читабельный цвет */
+  line-height: 1.4 !important;
+  margin: 0 0 20px 0 !important;
+  text-shadow: none !important;  /* Убрали тень */
 }
 
+/* Кнопки выстраиваются по левому краю */
 .hero-btns {
   display: flex !important;
   flex-direction: row !important;
-  justify-content: center !important;
-  gap: 15px !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
 }
 
 .btn-hero-main, .btn-hero-sec {
-  padding: 12px 24px !important;
-  font-size: 15px !important;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   border-radius: 6px !important;
   text-decoration: none !important;
   white-space: nowrap !important;
 }
 
-/* 📱 А ТЕПЕРЬ СТИЛИ ТОЛЬКО ДЛЯ СМАРТФОНОВ (УМЕНЬШАЕМ ШРИФТЫ ВНУТРИ ФОТО) */
+
+/* 📱 АДАПТАЦИЯ ДЛЯ СМАРТФОНОВ (СТРОГО В ЛЕВОМ УГЛУ НА ВОДЕ) */
 @media (max-width: 768px) {
   .hero {
-    /* На мобильных пропорция картинки становится чуть выше, чтобы лица были крупнее */
+    /* Делаем баннер на мобильных чуть выше, сохраняя читаемость */
     aspect-ratio: 16 / 10.5 !important; 
   }
 
   .hero-inner {
-    padding: 0 0.6rem 0.6rem 0.6rem !important; /* Текст садится на самый край воды */
+    padding: 0 0 0.8rem 0.8rem !important; /* Уменьшаем отступы для экранов телефонов */
+  }
+
+  .hero-text {
+    max-width: 280px !important; /* Текст гарантированно не зайдет на лица на узком экране */
   }
 
   .hero-logo-row {
@@ -544,17 +549,17 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .hero-logo-text { font-size: 10px !important; }
   #h-badge { font-size: 8px !important; }
 
-  /* Ультра-микро шрифты, чтобы поместились на воде */
+  /* Ультра-компактный чёрный шрифт для мобильной воды */
   #h-t {
     font-size: 11px !important; 
-    line-height: 1.15 !important;
-    margin: 0 0 2px 0 !important;
+    line-height: 1.2 !important;
+    margin: 0 0 3px 0 !important;
   }
 
   #h-s {
-    font-size: 7.5px !important;
-    line-height: 1.2 !important;
-    margin: 0 0 6px 0 !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 8px 0 !important;
   }
 
   .hero-btns {
@@ -567,14 +572,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     border-radius: 4px !important;
   }
   
-  /* Сброс остальных сеток сайта в один столбик, чтобы не ломался низ */
+  /* Адаптация остальных блоков сайта */
   .dir-grid, .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
   .footer-grid { text-align: center !important; }
-} /* <--- Теперь скобка медиа-запроса закрывается корректно */
-
+}
 /* ===================================================================== */
 </style>
 </head>
@@ -671,7 +675,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 <!-- ═══════ HERO ════════════════════════════════════ -->
 <div class="hero">
-  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-logo-row">
@@ -680,7 +683,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <span class="hero-logo-text">UAGZ</span>
         <span class="hero-logo-sub" id="h-badge">Официальная NGO · Zürich</span>
       </div>
-      <h1 id="h-t">Украинский интеграционный та громадский center Цюриха</h1>
+      <h1 id="h-t">Украинский интеграционный та громадский центр Цюриха</h1>
       <p class="hero-sub" id="h-s">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
       <div class="hero-btns">
         <a href="help.html" class="btn-hero-main" id="h-b1">Отримати допомогу</a>

@@ -1838,27 +1838,5 @@ function toggleDirCard(card) {
 }
 </script>
 
-<script>
-// Безопасное удаление только мобильных плашек без повреждения остального кода
-function cleanMobileDirections() {
-  if (window.innerWidth <= 768) {
-    // Находим элементы по их точным классам и удаляем
-    const items = document.querySelectorAll('.directions-section, #dir-sections, .dir-grid, [class*="dir-"]');
-    items.forEach(el => el.remove());
-    
-    // Удаляем текстовые h3 со стрелками, если их наплодил переводчик
-    document.querySelectorAll('h3').forEach(h3 => {
-      if (h3.textContent.includes('▼')) {
-        h3.remove();
-      }
-    });
-  }
-}
-
-// Запуск при чтении, загрузке страницы и смене экрана
-cleanMobileDirections();
-window.addEventListener('DOMContentLoaded', cleanMobileDirections);
-window.addEventListener('load', cleanMobileDirections);
-</script>
 </body>
 </html>

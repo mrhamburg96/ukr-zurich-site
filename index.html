@@ -706,15 +706,21 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </section>
 <!-- ═══════ HOW IT WORKS ══════════════════════════════ -->
-<section class="how-sec">
+<section class="how-sec" style="position: relative;">
   <div class="how-tag">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#92700A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
     <span id="how-tag">Як це працює</span>
   </div>
   <div class="how-h1" id="how-h1">Просто. Швидко. Людяно.</div>
   <div class="how-sub" id="how-sub">Ми зробили процес отримання допомоги максимально простим і зрозумілим.</div>
-  <div class="how-grid">
-    <div>
+  
+  <!-- ДВУХКОЛОНОЧНАЯ СЕТКА ДЛЯ ВЫРАВНИВАНИЯ БЛОКОВ -->
+  <div class="main-how-layout" style="display: flex; gap: 30px; align-items: flex-start; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    
+    <!-- ЛЕВАЯ КОЛОНКА (Шаги, Команда, Статистика, Контакты) -->
+    <div class="left-steps-column" style="flex: 1; min-width: 0;">
+      
+      <!-- Ряд с тремя шагами -->
       <div class="steps-row">
         <div class="step-card">
           <div class="step-num sn1">1</div>
@@ -737,68 +743,76 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <p id="st3-p">Ви отримаєте необхідну підтримку, інформацію або консультацію.</p>
         </div>
       </div>
-      <!-- BOTTOM ROW: Team + Stats + Quick Contact -->
-   <div class="info-card-founders" style="background: #f8f9fa; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; margin: 20px 1.5rem; text-align: left;">
-  <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 8px 0; padding: 0;">Ми поруч з вами</h3>
-  <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0; line-height: 1.4; padding: 0;">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
-  
-  <div class="founders-avatars" style="display: flex !important; align-items: center !important; margin: 0 0 20px 0; padding: 0; height: 36px;">
-    <img src="team1.jpg" alt="Team 1" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; float: none !important; z-index: 4;">
-    <img src="team2.jpg" alt="Team 2" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; float: none !important; z-index: 3;">
-    <img src="team3.jpg" alt="Team 3" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; float: none !important; z-index: 2;">
-    <img src="team5.jpg" alt="Team 5" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; float: none !important; z-index: 1;">
-    
-    <div style="width: 32px !important; height: 32px !important; border-radius: 50% !important; background: #0070F3 !important; color: white !important; border: 2px solid #ffffff !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 12px !important; font-weight: 700 !important; margin: 0 0 0 15px !important; z-index: 0;">+</div>
-  </div>
 
-  <a href="team.html" style="display: inline-block !important; width: auto !important; padding: 10px 16px !important; background: transparent !important; border: 1px solid #0070F3 !important; color: #0070F3 !important; text-decoration: none !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 6px !important; text-align: center !important; transition: all 0.2s ease !important;">
-    Дізнатися більше про команду &rarr;
-  </a>
-</div>
-        <div class="stats-card">
-          <div class="stat-row">
-            <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-            <div><div class="stat-big">5000+</div><div class="stat-lbl" id="stat-1">людей отримали підтримку</div></div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-            <div><div class="stat-big">100+</div><div class="stat-lbl" id="stat-2">волонтерів щодня допомагають громаді</div></div>
-          </div>
+      <!-- Карточка "Ми поруч з вами" с аватарками -->
+      <div class="info-card-founders" style="background: #f8f9fa; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; margin: 20px 0; text-align: left;">
+        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 8px 0; padding: 0;">Ми поруч з вами</h3>
+        <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0; line-height: 1.4; padding: 0;">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
+        <div class="founders-avatars" style="display: flex !important; align-items: center !important; margin: 0 0 20px 0; padding: 0; height: 36px;">
+          <img src="team1.jpg" alt="Team 1" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; z-index: 4;">
+          <img src="team2.jpg" alt="Team 2" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; z-index: 3;">
+          <img src="team3.jpg" alt="Team 3" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; z-index: 2;">
+          <img src="team5.jpg" alt="Team 5" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; z-index: 1;">
+          <div style="width: 32px !important; height: 32px !important; border-radius: 50% !important; background: #0070F3 !important; color: white !important; border: 2px solid #ffffff !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 12px !important; font-weight: 700 !important; margin: 0 0 0 15px !important; z-index: 0;">+</div>
         </div>
-        <div class="qc-card">
-          <h3 id="qc-h">Швидкий зв'язок</h3>
-          <div class="qc-row">
-            <div class="qc-left">
-              <div class="qc-ic" style="background:#E3F2FD"><svg style="stroke:#229ED9" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z" fill="#229ED9" stroke="none"/></svg></div>
-              <div><div class="qc-name">Telegram</div><div class="qc-val">t.me/ukr_zurich</div></div>
-            </div><span class="qc-arr">›</span>
-          </div>
-          <div class="qc-row">
-            <div class="qc-left">
-              <div class="qc-ic" style="background:#E8F5E9"><svg style="stroke:#25A244" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.2 1.19 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-              <div><div class="qc-name">WhatsApp</div><div class="qc-val">+41 76 123 45 67</div></div>
-            </div><span class="qc-arr">›</span>
-          </div>
-          <div class="qc-row">
-            <div class="qc-left">
-              <div class="qc-ic" style="background:var(--blue-light)"><svg style="stroke:var(--blue)" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><div class="qc-name">Email</div><div class="qc-val">info@uagz.ch</div></div>
-            </div><span class="qc-arr">›</span>
-          </div>
+        <a href="team.html" style="display: inline-block !important; width: auto !important; padding: 10px 16px !important; background: transparent !important; border: 1px solid #0070F3 !important; color: #0070F3 !important; text-decoration: none !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 6px !important; text-align: center !important; transition: all 0.2s ease !important;">Дізнатися більше про команду &rarr;</a>
+      </div>
+
+      <!-- Блок статистики -->
+      <div class="stats-card" style="margin: 20px 0;">
+        <div class="stat-row">
+          <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div><div class="stat-big">5000+</div><div class="stat-lbl" id="stat-1">людей отримали підтримку</div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <div><div class="stat-big">100+</div><div class="stat-lbl" id="stat-2">волонтерів щодня допомагають громаді</div></div>
         </div>
       </div>
-    </div>
-    <div class="how-photo-col">
-      <div class="how-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80" alt="UAGZ team" style="width:100%;height:100%;object-fit:cover;object-position:center 20%"></div>
-      <div class="quote-card">
+
+      <!-- Швидкий зв'язок -->
+      <div class="qc-card" style="margin: 20px 0;">
+        <h3 id="qc-h">Швидкий зв'язок</h3>
+        <div class="qc-row">
+          <div class="qc-left">
+            <div class="qc-ic" style="background:#E3F2FD"><svg style="stroke:#229ED9" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z" fill="#229ED9" stroke="none"/></svg></div>
+            <div><div class="qc-name">Telegram</div><div class="qc-val">t.me/ukr_zurich</div></div>
+          </div><span class="qc-arr">›</span>
+        </div>
+        <div class="qc-row">
+          <div class="qc-left">
+            <div class="qc-ic" style="background:#E8F5E9"><svg style="stroke:#25A244" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.2 1.19 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="qc-name">WhatsApp</div><div class="qc-val">+41 76 123 45 67</div></div>
+          </div><span class="qc-arr">›</span>
+        </div>
+        <div class="qc-row">
+          <div class="qc-left">
+            <div class="qc-ic" style="background:var(--blue-light)"><svg style="stroke:var(--blue)" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="qc-name">Email</div><div class="qc-val">info@uagz.ch</div></div>
+          </div><span class="qc-arr">›</span>
+        </div>
+      </div>
+
+    </div><!-- /left-steps-column -->
+
+    <!-- ПРАВАЯ КОЛОНКА (Отмеченный квадрат №2 на вашем скриншоте) -->
+    <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin-top: 0;">
+      
+      <!-- Карточка отзыва Елены встает прямо на уровень шагов -->
+      <div class="quote-card hero-review-card">
         <p id="q-t">"Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ!"</p>
         <div class="quote-author">
           <div class="quote-av"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&q=70" alt="Олена"></div>
-          <div><div class="quote-name" id="q-n">Олена</div><div class="quote-loc">Zürich</div></div>
+          <div>
+            <div class="quote-name" id="q-n">Олена</div>
+            <div class="quote-loc">Zürich</div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+      
+    </div><!-- /right-review-column -->
+
+  </div><!-- /main-how-layout -->
 </section>
 
 <!-- ═══════ THREE COL: Актуально / Події / Оголошення ═ -->

@@ -1834,5 +1834,34 @@ function toggleDirCard(card) {
   }
 }
 </script>
+
+<script>
+// Автоматическое удаление проблемного блока на мобильных устройствах
+function removeDirOnMobile() {
+  if (window.innerWidth <= 768) {
+    // Находим и удаляем саму секцию
+    const dirSection = document.querySelector('.directions-section') || document.getElementById('dir-sections');
+    if (dirSection) {
+      dirSection.remove(); 
+    }
+    
+    // Удаляем сетку, если она осталась
+    const dirGrid = document.querySelector('.dir-grid');
+    if (dirGrid) {
+      dirGrid.remove();
+    }
+
+    // ТАКЖЕ УДАЛЯЕМ ВСЕ ОСТАТОЧНЫЕ ТЕКСТЫ И СТРЕЛОЧКИ С КЛАССАМИ DIR-
+    document.querySelectorAll('[class*="dir-"]').forEach(el => el.remove());
+  }
+}
+
+// Мгновенный запуск скрипта прямо сейчас, не дожидаясь загрузки других элементов
+removeDirOnMobile();
+
+// Запускаем повторно при полной загрузке и изменении экрана
+window.addEventListener('DOMContentLoaded', removeDirOnMobile);
+window.addEventListener('resize', removeDirOnMobile);
+</script>
 </body>
 </html>

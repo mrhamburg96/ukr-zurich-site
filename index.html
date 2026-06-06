@@ -626,30 +626,31 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     display: none !important;
   }
 
-/* Отключение остальных ломающихся сеток сайта */
+/* Відключення решти сіток сайту для мобільних */
   .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;
   }
   .footer-grid { text-align: center !important; }
-}
+} /* <--- Це закрилася дужка мобільної версії */
 
-/* 🚫 ЖЕСТКОЕ СКРЫТИЕ ВСЕЙ СЕКЦИИ НАПРАВЛЕНИЙ НА ТЕЛЕФОНАХ */
-@media screen and (max-width: 768px) {
-  #dir-sections, 
-  .directions-section, 
-  .dir-grid {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-  }
+/* НАШ НОВИЙ КОД ДЛЯ ПОВНОГО ВИДАЛЕННЯ (БЕЗ @media, щоб діяв і на ПК): */
+#dir-sections, 
+.directions-section, 
+.dir-grid, 
+.dir-card, 
+[class*="dir-"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
 }
 /* ===================================================================== */
+</style>
 </style>
 </head>
 <body>

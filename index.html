@@ -522,25 +522,24 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ: ТЕКСТ ВВЕРХУ И КНОПКИ МЕНЬШЕ НА 50% */
+/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ: С ОПТИМАЛЬНЫМ ОТСТУПОМ СВЕРХУ */
 @media (max-width: 768px) {
   .hero {
-    /* Оставляем хорошую высоту баннера, чтобы лица не обрезались */
     aspect-ratio: 16 / 10.5 !important; 
   }
 
-  /* Жестко фиксируем весь текстовый контейнер в верхнем левом углу */
+  /* Жестко фиксируем весь текстовый контейнер в верхнем левом углу с отступом от меню */
   .hero-inner {
     position: absolute !important;
-    top: 10px !important;        /* Отступ от верха фонового фото */
-    left: 10px !important;       /* Отступ от левого края */
+    top: 24px !important;        /* Сместили чуть ниже (было 10px), чтобы текст не лип к белому меню */
+    left: 10px !important;       
     right: auto !important;
     bottom: auto !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
     text-align: left !important;
     padding: 0 !important;
-    width: 48% !important;       /* Ограничиваем ширину до 48%, чтобы блок гарантированно не доезжал до лиц */
+    width: 48% !important;       
     box-sizing: border-box !important;
   }
 
@@ -587,7 +586,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     display: flex !important;
     flex-direction: row !important;
     justify-content: flex-start !important;
-    gap: 4px !important; /* Минимальный зазор между кнопками */
+    gap: 4px !important; 
     width: 100% !important;
   }
 
@@ -596,11 +595,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 3px 5px !important;  /* Чуть уменьшили боковые поля */
-    font-size: 7.5px !important;   /* Микро-размер текста кнопок */
+    padding: 3px 6px !important;  
+    font-size: 7.5px !important;   
     font-weight: 700 !important;
     border-radius: 3px !important; 
-    white-space: nowrap !important; /* ЗАПРЕЩАЕТ тексту переноситься на новую строку */
+    white-space: nowrap !important; /* Текст железно стоит в один ряд */
     text-shadow: none !important;
   }
   

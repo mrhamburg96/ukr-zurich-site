@@ -634,14 +634,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .footer-grid { text-align: center !important; }
 }
 
-/* 🚫 СКРЫВАЕМ ПРОБЛЕМНЫЕ КНОПКИ-ПЛАШКИ ЧЕРЕЗ ЧИСТЫЙ CSS */
+/* 🚫 ЖЕСТКОЕ СКРЫТИЕ ВСЕЙ СЕКЦИИ НАПРАВЛЕНИЙ НА ТЕЛЕФОНАХ */
 @media screen and (max-width: 768px) {
-  .directions-section, 
   #dir-sections, 
-  .dir-grid, 
-  .dir-grid-container,
-  .dir-card,
-  [class*="dir-"] {
+  .directions-section, 
+  .dir-grid {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -1839,26 +1836,27 @@ function toggleDirCard(card) {
 </script>
 
 <script>
-// Безопасное удаление только мобильных плашек без повреждения остального кода
-function cleanMobileDirections() {
-  if (window.innerWidth <= 768) {
-    // Находим элементы по их точным классам и удаляем
-    const items = document.querySelectorAll('.directions-section, #dir-sections, .dir-grid, [class*="dir-"]');
-    items.forEach(el => el.remove());
-    
-    // Удаляем текстовые h3 со стрелками, если их наплодил переводчик
-    document.querySelectorAll('h3').forEach(h3 => {
-      if (h3.textContent.includes('▼')) {
-        h3.remove();
-      }
+/* ── ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК (ОСТАВЛЯЕМ ОРИГИНАЛ) ── */
+function toggleDirCard(card) {
+  const desc = card.querySelector('.dir-desc');
+  const arrow = card.querySelector('.dir-arrow');
+  
+  if (desc.style.maxHeight && desc.style.maxHeight !== "0px") {
+    desc.style.maxHeight = "0px";
+    desc.style.opacity = "0";
+    if(arrow) arrow.style.transform = "rotate(0deg)";
+  } else {
+    document.querySelectorAll('.dir-desc').forEach(el => {
+      el.style.maxHeight = "0px";
+      el.style.opacity = "0";
     });
+    document.querySelectorAll('.dir-arrow').forEach(el => el.style.transform = "rotate(0deg)");
+    
+    desc.style.maxHeight = desc.scrollHeight + "px";
+    desc.style.opacity = "1";
+    if(arrow) arrow.style.transform = "rotate(180deg)";
   }
 }
-
-// Запуск при чтении, загрузке страницы и смене экрана
-cleanMobileDirections();
-window.addEventListener('DOMContentLoaded', cleanMobileDirections);
-window.addEventListener('load', cleanMobileDirections);
 </script>
 </body>
 </html>

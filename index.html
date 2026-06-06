@@ -522,7 +522,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ: С ОПТИМАЛЬНЫМ ОТСТУПОМ СВЕРХУ */
+/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ: С ОТСТУПОМ СВЕРХУ И СКРЫТЫМИ ПЛАШКАМИ */
 @media (max-width: 768px) {
   .hero {
     aspect-ratio: 16 / 10.5 !important; 
@@ -531,7 +531,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   /* Жестко фиксируем весь текстовый контейнер в верхнем левом углу с отступом от меню */
   .hero-inner {
     position: absolute !important;
-    top: 24px !important;        /* Сместили чуть ниже (было 10px), чтобы текст не лип к белому меню */
+    top: 24px !important;        
     left: 10px !important;       
     right: auto !important;
     bottom: auto !important;
@@ -599,11 +599,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 7.5px !important;   
     font-weight: 700 !important;
     border-radius: 3px !important; 
-    white-space: nowrap !important; /* Текст железно стоит в один ряд */
+    white-space: nowrap !important; 
     text-shadow: none !important;
   }
   
-  /* Коррекция навигации (меню), чтобы она не наезжала на баннер сверху */
+  /* Коррекция навигации (меню) */
   nav {
     position: relative !important;
     background: #ffffff !important;
@@ -621,33 +621,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .nav-r { display: flex !important; width: 100% !important; justify-content: center !important; margin-top: 2px !important; gap: 10px !important; }
   .btn-solid { padding: 4px 8px !important; font-size: 10px !important; }
 
- /* Сетка направлений деятельности: строго в 2 аккуратных столбика на мобильных */
+  /* 🚫 ПОЛНОЕ СКРЫТИЕ ПЛАШЕК С ТЕКСТОМ ВРАЗБРОС */
   .dir-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important; /* Ровно два столбика */
-    gap: 8px !important;                       /* Минимальный зазор между плитками */
-    margin: 10px 0 !important;
+    display: none !important;
   }
 
-  /* Делаем сами плашки тонкими и аккуратными */
-  .dir-card {
-    padding: 10px 8px !important;              /* Уменьшили внутренние отступы */
-    border-radius: 6px !important;
-  }
-
-  /* Текст внутри плашек уменьшаем, чтобы он помещался */
-  .dir-card h3 {
-    font-size: 11px !important;                /* Компактный аккуратный шрифт */
-    line-height: 1.2 !important;
-  }
-
-  /* Делаем иконку стрелочки "▼" миниатюрной */
-  .dir-arrow {
-    font-size: 9px !important;
-    margin-top: 2px !important;
-  }
-
-  /* Остальные тяжелые сетки сайта (шаги, футер) оставляем в один столбик */
+  /* Отключение остальных ломающихся сеток сайта */
   .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;

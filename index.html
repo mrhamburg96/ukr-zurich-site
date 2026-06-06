@@ -633,16 +633,20 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   }
   .footer-grid { text-align: center !important; }
 }
-  /* 🚫 ПРИМУСОВЕ ПРИХОВУВАННЯ ПЛАШОК ТІЛЬКИ НА ТЕЛЕФОНАХ */
+
+/* НАШ ОБНОВЛЕННЫЙ БЛОК: */
 @media screen and (max-width: 768px) {
-  .dir-grid, 
-  .dir-grid-container, 
-  #dir-sections, 
-  .directions-section {
+  .directions-section, 
+  #dir-sections,
+  .dir-grid,
+  .dir-card,
+  .dir-card h3,
+  .dir-arrow {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     height: 0 !important;
+    min-height: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
     overflow: hidden !important;

@@ -738,20 +738,25 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         </div>
       </div>
       <!-- BOTTOM ROW: Team + Stats + Quick Contact -->
-      <div class="how-bottom">
-        <div class="team-card">
-          <h3 id="team-h">Ми поруч з вами</h3>
-          <p id="team-p">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
-          <div class="team-avs">
-            <div class="tav"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=70" alt="Координатор"></div>
-            <div class="tav"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=70" alt="Волонтер"></div>
-            <div class="tav"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=70" alt="Перекладач"></div>
-            <div class="tav"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=70" alt="Консультант"></div>
-            <div class="tav" style="background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff">+</div>
-          </div>
-          <!-- Замінено href="#" на href="team.html" -->
-          <a href="team.html" style="font-size:11px;color:var(--blue);font-weight:600" id="team-l">Дізнатися більше про команду →</a>
-        </div>
+      <div class="info-card-founders" style="background: #f8f9fa; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+  <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 8px 0;">Ми поруч з вами</h3>
+  <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0; line-height: 1.4;">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
+  
+  <!-- Блок с мини-фотографиями учредителей -->
+  <div class="founders-avatars" style="display: flex; align-items: center; gap: -8px; margin-bottom: 12px;">
+    <img src="founder1.jpg" alt="Founder" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; margin-right: -10px;">
+    <img src="founder2.jpg" alt="Founder" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; margin-right: -10px;">
+    <img src="founder3.jpg" alt="Founder" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; margin-right: -10px;">
+    <img src="founder4.jpg" alt="Founder" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; margin-right: -10px;">
+    
+    <!-- Кружок с плюсом, если учредителей больше -->
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: #0070F3; color: white; border: 2px solid #ffffff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-left: 5px;">+</div>
+  </div>
+
+  <a href="#team" style="font-size: 13px; color: #0070F3; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+    Дізнатися більше про команду &rarr;
+  </a>
+</div>
         <div class="stats-card">
           <div class="stat-row">
             <div class="stat-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>

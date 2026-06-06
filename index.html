@@ -522,131 +522,56 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 
 
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ: С ОТСТУПОМ СВЕРХУ И СКРЫТЫМИ ПЛАШКАМИ */
+/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
 @media (max-width: 768px) {
   .hero {
-    aspect-ratio: 16 / 10.5 !important; 
+    aspect-ratio: 16 / 10.5 !important;
   }
 
-  /* Жестко фиксируем весь текстовый контейнер в верхнем левом углу с отступом от меню */
-  .hero-inner {
-    position: absolute !important;
-    top: 24px !important;        
-    left: 10px !important;       
-    right: auto !important;
-    bottom: auto !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    padding: 0 !important;
-    width: 48% !important;       
-    box-sizing: border-box !important;
+  /* НАПРАВЛЕНИЯ ДЕЯТЕЛЬНОСТИ: Принудительно показываем и адаптируем блок */
+  .directions-section {
+    display: block !important; /* Отменяем любое скрытие */
+    padding: 1.5rem 1rem !important;
   }
 
-  .hero-text {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  /* Крошечный логотип-плашка */
-  .hero-logo-row {
+  .dir-container {
     display: flex !important;
-    gap: 4px !important;
-    margin-bottom: 2px !important;
-  }
-  
-  .hero-logo-text { font-size: 8px !important; color: #1e293b !important; }
-  #h-badge { font-size: 7px !important; color: #475569 !important; }
-
-  /* Ультра-мелкий заголовок */
-  #h-t {
-    display: block !important;
-    font-size: 10px !important; 
-    line-height: 1.15 !important;
-    margin: 0 0 2px 0 !important;
-    color: #1e293b !important;
-    font-weight: 800 !important;
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.9) !important;
+    flex-direction: column !important; /* Выстраиваем левую и правую колонки друг под друга */
+    gap: 1.5rem !important;
   }
 
-  /* Ультра-мелкий подзаголовок */
-  #h-s {
-    display: block !important;
-    font-size: 7px !important;
+  .directions-section h2 {
+    font-size: 20px !important; /* Уменьшаем размер главного заголовка */
+    margin-bottom: 12px !important;
+  }
+
+  .dir-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Цифры статистики остаются в один ряд */
+    gap: 8px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .d-stat strong {
+    font-size: 18px !important; /* Делаем цифры компактнее */
+  }
+
+  .d-stat span {
+    font-size: 9px !important; /* Сжимаем подписи под цифрами */
     line-height: 1.2 !important;
-    margin: 0 0 5px 0 !important;
-    color: #334155 !important;
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.9) !important;
   }
 
-  /* Ряд кнопок в левом верхнем углу */
-  .hero-btns {
+  .dir-list {
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-start !important;
-    gap: 4px !important; 
-    width: 100% !important;
+    flex-direction: column !important;
+    gap: 6px !important; /* Небольшой отступ между плашками списка */
   }
 
-  /* Снижаем размер кнопок на 50% (микро-кнопки) */
-  .btn-hero-main, .btn-hero-sec {
-    display: inline-flex !important;
+  .dl-item {
+    display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    padding: 3px 6px !important;  
-    font-size: 7.5px !important;   
-    font-weight: 700 !important;
-    border-radius: 3px !important; 
-    white-space: nowrap !important; 
-    text-shadow: none !important;
-  }
-  
-  /* Коррекция навигации (меню) */
-  nav {
-    position: relative !important;
-    background: #ffffff !important;
-    flex-direction: column !important; 
-    align-items: center !important;
-    gap: 6px !important;
-    padding: 8px 1rem !important;
-    height: auto !important;           
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important; 
-    z-index: 100 !important;
-  }
-  .nav-logo { max-width: 100% !important; justify-content: center !important; }
-  .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 4px 8px !important; }
-  .nav-links a { font-size: 11px !important; }
-  .nav-r { display: flex !important; width: 100% !important; justify-content: center !important; margin-top: 2px !important; gap: 10px !important; }
-  .btn-solid { padding: 4px 8px !important; font-size: 10px !important; }
-
-  /* 🚫 ПОЛНОЕ СКРЫТИЕ ПЛАШЕК С ТЕКСТОМ ВРАЗБРОС */
- 
-
-/* Отключение остальных ломающихся сеток сайта */
-  .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.2rem !important;
-  }
-  .footer-grid { text-align: center !important; }
-}
-
-/* 🚫 СКРЫВАЕМ ПРОБЛЕМНЫЕ КНОПКИ-ПЛАШКИ ЧЕРЕЗ ЧИСТЫЙ CSS */
-@media screen and (max-width: 768px) {
-  .directions-section, 
-  #dir-sections, 
-  .dir-grid, 
-  .dir-grid-container,
-  .dir-card,
-  [class*="dir-"] {
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important; /* Текст списка теперь аккуратный и не вылезает */
   }
 }
 /* ===================================================================== */

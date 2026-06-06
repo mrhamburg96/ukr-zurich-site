@@ -451,7 +451,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   overflow: hidden !important;
 }
 
-/* На ПК: Смещаем контент в левый верхний угол */
 .hero-inner {
   position: absolute !important;
   inset: 0 !important;
@@ -520,105 +519,61 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   white-space: nowrap !important;
 }
 
-/* Базовые стили секции направлений для ПК */
-.directions-section { padding: 3rem 1.5rem; background: #fff; }
-.dir-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
-.dir-tag { display: inline-block; background: #E6F4FE; color: #0070F3; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 1rem; }
-.directions-section h2 { font-size: 28px; font-weight: 800; margin-bottom: 2rem; color: #111; line-height: 1.25; }
-.dir-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
-.d-stat strong { display: block; font-size: 24px; color: #0070F3; font-weight: 800; }
-.d-stat span { font-size: 12px; color: #666; line-height: 1.4; display: block; }
-.dir-badge { display: inline-block; background: #FFF9E6; color: #92700A; font-weight: 700; padding: 6px 12px; border-radius: 6px; font-size: 13px; }
-
-
 /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
 @media (max-width: 768px) {
   
-  /* Изменяем пропорции баннера, чтобы картинка была чуть выше, давая место контенту */
   .hero {
-    aspect-ratio: 16 / 12 !important;
+    aspect-ratio: 16 / 11.5 !important; /* Оптимальная высота, чтобы видеть фото */
   }
   
-  /* Сдвигаем контейнер строго в верхний левый угол и убираем лишнюю высоту */
   .hero-inner {
-    padding: 10px 0 0 12px !important;
+    padding: 10px 0 0 12px !important; /* Жестко сдвигаем в самый верхний левый угол */
     justify-content: flex-start !important;
     align-items: flex-start !important;
-    position: absolute !important;
-    inset: 0 !important;
   }
 
-  /* Сужаем ширину текстового блока, чтобы он не доходил до лиц справа */
+  /* Текст занимает только левую часть экрана и не лезет на лица */
   .hero-text {
-    max-width: 65% !important; 
+    max-width: 60% !important; 
     width: 100% !important;
   }
 
-  /* Пропорционально уменьшаем верхнюю строчку с флагами */
+  /* Уменьшаем мини-флаги */
   .hero-logo-row {
     margin-bottom: 2px !important;
     gap: 4px !important;
-  }
-  .hero-logo-row img {
-    height: 10px !important; /* Делаем мини-флаги аккуратными */
-    width: auto !important;
-  }
-  .hero-logo-text {
-    font-size: 9px !important;
-  }
-  #h-badge {
-    font-size: 9px !important;
+    transform: scale(0.8);
+    transform-origin: left center;
   }
 
   /* Пропорционально уменьшаем главный заголовок */
   #h-t {
-    font-size: 0.95rem !important; /* Уменьшенный размер шрифта */
+    font-size: 0.9rem !important; 
     line-height: 1.2 !important;
     margin: 0 0 4px 0 !important;
   }
 
   /* Пропорционально уменьшаем подзаголовок */
   #h-s {
-    font-size: 0.65rem !important; /* Компактный размер подзаголовка */
+    font-size: 0.6rem !important; 
     line-height: 1.3 !important;
-    margin: 0 0 10px 0 !important;
+    margin: 0 0 8px 0 !important;
   }
 
-  /* Делаем кнопки маленькими и аккуратными, чтобы они не лезли на людей */
+  /* Компактные кнопки друг под другом, чтобы не занимать ширину */
   .hero-btns {
-    flex-direction: column !important; /* Выстраиваем кнопку под кнопкой, чтобы экономить ширину */
-    gap: 6px !important;
+    flex-direction: column !important; 
+    gap: 5px !important;
     align-items: flex-start !important;
   }
 
   .btn-hero-main, .btn-hero-sec {
-    padding: 6px 12px !important; /* Уменьшенные отступы внутри кнопок */
-    font-size: 11px !important; /* Маленький аккуратный шрифт для кнопок */
+    padding: 6px 10px !important; 
+    font-size: 11px !important; 
     border-radius: 4px !important;
     width: auto !important;
-    max-width: 140px !important; /* Ограничиваем ширину кнопок */
+    max-width: 130px !important;
     text-align: center !important;
-  }
-
-
-  /* СИНХРОНИЗАЦИЯ НИЖНЕГО БЛОКА СТАТИСТИКИ */
-  .dir-container {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-  .directions-section h2 {
-    font-size: 20px !important;
-    margin-bottom: 1rem !important;
-  }
-  .dir-stats {
-    gap: 8px !important;
-    margin-bottom: 1rem !important;
-  }
-  .d-stat strong {
-    font-size: 18px !important;
-  }
-  .d-stat span {
-    font-size: 9px !important;
   }
 }
 /* ===================================================================== */
@@ -747,22 +702,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <span>WhatsApp Group</span>
     </a>
 </div>
-
-<section class="directions-section">
-  <div class="dir-container">
-    
-    <div class="dir-info" style="grid-column: span 2;">
-      <span class="dir-tag">Чим ми допомагаємо</span>
-      <h2>Ми поруч у важливих питаннях щодня</h2>
-      
-      <div class="dir-stats">
-        <div class="d-stat"><strong>1000+</strong><span>Людей отримали допомогу</span></div>
-        <div class="d-stat"><strong>200+</strong><span>Волонтерів у спільноті</span></div>
-        <div class="d-stat"><strong>50+</strong><span>Заходів щомісяця</span></div>
-      </div>
-      
-      <div class="dir-badge">Працюємо для українців у Цюриху</div>
-    </div>
 
   </div>
 </section>

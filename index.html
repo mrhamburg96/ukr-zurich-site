@@ -626,7 +626,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     display: none !important;
   }
 
-  /* Отключение остальных ломающихся сеток сайта */
+ /* Отключение остальных ломающихся сеток сайта */
   .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;
@@ -634,14 +634,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .footer-grid { text-align: center !important; }
 }
 
-/* НАШ ОБНОВЛЕННЫЙ БЛОК: */
+/* === НАШ ОБНОВЛЕННЫЙ ТОТАЛЬНЫЙ БЛОК СКРЫТИЯ === */
 @media screen and (max-width: 768px) {
-  .directions-section, 
-  #dir-sections,
-  .dir-grid,
-  .dir-card,
-  .dir-card h3,
-  .dir-arrow {
+  section.directions-section, 
+  #dir-sections, 
+  .dir-grid, 
+  .dir-grid-container,
+  [class*="dir-"] {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;

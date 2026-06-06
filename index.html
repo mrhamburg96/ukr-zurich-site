@@ -1812,6 +1812,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
+<script>
 /* ── НОВАЯ ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
 function toggleDirCard(card) {
   const desc = card.querySelector('.dir-desc');
@@ -1836,54 +1837,61 @@ function toggleDirCard(card) {
 </script>
 
 <script>
-// Жесткое циклическое удаление элементов на мобильных (вырезает под корень)
-function burnDirElements() {
+// Функция тотальной зачистки остатков
+function hardCleanMobileDir() {
   if (window.innerWidth <= 768) {
-    // 1. Находим и полностью стираем секцию и сетку
-    const targets = [
+    // Удаляем секции
+    const elementsToRemove = [
       '.directions-section', 
       '#dir-sections', 
       '.dir-grid', 
       '.dir-grid-container'
     ];
-    targets.forEach(selector => {
-      const el = document.querySelector(selector);
-      if (el) el.remove();
+    elementsToRemove.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => el.remove());
     });
 
-    // 2. Находим ВСЕ элементы, содержащие в названии класса "dir-", и удаляем их
+    // Удаляем всё, что связано с классами dir-
     document.querySelectorAll('[class*="dir-"]').forEach(el => el.remove());
-    
-    // 3. Подстраховка: если скрипт перевода создает чистый текст h3 со стрелками внутри бывшей секции
-    document.querySelectorAll('h3').forEach(h3 => {
-      if (h3.textContent.includes('▼') || 
-          h3.textContent.includes('допомога') || 
-          h3.textContent.includes('Продукти') || 
-          h3.textContent.includes('Курси')) {
-        h3.remove();
+
+    // Вылавливаем текстовые заголовки со стрелочками, созданные скриптом перевода
+    document.querySelectorAll('h3, div, span, p').forEach(el => {
+      const text = el.textContent || '';
+      if (text.includes('▼') && (
+          text.includes('допомога') || 
+          text.includes('Продукти') || 
+          text.includes('Курси') || 
+          text.includes('роботи') || 
+          text.includes('документами')
+      )) {
+        el.remove();
       }
     });
   }
 }
 
-// Запускаем уничтожение мгновенно
-burnDirElements();
+// Запускаем уничтожение мгновенно при чтении кода
+hardCleanMobileDir();
 
-// Навешиваем интервал: каждые 50 миллисекунд скрипт будет проверять страницу 
-// и стирать всплывающий текст перевода в течение первых 3 секунд загрузки
-let burnCounter = 0;
-const burnInterval = setInterval(() => {
-  burnDirElements();
-  burnCounter++;
-  if (burnCounter > 60) { 
-    clearInterval(burnInterval); // Останавливаем таймер через 3 секунды, чтобы не грузить телефон
-  }
-}, 50);
+// СИСТЕМНЫЙ НАБЛЮДАТЕЛЬ: блокирует создание элементов скриптом перевода
+if (window.innerWidth <= 768) {
+  const observer = new MutationObserver((mutations) => {
+    hardCleanMobileDir();
+  });
 
-// Дополнительные триггеры на полную загрузку страницы
-window.addEventListener('DOMContentLoaded', burnDirElements);
-window.addEventListener('load', burnDirElements);
-window.addEventListener('resize', burnDirElements);
+  // Начинаем следить за всем документом сайта на предмет появления лишнего текста
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+  // Отключаем наблюдатель через 5 секунд, чтобы не тратить батарею смартфона
+  setTimeout(() => observer.disconnect(), 5000);
+}
+
+// Стандартные триггеры на загрузку страницы
+window.addEventListener('DOMContentLoaded', hardCleanMobileDir);
+window.addEventListener('load', hardCleanMobileDir);
 </script>
 </body>
 </html>

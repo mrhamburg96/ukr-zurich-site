@@ -626,7 +626,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     display: none !important;
   }
 
- /* Отключение остальных ломающихся сеток сайта */
+/* Отключение остальных ломающихся сеток сайта */
   .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;
@@ -634,12 +634,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .footer-grid { text-align: center !important; }
 }
 
-/* === НАШ ОБНОВЛЕННЫЙ ТОТАЛЬНЫЙ БЛОК СКРЫТИЯ === */
+/* 🚫 СКРЫВАЕМ ПРОБЛЕМНЫЕ КНОПКИ-ПЛАШКИ ЧЕРЕЗ ЧИСТЫЙ CSS */
 @media screen and (max-width: 768px) {
-  section.directions-section, 
+  .directions-section, 
   #dir-sections, 
   .dir-grid, 
   .dir-grid-container,
+  .dir-card,
   [class*="dir-"] {
     display: none !important;
     visibility: hidden !important;
@@ -1813,7 +1814,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 <script>
-/* ── НОВАЯ ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
+<script>
+/* ── ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
 function toggleDirCard(card) {
   const desc = card.querySelector('.dir-desc');
   const arrow = card.querySelector('.dir-arrow');
@@ -1837,61 +1839,26 @@ function toggleDirCard(card) {
 </script>
 
 <script>
-// Функция тотальной зачистки остатков
-function hardCleanMobileDir() {
+// Безопасное удаление только мобильных плашек без повреждения остального кода
+function cleanMobileDirections() {
   if (window.innerWidth <= 768) {
-    // Удаляем секции
-    const elementsToRemove = [
-      '.directions-section', 
-      '#dir-sections', 
-      '.dir-grid', 
-      '.dir-grid-container'
-    ];
-    elementsToRemove.forEach(selector => {
-      document.querySelectorAll(selector).forEach(el => el.remove());
-    });
-
-    // Удаляем всё, что связано с классами dir-
-    document.querySelectorAll('[class*="dir-"]').forEach(el => el.remove());
-
-    // Вылавливаем текстовые заголовки со стрелочками, созданные скриптом перевода
-    document.querySelectorAll('h3, div, span, p').forEach(el => {
-      const text = el.textContent || '';
-      if (text.includes('▼') && (
-          text.includes('допомога') || 
-          text.includes('Продукти') || 
-          text.includes('Курси') || 
-          text.includes('роботи') || 
-          text.includes('документами')
-      )) {
-        el.remove();
+    // Находим элементы по их точным классам и удаляем
+    const items = document.querySelectorAll('.directions-section, #dir-sections, .dir-grid, [class*="dir-"]');
+    items.forEach(el => el.remove());
+    
+    // Удаляем текстовые h3 со стрелками, если их наплодил переводчик
+    document.querySelectorAll('h3').forEach(h3 => {
+      if (h3.textContent.includes('▼')) {
+        h3.remove();
       }
     });
   }
 }
 
-// Запускаем уничтожение мгновенно при чтении кода
-hardCleanMobileDir();
-
-// СИСТЕМНЫЙ НАБЛЮДАТЕЛЬ: блокирует создание элементов скриптом перевода
-if (window.innerWidth <= 768) {
-  const observer = new MutationObserver((mutations) => {
-    hardCleanMobileDir();
-  });
-
-  // Начинаем следить за всем документом сайта на предмет появления лишнего текста
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-
-  // Отключаем наблюдатель через 5 секунд, чтобы не тратить батарею смартфона
-  setTimeout(() => observer.disconnect(), 5000);
-}
-
-// Стандартные триггеры на загрузку страницы
-window.addEventListener('DOMContentLoaded', hardCleanMobileDir);
-window.addEventListener('load', hardCleanMobileDir);
+// Запуск при чтении, загрузке страницы и смене экрана
+cleanMobileDirections();
+window.addEventListener('DOMContentLoaded', cleanMobileDirections);
+window.addEventListener('load', cleanMobileDirections);
 </script>
 </body>
 </html>

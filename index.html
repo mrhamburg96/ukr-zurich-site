@@ -1836,32 +1836,54 @@ function toggleDirCard(card) {
 </script>
 
 <script>
-// Автоматическое удаление проблемного блока на мобильных устройствах
-function removeDirOnMobile() {
+// Жесткое циклическое удаление элементов на мобильных (вырезает под корень)
+function burnDirElements() {
   if (window.innerWidth <= 768) {
-    // Находим и удаляем саму секцию
-    const dirSection = document.querySelector('.directions-section') || document.getElementById('dir-sections');
-    if (dirSection) {
-      dirSection.remove(); 
-    }
-    
-    // Удаляем сетку, если она осталась
-    const dirGrid = document.querySelector('.dir-grid');
-    if (dirGrid) {
-      dirGrid.remove();
-    }
+    // 1. Находим и полностью стираем секцию и сетку
+    const targets = [
+      '.directions-section', 
+      '#dir-sections', 
+      '.dir-grid', 
+      '.dir-grid-container'
+    ];
+    targets.forEach(selector => {
+      const el = document.querySelector(selector);
+      if (el) el.remove();
+    });
 
-    // ТАКЖЕ УДАЛЯЕМ ВСЕ ОСТАТОЧНЫЕ ТЕКСТЫ И СТРЕЛОЧКИ С КЛАССАМИ DIR-
+    // 2. Находим ВСЕ элементы, содержащие в названии класса "dir-", и удаляем их
     document.querySelectorAll('[class*="dir-"]').forEach(el => el.remove());
+    
+    // 3. Подстраховка: если скрипт перевода создает чистый текст h3 со стрелками внутри бывшей секции
+    document.querySelectorAll('h3').forEach(h3 => {
+      if (h3.textContent.includes('▼') || 
+          h3.textContent.includes('допомога') || 
+          h3.textContent.includes('Продукти') || 
+          h3.textContent.includes('Курси')) {
+        h3.remove();
+      }
+    });
   }
 }
 
-// Мгновенный запуск скрипта прямо сейчас, не дожидаясь загрузки других элементов
-removeDirOnMobile();
+// Запускаем уничтожение мгновенно
+burnDirElements();
 
-// Запускаем повторно при полной загрузке и изменении экрана
-window.addEventListener('DOMContentLoaded', removeDirOnMobile);
-window.addEventListener('resize', removeDirOnMobile);
+// Навешиваем интервал: каждые 50 миллисекунд скрипт будет проверять страницу 
+// и стирать всплывающий текст перевода в течение первых 3 секунд загрузки
+let burnCounter = 0;
+const burnInterval = setInterval(() => {
+  burnDirElements();
+  burnCounter++;
+  if (burnCounter > 60) { 
+    clearInterval(burnInterval); // Останавливаем таймер через 3 секунды, чтобы не грузить телефон
+  }
+}, 50);
+
+// Дополнительные триггеры на полную загрузку страницы
+window.addEventListener('DOMContentLoaded', burnDirElements);
+window.addEventListener('load', burnDirElements);
+window.addEventListener('resize', burnDirElements);
 </script>
 </body>
 </html>

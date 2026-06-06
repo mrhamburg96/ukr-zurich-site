@@ -621,8 +621,34 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .nav-r { display: flex !important; width: 100% !important; justify-content: center !important; margin-top: 2px !important; gap: 10px !important; }
   .btn-solid { padding: 4px 8px !important; font-size: 10px !important; }
 
-  /* Отключение ломающихся сеток */
-  .dir-grid, .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
+ /* Сетка направлений деятельности: строго в 2 аккуратных столбика на мобильных */
+  .dir-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Ровно два столбика */
+    gap: 8px !important;                       /* Минимальный зазор между плитками */
+    margin: 10px 0 !important;
+  }
+
+  /* Делаем сами плашки тонкими и аккуратными */
+  .dir-card {
+    padding: 10px 8px !important;              /* Уменьшили внутренние отступы */
+    border-radius: 6px !important;
+  }
+
+  /* Текст внутри плашек уменьшаем, чтобы он помещался */
+  .dir-card h3 {
+    font-size: 11px !important;                /* Компактный аккуратный шрифт */
+    line-height: 1.2 !important;
+  }
+
+  /* Делаем иконку стрелочки "▼" миниатюрной */
+  .dir-arrow {
+    font-size: 9px !important;
+    margin-top: 2px !important;
+  }
+
+  /* Остальные тяжелые сетки сайта (шаги, футер) оставляем в один столбик */
+  .steps-row, .cta-grid, .whom-grid, .how-bottom, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;
   }

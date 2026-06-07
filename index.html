@@ -795,12 +795,15 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
     </div><!-- /left-steps-column -->
 
-   <!-- ПРАВАЯ КОЛОНКА: Увеличенный в 1.5 раза отзыв Олены -->
+ <!-- ПРАВАЯ КОЛОНКА: Увеличенный в 1.5 раза отзыв Олены -->
 <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin-top: 0;">
   
-  <div class="quote-card hero-review-card-compact">
-    <div class="compact-review-photo">
-      <img src="reviews.jpg" alt="Олена">
+  <!-- Оборачиваем всю карточку в ссылку для перехода на reviews.html -->
+  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit;">
+    
+    <!-- Контейнер фото: закругляем края так же, как у нижних блоков сайта -->
+    <div class="compact-review-photo" style="border-radius: var(--radius); overflow: hidden;">
+      <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
     
     <div class="compact-review-content">
@@ -812,13 +815,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <div class="quote-loc-compact">Zürich</div>
         </div>
         
-        <a href="reviews.html" class="review-link-btn">
+        <!-- Кнопка-ссылка внутри (также ведет на reviews.html) -->
+        <span class="review-link-btn" style="display: inline-flex; align-items: center;">
           <span>Відгуки</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
       </div>
     </div>
-  </div>
+  </a>
   
 </div>
       

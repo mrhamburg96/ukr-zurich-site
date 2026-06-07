@@ -801,15 +801,23 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
     </div><!-- /left-steps-column -->
 
- <!-- ПРАВАЯ КОЛОНКА: Увеличенный в 1.5 раза отзыв Олены -->
-<div class="right-review-column" style="width: 360px; flex-shrink: 0; margin-top: 0;">
+<!-- ПРАВАЯ КОЛОНКА: Заголовок отзывов + Увеличенный в 1.5 раза отзыв Олены -->
+<div class="right-review-column" style="width: 360px; flex-shrink: 0; margin-top: 0; display: flex; flex-direction: column;">
   
-  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit; height: 100%; overflow: hidden; padding: 0;">
+  <!-- Заголовок отзывов: выровнен по левой границе карточки и линии "Просто. Швидко. Людяно." -->
+  <h2 class="how-h1" style="font-size: 24px; font-weight: 800; line-height: 1.3; margin-top: 0; margin-bottom: 32px; color: #1a1a1a;">
+    Відгуки людей які отримали підтримку і допомогу від UAGZ
+  </h2>
+  
+  <!-- Оборачиваем всю карточку в ссылку -->
+  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: auto;">
     
+    <!-- Контейнер фото -->
     <div class="compact-review-photo" style="width: 100%; aspect-ratio: 16 / 11; overflow: hidden; margin: 0;">
       <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
     </div>
     
+    <!-- Текстовый контейнер -->
     <div class="compact-review-content" style="padding: 20px 24px 24px 24px;">
       <p id="q-t-compact" style="margin-bottom: 16px; font-size: 14px; line-height: 1.5;">"Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ!"</p>
       
@@ -819,6 +827,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <div class="quote-loc-compact" style="color: var(--text3); font-size: 12px; margin-top: 2px;">Zürich</div>
         </div>
         
+        <!-- Кнопка-ссылка внутри -->
         <span class="review-link-btn" style="display: inline-flex; align-items: center; font-weight: 600; color: var(--blue);">
           <span>Відгуки</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -828,7 +837,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </a>
   
 </div>
-      
     </div><!-- /right-review-column -->
 
   </div><!-- /main-how-layout -->

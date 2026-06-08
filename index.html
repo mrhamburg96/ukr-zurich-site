@@ -1143,11 +1143,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <span>Стати волонтером</span>
       </div>
       <h2 style="font-size: 24px; font-weight: 800; color: #1e293b; margin: 0 0 8px 0; letter-spacing: -0.02em;">Ваш час і навички можуть змінити чиєсь життя на краще.</h2>
-      <p style="font-size: 15px; color: #64748b; margin: 0; font-weight: 400;">Долучайтеся до команди волонтерів UAGZ та допомагайте іншим адаптуватися та знаходити підтримку.</p>
+      <p style="font-size: 15px; color: #64748b; margin: 0; font-weight: 400;">Долучайтеся до команди волонтерів UAGZ та допомагайте іншим.</p>
     </div>
 
     <div style="flex-shrink: 0;">
-      <button id="open-volunteer-modal" class="volunteer-join-btn" style="cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; background: #004bd1; color: #ffffff; padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 75, 209, 0.25); transition: background 0.2s ease, transform 0.2s ease;">
+      <button id="open-volunteer-modal" class="volunteer-join-btn" style="cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; background: #004bd1; color: #ffffff; padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 75, 209, 0.25); transition: all 0.2s ease;">
         <span>Приєднатися</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
@@ -1162,174 +1162,125 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     
     <div style="text-align: center; margin-bottom: 24px;">
       <h3 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
-      <p style="font-size: 14px; color: #64748b; margin: 0;">Будь ласка, заповніть форму, і ми зв'яжемося з вами!</p>
+      <p style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
     </div>
 
-    <form id="volunteer-form" action="#" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
-      <div>
-        <label style="display: block; font-size: 14px; font-weight: 600; color: #334155; margin-bottom: 6px;">Ваше ім'я</label>
-        <input type="text" name="name" required placeholder="Олена" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none;">
+    <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; gap: 12px;">
+        <div style="flex: 1;">
+          <label class="v-label">Ім'я</label>
+          <input type="text" name="name" required placeholder="Олена" class="v-input">
+        </div>
+        <div style="flex: 1;">
+          <label class="v-label">Прізвище</label>
+          <input type="text" name="surname" required placeholder="Ковальчук" class="v-input">
+        </div>
       </div>
 
       <div>
-        <label style="display: block; font-size: 14px; font-weight: 600; color: #334155; margin-bottom: 6px;">Телефон (Telegram / WhatsApp)</label>
-        <input type="tel" name="phone" required placeholder="+41 76 000 00 00" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none;">
+        <label class="v-label">Email</label>
+        <input type="email" name="email" required placeholder="olena@example.com" class="v-input">
       </div>
 
       <div>
-        <label style="display: block; font-size: 14px; font-weight: 600; color: #334155; margin-bottom: 6px;">Чим саме ви хочете допомогти?</label>
-        <textarea name="message" rows="3" placeholder="Наприклад: переклад документів, організація подій, інтеграція..." style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; font-family: inherit; resize: none;"></textarea>
+        <label class="v-label">Телефон (Telegram / WhatsApp)</label>
+        <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input">
       </div>
 
-      <button type="submit" style="cursor: pointer; background: #004bd1; color: white; border: none; padding: 12px; font-size: 15px; font-weight: 700; border-radius: 8px; margin-top: 8px; transition: background 0.2s;">Надіслати заявку</button>
+      <div>
+        <label class="v-label">Чим ви хочете допомогти?</label>
+        <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;"></textarea>
+      </div>
+
+      <button type="submit" id="v-submit-btn" class="v-submit-btn">Надіслати заявку</button>
     </form>
   </div>
 </div>
 
 <style>
-  .volunteer-join-btn:hover {
-    background: #003699 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 75, 209, 0.35) !important;
-  }
+  /* Стили элементов формы */
+  .v-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 5px; }
+  .v-input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+  .v-input:focus { border-color: #004bd1; }
   
-  /* Фон темного оверлея за окном */
-  .v-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  /* Когда окно открыто */
-  .v-modal-overlay.is-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .v-submit-btn { cursor: pointer; background: #004bd1; color: white; border: none; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 10px; margin-top: 10px; transition: all 0.2s; }
+  .v-submit-btn:hover { background: #003699; transform: translateY(-1px); }
+  .v-submit-btn:disabled { background: #94a3b8; cursor: not-allowed; }
 
-  /* Само белое всплывающее окошко */
-  .v-modal-window {
-    background: #ffffff;
-    width: 100%;
-    max-width: 440px;
-    padding: 32px;
-    border-radius: 16px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    position: relative;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-    margin: 0 20px;
-  }
-  
-  .v-modal-overlay.is-open .v-modal-window {
-    transform: scale(1);
-  }
-
-  /* Кнопка закрытия (крестик) */
-  .v-modal-close-btn {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    font-size: 28px;
-    color: #94a3b8;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.2s;
-  }
-  .v-modal-close-btn:hover {
-    color: #1e293b;
-  }
-
-  @media (max-width: 768px) {
-    .volunteer-cta-container > div {
-      flex-direction: column !important;
-      text-align: center !important;
-      padding: 30px 24px !important;
-      gap: 24px !important;
-    }
-    .volunteer-join-btn {
-      width: 100% !important;
-    }
-  }
+  /* Стили модального окна */
+  .v-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .v-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+  .v-modal-window { background: white; width: 100%; max-width: 480px; padding: 32px; border-radius: 18px; position: relative; transform: scale(0.9); transition: transform 0.3s; margin: 0 20px; }
+  .v-modal-overlay.is-open .v-modal-window { transform: scale(1); }
+  .v-modal-close-btn { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 30px; color: #94a3b8; cursor: pointer; line-height: 1; }
 </style>
 
 <script>
-  const openModalBtn = document.getElementById('open-volunteer-modal');
-  const closeModalBtn = document.getElementById('close-volunteer-modal');
-  const modalOverlay = document.getElementById('volunteer-modal');
+  const modal = document.getElementById('volunteer-modal');
+  const form = document.getElementById('volunteer-form');
+  const submitBtn = document.getElementById('v-submit-btn');
 
-  // Открыть окно
-  openModalBtn.addEventListener('click', () => {
-    modalOverlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden'; // Запретить прокрутку сайта на фоне
-  });
+  // Открытие/Закрытие
+  document.getElementById('open-volunteer-modal').onclick = () => { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
+  document.getElementById('close-volunteer-modal').onclick = () => { modal.classList.remove('is-open'); document.body.style.overflow = ''; };
+  modal.onclick = (e) => { if(e.target === modal) document.getElementById('close-volunteer-modal').click(); };
 
-  // Закрыть окно при клике на крестик
-  closeModalBtn.addEventListener('click', () => {
-    modalOverlay.classList.remove('is-open');
-    document.body.style.overflow = ''; // Вернуть прокрутку
-  });
+  // ОТПРАВКА В GOOGLE SHEETS
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Надсилаємо...';
 
-  // Закрыть окно при клике на темный фон вокруг окна
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-      modalOverlay.classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
+    const scriptURL = 'ВАША_ССЫЛКА_ИЗ_GOOGLE_APPS_SCRIPT'; // Вставьте сюда вашу ссылку!
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом.');
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Надіслати заявку';
+        document.getElementById('close-volunteer-modal').click();
+      })
+      .catch(error => {
+        alert('Помилка при відправці. Спробуйте ще раз або напишіть нам на почту.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Надіслати заявку';
+      });
   });
 </script>
+
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">
-        <div class="footer-logo-name">UAGZ</div>
-      </div>
-      <p class="footer-desc" id="f-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.</p>
+      <div class="footer-logo"><div class="footer-logo-name">UAGZ</div></div>
+      <p class="footer-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.</p>
       <p class="footer-addr">Zürich, Switzerland<br>Email: info@uagz.ch</p>
     </div>
-    
     <div class="fc">
-      <h4 id="f-title-center">Центр</h4>
-      <a href="about.html" id="f-about">Про нас</a>
-      <a href="help.html" id="f-services">Послуги</a>
-      <a href="events.html" id="f-events">Події</a>
-      <a href="announcements.html" id="f-announcements">Оголошення</a>
+      <h4>Центр</h4>
+      <a href="about.html">Про нас</a>
+      <a href="help.html">Послуги</a>
+      <a href="events.html">Події</a>
+      <a href="announcements.html">Оголошення</a>
     </div>
-    
     <div class="fc">
-      <h4 id="f-title-useful">Корисне</h4>
-      <a href="knowledge.html" id="f-knowledge">Knowledge Center</a>
-      <a href="#" id="f-faq">Часті питання (FAQ)</a>
-      <a href="#" class="green-link" id="f-urgent">Термінова допомога</a>
+      <h4>Корисне</h4>
+      <a href="knowledge.html">Knowledge Center</a>
+      <a href="#">FAQ</a>
+      <a href="#" class="green-link">Термінова допомога</a>
     </div>
-    
     <div class="fc">
-      <h4 id="f-title-hours">Години роботи</h4>
+      <h4>Години роботи</h4>
       <div class="hgrid">
-        <span class="hday" id="f-day-wf">Пн-Пт:</span><span class="hopen">09:00 - 18:00</span>
-        <span class="hday" id="f-day-sat">Сб:</span><span class="hopen">10:00 - 15:00</span>
-        <span class="hday" id="f-day-sun">Нд:</span><span class="hclosed" id="f-closed">Зачинено</span>
+        <span class="hday">Пн-Пт:</span><span class="hopen">09:00 - 18:00</span>
+        <span class="hday">Сб:</span><span class="hopen">10:00 - 15:00</span>
+        <span class="hday">Нд:</span><span class="hclosed">Зачинено</span>
       </div>
     </div>
   </div>
-  
   <div class="footer-bottom">
     <div>&copy; 2026 UAGZ. All rights reserved.</div>
-    <div class="footer-flag-row">
-      <span id="f-together">Разом для майбутнього</span>
-    </div>
+    <div class="footer-flag-row"><span>Разом для майбутнього</span></div>
   </div>
 </footer>
 

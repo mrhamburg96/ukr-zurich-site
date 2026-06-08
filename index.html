@@ -1256,42 +1256,73 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   });
 </script>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo"><div class="footer-logo-name">UAGZ</div></div>
-      <p class="footer-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.</p>
-      <p class="footer-addr">Zürich, Switzerland<br>Email: info@uagz.ch</p>
+<footer style="width: 100%; background: #0f172a; color: #f8fafc; font-family: inherit; padding: 60px 0 30px 0; margin-top: 60px; box-sizing: border-box;">
+  
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+    
+    <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 40px; margin-bottom: 40px;" class="footer-grid-uagz">
+      
+      <div>
+        <div style="font-size: 24px; font-weight: 800; color: #ffffff; margin-bottom: 16px; letter-spacing: -0.02em;">UAGZ</div>
+        <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin: 0 0 20px 0; font-weight: 400;">
+          Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.
+        </p>
+        <p style="font-size: 14px; color: #cbd5e1; line-height: 1.5; margin: 0;">
+          Zürich, Switzerland<br>
+          Email: <a href="mailto:info@uagz.ch" style="color: #38bdf8; text-decoration: none;">info@uagz.ch</a>
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <h4 style="font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 8px 0;">Центр</h4>
+        <a href="about.html" style="color: #94a3b8; text-decoration: none; font-size: 14px;" class="f-link">Про нас</a>
+        <a href="help.html" style="color: #94a3b8; text-decoration: none; font-size: 14px;" class="f-link">Послуги</a>
+        <a href="events.html" style="color: #94a3b8; text-decoration: none; font-size: 14px;" class="f-link">Події</a>
+        <a href="announcements.html" style="color: #94a3b8; text-decoration: none; font-size: 14px;" class="f-link">Оголошення</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <h4 style="font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 8px 0;">Корисне</h4>
+        <a href="knowledge.html" style="color: #94a3b8; text-decoration: none; font-size: 14px;" class="f-link">Knowledge Center</a>
+        <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 14px;" class="f-link">FAQ</a>
+        <a href="#" style="color: #ef4444; text-decoration: none; font-size: 14px; font-weight: 700;" class="f-link-emergency">Термінова допомога</a>
+      </div>
+
+      <div>
+        <h4 style="font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 14px 0;">Години роботи</h4>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px; color: #94a3b8;">
+          <span style="color: #cbd5e1; font-weight: 600;">Пн-Пт:</span><span>09:00 - 18:00</span>
+          <span style="color: #cbd5e1; font-weight: 600;">Сб:</span><span>10:00 - 15:00</span>
+          <span style="color: #cbd5e1; font-weight: 600;">Нд:</span><span style="color: #f43f5e;">Зачинено</span>
+        </div>
+      </div>
+
     </div>
-    <div class="fc">
-      <h4>Центр</h4>
-      <a href="about.html">Про нас</a>
-      <a href="help.html">Послуги</a>
-      <a href="events.html">Події</a>
-      <a href="announcements.html">Оголошення</a>
-    </div>
-    <div class="fc">
-      <h4>Корисне</h4>
-      <a href="knowledge.html">Knowledge Center</a>
-      <a href="#">FAQ</a>
-      <a href="#" class="green-link">Термінова допомога</a>
-    </div>
-    <div class="fc">
-      <h4>Години роботи</h4>
-      <div class="hgrid">
-        <span class="hday">Пн-Пт:</span><span class="hopen">09:00 - 18:00</span>
-        <span class="hday">Сб:</span><span class="hopen">10:00 - 15:00</span>
-        <span class="hday">Нд:</span><span class="hclosed">Зачинено</span>
+
+    <div style="border-top: 1px solid #334155; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 14px; color: #64748b;">
+      <div>
+        &copy; 2026 UAGZ. All rights reserved.
+      </div>
+      <div style="font-weight: 600; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px;">
+        Разом для майбутнього
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div>&copy; 2026 UAGZ. All rights reserved.</div>
-    <div class="footer-flag-row"><span>Разом для майбутнього</span></div>
-  </div>
 
-
+  </div>
 </footer>
+
+<style>
+  .f-link:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .f-link-emergency:hover { opacity: 0.8; text-decoration: underline !important; }
+  
+  @media (max-width: 992px) {
+    .footer-grid-uagz { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+  }
+  @media (max-width: 576px) {
+    .footer-grid-uagz { grid-template-columns: 1fr !important; }
+    footer div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
+  }
+</style>
 
 <!-- ═══════ SCRIPTS ═══════════════════════════════════ -->
 <script>

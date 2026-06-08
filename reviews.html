@@ -58,62 +58,59 @@
       color: var(--primary-hover);
     }
 
-    /* HERO-БЛОК С REVIEWS1.JPG */
+   /* HERO-БЛОК С REVIEWS1.JPG: Головы больше не обрезаются */
     .reviews-hero {
       position: relative;
       width: 100%;
-      height: 380px;
-      background: url('reviews1.jpg') center/cover no-repeat;
+      height: 420px; /* Немного увеличили высоту, чтобы картинка раскрылась лучше */
+      /* center 15% смещает фокус фотографии вверх, чтобы лица людей были видны полностью */
+      background: url('reviews1.jpg') center 15%/cover no-repeat; 
       display: flex;
-      align-items: center;
+      align-items: flex-end; /* Смещаем контейнер к нижнему краю баннера */
       justify-content: center;
-      margin-bottom: 60px;
+      margin-bottom: 0; /* Обнуляем, так как отступ теперь делает .container */
     }
 
-    .reviews-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-    }
+    /* Удален псевдоэлемент .reviews-hero::before (затемняющий оверлей), */
+    /* благодаря чему картинка остается оригинальной, яркой и без фильтров */
 
+    /* ТЕКСТОВЫЙ БЛОК: Смещен под обрез баннера, фон полностью прозрачный */
     .hero-title-card {
-      position: relative;
+      position: absolute;
+      bottom: -20px; /* Прижимаем к самому низу */
+      transform: translateY(100%); /* Выталкиваем блок строго ПОД обрез баннера на белое поле */
       z-index: 2;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 32px 48px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: transparent !important; /* Убираем белый фон */
+      backdrop-filter: none !important; /* Убираем размытие */
+      -webkit-backdrop-filter: none !important;
+      border: none !important; /* Убираем рамки */
+      box-shadow: none !important; /* Убираем тени */
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      max-width: 600px;
-      margin: 0 20px;
+      max-width: 800px; /* Расширили строку, чтобы текст не сильно зажимался */
+      margin: 0 auto;
+      padding: 0;
     }
 
     .hero-title-card h1 {
       font-size: 32px;
       font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 8px;
+      color: var(--primary); /* Оставляем ваш фирменный синий */
+      margin-bottom: 6px;
       letter-spacing: -0.02em;
     }
 
     .hero-title-card p {
-      font-size: 16px;
-      color: var(--text-main);
+      font-size: 15px;
+      color: var(--text-main); /* Темный текст, который теперь отлично читается на белом фоне */
       font-weight: 500;
     }
 
-    /* Контейнер для контенту */
+    /* Контейнер для контенту: Увеличен верхний отступ */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px 80px 20px;
+      /* padding-top: 100px дает достаточно места для текста, который мы сместили под баннер */
+      padding: 100px 20px 80px 20px; 
     }
 
     /* Сетка для майбутніх відгуків */

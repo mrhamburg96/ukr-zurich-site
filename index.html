@@ -1134,14 +1134,58 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 </section>
 
-<!-- ═══════ FOOTER ─────────────────────── -->
+<div class="volunteer-cta-container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px; box-sizing: border-box;">
+  <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);">
+    
+    <div style="flex: 1;">
+      <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 75, 209, 0.08); color: #004bd1; padding: 6px 12px; border-radius: 30px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <span>Стати волонтером</span>
+      </div>
+      <h2 style="font-size: 24px; font-weight: 800; color: #1e293b; margin: 0 0 8px 0; letter-spacing: -0.02em;">Ваш час і навички можуть змінити чиєсь жизнь на краще.</h2>
+      <p style="font-size: 15px; color: #64748b; margin: 0; font-weight: 400;">Долучайтеся до команди волонтерів UAGZ та допомагайте іншим адаптуватися та знаходити підтримку.</p>
+    </div>
+
+    <div style="flex-shrink: 0;">
+      <a href="volunteer-register.html" class="volunteer-join-btn" style="display: inline-flex; align-items: center; justify-content: center; background: #004bd1; color: #ffffff; text-decoration: none; padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 75, 209, 0.25); transition: background 0.2s ease, transform 0.2s ease;">
+        <span>Приєднатися</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .volunteer-join-btn:hover {
+    background: #003699 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 75, 209, 0.35) !important;
+  }
+  .volunteer-join-btn:active {
+    transform: translateY(0);
+  }
+  @media (max-width: 768px) {
+    .volunteer-cta-container > div {
+      flex-direction: column !important;
+      text-align: center !important;
+      padding: 30px 24px !important;
+      gap: 24px !important;
+    }
+    .volunteer-cta-container div {
+      justify-content: center !important;
+    }
+    .volunteer-join-btn {
+      width: 100% !important;
+    }
+  }
+</style>
 <footer>
   <div class="footer-grid">
     <div>
       <div class="footer-logo">
         <div class="footer-logo-name">UAGZ</div>
       </div>
-      <!-- Добавили id для перевода описания -->
       <p class="footer-desc" id="f-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.</p>
       <p class="footer-addr">Zürich, Switzerland<br>Email: info@uagz.ch</p>
     </div>
@@ -1151,13 +1195,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <a href="about.html" id="f-about">Про нас</a>
       <a href="help.html" id="f-services">Послуги</a>
       <a href="events.html" id="f-events">Події</a>
-      <!-- Заменили # на правильный файл announcements.html -->
       <a href="announcements.html" id="f-announcements">Оголошення</a>
     </div>
     
     <div class="fc">
       <h4 id="f-title-useful">Корисне</h4>
-      <!-- Заменили # на правильный файл knowledge.html -->
       <a href="knowledge.html" id="f-knowledge">Knowledge Center</a>
       <a href="#" id="f-faq">Часті питання (FAQ)</a>
       <a href="#" class="green-link" id="f-urgent">Термінова допомога</a>

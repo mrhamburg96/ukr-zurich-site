@@ -1236,7 +1236,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     submitBtn.disabled = true;
     submitBtn.innerText = 'Надсилаємо...';
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwn4cx08YalFbJ2jHgiYANFMVu7U0-9_p5mGmq4CZhvFxrgtxD3LOMklG3Z0q7hIakV/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwDCzbS7FQb4X4ttPbXAOS0ZeXVVVjGX4Ow3yE2lHibnzTfivaFPZo345IuGrlv2Bs2/exec'; 
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {

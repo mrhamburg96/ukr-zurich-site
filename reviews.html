@@ -74,19 +74,32 @@
     /* Удален псевдоэлемент .reviews-hero::before (затемняющий оверлей), */
     /* благодаря чему картинка остается оригинальной, яркой и без фильтров */
 
-    /* ТЕКСТОВЫЙ БЛОК: Смещен под обрез баннера, фон полностью прозрачный */
+   /* HERO-БЛОК С REVIEWS1.JPG: Идеальное центрирование лиц без обрезки */
+    .reviews-hero {
+      position: relative;
+      width: 100%;
+      height: 440px; /* Увеличили высоту для лучшего охвата лиц */
+      /* center 32% — поднимает картинку ровно настолько, чтобы вошли и головы, и лица целиком */
+      background: url('reviews1.jpg') center 32%/cover no-repeat; 
+      display: flex;
+      align-items: flex-end; 
+      justify-content: center;
+      margin-bottom: 0; 
+    }
+
+    /* ТЕКСТОВЫЙ БЛОК: Остается строго под обрезом на белом поле */
     .hero-title-card {
       position: absolute;
-      bottom: -20px; /* Прижимаем к самому низу */
-      transform: translateY(100%); /* Выталкиваем блок строго ПОД обрез баннера на белое поле */
+      bottom: -20px; 
+      transform: translateY(100%); 
       z-index: 2;
-      background: transparent !important; /* Убираем белый фон */
-      backdrop-filter: none !important; /* Убираем размытие */
+      background: transparent !important; 
+      backdrop-filter: none !important; 
       -webkit-backdrop-filter: none !important;
-      border: none !important; /* Убираем рамки */
-      box-shadow: none !important; /* Убираем тени */
+      border: none !important; 
+      box-shadow: none !important; 
       text-align: center;
-      max-width: 800px; /* Расширили строку, чтобы текст не сильно зажимался */
+      max-width: 800px; 
       margin: 0 auto;
       padding: 0;
     }
@@ -94,23 +107,23 @@
     .hero-title-card h1 {
       font-size: 32px;
       font-weight: 800;
-      color: var(--primary); /* Оставляем ваш фирменный синий */
+      color: var(--primary); 
       margin-bottom: 6px;
       letter-spacing: -0.02em;
     }
 
     .hero-title-card p {
       font-size: 15px;
-      color: var(--text-main); /* Темный текст, который теперь отлично читается на белом фоне */
+      color: var(--text-main); 
       font-weight: 500;
     }
 
-    /* Контейнер для контенту: Увеличен верхний отступ */
+    /* Контейнер для контенту */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      /* padding-top: 100px дает достаточно места для текста, который мы сместили под баннер */
-      padding: 100px 20px 80px 20px; 
+      /* Отступ сверху для контента, чтобы освободить место под текст */
+      padding: 110px 20px 80px 20px; 
     }
 
     /* Сетка для майбутніх відгуків */

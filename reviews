@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Відгуки — UAGZ</title>
+  <style>
+    :root {
+      --primary: #004bd1;
+      --primary-hover: #003699;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-light: #f8f9fa;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* Навигационная панель (Шапка) */
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border-color);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      display: block;
+    }
+
+    .nav-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-back-btn:hover {
+      color: var(--primary-hover);
+    }
+
+    /* ВЕРХНИЙ HERO-БЛОК С ФОТО REVIEWS.JPG */
+    .reviews-hero {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background: url('reviews.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    /* Затемняющий оверлей для читаемости */
+    .reviews-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    /* Контейнер заголовка с эффектом Glassmorphism */
+    .hero-title-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 32px 48px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      max-width: 600px;
+      margin: 0 20px;
+    }
+
+    .hero-title-card h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title-card p {
+      font-size: 16px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Основной контент */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 80px 20px;
+    }
+
+    /* Сетка карточек отзывов */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 30px;
+    }
+
+    /* Карточка отзыва */
+    .review-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    .review-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-main);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    /* Автор отзыва */
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+
+    .author-info .author-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    .author-info .author-location {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Адаптивность для мобильных */
+    @media (max-width: 768px) {
+      .nav-header {
+        padding: 15px 20px;
+      }
+      .reviews-hero {
+        height: 280px;
+        margin-bottom: 40px;
+      }
+      .hero-title-card {
+        padding: 20px 24px;
+      }
+      .hero-title-card h1 {
+        font-size: 24px;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav-header">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="uagz-logo.png" alt="UAGZ Логотип">
+      </a>
+    </div>
+    <a href="index.html" class="nav-back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      <span>На головну</span>
+    </a>
+  </header>
+
+  <section class="reviews-hero">
+    <div class="hero-title-card">
+      <h1>Відгуки про UAGZ</h1>
+      <p>Щирі історії людей, які отримали нашу підтримку та допомогу</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="reviews-grid">
+      
+      <div class="review-card">
+        <p class="review-text">"Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ! Дуже швидко допомогли розібратися з документами."</p>
+        <div class="review-author">
+          <img class="author-avatar" src="team1.jpg" alt="Олена">
+          <div class="author-info">
+            <div class="author-name">Олена</div>
+            <div class="author-location">Zürich</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-text">"Неймовірна команда! Допомогли знайти мовні курси та підтримали в адаптації. Організація процесу на найвищому рівні, все людяно та просто."</p>
+        <div class="review-author">
+          <img class="author-avatar" src="team2.jpg" alt="Дмитро">
+          <div class="author-info">
+            <div class="author-name">Дмитро</div>
+            <div class="author-location">Bern</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-text">"Дуже вдячна за швидкий зв'язок та професійні консультації. Коли виникають складні юридичні питання, знати, що є UAGZ — це величезне полегшення."</p>
+        <div class="review-author">
+          <img class="author-avatar" src="team3.jpg" alt="Наталія">
+          <div class="author-info">
+            <div class="author-name">Наталія</div>
+            <div class="author-location">Basel</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-text">"З першого ж звернення координатори чітко розписали план дій. Дякую кожному волонтеру за ваш час, турботу та щире бажання допомогти людям."</p>
+        <div class="review-author">
+          <img class="author-avatar" src="team5.jpg" alt="Тетяна">
+          <div class="author-info">
+            <div class="author-name">Тетяна</div>
+            <div class="author-location">Genève</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

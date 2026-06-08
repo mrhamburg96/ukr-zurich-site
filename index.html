@@ -1198,7 +1198,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <style>
-  /* Стили элементов формы */
   .v-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 5px; }
   .v-input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
   .v-input:focus { border-color: #004bd1; }
@@ -1207,12 +1206,18 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   .v-submit-btn:hover { background: #003699; transform: translateY(-1px); }
   .v-submit-btn:disabled { background: #94a3b8; cursor: not-allowed; }
 
-  /* Стили модального окна */
+  .volunteer-join-btn:hover { background: #003699 !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 75, 209, 0.35) !important; }
+  
   .v-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .v-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
   .v-modal-window { background: white; width: 100%; max-width: 480px; padding: 32px; border-radius: 18px; position: relative; transform: scale(0.9); transition: transform 0.3s; margin: 0 20px; }
   .v-modal-overlay.is-open .v-modal-window { transform: scale(1); }
   .v-modal-close-btn { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 30px; color: #94a3b8; cursor: pointer; line-height: 1; }
+
+  @media (max-width: 768px) {
+    .volunteer-cta-container > div { flex-direction: column !important; text-align: center !important; padding: 30px 24px !important; gap: 24px !important; }
+    .volunteer-join-btn { width: 100% !important; }
+  }
 </style>
 
 <script>
@@ -1220,18 +1225,18 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   const form = document.getElementById('volunteer-form');
   const submitBtn = document.getElementById('v-submit-btn');
 
-  // Открытие/Закрытие
+  // Управление окном
   document.getElementById('open-volunteer-modal').onclick = () => { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
   document.getElementById('close-volunteer-modal').onclick = () => { modal.classList.remove('is-open'); document.body.style.overflow = ''; };
   modal.onclick = (e) => { if(e.target === modal) document.getElementById('close-volunteer-modal').click(); };
 
-  // ОТПРАВКА В GOOGLE SHEETS
+  // Отправка формы напрямую в вашу таблицу Google Sheets
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     submitBtn.disabled = true;
     submitBtn.innerText = 'Надсилаємо...';
 
-    const scriptURL = 'ВАША_ССЫЛКА_ИЗ_GOOGLE_APPS_SCRIPT'; // Вставьте сюда вашу ссылку!
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwWB7Jil4EnMyH5nirP0Qru2-nykMDiSiRS2qSLn-U0DBJvGKMCD13NujqX2PwlRBQb/exec'; 
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
@@ -1282,6 +1287,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <div>&copy; 2026 UAGZ. All rights reserved.</div>
     <div class="footer-flag-row"><span>Разом для майбутнього</span></div>
   </div>
+
+
 </footer>
 
 <!-- ═══════ SCRIPTS ═══════════════════════════════════ -->

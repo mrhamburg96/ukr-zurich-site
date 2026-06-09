@@ -1256,9 +1256,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   });
 </script>
 
-</footer>
-
-<footer style="display: block; clear: both; width: 100%; background: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 50px 0 25px 0; margin-top: 60px; box-sizing: border-box;">
+<footer style="display: block; clear: both; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 60px 0 30px 0; margin-top: 60px; box-sizing: border-box;">
   
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; width: 100%;">
     
@@ -1267,7 +1265,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <div style="display: flex; flex-direction: column; gap: 14px; box-sizing: border-box;">
         <div style="font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; line-height: 1.2;">UAGZ</div>
         <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin: 0; font-weight: 400;">
-          Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всех українців у Швейцарії.
+          Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.
         </p>
         <p style="font-size: 14px; color: #cbd5e1; line-height: 1.5; margin: 5px 0 0 0; font-weight: 400;">
           Zürich, Switzerland<br>
@@ -1314,7 +1312,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </footer>
 
 <style>
-  /* Изолированные эффекты наведения */
+  /* Эффекты наведения на ссылки */
   .uagz-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
   .uagz-lnk-emer:hover { opacity: 0.8 !important; text-decoration: underline !important; }
   
@@ -1327,43 +1325,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     footer div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
   }
 </style>
-  /* Эффект аккуратного подчеркивания ссылок при наведении */
-  .uagz-f-link:hover { 
-    color: #ffffff !important; 
-    text-decoration: underline !important; 
-  }
-  
-  /* Перестроение в 2 колонки на планшетах */
-  @media (max-width: 992px) {
-    .uagz-footer-grid { 
-      grid-template-columns: repeat(2, 1fr) !important; 
-      gap: 35px !important; 
-    }
-  }
-  /* Перестроение в 1 колонку на мобильных телефонах */
-  @media (max-width: 576px) {
-    .uagz-footer-grid { 
-      grid-template-columns: 1fr !important; 
-      gap: 30px !important; 
-    }
-    footer div[style*="justify-content: space-between"] { 
-      flex-direction: column !important; 
-      text-align: center !important; 
-    }
-  }
-</style>
-  .f-link:hover { color: #ffffff !important; text-decoration: underline !important; }
-  .f-link-emergency:hover { opacity: 0.8; text-decoration: underline !important; }
-  
-  @media (max-width: 992px) {
-    .footer-grid-uagz { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
-  }
-  @media (max-width: 576px) {
-    .footer-grid-uagz { grid-template-columns: 1fr !important; }
-    footer div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
-  }
-</style>
-
 <!-- ═══════ SCRIPTS ═══════════════════════════════════ -->
 <script>
 function mOpen(tab) {

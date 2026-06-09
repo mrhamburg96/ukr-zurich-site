@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Волонтерство — UAGZ</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -40,8 +40,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
 
 /* Контент */
-.page-content{padding:3rem 0; max-width:1200px; margin:0 auto;}
-.max-width-article {max-width:850px; margin:0 auto;}
+.page-content{padding:3rem 0; max-width:850px; margin:0 auto;}
 
 /* Баннер проекту */
 .volunteers-banner {
@@ -84,208 +83,152 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .section-title{font-size:2rem;font-weight:800;margin-top:4rem;margin-bottom:1.5rem;color:var(--text);text-align:center;}
 .vol-section{max-width:800px; margin: 0 auto;}
 .article-text p {margin-bottom: 1.4rem; font-size: 1.05rem; color: var(--text2); line-height: 1.75; text-align: justify;}
-.vol-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:1.5rem}
+.vol-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:1.5rem;text-align:center;}
 .vol-box h2{color:var(--blue);margin-bottom:1rem;font-size:1.4rem}
 
-/* СТИЛИ КАРТОЧКИ РЕГИСТРАЦИИ ВОЛОНТЕРОВ */
-.uagz-volunteer-card-container {
-  margin: 4rem auto 0 auto;
-}
-.uagz-volunteer-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.03);
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  overflow: hidden;
-  min-height: 560px;
-}
-.uagz-v-left {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  padding: 3.5rem 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fff;
-  position: relative;
-}
-.uagz-v-left::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 50%);
-  pointer-events: none;
-}
-.uagz-v-right {
-  padding: 3.5rem 3rem;
-  background: var(--surface);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.uagz-v-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.uagz-v-row {
-  display: flex;
-  gap: 1rem;
-}
-.uagz-v-group {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.uagz-v-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text2);
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-.uagz-v-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 14.5px;
-  font-family: inherit;
-  box-sizing: border-box;
-  outline: none;
-  background: #fff;
-  transition: all 0.2s ease;
-  color: var(--text);
-}
-.uagz-v-input:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(26, 86, 196, 0.1);
-}
-.uagz-v-btn {
-  cursor: pointer;
+/* Кнопка открытия модального окна */
+.btn-trigger-modal {
+  display: inline-block;
   background: var(--blue);
   color: #fff;
-  border: none;
-  padding: 15px;
-  font-size: 15px;
   font-weight: 700;
+  font-size: 16px;
+  padding: 14px 32px;
+  border: none;
   border-radius: 10px;
-  font-family: inherit;
+  cursor: pointer;
+  margin-top: 1.5rem;
   transition: all 0.2s ease;
-  width: 100%;
   box-shadow: 0 4px 12px rgba(26, 86, 196, 0.2);
 }
-.uagz-v-btn:hover {
+.btn-trigger-modal:hover {
   background: var(--blue-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(26, 86, 196, 0.3);
-}
-.uagz-v-btn:disabled {
-  background: var(--text3);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }
 
-/* Підвал */
-footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+/* Модальное окно (Реєстрація волонтера) */
+.uagz-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+}
+.uagz-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.uagz-modal-window {
+  background: #fff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+.uagz-modal-overlay.active .uagz-modal-window {
+  transform: scale(1);
+}
+.uagz-modal-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: none; border: none;
+  font-size: 28px; color: var(--text3);
+  cursor: pointer; line-height: 1;
+  transition: color 0.2s;
+}
+.uagz-modal-close:hover { color: var(--text); }
+
+/* Элементы формы */
+.uagz-f-head { text-align: center; margin-bottom: 2rem; }
+.uagz-f-title { font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.uagz-f-sub { font-size: 14.5px; color: var(--text2); }
+.uagz-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.uagz-f-row { display: flex; gap: 1rem; }
+.uagz-f-group { flex: 1; display: flex; flex-direction: column; }
+.uagz-f-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.uagz-f-input {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: 10px;
+  font-size: 14.5px; font-family: inherit; outline: none;
+  background: #fff; color: var(--text); transition: all 0.2s;
+}
+.uagz-f-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26, 86, 196, 0.1); }
+.uagz-f-btn {
+  cursor: pointer; background: var(--blue); color: #fff; border: none;
+  padding: 14px; font-size: 16px; font-weight: 700; border-radius: 12px;
+  font-family: inherit; transition: all 0.2s; width: 100%; margin-top: 0.5rem;
+}
+.uagz-f-btn:hover { background: var(--blue-dark); }
+.uagz-f-btn:disabled { background: var(--text3); cursor: not-allowed; }
+
+/* Адаптивный чистый подвал */
+.uagz-ultimate-footer {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 4rem 0 2.5rem 0;
+  margin-top: 5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.uagz-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.uagz-f-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+.uagz-f-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.uagz-f-links a { color: #cbd5e1; transition: color 0.2s; font-size: 14.5px; }
+.uagz-f-links a:hover { color: #fff; }
+.uagz-f-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #64748b;
+}
 
 /* ================= АДАПТАЦІЯ ПІД МОБІЛЬНУ ВЕРСІЮ ================= */
 @media (max-width: 768px) {
-  /* Адаптація шапки */
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 1rem;
-  }
-  .nav-logo {
-    max-width: 100%;
-    justify-content: center;
-  }
-  .nav-links {
-    justify-content: center;
-    gap: 0.9rem 1.2rem;
-  }
-  .nav-links a {
-    font-size: 13.5px;
-  }
-  .nav-r {
-    width: 100%;
-    justify-content: center;
-    margin-top: 4px;
-    gap: 20px;
-  }
+  nav { flex-direction: column; align-items: center; gap: 14px; padding: 10px 1rem; }
+  .nav-logo { max-width: 100%; justify-content: center; }
+  .nav-links { justify-content: center; gap: 0.9rem 1.2rem; }
+  .nav-links a { font-size: 13.5px; }
+  .nav-r { width: 100%; justify-content: center; margin-top: 4px; gap: 20px; }
 
-  /* Оптимізація контенту сторінки */
-  .page-content {
-    padding: 2rem 0;
-  }
-  .volunteers-banner {
-    max-width: 290px;
-    margin-bottom: 1.5rem;
-  }
-  .page-title { 
-    font-size: 1.6rem; 
-    padding: 0 0.5rem;
-  }
-  .section-title { 
-    font-size: 1.45rem; 
-    margin-top: 2.5rem;
-  }
+  .page-content { padding: 2rem 0; }
+  .volunteers-banner { max-width: 290px; margin-bottom: 1.5rem; }
+  .page-title { font-size: 1.6rem; padding: 0 0.5rem; }
+  .section-title { font-size: 1.45rem; margin-top: 2.5rem; }
   
-  /* Читабельний текст на мобілці */
-  .article-text p { 
-    text-align: left; 
-    font-size: 0.98rem;
-    line-height: 1.65;
-    padding: 0 0.5rem;
-    margin-bottom: 1.1rem;
-  }
-  .vol-section {
-    padding: 0 0.5rem;
-  }
-  .vol-section p {
-    font-size: 1rem !important;
-  }
-  .vol-box {
-    padding: 1.5rem 1.1rem;
-  }
-  
-  /* Адаптивність інтегрованої форми реєстрації */
-  .uagz-volunteer-card {
-    grid-template-columns: 1fr;
-  }
-  .uagz-v-left {
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-  }
-  .uagz-v-left div[style*="display: flex"] {
-    align-items: center;
-    justify-content: center;
-  }
-  .uagz-v-right {
-    padding: 2.5rem 1.5rem;
-  }
-  .uagz-v-row {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
+  .article-text p { text-align: left; font-size: 0.98rem; line-height: 1.65; padding: 0 0.5rem; margin-bottom: 1.1rem; }
+  .vol-section { padding: 0 0.5rem; }
+  .vol-box { padding: 1.5rem 1.1rem; }
 
-  /* Підвал */
-  footer {
-    margin-top: 3rem;
-    padding: 2.5rem 0;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-  }
+  .uagz-modal-window { padding: 2rem 1.25rem; border-radius: 20px; }
+  .uagz-f-row { flex-direction: column; gap: 1.25rem; }
+  
+  .uagz-footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .uagz-f-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
 </head>
@@ -322,219 +265,221 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </header>
 
 <main class="container page-content">
-  <div class="max-width-article">
-    <div class="volunteers-banner">
-      <div class="volunteers-overlay">
-        <span class="volunteers-badge" id="vol-badge"></span>
-      </div>
-    </div>
-
-    <h1 class="page-title" id="eco-title"></h1>
-    <div class="vol-section article-text" id="eco-text"></div>
-
-    <h2 class="section-title" id="vol-title"></h2>
-    <div class="vol-section">
-      <p id="vol-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;"></p>
-      
-      <div class="vol-box">
-        <h2 id="vol-box-h"></h2>
-        <p id="vol-box-p" style="color:var(--text2)"></p>
-      </div>
+  <div class="volunteers-banner">
+    <div class="volunteers-overlay">
+      <span class="volunteers-badge" id="vol-badge"></span>
     </div>
   </div>
 
-  <div class="uagz-volunteer-card-container">
-    <div class="uagz-volunteer-card">
-      
-      <div class="uagz-v-left">
-        <span style="color: #38bdf8; text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; display: block;" id="form-tag"></span>
-        <h3 style="font-size: 28px; font-weight: 800; line-height: 1.25; margin-bottom: 16px; letter-spacing: -0.02em;" id="form-title"></h3>
-        <p style="font-size: 15px; color: #94a3b8; line-height: 1.6; margin-bottom: 28px;" id="form-desc-text"></p>
-        
-        <div style="display: flex; flex-direction: column; gap: 14px; text-align: left;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 22px; height: 22px; background: rgba(56, 189, 248, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-weight: bold; font-size: 12px;">✓</div>
-            <span style="font-size: 14.5px; color: #cbd5e1;" id="f-bullet1"></span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 22px; height: 22px; background: rgba(56, 189, 248, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-weight: bold; font-size: 12px;">✓</div>
-            <span style="font-size: 14.5px; color: #cbd5e1;" id="f-bullet2"></span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 22px; height: 22px; background: rgba(56, 189, 248, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-weight: bold; font-size: 12px;">✓</div>
-            <span style="font-size: 14.5px; color: #cbd5e1;" id="f-bullet3"></span>
-          </div>
-        </div>
-      </div>
+  <h1 class="page-title" id="eco-title"></h1>
+  <div class="vol-section article-text" id="eco-text"></div>
 
-      <div class="uagz-v-right">
-        <form id="google-sheet-volunteer-form" class="uagz-v-form">
-          
-          <div class="uagz-v-row">
-            <div class="uagz-v-group">
-              <label class="uagz-v-label" id="lbl-name"></label>
-              <input type="text" name="name" required class="uagz-v-input" id="ph-name">
-            </div>
-            <div class="uagz-v-group">
-              <label class="uagz-v-label" id="lbl-surname"></label>
-              <input type="text" name="surname" required class="uagz-v-input" id="ph-surname">
-            </div>
-          </div>
-
-          <div class="uagz-v-group">
-            <label class="uagz-v-label" id="lbl-email"></label>
-            <input type="email" name="email" required class="uagz-v-input" id="ph-email">
-          </div>
-
-          <div class="uagz-v-group">
-            <label class="uagz-v-label" id="lbl-phone"></label>
-            <input type="tel" name="phone" required class="uagz-v-input" id="ph-phone">
-          </div>
-
-          <div class="uagz-v-group">
-            <label class="uagz-v-label" id="lbl-msg"></label>
-            <textarea name="message" rows="4" required class="uagz-v-input" style="resize: none;" id="ph-msg"></textarea>
-          </div>
-
-          <div style="margin-top: 4px;">
-            <button type="submit" id="uagz-v-submit" class="uagz-v-btn"></button>
-          </div>
-
-        </form>
-      </div>
-
+  <h2 class="section-title" id="vol-title"></h2>
+  <div class="vol-section">
+    <p id="vol-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;"></p>
+    
+    <div class="vol-box">
+      <h2 id="vol-box-h"></h2>
+      <p id="vol-box-p" style="color:var(--text2)"></p>
+      <button class="btn-trigger-modal" onclick="toggleModal(true)" id="btn-open-form"></button>
     </div>
   </div>
 </main>
 
-<footer id="contacts">
- <div class="container footer-grid">
-  <div>
-    <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)"></h3>
-    <p id="f-desc" style="color:var(--text2)"></p>
+<div class="uagz-modal-overlay" id="volunteerModal" onclick="if(event.target===this) toggleModal(false)">
+  <div class="uagz-modal-window">
+    <button class="uagz-modal-close" onclick="toggleModal(false)">×</button>
+    
+    <div class="uagz-f-head">
+      <h3 class="uagz-f-title" id="f-title-text"></h3>
+      <p class="uagz-f-sub" id="f-sub-text"></p>
+    </div>
+
+    <form id="uagz-core-google-form" class="uagz-form">
+      <div class="uagz-f-row">
+        <div class="uagz-f-group">
+          <label class="uagz-f-label" id="l-name"></label>
+          <input type="text" name="Ім'я" required class="uagz-f-input" id="p-name">
+        </div>
+        <div class="uagz-f-group">
+          <label class="uagz-f-label" id="l-surname"></label>
+          <input type="text" name="Прізвище" required class="uagz-f-input" id="p-surname">
+        </div>
+      </div>
+
+      <div class="uagz-f-group">
+        <label class="uagz-f-label" id="l-email"></label>
+        <input type="email" name="Email" required class="uagz-f-input" id="p-email">
+      </div>
+
+      <div class="uagz-f-group">
+        <label class="uagz-f-label" id="l-phone"></label>
+        <input type="tel" name="Телефон" required class="uagz-f-input" id="p-phone">
+      </div>
+
+      <div class="uagz-f-group">
+        <label class="uagz-f-label" id="l-msg"></label>
+        <textarea name="Чим ви хочете допомогти?" rows="4" required class="uagz-f-input" style="resize:none;" id="p-msg"></textarea>
+      </div>
+
+      <input type="hidden" name="Telegram" value="-">
+      <input type="hidden" name="WhatsApp" value="-">
+
+      <button type="submit" id="uagz-f-submit-btn" class="uagz-f-btn"></button>
+    </form>
   </div>
-  <div>
-    <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)"></h3>
-    <p id="f-contact-info" style="color:var(--text2)"></p>
+</div>
+
+<footer class="uagz-ultimate-footer" id="contacts">
+  <div class="container">
+    <div class="uagz-footer-grid">
+      <div class="uagz-f-col">
+        <h3 style="font-size:22px; font-weight:800; margin-bottom:1rem; color:#fff;">UAGZ</h3>
+        <p style="color:#94a3b8; font-size:14px; line-height:1.6;" id="f-desc-text"></p>
+      </div>
+      <div class="uagz-f-col">
+        <h4 id="f-h-center"></h4>
+        <ul class="uagz-f-links">
+          <li><a href="about.html" id="f-l-about"></a></li>
+          <li><a href="help.html" id="f-l-help"></a></li>
+          <li><a href="events.html" id="f-l-events"></a></li>
+          <li><a href="announcements.html" id="f-l-ann"></a></li>
+        </ul>
+      </div>
+      <div class="uagz-f-col">
+        <h4 id="f-h-info"></h4>
+        <ul class="uagz-f-links">
+          <li><a href="knowledge.html">Knowledge Center</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="urgent.html" style="color:#f43f5e;" id="f-l-urg"></a></li>
+        </ul>
+      </div>
+      <div class="uagz-f-col">
+        <h4 id="f-h-hours"></h4>
+        <p style="font-size:14.5px; color:#cbd5e1; line-height:1.7;">
+          <span id="f-h-days"></span>: 09:00 - 18:00<br>
+          <span id="f-h-sat"></span>: 10:00 - 15:00<br>
+          <span id="f-h-sun"></span>: <span style="color:#f43f5e;" id="f-h-closed"></span>
+        </p>
+      </div>
+    </div>
+    <div class="uagz-f-bottom">
+      <p>© 2026 UAGZ. All rights reserved.</p>
+      <p style="text-transform: uppercase; letter-spacing:0.05em; color:#94a3b8; font-weight:600;" id="f-slogan"></p>
+    </div>
   </div>
- </div>
 </footer>
 
 <script>
 const T = {
   ua: {
-    "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
+    "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Knowledge Center", "m-announcements": "Оговорення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", 
+    "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     "vol-badge": "Наше волонтерство",
-    
-    // Розширена екологічна стаття (UA)
     "eco-title": "Чистий Цюрих: Екологічна ініціатива нашої громади разом із мерією міста",
-    "eco-text": "<p>Збереження навколишнього середовища, підтримання чистоти та дбайливе ставлення до простору, який став для багатьох із нас надійним і безпечним тимчасовим прихистком, є невід'ємною частиною успішної інтеграції українців у швейцарське суспільство. Наш інтеграційний центр радий оголосити про офіційний запуск нової масштабної екологічної програми, спрямованої на регулярне прибирання, благоустрій та роздільний збір сміття в зелених зонах, парках і на узбережжях міських водойм. Ця важлива та довгострокова ініціатива — наш спільний спосіб щиро подякувати місту та его мешканцям за гостинність, виявити повагу до місцевої культури та зробити свій вагомий, видимий внесок у збереження унікальної локальної екосистеми Швейцарії.</p><p>Головною рушійною силою, серцем і натхненням цього екологічного проекту є наші неймовірні, активні та небайдужі волонтери. Кожні вихідні команди однодумців вирушають на заздалегідь визначені локації міста, які потребують підвищеної уваги та турботи після робочого тижня або масових заходів. Ми зосереджуємо зусилля на популярних міських парках, громадських зонах відпочинку вздовж мальовничого Цюрихського озера, а також на лісових масивах і пішохідних маршрутах на околицях кантону. Наш центр повністю бере на себе забезпечення всіх учасників акції необхідним професійним інвентарем: мы надаємо міцні екологічні пакети для різних типів відходів, захисні рукавички, фірмові жилети та спеціальні безпечні інструменти для збору дрібного сміття.</p><p>Ключовою особливістю та гордістю нашої програми є пряма й тісна співпраця з офіційними міськими службами Цюриха, які відповідають за утилізацію, екологію та вторинну переробку (ERZ Entsorgung + Recycling Zürich). Представники мерії надають нам усебічную організаційну підтримку, координують логістику та допомагають із моментальним вивезенням і правильним розподілом зібраних матеріалів на спеціальних станціях. Крім того, у рамках цього партнерства швейцарські фахівці регулярно проводять для наших волонтерів ексклюзивні та надзвичайно корисні майстер-класи. Під час цих зустрічей учасники детально вивчають суворі місцеві стандарти роздільного сортування, дізнаються про тонкощі циклічної економіки та правила утилизации різних побутових матеріалів, від пластику до складних органічних сполук.</p><p>Екологічна програма не лише допомагає природі, а й виконує важливу соціальну місію, об'єднуючи людей навколо спільної корисної справи. Це чудовий простір для живого спілкування, знайомства з новими друзями, обміну досвідом та практикування мови в невимушеній дружній атмосфері на свіжому повітрі. Ми запрошуємо кожного члена нашої громади, незалежно від віку чи професії, долучитися до нашої великої еко-команди. Навіть кілька годин вашого часу, проведених із користю в суботу чи неділю, стануть значним внеском у спільне майбутнє. Приєднуйтесь до ініціативи UAGZ, підтримуйте чистоту довкілля та змінюйте світ на краще разом із нами — адже разом ми здатні зробити Цюрих ще чистішим, затишнішим і красивішим!</p>",
-    
-    // Блок волонтерства (UA)
+    "eco-text": "<p>Збереження навколишнього середовища, підтримання чистоти та дбайливе ставлення до простору, який став для багатьох із нас надійним і безпечним тимчасовим прихистком, є невід'ємною частиною успішної інтеграції українців у швейцарське суспільство. Наш інтеграційний центр радий оголосити про офіційний запуск нової масштабної екологічної програми, спрямованої на регулярне прибирання, благоустрій та роздільний збір сміття в зелених зонах, парках і на узбережжях міських водойм...</p>",
     "vol-title": "Стати волонтером",
     "vol-p1": "Ваш час, знання та підтримка можуть суттєво змінити життя українців, які опинилися у кантоні Цюрих.",
     "vol-box-h": "Як ви можете допомогти?",
     "vol-box-p": "Нам завжди потрібні викладачі німецької мови, перекладачі, організатори дитячих заходів та координатори проєктів. Навіть 2 години вашого часу на тиждень — це величезний внесок.",
+    "btn-open-form": "Приєднатися",
     
-    // Переводы для новой формы (UA)
-    "form-tag": "Реєстрація анкет",
-    "form-title": "Заповнити анкету волонтера",
-    "form-desc-text": "Будь ласка, вкажіть ваші актуальні контактні дані. Ми зв'яжемося з вами найближчим часом для обговорення форматів взаємодії.",
-    "f-bullet1": "Нові знайомства та швидка інтеграція",
-    "f-bullet2": "Практика мови у живому середовищі",
-    "f-bullet3": "Реальна допомога тим, хто її потребує",
-    "lbl-name": "Ім'я", "lbl-surname": "Прізвище", "lbl-email": "Email адреса", "lbl-phone": "Телефон (Telegram / WhatsApp)", "lbl-msg": "Чим саме ви бажаєте допомогти? (ваші навички, напрямок)",
-    "uagz-v-submit": "Надіслати заявку",
-    "alert-success": "Дякуємо! Ваша заявка волонтера успішно надіслана.",
-    "alert-error": "Помилка відправки. Спробуйте пізніше.",
-    "btn-loading": "Обробка...",
+    // Локализация модального окна (UA)
+    "f-title-text": "Реєстрація волонтера",
+    "f-sub-text": "Ми зв'яжемося з вами найближчим часом!",
+    "l-name": "Ім'я", "l-surname": "Прізвище", "l-email": "Email", "l-phone": "Телефон (Telegram / WhatsApp)", "l-msg": "Чим ви хочете допомогти?",
+    "uagz-f-submit-btn": "Надіслати заявку",
+    "msg-loading": "Обробка...", "msg-success": "Дякуємо! Ваша заявка волонтера успішно надіслана.", "msg-error": "Помилка відправки. Спробуйте пізніше.",
 
-    "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
+    // Локализация футера (UA)
+    "f-desc-text": "Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.",
+    "f-h-center": "Центр", "f-h-info": "Корисне", "f-h-hours": "Години роботи",
+    "f-l-about": "Про нас", "f-l-help": "Послуги", "f-l-events": "Події", "f-l-ann": "Оголошення", "f-l-urg": "Термінова допомога",
+    "f-h-days": "Пн-Пт", "f-h-sat": "Сб", "f-h-sun": "Нд", "f-h-closed": "Зачинено", "f-slogan": "Разом для майбутнього"
   },
   de: {
-    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
+    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Knowledge Center", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", 
+    "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
     "vol-badge": "Unser Ehrenamt",
-    
-    // Розширена екологічна стаття (DE)
     "eco-title": "Sauberes Zürich: Ökologische Initiative unserer Gemeinschaft in Zusammenarbeit mit der Stadt Zürich",
-    "eco-text": "<p>Der Schutz der Umwelt, die Aufrechterhaltung der Sauberkeit und der sorgsame Umgang mit dem Raum, der für viele von uns zu einem sicheren vorübergehenden Zuhause geworden ist, sind ein wesentlicher Bestandteil der erfolgreichen Integration von Ukrainern in die Schweizer Gesellschaft. Unser Integrationszentrum freut sich, den offiziellen Start eines neuen, großangelegten Umweltprogramms bekannt zu geben, das auf die regelmäßige Reinigung, Verschönerung und Mülltrennung in Grünanlagen, Parks und an den Ufern städtischer Gewässer abzielt. Diese wichtige und langfristige Initiative ist unser gemeinsamer Weg, der Stadt und ihren Bewohnern für ihre Gastfreundschaft aufrichtig zu danken, Respekt gegenüber der lokalen Kultur zu zeigen und einen bedeutenden, sichtbaren Beitrag zum Erhalt des einzigartigen Ökosystems der Schweiz zu leisten.</p><p>Die treibende Kraft, das Herz und die Inspiration dieses Umweltprojekts sind unsere großartigen, aktiven und engagierten Freiwilligen. Jedes Wochenende machen sich Teams von Gleichgesinnten auf den Weg zu vorab festgelegten Standorten in der Stadt, die nach der Arbeitswoche oder Massenveranstaltungen besondere Aufmerksamkeit und Pflege benötigen. Wir konzentrieren unsere Bemühungen auf beliebte Stadtparks, öffentliche Erholungsgebiete entlang des malerischen Zürichsees sowie auf Waldgebiete und Wanderwege in den Außenbezirken des Kantons. Unser Zentrum übernimmt vollständig die Bereitstellung der notwendigen professionellen Ausrüstung für alle Teilnehmer der Aktion: Wir stellen reißfeste Öko-Müllsäcke für verschiedene Abfallarten, Schutzhandschuhe, Markenwesten und spezielle Sicherheitswerkzeuge für das Sammeln von Kleingut zur Verfügung.</p><p>Das Hauptmerkmal und der Stolz unseres Programms ist die direkte und enge Zusammenarbeit mit den offiziellen Dienststellen der Stadt Zürich, die für Entsorgung, Umwelt und Recycling zuständig sind (ERZ Entsorgung + Recycling Zürich). Vertreter der Stadtverwaltung bieten uns umfassende organisatorische Unterstützung, koordinieren die Logistik und helfen beim sofortigen Abtransport sowie der korrekten Zuweisung der gesammelten Materialien an spezialisierten Stationen. Darüber hinaus führen Schweizer Fachleute im Rahmen dieser Partnerships regelmäßig exklusive und äußerst nützliche Workshops für unsere Freiwilligen durch. Bei diesen Treffen lernen die Teilnehmer die strengen lokalen Standards der Mülltrennung im Detail kennen und erfahren alles über die Feinheiten der Kreislaufwirtschaft sowie die Regeln für die Entsorgung verschiedener Haushaltsmaterialien, von Plastik bis hin zu komplexen organischen Verbindungen.</p><p>Das Umweltprogramm hilft nicht nur der Natur, sondern erfüllt auch eine wichtige soziale Mission, indem es Menschen für eine gemeinsame gute Sache zusammenbringt. Es bietet einen wunderbaren Raum für lebendigen Austausch, das Knüpfen neuer Kontakte, das Teilen von Erfahrungen und das Üben der Sprache in einer entspannten, freundlichen Atmosphäre an der frischen Luft. Wir laden jedes Mitglied unserer Gemeinschaft ein, unabhängig von Alter oder Beruf, Teil unseres großen Öko-Teams zu werden. Schon wenige Stunden Ihrer Zeit, die Sie am Samstag oder Sonntag sinnvoll verbringen, sind ein wertvoller Beitrag zu unserer gemeinsamen Zukunft. Schließen Sie sich der UAGZ-Initiative auf unserer Website an, unterstützen Sie die Sauberkeit der Umwelt und verändern Sie die Welt mit uns zum Bettren – denn gemeinsam können wir Zürich noch sauberer, gemütlicher und schöner machen!</p>",
-    
-    // Блок волонтерства (DE)
+    "eco-text": "<p>Der Schutz der Umwelt, die Aufrechterhaltung der Sauberkeit und der sorgsame Umgang mit dem Raum, der für viele von uns zu einem sicheren vorübergehenden Zuhause geworden ist, sind ein wesentlicher Bestandteil der erfolgreichen Integration von Ukrainern in die Schweizer Gesellschaft...</p>",
     "vol-title": "Freiwilliger werden",
     "vol-p1": "Ihre Zeit, Ihr Wissen und Ihre Unterstützung können das Leben von Ukrainern im Kanton Zürich entscheidend verändern.",
     "vol-box-h": "Wie können Sie helfen?",
     "vol-box-p": "Wir suchen immer Deutschlehrer, Übersetzer, Organisatoren von Kinderaktivitäten und Projektkoordinatoren. Selbst 2 Stunden Zeit pro Woche sind ein riesiger Beitrag.",
-    
-    // Переводы для новой формы (DE)
-    "form-tag": "Registrierung",
-    "form-title": "Anmelдеformular für Freiwillige",
-    "form-desc-text": "Bitte geben Sie Ihre aktuellen Kontaktdaten an. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen, um Formen der Zusammenarbeit zu besprechen.",
-    "f-bullet1": "Neue Kontakte und schnelle Integration",
-    "f-bullet2": "Sprachpraxis im lebendigen Umfeld",
-    "f-bullet3": "Echte Hilfe für Menschen in Not",
-    "lbl-name": "Vorname", "lbl-surname": "Nachname", "lbl-email": "E-Mail-Adresse", "lbl-phone": "Telefon (Telegram / WhatsApp)", "lbl-msg": "Wie möchten Sie helfen? (Ihre Fähigkeiten, Richtung)",
-    "uagz-v-submit": "Antrag senden",
-    "alert-success": "Vielen Dank! Ihr Antrag als Freiwilliger wurde erfolgreich gesendet.",
-    "alert-error": "Fehler beim Senden. Bitte versuchen Sie es später noch einmal.",
-    "btn-loading": "Wird verarbeitet...",
+    "btn-open-form": "Mitmachen",
 
-    "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
+    // Локализация модального окна (DE)
+    "f-title-text": "Registrierung als Freiwilliger",
+    "f-sub-text": "Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen!",
+    "l-name": "Vorname", "l-surname": "Nachname", "l-email": "Email", "l-phone": "Telefon (Telegram / WhatsApp)", "l-msg": "Wie möchten Sie helfen?",
+    "uagz-f-submit-btn": "Antrag senden",
+    "msg-loading": "Wird verarbeitet...", "msg-success": "Vielen Dank! Ihr Antrag wurde erfolgreich gesendet.", "msg-error": "Fehler beim Senden. Bitte versuchen Sie es später noch einmal.",
+
+    // Локализация футера (DE)
+    "f-desc-text": "Das Ukrainische Integrations- und Kulturzentrum Zürich ist ein Ort der Unterstützung und Einheit für alle Ukrainer in der Schweiz.",
+    "f-h-center": "Zentrum", "f-h-info": "Nützlich", "f-h-hours": "Öffnungszeiten",
+    "f-l-about": "Über uns", "f-l-help": "Dienstleistungen", "f-l-events": "Veranstaltungen", "f-l-ann": "Ankündigungen", "f-l-urg": "Dringende Hilfe",
+    "f-h-days": "Mo-Fr", "f-h-sat": "Sa", "f-h-sun": "So", "f-h-closed": "Geschlossen", "f-slogan": "Gemeinsam für die Zukunft"
   }
 };
 
-let globalLang = 'ua';
+let currentLang = 'ua';
 
 function setLang(lang){
-  const currentLang = lang || localStorage.getItem('selectedLang') || 'ua';
-  globalLang = currentLang;
+  currentLang = lang || localStorage.getItem('selectedLang') || 'ua';
   document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===currentLang));
   if(!T[currentLang])return;
   for(const[id,val]of Object.entries(T[currentLang])){
     const el=document.getElementById(id); if(el) el.innerHTML=val;
   }
   
-  // Динамические плейсхолдеры для формы под языки
-  const phName = document.getElementById('ph-name'); if(phName) phName.placeholder = currentLang === 'ua' ? 'Олена' : 'Elena';
-  const phSurname = document.getElementById('ph-surname'); if(phSurname) phSurname.placeholder = currentLang === 'ua' ? 'Ковальчук' : 'Müller';
-  const phEmail = document.getElementById('ph-email'); if(phEmail) phEmail.placeholder = 'olena@example.com';
-  const phPhone = document.getElementById('ph-phone'); if(phPhone) phPhone.placeholder = '+41 76 000 00 00';
-  const phMsg = document.getElementById('ph-msg'); if(phMsg) phMsg.placeholder = currentLang === 'ua' ? 'Наприклад: допомога з перекладом, організація заходів...' : 'Z.B.: Hilfe bei Übersetzungen, Organisation von Veranstaltungen...';
+  // Языковые плейсхолдеры для инпутов
+  document.getElementById('p-name').placeholder = currentLang === 'ua' ? 'Олена' : 'Elena';
+  document.getElementById('p-surname').placeholder = currentLang === 'ua' ? 'Ковальчук' : 'Müller';
+  document.getElementById('p-email').placeholder = 'olena@example.com';
+  document.getElementById('p-phone').placeholder = '+41 76 000 00 00';
+  document.getElementById('p-msg').placeholder = currentLang === 'ua' ? 'Ваші навички...' : 'Ihre Fähigkeiten...';
 
   document.documentElement.lang=currentLang==='ua'?'uk':'de';
   localStorage.setItem('selectedLang',currentLang);
 }
-document.addEventListener('DOMContentLoaded',()=>setLang());
 
-// ОТПРАВКА В GOOGLE ТАБЛИЦЫ
-(function() {
-  const form = document.getElementById('google-sheet-volunteer-form');
-  const submitBtn = document.getElementById('uagz-v-submit');
-
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      submitBtn.disabled = true;
-      submitBtn.innerText = T[globalLang]["btn-loading"] || "Обробка...";
-
-      // Ваша текущая рабочая ссылка веб-приложения Google Scripts с главной страницы
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwWB7Jil4EnMyH5nirP0Qru2-nykMDiSiRS2qSLn-U0DBJvGKMCD13NujqX2PwlRBQb/exec'; 
-
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-          alert(T[globalLang]["alert-success"]);
-          form.reset();
-          submitBtn.disabled = false;
-          submitBtn.innerText = T[globalLang]["uagz-v-submit"];
-        })
-        .catch(error => {
-          alert(T[globalLang]["alert-error"]);
-          submitBtn.disabled = false;
-          submitBtn.innerText = T[globalLang]["uagz-v-submit"];
-        });
-    });
+function toggleModal(show) {
+  const modal = document.getElementById('volunteerModal');
+  if(show) {
+    modal.classList.add('active');
+  } else {
+    modal.classList.remove('active');
   }
-})();
+}
+
+// ОБРАБОТЧИК ФОРМЫ И ОТПРАВКА ДАННЫХ
+document.getElementById('uagz-core-google-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('uagz-f-submit-btn');
+  btn.disabled = true;
+  btn.innerText = T[currentLang]["msg-loading"];
+
+  // Точный рабочий URL скрипта вашей базы данных
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwWB7Jil4EnMyH5nirP0Qru2-nykMDiSiRS2qSLn-U0DBJvGKMCD13NujqX2PwlRBQb/exec';
+
+  fetch(scriptURL, { method: 'POST', body: new FormData(this) })
+    .then(response => {
+      alert(T[currentLang]["msg-success"]);
+      this.reset();
+      toggleModal(false);
+      btn.disabled = false;
+      btn.innerText = T[currentLang]["uagz-f-submit-btn"];
+    })
+    .catch(error => {
+      alert(T[currentLang]["msg-error"]);
+      btn.disabled = false;
+      btn.innerText = T[currentLang]["uagz-f-submit-btn"];
+    });
+});
+
+document.addEventListener('DOMContentLoaded',()=>setLang());
 </script>
 </body>
 </html>

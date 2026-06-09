@@ -1136,46 +1136,42 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 <div class="volunteer-cta-container" style="max-width: 1200px; margin: 50px auto; padding: 0 20px; box-sizing: border-box;">
   <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); position: relative;">
-    
-    <div class="pulse-warning-badge">!</div>
-
 <div id="volunteer-modal" class="v-modal-overlay">
-  <div class="v-modal-window">
-    <button id="close-volunteer-modal" class="v-modal-close-btn">&times;</button>
-    <div style="text-align: center; margin-bottom: 24px;">
-      <h3 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
-      <p style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
+    <div class="v-modal-window">
+      <button id="close-volunteer-modal" class="v-modal-close-btn">&times;</button>
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h3 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
+        <p style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
+      </div>
+      <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 12px;">
+          <div style="flex: 1;">
+            <label class="v-label">Ім'я</label>
+            <input type="text" name="name" required placeholder="Олена" class="v-input">
+          </div>
+          <div style="flex: 1;">
+            <label class="v-label">Прізвище</label>
+            <input type="text" name="surname" required placeholder="Ковальчук" class="v-input">
+          </div>
+        </div>
+        <div>
+          <label class="v-label">Email</label>
+          <input type="email" name="email" required placeholder="olena@example.com" class="v-input">
+        </div>
+        <div>
+          <label class="v-label">Телефон (Telegram / WhatsApp)</label>
+          <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input">
+        </div>
+        <div>
+          <label class="v-label">Чим ви хочете допомогти?</label>
+          <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;"></textarea>
+        </div>
+        <button type="submit" id="v-submit-btn" class="v-submit-btn">Надіслати заявку</button>
+      </form>
     </div>
-    <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="display: flex; gap: 12px;">
-        <div style="flex: 1;">
-          <label class="v-label">Ім'я</label>
-          <input type="text" name="name" required placeholder="Олена" class="v-input">
-        </div>
-        <div style="flex: 1;">
-          <label class="v-label">Прізвище</label>
-          <input type="text" name="surname" required placeholder="Ковальчук" class="v-input">
-        </div>
-      </div>
-      <div>
-        <label class="v-label">Email</label>
-        <input type="email" name="email" required placeholder="olena@example.com" class="v-input">
-      </div>
-      <div>
-        <label class="v-label">Телефон (Telegram / WhatsApp)</label>
-        <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input">
-      </div>
-      <div>
-        <label class="v-label">Чим ви хочете допомогти?</label>
-        <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;"></textarea>
-      </div>
-      <button type="submit" id="v-submit-btn" class="v-submit-btn">Надіслати заявку</button>
-    </form>
   </div>
-</div>
 
-<style>
-  /* Стили формы волонтеров */
+</div> </div> <style>
   .v-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 5px; }
   .v-input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
   .v-input:focus { border-color: #004bd1; }
@@ -1232,29 +1228,28 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </script>
 
 <div class="uagz-global-footer-wrapper" style="
-  position: relative; 
+  display: block;
+  clear: both;
   width: 100vw; 
+  position: relative; 
   left: 50%; 
   right: 50%; 
   margin-left: -50vw; 
   margin-right: -50vw; 
   background: #0f172a !important; 
-  margin-top: 60px; 
+  margin-top: 70px; 
   padding: 0; 
-  box-sizing: border-box; 
-  clear: both;
+  box-sizing: border-box;
 ">
   
   <footer style="
     display: block !important; 
     width: 100% !important; 
-    max-width: 100% !important;
     background: #0f172a !important; 
     color: #f8fafc !important; 
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; 
-    padding: 60px 0 45px 0 !important; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+    padding: 60px 0 40px 0 !important; 
     box-sizing: border-box !important;
-    margin: 0 !important;
   ">
     
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; width: 100%;">
@@ -1312,6 +1307,17 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <style>
+  .uagz-u-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .uagz-u-lnk-emer:hover { opacity: 0.8 !important; text-decoration: underline !important; }
+  
+  @media (max-width: 992px) {
+    .uagz-ultimate-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 35px !important; }
+  }
+  @media (max-width: 576px) {
+    .uagz-ultimate-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+    .uagz-global-footer-wrapper div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
+  }
+</style>
   .uagz-u-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
   .uagz-u-lnk-emer:hover { opacity: 0.8 !important; text-decoration: underline !important; }
   

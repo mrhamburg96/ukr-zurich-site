@@ -429,26 +429,7 @@ function setLang(lang){
     const el=document.getElementById(id); if(el) el.innerHTML=val;
   }
   
-  document.getElementById('p-name').placeholder = currentLang === 'ua' ? 'Олена' : 'Elena';
-  document.getElementById('p-surname').placeholder = currentLang === 'ua' ? 'Ковальчук' : 'Müller';
-  document.getElementById('p-email').placeholder = 'olena@example.com';
-  document.getElementById('p-phone').placeholder = '+41 76 000 00 00';
-  document.getElementById('p-msg').placeholder = currentLang === 'ua' ? 'Ваші навички...' : 'Ihre Fähigkeiten...';
-
-  document.documentElement.lang=currentLang==='ua'?'uk':'de';
-  localStorage.setItem('selectedLang',currentLang);
-}
-
-function toggleModal(show) {
-  const modal = document.getElementById('volunteerModal');
-  if(show) {
-    modal.classList.add('active');
-  } else {
-    modal.classList.remove('active');
-  }
-}
-
-// Повністю відновлений оригінальний обробник, який надсилає класичну FormData
+  // НАДЕЖНЫЙ ОБРАБОТЧИК ОТПРАВКИ: собирает данные по ID полей и исключает сдвиги колонок
 document.getElementById('uagz-core-google-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = document.getElementById('uagz-f-submit-btn');
@@ -457,20 +438,33 @@ document.getElementById('uagz-core-google-form').addEventListener('submit', func
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwWB7Jil4EnMyH5nirP0Qru2-nykMDiSiRS2qSLn-U0DBJvGKMCD13NujqX2PwlRBQb/exec';
 
-  fetch(scriptURL, { method: 'POST', body: new FormData(this) })
-    .then(response => {
-      alert(T[currentLang]["msg-success"]);
-      this.reset();
-      toggleModal(false);
-    })
-    .catch(error => {
-      console.error('Помилка відправки:', error);
-      alert(T[currentLang]["msg-error"]);
-    })
-    .finally(() => {
-      btn.disabled = false;
-      btn.innerText = T[currentLang]["uagz-f-submit-btn"];
-    });
+  // Вручную формируем параметры, чтобы скрипт таблицы точно получил все 5 переменных
+  const urlParams = new URLSearchParams();
+  urlParams.append('name', document.getElementById('p-name').value);
+  urlParams.append('surname', document.getElementById('p-surname').value);
+  urlParams.append('email', document.getElementById('p-email').value);
+  urlParams.append('phone', document.getElementById('p-phone').value);
+  urlParams.append('message', document.getElementById('p-msg').value);
+
+  fetch(scriptURL, { 
+    method: 'POST', 
+    mode: 'no-cors', // Обеспечивает стабильную отправку без блокировок CORS
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: urlParams
+  })
+  .then(() => {
+    alert(T[currentLang]["msg-success"]);
+    this.reset();
+    toggleModal(false);
+  })
+  .catch(error => {
+    console.error('Помилка відправки:', error);
+    alert(T[currentLang]["msg-error"]);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerText = T[currentLang]["uagz-f-submit-btn"];
+  });
 });
 
 document.addEventListener('DOMContentLoaded',()=>setLang());

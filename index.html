@@ -1254,57 +1254,89 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         submitBtn.innerText = 'Надіслати заявку';
       });
   });
-</script>
-<div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #0f172a; margin-top: 70px; padding: 0; box-sizing: border-box; clear: both;">
+<style>
+  /* Скрываем красный восклицательный знак, если он генерируется стандартными иконками */
+  img[src*="error"], img[src*="warn"], [class*="icon-exclamation"], [class*="alert"]::before {
+    display: none !important;
+  }
+  /* Убираем рамки и тени старого блока, чтобы он не торчал */
+  .alert, .card, .info-box, div[style*="border"] {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+</style>
+
+<div class="uagz-global-footer-wrapper" style="
+  position: absolute; 
+  left: 0; 
+  width: 100%; 
+  background: #0f172a !important; 
+  margin-top: 40px; 
+  padding: 0; 
+  box-sizing: border-box; 
+  z-index: 9999; 
+  clear: both;
+">
   
-  <footer style="display: block; width: 100%; background: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 60px 0 40px 0; box-sizing: border-box;">
+  <footer style="
+    display: block !important; 
+    width: 100% !important; 
+    max-width: 100% !important;
+    background: #0f172a !important; 
+    color: #f8fafc !important; 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; 
+    padding: 60px 0 45px 0 !important; 
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  ">
     
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; width: 100%;">
       
-      <div class="uagz-perfect-grid" style="display: grid; grid-template-columns: 2.2fr repeat(3, 1fr); gap: 40px; margin-bottom: 50px; text-align: left;">
+      <div class="uagz-ultimate-grid" style="display: grid; grid-template-columns: 2.2fr repeat(3, 1fr); gap: 40px; margin-bottom: 50px; text-align: left;">
         
         <div style="display: flex; flex-direction: column; gap: 14px; box-sizing: border-box;">
-          <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; line-height: 1.2;">UAGZ</div>
-          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin: 0; font-weight: 400;">
+          <div style="font-size: 24px; font-weight: 800; color: #ffffff !important; letter-spacing: -0.02em; line-height: 1.2;">UAGZ</div>
+          <p style="font-size: 14px; color: #94a3b8 !important; line-height: 1.6; margin: 0; font-weight: 400;">
             Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.
           </p>
-          <p style="font-size: 14px; color: #cbd5e1; line-height: 1.5; margin: 5px 0 0 0; font-weight: 400;">
+          <p style="font-size: 14px; color: #cbd5e1 !important; line-height: 1.5; margin: 5px 0 0 0; font-weight: 400;">
             Zürich, Switzerland<br>
-            Email: <a href="mailto:info@uagz.ch" style="color: #38bdf8; text-decoration: none; font-weight: 500; transition: color 0.2s;">info@uagz.ch</a>
+            Email: <a href="mailto:info@uagz.ch" style="color: #38bdf8 !important; text-decoration: none; font-weight: 500;">info@uagz.ch</a>
           </p>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
-          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Центр</h4>
-          <a href="about.html" style="color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s;" class="uagz-step-lnk">Про нас</a>
-          <a href="help.html" style="color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s;" class="uagz-step-lnk">Послуги</a>
-          <a href="events.html" style="color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s;" class="uagz-step-lnk">Події</a>
-          <a href="announcements.html" style="color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s;" class="uagz-step-lnk">Оголошення</a>
+          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Центр</h4>
+          <a href="about.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Про нас</a>
+          <a href="help.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Послуги</a>
+          <a href="events.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Події</a>
+          <a href="announcements.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Оголошення</a>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
-          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Корисне</h4>
-          <a href="knowledge.html" style="color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s;" class="uagz-step-lnk">Knowledge Center</a>
-          <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s;" class="uagz-step-lnk">FAQ</a>
-          <a href="#" style="color: #f43f5e; text-decoration: none; font-size: 14px; font-weight: 700; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Термінова допомога</a>
+          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Корисне</h4>
+          <a href="knowledge.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Knowledge Center</a>
+          <a href="#" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">FAQ</a>
+          <a href="#" style="color: #f43f5e !important; text-decoration: none; font-size: 14px; font-weight: 700;" class="uagz-u-lnk-emerg">Термінова допомога</a>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
-          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Години роботи</h4>
-          <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px; color: #94a3b8;">
-            <span style="color: #cbd5e1; font-weight: 600;">Пн-Пт:</span><span>09:00 - 18:00</span>
-            <span style="color: #cbd5e1; font-weight: 600;">Сб:</span><span>10:00 - 15:00</span>
-            <span style="color: #cbd5e1; font-weight: 600;">Нд:</span><span style="color: #f43f5e; font-weight: 600;">Зачинено</span>
+          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Години роботи</h4>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px; color: #94a3b8 !important;">
+            <span style="color: #cbd5e1 !important; font-weight: 600;">Пн-Пт:</span><span>09:00 - 18:00</span>
+            <span style="color: #cbd5e1 !important; font-weight: 600;">Сб:</span><span>10:00 - 15:00</span>
+            <span style="color: #cbd5e1 !important; font-weight: 600;">Нд:</span><span style="color: #f43f5e !important; font-weight: 600;">Зачинено</span>
           </div>
         </div>
 
       </div>
 
-      <div style="border-top: 1px solid #334155; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 13px; color: #64748b; box-sizing: border-box;">
-        <div style="font-weight: 400; color: #64748b;">
+      <div style="border-top: 1px solid #334155; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 13px; box-sizing: border-box;">
+        <div style="font-weight: 400; color: #64748b !important;">
           &copy; 2026 UAGZ. All rights reserved.
         </div>
-        <div style="font-weight: 700; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px;">
+        <div style="font-weight: 700; color: #94a3b8 !important; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px;">
           Разом для майбутнього
         </div>
       </div>
@@ -1314,30 +1346,15 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <style>
-  /* Стили ссылок при наведении */
-  .uagz-step-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .uagz-u-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .uagz-u-lnk-emerg:hover { opacity: 0.8 !important; text-decoration: underline !important; }
   
-  /* Планшетный режим */
   @media (max-width: 992px) {
-    .uagz-perfect-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 35px !important; }
-  }
-  /* Мобильный режим */
-  @media (max-width: 576px) {
-    .uagz-perfect-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
-    footer div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
-  }
-</style>
-  /* Эффекты наведения на ссылки */
-  .uagz-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
-  .uagz-lnk-emer:hover { opacity: 0.8 !important; text-decoration: underline !important; }
-  
-  /* Мобильная адаптивность */
-  @media (max-width: 992px) {
-    .uagz-final-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 35px !important; }
+    .uagz-ultimate-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 35px !important; }
   }
   @media (max-width: 576px) {
-    .uagz-final-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
-    footer div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
+    .uagz-ultimate-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+    .uagz-global-footer-wrapper div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
   }
 </style>
 <!-- ═══════ SCRIPTS ═══════════════════════════════════ -->

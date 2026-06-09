@@ -1175,31 +1175,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <style>
-  /* Красивый светящийся и пульсирующий красный маркер "!" */
-  .pulse-warning-badge {
-    position: absolute;
-    left: 25px;
-    top: 40px;
-    width: 26px;
-    height: 26px;
-    background: #ef4444;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    font-weight: 900;
-    box-shadow: 0 0 0 0 rgba(239, 44, 44, 0.6);
-    animation: badge-pulsing 2s infinite;
-  }
-
-  @keyframes badge-pulsing {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 44, 44, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 44, 44, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 44, 44, 0); }
-  }
-
+  /* Стили формы волонтеров */
   .v-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 5px; }
   .v-input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
   .v-input:focus { border-color: #004bd1; }
@@ -1220,7 +1196,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   @media (max-width: 768px) {
     .consultation-cta-container > div, .volunteer-cta-container > div { flex-direction: column !important; text-align: center !important; padding: 30px 24px !important; gap: 20px !important; }
     .consult-mail-btn, .volunteer-join-btn { width: 100% !important; }
-    .pulse-warning-badge { position: relative; left: auto; top: auto; transform: none; margin: 0 auto 10px auto; }
   }
 </style>
 
@@ -1254,28 +1229,19 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         submitBtn.innerText = 'Надіслати заявку';
       });
   });
-<style>
-  /* Скрываем красный восклицательный знак, если он генерируется стандартными иконками */
-  img[src*="error"], img[src*="warn"], [class*="icon-exclamation"], [class*="alert"]::before {
-    display: none !important;
-  }
-  /* Убираем рамки и тени старого блока, чтобы он не торчал */
-  .alert, .card, .info-box, div[style*="border"] {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-  }
-</style>
+</script>
 
 <div class="uagz-global-footer-wrapper" style="
-  position: absolute; 
-  left: 0; 
-  width: 100%; 
+  position: relative; 
+  width: 100vw; 
+  left: 50%; 
+  right: 50%; 
+  margin-left: -50vw; 
+  margin-right: -50vw; 
   background: #0f172a !important; 
-  margin-top: 40px; 
+  margin-top: 60px; 
   padding: 0; 
   box-sizing: border-box; 
-  z-index: 9999; 
   clear: both;
 ">
   
@@ -1318,7 +1284,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Корисне</h4>
           <a href="knowledge.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Knowledge Center</a>
           <a href="#" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">FAQ</a>
-          <a href="#" style="color: #f43f5e !important; text-decoration: none; font-size: 14px; font-weight: 700;" class="uagz-u-lnk-emerg">Термінова допомога</a>
+          <a href="#" style="color: #f43f5e !important; text-decoration: none; font-size: 14px; font-weight: 700;" class="uagz-u-lnk-emer">Термінова допомога</a>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
@@ -1347,7 +1313,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 <style>
   .uagz-u-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
-  .uagz-u-lnk-emerg:hover { opacity: 0.8 !important; text-decoration: underline !important; }
+  .uagz-u-lnk-emer:hover { opacity: 0.8 !important; text-decoration: underline !important; }
   
   @media (max-width: 992px) {
     .uagz-ultimate-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 35px !important; }

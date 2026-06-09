@@ -401,182 +401,187 @@ hero h1 {
 .email-r button{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 12px;font-size:13px}
 
 /* ── TRUST ─────────────────────── */
-.trust{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 1.5rem}
-.trust-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.trust-item{display:flex;align-items:center;gap:.5rem}
-.trust-ic{width:30px;height:30px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.trust-ic svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:1.8}
-.trust-text{font-size:11.5px;font-weight:600;color:var(--text2)}
-.trust-avs{display:flex}
-.tav2{width:28px;height:28px;border-radius:50%;border:2px solid #fff;overflow:hidden;margin-left:-6px;flex-shrink:0}
-.tav2:first-child{margin-left:0}
+<div id="volunteer-modal" class="v-modal-overlay">
+    <div class="v-modal-window">
+      <button id="close-volunteer-modal" class="v-modal-close-btn">&times;</button>
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h3 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
+        <p style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
+      </div>
+      <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 12px;">
+          <div style="flex: 1;">
+            <label class="v-label">Ім'я</label>
+            <input type="text" name="name" required placeholder="Олена" class="v-input">
+          </div>
+          <div style="flex: 1;">
+            <label class="v-label">Прізвище</label>
+            <input type="text" name="surname" required placeholder="Ковальчук" class="v-input">
+          </div>
+        </div>
+        <div>
+          <label class="v-label">Email</label>
+          <input type="email" name="email" required placeholder="olena@example.com" class="v-input">
+        </div>
+        <div>
+          <label class="v-label">Телефон (Telegram / WhatsApp)</label>
+          <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input">
+        </div>
+        <div>
+          <label class="v-label">Чим ви хочете допомогти?</label>
+          <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;"></textarea>
+        </div>
+        <button type="submit" id="v-submit-btn" class="v-submit-btn">Надіслати заявку</button>
+      </form>
+    </div>
+  </div>
 
-/* ── FOOTER ─────────────────────── */
-footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25rem}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.footer-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:.65rem}
-.footer-logo-name{font-size:14px;font-weight:700;color:#fff}
-.footer-desc{font-size:11px;line-height:1.8;margin-bottom:.6rem}
-.footer-addr{font-size:11px;line-height:2}
-.fc h4{font-size:9px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem}
-.fc a{display:block;font-size:11px;color:rgba(255,255,255,.55);margin-bottom:.35rem;transition:color .15s}
-.fc a:hover{color:var(--yellow)}
-.fc a.green-link{color:#4ADE80}
-.hgrid{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11px}
-.hday{color:rgba(255,255,255,.35)}
-.hopen{color:#4ADE80;font-weight:600}
-.hclosed{color:rgba(255,255,255,.4)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:10px;flex-wrap:wrap;gap:.4rem}
-.footer-flag-row{display:flex;align-items:center;gap:5px}
-
-@media(max-width:1024px){
-  .svc-row{grid-template-columns:repeat(5,1fr)}
-  .how-grid{grid-template-columns:1fr}.how-photo{height:180px}
-  .how-bottom{grid-template-columns:1fr 1fr}
-  .dir-grid{grid-template-columns:repeat(3,1fr)}
-  .three-col{grid-template-columns:1fr}
-  .whom-grid{grid-template-columns:repeat(4,1fr)}
-  .cta-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-/* ================= ЕДИНЫЙ СТИЛЬ БАННЕРА ДЛЯ ПК ================= */
-.hero {
-  position: relative !important;
-  width: 100% !important;
-  aspect-ratio: 16 / 7.1 !important; 
-  background-image: url('main.jpg') !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  overflow: hidden !important;
-}
-
-.hero-inner {
-  position: absolute !important;
-  inset: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important; 
-  align-items: flex-start !important;    
-  text-align: left !important;            
-  padding: 3.5rem 0 0 4rem !important;    
-  box-sizing: border-box !important;
-  z-index: 2 !important;
-}
-
-.hero-text {
-  max-width: 520px !important; 
-  width: 100% !important;
-}
-
-.hero-logo-row {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 8px !important;
-  margin-bottom: 12px !important;
-}
-
-.hero-logo-text {
-  color: #1e293b !important;
-  font-weight: 700 !important;
-}
-
-#h-badge {
-  color: #475569 !important;
-}
-
-#h-t {
-  font-size: 1.85rem !important;
-  color: #1e293b !important;   
-  font-weight: 800 !important;
-  line-height: 1.25 !important;
-  margin: 0 0 10px 0 !important;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.9) !important;
-}
-
-#h-s {
-  font-size: 1rem !important;
-  color: #334155 !important;   
-  line-height: 1.4 !important;
-  margin: 0 0 22px 0 !important;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
-}
-
-.hero-btns {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: flex-start !important;
-  gap: 12px !important;
-}
-
-.btn-hero-main, .btn-hero-sec {
-  padding: 10px 20px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  border-radius: 6px !important;
-  text-decoration: none !important;
-  white-space: nowrap !important;
-}
-
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
-@media (max-width: 768px) {
+</div> </div> <style>
+  .v-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 5px; }
+  .v-input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+  .v-input:focus { border-color: #004bd1; }
   
-  .hero {
-    aspect-ratio: 16 / 11.5 !important; /* Оптимальная высота, чтобы видеть фото */
-  }
+  .v-submit-btn { cursor: pointer; background: #004bd1; color: white; border: none; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 10px; margin-top: 10px; transition: all 0.2s; width: 100%; }
+  .v-submit-btn:hover { background: #003699; }
+  .v-submit-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+
+  .volunteer-join-btn:hover { background: #003699 !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 75, 209, 0.35) !important; }
+  .consult-mail-btn:hover { background: #004bd1 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(0, 75, 209, 0.2) !important; transform: translateY(-1px); }
   
-  .hero-inner {
-    padding: 10px 0 0 12px !important; /* Жестко сдвигаем в самый верхний левый угол */
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-  }
+  .v-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .v-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+  .v-modal-window { background: white; width: 100%; max-width: 480px; padding: 32px; border-radius: 18px; position: relative; transform: scale(0.9); transition: transform 0.3s; margin: 0 20px; }
+  .v-modal-overlay.is-open .v-modal-window { transform: scale(1); }
+  .v-modal-close-btn { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 30px; color: #94a3b8; cursor: pointer; line-height: 1; }
 
-  /* Текст занимает только левую часть экрана и не лезет на лица */
-  .hero-text {
-    max-width: 60% !important; 
-    width: 100% !important;
+  @media (max-width: 768px) {
+    .consultation-cta-container > div, .volunteer-cta-container > div { flex-direction: column !important; text-align: center !important; padding: 30px 24px !important; gap: 20px !important; }
+    .consult-mail-btn, .volunteer-join-btn { width: 100% !important; }
   }
+</style>
 
-  /* Уменьшаем мини-флаги */
-  .hero-logo-row {
-    margin-bottom: 2px !important;
-    gap: 4px !important;
-    transform: scale(0.8);
-    transform-origin: left center;
-  }
+<script>
+  const modal = document.getElementById('volunteer-modal');
+  const form = document.getElementById('volunteer-form');
+  const submitBtn = document.getElementById('v-submit-btn');
 
-  /* Пропорционально уменьшаем главный заголовок */
-  #h-t {
-    font-size: 0.9rem !important; 
-    line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
-  }
+  document.getElementById('open-volunteer-modal').onclick = () => { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
+  document.getElementById('close-volunteer-modal').onclick = () => { modal.classList.remove('is-open'); document.body.style.overflow = ''; };
+  modal.onclick = (e) => { if(e.target === modal) document.getElementById('close-volunteer-modal').click(); };
 
-  /* Пропорционально уменьшаем подзаголовок */
-  #h-s {
-    font-size: 0.6rem !important; 
-    line-height: 1.3 !important;
-    margin: 0 0 8px 0 !important;
-  }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Надсилаємо...';
 
-  /* Компактные кнопки друг под другом, чтобы не занимать ширину */
-  .hero-btns {
-    flex-direction: column !important; 
-    gap: 5px !important;
-    align-items: flex-start !important;
-  }
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwWB7Jil4EnMyH5nirP0Qru2-nykMDiSiRS2qSLn-U0DBJvGKMCD13NujqX2PwlRBQb/exec'; 
 
-  .btn-hero-main, .btn-hero-sec {
-    padding: 6px 10px !important; 
-    font-size: 11px !important; 
-    border-radius: 4px !important;
-    width: auto !important;
-    max-width: 130px !important;
-    text-align: center !important;
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        alert('Дякуємо! Ваша заявка успішно надіслана.');
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Надіслати заявку';
+        document.getElementById('close-volunteer-modal').click();
+      })
+      .catch(error => {
+        alert('Помилка відправки. Спробуйте пізніше.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Надіслати заявку';
+      });
+  });
+</script>
+
+<div class="uagz-global-footer-wrapper" style="
+  display: block;
+  clear: both;
+  width: 100vw; 
+  position: relative; 
+  left: 50%; 
+  right: 50%; 
+  margin-left: -50vw; 
+  margin-right: -50vw; 
+  background: #0f172a !important; 
+  margin-top: 70px; 
+  padding: 0; 
+  box-sizing: border-box;
+">
+  
+  <footer style="
+    display: block !important; 
+    width: 100% !important; 
+    background: #0f172a !important; 
+    color: #f8fafc !important; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+    padding: 60px 0 40px 0 !important; 
+    box-sizing: border-box !important;
+  ">
+    
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; width: 100%;">
+      
+      <div class="uagz-ultimate-grid" style="display: grid; grid-template-columns: 2.2fr repeat(3, 1fr); gap: 40px; margin-bottom: 50px; text-align: left;">
+        
+        <div style="display: flex; flex-direction: column; gap: 14px; box-sizing: border-box;">
+          <div style="font-size: 24px; font-weight: 800; color: #ffffff !important; letter-spacing: -0.02em; line-height: 1.2;">UAGZ</div>
+          <p style="font-size: 14px; color: #94a3b8 !important; line-height: 1.6; margin: 0; font-weight: 400;">
+            Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.
+          </p>
+          <p style="font-size: 14px; color: #cbd5e1 !important; line-height: 1.5; margin: 5px 0 0 0; font-weight: 400;">
+            Zürich, Switzerland<br>
+            Email: <a href="mailto:info@uagz.ch" style="color: #38bdf8 !important; text-decoration: none; font-weight: 500;">info@uagz.ch</a>
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
+          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Центр</h4>
+          <a href="about.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Про нас</a>
+          <a href="help.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Послуги</a>
+          <a href="events.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Події</a>
+          <a href="announcements.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Оголошення</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
+          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Корисне</h4>
+          <a href="knowledge.html" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">Knowledge Center</a>
+          <a href="#" style="color: #94a3b8 !important; text-decoration: none; font-size: 14px;" class="uagz-u-lnk">FAQ</a>
+          <a href="#" style="color: #f43f5e !important; text-decoration: none; font-size: 14px; font-weight: 700;" class="uagz-u-lnk-emer">Термінова допомога</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
+          <h4 style="font-size: 14px; font-weight: 700; color: #ffffff !important; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em;">Години роботи</h4>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px; color: #94a3b8 !important;">
+            <span style="color: #cbd5e1 !important; font-weight: 600;">Пн-Пт:</span><span>09:00 - 18:00</span>
+            <span style="color: #cbd5e1 !important; font-weight: 600;">Сб:</span><span>10:00 - 15:00</span>
+            <span style="color: #cbd5e1 !important; font-weight: 600;">Нд:</span><span style="color: #f43f5e !important; font-weight: 600;">Зачинено</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="border-top: 1px solid #334155; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 13px; box-sizing: border-box;">
+        <div style="font-weight: 400; color: #64748b !important;">
+          &copy; 2026 UAGZ. All rights reserved.
+        </div>
+        <div style="font-weight: 700; color: #94a3b8 !important; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px;">
+          Разом для майбутнього
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</div>
+
+<style>
+  .uagz-u-lnk:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .uagz-u-lnk-emer:hover { opacity: 0.8 !important; text-decoration: underline !important; }
+  
+  @media (max-width: 992px) {
+    .uagz-ultimate-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 35px !important; }
   }
-}
-/* ===================================================================== */
+  @media (max-width: 576px) {
+    .uagz-ultimate-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+    .uagz-global-footer-wrapper div[style*="justify-content: space-between"] { flex-direction: column !important; text-align: center !important; }
+  }
 </style>
 </head>
 <body>

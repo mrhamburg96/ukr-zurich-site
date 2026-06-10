@@ -590,6 +590,18 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 /* ===================================================================== */
 </style>
+  <script>
+  function toggleConsultModal(show) {
+    var modal = document.getElementById('consultModal');
+    if (modal) {
+      if (show) {
+        modal.style.setProperty('display', 'flex', 'important');
+      } else {
+        modal.style.setProperty('display', 'none', 'important');
+      }
+    }
+  }
+</script>
 </head>
 <body>
 

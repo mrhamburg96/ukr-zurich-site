@@ -1878,7 +1878,7 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
 <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; display: none !important; align-items: center !important; justify-content: center !important; z-index: 999999 !important; padding: 1rem !important; box-sizing: border-box !important;">
   <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important;">
     
-    <button type="button" onclick="document.getElementById('consultModal').style.setProperty('display', 'none', 'important')" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
+    <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
     
     <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
       <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: inherit !important;">Запит на консультацію</h3>
@@ -1927,21 +1927,16 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
       }
     }
 
-    // Закрытие окна при клике на темную область вокруг формы
+    // Закрытие кликом на темный фон
     document.getElementById('consultModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        toggleConsultModal(false);
-      }
+      if (e.target === this) { toggleConsultModal(false); }
     });
 
-    // Изолированный обработчик формы
+    // Обработчик формы
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('consult-submit-btn');
-      if (btn) {
-        btn.disabled = true;
-        btn.innerText = "Обробка...";
-      }
+      if (btn) { btn.disabled = true; btn.innerText = "Обробка..."; }
 
       var scriptURL = 'https://script.google.com/macros/s/AKfycbwQU_cVOiBuwlncrv4jBVr6cfmqSYkRlMhSTNrOrDjoHEhGimLeI_djxL-0hjN6vrvu/exec';
       var urlParams = new URLSearchParams();
@@ -1951,64 +1946,21 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
       urlParams.append('phone', document.getElementById('c-phone').value);
       urlParams.append('message', document.getElementById('c-msg').value);
 
-      fetch(scriptURL, { 
-        method: 'POST', 
-        mode: 'no-cors', 
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: urlParams
-      })
+      fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
         alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
         document.getElementById('consult-google-form').reset();
         toggleConsultModal(false);
       })
       .catch(function(error) {
-        console.error('Помилка відправки:', error);
         alert("Помилка відправки. Спробуйте пізніше.");
       })
       .finally(function() {
-        if (btn) {
-          btn.disabled = false;
-          btn.innerText = "Надіслати запит";
-        }
+        if (btn) { btn.disabled = false; btn.innerText = "Надіслати запит"; }
       });
     });
   </script>
 </div>
-    <div style="text-align: center; margin-bottom: 1.5rem;">
-      <h3 style="font-size: 22px; font-weight: 800; color: #111827; margin: 0 0 4px 0;">Запит на консультацію</h3>
-      <p style="font-size: 14px; color: #4B5563; margin: 0;">Лист буде надіслано на info@ukr-zurich.ch</p>
-    </div>
 
-    <form id="consult-google-form" style="display: flex; flex-direction: column; gap: 1rem; margin: 0;">
-      <div style="display: flex; flex-direction: column; text-align: left;">
-        <label style="font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 4px;">Ім'я</label>
-        <input type="text" id="c-name" required style="width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14.5px; outline: none; box-sizing: border-box;">
-      </div>
-      
-      <div style="display: flex; flex-direction: column; text-align: left;">
-        <label style="font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 4px;">Прізвище</label>
-        <input type="text" id="c-surname" required style="width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14.5px; outline: none; box-sizing: border-box;">
-      </div>
-
-      <div style="display: flex; flex-direction: column; text-align: left;">
-        <label style="font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 4px;">Email</label>
-        <input type="email" id="c-email" required style="width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14.5px; outline: none; box-sizing: border-box;">
-      </div>
-
-      <div style="display: flex; flex-direction: column; text-align: left;">
-        <label style="font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 4px;">Телефон</label>
-        <input type="tel" id="c-phone" required style="width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14.5px; outline: none; box-sizing: border-box;">
-      </div>
-
-      <div style="display: flex; flex-direction: column; text-align: left;">
-        <label style="font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 4px;">Опишіть ваше питання</label>
-        <textarea id="c-msg" rows="4" required style="width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14.5px; outline: none; resize: none; box-sizing: border-box;"></textarea>
-      </div>
-
-      <button type="submit" id="consult-submit-btn" style="cursor: pointer; background: #1A56C4; color: #fff; border: none; padding: 12px; font-size: 16px; font-weight: 700; border-radius: 10px; width: 100%; margin-top: 0.5rem; transition: background 0.2s;">Надіслати запит</button>
-    </form>
-  </div>
-</div>
 </body>
 </html>

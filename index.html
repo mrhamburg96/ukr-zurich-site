@@ -1832,7 +1832,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 /* ── ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
 function toggleDirCard(card) {
- } // <-- Это закрывающая скобка функции toggleDirCard. Всё, что ниже неё, заменяем:
+ } // <-- Это финальная скобка функции toggleDirCard. Всё, что ниже неё, аккуратно заменяем до самого конца:
 
 // Функция управления модальным окном
 function toggleConsultModal(show) {
@@ -1855,37 +1855,37 @@ function toggleConsultModal(show) {
     <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
     
     <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
-      <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important;">Запит наFloat консультацію</h3>
-      <p style="font-size: 14px !important; color: #4B5563 !important; margin: 0 !important;">Лист буде надіслано на info@ukr-zurich.ch</p>
+      <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: sans-serif !important;">Запит на консультацію</h3>
+      <p style="font-size: 14px !important; color: #4B5563 !important; margin: 0 !important; font-family: sans-serif !important;">Лист буде надіслано на info@ukr-zurich.ch</p>
     </div>
 
     <form id="consult-google-form" style="display: flex !important; flex-direction: column !important; gap: 1rem !important; margin: 0 !important; padding: 0 !important;">
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important;">Ім'я</label>
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Ім'я</label>
         <input type="text" id="c-name" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
       
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important;">Прізвище</label>
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Прізвище</label>
         <input type="text" id="c-surname" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
 
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important;">Email</label>
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Email</label>
         <input type="email" id="c-email" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
 
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important;">Телефон</label>
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Телефон</label>
         <input type="tel" id="c-phone" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
 
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important;">Опишіть ваше питання</label>
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Опишіть ваше питання</label>
         <textarea id="c-msg" rows="4" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; resize: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;"></textarea>
       </div>
 
-      <button type="submit" id="consult-submit-btn" style="cursor: pointer !important; background: #1A56C4 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 16px !important; font-weight: 700 !important; border-radius: 10px !important; width: 100% !important; margin-top: 0.5rem !important; transition: background 0.2s !important;">Надіслати запит</button>
+      <button type="submit" id="consult-submit-btn" style="cursor: pointer !important; background: #1A56C4 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 16px !important; font-weight: 700 !important; border-radius: 10px !important; width: 100% !important; margin-top: 0.5rem !important; transition: background 0.2s !important; font-family: sans-serif !important;">Надіслати запит</button>
     </form>
   </div>
 

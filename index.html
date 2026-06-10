@@ -1102,7 +1102,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
     </div>
     <div class="dir-cta-btns">
-      <button type="button" onclick="var m = document.getElementById('consultModal'); if(m) { m.style.setProperty('display', 'flex', 'important'); }" class="btn-solid" id="cta-b" style="border: none !important; cursor: pointer !important; pointer-events: auto !important; position: relative !important; z-index: 999999 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important;">Зв'язатися</button>
+      <button type="button" id="cta-b" class="btn-solid" onclick="var m = document.getElementById('consultModal'); if(m) { m.style.setProperty('display', 'flex', 'important'); }" style="all: unset !important; box-sizing: border-box !important; cursor: pointer !important; pointer-events: auto !important; position: relative !important; z-index: 999999 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 12px 28px !important; border-radius: 50px !important; font-family: sans-serif !important; font-size: 16px !important; font-weight: 700 !important; text-decoration: none !important; min-width: 160px !important; text-align: center !important;">Зв'язатися</button>
     </div>
   </div>
 </section>
@@ -1893,7 +1893,7 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
     <button type="button" onclick="document.getElementById('consultModal').style.setProperty('display', 'none', 'important')" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
     
     <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
-      <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important;">Запит на <span style="font-family: inherit !important;">консультацію</span></h3>
+      <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important;">Запит на консультацію</h3>
       <p style="font-size: 14px !important; color: #4B5563 !important; margin: 0 !important;">Лист буде надіслано на info@ukr-zurich.ch</p>
     </div>
 
@@ -1928,12 +1928,10 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
   </div>
 
   <script>
-    // Закрытие кликом на область вокруг формы
     document.getElementById('consultModal').addEventListener('click', function(e) {
       if (e.target === this) { this.style.setProperty('display', 'none', 'important'); }
     });
 
-    // Обработчик отправки формы на Google Макрос
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('consult-submit-btn');

@@ -1102,7 +1102,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
     </div>
     <div class="dir-cta-btns">
-      <button type="button" onclick="toggleConsultModal(true)" class="btn-solid" id="cta-b" style="border: none; cursor: pointer;">Зв'язатися</button>
+      <a href="#consultModal" class="btn-solid" id="cta-b" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer;">Зв'язатися</a>
     </div>
   </div>
 </section>
@@ -1887,10 +1887,10 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
     btn.disabled = false;
     btn.innerText = "Надіслати запит";
 });
-<div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; display: none !important; align-items: center !important; justify-content: center !important; z-index: 999999 !important; padding: 1rem !important; box-sizing: border-box !important;">
-  <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important;">
+<div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important;">
+  <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important; margin: auto !important;">
     
-    <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
+    <a href="#" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important; text-decoration: none !important;">&times;</a>
     
     <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
       <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: inherit !important;">Запит на консультацію</h3>
@@ -1927,24 +1927,14 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
     </form>
   </div>
 
-  <script>
-    function toggleConsultModal(show) {
-      var modal = document.getElementById('consultModal');
-      if (modal) {
-        if (show) {
-          modal.style.setProperty('display', 'flex', 'important');
-        } else {
-          modal.style.setProperty('display', 'none', 'important');
-        }
-      }
+  <style>
+    #consultModal:target {
+      display: flex !important;
     }
+  </style>
 
-    // Закрытие кликом на темный фон
-    document.getElementById('consultModal').addEventListener('click', function(e) {
-      if (e.target === this) { toggleConsultModal(false); }
-    });
-
-    // Обработчик формы
+  <script>
+    // Изолированная отправка данных (сработает при сабмите формы)
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('consult-submit-btn');
@@ -1962,7 +1952,7 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
       .then(function() {
         alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
         document.getElementById('consult-google-form').reset();
-        toggleConsultModal(false);
+        window.location.hash = '#'; // закрывает окно после успеха
       })
       .catch(function(error) {
         alert("Помилка відправки. Спробуйте пізніше.");

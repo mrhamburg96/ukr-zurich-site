@@ -1093,7 +1093,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </div>
 </div>
-  <div class="dir-cta-row">
+   Удаляем: <div class="dir-cta-row">
     <div class="dir-cta-left">
       <div class="dir-cta-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
       <div>
@@ -1101,10 +1101,16 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <p id="cta-p">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
       </div>
     </div>
-    <div class="dir-cta-btns">
-      <button type="button" id="cta-b" class="btn-solid" onclick="var m = document.getElementById('consultModal'); if(m) { m.style.setProperty('display', 'flex', 'important'); }" style="all: unset !important; box-sizing: border-box !important; cursor: pointer !important; pointer-events: auto !important; position: relative !important; z-index: 999999 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 12px 28px !important; border-radius: 50px !important; font-family: sans-serif !important; font-size: 16px !important; font-weight: 700 !important; text-decoration: none !important; min-width: 160px !important; text-align: center !important;">Зв'язатися</button>
+
+Вставляем: <div style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 24px; border-radius: 16px; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin: 2rem 0;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="background: #EEF2F6; padding: 12px; border-radius: 12px; color: #1A56C4; font-size: 24px;">✉</div>
+    <div style="text-align: left;">
+      <h4 style="margin: 0; font-size: 16px; font-weight: 700; color: #111827;">Потрібна індивідуальна консультація?</h4>
+      <p style="margin: 4px 0 0 0; font-size: 14px; color: #4B5563;">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
     </div>
   </div>
+
 </section>
 
 <!-- ═══════ CTA GRID ─────────────────── -->
@@ -1887,6 +1893,12 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
     btn.disabled = false;
     btn.innerText = "Надіслати запит";
 });
+<div style="position: fixed !important; bottom: 30px !important; right: 30px !important; z-index: 999999 !important; pointer-events: auto !important;">
+  <button type="button" onclick="var m = document.getElementById('consultModal'); if(m) { m.style.setProperty('display', 'flex', 'important'); }" style="cursor: pointer !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 14px 28px !important; border-radius: 50px !important; font-family: sans-serif !important; font-size: 15px !important; font-weight: 700 !important; border: none !important; box-shadow: 0 10px 15px -3px rgba(26, 86, 196, 0.4), 0 4px 6px -2px rgba(26, 86, 196, 0.2) !important; transition: all 0.2s ease !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;">
+    <span style="font-size: 18px !important; line-height: 1 !important;">✉</span> Зв'язатися
+  </button>
+</div>
+
 <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">
   <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important; margin: auto !important;">
     
@@ -1920,7 +1932,7 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
 
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
         <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important;">Опишіть ваше питання</label>
-        <textarea id="c-msg" rows="4" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; resize: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;"></textarea>
+        <textarea id="c-msg" rows="4" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; resize: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;"> </textarea>
       </div>
 
       <button type="submit" id="consult-submit-btn" style="cursor: pointer !important; background: #1A56C4 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 16px !important; font-weight: 700 !important; border-radius: 10px !important; width: 100% !important; margin-top: 0.5rem !important; transition: background 0.2s !important;">Надіслати запит</button>
@@ -1947,7 +1959,7 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
 
       fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
-        alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
+        alert("Дякуємо! Ваш запит на індивідуальну консультацію успешно надіслано.");
         document.getElementById('consult-google-form').reset();
         document.getElementById('consultModal').style.setProperty('display', 'none', 'important');
       })

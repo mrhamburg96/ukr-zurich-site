@@ -1832,9 +1832,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 /* ── ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
 function toggleDirCard(card) {
- } // <-- Это финальная скобка функции toggleDirCard. Всё, что ниже неё, аккуратно заменяем до самого конца:
+  card.classList.toggle('on');
+}
 
-// Функция управления модальным окном
+// Новая функция для надежного открытия и закрытия модального окна
 function toggleConsultModal(show) {
   const modal = document.getElementById('consultModal');
   if (modal) {
@@ -1842,6 +1843,8 @@ function toggleConsultModal(show) {
   }
 }
 </script>
+
+</div></div>
 
 <div style="position: fixed !important; bottom: 30px !important; right: 30px !important; z-index: 999999 !important; pointer-events: auto !important;">
   <button type="button" onclick="toggleConsultModal(true)" style="cursor: pointer !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 14px 28px !important; border-radius: 50px !important; font-family: sans-serif !important; font-size: 15px !important; font-weight: 700 !important; border: none !important; box-shadow: 0 10px 15px -3px rgba(26, 86, 196, 0.4), 0 4px 6px -2px rgba(26, 86, 196, 0.2) !important; transition: all 0.2s ease !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;">

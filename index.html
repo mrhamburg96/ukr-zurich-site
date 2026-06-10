@@ -1486,7 +1486,7 @@ const dict = {
     "cta-news-p": "Підпишіться на важливі оновлення та корисні матеріали.",
     "cta-email-input": "Ваш Email",
     "tr-association": "Офіційно зареєстрована асоціація у Швейцарії",
-    "tr-count": "Понад 5000 українців уже з нами",
+    "tr-count": "Понад 1000 українців уже з нами",
     
     // ════════ MODAL TRANSLATIONS (UA) ════════
     "mh-t": "Приєднуйтесь до спільноти",
@@ -1685,7 +1685,7 @@ const dict = {
     "cta-news-p": "Abonnieren Sie wichtige Updates und nützliche Materialien.",
     "cta-email-input": "Ihre E-Mail",
     "tr-association": "Offiziell eingetragener Verein in der Schweiz",
-    "tr-count": "Über 5000 Ukrainer sind schon mit uns",
+    "tr-count": "Über 1000 Ukrainer sind schon mit uns",
     
     // ════════ MODAL TRANSLATIONS (DE) ════════
     "mh-t": "Treten Sie der Gemeinschaft bei",
@@ -1875,10 +1875,10 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
     btn.disabled = false;
     btn.innerText = "Надіслати запит";
 });
-<div id="consultModal" onclick="if(event.target===this) toggleConsultModal(false)" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; display: flex !important; align-items: center !important; justify-content: center !important; z-index: 99999 !important; opacity: 0 !important; pointer-events: none !important; transition: opacity 0.3s ease !important; padding: 1rem !important; box-sizing: border-box !important;">
+<div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; display: none !important; align-items: center !important; justify-content: center !important; z-index: 999999 !important; padding: 1rem !important; box-sizing: border-box !important;">
   <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important;">
     
-    <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
+    <button type="button" onclick="document.getElementById('consultModal').style.setProperty('display', 'none', 'important')" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
     
     <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
       <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: inherit !important;">Запит на консультацію</h3>
@@ -1920,14 +1920,59 @@ document.getElementById('consult-google-form').addEventListener('submit', functi
       var modal = document.getElementById('consultModal');
       if (modal) {
         if (show) {
-          modal.style.setProperty('opacity', '1', 'important');
-          modal.style.setProperty('pointer-events', 'auto', 'important');
+          modal.style.setProperty('display', 'flex', 'important');
         } else {
-          modal.style.setProperty('opacity', '0', 'important');
-          modal.style.setProperty('pointer-events', 'none', 'important');
+          modal.style.setProperty('display', 'none', 'important');
         }
       }
     }
+
+    // Закрытие окна при клике на темную область вокруг формы
+    document.getElementById('consultModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        toggleConsultModal(false);
+      }
+    });
+
+    // Изолированный обработчик формы
+    document.getElementById('consult-google-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('consult-submit-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = "Обробка...";
+      }
+
+      var scriptURL = 'https://script.google.com/macros/s/AKfycbwQU_cVOiBuwlncrv4jBVr6cfmqSYkRlMhSTNrOrDjoHEhGimLeI_djxL-0hjN6vrvu/exec';
+      var urlParams = new URLSearchParams();
+      urlParams.append('name', document.getElementById('c-name').value);
+      urlParams.append('surname', document.getElementById('c-surname').value);
+      urlParams.append('email', document.getElementById('c-email').value);
+      urlParams.append('phone', document.getElementById('c-phone').value);
+      urlParams.append('message', document.getElementById('c-msg').value);
+
+      fetch(scriptURL, { 
+        method: 'POST', 
+        mode: 'no-cors', 
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: urlParams
+      })
+      .then(function() {
+        alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
+        document.getElementById('consult-google-form').reset();
+        toggleConsultModal(false);
+      })
+      .catch(function(error) {
+        console.error('Помилка відправки:', error);
+        alert("Помилка відправки. Спробуйте пізніше.");
+      })
+      .finally(function() {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = "Надіслати запит";
+        }
+      });
+    });
   </script>
 </div>
     <div style="text-align: center; margin-bottom: 1.5rem;">

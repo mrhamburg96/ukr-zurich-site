@@ -1741,7 +1741,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('lang') || 'ua';
   setLang(savedLang);
   
-  // Обробник форми реєстрації волонтера (БЕЗ ПРІЗВИЩА)
+ // Обробник форми реєстрації волонтера (ВИПРАВЛЕНИЙ)
   const regForm = document.getElementById('google-form');
   if (regForm) {
     regForm.addEventListener('submit', function(e) {
@@ -1755,7 +1755,6 @@ document.addEventListener('DOMContentLoaded', () => {
       urlParams.append('name', document.getElementById('r-name').value);
       urlParams.append('email', document.getElementById('r-email').value);
       urlParams.append('phone', document.getElementById('r-phone').value);
-      urlParams.append('message', document.getElementById('c-msg').value);
       
       // Збираємо вибрані категорії волонтерства
       var cats = [];
@@ -1763,14 +1762,17 @@ document.addEventListener('DOMContentLoaded', () => {
         cats.push(b.innerText.trim());
       });
       urlParams.append('categories', cats.join(', '));
-      urlParams.append('message', document.getElementById('r-msg').value);
-
+      
+      // Правильно беремо коментар саме від форми волонтера
+      var msgElement = document.getElementById('r-msg');
+      urlParams.append('message', msgElement ? msgElement.value : "");
+      
       fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
-        doReg();
+        doReg(); // Показуємо успішне вікно реєстрації
       })
       .catch(function(error) {
-        alert("Помилка відправки.");
+        alert("Помилка відправки. Спробуйте пізніше.");
       })
       .finally(function() {
         if (btn) { btn.disabled = false; btn.innerText = "Надіслати заявку"; }

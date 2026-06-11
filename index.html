@@ -1178,15 +1178,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
 
     <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="display: flex; gap: 12px;">
-        <div style="flex: 1;">
-          <label class="v-label">Ім'я</label>
-          <input type="text" name="name" required placeholder="Олена" class="v-input">
-        </div>
-        <div style="flex: 1;">
-          <label class="v-label">Прізвище</label>
-          <input type="text" name="surname" required placeholder="Ковальчук" class="v-input">
-        </div>
+      <div>
+        <label class="v-label">Ім'я</label>
+        <input type="text" name="name" required placeholder="Олена" class="v-input" style="width: 100%; box-sizing: border-box;">
       </div>
 
       <div>
@@ -1731,12 +1725,10 @@ const dict = {
 function setLang(lang) {
   localStorage.setItem('lang', lang);
   
-  // Переключение активного класса на кнопках языков
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('on', btn.getAttribute('onclick').includes(lang));
   });
 
-  // Перевод всех элементов с атрибутом data-t
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
     if (dict[lang] && dict[lang][key]) {
@@ -1745,24 +1737,61 @@ function setLang(lang) {
   });
 }
 
-// Установка языка при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('lang') || 'ua';
   setLang(savedLang);
+  
+  // Обробник форми реєстрації волонтера (БЕЗ ПРІЗВИЩА)
+  const regForm = document.getElementById('google-form');
+  if (regForm) {
+    regForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('reg-submit-btn');
+      if (btn) { btn.disabled = true; btn.innerText = "Обробка..."; }
+
+      var scriptURL = 'https://script.google.com/macros/s/AKfycbwQU_cVOiBuwlncrv4jBVr6cfmqSYkRlMhSTNrOrDjoHEhGimLeI_djxL-0hjN6vrvu/exec';
+      var urlParams = new URLSearchParams();
+      urlParams.append('formType', 'volunteer');
+      urlParams.append('name', document.getElementById('r-name').value);
+      urlParams.append('email', document.getElementById('r-email').value);
+      urlParams.append('phone', document.getElementById('r-phone').value);
+      
+      // Збираємо вибрані категорії волонтерства
+      var cats = [];
+      document.querySelectorAll('.cat-btn.on').forEach(function(b) {
+        cats.push(b.innerText.trim());
+      });
+      urlParams.append('categories', cats.join(', '));
+      urlParams.append('message', document.getElementById('r-msg').value);
+
+      fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
+      .then(function() {
+        doReg();
+      })
+      .catch(function(error) {
+        alert("Помилка відправки.");
+      })
+      .finally(function() {
+        if (btn) { btn.disabled = false; btn.innerText = "Надіслати заявку"; }
+      });
+    });
+  }
 });
 
 function toggleDirCard(card) {
   card.classList.toggle('on');
 }
 
-// Функция управления показом модального окна
 function toggleConsultModal(show) {
   const modal = document.getElementById('consultModal');
   if (modal) {
     modal.style.setProperty('display', show ? 'flex' : 'none', 'important');
   }
 }
-</script> <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">
+</script>
+
+
+<div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">
   <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important; margin: auto !important;">
     
     <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>

@@ -1747,116 +1747,40 @@ const dict = {
 };
 
 function setLang(lang) {
-  // 1. Перевод элементов по ID из словаря dict
-  for (let id in dict[lang]) {
-    let el = document.getElementById(id);
-    if (el) {
-      if (el.tagName === 'INPUT') {
-        el.placeholder = dict[lang][id];
-      } else {
-        el.innerHTML = dict[lang][id];
-      }
-    }
-  }
-
-  // 2. Перевод через дата-атрибуты (data-ua / data-de)
-  document.querySelectorAll('[data-ua][data-de]').forEach(el => {
-    let text = el.getAttribute('data-' + lang);
-    if (text) {
-      if (el.tagName === 'INPUT') {
-        el.placeholder = text;
-      } else {
-        el.innerHTML = text;
-      }
-    }
+  localStorage.setItem('lang', lang);
+  
+  // Переключение активного класса на кнопках языков
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.getAttribute('onclick').includes(lang));
   });
 
-  // 3. Подсветка активных кнопок через data-lang
-  document.querySelectorAll('.lang-sw .lb').forEach(btn => {
-    let btnLang = btn.getAttribute('data-lang');
-    if (btnLang === lang) {
-      btn.classList.add('on');
-    } else {
-      btn.classList.remove('on');
+  // Перевод всех элементов с атрибутом data-t
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (dict[lang] && dict[lang][key]) {
+      el.innerText = dict[lang][key];
     }
   });
-
-  localStorage.setItem('selectedLang', lang);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  let savedLang = localStorage.getItem('selectedLang') || 'ua';
-  if (savedLang === 'uk') savedLang = 'ua'; 
+// Установка языка при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('lang') || 'ua';
   setLang(savedLang);
-  
-  // Автоперевод верхнего ряда иконок по тексту
-  const currentLang = localStorage.getItem('selectedLang') || 'ua'; 
-
-  // Находим абсолютно все элементы на странице
-  document.querySelectorAll('h1, h2, h3, h4, span, a, div').forEach(elem => {
-    const text = elem.textContent.trim();
-    
-    if (currentLang === 'de') {
-        // Если переключаем на немецкий:
-        if (text === 'Чим ми допомагаємо') elem.textContent = 'Wie wir helfen';
-        if (text === 'Дивитися всі послуги →') elem.textContent = 'Alle Angebote anzeigen →';
-        if (text === 'Гуманітарна допомога') elem.textContent = 'Humanitäre Hilfe';
-        if (text === 'Продукти') elem.textContent = 'Lebensmittel';
-        if (text === 'Інтеграція та консультації') elem.textContent = 'Integration & Anpassung';
-        if (text === 'Курси нім. мови') elem.textContent = 'Deutschkurse';
-        if (text === 'Допомога з документами') elem.textContent = 'Beratung & Dokumente';
-        if (text === 'Пошук роботи') elem.textContent = 'Jobsuche & Karriere';
-        if (text === 'Події для дітей') elem.textContent = 'Angebote für Kinder';
-        if (text === 'Волонтерство') elem.textContent = 'Freiwilligenarbeit';
-        if (text === 'Community support') elem.textContent = 'Kultur & Freizeit';
-    } else {
-        // Если возвращаем украинский:
-        if (text === 'Wie wir helfen') elem.textContent = 'Чим ми допомагаємо';
-        if (text === 'Alle Angebote anzeigen →') elem.textContent = 'Дивитися всі послуги →';
-        if (text === 'Humanitäre Hilfe') elem.textContent = 'Гуманітарна допомога';
-        if (text === 'Lebensmittel') elem.textContent = 'Продукти';
-        if (text === 'Integration & Anpassung') elem.textContent = 'Інтеграція та консультації';
-        if (text === 'Deutschkurse') elem.textContent = 'Курси нім. мови';
-        if (text === 'Beratung & Dokumente') elem.textContent = 'Допомога з документами';
-        if (text === 'Jobsuche & Karriere') elem.textContent = 'Пошук роботи';
-        if (text === 'Angebote für Kinder') elem.textContent = 'Події для дітей';
-        if (text === 'Freiwilligenarbeit') elem.textContent = 'Волонтерство';
-        if (text === 'Kultur & Freizeit') elem.textContent = 'Community support';
-    }
-  });
 });
-</script>
 
-<script>
-<script>
-<script>
-/* ── ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
 function toggleDirCard(card) {
   card.classList.toggle('on');
 }
 
-// Функция управления модальным окном
+// Функция управления показом модального окна
 function toggleConsultModal(show) {
   const modal = document.getElementById('consultModal');
   if (modal) {
     modal.style.setProperty('display', show ? 'flex' : 'none', 'important');
   }
 }
-<div style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 24px; border-radius: 16px; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin: 2rem 0; width: 100%; box-sizing: border-box;">
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <div style="background: #EEF2F6; padding: 12px; border-radius: 12px; color: #1A56C4; font-size: 24px; line-height: 1;">✉</div>
-    <div style="text-align: left;">
-      <h4 style="margin: 0; font-size: 16px; font-weight: 700; color: #111827; font-family: sans-serif;">Потрібна індивідуальна консультація?</h4>
-      <p style="margin: 4px 0 0 0; font-size: 14px; color: #4B5563; font-family: sans-serif;">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
-    </div>
-  </div>
-  
-  <div>
-    <button type="button" onclick="toggleConsultModal(true)" style="cursor: pointer !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 12px 24px !important; border-radius: 10px !important; font-family: sans-serif !important; font-size: 15px !important; font-weight: 700 !important; border: none !important; transition: background 0.2s ease !important; white-space: nowrap !important;">
-      Зв'язатися
-    </button>
-  </div>
-</div>
+</script> <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">
   <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important; margin: auto !important;">
     
     <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>

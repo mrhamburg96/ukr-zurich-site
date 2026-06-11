@@ -719,23 +719,32 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 <!-- ДОБАВЛЯЕМ overflow: hidden, ЧТОБЫ ИЗ-ЗА ШИРИНЫ ЭКРАНА НЕ ПОЯВИЛСЯ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ -->
 <section class="how-sec" style="position: relative; width: 100%; box-sizing: border-box; overflow: hidden;">
   
-  <!-- ЗАСТАВЛЯЕМ КОНТЕЙНЕР ИГНОРИРОВАТЬ ЦЕНТРИРОВАНИЕ ТЕМЫ И РАСТЯГИВАТЬСЯ ВЛЕВО ДО КРАЯ -->
   <div style="width: 100vw !important; max-width: 100vw !important; margin-left: 0 !important; margin-right: auto !important; padding: 0 0 0 20px !important; box-sizing: border-box; clear: both;">
     
-    <!-- ДВУХКОЛОНОЧНАЯ СЕТКА, ПРИЖАТАЯ К ЛЕВОМУ КРАЮ -->
     <div class="main-how-layout" style="display: flex !important; gap: 30px; align-items: flex-start; justify-content: flex-start !important; width: 100%; padding: 40px 0; box-sizing: border-box; margin: 0 !important;">
       
       <!-- ЛЕВАЯ КОЛОНКА (Сімейний центр, Ми поруч, Статистика) -->
       <div class="left-steps-column" style="display: flex; flex-direction: column; gap: 24px; flex: 1; max-width: 576px; box-sizing: border-box; margin: 0 !important;">
 
-        <!-- Блок 1: Сімейний центр -->
+        <!-- Блок 1: Сімейний центр с изменениями надписей -->
         <a href="family-center.html" style="display: block; text-decoration: none; outline: none; border-radius: 20px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border: 1px solid #e2e8f0; height: 260px; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; box-sizing: border-box;">
+          
+          <!-- Основное фото -->
           <img src="family-center.jpg" alt="Сімейний центр" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; inset: 0; background: rgba(15, 23, 42, 0.45); display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;">
-            <h2 style="color: #ffffff; font-size: 28px; font-weight: 800; margin: 0; font-family: sans-serif; text-align: center; letter-spacing: -0.5px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);">
+          
+          <!-- НОВАЯ НАДПИСЬ В ВЕРХНЕМ ПРАВОМ УГЛУ СО СТРЕЛОЧКОЙ -->
+          <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05);">
+            <span style="color: #1e293b; font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Приєднуйтесь</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+
+          <!-- НАДПИСЬ ОПУЩЕНА ВНИЗ. ЦВЕТ ШРИФТА ТЕПЕРЬ ЧЕРНЫЙ -->
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.95)); padding: 20px 24px 16px 24px; box-sizing: border-box;">
+            <h2 style="color: #000000 !important; font-size: 26px; font-weight: 800; margin: 0; font-family: sans-serif; text-align: left; letter-spacing: -0.5px;">
               Сімейний центр
             </h2>
           </div>
+
         </a>
 
         <!-- Ряд под Сімейним центром -->
@@ -790,7 +799,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; flex-grow: 1; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); height: 536px; box-sizing: border-box;">
           
           <div>
-            <!-- СОХРАНЯЕМ СКУГЛЕНИЕ НИЖНИХ УГЛОВ КАРТИНКИ -->
             <div class="compact-review-photo" style="width: 100%; aspect-ratio: 16 / 11; overflow: hidden; margin: 0; border-radius: 0 0 20px 20px;">
               <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; border-radius: 0 0 20px 20px;">
             </div>

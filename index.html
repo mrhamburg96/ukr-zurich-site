@@ -1729,111 +1729,112 @@ const dict = {
 };
 
 function setLang(lang) {
-  // 1. Перевод элементов по ID из словаря dict
-  for (let id in dict[lang]) {
-    let el = document.getElementById(id);
-    if (el) {
-      if (el.tagName === 'INPUT') {
-        el.placeholder = dict[lang][id];
-      } else {
-        el.innerHTML = dict[lang][id];
-      }
-    }
-  }
-
-  // 2. Перевод через дата-атрибуты (data-ua / data-de)
-  document.querySelectorAll('[data-ua][data-de]').forEach(el => {
-    let text = el.getAttribute('data-' + lang);
-    if (text) {
-      if (el.tagName === 'INPUT') {
-        el.placeholder = text;
-      } else {
-        el.innerHTML = text;
-      }
-    }
+  localStorage.setItem('lang', lang);
+  
+  // Переключение активного класса на кнопках языков
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.getAttribute('onclick').includes(lang));
   });
 
-  // 3. Подсветка активных кнопок через data-lang
-  document.querySelectorAll('.lang-sw .lb').forEach(btn => {
-    let btnLang = btn.getAttribute('data-lang');
-    if (btnLang === lang) {
-      btn.classList.add('on');
-    } else {
-      btn.classList.remove('on');
+  // Перевод всех элементов с атрибутом data-t
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (dict[lang] && dict[lang][key]) {
+      el.innerText = dict[lang][key];
     }
   });
-
-  localStorage.setItem('selectedLang', lang);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  let savedLang = localStorage.getItem('selectedLang') || 'ua';
-  if (savedLang === 'uk') savedLang = 'ua'; 
+// Установка языка при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('lang') || 'ua';
   setLang(savedLang);
-  
-  // Автоперевод верхнего ряда иконок по тексту
-  const currentLang = localStorage.getItem('selectedLang') || 'ua'; 
-
-  // Находим абсолютно все элементы на странице
-  document.querySelectorAll('h1, h2, h3, h4, span, a, div').forEach(elem => {
-    const text = elem.textContent.trim();
-    
-    if (currentLang === 'de') {
-        // Если переключаем на немецкий:
-        if (text === 'Чим ми допомагаємо') elem.textContent = 'Wie wir helfen';
-        if (text === 'Дивитися всі послуги →') elem.textContent = 'Alle Angebote anzeigen →';
-        if (text === 'Гуманітарна допомога') elem.textContent = 'Humanitäre Hilfe';
-        if (text === 'Продукти') elem.textContent = 'Lebensmittel';
-        if (text === 'Інтеграція та консультації') elem.textContent = 'Integration & Anpassung';
-        if (text === 'Курси нім. мови') elem.textContent = 'Deutschkurse';
-        if (text === 'Допомога з документами') elem.textContent = 'Beratung & Dokumente';
-        if (text === 'Пошук роботи') elem.textContent = 'Jobsuche & Karriere';
-        if (text === 'Події для дітей') elem.textContent = 'Angebote für Kinder';
-        if (text === 'Волонтерство') elem.textContent = 'Freiwilligenarbeit';
-        if (text === 'Community support') elem.textContent = 'Kultur & Freizeit';
-    } else {
-        // Если возвращаем украинский:
-        if (text === 'Wie wir helfen') elem.textContent = 'Чим ми допомагаємо';
-        if (text === 'Alle Angebote anzeigen →') elem.textContent = 'Дивитися всі послуги →';
-        if (text === 'Humanitäre Hilfe') elem.textContent = 'Гуманітарна допомога';
-        if (text === 'Lebensmittel') elem.textContent = 'Продукти';
-        if (text === 'Integration & Anpassung') elem.textContent = 'Інтеграція та консультації';
-        if (text === 'Deutschkurse') elem.textContent = 'Курси нім. мови';
-        if (text === 'Beratung & Dokumente') elem.textContent = 'Допомога з документами';
-        if (text === 'Jobsuche & Karriere') elem.textContent = 'Пошук роботи';
-        if (text === 'Angebote für Kinder') elem.textContent = 'Події для дітей';
-        if (text === 'Freiwilligenarbeit') elem.textContent = 'Волонтерство';
-        if (text === 'Kultur & Freizeit') elem.textContent = 'Community support';
-    }
-  });
 });
-</script>
 
-<script>
-<script>
-<script>
-/* ── ФУНКЦИЯ ДЛЯ АККОРДЕОНА КАРТОЧЕК ── */
 function toggleDirCard(card) {
-  const desc = card.querySelector('.dir-desc');
-  const arrow = card.querySelector('.dir-arrow');
-  
-  if (desc.style.maxHeight && desc.style.maxHeight !== "0px") {
-    desc.style.maxHeight = "0px";
-    desc.style.opacity = "0";
-    if(arrow) arrow.style.transform = "rotate(0deg)";
-  } else {
-    document.querySelectorAll('.dir-desc').forEach(el => {
-      el.style.maxHeight = "0px";
-      el.style.opacity = "0";
-    });
-    document.querySelectorAll('.dir-arrow').forEach(el => el.style.transform = "rotate(0deg)");
-    
-    desc.style.maxHeight = desc.scrollHeight + "px";
-    desc.style.opacity = "1";
-    if(arrow) arrow.style.transform = "rotate(180deg)";
+  card.classList.toggle('on');
+}
+
+// Функция управления показом модального окна
+function toggleConsultModal(show) {
+  const modal = document.getElementById('consultModal');
+  if (modal) {
+    modal.style.setProperty('display', show ? 'flex' : 'none', 'important');
   }
 }
-</script>
+</script> <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">
+  <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important; margin: auto !important;">
+    
+    <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
+    
+    <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
+      <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: sans-serif !important;">Запит на консультацію</h3>
+      <p style="font-size: 14px !important; color: #4B5563 !important; margin: 0 !important; font-family: sans-serif !important;">Лист буде надіслано на info@ukr-zurich.ch</p>
+    </div>
+
+    <form id="consult-google-form" style="display: flex !important; flex-direction: column !important; gap: 1rem !important; margin: 0 !important; padding: 0 !important;">
+      <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Ім'я</label>
+        <input type="text" id="c-name" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
+      </div>
+      
+      <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Прізвище</label>
+        <input type="text" id="c-surname" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
+      </div>
+
+      <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Email</label>
+        <input type="email" id="c-email" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
+      </div>
+
+      <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Телефон</label>
+        <input type="tel" id="c-phone" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
+      </div>
+
+      <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
+        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Опишіть ваше питання</label>
+        <textarea id="c-msg" rows="4" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; resize: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;"></textarea>
+      </div>
+
+      <button type="submit" id="consult-submit-btn" style="cursor: pointer !important; background: #1A56C4 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 16px !important; font-weight: 700 !important; border-radius: 10px !important; width: 100% !important; margin-top: 0.5rem !important; transition: background 0.2s !important; font-family: sans-serif !important;">Надіслати запит</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('consultModal').addEventListener('click', function(e) {
+      if (e.target === this) { toggleConsultModal(false); }
+    });
+
+    document.getElementById('consult-google-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('consult-submit-btn');
+      if (btn) { btn.disabled = true; btn.innerText = "Обробка..."; }
+
+      var scriptURL = 'https://script.google.com/macros/s/AKfycbwQU_cVOiBuwlncrv4jBVr6cfmqSYkRlMhSTNrOrDjoHEhGimLeI_djxL-0hjN6vrvu/exec';
+      var urlParams = new URLSearchParams();
+      urlParams.append('name', document.getElementById('c-name').value);
+      urlParams.append('surname', document.getElementById('c-surname').value);
+      urlParams.append('email', document.getElementById('c-email').value);
+      urlParams.append('phone', document.getElementById('c-phone').value);
+      urlParams.append('message', document.getElementById('c-msg').value);
+
+      fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
+      .then(function() {
+        alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
+        document.getElementById('consult-google-form').reset();
+        toggleConsultModal(false);
+      })
+      .catch(function(error) {
+        alert("Помилка відправки. Спробуйте пізніше.");
+      })
+      .finally(function() {
+        if (btn) { btn.disabled = false; btn.innerText = "Надіслати запит"; }
+      });
+    });
+  </script>
+</div>
 
 </body>
 </html>

@@ -1835,7 +1835,7 @@ function toggleDirCard(card) {
   card.classList.toggle('on');
 }
 
-// Новая функция для надежного открытия и закрытия модального окна
+// Функция для открытия модального окна
 function toggleConsultModal(show) {
   const modal = document.getElementById('consultModal');
   if (modal) {
@@ -1844,12 +1844,20 @@ function toggleConsultModal(show) {
 }
 </script>
 
-</div></div>
-
-<div style="position: fixed !important; bottom: 30px !important; right: 30px !important; z-index: 999999 !important; pointer-events: auto !important;">
-  <button type="button" onclick="toggleConsultModal(true)" style="cursor: pointer !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 14px 28px !important; border-radius: 50px !important; font-family: sans-serif !important; font-size: 15px !important; font-weight: 700 !important; border: none !important; box-shadow: 0 10px 15px -3px rgba(26, 86, 196, 0.4), 0 4px 6px -2px rgba(26, 86, 196, 0.2) !important; transition: all 0.2s ease !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;">
-    <span style="font-size: 18px !important; line-height: 1 !important;">✉</span> Зв'язатися
-  </button>
+<div style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 24px; border-radius: 16px; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin: 2rem 0; width: 100%; box-sizing: border-box;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="background: #EEF2F6; padding: 12px; border-radius: 12px; color: #1A56C4; font-size: 24px; line-height: 1;">✉</div>
+    <div style="text-align: left;">
+      <h4 style="margin: 0; font-size: 16px; font-weight: 700; color: #111827; font-family: sans-serif;">Потрібна індивідуальна консультація?</h4>
+      <p style="margin: 4px 0 0 0; font-size: 14px; color: #4B5563; font-family: sans-serif;">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
+    </div>
+  </div>
+  
+  <div>
+    <button type="button" onclick="toggleConsultModal(true)" style="cursor: pointer !important; background-color: #1A56C4 !important; color: #ffffff !important; padding: 12px 24px !important; border-radius: 10px !important; font-family: sans-serif !important; font-size: 15px !important; font-weight: 700 !important; border: none !important; transition: background 0.2s ease !important; white-space: nowrap !important;">
+      Зв'язатися
+    </button>
+  </div>
 </div>
 
 <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">

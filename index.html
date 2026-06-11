@@ -1749,12 +1749,13 @@ document.addEventListener('DOMContentLoaded', () => {
       var btn = document.getElementById('reg-submit-btn');
       if (btn) { btn.disabled = true; btn.innerText = "Обробка..."; }
 
-      var scriptURL = 'https://script.google.com/macros/s/AKfycbwaIB0xaaJbxneUnWb-IlInwvnx6k5xm3CN-W1BblC0JIxwx79tUAcIpE5tEhGNNfko/exec';
+      var scriptURL = 'https://script.google.com/macros/s/AKfycbyhzCvQjDL73y3x-df6LzcGTCU19g0br85SyKflPGl8Rp6_24VzrJFCkk0j3lC2Oyr7/exec';
       var urlParams = new URLSearchParams();
       urlParams.append('formType', 'volunteer');
       urlParams.append('name', document.getElementById('r-name').value);
       urlParams.append('email', document.getElementById('r-email').value);
       urlParams.append('phone', document.getElementById('r-phone').value);
+      urlParams.append('message', document.getElementById('c-msg').value);
       
       // Збираємо вибрані категорії волонтерства
       var cats = [];
@@ -1841,10 +1842,9 @@ function toggleConsultModal(show) {
       var btn = document.getElementById('consult-submit-btn');
       if (btn) { btn.disabled = true; btn.innerText = "Обробка..."; }
 
-      var scriptURL = 'https://script.google.com/macros/s/AKfycbwaIB0xaaJbxneUnWb-IlInwvnx6k5xm3CN-W1BblC0JIxwx79tUAcIpE5tEhGNNfko/exec';
+      var scriptURL = 'https://script.google.com/macros/s/AKfycbyhzCvQjDL73y3x-df6LzcGTCU19g0br85SyKflPGl8Rp6_24VzrJFCkk0j3lC2Oyr7/exec';
       var urlParams = new URLSearchParams();
       urlParams.append('name', document.getElementById('c-name').value);
-      urlParams.append('surname', document.getElementById('c-surname').value);
       urlParams.append('email', document.getElementById('c-email').value);
       urlParams.append('phone', document.getElementById('c-phone').value);
       urlParams.append('message', document.getElementById('c-msg').value);

@@ -805,12 +805,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div> <!-- /left-steps-column -->
 
 
-  <!-- ПРАВАЯ КОЛОНКА (Олена / Відгуки) — ЖЕСТКАЯ ВЫСОТА 304px ВРОВЕНЬ С СЕМЕЙНЫМ ЦЕНТРОМ -->
-<div class="right-review-column" style="width: 360px; height: 304px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: flex-start !important;">
+ <!-- ПРАВАЯ КОЛОНКА (Олена / Відгуки) — ЖЕСТКОЕ ВЫРАВНИВАНИЕ ВРОВЕНЬ С СЕМЕЙНЫМ ЦЕНТРОМ -->
+<div class="right-review-column" style="width: 360px; height: 304px !important; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: flex-start !important;">
   
-  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; height: 100%; display: flex; flex-direction: column;">
+  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: flex !important; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; height: 304px !important; flex-direction: column;">
     
-    <!-- Картинка и текст отзыва занимают все основное пространство -->
+    <!-- Контейнер с картинкой и текстом, который займет все основное пространство -->
     <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex: 1;">
       <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
       
@@ -828,13 +828,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
     </div>
     
-    <!-- Подпись автора — теперь она гарантированно встанет на нижнюю линию баннера -->
-    <div class="quote-author-container" style="padding: 12px 24px 16px 24px; background: #ffffff; flex-shrink: 0; border-radius: 0 0 20px 20px;">
+    <!-- Блок автора — теперь он намертво привязан к нижней рамке (высота ровно 304px) -->
+    <div class="quote-author-container" style="padding: 10px 24px 14px 24px; background: #ffffff; flex-shrink: 0; border-radius: 0 0 20px 20px;">
       <div class="quote-author-compact" style="display: flex; align-items: center; justify-content: space-between;">
         <div>
-          <div class="quote-name-compact" id="q-n" style="font-weight: 700; font-size: 15px; font-family: sans-serif; color: #1e293b; margin: 0; padding: 0;">Олена</div>
-          <!-- Шрифт Zürich уменьшен до 9px, добавлен letter-spacing -->
-          <div class="quote-loc-compact" style="color: #94a3b8; font-size: 9px !important; font-weight: 500; letter-spacing: 0.3px; margin-top: 2px; font-family: sans-serif; text-transform: none;">Zürich</div>
+          <!-- Имя Олена уменьшено ровно до 8px -->
+          <div class="quote-name-compact" id="q-n" style="font-weight: 700; font-size: 8px !important; font-family: sans-serif; color: #1e293b; margin: 0; padding: 0; line-height: 1.2;">Олена</div>
+          <!-- Шрифт города пропорционально уменьшен до 7px -->
+          <div class="quote-loc-compact" style="color: #94a3b8; font-size: 7px !important; font-weight: 500; margin-top: 1px; font-family: sans-serif; line-height: 1;">Zürich</div>
         </div>
       </div>
     </div>

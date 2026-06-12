@@ -721,7 +721,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   
   <div style="width: 100vw !important; max-width: 100vw !important; margin-left: 0 !important; margin-right: auto !important; padding: 0 0 0 20px !important; box-sizing: border-box; clear: both; margin-top: 5px !important;">
     
-    <div class="main-how-layout" style="display: flex !important; gap: 30px; align-items: flex-start; justify-content: flex-start !important; width: 100%; padding: 0; box-sizing: border-box; margin: 0 !important;">
+    <!-- align-items: stretch заставляет левую и правую колонки быть строго одной высоты -->
+    <div class="main-how-layout" style="display: flex !important; gap: 30px; align-items: stretch !important; justify-content: flex-start !important; width: 100%; padding: 0; box-sizing: border-box; margin: 0 !important;">
       
       <!-- ЛЕВАЯ КОЛОНКА (Сімейний центр, Ми поруч, Статистика) -->
       <div class="left-steps-column" style="display: flex; flex-direction: column; gap: 24px; flex: 1; max-width: 576px; box-sizing: border-box; margin: 0 !important;">
@@ -737,7 +738,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </div>
 
-          <!-- НАДПИСЬ СИНИМ ЦВЕТОМ (Формат полностью сохранен) -->
+          <!-- Надпись синего цвета -->
           <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.95)); padding: 20px 24px 16px 24px; box-sizing: border-box; z-index: 5;">
             <h2 style="color: #0070F3 !important; font-size: 26px; font-weight: 800; margin: 0; font-family: sans-serif; text-align: left; letter-spacing: -0.5px;">
               Сімейний центр
@@ -791,13 +792,18 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div> <!-- /left-steps-column -->
 
 
-      <!-- ПРАВА КОЛОНКА (Выровнена по высоте с левой карточкой «Сімейний центр») -->
-      <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; height: 100%;">
+      <!-- ПРАВА КОЛОНКА (Карточка Олены) -->
+      <!-- flex-grow: 1 позволяет ей занять ровно всю высоту, подстраиваясь под левый блок -->
+      <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; flex-grow: 1;">
         
         <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; height: 100%;">
           
-          <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex-grow: 1;">
-            <img src="reviews.jpg" alt="Олена" style="width: 100%; height: auto; display: block; max-height: none !important; object-fit: contain !important;">
+          <!-- Верхняя часть с фото и отзывом автоматически распределяет пространство -->
+          <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex-grow: 1; display: flex; flex-direction: column;">
+            
+            <div style="width: 100%; overflow: hidden; flex-grow: 1;">
+              <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
+            </div>
             
             <!-- Кнопка Відгуки -->
             <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
@@ -808,12 +814,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             <!-- Текст отзыва синий -->
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.92) 20%, rgba(255,255,255,0.98)); padding: 45px 24px 20px 24px; box-sizing: border-box; z-index: 5;">
               <p id="q-t-compact" style="margin: 0; font-size: 14px; line-height: 1.5; font-family: sans-serif; color: #0070F3 !important; font-weight: 700; font-style: italic;">
-                "Я отримала відповіді на всі свои питання та відчула підтримку з першого дня. Дякую команді UAGZ!"
+                "Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ!"
               </p>
             </div>
           </div>
           
-          <!-- Подпись автора (Олена) — теперь стоит точно на уровне низа левой картинки -->
+          <!-- Подпись автора (Олена) четко привязана к самому нижнему краю карточки -->
           <div class="quote-author-container" style="padding: 16px 24px; background: #ffffff; flex-shrink: 0;">
             <div class="quote-author-compact" style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 12px;">
               <div>

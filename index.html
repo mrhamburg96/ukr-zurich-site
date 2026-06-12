@@ -724,27 +724,32 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <!-- Главный двухколоночный контейнер -->
     <div class="main-how-layout" style="display: flex !important; gap: 30px; align-items: flex-start; justify-content: flex-start !important; width: 100%; padding: 0; box-sizing: border-box; margin: 0 !important;">
       
-      <!-- ЛЕВАЯ КОЛОНКА (Сімейний центр, Ми поруч, Статистика) -->
-      <div class="left-steps-column" style="display: flex; flex-direction: column; gap: 24px; flex: 1; max-width: 576px; box-sizing: border-box; margin: 0 !important;">
+      <!-- ЛЕВАЯ КОЛОНКА (Содержит верхнюю карточку и нижние блоки) -->
+      <div class="left-steps-column" style="display: flex; flex-direction: column; gap: 24px; flex: 1; max-width: 576px; box-sizing: border-box; margin: 0 !important; align-self: stretch !important;">
 
-        <!-- Блок 1: Сімейний центр -->
-        <a href="family-center.html" style="display: block; text-decoration: none; outline: none; border-radius: 20px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border: 1px solid #e2e8f0; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; box-sizing: border-box;">
+        <!-- Внутренний flex-контейнер для "Сімейного центру", который заставит его выровняться по нижнему краю вровень с Оленой -->
+        <div style="display: flex; flex: 1; align-items: flex-end; width: 100%;">
           
-          <img src="family-center.jpg" alt="Сімейний центр" style="width: 100%; height: auto; aspect-ratio: 16 / 9; display: block; object-fit: cover !important;">
-          
-          <!-- Плашка Приєднуйтесь -->
-          <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
-            <span style="color: #1e293b; font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Приєднуйтесь</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
+          <!-- Блок 1: Сімейний центр (Растягивается по высоте до нижней границы соседа) -->
+          <a href="family-center.html" style="display: block; text-decoration: none; outline: none; border-radius: 20px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border: 1px solid #e2e8f0; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; box-sizing: border-box; height: 100%;">
+            
+            <img src="family-center.jpg" alt="Сімейний центр" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
+            
+            <!-- Плашка Приєднуйтесь -->
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
+              <span style="color: #1e293b; font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Приєднуйтесь</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
 
-          <!-- Надпись синего цвета -->
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.95)); padding: 20px 24px 16px 24px; box-sizing: border-box; z-index: 5;">
-            <h2 style="color: #0070F3 !important; font-size: 26px; font-weight: 800; margin: 0; font-family: sans-serif; text-align: left; letter-spacing: -0.5px;">
-              Сімейний центр
-            </h2>
-          </div>
-        </a>
+            <!-- Надпись синего цвета -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.95)); padding: 20px 24px 16px 24px; box-sizing: border-box; z-index: 5;">
+              <h2 style="color: #0070F3 !important; font-size: 26px; font-weight: 800; margin: 0; font-family: sans-serif; text-align: left; letter-spacing: -0.5px;">
+                Сімейний центр
+              </h2>
+            </div>
+          </a>
+          
+        </div>
 
         <!-- Блоки под фото -->
         <div style="display: flex; flex-wrap: wrap; gap: 24px; width: 100%; box-sizing: border-box; justify-content: flex-start !important; margin: 0 !important;">
@@ -793,13 +798,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 
       <!-- ПРАВАЯ КОЛОНКА (Олена / Відгуки) -->
-      <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box;">
+      <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: stretch !important;">
         
-        <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative;">
+        <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; height: 100%; display: flex; flex-direction: column;">
           
-          <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0;">
-            <!-- Слегка корректируем пропорцию картинки под общую высоту блоков -->
-            <img src="reviews.jpg" alt="Олена" style="width: 100%; height: auto; aspect-ratio: 16 / 10.7; display: block; object-fit: cover !important;">
+          <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex: 1;">
+            <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
             
             <!-- Кнопка Відгуки -->
             <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
@@ -815,8 +819,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             </div>
           </div>
           
-          <!-- Подпись автора (Уменьшили padding-bottom и убрали лишний border-top, чтобы поднять текст выше) -->
-          <div class="quote-author-container" style="padding: 0px 24px 12px 24px; background: #ffffff;">
+          <!-- Подпись автора -->
+          <div class="quote-author-container" style="padding: 0px 24px 12px 24px; background: #ffffff; flex-shrink: 0;">
             <div class="quote-author-compact" style="display: flex; align-items: center; justify-content: space-between; padding-top: 0px;">
               <div>
                 <div class="quote-name-compact" id="q-n" style="font-weight: 700; font-size: 15px; font-family: sans-serif; color: #1e293b; margin: 0; padding: 0;">Олена</div>

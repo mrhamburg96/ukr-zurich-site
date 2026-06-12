@@ -805,13 +805,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div> <!-- /left-steps-column -->
 
 
-<!-- ПРАВАЯ КОЛОНКА (Олена / Відгуки) — ОДИНАКОВАЯ ВЫСОТА 304px С СЕМЕЙНЫМ ЦЕНТРОМ -->
-<div class="right-review-column" style="width: 360px; height: 304px !important; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: flex-start !important;">
+<!-- Вариант с автоматическим растягиванием ряда -->
+<div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: stretch !important;">
   
-  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: flex !important; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; height: 304px !important; flex-direction: column;">
+  <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: flex !important; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; flex: 1 !important; flex-direction: column; min-height: 100%;">
     
-    <!-- flex: 1 заставляет этот блок с картинкой и текстом занять всё доступное пространство в высоту -->
-    <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex: 1;">
+    <!-- Картинка и текст автоматически займут всю оставшуюся высоту ряда -->
+    <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex: 1 !important;">
       <img src="reviews.jpg" alt="Олена" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
       
       <!-- Кнопка Відгуки -->
@@ -828,7 +828,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
     </div>
     
-    <!-- Подпись автора (Имя 14px, Город 14px) — жестко прижата к нижнему краю карточки -->
+    <!-- Подпись автора (Имя 14px, Город 14px) намертво уходит вниз -->
     <div class="quote-author-container" style="padding: 10px 24px 16px 24px; background: #ffffff; flex-shrink: 0; border-radius: 0 0 20px 20px;">
       <div class="quote-author-compact" style="display: flex; align-items: center; justify-content: space-between;">
         <div>
@@ -840,7 +840,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
   </a>
   
-</div> <!-- /right-review-column -->
+</div>
 
       <!-- КОЛОНКА НОВОСТЕЙ — ТЕПЕРЬ ПОДНЯТА НАВЕРХ СОВМЕСТНО С ОСТАЛЬНЫМИ БЛОКАМИ -->
       <div class="news-column-holder" style="flex: 1; min-width: 280px; margin: 0 24px 0 0 !important; box-sizing: border-box; align-self: flex-start !important;">

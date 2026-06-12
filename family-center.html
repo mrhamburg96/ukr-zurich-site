@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сімейний центр UAGZ у Швейцарії</title>
+  <style>
+    /* Базовые сбросы и шрифты */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* --- ВЕРХНЯЯ ЧАСТЬ И БАННЕР (Screenshot_01.jpg) --- */
+    .hero-section {
+      width: 100%;
+      min-height: 450px;
+      position: relative;
+      background-color: #f8fafc;
+      /* Замените 'family-banner.jpg' на ваше реальное изображение семьи */
+      background-image: url('family-banner.jpg');
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: flex;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Адаптивность для мобильных устройств, чтобы текст не заезжал на картинку */
+    @media (max-width: 991px) {
+      .hero-section {
+        background-position: center bottom;
+        background-size: cover;
+        align-items: flex-start;
+        padding-bottom: 300px; /* Место под картинку снизу */
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 550px; /* Ограничиваем ширину текста как на макете */
+    }
+
+    /* Блок логотипа */
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 40px;
+    }
+    .logo-main {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      color: #002868; /* Фирменный темно-синий */
+      letter-spacing: 0.5px;
+    }
+    .flags {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .flag {
+      width: 20px;
+      height: 14px;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .logo-subtext {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #1e293b;
+      letter-spacing: 1px;
+    }
+
+    /* Тексты баннера */
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #002868;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .hero-descr {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .hero-subdescr {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.4;
+      margin-bottom: 30px;
+    }
+
+    /* Кнопка Зареєструватися */
+    .btn-register {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ffcc00; /* Яркий желтый цвет */
+      color: #002868;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .btn-register:hover {
+      background-color: #e6b800;
+    }
+    .btn-register:active {
+      transform: translateY(1px);
+    }
+
+
+    /* --- СРЕДНЯЯ ЧАСТЬ (Основной контент страницы при необходимости) --- */
+    .content-area {
+      padding: 60px 20px;
+      background-color: #ffffff;
+    }
+
+
+    /* --- НИЖНЯЯ ЧАСТЬ (Screenshot_2.png) --- */
+    
+    /* Блок Партнеры */
+    .partners-section {
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 20px 0;
+      background: #ffffff;
+    }
+    .partners-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .partners-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #002868;
+      margin-right: 10px;
+    }
+    .partners-logos {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+      flex: 1;
+    }
+    .partner-img {
+      height: 32px;
+      object-fit: contain;
+      filter: grayscale(0.2);
+      transition: filter 0.2s;
+    }
+    .partner-img:hover {
+      filter: grayscale(0);
+    }
+
+    /* Футер */
+    .main-footer {
+      background-color: #002868; /* Темно-синий фон */
+      color: #ffffff;
+      padding: 40px 20px;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    /* Колонки футера */
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+    }
+    .footer-col-brand {
+      max-width: 260px;
+    }
+    .footer-col-promo {
+      flex: 1.5;
+      min-width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 991px) {
+      .footer-col-promo {
+        justify-content: flex-start;
+      }
+    }
+
+    /* Брендинг в футере */
+    .footer-logo-sub {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .footer-brand-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #cbd5e1;
+      margin-top: 15px;
+    }
+
+    /* Стили заголовков и ссылок в футере */
+    .footer-heading {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-link-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .footer-link-item a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+    .footer-link-item a:hover {
+      color: #ffffff;
+    }
+    .footer-icon {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Соцсети */
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .social-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #cbd5e1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-btn:hover {
+      background: #ffffff;
+      color: #002868;
+      border-color: #ffffff;
+    }
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* Желтая промо-плашка справа */
+    .footer-promo-banner {
+      background-color: #ffcc00;
+      color: #002868;
+      padding: 20px 30px;
+      border-radius: 50px; /* Закругленная горизонтальная форма */
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+    }
+    .promo-text {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      flex: 1;
+    }
+    .promo-heart {
+      color: #002868;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .promo-heart svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO БАННЕР (Screenshot_01) ================= -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        
+        <!-- Логотип компании -->
+        <div class="logo-block">
+          <div class="logo-main">
+            <span class="logo-text">UAGZ</span>
+            <div class="flags">
+              <!-- Замените плейсхолдеры на реальные иконки флагов при наличии -->
+              <span style="font-size: 16px; line-height: 1;">🇨🇭🇺🇦</span>
+            </div>
+          </div>
+          <div class="logo-subtext">Сімейний центр</div>
+        </div>
+
+        <!-- Контентная часть -->
+        <h1 class="hero-title">Сімейний центр UAGZ у Швейцарії</h1>
+        <p class="hero-descr">Програми для дітей, молоді та батьків.</p>
+        <p class="hero-subdescr">Реєструйтесь, щоб першими отримувати інформацію про заходи та нові можливості.</p>
+        
+        <!-- Кнопка действия -->
+        <a href="#register" class="btn-register">
+          <span>Зареєструватися</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ОСНОВНОЙ КОНТЕНТ СТРАНИЦЫ ================= -->
+  <main class="content-area">
+    <div class="container">
+      <!-- Здесь в будущем разместятся внутренние блоки семейного центра -->
+      <p style="color: #64748b; font-style: italic; text-align: center;">Контент сторінки "Сімейний центр" буде розміщено тут...</p>
+    </div>
+  </main>
+
+  <!-- ================= НАШІ ПАРТНЕРИ (Screenshot_2) ================= -->
+  <section class="partners-section">
+    <div class="container partners-container">
+      <div class="partners-title">Наші партнери</div>
+      <div class="partners-logos">
+        <!-- Замените src на реальные пути к файлам логотипов -->
+        <img src="logo-maniac.png" alt="Maniac" class="partner-img" onerror="this.style.display='none';">
+        <span style="font-weight:700; color:#1e293b;">Maniac</span>
+        
+        <img src="logo-caritas.png" alt="Caritas Schweiz" class="partner-img" onerror="this.style.display='none';">
+        <span style="font-weight:700; color:#e11d48;">Caritas <span style="font-weight:400; font-size:12px; color:#64748b; display:block;">Schweiz</span></span>
+        
+        <img src="logo-heks.png" alt="HEKS" class="partner-img" onerror="this.style.display='none';">
+        <span style="font-weight:800; background:#e11d48; color:white; padding:2px 6px; font-size:12px;">HEKS</span>
+        
+        <img src="logo-zurich.png" alt="Stadt Zürich" class="partner-img" onerror="this.style.display='none';">
+        <span style="font-weight:600; color:#1e293b;">Stadt Zürich</span>
+        
+        <img src="logo-olympic.png" alt="swiss olympic" class="partner-img" onerror="this.style.round='none';">
+        <span style="font-weight:700; color:#e11d48;">★ swiss olympic</span>
+        
+        <img src="logo-kulturlegi.png" alt="kultur Legi" class="partner-img" onerror="this.style.display='none';">
+        <span style="font-weight:800; color:#1e293b;">kultur<span style="font-weight:300; display:block; margin-top:-4px;">Legi</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПОДВАЛ / FOOTER (Screenshot_2) ================= -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      
+      <!-- Блок 1: Описание ассоциации -->
+      <div class="footer-col footer-col-brand">
+        <div class="logo-main">
+          <span class="logo-text" style="color: #ffffff;">UAGZ</span>
+          <div class="flags">
+            <span style="font-size: 16px;">🇨🇭🇺🇦</span>
+          </div>
+        </div>
+        <div class="footer-logo-sub">Сімейний центр</div>
+        <p class="footer-brand-text">
+          Разом створюємо сильну, активну та єдину українську спільноту у Швейцарії!
+        </p>
+      </div>
+
+      <!-- Блок 2: Контакты -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Контакти</h4>
+        <ul class="footer-links">
+          <li class="footer-link-item">
+            <svg class="footer-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:info@uagz.ch">info@uagz.ch</a>
+          </li>
+          <li class="footer-link-item">
+            <svg class="footer-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+41761234567">+41 76 123 45 67</a>
+          </li>
+          <li class="footer-link-item">
+            <svg class="footer-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Швейцарія</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Блок 3: Соцсети -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Ми в соцмережах</h4>
+        <div class="social-icons">
+          <!-- Facebook -->
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <!-- Telegram -->
+          <a href="#" class="social-btn" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M21.9 2.14a1 1 0 0 0-1.14-.13l-18 9a1 1 0 0 0-.08 1.77l4.24 2.12 1.86 5.58a1 1 0 0 0 1.58.4l2.87-2.3 4.66 3.49a1 1 0 0 0 1.56-.54l4-18a1 1 0 0 0-.49-1.08zm-4.33 13.9l-6.83-5.12 6.13-4.3a.5.5 0 0 0-.64-.77l-7.75 5.43-3.1-1.55L19.54 4l-1.97 12.04z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Блок 4: Промо-плашка "Будь частиною нашого центру!" -->
+      <div class="footer-col-promo">
+        <div class="footer-promo-banner">
+          <div class="promo-text">Будь частиною нашого центру!</div>
+          <div class="promo-heart">
+            <!-- Иконка сердца со штрихами вокруг как на макете -->
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

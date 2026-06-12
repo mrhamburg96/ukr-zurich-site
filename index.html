@@ -717,10 +717,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
   </div>
 <!-- ДОБАВЛЯЕМ overflow: hidden, ЧТОБЫ ИЗ-ЗА ШИРИНЫ ЭКРАНА НЕ ПОЯВИЛСЯ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ -->
-<section class="how-sec" style="position: relative; width: 100%; box-sizing: border-box; overflow: hidden; padding-top: 0 !important;">
+<section class="how-sec" style="position: relative; width: 100%; box-sizing: border-box; overflow: hidden; padding-top: 0 !important; margin-top: 0 !important;">
   
-  <!-- Сдвигаем весь контент вверх ближе к кнопкам Telegram и WhatsApp -->
-  <div style="width: 100vw !important; max-width: 100vw !important; margin-left: 0 !important; margin-right: auto !important; padding: 0 0 0 20px !important; box-sizing: border-box; clear: both; margin-top: -60px !important;">
+  <!-- Контейнер без опасных отрицательных сдвигов. Картинки вернутся в исходный полный размер -->
+  <div style="width: 100vw !important; max-width: 100vw !important; margin-left: 0 !important; margin-right: auto !important; padding: 0 0 0 20px !important; box-sizing: border-box; clear: both; margin-top: 5px !important;">
     
     <div class="main-how-layout" style="display: flex !important; gap: 30px; align-items: flex-start; justify-content: flex-start !important; width: 100%; padding: 0; box-sizing: border-box; margin: 0 !important;">
       
@@ -730,8 +730,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <!-- Блок 1: Сімейний центр -->
         <a href="family-center.html" style="display: block; text-decoration: none; outline: none; border-radius: 20px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border: 1px solid #e2e8f0; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; box-sizing: border-box;">
           
-          <!-- Картинка больше не обрезается -->
-          <img src="family-center.jpg" alt="Сімейний центр" style="width: 100%; height: auto; display: block; max-height: 100%;">
+          <!-- Чистый вывод картинки без обрезки высоты -->
+          <img src="family-center.jpg" alt="Сімейний центр" style="width: 100%; height: auto; display: block; max-height: none !important; object-fit: contain !important;">
           
           <!-- Плашка Приєднуйтесь -->
           <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
@@ -747,7 +747,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           </div>
         </a>
 
-        <!-- Блоки под фото стоят ровно, без накладывания -->
+        <!-- Блоки под фото -->
         <div style="display: flex; flex-wrap: wrap; gap: 24px; width: 100%; box-sizing: border-box; justify-content: flex-start !important; margin: 0 !important;">
           
           <!-- Блок 2: Ми поруч з вами -->
@@ -798,9 +798,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         
         <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: block; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative;">
           
-          <!-- Картинка Олены теперь отображается полностью -->
+          <!-- Картинка Олены возвращена в исходные пропорции без дефектов -->
           <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0;">
-            <img src="reviews.jpg" alt="Олена" style="width: 100%; height: auto; display: block;">
+            <img src="reviews.jpg" alt="Олена" style="width: 100%; height: auto; display: block; max-height: none !important; object-fit: contain !important;">
             
             <!-- Кнопка Відгуки -->
             <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">

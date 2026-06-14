@@ -519,74 +519,210 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   white-space: nowrap !important;
 }
 
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
+/* ==========================================================================
+   АДАПТИВНАЯ ВЕРСТКА ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (СМАРТФОНЫ И ПЛАНШЕТЫ)
+   ========================================================================== */
 @media (max-width: 768px) {
   
-  .hero {
-    aspect-ratio: 16 / 11.5 !important; /* Оптимальная высота, чтобы видеть фото */
+  /* Общие настройки контейнеров */
+  body {
+    font-size: 14px;
   }
   
-  .hero-inner {
-    padding: 10px 0 0 12px !important; /* Жестко сдвигаем в самый верхний левый угол */
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+  /* 1. Навигация (Шапка сайта) */
+  nav {
+    padding: 0 1rem !important;
+    height: auto !important;
+    min-height: 60px;
+    flex-wrap: wrap;
+    gap: 10px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  .nav-links {
+    display: none !important; /* Скрываем стандартные ссылки ПК-меню */
+  }
+  .nav-r {
+    margin-left: auto;
+    gap: 8px !important;
+  }
+  .btn-solid, .btn-outline {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+  .btn-donate-nav {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
   }
 
-  /* Текст занимает только левую часть экрана и не лезет на лица */
+  /* 2. Главный баннер (Hero Section) */
+  .hero {
+    aspect-ratio: auto !important; /* Отменяем фиксированные пропорции ПК */
+    min-height: auto !important;
+    background-position: 75% center !important; /* Смещаем фоновое фото, чтобы лицо/объект были видны */
+    padding: 24px 16px !important;
+  }
+  .hero-inner {
+    position: relative !important;
+    padding: 0 !important;
+    inset: auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
   .hero-text {
-    max-width: 60% !important; 
+    max-width: 100% !important;
+    background: rgba(255, 255, 255, 0.85) !important; /* Добавляем мягкую подложку для читаемости */
+    padding: 16px !important;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    margin-bottom: 16px !important;
+  }
+  #h-t {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  #h-s {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+  .hero-btns {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .btn-hero-main, .btn-hero-sec {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 12px !important;
+  }
+
+  /* Виджет Telegram (если он находится внутри баннера или под ним) */
+  .tg-widget {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 10px !important;
+    align-self: stretch !important;
+  }
+
+  /* 3. Секция "Чем мы помогаем" (Иконки услуг верхнего стрипа) */
+  .svc-row {
+    grid-template-columns: repeat(3, 1fr) !important; /* По 3 компактные иконки в ряд */
+    gap: 8px !important;
+  }
+  .svc span {
+    font-size: 9px !important;
+  }
+
+  /* 4. Секция "Как это работает" */
+  .how-sec {
+    padding: 1.5rem 1rem !important;
+  }
+  .how-h1 {
+    font-size: 1.35rem !important;
+  }
+  .how-grid {
+    grid-template-columns: 1fr !important; /* Перестраиваем в одну колонку */
+    gap: 1.5rem !important;
+  }
+  .steps-row {
+    grid-template-columns: 1fr !important; /* Шаги идут друг за другом вертикально */
+    gap: 1rem !important;
+  }
+  .step-arr {
+    display: none !important; /* Прячем горизонтальные стрелочки */
+  }
+  .how-bottom {
+    grid-template-columns: 1fr !important; /* Снизу блоки (команда, статистика) тоже в 1 колонку */
+    gap: 1rem !important;
+  }
+  .how-photo {
+    height: 160px !important;
+  }
+
+  /* 5. Направления деятельности (Сетка карточек) */
+  .dir-sec {
+    padding: 1.5rem 1rem !important;
+  }
+  .dir-h1 {
+    font-size: 1.3rem !important;
+  }
+  .dir-stats {
+    grid-template-columns: repeat(2, 1fr) !important; /* Статистика 2х2 */
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+  .dir-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Ровно по 2 карточки в ряд для экономии места */
+    gap: 8px !important;
+  }
+  .dir-photo {
+    height: 110px !important; /* Слегка уменьшаем высоту картинок */
+  }
+  .dir-title {
+    font-size: 11px !important;
+  }
+
+  /* Блок индивидуальной консультации (Синяя плашка снизу направлений) */
+  .dir-cta-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+    text-align: center;
+    padding: 16px !important;
+  }
+  .dir-cta-left {
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  .dir-cta-btns {
+    width: 100%;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .dir-cta-btns button, .dir-cta-btns a {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  /* 6. Сетка блоков "Для кого" (Иконки круглые) */
+  .whom-grid {
+    grid-template-columns: repeat(4, 1fr) !important; /* По 4 иконки в ряд на мобильном */
+    gap: 6px !important;
+  }
+
+  /* 7. Нижние целевые блоки (Стать волонтером / Поддержать центр) */
+  .cta-grid {
+    grid-template-columns: 1fr !important; /* Каждый блок занимает всю ширину экрана */
+    gap: 10px !important;
+  }
+  .email-r {
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  .email-r button {
     width: 100% !important;
   }
 
-  /* Уменьшаем мини-флаги */
-  .hero-logo-row {
-    margin-bottom: 2px !important;
-    gap: 4px !important;
-    transform: scale(0.8);
-    transform-origin: left center;
-  }
-
-  /* Пропорционально уменьшаем главный заголовок */
-  #h-t {
-    font-size: 0.9rem !important; 
-    line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
-  }
-
-  /* Пропорционально уменьшаем подзаголовок */
-  #h-s {
-    font-size: 0.6rem !important; 
-    line-height: 1.3 !important;
-    margin: 0 0 8px 0 !important;
-  }
-
-  /* Компактные кнопки друг под другом, чтобы не занимать ширину */
-  .hero-btns {
-    flex-direction: column !important; 
-    gap: 5px !important;
+  /* Блок доверия */
+  .trust-inner {
+    flex-direction: column !important;
     align-items: flex-start !important;
+    gap: 10px !important;
   }
 
-  .btn-hero-main, .btn-hero-sec {
-    padding: 6px 10px !important; 
-    font-size: 11px !important; 
-    border-radius: 4px !important;
-    width: auto !important;
-    max-width: 130px !important;
-    text-align: center !important;
+  /* 8. Подвал сайта (Footer) */
+  footer {
+    padding: 2rem 1rem 1rem !important;
   }
-/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
-
-.left-steps-column{
-    position: relative !important;
-    left: -40px !important;
-}
-
-/* мобильная версия */
-@media (max-width:768px){
-    .left-steps-column{
-        left: 0 !important;
-    }
+  .footer-grid {
+    grid-template-columns: 1fr !important; /* Полностью вертикальные колонки футера */
+    gap: 1.5rem !important;
+    text-align: left !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center;
+  }
 }
 /* ===================================================================== */
 </style>

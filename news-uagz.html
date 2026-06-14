@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Новини | UAGZ</title>
   <style>
-    /* Сохраняем общую стилистику сайта */
+    /* Стиль сайта */
     body {
       font-family: sans-serif;
       background-color: #f8fafc;
@@ -21,7 +21,6 @@
       padding: 0 20px;
     }
 
-    /* Верхняя панель: навигация и переключатель языков */
     .header-nav {
       display: flex;
       justify-content: space-between;
@@ -43,7 +42,6 @@
       opacity: 0.8;
     }
 
-    /* Кнопки переключения языков UA/DE */
     .lang-switcher {
       display: flex;
       gap: 8px;
@@ -65,11 +63,8 @@
       color: #ffffff;
       border-color: #0070F3;
     }
-    .lang-btn:hover:not(.active) {
-      background: #f1f5f9;
-    }
 
-    /* Лента новостей — Карточка */
+    /* Карточки новостей */
     .news-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -79,7 +74,6 @@
       margin-bottom: 32px;
     }
 
-    /* Баннер новости */
     .news-banner {
       width: 100%;
       height: 320px;
@@ -89,10 +83,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 15%; /* Защита от обрезания голов */
+      object-position: center 15%;
     }
 
-    /* Содержимое новости */
     .news-body {
       padding: 32px;
     }
@@ -114,22 +107,20 @@
       letter-spacing: -0.5px;
     }
 
-    /* Анонс новости (виден всегда) */
     .news-preview {
       font-size: 16px;
       color: #334155;
       margin-bottom: 16px;
     }
 
-    /* Раскрывающаяся часть (аккордеон) */
+    /* Анимация раскрытия */
     .news-full-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease-out;
+      transition: max-height 0.5s ease-in-out;
     }
     .news-full-content.open {
-      max-height: 2000px; /* Достаточное значение для раскрытия */
-      transition: max-height 0.6s ease-in;
+      max-height: 1500px; /* Раскрывает весь текст */
     }
 
     .news-text p {
@@ -144,7 +135,7 @@
       color: #0f172a;
     }
 
-    /* Кнопка Раскрыть / Свернуть */
+    /* Кнопки "Читати повністю" */
     .toggle-btn {
       display: inline-flex;
       align-items: center;
@@ -165,7 +156,7 @@
       transform: rotate(180deg);
     }
 
-    /* Скрытие контента для смены языков */
+    /* Смена языков */
     .lang-content {
       display: none;
     }
@@ -184,54 +175,47 @@
         Назад на головну
       </a>
       <div class="lang-switcher">
-        <button class="lang-btn active" onclick="switchLanguage('ua')">UA</button>
-        <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
+        <button class="lang-btn active" data-lang="ua" onclick="switchLanguage('ua')">UA</button>
+        <button class="lang-btn" data-lang="de" onclick="switchLanguage('de')">DE</button>
       </div>
     </div>
 
     <article class="news-card">
-      
       <div class="news-banner">
         <img src="news1.jpg" alt="UAGZ | Ukrainian Community Zürich">
       </div>
-
       <div class="news-body">
         <div class="news-tag">UAGZ | Ukrainian Community Zürich</div>
         
-        <div id="content-ua" class="lang-content active">
+        <div class="lang-content active ua-content">
           <h1 class="news-title">У Цюриху розпочала свою діяльність нова громадська організація</h1>
-          
           <div class="news-preview">
             У Цюриху розпочала свою діяльність нова громадська організація UAGZ — Український інтеграційний та громадський центр Цюриха. Мета організації — об’єднувати людей та надавати можливості для спільного розвитку.
           </div>
-
-          <div class="news-full-content" id="full-content-ua">
+          <div class="news-full-content">
             <div class="news-text">
-              <p>Мета організації — об’єднувати людей, надавати можливості для працевлаштування та спільно реалізовувати проекти у сфері освіти, сімейного розвитку, культури, спорту та суспільних ініціатив.</p>
-              <p>Першими напрямками работы Організації стануть програми підтримки сімей з дітьми, дитячі, освітні та розвивальні програми, зокрема спортивні гуртки, групи з танців, творчі заняття з малювання та акторської майстерності.</p>
+              <p>Мета організації — об’єднувати людей, надавати можливості для працевлаування та спільно реалізовувати проекти у сфері освіти, сімейного розвитку, культури, спорту та суспільних ініціатив.</p>
+              <p>Першими напрямками роботи Організації стануть програми підтримки сімей з дітьми, дитячі, освітні та розвивальні програми, зокрема спортивні гуртки, групи з танців, творчі заняття з малювання та акторської майстерності.</p>
               <p>Також планується проведення активних заходів, культурних подій та створення можливостей для спілкування й інтеграції в спільноти Цюриха.</p>
               <p>Окремим напрямком роботи Організації є волонтерська діяльність — реалізація суспільно корисних ініціатив, екологічних проектів, організація заходів та розвиток співпраці з громадськими організаціями й державними установами Цюриха.</p>
               <p>Ми вдячні всім, хто підтримав створення організації, та запрошуємо всіх активних людей і сім’ї з дітьми долучатися до програм UAGZ.</p>
               <p>Приходьте до нас, беріть участь у реалізації спільних ініціатив, долучайтеся до активу Організації та приносьте свої ідеї.</p>
-              <p>Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у развитие спільноти Цюриха.</p>
+              <p>Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у розвиток спільноти Цюриха.</p>
               <p class="signature">З повагою,<br>Актив організації UAGZ</p>
             </div>
           </div>
-          
-          <button class="toggle-btn" onclick="toggleNews('ua')" id="btn-ua">
+          <button class="toggle-btn" onclick="toggleNews(this, 'ua')">
             <span>Читати повністю</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
         </div>
 
-        <div id="content-de" class="lang-content">
+        <div class="lang-content de-content">
           <h1 class="news-title">Eine neue Organisation hat ihre Tätigkeit in Zürich aufgenommen</h1>
-          
           <div class="news-preview">
             In Zürich hat die neue gemeinnützige Organisation UAGZ — das Ukrainische Integrations- und Gemeindezentrum Zürich — ihre Arbeit aufgenommen. Das Ziel der Organisation ist es, Menschen zu verbinden.
           </div>
-
-          <div class="news-full-content" id="full-content-de">
+          <div class="news-full-content">
             <div class="news-text">
               <p>Das Ziel der Organisation ist es, Menschen zusammenzubringen, Beschäftigungsmöglichkeiten zu bieten und gemeinsam Projekte in den Bereichen Bildung, Familienentwicklung, Kultur, Sport und soziale Initiativen umzusetzen.</p>
               <p>Die ersten Schwerpunkte der Arbeit der Organisation werden Unterstützungsprogramme für Familien mit Kindern, Kinder-, Bildungs- und Entwicklungsprogramme sein, darunter Sportvereine, Tanzgruppen, kreative Mal- und Schauspielkurse.</p>
@@ -243,8 +227,7 @@
               <p class="signature">Mit freundlichen Grüßen,<br>Aktiv-Team der Organisation UAGZ</p>
             </div>
           </div>
-          
-          <button class="toggle-btn" onclick="toggleNews('de')" id="btn-de">
+          <button class="toggle-btn" onclick="toggleNews(this, 'de')">
             <span>Vollständig lesen</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
@@ -253,54 +236,39 @@
       </div>
     </article>
 
-    <!-- КАРТОЧКА ВТОРОЙ НОВОСТИ (4 ЧЕРВНЯ) -->
-    <article class="news-card" style="margin-top: 32px;">
-      
-      <!-- Баннер второй новости -->
+    <article class="news-card">
       <div class="news-banner">
         <img src="news2.jpg" alt="UAGZ | Ukrainian Community Zürich">
       </div>
-
       <div class="news-body">
         <div class="news-tag">UAGZ | Ukrainian Community Zürich</div>
         
-        <!-- ================= УКРАИНСКАЯ ВЕРСИЯ ================= -->
-        <div id="content-news2-ua" class="lang-content active">
+        <div class="lang-content active ua-content">
           <h1 class="news-title">Робоча нарада UAGZ: обговорення нових програмних ініціатив</h1>
-          
-          <!-- Короткий анонс новости -->
           <div class="news-preview">
             4 червня відбулася робоча нарада за участю керівників структурних підрозділів UAGZ, під час якої обговорено перспективні напрямки діяльності організації та нові програмні ініціативи.
           </div>
-
-          <!-- Раскрывающаяся вкладка -->
-          <div class="news-full-content" id="full-content-news2-ua">
+          <div class="news-full-content">
             <div class="news-text">
               <p>Однією з ключових тем стала презентація проєкту створення Familien-, Kinder- und Jugendzentrum UAGZ — Сімейного, дитячо-молодіжного центру UAGZ — простору розвитку, підтримки та нових можливостей для дітей, молоді та сімей.</p>
               <p>Особливу увагу учасники приділили спортивному напряму, зокрема ідеї запуску дитячої програми з плавання, спрямованої на фізичний розвиток, формування здорових звичок і активного способу життя.</p>
               <p>Також було презентовано напрям акторської майстерності, який передбачає розвиток творчих здібностей, комунікації, впевненості у собі та навичок командної взаємодії.</p>
-              <p>За результатами зустрічі проєкт передано на подальше опрацювання та підготовку до реализации в межах діяльності UAGZ.</p>
+              <p>За результатами зустрічі проєкт передано на подальше опрацювання та підготовку до реалізації в межах діяльності UAGZ.</p>
               <p class="signature" style="color: #0070F3;">Разом створюємо сильну, активну та єдину спільноту.</p>
             </div>
           </div>
-          
-          <button class="toggle-btn" onclick="toggleNews2('ua')" id="btn-news2-ua">
+          <button class="toggle-btn" onclick="toggleNews(this, 'ua')">
             <span>Читати повністю</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
         </div>
 
-        <!-- ================= НЕМЕЦКАЯ ВЕРСИЯ ================= -->
-        <div id="content-news2-de" class="lang-content">
+        <div class="lang-content de-content">
           <h1 class="news-title">UAGZ-Arbeitstreffen: Diskussion neuer Programminitiativen</h1>
-          
-          <!-- Короткий анонс на немецком -->
           <div class="news-preview">
             Am 4. Juni fand ein Arbeitstreffen mit den Leitern der UAGZ-Struktureinheiten statt, bei dem vielversprechende Aktivitäten der Organisation und neue Programminitiativen besprochen wurden.
           </div>
-
-          <!-- Раскрывающаяся вкладка на немецком -->
-          <div class="news-full-content" id="full-content-news2-de">
+          <div class="news-full-content">
             <div class="news-text">
               <p>Eines der Hauptthemen war die Präsentation des Projekts zur Schaffung des Familien-, Kinder- und Jugendzentrums UAGZ — ein Raum für Entwicklung, Unterstützung und neue Möglichkeiten für Kinder, Jugendliche und Familien.</p>
               <p>Besondere Aufmerksamkeit widmeten die Teilnehmer dem Bereich Sport, insbesondere der Idee, ein Schwimmprogramm für Kinder ins Leben zu rufen, das auf die körperliche Entwicklung, die Förderung gesunder Gewohnheiten und einen aktiven Lebensstil abzielt.</p>
@@ -309,8 +277,7 @@
               <p class="signature" style="color: #0070F3;">Gemeinsam schaffen wir eine starke, aktive und vereinte Gemeinschaft.</p>
             </div>
           </div>
-          
-          <button class="toggle-btn" onclick="toggleNews2('de')" id="btn-news2-de">
+          <button class="toggle-btn" onclick="toggleNews(this, 'de')">
             <span>Vollständig lesen</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
@@ -322,33 +289,38 @@
   </div>
 
   <script>
-    // Функция раскрытия аккордеона
-    function toggleNews(lang) {
-      const content = document.getElementById('full-content-' + lang);
-      const btn = document.getElementById('btn-' + lang);
-      const btnText = btn.querySelector('span');
+    // Универсальная функция раскрытия для любой новости
+    function toggleNews(button, lang) {
+      // Ищем раскрывающийся блок именно внутри этой новости
+      const parentDiv = button.parentElement;
+      const content = parentDiv.querySelector('.news-full-content');
+      const btnText = button.querySelector('span');
 
       if (content.classList.contains('open')) {
         content.classList.remove('open');
-        btn.classList.remove('active');
+        button.classList.remove('active');
         btnText.innerText = lang === 'ua' ? 'Читати повністю' : 'Vollständig lesen';
       } else {
         content.classList.add('open');
-        btn.classList.add('active');
+        button.classList.add('active');
         btnText.innerText = lang === 'ua' ? 'Згорнути' : 'Schließen';
       }
     }
 
-    // Функция переключения UA / DE
+    // Надежное переключение языков для всех новостей разом
     function switchLanguage(lang) {
-      // Кнопки
+      // Обновляем активную кнопку
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
 
-      // Контент
-      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-      document.getElementById('content-' + lang).classWith = 'lang-content';
-      document.getElementById('content-' + lang).classList.add('active');
+      // Переключаем блоки контента
+      if (lang === 'ua') {
+        document.querySelectorAll('.ua-content').forEach(el => el.classList.add('active'));
+        document.querySelectorAll('.de-content').forEach(el => el.classList.remove('active'));
+      } else {
+        document.querySelectorAll('.de-content').forEach(el => el.classList.add('active'));
+        document.querySelectorAll('.ua-content').forEach(el => el.classList.remove('active'));
+      }
     }
   </script>
 </body>

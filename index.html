@@ -575,18 +575,60 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     max-width: 130px !important;
     text-align: center !important;
   }
-/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
 
-.left-steps-column{
-    position: relative !important;
-    left: -40px !important;
+  /* Сдвиг левого блока обнуляем на мобилках */
+  .left-steps-column {
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 🚀 НОВЫЕ СТИЛИ: Перестраиваем 3 колонки ("Сімейний центр", "Олена", "Новини") в один вертикальный ряд */
+  .how-sec [style*="display: flex"], 
+  .how-sec [style*="display:flex"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  /* Заставляем карточки занимать всю ширину экрана смартфона */
+  .how-sec [style*="max-width: 380px"],
+  .how-sec [style*="max-width:380px"],
+  .how-sec [style*="min-width: 280px"],
+  .how-sec [style*="min-width:280px"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* На мобильных авто-высота карточки Олены важнее фиксированной, чтобы влез весь текст */
+  .how-sec [style*="height: 100%"],
+  .how-sec [style*="height:100%"] {
+    height: auto !important;
+  }
+
+  /* Подгоняем высоту картинок, чтобы на мобильном они не растягивались */
+  .how-sec img {
+    height: 260px !important;
+  }
+
+  /* Адаптируем блок волонтерства под экран телефона */
+  .volunteer-cta-container > div {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 24px !important;
+  }
+
+  .volunteer-cta-container .btn-solid {
+    width: 100% !important;
+    text-align: center;
+    box-sizing: border-box;
+  }
 }
 
-/* мобильная версия */
-@media (max-width:768px){
-    .left-steps-column{
-        left: 0 !important;
-    }
+/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ДЛЯ ДЕСКТОПА (Оставляем снаружи медиазапроса) ===== */
+.left-steps-column {
+  position: relative !important;
+  left: -40px !important;
 }
 /* ===================================================================== */
 </style>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новини | UAGZ</title>
+  <style>
+    /* Сохраняем общую стилистику сайта */
+    body {
+      font-family: sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Верхняя панель: навигация и переключатель языков */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0070F3;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover {
+      opacity: 0.8;
+    }
+
+    /* Кнопки переключения языков UA/DE */
+    .lang-switcher {
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      padding: 6px 12px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .lang-btn.active {
+      background: #0070F3;
+      color: #ffffff;
+      border-color: #0070F3;
+    }
+    .lang-btn:hover:not(.active) {
+      background: #f1f5f9;
+    }
+
+    /* Лента новостей — Карточка */
+    .news-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      margin-bottom: 32px;
+    }
+
+    /* Баннер новости */
+    .news-banner {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+    }
+    .news-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%; /* Защита от обрезания голов */
+    }
+
+    /* Содержимое новости */
+    .news-body {
+      padding: 32px;
+    }
+
+    .news-tag {
+      color: #0070F3;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .news-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.5px;
+    }
+
+    /* Анонс новости (виден всегда) */
+    .news-preview {
+      font-size: 16px;
+      color: #334155;
+      margin-bottom: 16px;
+    }
+
+    /* Раскрывающаяся часть (аккордеон) */
+    .news-full-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+    }
+    .news-full-content.open {
+      max-height: 2000px; /* Достаточное значение для раскрытия */
+      transition: max-height 0.6s ease-in;
+    }
+
+    .news-text p {
+      font-size: 16px;
+      color: #334155;
+      margin: 0 0 16px 0;
+    }
+
+    .signature {
+      margin-top: 24px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* Кнопка Раскрыть / Свернуть */
+    .toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #0070F3;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 8px 0;
+      margin-top: 8px;
+    }
+    .toggle-btn svg {
+      transition: transform 0.3s;
+    }
+    .toggle-btn.active svg {
+      transform: rotate(180deg);
+    }
+
+    /* Скрытие контента для смены языков */
+    .lang-content {
+      display: none;
+    }
+    .lang-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header-nav">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Назад на головну
+      </a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('ua')">UA</button>
+        <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
+      </div>
+    </div>
+
+    <article class="news-card">
+      
+      <div class="news-banner">
+        <img src="news1.jpg" alt="UAGZ | Ukrainian Community Zürich">
+      </div>
+
+      <div class="news-body">
+        <div class="news-tag">UAGZ | Ukrainian Community Zürich</div>
+        
+        <div id="content-ua" class="lang-content active">
+          <h1 class="news-title">У Цюриху розпочала свою діяльність нова громадська організація</h1>
+          
+          <div class="news-preview">
+            У Цюриху розпочала свою діяльність нова громадська організація UAGZ — Український інтеграційний та громадський центр Цюриха. Мета організації — об’єднувати людей та надавати можливості для спільного розвитку.
+          </div>
+
+          <div class="news-full-content" id="full-content-ua">
+            <div class="news-text">
+              <p>Мета організації — об’єднувати людей, надавати можливості для працевлаштування та спільно реалізовувати проекти у сфері освіти, сімейного розвитку, культури, спорту та суспільних ініціатив.</p>
+              <p>Першими напрямками работы Організації стануть програми підтримки сімей з дітьми, дитячі, освітні та розвивальні програми, зокрема спортивні гуртки, групи з танців, творчі заняття з малювання та акторської майстерності.</p>
+              <p>Також планується проведення активних заходів, культурних подій та створення можливостей для спілкування й інтеграції в спільноти Цюриха.</p>
+              <p>Окремим напрямком роботи Організації є волонтерська діяльність — реалізація суспільно корисних ініціатив, екологічних проектів, організація заходів та розвиток співпраці з громадськими організаціями й державними установами Цюриха.</p>
+              <p>Ми вдячні всім, хто підтримав створення організації, та запрошуємо всіх активних людей і сім’ї з дітьми долучатися до програм UAGZ.</p>
+              <p>Приходьте до нас, беріть участь у реалізації спільних ініціатив, долучайтеся до активу Організації та приносьте свої ідеї.</p>
+              <p>Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у развитие спільноти Цюриха.</p>
+              <p class="signature">З повагою,<br>Актив організації UAGZ</p>
+            </div>
+          </div>
+          
+          <button class="toggle-btn" onclick="toggleNews('ua')" id="btn-ua">
+            <span>Читати повністю</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+
+        <div id="content-de" class="lang-content">
+          <h1 class="news-title">Eine neue Organisation hat ihre Tätigkeit in Zürich aufgenommen</h1>
+          
+          <div class="news-preview">
+            In Zürich hat die neue gemeinnützige Organisation UAGZ — das Ukrainische Integrations- und Gemeindezentrum Zürich — ihre Arbeit aufgenommen. Das Ziel der Organisation ist es, Menschen zu verbinden.
+          </div>
+
+          <div class="news-full-content" id="full-content-de">
+            <div class="news-text">
+              <p>Das Ziel der Organisation ist es, Menschen zusammenzubringen, Beschäftigungsmöglichkeiten zu bieten und gemeinsam Projekte in den Bereichen Bildung, Familienentwicklung, Kultur, Sport und soziale Initiativen umzusetzen.</p>
+              <p>Die ersten Schwerpunkte der Arbeit der Organisation werden Unterstützungsprogramme für Familien mit Kindern, Kinder-, Bildungs- und Entwicklungsprogramme sein, darunter Sportvereine, Tanzgruppen, kreative Mal- und Schauspielkurse.</p>
+              <p>Geplant sind auch aktive Freizeitaktivitäten, kulturelle Veranstaltungen sowie Möglichkeiten zum Austausch und zur Integration in die Zürcher Gemeinschaft.</p>
+              <p>Ein separater Bereich der Arbeit der Organisation ist die ehrenamtliche Tätigkeit — die Umsetzung gemeinnütziger Initiativen, Umweltprojekte, die Organisation von Veranstaltungen und der Ausbau der Zusammenarbeit mit NGOs und staatlichen Institutionen in Zürich.</p>
+              <p>Wir danken allen, die die Gründung der Organisation unterstützt haben, und laden alle aktiven Menschen und Familien mit Kindern ein, sich den Programmen von UAGZ anzuschließen.</p>
+              <p>Kommen Sie zu uns, beteiligen Sie sich an der Umsetzung gemeinsamer Initiativen, werden Sie im Kernteam der Organisation aktiv und bringen Sie Ihre Ideen ein.</p>
+              <p>Gemeinsam können wir mehr Möglichkeiten für Ukrainer schaffen und einen wichtigen Beitrag zur Entwicklung der Zürcher Gemeinschaft leisten.</p>
+              <p class="signature">Mit freundlichen Grüßen,<br>Aktiv-Team der Organisation UAGZ</p>
+            </div>
+          </div>
+          
+          <button class="toggle-btn" onclick="toggleNews('de')" id="btn-de">
+            <span>Vollständig lesen</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+
+  <script>
+    // Функция раскрытия аккордеона
+    function toggleNews(lang) {
+      const content = document.getElementById('full-content-' + lang);
+      const btn = document.getElementById('btn-' + lang);
+      const btnText = btn.querySelector('span');
+
+      if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        btn.classList.remove('active');
+        btnText.innerText = lang === 'ua' ? 'Читати повністю' : 'Vollständig lesen';
+      } else {
+        content.classList.add('open');
+        btn.classList.add('active');
+        btnText.innerText = lang === 'ua' ? 'Згорнути' : 'Schließen';
+      }
+    }
+
+    // Функция переключения UA / DE
+    function switchLanguage(lang) {
+      // Кнопки
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Контент
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('content-' + lang).classWith = 'lang-content';
+      document.getElementById('content-' + lang).classList.add('active');
+    }
+  </script>
+</body>
+</html>

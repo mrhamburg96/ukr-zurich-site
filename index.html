@@ -765,30 +765,41 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 <!-- ═══════ NAV ═══════════════════════════════════════ -->
 <nav>
-  <a class="nav-logo" href="./">
+  <div class="nav-logo">
     <div class="nav-logo-flags">
-      <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
-      <div class="flag-ch" style="width:18px;height:18px"></div>
+      <div class="flag-ua" style="width:18px;height:12px;"><div class="t"></div><div class="b"></div></div>
+      <div class="flag-ch" style="width:12px;height:12px;"></div>
     </div>
-    <div>
-      <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    <span class="logo-heart">♥</span>
+    <div class="brand">UAGZ<small>Український центр</small></div>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-menu-wrapper" id="navMenuWrapper">
+    <ul class="nav-links">
+      <li><a href="#" class="active">Головна</a></li>
+      <li><a href="#about">Про центр</a></li>
+      <li><a href="#help">Допомога</a></li>
+      <li><a href="#events">Події</a></li>
+      <li><a href="#knowledge">Knowledge Center</a></li>
+      <li><a href="#ads">Оголошення</a></li>
+      <li><a href="#volunteer">Волонтерство</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+
+    <div class="nav-r">
+      <div class="lang-sw">
+        <button class="lb on">UA</button>
+        <button class="lb">DE</button>
+      </div>
+      <button class="btn-donate-nav">Donate</button>
     </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="./" class="active" id="nl-1">Головна</a></li>
-    <li><a href="about.html" id="nl-2">Про центр</a></li>
-    <li><a href="help.html" id="nl-3">Допомога</a></li>
-    <li><a href="events.html" id="nl-4">Події</a></li>
-    <li><a href="knowledge.html" id="nav-knowledge">Knowledge Center</a></li>
-    <li><a href="announcements.html" id="nav-announcements">Оголошення</a></li>
-    <li><a href="volunteering.html" id="nav-volunteering">Волонтерство</a></li>
-    <li><button class="btn-donate-nav" id="btn-donate-nav">Donate</button></li>
-    <li><a href="about.html" id="nav-contacts">Контакти</a></li>
-  </ul>
- <div class="lang-sw">
-  <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
-  <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
-</div>
+  </div>
 </nav>
 
 <!-- ═══════ HERO ════════════════════════════════════ -->

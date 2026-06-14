@@ -814,35 +814,36 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   <a href="elderly-html" class="quote-card hero-review-card-compact" style="display: flex !important; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; flex: 1 !important; flex-direction: column; min-height: 100%;">
     
     <!-- Картинка и текст автоматически займут всю оставшуюся высоту ряда -->
+   <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column;">
+  <a href="#" style="display: flex; flex-direction: column; text-decoration: none; outline: none; border-radius: 20px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border: 1px solid #e2e8f0; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; box-sizing: border-box; height: 100%;">
+    
     <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex: 1 !important;">
       <img src="elderly1.jpg" alt="Олена" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
       
-      <!-- Кнопка Дивіться далі -->
-      <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
-        <span style="color: #1e293b; font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Дивіться далі</span>
+      <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(4px); color: #0070F3; border: 2px solid #ffffff; padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 10; transition: all 0.2s; cursor: pointer;" 
+           onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'" 
+           onmouseout="this.style.backgroundColor='rgba(255,255,255,0.15)'">
+        <span style="font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Дивіться далі</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </div>
 
-      <!-- Текст отзыва (14px) -->
       <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.92) 20%, rgba(255,255,255,0.98)); padding: 45px 24px 12px 24px; box-sizing: border-box; z-index: 5;">
         <p id="q-t-compact" style="margin: 0; font-size: 14px !important; line-height: 1.5; font-family: sans-serif; color: #0070F3 !important; font-weight: 700; font-style: italic;">
           "Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні."
         </p>
       </div>
     </div>
-    <!-- Подпись автора (Имя 14px, Город 14px) намертво уходит вниз -->
+
     <div class="quote-author-container" style="padding: 10px 24px 16px 24px; background: #ffffff; flex-shrink: 0; border-radius: 0 0 20px 20px;">
       <div class="quote-author-compact" style="display: flex; align-items: center; justify-content: space-between;">
         <div>
-         <div class="quote-name-compact" id="q-n" style="font-weight: 700; font-size: 14px !important; font-family: sans-serif; color: #1e293b; margin: 0; padding: 0; line-height: 1.4;">UAGZ</div>
+          <div class="quote-name-compact" id="q-n" style="font-weight: 700; font-size: 14px !important; font-family: sans-serif; color: #1e293b; margin: 0; padding: 0; line-height: 1.4;">UAGZ</div>
           <div class="quote-loc-compact" style="color: #64748b; font-size: 14px !important; font-weight: 500; margin-top: 2px; font-family: sans-serif; line-height: 1.3;">Zürich</div>
         </div>
       </div>
     </div>
 
   </a>
-  
-   
 </div>
 
 <!-- КОЛОНКА НОВОСТЕЙ — ССЫЛКА ВЕДЕТ НА СТРАНИЦУ ЛЕНТЫ NEWS-UAGZ.HTML -->

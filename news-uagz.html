@@ -74,17 +74,21 @@
       margin-bottom: 32px;
     }
 
-    .news-banner {
-      width: 100%;
-      height: 320px;
-      overflow: hidden;
-    }
-    .news-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-    }
+  /* Найдите этот блок и замените его код на этот: */
+.news-banner {
+  width: 100%;
+  height: auto;          /* Убираем жесткую высоту 320px, делаем её автоматической */
+  background: #ffffff;   /* Белый фон на всякий случай */
+  overflow: hidden;
+}
+
+/* И этот блок тоже замените: */
+.news-banner img {
+  width: 100%;
+  height: auto;          /* Картинка будет менять высоту пропорционально ширине */
+  display: block;        /* Убирает лишние отступы снизу */
+  object-fit: contain;   /* Инструкция браузеру: показывать картинку ЦЕЛИКОМ */
+}
 
     .news-body {
       padding: 32px;

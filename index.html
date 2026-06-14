@@ -519,117 +519,124 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   white-space: nowrap !important;
 }
 
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
+/* 📱 ПОЛНАЯ АДАПТАЦИЯ ДЛЯ СМАРТФОНОВ (ДО 768px) */
 @media (max-width: 768px) {
   
+  /* 1. Настройка главного баннера (Hero) */
   .hero {
-    aspect-ratio: 16 / 11.5 !important; /* Оптимальная высота, чтобы видеть фото */
+    aspect-ratio: 16 / 11.5 !important;
+    min-height: auto !important;
   }
-  
   .hero-inner {
-    padding: 10px 0 0 12px !important; /* Жестко сдвигаем в самый верхний левый угол */
+    min-height: auto !important;
+    padding: 12px !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
   }
-
-  /* Текст занимает только левую часть экрана и не лезет на лица */
   .hero-text {
-    max-width: 60% !important; 
+    max-width: 65% !important;
     width: 100% !important;
   }
-
-  /* Уменьшаем мини-флаги */
   .hero-logo-row {
     margin-bottom: 2px !important;
     gap: 4px !important;
-    transform: scale(0.8);
+    transform: scale(0.85);
     transform-origin: left center;
   }
-
-  /* Пропорционально уменьшаем главный заголовок */
   #h-t {
-    font-size: 0.9rem !important; 
+    font-size: 0.95rem !important;
     line-height: 1.2 !important;
     margin: 0 0 4px 0 !important;
   }
-
-  /* Пропорционально уменьшаем подзаголовок */
   #h-s {
-    font-size: 0.6rem !important; 
+    font-size: 0.65rem !important;
     line-height: 1.3 !important;
     margin: 0 0 8px 0 !important;
   }
-
-  /* Компактные кнопки друг под другом, чтобы не занимать ширину */
   .hero-btns {
-    flex-direction: column !important; 
-    gap: 5px !important;
-    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 6px !important;
   }
-
   .btn-hero-main, .btn-hero-sec {
-    padding: 6px 10px !important; 
-    font-size: 11px !important; 
-    border-radius: 4px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    border-radius: 5px !important;
     width: auto !important;
-    max-width: 130px !important;
-    text-align: center !important;
+    max-width: 140px !important;
   }
 
-  /* Сдвиг левого блока обнуляем на мобилках */
-  .left-steps-column {
+  /* 2. Отключаем боковой виджет Телеграма (он съедает место) */
+  .tg-widget {
+    display: none !important;
+  }
+
+  /* 3. Секция "Как это работает" (Логика трех блоков) */
+  /* Разворачиваем двухколоночную сетку .how-grid в одну колонку */
+  .how-grid, .how-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* Принудительно сбрасываем фиксированную ширину у колонок, если они были */
+  .left-steps-column, .right-news-column {
     left: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* 🚀 ИСПРАВЛЕНИЕ СЕТКИ КАРТОЧЕК: Перестраиваем в колонку ТОЛЬКО самый главный родительский контейнер */
-  .how-sec > div > div[style*="display: flex"],
-  .how-sec > div > div[style*="display:flex"] {
+  /* Исправление для блоков в .how-bottom (Ми поруч / Статистика / Новости) */
+  .how-bottom > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* У Олены (карточка с цитатой) фиксируем высоту изображения, чтобы текст не проваливался */
+  .quote-card {
+    height: auto !important;
+  }
+  
+  /* Элементы статистики (1000+ людей) возвращаем в компактный ряд */
+  .stats-card {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .stat-row {
     flex-direction: column !important;
-    gap: 32px !important;
+    text-align: center;
     align-items: center !important;
   }
 
-  /* Заставляем 3 основные колонки занимать 100% доступной им ширины */
-  .how-sec div[style*="max-width: 380px"],
-  .how-sec div[style*="max-width:380px"] {
-    width: 100% !important;
-    max-width: 420px !important; /* Чуть увеличим для сочности на мобильных */
-    min-width: 0 !important;
+  /* Секция новостей ("Три колонки" внизу) */
+  .three-col {
+    grid-template-columns: 1fr !important; /* Каждая колонка на всю ширину */
+    gap: 24px !important;
+    padding: 1rem !important;
   }
 
-  /* Возвращаем фиксированную высоту картинкам, чтобы они не схлопывались и не растягивались дико */
-  .how-sec div[style*="height: 304px"],
-  .how-sec div[style*="height:304px"],
-  .how-sec a[style*="height: 304px"],
-  .how-sec a[style*="height:304px"] {
-    height: 304px !important;
+  /* 4. Секция "Чим ми допомагаємо" */
+  .svc-row {
+    grid-template-columns: repeat(3, 1fr) !important; /* По 3 иконки в ряд вместо 9 */
+    gap: 12px !important;
+  }
+  .dir-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* По 2 карточки направлений в ряд */
+    gap: 10px !important;
+  }
+  .whom-grid {
+    grid-template-columns: repeat(4, 1fr) !important; /* По 4 иконки "Для кого" в ряд */
   }
 
-  /* У Олены принудительно возвращаем абсолютное позиционирование текста НАД картинкой, как на десктопе */
-  .how-sec div[style*="min-height: 304px"] {
-    height: 304px !important;
-    min-height: 304px !important;
-    position: relative !important;
-  }
-
-  /* Корректируем нижний блок с автором ("UAGZ Zürich"), чтобы он не уплывал */
-  .how-sec div[style*="padding: 16px 24px"] {
-    padding: 12px 20px !important;
-    background: #ffffff !important;
-  }
-
-  /* Адаптируем блок волонтерства под экран телефона */
+  /* 5. Нижняя плашка волонтерства */
   .volunteer-cta-container > div {
     flex-direction: column !important;
     text-align: center;
-    padding: 24px !important;
+    padding: 20px !important;
   }
-
   .volunteer-cta-container .btn-solid {
     width: 100% !important;
-    text-align: center;
     box-sizing: border-box;
   }
 }

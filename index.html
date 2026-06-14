@@ -583,32 +583,41 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     max-width: 100% !important;
   }
 
-  /* 🚀 НОВЫЕ СТИЛИ: Перестраиваем 3 колонки ("Сімейний центр", "Олена", "Новини") в один вертикальный ряд */
-  .how-sec [style*="display: flex"], 
-  .how-sec [style*="display:flex"] {
+  /* 🚀 ИСПРАВЛЕНИЕ СЕТКИ КАРТОЧЕК: Перестраиваем в колонку ТОЛЬКО самый главный родительский контейнер */
+  .how-sec > div > div[style*="display: flex"],
+  .how-sec > div > div[style*="display:flex"] {
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: 32px !important;
+    align-items: center !important;
   }
 
-  /* Заставляем карточки занимать всю ширину экрана смартфона */
-  .how-sec [style*="max-width: 380px"],
-  .how-sec [style*="max-width:380px"],
-  .how-sec [style*="min-width: 280px"],
-  .how-sec [style*="min-width:280px"] {
+  /* Заставляем 3 основные колонки занимать 100% доступной им ширины */
+  .how-sec div[style*="max-width: 380px"],
+  .how-sec div[style*="max-width:380px"] {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 420px !important; /* Чуть увеличим для сочности на мобильных */
     min-width: 0 !important;
   }
 
-  /* На мобильных авто-высота карточки Олены важнее фиксированной, чтобы влез весь текст */
-  .how-sec [style*="height: 100%"],
-  .how-sec [style*="height:100%"] {
-    height: auto !important;
+  /* Возвращаем фиксированную высоту картинкам, чтобы они не схлопывались и не растягивались дико */
+  .how-sec div[style*="height: 304px"],
+  .how-sec div[style*="height:304px"],
+  .how-sec a[style*="height: 304px"],
+  .how-sec a[style*="height:304px"] {
+    height: 304px !important;
   }
 
-  /* Подгоняем высоту картинок, чтобы на мобильном они не растягивались */
-  .how-sec img {
-    height: 260px !important;
+  /* У Олены принудительно возвращаем абсолютное позиционирование текста НАД картинкой, как на десктопе */
+  .how-sec div[style*="min-height: 304px"] {
+    height: 304px !important;
+    min-height: 304px !important;
+    position: relative !important;
+  }
+
+  /* Корректируем нижний блок с автором ("UAGZ Zürich"), чтобы он не уплывал */
+  .how-sec div[style*="padding: 16px 24px"] {
+    padding: 12px 20px !important;
+    background: #ffffff !important;
   }
 
   /* Адаптируем блок волонтерства под экран телефона */

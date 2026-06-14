@@ -2009,5 +2009,37 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+  <script>
+// Автоматический скрипт для открытия и закрытия мобильного меню
+document.addEventListener('DOMContentLoaded', function() {
+  var toggleBtn = document.getElementById('menuToggle');
+  var menuWrapper = document.getElementById('navMenuWrapper');
+  var links = document.querySelectorAll('.nav-links a');
+
+  if (toggleBtn && menuWrapper) {
+    // Открытие/закрытие шторки по клику на 3 полоски
+    toggleBtn.addEventListener('click', function() {
+      toggleBtn.classList.toggle('active');
+      menuWrapper.classList.toggle('open');
+      
+      // Чтобы страница за меню не прокручивалась, пока оно открыто
+      if (menuWrapper.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Автоматическое закрытие меню при клике на любой пункт (для плавного скролла)
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        toggleBtn.classList.remove('active');
+        menuWrapper.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+});
+</script>
 </body>
 </html>

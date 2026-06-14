@@ -519,129 +519,180 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   white-space: nowrap !important;
 }
 
-/* 📱 ПОЛНАЯ АДАПТАЦИЯ ДЛЯ СМАРТФОНОВ (ДО 768px) */
+/* =====================================================================
+   📱 ПОЛНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ ДЛЯ СМАРТФОНОВ (ДО 768px)
+   ===================================================================== */
 @media (max-width: 768px) {
   
-  /* 1. Настройка главного баннера (Hero) */
-  .hero {
-    aspect-ratio: 16 / 11.5 !important;
+  /* 1. Главный баннер (Hero) */
+  hero {
     min-height: auto !important;
+    height: auto !important;
   }
   .hero-inner {
     min-height: auto !important;
-    padding: 12px !important;
+    padding: 16px 12px 20px 12px !important;
+    flex-direction: column !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
+    gap: 15px !important;
   }
   .hero-text {
-    max-width: 65% !important;
+    max-width: 65% !important; /* Текст не находит на лица людей справа */
     width: 100% !important;
   }
   .hero-logo-row {
-    margin-bottom: 2px !important;
+    margin-bottom: 4px !important;
     gap: 4px !important;
     transform: scale(0.85);
     transform-origin: left center;
   }
-  #h-t {
-    font-size: 0.95rem !important;
+  hero h1, #h-t {
+    font-size: 1.1rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
+    margin-bottom: 6px !important;
   }
-  #h-s {
-    font-size: 0.65rem !important;
+  .hero-sub, #h-s {
+    font-size: 0.75rem !important;
     line-height: 1.3 !important;
-    margin: 0 0 8px 0 !important;
+    margin-bottom: 12px !important;
   }
   .hero-btns {
     flex-direction: column !important;
     gap: 6px !important;
+    align-items: flex-start !important;
   }
   .btn-hero-main, .btn-hero-sec {
-    padding: 6px 10px !important;
+    padding: 7px 12px !important;
     font-size: 11px !important;
     border-radius: 5px !important;
     width: auto !important;
     max-width: 140px !important;
+    text-align: center !important;
   }
 
-  /* 2. Отключаем боковой виджет Телеграма (он съедает место) */
+  /* Отключаем виджет Телеграма на мобилках, чтобы не ломал ширину экрана */
   .tg-widget {
     display: none !important;
   }
 
-  /* 3. Секция "Как это работает" (Логика трех блоков) */
-  /* Разворачиваем двухколоночную сетку .how-grid в одну колонку */
-  .how-grid, .how-bottom {
-    display: flex !important;
-    flex-direction: column !important;
+  /* 2. Секция "Як це працює" (Исправление Grid) */
+  .how-grid {
+    grid-template-columns: 1fr !important; /* Разворачиваем 2 колонки в 1 */
     gap: 24px !important;
   }
-
-  /* Принудительно сбрасываем фиксированную ширину у колонок, если они были */
-  .left-steps-column, .right-news-column {
+  
+  /* Сбрасываем десктопный сдвиг левой колонки */
+  .left-steps-column {
     left: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
   }
 
-  /* Исправление для блоков в .how-bottom (Ми поруч / Статистика / Новости) */
-  .how-bottom > div {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
+  /* Выстраиваем 3 горизонтальных шага (1, 2, 3) вертикально */
+  .steps-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .step-arr {
+    display: none !important; /* Прячем стрелочки между шагами */
   }
 
-  /* У Олены (карточка с цитатой) фиксируем высоту изображения, чтобы текст не проваливался */
+  /* 3. Нижняя часть секции (Олена / Статистика / Новости) */
+  .how-bottom {
+    grid-template-columns: 1fr !important; /* Разворачиваем 3 колонки в 1 */
+    gap: 20px !important;
+  }
+
+  /* Блок Олены встает на всю ширину и восстанавливает пропорции */
+  .how-photo-col {
+    width: 100% !important;
+  }
   .quote-card {
     height: auto !important;
   }
-  
-  /* Элементы статистики (1000+ людей) возвращаем в компактный ряд */
+
+  /* Блок статистики (1000+ людей) выстраиваем компактно */
   .stats-card {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+    gap: 16px !important;
+    padding: 16px !important;
   }
   .stat-row {
+    flex: 1;
+    min-width: 120px;
     flex-direction: column !important;
     text-align: center;
     align-items: center !important;
   }
 
-  /* Секция новостей ("Три колонки" внизу) */
+  /* 4. Секции новостей и объявлений (Three-col) */
   .three-col {
-    grid-template-columns: 1fr !important; /* Каждая колонка на всю ширину */
+    grid-template-columns: 1fr !important; /* Делаем списки один под другим */
     gap: 24px !important;
-    padding: 1rem !important;
+    padding: 16px !important;
   }
 
-  /* 4. Секция "Чим ми допомагаємо" */
-  .svc-row {
-    grid-template-columns: repeat(3, 1fr) !important; /* По 3 иконки в ряд вместо 9 */
-    gap: 12px !important;
+  /* 5. Секция "Чим ми допомагаємо" */
+  /* Ряд верхних иконок статистики */
+  .dir-stats {
+    grid-template-columns: 1fr !important; /* Каждая цифра с новой строки */
+    gap: 10px !important;
+    padding: 12px !important;
   }
+  
+  /* Иконки категорий помощи (По 2 в ряд для аккуратности) */
+  .svc-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Сетка карточек направлений поджимается под ширину смартфона */
   .dir-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* По 2 карточки направлений в ряд */
+    grid-template-columns: repeat(2, 1fr) !important; /* Ровно по 2 карточки в ряд */
     gap: 10px !important;
   }
-  .whom-grid {
-    grid-template-columns: repeat(4, 1fr) !important; /* По 4 иконки "Для кого" в ряд */
+  .dir-photo {
+    height: 120px !important; /* Чуть уменьшаем высоту картинок для мобильных */
+  }
+  .dir-title {
+    font-size: 11px !important;
   }
 
-  /* 5. Нижняя плашка волонтерства */
-  .volunteer-cta-container > div {
-    flex-direction: column !important;
-    text-align: center;
-    padding: 20px !important;
+  /* Сетка "Для кого" (Иконки внизу секции) */
+  .whom-grid {
+    grid-template-columns: repeat(4, 1fr) !important; /* По 4 иконки в ряд */
+    gap: 6px !important;
   }
-  .volunteer-cta-container .btn-solid {
+
+  /* Индивидуальная консультация (синяя кнопка) */
+  .dir-cta-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+    text-align: center;
+    padding: 16px !important;
+  }
+  .dir-cta-left {
+    flex-direction: column !important;
+  }
+
+  /* 6. Нижние блоки (Стати волонтером / Підтримати центр) */
+  .cta-grid {
+    grid-template-columns: 1fr !important; /* Разворачиваем плитки в одну колонку */
+    gap: 16px !important;
+  }
+  .cta-card {
     width: 100% !important;
     box-sizing: border-box;
   }
+  .cta-card .btn-solid, 
+  .cta-card button {
+    width: 100% !important;
+    text-align: center;
+  }
 }
 
-/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ДЛЯ ДЕСКТОПА (Оставляем снаружи медиазапроса) ===== */
+/* СДВИГ ЛЕВОГО БЛОКА ДЛЯ КОМПЬЮТЕРОВ (Оставляем за пределами медиазапроса) */
 .left-steps-column {
   position: relative !important;
   left: -40px !important;

@@ -556,12 +556,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     font-size: 11px !important;
   }
 
-  /* 2. Главный баннер (Hero Section) */
+ /* 2. Главный баннер (Hero Section) */
   .hero {
     aspect-ratio: auto !important; /* Отменяем фиксированные пропорции ПК */
     min-height: auto !important;
-    background-position: 75% center !important; /* Смещаем фоновое фото, чтобы лицо/объект были видны */
     padding: 24px 16px !important;
+    background-image: url('images/hero-mobile.webp') !important; 
+    background-position: center center !important;
+    background-size: cover !important;
   }
   .hero-inner {
     position: relative !important;

@@ -402,15 +402,65 @@ hero h1 {
 .email-r button{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 12px;font-size:13px}
 
 /* ── TRUST ─────────────────────── */
-.trust{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 1.5rem}
-.trust-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.trust-item{display:flex;align-items:center;gap:.5rem}
-.trust-ic{width:30px;height:30px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.trust-ic svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:1.8}
-.trust-text{font-size:11.5px;font-weight:600;color:var(--text2)}
-.trust-avs{display:flex}
-.tav2{width:28px;height:28px;border-radius:50%;border:2px solid #fff;overflow:hidden;margin-left:-6px;flex-shrink:0}
-.tav2:first-child{margin-left:0}
+.trust {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  /* ИЗМЕНЕНО: уменьшили отступ снизу до 0 и добавили margin, чтобы убрать пустоту */
+  padding: .9rem 1.5rem 0px 1.5rem !important;
+  margin-bottom: 15px !important; 
+}
+.trust-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem;
+  /* ИЗМЕНЕНО: сбрасываем любую скрытую высоту */
+  height: auto !important;
+  min-height: auto !important;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.trust-ic {
+  width: 30px;
+  height: 30px;
+  background: var(--blue-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-ic svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--blue);
+  fill: none;
+  stroke-width: 1.8;
+}
+.trust-text {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text2);
+}
+.trust-avs {
+  display: flex;
+}
+.tav2 {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  overflow: hidden;
+  margin-left: -6px;
+  flex-shrink: 0;
+}
+.tav2:first-child {
+  margin-left: 0;
+}
 
 /* ── FOOTER ─────────────────────── */
 footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25rem}

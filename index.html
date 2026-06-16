@@ -755,15 +755,23 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             </div>
 
             <!-- Надпись синего цвета -->
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.95)); padding: 20px 24px 16px 24px; box-sizing: border-box; z-index: 5;">
-          <h2 data-translate="center-title" style="color: #0070F3 !important; ...остальные стили...">
-  Сімейний центр
-</h2>
-              </h2>
-            </div>
-          </a>
-          
-        </div>
+           <div style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: relative; height: 100%; display: flex; flex-direction: column;">
+  
+  <div style="position: relative; width: 100%; height: 250px; overflow: hidden;">
+    <img src="family.webp" alt="Сімейний центр" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    
+    <a href="#" style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); color: #1e293b; text-decoration: none; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: inline-flex; align-items: center; gap: 6px; z-index: 10;">
+      <span>Приєднуйтесь</span> &rarr;
+    </a>
+
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 1)); z-index: 2; pointer-events: none;"></div>
+
+    <h3 data-translate="center-title" style="position: absolute; bottom: 12px; left: 20px; margin: 0; font-size: 22px; font-weight: 700; font-style: italic; font-family: 'Georgia', 'Times New Roman', serif; color: #0070F3 !important; z-index: 3;">
+      Сімейний центр
+    </h3>
+  </div>
+
+</div>
 
         <!-- Блоки под фото -->
         <div style="display: flex; flex-wrap: wrap; gap: 24px; width: 100%; box-sizing: border-box; justify-content: flex-start !important; margin: 0 !important;">
@@ -851,24 +859,25 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
    <!-- КОЛОНКА НОВОСТЕЙ — ВЫРАВНЕНА ПО ВЫСОТЕ, СЕТКА НЕ ЛОМАЕТСЯ -->
 <div class="news-column-holder" style="width: 420px; flex-shrink: 0; margin: 0 24px 0 0 !important; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
         
-  <div class="hero-news-card" style="background: #ffffff; width: 100%; height: 250px !important; border: 1px solid #e2e8f0; border-radius: 20px !important; overflow: hidden !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; margin: 0 !important; display: flex; flex-direction: column; justify-content: space-between;">
-          
-    <div style="position: relative; width: 100%; height: 190px; overflow: hidden;">
-      <img src="news.webp" alt="News" class="news-card-img" style="width: 100%; height: 100%; object-fit: cover !important; object-position: center 15% !important; display: block;">
+  <div style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: relative; height: 100%; display: flex; flex-direction: column;">
+    
+    <div style="position: relative; width: 100%; height: 250px; overflow: hidden;">
+      <img src="news.webp" alt="Наші новини" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;">
       
-      <a href="news-uagz.html" style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); color: #1e293b; text-decoration: none; font-size: 13px; font-weight: 700; font-family: sans-serif; padding: 8px 16px; border-radius: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 6px; z-index: 10; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f1f5f9'" onmouseout="this.style.backgroundColor='#ffffff'">
-        <span data-translate="news-more" style="line-height: 1;">Дивитися</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      <a href="news-uagz.html" style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); color: #1e293b; text-decoration: none; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: inline-flex; align-items: center; gap: 6px; z-index: 10;">
+        <span data-translate="news-more">Дивитися</span> &rarr;
       </a>
-    </div>
 
-    <div style="padding: 0 20px 18px 20px; background: #ffffff; text-align: left;">
-      <h3 data-translate="news-title" style="color: #0070F3 !important; margin: 0; font-size: 20px; font-weight: 800; font-family: sans-serif;">
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 1)); z-index: 2; pointer-events: none;"></div>
+
+      <h3 data-translate="news-title" style="position: absolute; bottom: 12px; left: 20px; margin: 0; font-size: 22px; font-weight: 700; font-style: italic; font-family: 'Georgia', 'Times New Roman', serif; color: #0070F3 !important; z-index: 3;">
         Наші новини
       </h3>
     </div>
-    
+
   </div>
+
+</div>
   <div class="news-placeholder-card" style="width: 100%; flex: 1; border: 2px dashed #cbd5e1; background: rgba(248, 250, 252, 0.5); border-radius: 20px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 20px; margin: 0 !important;">
     <span style="color: #94a3b8; font-family: sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.3px; text-align: center;">Незабаром нові публікації</span>
   </div>

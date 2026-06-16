@@ -677,8 +677,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><a href="about.html" id="nav-contacts">Контакти</a></li>
   </ul>
  <div class="lang-sw">
-  <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
-  <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+  <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
+    <a href="?lang=uk" onclick="changeLanguage('uk')" style="padding: 6px 12px; background: #ffffff; color: var(--blue); font-size: 12px; font-weight: 700; font-family: sans-serif; text-decoration: none; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">UA</a>
+    
+    <a href="?lang=de" onclick="changeLanguage('de')" style="padding: 6px 12px; color: #64748b; font-size: 12px; font-weight: 600; font-family: sans-serif; text-decoration: none; border-radius: 6px;">DE</a>
+  </div>
 </div>
 </nav>
 
@@ -751,7 +754,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
             <!-- Надпись синего цвета -->
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.95)); padding: 20px 24px 16px 24px; box-sizing: border-box; z-index: 5;">
-           <h2 style="position: absolute; bottom: 8px !important; left: 16px; color: #0070F3 !important; font-size: 18px !important; font-weight: 700; margin: 0; font-family: 'Caveat', 'Pacifico', cursive, sans-serif !important; text-align: left; letter-spacing: 0.5px; z-index: 10;">
+          <h2 data-translate="center-title" style="color: #0070F3 !important; ...остальные стили...">
   Сімейний центр
 </h2>
               </h2>
@@ -857,7 +860,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
 
-   <h3 style="position: absolute; bottom: 8px !important; left: 16px; color: #0070F3 !important; font-size: 18px !important; font-weight: 700; margin: 0; z-index: 10; font-family: 'Caveat', 'Pacifico', cursive, sans-serif !important; letter-spacing: 0.5px;">
+   <h3 data-translate="news-title" style="color: #0070F3 !important; ...остальные стили...">
   Наші новини
 </h3>
   </div>
@@ -1505,6 +1508,7 @@ const dict = {
     "s7": "Події для дітей",
     "s8": "Волонтерство",
     "s9": "Community support"
+    "form-msg": "Опишіть ваше питання"
   },
   de: {
     "how-tag": "Wie es funktioniert",
@@ -1704,6 +1708,7 @@ const dict = {
     "s7": "Angebote für Kinder",
     "s8": "Freiwilligenarbeit",
     "s9": "Community-Unterstützung"
+    "form-msg": "Beschreiben Sie Ihre Frage"
   }
 };
 
@@ -1779,24 +1784,27 @@ function toggleConsultModal(show) {
 </script>
 
 
+<!-- МОДАЛЬНОЕ ОКНО КОНСУЛЬТАЦИИ (С ПОДДЕРЖКОЙ ВАШЕГО СЛОВАРЯ И ОТПРАВКОЙ В GOOGLE) -->
 <div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(4px) !important; z-index: 9999999 !important; padding: 1rem !important; box-sizing: border-box !important; display: none !important; align-items: center !important; justify-content: center !important;">
   <div style="background: #fff !important; border-radius: 20px !important; width: 100% !important; max-width: 450px !important; padding: 2rem !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) !important; position: relative !important; box-sizing: border-box !important; font-family: sans-serif !important; margin: auto !important;">
     
     <button type="button" onclick="toggleConsultModal(false)" style="position: absolute !important; top: 1rem !important; right: 1rem !important; background: none !important; border: none !important; font-size: 24px !important; color: #9CA3AF !important; cursor: pointer !important; line-height: 1 !important;">&times;</button>
     
     <div style="text-align: center !important; margin-bottom: 1.5rem !important;">
-      <h3 style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: sans-serif !important;">Запит на консультацію</h3>
-      <p style="font-size: 14px !important; color: #4B5563 !important; margin: 0 !important; font-family: sans-serif !important;">Лист буде надіслано на info@ukr-zurich.ch</p>
+      <!-- Ключи привязаны к cta-h и cta-p, которые у вас уже ЕСТЬ в словаре dict! -->
+      <h3 data-translate="cta-h" style="font-size: 22px !important; font-weight: 800 !important; color: #111827 !important; margin: 0 0 4px 0 !important; font-family: sans-serif !important;">Потрібна індивідуальна консультація?</h3>
+      <p data-translate="cta-p" style="font-size: 14px !important; color: #4B5563 !important; margin: 0 !important; font-family: sans-serif !important;">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
     </div>
 
     <form id="consult-google-form" style="display: flex !important; flex-direction: column !important; gap: 1rem !important; margin: 0 !important; padding: 0 !important;">
+      
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Ім'я</label>
+        <label data-translate="l-fn" style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Ім'я</label>
         <input type="text" id="c-name" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
       
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Прізвище</label>
+        <label data-translate="l-ln" style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Прізвище</label>
         <input type="text" id="c-surname" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
 
@@ -1806,47 +1814,70 @@ function toggleConsultModal(show) {
       </div>
 
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Телефон</label>
+        <label data-translate="l-ph" style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Телефон</label>
         <input type="tel" id="c-phone" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;">
       </div>
 
       <div style="display: flex !important; flex-direction: column !important; text-align: left !important;">
-        <label style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Опишіть ваше питання</label>
+        <!-- Используем уникальный ключ, который добавим ниже -->
+        <label data-translate="form-msg" style="font-size: 13px !important; font-weight: 700 !important; color: #111827 !important; margin-bottom: 4px !important; font-family: sans-serif !important;">Опишіть ваше питання</label>
         <textarea id="c-msg" rows="4" required style="width: 100% !important; padding: 10px 14px !important; border: 1px solid #E5E7EB !important; border-radius: 8px !important; font-size: 14.5px !important; outline: none !important; resize: none !important; box-sizing: border-box !important; background: #fff !important; color: #000 !important;"></textarea>
       </div>
 
-      <button type="submit" id="consult-submit-btn" style="cursor: pointer !important; background: #1A56C4 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 16px !important; font-weight: 700 !important; border-radius: 10px !important; width: 100% !important; margin-top: 0.5rem !important; transition: background 0.2s !important; font-family: sans-serif !important;">Надіслати запит</button>
+      <button type="submit" id="consult-submit-btn" data-translate="cta-b" style="cursor: pointer !important; background: #1A56C4 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 16px !important; font-weight: 700 !important; border-radius: 10px !important; width: 100% !important; margin-top: 0.5rem !important; transition: background 0.2s !important; font-family: sans-serif !important;">Зв'язатися</button>
     </form>
   </div>
 
   <script>
+    // Закрытие модалки при клике на темный фон
     document.getElementById('consultModal').addEventListener('click', function(e) {
       if (e.target === this) { toggleConsultModal(false); }
     });
 
+    // Обработчик отправки формы в Google Sheets
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('consult-submit-btn');
-      if (btn) { btn.disabled = true; btn.innerText = "Обробка..."; }
+      
+      // Определяем текущий язык, чтобы выдать красивое сообщение о загрузке
+      var currentLang = localStorage.getItem('siteLang') || 'ua';
+      if (btn) { 
+        btn.disabled = true; 
+        btn.innerText = (currentLang === 'de') ? "Wird bearbeitet..." : "Обробка..."; 
+      }
 
       var scriptURL = 'https://script.google.com/macros/s/AKfycbyhzCvQjDL73y3x-df6LzcGTCU19g0br85SyKflPGl8Rp6_24VzrJFCkk0j3lC2Oyr7/exec';
       var urlParams = new URLSearchParams();
-      urlParams.append('name', document.getElementById('c-name').value);
+      
+      // Собираем данные (Включая фамилию!)
+      urlParams.append('name', document.getElementById('c-name').value + ' ' + document.getElementById('c-surname').value);
       urlParams.append('email', document.getElementById('c-email').value);
       urlParams.append('phone', document.getElementById('c-phone').value);
       urlParams.append('message', document.getElementById('c-msg').value);
 
       fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
-        alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
+        if (currentLang === 'de') {
+          alert("Vielen Dank! Ihre Anfrage für eine individuelle Beratung wurde erfolgreich аbgesendet.");
+        } else {
+          alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
+        }
         document.getElementById('consult-google-form').reset();
         toggleConsultModal(false);
       })
       .catch(function(error) {
-        alert("Помилка відправки. Спробуйте пізніше.");
+        if (currentLang === 'de') {
+          alert("Fehler beim Senden. Bitte versuchen Sie es später noch einmal.");
+        } else {
+          alert("Помилка відправки. Спробуйте пізніше.");
+        }
       })
       .finally(function() {
-        if (btn) { btn.disabled = false; btn.innerText = "Надіслати запит"; }
+        if (btn) { 
+          btn.disabled = false; 
+          // Возвращаем текст кнопки на место, учитывая язык
+          btn.innerText = (window.dict && window.dict[currentLang] && window.dict[currentLang]['cta-b']) ? window.dict[currentLang]['cta-b'] : "Зв'язатися"; 
+        }
       });
     });
   </script>

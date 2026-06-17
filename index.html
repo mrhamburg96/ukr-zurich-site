@@ -1863,24 +1863,18 @@ function toggleConsultModal(show) {
 </div>
 <script>
     function switchLanguage(lang) {
-        // 1. Отримуємо елементи
-        const btnUa = document.getElementById('btn-ua');
-        const btnDe = document.getElementById('btn-de');
-        const contentUa = document.getElementById('content-ua');
-        const contentDe = document.getElementById('content-de');
-
-        // 2. Перемикаємо кольори кнопок
-        if (lang === 'ua') {
-            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
-            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
-            contentUa.classList.remove('hidden');
-            contentDe.classList.add('hidden');
-        } else {
-            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
-            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
-            contentDe.classList.remove('hidden');
-            contentUa.classList.add('hidden');
-        }
+        const uaElements = document.querySelectorAll('.lang-ua');
+        const deElements = document.querySelectorAll('.lang-de');
+        
+        // Переключаем блоки с классом lang-ua
+        uaElements.forEach(el => {
+            lang === 'ua' ? el.classList.remove('hidden') : el.classList.add('hidden');
+        });
+        
+        // Переключаем блоки с классом lang-de
+        deElements.forEach(el => {
+            lang === 'de' ? el.classList.remove('hidden') : el.classList.add('hidden');
+        });
     }
 </script>
 </body>

@@ -1748,20 +1748,19 @@ function toggleConsultModal(show) {
   </script>
 </div>
 <script>
-    // 1. Ініціалізація
+    // 1. Глобальная переменная
     window.dict = {}; 
     let currentLang = localStorage.getItem('siteLang') || 'ua';
 
-    // 2. Завантаження JSON
+    // 2. Функция загрузки переводов из JSON файла
     async function loadTranslations() {
         try {
             const response = await fetch('translations.json');
-            // Перевіряємо, чи файл успішно завантажився
             if (!response.ok) throw new Error("Файл не знайдено");
             window.dict = await response.json();
             updateLanguage(currentLang); 
         } catch (error) {
-            console.error("Помилка завантаження, використовуємо fallback:", error);
+            console.error("Ошибка JSON, используем запасной словарь:", error);
             window.dict = {
                 "nav_home": { "ua": "Головна", "de": "Startseite" },
                 "nav_about": { "ua": "Про центр", "de": "Über uns" },
@@ -1772,27 +1771,25 @@ function toggleConsultModal(show) {
         }
     }
 
-    // 3. Оновлення тексту
+    // 3. Функция обновления текста
     function updateLanguage(lang) {
         currentLang = lang;
         const elements = document.querySelectorAll('[data-key]');
-        
         elements.forEach(el => {
             const key = el.getAttribute('data-key');
-            // Додаємо перевірку, чи існує ключ і чи є переклад
             if (window.dict[key] && window.dict[key][lang] !== undefined) {
                 el.innerText = window.dict[key][lang];
             }
         });
     }
 
-    // 4. Перемикач мови
+    // 4. Функция переключения языка
     function switchLanguage(lang) {
         currentLang = lang;
         updateLanguage(lang);
         localStorage.setItem('siteLang', lang);
         
-        // Візуальне оновлення кнопок
+        // Стили кнопок
         const btnUa = document.getElementById('btn-ua');
         const btnDe = document.getElementById('btn-de');
         if (btnUa && btnDe) {
@@ -1801,7 +1798,7 @@ function toggleConsultModal(show) {
         }
     }
 
-    // Запуск
+    // 5. Старт
     loadTranslations();
 </script>
 </body>

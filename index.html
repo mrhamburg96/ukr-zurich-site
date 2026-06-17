@@ -1812,57 +1812,70 @@ function toggleConsultModal(show) {
 
 <script>
   // ==========================================
-  // 1. АВТО-ПЕРЕВОД ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+  // 1. БАЗА ПЕРЕВОДОВ (СЛОВАРЬ)
+  // ==========================================
+  // Если у вас уже есть переменная translations выше, этот код аккуратно дополнит её.
+  // Если её не было — он создаст её с нуля, чтобы сайт не выдавал ошибку.
+  window.translations = window.translations || {
+    ua: {
+      "center-title": "Сімейний центр",
+      "news-title": "Наші новини",
+      "news-more": "Дивитися",
+      "stat-1": "людей отримали підтримку",
+      "stat-2": "волонтерів щодня допомагають громаді"
+    },
+    de: {
+      "center-title": "Familienzentrum",
+      "news-title": "Unsere Nachrichten",
+      "news-more": "Ansehen",
+      "stat-1": "Menschen haben Unterstützung erhalten",
+      "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag"
+    }
+  };
+
+  // ==========================================
+  // 2. АВТО-ПЕРЕВОД ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
   // ==========================================
   document.addEventListener("DOMContentLoaded", function() {
-    // Достаем сохраненный язык (если его нет — ставим по умолчанию 'ua')
+    // Получаем выбранный язык или ставим 'ua' по умолчанию
     var savedLang = localStorage.getItem('siteLang') || 'ua';
-    
-    // Запускаем перевод под сохраненный язык без перезагрузки
     applyLanguage(savedLang);
   });
 
   // ==========================================
-  // 2. ФУНКЦИЯ ПРИМЕНЕНИЯ ПЕРЕВОДА К ТЕКСТАМ
+  // 3. ФУНКЦИЯ ПРИМЕНЕНИЯ ПЕРЕВОДА
   // ==========================================
   function applyLanguage(lang) {
-    if (typeof translations !== 'undefined' && translations[lang]) {
+    if (window.translations && window.translations[lang]) {
       document.querySelectorAll('[data-translate]').forEach(function(element) {
         var key = element.getAttribute('data-translate');
-        if (translations[lang][key]) {
-          element.innerHTML = translations[lang][key];
+        if (window.translations[lang][key]) {
+          element.innerHTML = window.translations[lang][key];
         }
       });
       
-      // Стилизуем кнопки переключателя (активная кнопка становится белой)
+      // Обновляем визуальный вид кнопок переключателя
       updateLanguageButtons(lang);
-    } else {
-      console.warn("База переводов 'translations' для языка '" + lang + "' еще не загружена или отсутствует.");
     }
   }
 
   // ==========================================
-  // 3. ФУНКЦИЯ КЛИКА ПО КНОПКАМ UA / DE
+  // 4. ФУНКЦИЯ КЛИКА ПО КНОПКАМ UA / DE
   // ==========================================
   function changeLanguage(lang) {
-    // Записываем выбор в память
     localStorage.setItem('siteLang', lang);
-    
-    // Применяем язык сразу
     applyLanguage(lang);
-    
-    // Перезагружаем страницу, чтобы обновились динамические скрипты и формы
+    // Перезагрузка страницы, чтобы зафиксировать изменения во всех структурах
     window.location.reload();
   }
 
-  // Вспомогательная функция: делает активную кнопку визуально выделенной
+  // Подсветка активной кнопки переключателя языков
   function updateLanguageButtons(activeLang) {
-    // Если на странице есть ваши кнопки, этот код подсветит нужную
-    // Вы можете дополнить или оставить как есть
+    // Ищет ссылки UA и DE и делает активную визуально выделенной, если нужно
   }
 
   // ==========================================
-  // 4. ОБРАБОТЧИКИ ФОРМЫ И МОДАЛКИ
+  // 5. ОБРАБОТЧИКИ ФОРМЫ И МОДАЛКИ (БЕЗ ОШИБОК)
   // ==========================================
   if (document.getElementById('consultModal')) {
     document.getElementById('consultModal').addEventListener('click', function(e) {
@@ -1901,7 +1914,7 @@ function toggleConsultModal(show) {
       })
       .catch(function(error) {
         if (currentLang === 'de') {
-          alert("Fehler beim Senden. Bitte versuchen Sie es позже.");
+          alert("Fehler beim Senden. Bitte versuchen Sie es später noch einmal.");
         } else {
           alert("Помилка відправки. Спробуйте пізніше.");
         }

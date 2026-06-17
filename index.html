@@ -1848,69 +1848,34 @@ function toggleConsultModal(show) {
     }
   };
 
-  // 2. ГЛОБАЛЬНАЯ ФУНКЦИЯ ДЛЯ КЛИКА (Регистрируем сразу)
-  window.changeLanguage = function(lang) {
-    try {
-      localStorage.setItem('siteLang', lang);
-      applyTranslations(lang);
-      window.location.reload();
-    } catch(e) {
-      console.error(e);
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".lang-btn");
+    const blocks = document.querySelectorAll(".lang");
+
+    function setLanguage(lang) {
+        blocks.forEach(block => {
+            block.style.display = block.classList.contains(lang) ? "block" : "none";
+        });
+
+        buttons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+
+        localStorage.setItem("lang", lang);
     }
-  };
 
-  // 3. ФУНКЦИЯ ОБНОВЛЕНИЯ ТЕКСТА
-  function applyTranslations(lang) {
-    document.querySelectorAll('[data-translate]').forEach(function(el) {
-      var key = el.getAttribute('data-translate');
-      if (dictionary[lang] && dictionary[lang][key]) {
-        el.innerHTML = dictionary[lang][key];
-      }
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const lang = btn.dataset.lang;
+            setLanguage(lang);
+        });
     });
-    updateButtons(lang);
-  }
 
-  // 4. ЖЕСТКАЯ ПРИНУДИТЕЛЬНАЯ ПОДСВЕТКА КНОПОК
-  function updateButtons(activeLang) {
-    // Находим абсолютно все элементы, которые могут быть кнопками UA/DE
-    var tags = document.querySelectorAll('a, button, div, span');
-    
-    tags.forEach(function(btn) {
-      var text = btn.textContent ? btn.textContent.trim() : '';
-      
-      if (text === 'UA' || text === 'DE') {
-        if (text.toLowerCase() === activeLang.toLowerCase()) {
-          // Принудительно красим активную кнопку в синий цвет UAGZ
-          btn.style.setProperty('background-color', '#0070F3', 'important');
-          btn.style.setProperty('color', '#ffffff', 'important');
-          btn.style.setProperty('font-weight', '700', 'important');
-          btn.style.setProperty('background', '#0070F3', 'important'); // на случай если там градиент
-        } else {
-          // Принудительно сбрасываем неактивную кнопку в серый/прозрачный
-          btn.style.setProperty('background-color', 'transparent', 'important');
-          btn.style.setProperty('background', 'transparent', 'important');
-          btn.style.setProperty('color', '#1e293b', 'important');
-          btn.style.setProperty('font-weight', '500', 'important');
-        }
-      }
-    });
-  }
-
-  // 5. МГНОВЕННЫЙ ЗАПУСК БЕЗ ОЖИДАНИЯ СТРАНИЦЫ
-  var savedLang = 'ua';
-  try {
-    savedLang = localStorage.getItem('siteLang') || 'ua';
-  } catch(e) {}
-  
-  // Запускаем перевод сразу
-  applyTranslations(savedLang);
-
-  // И на всякий случай дублируем через микро-секунду, когда подгрузится весь HTML
-  setTimeout(function() {
-    applyTranslations(savedLang);
-  }, 100);
-
-})();
+    const savedLang = localStorage.getItem("lang") || "ua";
+    setLanguage(savedLang);
+});
 </script>
+
 </body>
 </html>

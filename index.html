@@ -1810,18 +1810,45 @@ function toggleConsultModal(show) {
     </form>
   </div>
 
-  <script>
-    // Закрытие модалки при клике на темный фон
+ <script>
+  // ==========================================
+  // ГЛАВНАЯ ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (UA/DE)
+  // ==========================================
+  function changeLanguage(lang) {
+    // Сохраняем язык в localStorage под единым ключом 'siteLang'
+    localStorage.setItem('siteLang', lang);
+    
+    // Переводим все элементы с атрибутом data-translate
+    if (typeof translations !== 'undefined' && translations[lang]) {
+      document.querySelectorAll('[data-translate]').forEach(function(element) {
+        var key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    // Визуальное переключение активного стиля кнопок UA/DE
+    // (По желанию: здесь можно добавить код смены цвета букв, если нужно)
+    
+    // Перезагружаем страницу, чтобы все блоки и скрипты подтянулись на нужном языке
+    window.location.reload();
+  }
+
+  // Закрытие модалки при клике на темный фон
+  if (document.getElementById('consultModal')) {
     document.getElementById('consultModal').addEventListener('click', function(e) {
       if (e.target === this) { toggleConsultModal(false); }
     });
+  }
 
-    // Обработчик отправки формы в Google Sheets
+  // Обработчик отправки формы в Google Sheets
+  if (document.getElementById('consult-google-form')) {
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('consult-submit-btn');
       
-      // Определяем текущий язык, чтобы выдать красивое сообщение о загрузке
+      // Определяем текущий язык (теперь ключ 'siteLang' совпадает везде!)
       var currentLang = localStorage.getItem('siteLang') || 'ua';
       if (btn) { 
         btn.disabled = true; 
@@ -1840,12 +1867,12 @@ function toggleConsultModal(show) {
       fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
         if (currentLang === 'de') {
-          alert("Vielen Dank! Ihre Anfrage für eine individuelle Beratung wurde erfolgreich аbgesendet.");
+          alert("Vielen Dank! Ihre Anfrage für eine individuelle Beratung wurde успешно отправлена.");
         } else {
           alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
         }
         document.getElementById('consult-google-form').reset();
-        toggleConsultModal(false);
+        if (typeof toggleConsultModal === 'function') { toggleConsultModal(false); }
       })
       .catch(function(error) {
         if (currentLang === 'de') {
@@ -1857,13 +1884,12 @@ function toggleConsultModal(show) {
       .finally(function() {
         if (btn) { 
           btn.disabled = false; 
-          // Возвращаем текст кнопки на место, учитывая язык
-          btn.innerText = (window.dict && window.dict[currentLang] && window.dict[currentLang]['cta-b']) ? window.dict[currentLang]['cta-b'] : "Зв'язатися"; 
+          btn.innerText = (currentLang === 'de') ? "Absenden" : "Зв'язатися"; 
         }
       });
     });
-  </script>
-</div>
+  }
+</script>
 
 </body>
 </html>

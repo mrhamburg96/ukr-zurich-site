@@ -1760,7 +1760,6 @@ function toggleConsultModal(show) {
             updateLanguage(currentLang); 
         } catch (error) {
             console.error("Не удалось загрузить translations.json");
-            // Fallback (если файл не загрузился)
             window.dict = {
                 "nav_home": { "ua": "Головна", "de": "Startseite" },
                 "nav_about": { "ua": "Про центр", "de": "Über uns" }
@@ -1786,13 +1785,33 @@ function toggleConsultModal(show) {
         currentLang = lang;
         updateLanguage(lang);
         localStorage.setItem('siteLang', lang);
-        console.log("Язык изменен на:", lang);
-    }
 
-    // 5. Запуск при загрузке страницы
+        // Переключение стилей кнопок
+        const btnUa = document.getElementById('btn-ua');
+        const btnDe = document.getElementById('btn-de');
+
+        if (lang === 'ua') {
+            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
+            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+        } else {
+            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
+            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+        }
+
+        console.log("Язык изменен на:", lang);
+    } // <-- Здесь была лишняя скобка, я её убрал
+
+    // 5. Запуск
     loadTranslations();
     window.onload = function() {
         updateLanguage(currentLang);
+        // Дополнительно: выставить правильные стили кнопок при старте
+        if (currentLang === 'de') {
+             const btnUa = document.getElementById('btn-ua');
+             const btnDe = document.getElementById('btn-de');
+             btnDe.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
+             btnUa.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+        }
     };
 </script>
 </body>

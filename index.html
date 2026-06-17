@@ -1748,31 +1748,31 @@ function toggleConsultModal(show) {
   </script>
 </div>
 <script>
-    // Глобальная переменная для хранения словаря
+    // 1. Глобальная переменная
     window.dict = {};
-    let currentLang = 'ua';
+    let currentLang = localStorage.getItem('siteLang') || 'ua';
 
-    // Функция загрузки переводов
+    // 2. Функция загрузки переводов
     async function loadTranslations() {
         try {
             const response = await fetch('translations.json');
             window.dict = await response.json();
-            updateLanguage(currentLang); // Обновляем текст после загрузки
+            updateLanguage(currentLang); 
         } catch (error) {
-            console.error("Не удалось загрузить translations.json, используем локальный словарь");
-            // На случай, если файл еще не создан, можно оставить fallback
+            console.error("Не удалось загрузить translations.json");
+            // Fallback (если файл не загрузился)
             window.dict = {
                 "nav_home": { "ua": "Головна", "de": "Startseite" },
-                "nav_about": { "ua": "Про центр", "de": "Über uns" },
-                // ... остальные ключи
+                "nav_about": { "ua": "Про центр", "de": "Über uns" }
             };
+            updateLanguage(currentLang);
         }
     }
 
+    // 3. Функция обновления текста
     function updateLanguage(lang) {
         currentLang = lang;
         const elements = document.querySelectorAll('[data-key]');
-        
         elements.forEach(el => {
             const key = el.getAttribute('data-key');
             if (window.dict[key] && window.dict[key][lang]) {
@@ -1781,8 +1781,19 @@ function toggleConsultModal(show) {
         });
     }
 
-    // Запускаем при загрузке страницы
+    // 4. Функция переключения языка (для кнопок)
+    function switchLanguage(lang) {
+        currentLang = lang;
+        updateLanguage(lang);
+        localStorage.setItem('siteLang', lang);
+        console.log("Язык изменен на:", lang);
+    }
+
+    // 5. Запуск при загрузке страницы
     loadTranslations();
+    window.onload = function() {
+        updateLanguage(currentLang);
+    };
 </script>
 </body>
 </html>

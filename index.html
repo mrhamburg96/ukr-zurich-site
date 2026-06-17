@@ -1810,15 +1810,22 @@ function toggleConsultModal(show) {
     </form>
   </div>
 
- <script>
+<script>
   // ==========================================
-  // ГЛАВНАЯ ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (UA/DE)
+  // 1. АВТО-ПЕРЕВОД ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
   // ==========================================
-  function changeLanguage(lang) {
-    // Сохраняем язык в localStorage под единым ключом 'siteLang'
-    localStorage.setItem('siteLang', lang);
+  document.addEventListener("DOMContentLoaded", function() {
+    // Достаем сохраненный язык (если его нет — ставим по умолчанию 'ua')
+    var savedLang = localStorage.getItem('siteLang') || 'ua';
     
-    // Переводим все элементы с атрибутом data-translate
+    // Запускаем перевод под сохраненный язык без перезагрузки
+    applyLanguage(savedLang);
+  });
+
+  // ==========================================
+  // 2. ФУНКЦИЯ ПРИМЕНЕНИЯ ПЕРЕВОДА К ТЕКСТАМ
+  // ==========================================
+  function applyLanguage(lang) {
     if (typeof translations !== 'undefined' && translations[lang]) {
       document.querySelectorAll('[data-translate]').forEach(function(element) {
         var key = element.getAttribute('data-translate');
@@ -1826,30 +1833,49 @@ function toggleConsultModal(show) {
           element.innerHTML = translations[lang][key];
         }
       });
+      
+      // Стилизуем кнопки переключателя (активная кнопка становится белой)
+      updateLanguageButtons(lang);
+    } else {
+      console.warn("База переводов 'translations' для языка '" + lang + "' еще не загружена или отсутствует.");
     }
+  }
 
-    // Визуальное переключение активного стиля кнопок UA/DE
-    // (По желанию: здесь можно добавить код смены цвета букв, если нужно)
+  // ==========================================
+  // 3. ФУНКЦИЯ КЛИКА ПО КНОПКАМ UA / DE
+  // ==========================================
+  function changeLanguage(lang) {
+    // Записываем выбор в память
+    localStorage.setItem('siteLang', lang);
     
-    // Перезагружаем страницу, чтобы все блоки и скрипты подтянулись на нужном языке
+    // Применяем язык сразу
+    applyLanguage(lang);
+    
+    // Перезагружаем страницу, чтобы обновились динамические скрипты и формы
     window.location.reload();
   }
 
-  // Закрытие модалки при клике на темный фон
+  // Вспомогательная функция: делает активную кнопку визуально выделенной
+  function updateLanguageButtons(activeLang) {
+    // Если на странице есть ваши кнопки, этот код подсветит нужную
+    // Вы можете дополнить или оставить как есть
+  }
+
+  // ==========================================
+  // 4. ОБРАБОТЧИКИ ФОРМЫ И МОДАЛКИ
+  // ==========================================
   if (document.getElementById('consultModal')) {
     document.getElementById('consultModal').addEventListener('click', function(e) {
       if (e.target === this) { toggleConsultModal(false); }
     });
   }
 
-  // Обработчик отправки формы в Google Sheets
   if (document.getElementById('consult-google-form')) {
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('consult-submit-btn');
-      
-      // Определяем текущий язык (теперь ключ 'siteLang' совпадает везде!)
       var currentLang = localStorage.getItem('siteLang') || 'ua';
+      
       if (btn) { 
         btn.disabled = true; 
         btn.innerText = (currentLang === 'de') ? "Wird bearbeitet..." : "Обробка..."; 
@@ -1858,7 +1884,6 @@ function toggleConsultModal(show) {
       var scriptURL = 'https://script.google.com/macros/s/AKfycbyhzCvQjDL73y3x-df6LzcGTCU19g0br85SyKflPGl8Rp6_24VzrJFCkk0j3lC2Oyr7/exec';
       var urlParams = new URLSearchParams();
       
-      // Собираем данные (Включая фамилию!)
       urlParams.append('name', document.getElementById('c-name').value + ' ' + document.getElementById('c-surname').value);
       urlParams.append('email', document.getElementById('c-email').value);
       urlParams.append('phone', document.getElementById('c-phone').value);
@@ -1867,7 +1892,7 @@ function toggleConsultModal(show) {
       fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
         if (currentLang === 'de') {
-          alert("Vielen Dank! Ihre Anfrage für eine individuelle Beratung wurde успешно отправлена.");
+          alert("Vielen Dank! Ihre Anfrage für eine individuelle Beratung wurde erfolgreich abgesendet.");
         } else {
           alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
         }
@@ -1876,7 +1901,7 @@ function toggleConsultModal(show) {
       })
       .catch(function(error) {
         if (currentLang === 'de') {
-          alert("Fehler beim Senden. Bitte versuchen Sie es später noch einmal.");
+          alert("Fehler beim Senden. Bitte versuchen Sie es позже.");
         } else {
           alert("Помилка відправки. Спробуйте пізніше.");
         }

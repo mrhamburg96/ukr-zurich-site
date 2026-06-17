@@ -1748,71 +1748,61 @@ function toggleConsultModal(show) {
   </script>
 </div>
 <script>
-    // 1. Глобальная переменная
-    window.dict = {};
+    // 1. Ініціалізація
+    window.dict = {}; 
     let currentLang = localStorage.getItem('siteLang') || 'ua';
 
-    // 2. Функция загрузки переводов
+    // 2. Завантаження JSON
     async function loadTranslations() {
         try {
             const response = await fetch('translations.json');
+            // Перевіряємо, чи файл успішно завантажився
+            if (!response.ok) throw new Error("Файл не знайдено");
             window.dict = await response.json();
             updateLanguage(currentLang); 
         } catch (error) {
-            console.error("Не удалось загрузить translations.json");
+            console.error("Помилка завантаження, використовуємо fallback:", error);
             window.dict = {
                 "nav_home": { "ua": "Головна", "de": "Startseite" },
-                "nav_about": { "ua": "Про центр", "de": "Über uns" }
+                "nav_about": { "ua": "Про центр", "de": "Über uns" },
+                "hero_title": { "ua": "Український центр Цюриха", "de": "Ukrainisches Zentrum Zürich" },
+                "hero_btn": { "ua": "Отримати допомогу", "de": "Hilfe erhalten" }
             };
             updateLanguage(currentLang);
         }
     }
 
-    // 3. Функция обновления текста
+    // 3. Оновлення тексту
     function updateLanguage(lang) {
         currentLang = lang;
         const elements = document.querySelectorAll('[data-key]');
+        
         elements.forEach(el => {
             const key = el.getAttribute('data-key');
-            if (window.dict[key] && window.dict[key][lang]) {
+            // Додаємо перевірку, чи існує ключ і чи є переклад
+            if (window.dict[key] && window.dict[key][lang] !== undefined) {
                 el.innerText = window.dict[key][lang];
             }
         });
     }
 
-    // 4. Функция переключения языка (для кнопок)
+    // 4. Перемикач мови
     function switchLanguage(lang) {
         currentLang = lang;
         updateLanguage(lang);
         localStorage.setItem('siteLang', lang);
-
-        // Переключение стилей кнопок
+        
+        // Візуальне оновлення кнопок
         const btnUa = document.getElementById('btn-ua');
         const btnDe = document.getElementById('btn-de');
-
-        if (lang === 'ua') {
-            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
-            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
-        } else {
-            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
-            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+        if (btnUa && btnDe) {
+            btnUa.className = (lang === 'ua') ? "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition" : "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+            btnDe.className = (lang === 'de') ? "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition" : "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
         }
+    }
 
-        console.log("Язык изменен на:", lang);
-    } // <-- Здесь была лишняя скобка, я её убрал
-
-    // 5. Запуск
+    // Запуск
     loadTranslations();
-    window.onload = function() {
-        updateLanguage(currentLang);
-        // Дополнительно: выставить правильные стили кнопок при старте
-        if (currentLang === 'de') {
-             const btnUa = document.getElementById('btn-ua');
-             const btnDe = document.getElementById('btn-de');
-             btnDe.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
-             btnUa.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
-        }
-    };
 </script>
 </body>
 </html>

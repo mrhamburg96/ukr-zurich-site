@@ -1818,112 +1818,88 @@ function toggleConsultModal(show) {
 
 <script>
   // ==========================================
- <script>
-  // Словарь
-  window.translations = window.translations || {
+<!-- Очищенный и изолированный скрипт перевода -->
+<script>
+(function() {
+  // 1. СЛОВАРЬ ПЕРЕВОДОВ
+  var dictionary = {
     ua: {
-      "center-title": "Сімейний центр", "join-btn": "Приєднуйтесь", "near-title": "Ми поруч з вами",
-      "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.", "near-btn": "Дізнатися більше про команду &rarr;",
-      "stat-1": "людей отримали підтримку", "stat-2": "волонтерів щодня допомагають громаді",
-      "see-more-btn": "Дивіться далі", "news-title": "Наші новини", "news-more": "Дивитися",
-      "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\""
+      "center-title": "Сімейний центр",
+      "join-btn": "Приєднуйтесь",
+      "near-title": "Ми поруч з вами",
+      "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+      "near-btn": "Дізнатися більше про команду &rarr;",
+      "stat-1": "людей отримали підтримку",
+      "stat-2": "волонтерів щодня допомагають громаді",
+      "see-more-btn": "Дивіться далі",
+      "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\"",
+      "news-title": "Наші новини",
+      "news-more": "Дивитися"
     },
     de: {
-      "center-title": "Familienzentrum", "join-btn": "Beitreten", "near-title": "Wir sind an Ihrer Seite",
-      "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.", "near-btn": "Mehr über das Team erfahren &rarr;",
-      "stat-1": "Menschen haben Unterstützung erhalten", "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
-      "see-more-btn": "Mehr sehen", "news-title": "Unsere Nachrichten", "news-more": "Ansehen",
-      "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\""
+      "center-title": "Familienzentrum",
+      "join-btn": "Beitreten",
+      "near-title": "Wir sind an Ihrer Seite",
+      "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
+      "near-btn": "Mehr über das Team erfahren &rarr;",
+      "stat-1": "Menschen haben Unterstützung erhalten",
+      "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
+      "see-more-btn": "Mehr sehen",
+      "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\"",
+      "news-title": "Unsere Nachrichten",
+      "news-more": "Ansehen"
     }
   };
 
-  // При загрузке страницы
+  // 2. ФУНКЦИЯ ОБНОВЛЕНИЯ ТЕКСТА НА СТРАНИЦЕ
+  function applyTranslations(lang) {
+    document.querySelectorAll('[data-translate]').forEach(function(el) {
+      var key = el.getAttribute('data-translate');
+      if (dictionary[lang] && dictionary[lang][key]) {
+        el.innerHTML = dictionary[lang][key];
+      }
+    });
+    updateButtons(lang);
+  }
+
+  // 3. ФУНКЦИЯ ПОДСВЕТКИ КНОПОК UA / DE
+  function updateButtons(activeLang) {
+    document.querySelectorAll('a, button, div').forEach(function(btn) {
+      var text = btn.innerText ? btn.innerText.trim() : '';
+      if (text === 'UA' || text === 'DE') {
+        if (text.toLowerCase() === activeLang.toLowerCase()) {
+          // Стили для активной кнопки (Синий фон, белый текст)
+          btn.style.setProperty('background-color', '#0070F3', 'important');
+          btn.style.setProperty('color', '#ffffff', 'important');
+          btn.style.setProperty('font-weight', '700', 'important');
+        } else {
+          // Стили для неактивной кнопки (Прозрачный фон, темный текст)
+          btn.style.setProperty('background-color', 'transparent', 'important');
+          btn.style.setProperty('color', '#1e293b', 'important');
+          btn.style.setProperty('font-weight', '500', 'important');
+        }
+      }
+    });
+  }
+
+  // 4. ГЛОБАЛЬНАЯ ФУНКЦИЯ ДЛЯ КЛИКА (Регистрируем в системе)
+  window.changeLanguage = function(lang) {
+    localStorage.setItem('siteLang', lang);
+    applyTranslations(lang);
+    // Перезагружаем, чтобы применились системные изменения
+    window.location.reload();
+  };
+
+  // 5. ЗАПУСК ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
   document.addEventListener("DOMContentLoaded", function() {
     var savedLang = localStorage.getItem('siteLang') || 'ua';
-    applyLanguage(savedLang);
+    applyTranslations(savedLang);
   });
 
-  // Применение языка
-  function applyLanguage(lang) {
-    if (window.translations && window.translations[lang]) {
-      document.querySelectorAll('[data-translate]').forEach(function(element) {
-        var key = element.getAttribute('data-translate');
-        if (window.translations[lang][key]) {
-          element.innerHTML = window.translations[lang][key];
-        }
-      });
-    }
-    updateLanguageButtons(lang);
-  }
-
-  // Клик по кнопке переключения языка
-  function changeLanguage(lang) {
-    localStorage.setItem('siteLang', lang);
-    applyLanguage(lang);
-    window.location.reload();
-  }
-
-  // Функция подсветки кнопок UA / DE
-  function updateLanguageButtons(activeLang) {
-    // Находим кнопки UA и DE по тексту внутри них
-    document.querySelectorAll('a, button').forEach(function(btn) {
-      var txt = btn.innerText.trim();
-      if (txt === 'UA' || txt === 'DE') {
-        if (txt.toLowerCase() === activeLang.toLowerCase()) {
-          // Стили для активной кнопки (например, синий фон, белый текст)
-          btn.style.backgroundColor = '#0070F3';
-          btn.style.color = '#ffffff';
-          btn.style.fontWeight = '700';
-        } else {
-          // Стили для неактивной кнопки
-          btn.style.backgroundColor = 'transparent';
-          btn.style.color = '#1e293b';
-          btn.style.fontWeight = '500';
-        }
-      }
-    });
-  }
-
-  // Обработчик формы (исправленный, БЕЗ СИНТАКСИЧЕСКИХ ОШИБОК)
-  if (document.getElementById('consult-google-form')) {
-    document.getElementById('consult-google-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = document.getElementById('consult-submit-btn');
-      var currentLang = localStorage.getItem('siteLang') || 'ua';
-      
-      if (btn) { 
-        btn.disabled = true; 
-        btn.innerText = (currentLang === 'de') ? "Wird bearbeitet..." : "Обробка..."; 
-      }
-
-      var scriptURL = 'https://script.google.com/macros/s/AKfycbyhzCvQjDL73y3x-df6LzcGTCU19g0br85SyKflPGl8Rp6_24VzrJFCkk0j3lC2Oyr7/exec';
-      var urlParams = new URLSearchParams();
-      
-      urlParams.append('name', document.getElementById('c-name').value + ' ' + document.getElementById('c-surname').value);
-      urlParams.append('email', document.getElementById('c-email').value);
-      urlParams.append('phone', document.getElementById('c-phone').value);
-      urlParams.append('message', document.getElementById('c-msg').value);
-
-      fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
-      .then(function() {
-        if (currentLang === 'de') {
-          alert("Vielen Dank! Ihre Anfrage wurde erfolgreich abgesendet.");
-        } else {
-          alert("Дякуємо! Ваш запит успішно надіслано.");
-        }
-        document.getElementById('consult-google-form').reset();
-      })
-      .catch(function(error) {
-        alert(currentLang === 'de' ? "Fehler beim Senden." : "Помилка відправки.");
-      })
-      .finally(function() {
-        if (btn) { 
-          btn.disabled = false; 
-          btn.innerText = (currentLang === 'de') ? "Absenden" : "Зв'язатися"; 
-        }
-      });
-    });
-  }
+  // Запуск на случай, если DOM уже загружен
+  var currentLang = localStorage.getItem('siteLang') || 'ua';
+  applyTranslations(currentLang);
+})();
 </script>
 </body>
 </html>

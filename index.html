@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -1860,6 +1861,19 @@ function toggleConsultModal(show) {
     });
   </script>
 </div>
-
+<script>
+    function switchLang(lang) {
+        const ua = document.getElementById('content-ua');
+        const de = document.getElementById('content-de');
+        
+        if (lang === 'ua') {
+            ua.classList.remove('hidden');
+            de.classList.add('hidden');
+        } else {
+            de.classList.remove('hidden');
+            ua.classList.add('hidden');
+        }
+    }
+</script>
 </body>
 </html>

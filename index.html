@@ -741,13 +741,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
    <!-- Пример правильного родительского контейнера -->
 <div class="main-how-layout" style="display: flex; gap: 24px; padding-left: 24px !important; padding-right: 24px !important; box-sizing: border-box; width: 100%; align-items: stretch;">
       
- <div class="left-steps-column" style="display: flex; flex-direction: column; gap: 24px; flex: 1; max-width: 576px; box-sizing: border-box; margin: 0 !important; align-self: stretch !important;">
+<!-- ЛЕВАЯ КОЛОНКА (Сімейний центр + Статистика) -->
+  <div class="left-steps-column" style="display: flex; flex-direction: column; gap: 24px; flex: 1; max-width: 576px; box-sizing: border-box; margin: 0 !important; align-self: stretch !important;">
 
     <div style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; position: relative; height: 250px; box-sizing: border-box; width: 100%;">
       <img src="family-center.webp" alt="Сімейний центр" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       
       <a href="family-center.html" style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); color: #1e293b; text-decoration: none; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 6px; z-index: 10; font-family: sans-serif;">
-        <span>Приєднуйтесь</span>
+        <span data-translate="join-btn">Приєднуйтесь</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
 
@@ -761,8 +762,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <div style="display: flex; gap: 24px; width: 100%; box-sizing: border-box; justify-content: flex-start; margin: 0 !important;">
       
       <div class="info-card-founders" style="background: #f8f9fa; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; text-align: left !important; flex: 1; box-sizing: border-box; margin: 0 !important;">
-        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 8px 0; padding: 0; font-family: sans-serif;">Ми поруч з вами</h3>
-        <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0; line-height: 1.4; padding: 0; font-family: sans-serif;">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
+        <h3 data-translate="near-title" style="font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 8px 0; padding: 0; font-family: sans-serif;">Ми поруч з вами</h3>
+        <p data-translate="near-desc" style="font-size: 13px; color: #64748b; margin: 0 0 16px 0; line-height: 1.4; padding: 0; font-family: sans-serif;">Наша команда говорить вашою мовою та розуміє ваші потреби.</p>
         
         <div class="founders-avatars" style="display: flex !important; align-items: center !important; margin: 0 0 20px 0; padding: 0; height: 36px;">
           <img src="team1.jpg" alt="Team 1" style="width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 2px solid #ffffff !important; object-fit: cover !important; margin: 0 -10px 0 0 !important; display: block !important; z-index: 4;">
@@ -772,7 +773,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <div style="width: 32px !important; height: 32px !important; border-radius: 50% !important; background: #0070F3 !important; color: white !important; border: 2px solid #ffffff !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 12px !important; font-weight: 700 !important; margin: 0 0 0 15px !important; z-index: 0;">+</div>
         </div>
         
-        <a href="team.html" style="display: block !important; width: 100% !important; padding: 10px 0 !important; background: transparent !important; border: 1px solid #0070F3 !important; color: #0070F3 !important; text-decoration: none !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 6px !important; text-align: center !important; transition: all 0.2s ease !important; box-sizing: border-box !important; font-family: sans-serif;">Дізнатися більше про команду &rarr;</a>
+        <a href="team.html" data-translate="near-btn" style="display: block !important; width: 100% !important; padding: 10px 0 !important; background: transparent !important; border: 1px solid #0070F3 !important; color: #0070F3 !important; text-decoration: none !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 6px !important; text-align: center !important; transition: all 0.2s ease !important; box-sizing: border-box !important; font-family: sans-serif;">Дізнатися більше про команду &rarr;</a>
       </div>
 
       <div class="stats-card" style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; text-align: left; flex: 1; box-sizing: border-box; margin: 0 !important; display: flex; flex-direction: column; justify-content: center; gap: 16px; font-family: sans-serif;">
@@ -782,7 +783,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           </div>
           <div>
             <div class="stat-big" style="font-size: 20px; font-weight: 800; line-height: 1.1; color: #1e293b;">1000+</div>
-            <div class="stat-lbl" id="stat-1" style="font-size: 12px; line-height: 1.3; margin-top: 4px; color: #64748b;">людей отримали підтримку</div>
+            <div class="stat-lbl" data-translate="stat-1" style="font-size: 12px; line-height: 1.3; margin-top: 4px; color: #64748b;">людей отримали підтримку</div>
           </div>
         </div>
         
@@ -792,30 +793,34 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           </div>
           <div>
             <div class="stat-big" style="font-size: 20px; font-weight: 800; line-height: 1.1; color: #1e293b;">100+</div>
-            <div class="stat-lbl" id="stat-2" style="font-size: 12px; line-height: 1.3; margin-top: 4px; color: #64748b;">волонтерів щодня допомагають громаді</div>
+            <div class="stat-lbl" data-translate="stat-2" style="font-size: 12px; line-height: 1.3; margin-top: 4px; color: #64748b;">волонтерів щодня допомагають громаді</div>
           </div>
         </div>
       </div>
 
     </div>
-  </div> <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: stretch !important;">
+  </div>
+
+
+  <!-- ЦЕНТРАЛЬНАЯ КОЛОНКА (Цитата UAGZ / Олена) -->
+  <div class="right-review-column" style="width: 360px; flex-shrink: 0; margin: 0 !important; display: flex; flex-direction: column; box-sizing: border-box; align-self: stretch !important;">
     <a href="reviews.html" class="quote-card hero-review-card-compact" style="display: flex !important; text-decoration: none; color: inherit; width: 100%; overflow: hidden; padding: 0; margin-top: 0; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); box-sizing: border-box; position: relative; flex: 1 !important; flex-direction: column; min-height: 100%;">
       
       <div style="width: 100%; position: relative; overflow: hidden; border-radius: 19px 19px 0 0; flex: 1 !important;">
         <img src="elderly1.webp" alt="Олена" style="width: 100%; height: 100%; display: block; object-fit: cover !important;">
         
         <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 30px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); z-index: 10;">
-          <span style="color: #1e293b; font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Дивіться далі</span>
+          <span data-translate="see-more-btn" style="color: #1e293b; font-size: 13px; font-weight: 700; font-family: sans-serif; line-height: 1;">Дивіться далі</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0070F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </div>
 
         <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(255,255,255,0.92) 20%, rgba(255,255,255,0.98)); padding: 45px 24px 12px 24px; box-sizing: border-box; z-index: 5;">
-          <p id="q-t-compact" style="margin: 0; font-size: 14px !important; line-height: 1.5; font-family: sans-serif; color: #0070F3 !important; font-weight: 700; font-style: italic;">
+          <p data-translate="quote-text" style="margin: 0; font-size: 14px !important; line-height: 1.5; font-family: sans-serif; color: #0070F3 !important; font-weight: 700; font-style: italic;">
             "Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні."
           </p>
         </div>
       </div>
-
+  
       <div class="quote-author-container" style="padding: 10px 24px 16px 24px; background: #ffffff; flex-shrink: 0; border-radius: 0 0 20px 20px;">
         <div class="quote-author-compact" style="display: flex; align-items: center; justify-content: space-between;">
           <div>
@@ -826,9 +831,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
 
     </a>
-  </div>
+  </div>  
 
 
+  <!-- ПРАВАЯ КОЛОНКА (Наші новини) -->
   <div class="news-column-holder" style="width: 420px; flex-shrink: 0; margin: 0 !important; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; align-self: stretch !important;">
           
     <div style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; position: relative; height: 250px; box-sizing: border-box; width: 100%;">
@@ -845,8 +851,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </h3>
     </div>
 
-    <div class="news-placeholder-card" style="width: 100%; flex: 1; border: 2px dashed #cbd5e1; background: rgba(248, 250, 252, 0.5); border-radius: 20px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 20px; margin: 0 !important;">
-      <span style="color: #94a3b8; font-family: sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.3px; text-align: center;">Незабаром нові публікації</span>
+    <div style="border: 2px dashed #e2e8f0; border-radius: 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; flex: 1; box-sizing: border-box;">
+      <span style="color: #94a3b8; font-size: 14px; font-family: sans-serif;">Незабаром нові публікации</span>
     </div>
 
   </div>

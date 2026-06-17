@@ -679,11 +679,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
  <div class="lang-sw">
   <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
     <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
-  
-  <a href="#" id="lang-ua" onclick="changeLanguage('ua'); return false;" style="padding: 6px 12px; font-size: 12px; font-family: sans-serif; text-decoration: none; border-radius: 6px; cursor: pointer; display: inline-block; transition: all 0.2s ease;">UA</a>
-  
-  <a href="#" id="lang-de" onclick="changeLanguage('de'); return false;" style="padding: 6px 12px; font-size: 12px; font-family: sans-serif; text-decoration: none; border-radius: 6px; cursor: pointer; display: inline-block; transition: all 0.2s ease;">DE</a>
+  <button class="lang-btn" data-lang="ua">UA</button>
+<button class="lang-btn" data-lang="de">DE</button>
 
+  
 </div>
 
 </div> </nav>
@@ -1848,7 +1847,7 @@ function toggleConsultModal(show) {
     }
   };
 
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".lang-btn");
     const blocks = document.querySelectorAll(".lang");
@@ -1879,3 +1878,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+

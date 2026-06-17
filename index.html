@@ -1862,16 +1862,24 @@ function toggleConsultModal(show) {
   </script>
 </div>
 <script>
-    function switchLang(lang) {
-        const ua = document.getElementById('content-ua');
-        const de = document.getElementById('content-de');
-        
+    function switchLanguage(lang) {
+        // 1. Отримуємо елементи
+        const btnUa = document.getElementById('btn-ua');
+        const btnDe = document.getElementById('btn-de');
+        const contentUa = document.getElementById('content-ua');
+        const contentDe = document.getElementById('content-de');
+
+        // 2. Перемикаємо кольори кнопок
         if (lang === 'ua') {
-            ua.classList.remove('hidden');
-            de.classList.add('hidden');
+            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
+            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+            contentUa.classList.remove('hidden');
+            contentDe.classList.add('hidden');
         } else {
-            de.classList.remove('hidden');
-            ua.classList.add('hidden');
+            btnDe.className = "px-3 py-1 text-xs font-bold rounded-md bg-blue-800 text-white transition";
+            btnUa.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 transition";
+            contentDe.classList.remove('hidden');
+            contentUa.classList.add('hidden');
         }
     }
 </script>

@@ -678,18 +678,15 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </ul>
  <div class="lang-sw">
   <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
-    <!-- UA Кнопка -->
- <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
+    <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
   
-  <a href="#" onclick="changeLanguage('ua'); return false;" style="padding: 6px 12px; background: #ffffff; color: #0070F3; font-size: 12px; font-weight: 700; font-family: sans-serif; text-decoration: none; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); cursor: pointer; display: inline-block;">UA</a>
+  <a href="#" id="lang-ua" onclick="changeLanguage('ua'); return false;" style="padding: 6px 12px; font-size: 12px; font-family: sans-serif; text-decoration: none; border-radius: 6px; cursor: pointer; display: inline-block; transition: all 0.2s ease;">UA</a>
   
-  <a href="#" onclick="changeLanguage('de'); return false;" style="padding: 6px 12px; color: #64748b; font-size: 12px; font-weight: 600; font-family: sans-serif; text-decoration: none; border-radius: 6px; cursor: pointer; display: inline-block;">DE</a>
+  <a href="#" id="lang-de" onclick="changeLanguage('de'); return false;" style="padding: 6px 12px; font-size: 12px; font-family: sans-serif; text-decoration: none; border-radius: 6px; cursor: pointer; display: inline-block; transition: all 0.2s ease;">DE</a>
 
 </div>
 
-</div>
-</div>
-</nav>
+</div> </nav>
 
 <!-- ═══════ HERO ════════════════════════════════════ -->
 <div class="hero">

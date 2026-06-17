@@ -1862,20 +1862,29 @@ function toggleConsultModal(show) {
   </script>
 </div>
 <script>
-    function switchLanguage(lang) {
-        const uaElements = document.querySelectorAll('.lang-ua');
-        const deElements = document.querySelectorAll('.lang-de');
+    // В будущем этот объект придет к нам из JSON через Make.com
+    // Сейчас для теста пропишем данные вручную
+    const translations = {
+        "nav_home": { "ua": "Головна", "de": "Startseite" },
+        "nav_about": { "ua": "Про центр", "de": "Über uns" },
+        "hero_title": { "ua": "Український центр Цюриха", "de": "Ukrainisches Zentrum Zürich" },
+        "hero_btn": { "ua": "Отримати допомогу", "de": "Hilfe erhalten" }
+    };
+
+    function updateLanguage(lang) {
+        // Находим все элементы с атрибутом data-key
+        const elements = document.querySelectorAll('[data-key]');
         
-        // Переключаем блоки с классом lang-ua
-        uaElements.forEach(el => {
-            lang === 'ua' ? el.classList.remove('hidden') : el.classList.add('hidden');
-        });
-        
-        // Переключаем блоки с классом lang-de
-        deElements.forEach(el => {
-            lang === 'de' ? el.classList.remove('hidden') : el.classList.add('hidden');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[key] && translations[key][lang]) {
+                el.innerText = translations[key][lang];
+            }
         });
     }
+
+    // Инициализация при загрузке (по умолчанию UA)
+    updateLanguage('ua');
 </script>
 </body>
 </html>

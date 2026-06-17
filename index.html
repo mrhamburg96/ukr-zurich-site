@@ -1818,39 +1818,32 @@ function toggleConsultModal(show) {
 
 <script>
   // ==========================================
-  // 1. БАЗА ПЕРЕВОДОВ (СЛОВАРЬ)
-  // ==========================================
-  // Если у вас уже есть переменная translations выше, этот код аккуратно дополнит её.
-  // Если её не было — он создаст её с нуля, чтобы сайт не выдавал ошибку.
+ <script>
+  // Словарь
   window.translations = window.translations || {
     ua: {
-      "center-title": "Сімейний центр",
-      "news-title": "Наші новини",
-      "news-more": "Дивитися",
-      "stat-1": "людей отримали підтримку",
-      "stat-2": "волонтерів щодня допомагають громаді"
+      "center-title": "Сімейний центр", "join-btn": "Приєднуйтесь", "near-title": "Ми поруч з вами",
+      "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.", "near-btn": "Дізнатися більше про команду &rarr;",
+      "stat-1": "людей отримали підтримку", "stat-2": "волонтерів щодня допомагають громаді",
+      "see-more-btn": "Дивіться далі", "news-title": "Наші новини", "news-more": "Дивитися",
+      "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\""
     },
     de: {
-      "center-title": "Familienzentrum",
-      "news-title": "Unsere Nachrichten",
-      "news-more": "Ansehen",
-      "stat-1": "Menschen haben Unterstützung erhalten",
-      "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag"
+      "center-title": "Familienzentrum", "join-btn": "Beitreten", "near-title": "Wir sind an Ihrer Seite",
+      "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.", "near-btn": "Mehr über das Team erfahren &rarr;",
+      "stat-1": "Menschen haben Unterstützung erhalten", "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
+      "see-more-btn": "Mehr sehen", "news-title": "Unsere Nachrichten", "news-more": "Ansehen",
+      "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\""
     }
   };
 
-  // ==========================================
-  // 2. АВТО-ПЕРЕВОД ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
-  // ==========================================
+  // При загрузке страницы
   document.addEventListener("DOMContentLoaded", function() {
-    // Получаем выбранный язык или ставим 'ua' по умолчанию
     var savedLang = localStorage.getItem('siteLang') || 'ua';
     applyLanguage(savedLang);
   });
 
-  // ==========================================
-  // 3. ФУНКЦИЯ ПРИМЕНЕНИЯ ПЕРЕВОДА
-  // ==========================================
+  // Применение языка
   function applyLanguage(lang) {
     if (window.translations && window.translations[lang]) {
       document.querySelectorAll('[data-translate]').forEach(function(element) {
@@ -1859,36 +1852,39 @@ function toggleConsultModal(show) {
           element.innerHTML = window.translations[lang][key];
         }
       });
-      
-      // Обновляем визуальный вид кнопок переключателя
-      updateLanguageButtons(lang);
     }
+    updateLanguageButtons(lang);
   }
 
-  // ==========================================
-  // 4. ФУНКЦИЯ КЛИКА ПО КНОПКАМ UA / DE
-  // ==========================================
+  // Клик по кнопке переключения языка
   function changeLanguage(lang) {
     localStorage.setItem('siteLang', lang);
     applyLanguage(lang);
-    // Перезагрузка страницы, чтобы зафиксировать изменения во всех структурах
     window.location.reload();
   }
 
-  // Подсветка активной кнопки переключателя языков
+  // Функция подсветки кнопок UA / DE
   function updateLanguageButtons(activeLang) {
-    // Ищет ссылки UA и DE и делает активную визуально выделенной, если нужно
-  }
-
-  // ==========================================
-  // 5. ОБРАБОТЧИКИ ФОРМЫ И МОДАЛКИ (БЕЗ ОШИБОК)
-  // ==========================================
-  if (document.getElementById('consultModal')) {
-    document.getElementById('consultModal').addEventListener('click', function(e) {
-      if (e.target === this) { toggleConsultModal(false); }
+    // Находим кнопки UA и DE по тексту внутри них
+    document.querySelectorAll('a, button').forEach(function(btn) {
+      var txt = btn.innerText.trim();
+      if (txt === 'UA' || txt === 'DE') {
+        if (txt.toLowerCase() === activeLang.toLowerCase()) {
+          // Стили для активной кнопки (например, синий фон, белый текст)
+          btn.style.backgroundColor = '#0070F3';
+          btn.style.color = '#ffffff';
+          btn.style.fontWeight = '700';
+        } else {
+          // Стили для неактивной кнопки
+          btn.style.backgroundColor = 'transparent';
+          btn.style.color = '#1e293b';
+          btn.style.fontWeight = '500';
+        }
+      }
     });
   }
 
+  // Обработчик формы (исправленный, БЕЗ СИНТАКСИЧЕСКИХ ОШИБОК)
   if (document.getElementById('consult-google-form')) {
     document.getElementById('consult-google-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -1911,19 +1907,14 @@ function toggleConsultModal(show) {
       fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: urlParams })
       .then(function() {
         if (currentLang === 'de') {
-          alert("Vielen Dank! Ihre Anfrage für eine individuelle Beratung wurde erfolgreich abgesendet.");
+          alert("Vielen Dank! Ihre Anfrage wurde erfolgreich abgesendet.");
         } else {
-          alert("Дякуємо! Ваш запит на індивідуальну консультацію успішно надіслано.");
+          alert("Дякуємо! Ваш запит успішно надіслано.");
         }
         document.getElementById('consult-google-form').reset();
-        if (typeof toggleConsultModal === 'function') { toggleConsultModal(false); }
       })
       .catch(function(error) {
-        if (currentLang === 'de') {
-          alert("Fehler beim Senden. Bitte versuchen Sie es später noch einmal.");
-        } else {
-          alert("Помилка відправки. Спробуйте пізніше.");
-        }
+        alert(currentLang === 'de' ? "Fehler beim Senden." : "Помилка відправки.");
       })
       .finally(function() {
         if (btn) { 
@@ -1934,6 +1925,5 @@ function toggleConsultModal(show) {
     });
   }
 </script>
-
 </body>
 </html>

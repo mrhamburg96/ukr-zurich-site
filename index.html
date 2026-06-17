@@ -1818,7 +1818,7 @@ function toggleConsultModal(show) {
 
 <script>
   // ==========================================
-<!-- Очищенный и изолированный скрипт перевода -->
+<!-- Автономный скрипт перевода -->
 <script>
 (function() {
   // 1. СЛОВАРЬ ПЕРЕВОДОВ
@@ -1851,7 +1851,18 @@ function toggleConsultModal(show) {
     }
   };
 
-  // 2. ФУНКЦИЯ ОБНОВЛЕНИЯ ТЕКСТА НА СТРАНИЦЕ
+  // 2. ГЛОБАЛЬНАЯ ФУНКЦИЯ ДЛЯ КЛИКА (Регистрируем сразу)
+  window.changeLanguage = function(lang) {
+    try {
+      localStorage.setItem('siteLang', lang);
+      applyTranslations(lang);
+      window.location.reload();
+    } catch(e) {
+      console.error(e);
+    }
+  };
+
+  // 3. ФУНКЦИЯ ОБНОВЛЕНИЯ ТЕКСТА
   function applyTranslations(lang) {
     document.querySelectorAll('[data-translate]').forEach(function(el) {
       var key = el.getAttribute('data-translate');
@@ -1862,19 +1873,25 @@ function toggleConsultModal(show) {
     updateButtons(lang);
   }
 
-  // 3. ФУНКЦИЯ ПОДСВЕТКИ КНОПОК UA / DE
+  // 4. ЖЕСТКАЯ ПРИНУДИТЕЛЬНАЯ ПОДСВЕТКА КНОПОК
   function updateButtons(activeLang) {
-    document.querySelectorAll('a, button, div').forEach(function(btn) {
-      var text = btn.innerText ? btn.innerText.trim() : '';
+    // Находим абсолютно все элементы, которые могут быть кнопками UA/DE
+    var tags = document.querySelectorAll('a, button, div, span');
+    
+    tags.forEach(function(btn) {
+      var text = btn.textContent ? btn.textContent.trim() : '';
+      
       if (text === 'UA' || text === 'DE') {
         if (text.toLowerCase() === activeLang.toLowerCase()) {
-          // Стили для активной кнопки (Синий фон, белый текст)
+          // Принудительно красим активную кнопку в синий цвет UAGZ
           btn.style.setProperty('background-color', '#0070F3', 'important');
           btn.style.setProperty('color', '#ffffff', 'important');
           btn.style.setProperty('font-weight', '700', 'important');
+          btn.style.setProperty('background', '#0070F3', 'important'); // на случай если там градиент
         } else {
-          // Стили для неактивной кнопки (Прозрачный фон, темный текст)
+          // Принудительно сбрасываем неактивную кнопку в серый/прозрачный
           btn.style.setProperty('background-color', 'transparent', 'important');
+          btn.style.setProperty('background', 'transparent', 'important');
           btn.style.setProperty('color', '#1e293b', 'important');
           btn.style.setProperty('font-weight', '500', 'important');
         }
@@ -1882,23 +1899,20 @@ function toggleConsultModal(show) {
     });
   }
 
-  // 4. ГЛОБАЛЬНАЯ ФУНКЦИЯ ДЛЯ КЛИКА (Регистрируем в системе)
-  window.changeLanguage = function(lang) {
-    localStorage.setItem('siteLang', lang);
-    applyTranslations(lang);
-    // Перезагружаем, чтобы применились системные изменения
-    window.location.reload();
-  };
+  // 5. МГНОВЕННЫЙ ЗАПУСК БЕЗ ОЖИДАНИЯ СТРАНИЦЫ
+  var savedLang = 'ua';
+  try {
+    savedLang = localStorage.getItem('siteLang') || 'ua';
+  } catch(e) {}
+  
+  // Запускаем перевод сразу
+  applyTranslations(savedLang);
 
-  // 5. ЗАПУСК ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
-  document.addEventListener("DOMContentLoaded", function() {
-    var savedLang = localStorage.getItem('siteLang') || 'ua';
+  // И на всякий случай дублируем через микро-секунду, когда подгрузится весь HTML
+  setTimeout(function() {
     applyTranslations(savedLang);
-  });
+  }, 100);
 
-  // Запуск на случай, если DOM уже загружен
-  var currentLang = localStorage.getItem('siteLang') || 'ua';
-  applyTranslations(currentLang);
 })();
 </script>
 </body>

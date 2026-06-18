@@ -521,54 +521,122 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 /* Когда ширина экрана 768px или меньше (планшеты и телефоны) */
 @media (max-width: 768px) {
-  /* Находим контейнер главного баннера и делаем его выше на мобильном */
-  .hero-banner-container, 
-  div[style*="news.webp"] { /* или тот класс, который отвечает за главный баннер */
-    height: 320px !important; /* Увеличиваем высоту, чтобы текст поместился */
+
+  /* ==========================================================================
+     1. ЧИНИМ ШАПКУ И НАВИГАЦИЮ (Чтобы кнопки Головна, Про центр... не пропадали)
+     ========================================================================== */
+  
+  /* Делаем так, чтобы вся белая верхняя панель (шапка) могла растягиваться вниз */
+  header, 
+  div[style*="background: #ffffff"][style*="position: fixed"], 
+  div[style*="background: white"] {
+    height: auto !important;
+    position: relative !important; /* На мобильных лучше убрать фиксированное положение, чтобы не съедало экран */
+    padding: 10px 16px !important;
   }
 
-  /* Сжимаем сам текст на баннере, чтобы он выглядел аккуратно */
+  /* Находим контейнер, где лежат кнопки "Головна", "Про центр", "UA/DE", "Donate"
+     Включаем для них удобный горизонтальный скролл пальцем */
+  header nav,
+  header div:has(a),
+  .header-navigation-holder {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;          /* Включаем прокрутку влево-вправо */
+    white-space: nowrap !important;       /* Запрещаем кнопкам переноситься и ломать верстку */
+    gap: 10px !important;
+    padding: 8px 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;    /* Плавный скролл на смартфонах */
+  }
+
+  /* Прячем системный некрасивый ползунок скролла, чтобы меню выглядело аккуратно */
+  header nav::-webkit-scrollbar,
+  .header-navigation-holder::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Делаем ссылки меню аккуратными синими кнопочками, которые удобно нажимать пальцем */
+  header nav a,
+  header div:has(a) > a {
+    display: inline-block !important;
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+    background: #f1f5f9 !important;
+    border-radius: 20px !important;
+    color: #0070F3 !important;
+    text-decoration: none !important;
+  }
+
+
+  /* ==========================================================================
+     2. ЧИНИМ ГЛАВНЫЙ БАННЕР (Чтобы фото сжималось и текст помещался)
+     ========================================================================== */
+  
+  /* Находим блок главного баннера (с Цюрихом) */
+  .hero-banner-container, 
+  div[style*="news.webp"],
+  div:has(> img[src*="zurich"]) { 
+    height: 340px !important; /* Даем блоку фиксированную высоту на мобильном */
+    position: relative !important;
+  }
+
+  /* Заставляем саму фоновую картинку внутри баннера сжиматься под размер экрана */
+  .hero-banner-container img,
+  div:has(> img[src*="zurich"]) img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Картинка пропорционально заполняет блок, не растягиваясь уродливо */
+  }
+
+  /* Сжимаем сам текст на баннере, чтобы он не вылезал за границы */
   .hero-banner-container h1,
   .hero-banner-container h2,
-  div[style*="position: absolute"] h1 { 
-    font-size: 24px !important; /* Уменьшаем размер шрифта */
-    line-height: 1.3 !important;
-    bottom: 20px !important;    /* Прижимаем к нижнему краю с аккуратным отступом */
-    padding: 0 15px !important;
-  }
-  
-  /* Перестраиваем три колонки из горизонтального ряда в один вертикальный столбец */
-  .main-how-layout {
-    flex-direction: column !important;
-    padding-left: 16px !important;  /* Слегка уменьшаем боковые отступы на смартфонах */
-    padding-right: 16px !important;
-    gap: 16px !important;           /* Делаем зазоры между блоками чуть компактнее */
-    margin-top: 40px !important;    /* Уменьшаем слишком большой верхний отступ */
-    height: auto !important;        /* Сбрасываем общую фиксированную высоту! */
+  div[style*="position: absolute"] h1,
+  h1:contains("Український") { 
+    font-size: 22px !important; /* Уменьшаем шрифт главного заголовка */
+    line-height: 1.2 !important;
+    bottom: 15px !important;    /* Сдвигаем аккуратно вниз */
+    left: 15px !important;
+    right: 15px !important;
+    padding: 0 !important;
+    width: auto !important;
   }
 
-  /* Сбрасываем жесткую высоту колонок, чтобы они не переполнялись */
+
+  /* ==========================================================================
+     3. СТРАУКТУРА ТРЕХ КОЛОНОК (Ваш рабочий код)
+     ========================================================================== */
+  
+  .main-how-layout {
+    flex-direction: column !important;
+    padding-left: 16px !important;  
+    padding-right: 16px !important;
+    gap: 16px !important;           
+    margin-top: 20px !important;    /* Уменьшили маргин, так как шапка стала компактнее */
+    height: auto !important;        
+  }
+
   .left-steps-column,
   .right-review-column,
   .news-column-holder {
     height: auto !important;
-    width: 100% !important;        /* Каждая колонка теперь занимает всю ширину экрана */
+    width: 100% !important;        
   }
 
-  /* Карточки внутри левой колонки (Ми поруч и Статистика) тоже пускаем друг под другом */
   .left-steps-column > div:last-child {
     flex-direction: column !important;
     height: auto !important;
   }
 
-  /* Корректируем фиксированную высоту внутренних элементов, чтобы на мобильных всё смотрелось пропорционально */
   .right-review-column a.hero-review-card-compact {
-    height: 380px !important;      /* Центральное фото на мобильном сделаем чуть аккуратнее */
+    height: 380px !important;      
     min-height: 380px !important;
   }
   
   .news-column-holder > div {
-    height: auto !important;        /* Блок контактов подстроится под контент */
+    height: auto !important;        
   }
 }
 /* ===================================================================== */

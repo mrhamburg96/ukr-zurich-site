@@ -1269,7 +1269,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 </footer>
 
-<!-- ═══════ ИСПРАВЛЕННЫЙ СКРИПТ ПЕРЕВОДА (UA / DE) ═══════ -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     // 1. СЛОВАРЬ ПЕРЕВОДОВ
@@ -1336,7 +1335,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "stat4-n": "3",
             "stat4-t": "Роки роботи",
             "nav-home": "Головна",
-            "f-desc": "Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.",
+            "f-desc": "Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всех українців у Швейцарії.",
             "f-title-center": "Центр",
             "f-about": "Про нас",
             "f-services": "Послуги",
@@ -1374,7 +1373,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "w6": "Студенти",
             "w7": "Люди в пошуку роботи",
             "w8": "Пенсіонери",
-            "dir-h1": "Чим ми допомагаємо",
+            "dir-h1": "Чим мы допомагаємо",
             "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
             "ds1": "Людей отримали допомогу",
             "ds2": "Волонтерів у спільноті",
@@ -1383,7 +1382,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "d1": "Гуманітарна допомога", "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
             "d2": "Консультації та документи", "d2d": "Допомога з формами, заявами та офіційними листами.",
             "d3": "Інтеграція та адаптація", "d3d": "Підтримка новоприбулих на кожному етапі.",
-            "d4": "Курси німецької мови", "d4d": "Безкоштовні та доступні курси для всіх рівнів.",
+            "d4": "Курси німецької мови", "d4d": "Безкоштовні та доступні курси для всех рівнів.",
             "d5": "Пошук роботи та кар'єра", "d5d": "Консультації, резюме, вакансії та контакти.",
             "d6": "Спорт-ти СВІТ! Спортивні програми", "d6d": "Пошук житла, реєстрація, страхування, рахунки.",
             "d7": "Здоров'я та лікарі", "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
@@ -1422,8 +1421,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "cta-news-p": "Підпишіться на важливі оновлення та корисні матеріали.",
             "cta-email-input": "Ваш Email",
             "tr-association": "Офіційно зареєстрована асоціація у Швейцарії",
-            "tr-count": "Понад 5000 українців
-			            "tr-count": "Понад 5000 українців вже отримали допомогу",
+            "tr-count": "Понад 5000 українців вже отримали допомогу",
             "lang-ua": "UA",
             "lang-de": "DE",
             "lang-current-ua": "Українська",
@@ -1579,23 +1577,26 @@ document.addEventListener("DOMContentLoaded", () => {
             "cta-news-p": "Melden Sie sich für wichtige Updates und nützliche Materialien an.",
             "cta-email-input": "Ihre E-Mail",
             "tr-association": "Offiziell registrierte Vereinigung in der Schweiz",
-            "tr-count": "Über 5000 Ukrainer haben bereits Hilfe erhalten"
+            "tr-count": "Über 5000 Ukrainer haben bereits Hilfe erhalten",
+            "lang-ua": "UA",
+            "lang-de": "DE",
+            "lang-current-ua": "Ukrainisch",
+            "lang-current-de": "Deutsch",
+            "toggle-lang-ua": "Auf Deutsch umstellen",
+            "toggle-lang-de": "Switch to Ukrainian"
         }
     };
 
-    // 2. ФУНКЦИЯ ПЕРЕВОДА
+    // 2. ГЛАВНАЯ ФУНКЦИЯ ПЕРЕВОДА СТРАНИЦЫ
     function applyTranslation(lang) {
         if (!dict[lang]) return;
         const data = dict[lang];
         
-        // Находим все элементы с атрибутом data-translate
+        // Переводим элементы сайта с data-translate
         const elements = document.querySelectorAll('[data-translate]');
-        
         elements.forEach(el => {
             const key = el.getAttribute('data-translate');
             if (data[key]) {
-                // Если текст содержит HTML теги (например <u>), используем innerHTML
-                // Если только текст - innerText
                 if (data[key].includes('<')) {
                     el.innerHTML = data[key];
                 } else {
@@ -1604,32 +1605,55 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Обновляем текст кнопок переключения языка
-        const btnUA = document.querySelector('.lang-btn[data-lang="ua"]');
-        const btnDE = document.querySelector('.lang-btn[data-lang="de"]');
+        // 3. ПОДСВЕТКА И УПРАВЛЕНИЕ СТИЛЯМИ КНОПОК
+        // Скрипт сам находит кнопки по ID или классам
+        const btnUA = document.getElementById('lang-ua') || document.querySelector('.lang-btn[data-lang="ua"]');
+        const btnDE = document.getElementById('lang-de') || document.querySelector('.lang-btn[data-lang="de"]');
         
-        if (btnUA) btnUA.innerText = data['lang-ua'];
-        if (btnDE) btnDE.innerText = data['lang-de'];
+        if (btnUA && btnDE) {
+            if (lang === 'ua') {
+                // Включаем UA
+                btnUA.style.setProperty('background-color', '#ffffff', 'important');
+                btnUA.style.setProperty('color', '#0070F3', 'important');
+                btnUA.style.setProperty('font-weight', '700', 'important');
+                btnUA.style.setProperty('box-shadow', '0 1px 3px rgba(0,0,0,0.1)', 'important');
+                // Выключаем DE
+                btnDE.style.setProperty('background-color', 'transparent', 'important');
+                btnDE.style.setProperty('color', '#64748b', 'important');
+                btnDE.style.setProperty('font-weight', '600', 'important');
+                btnDE.style.setProperty('box-shadow', 'none', 'important');
+            } else {
+                // Включаем DE
+                btnDE.style.setProperty('background-color', '#ffffff', 'important');
+                btnDE.style.setProperty('color', '#0070F3', 'important');
+                btnDE.style.setProperty('font-weight', '700', 'important');
+                btnDE.style.setProperty('box-shadow', '0 1px 3px rgba(0,0,0,0.1)', 'important');
+                // Выключаем UA
+                btnUA.style.setProperty('background-color', 'transparent', 'important');
+                btnUA.style.setProperty('color', '#64748b', 'important');
+                btnUA.style.setProperty('font-weight', '600', 'important');
+                btnUA.style.setProperty('box-shadow', 'none', 'important');
+            }
+        }
         
-        // Сохраняем выбор в localStorage
         localStorage.setItem('siteLang', lang);
     }
 
-    // 3. ИНИЦИАЛИЗАЦИЯ
-    // Определяем язык по localStorage или по умолчанию (UA)
+    // РЕГИСТРИРУЕМ ФУНКЦИЮ ГЛОБАЛЬНО ДЛЯ ОБРАБОТКИ ONCLICK ССЫЛОК
+    window.changeLanguage = function(lang) {
+        applyTranslation(lang);
+    };
+
+    // 4. ИНИЦИАЛИЗАЦИЯ И СТАРТ
     const savedLang = localStorage.getItem('siteLang') || 'ua';
-    
-    // Применяем язык при загрузке
     applyTranslation(savedLang);
 
-    // 4. ОБРАБОТЧИКИ КНОПОК ПЕРЕХОДА
+    // НАВЕШИВАНИЕ ОБРАБОТЧИКОВ КЛИКОВ (для кнопок с классами)
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const newLang = btn.getAttribute('data-lang');
-            if (newLang) {
-                applyTranslation(newLang);
-            }
+            if (newLang) applyTranslation(newLang);
         });
     });
 });

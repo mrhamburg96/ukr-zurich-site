@@ -1292,458 +1292,446 @@ function doReg() {
   document.getElementById('reg-ok').style.display = 'block';
 }
 
-/* ── ДВОРІВНЕВИЙ ПЕРЕКЛАД (UA / DE) ── */
-const dict = {
-  ua: {
-    "how-tag": "Як це працює",
-    "how-h1": "Просто. Швидко. Людяно.",
-    "how-sub": "Ми зробили процес отримання допомоги максимально простим і зрозумілим.",
-    "st1-h": "Подайте заявку",
-    "st1-p": "Заповніть просту форму на сайті — це займе лише кілька хвилин.",
-    "st2-h": "Ми зв'яжемося з вами",
-    "st2-p": "Наш координатор зв'яжеться з вами та допоможе визначити ваш запит.",
-    "st3-h": "Отримайте допомогу або консультацію",
-    "st3-p": "Ви отримаєте необхідну підтримку, інформацію або консультацію.",
-    "team-h": "Ми поруч з вами",
-    "team-p": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
-    "team-l": "Дізнатися більше про команду →",
-    "stat-1": "людей отримали підтримку",
-    "stat-2": "волонтерів щодня допомагають громаді",
-    "qc-h": "Швидкий зв'язок",
-    "q-t": "\"Я отримала відповіді на всі свои питання та відчула підтримку з першого дня. Дякую команді UAGZ!\"",
-    "q-n": "Олена",
-    "nl-1": "Головна",
-    "nl-2": "Про центр",
-    "nl-3": "Допомога",
-    "nl-4": "Події",
-    "nav-knowledge": "Knowledge Center",
-    "nav-announcements": "Оголошення",
-    "nav-volunteering": "Волонтерство",
-    "btn-donate-nav": "Підтримати",
-    "nav-contacts": "Контакти",
-    "n-sub": "Громадський Центр",
-    
-    // ГЛАВНЫЙ БАННЕР (HERO UA)
-    "h-badge": "Офіційна NGO · Zürich",
-    "h-t": "Український інтеграційний та громадський центр Цюриха",
-    "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
-    "h-b1": "Отримати допомогу",
-    "h-b2t": "Долучитися до громади",
+<!-- ═══════ ИСПРАВЛЕННЫЙ СКРИПТ ПЕРЕВОДА ═══════ -->
+<script>
+  // 1. СЛОВАРЬ (Объединяем все переводы в один объект)
+  // Я взял данные из вашего большого объекта dict и добавил ключи из маленьких блоков
+  const dict = {
+    ua: {
+      // --- Основные элементы ---
+      "how-tag": "Як це працює",
+      "how-h1": "Просто. Швидко. Людяно.",
+      "how-sub": "Ми зробили процес отримання допомоги максимально простим і зрозумілим.",
+      "st1-h": "Подайте заявку",
+      "st1-p": "Заповніть просту форму на сайті — це займе лише кілька хвилин.",
+      "st2-h": "Ми зв'яжемося з вами",
+      "st2-p": "Наш координатор зв'яжеся з вами та допоможе визначити ваш запит.",
+      "st3-h": "Отримайте допомогу або консультацію",
+      "st3-p": "Ви отримаєте необхідну підтримку, інформацію або консультацію.",
+      "team-h": "Ми поруч з вами",
+      "team-p": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+      "team-l": "Дізнатися більше про команду →",
+      "stat-1": "людей отримали підтримку",
+      "stat-2": "волонтерів щодня допомагають громаді",
+      "qc-h": "Швидкий зв'язок",
+      "q-t": "\"Я отримала відповіді на всі свои питання та відчула підтримку з першого дня. Дякую команді UAGZ!\"",
+      "q-n": "Олена",
+      "nl-1": "Головна",
+      "nl-2": "Про центр",
+      "nl-3": "Допомога",
+      "nl-4": "Події",
+      "nav-knowledge": "Knowledge Center",
+      "nav-announcements": "Оголошення",
+      "nav-volunteering": "Волонтерство",
+      "btn-donate-nav": "Підтримати",
+      "nav-contacts": "Контакти",
+      "n-sub": "Громадський Центр",
+      
+      // --- HERO ---
+      "h-badge": "Офіційна NGO · Zürich",
+      "h-t": "Український інтеграційний та громадський центр Цюриха",
+      "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
+      "h-b1": "Отримати допомогу",
+      "h-b2t": "Долучитися до громади",
 
-    "s-title": "Напрямки нашої діяльності",
-    "s-desc": "Ми створюємо умови для швидкої адаптації, навчання та взаємодопомоги",
-    "s1-t": "Інтеграційні курси",
-    "s1-d": "Мовні курси (Німецька), консультації з працевлаштування та юридична підтримка в Швейцарії.",
-    "s2-t": "Культурні події",
-    "s2-d": "Українські вечорниці, виставки, кінопокази та зустрічі для збереження нашої ідентичності.",
-    "s3-t": "Дитячий простір",
-    "s3-d": "Розвиваючі заняття, гуртки, психологічна адаптація та допомога з інтеграцією до місцевих шкіл.",
-    "s4-t": "Гуманітарна допомога",
-    "s4-d": "Координація зборів, логістика та адресна допомога постраждалим та новоприбулим.",
-    "ev-title": "Найближчі події та зустрічі",
-    "ev-desc": "Долучайтеся до наших заходів, щоб знайти нових друзів та отримати корисну інформацію",
-    "ev1-t": "Розмовний клуб німецької мови",
-    "ev1-d": "Практика мови з носіями у дружній атмосфері. Для всех рівнів.",
-    "ev2-t": "Арт-терапія для детей та дорослих",
-    "ev2-d": "Психологічне розвантаження через творчість под керівництвом спеціаліста.",
-    "ev3-t": "Семінар: Життя та робота в Швейцарії",
-    "ev3-d": "Юрист відповідає на поширені питання про статус S та працевлаштування.",
-    "b-all-ev": "Всі події",
-    "stat-t": "Центр у цифрах",
-    "stat1-n": "1,200+",
-    "stat1-t": "Підопічних",
-    "stat2-n": "150+",
-    "stat2-t": "Заходів",
-    "stat3-n": "50+",
-    "stat3-t": "Волонтерів",
-    "stat4-n": "3",
-    "stat4-t": "Роки роботи",
-    "nav-home": "Головна",
-    "f-desc": "Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.",
-    "f-title-center": "Центр",
-    "f-about": "Про нас",
-    "f-services": "Послуги",
-    "f-events": "Події",
-    "f-announcements": "Оголошення",
-    "f-title-useful": "Корисне",
-    "f-knowledge": "Knowledge Center",
-    "f-faq": "Часті питання (FAQ)",
-    "f-urgent": "Термінова допомога",
-    "f-title-hours": "Години роботи",
-    "f-day-wf": "Пн-Пт:",
-    "f-day-sat": "Сб:",
-    "f-day-sun": "Нд:",
-    "f-closed": "Зачинено",
-    "f-together": "Разом для майбутнього",
-    
-    "b1": "Терміново", "n1t": "Гуманітарна видача продуктів", "n1m": "18 травня, 10:00–14:00 · Albisriederplatz 1",
-    "b2": "Новина", "n2t": "Нові курси німецької мови для початківців", "n2m": "Реєстрація відкрита",
-    "b3": "Подія", "n3m": "24 травня, 18:00 · Gemeinschaftszentrum",
-    
-    "tc2": "Події найближчим часом", "tc2l": "Всі події →",
-    "mo1": "ТРАВ", "e1t": "Дитячий театр-студія \"Чомучки\"", "e1d": "Сб, 12:00–14:00",
-    "mo2": "ТРАВ", "e2t": "Мовний клуб (німецька) Рівень A1–A2", "e2d": "Вт, 18:30–20:00",
-    "mo3": "ТРАВ", "e3t": "Community Evening · Знайомства та спілкування", "e3d": "Пт, 18:00–21:00",
-    
-    "tc3": "Нові оголошення", "tc3l": "Всі оголошення →",
-    "ab1": "Житло", "a1t": "Здається кімната в Цюриху · 800 CHF/міс.", "a1m": "Сьогодні, 10:15",
-    "ab2": "Робота", "a2t": "Потрібна няня для дитини 4 роки · Teilzeit", "a2m": "Сьогодні, 09:40",
-    "ab3": "Послуги", "a3t": "Переклади документів (укр/нім) · Швидко та якісно", "a3m": "Сьогодні, 08:30",
-    
-    "fw-h": "Для кого наш центр?",
-    "fw-l": "Переглянути всі можливості →",
-    "w1": "Новоприбулі",
-    "w2": "Мами з дітьми",
-    "w3": "Люди зі статусом S",
-    "w4": "Волонтери",
-    "w5": "Бізнес",
-    "w6": "Студенти",
-    "w7": "Люди в пошуку роботи",
-    "w8": "Пенсіонери",
-    
-    "dir-h1": "Чим ми допомагаємо",
-    "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
-    "ds1": "Людей отримали допомогу",
-    "ds2": "Волонтерів у спільноті",
-    "ds3": "Заходів щомісяця",
-    "ds4": "for українців у Цюриху",
-    "d1": "Гуманітарна допомога", "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
-    "d2": "Консультації та документи", "d2d": "Допомога з формами, заявами та офіційними листами.",
-    "d3": "Інтеграція та адаптація", "d3d": "Підтримка новоприбулих на кожному етапі.",
-    "d4": "Курси німецької мови", "d4d": "Безкоштовні та доступні курси для всіх рівнів.",
-    "d5": "Пошук роботи та кар'єра", "d5d": "Консультації, резюме, вакансії та контакти.",
-    "d6": "Спорт-ти СВІТ! Спортивні програми", "d6d": "Пошук житла, реєстрація, страхування, рахунки.",
-    "d7": "Здоров'я та лікарі", "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
-    "d8": "Події для дітей", "d8d": "Творчі заняття, табори, свята та дитячі групи.",
-    "d9": "Волонтерство та участь в екологічних програмах Швейцарії.", "d9d": "Долучайтеся та допомагайте разом із нами.",
-    "d10": "Культура та дозвілля", "d10d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
-    "cta-h": "Потрібна індивідуальна консультація?",
-    "cta-p": "Напишіть нам, і we знайдемо відповідного спеціаліста.",
-    "cta-b": "Зв'язатися",
-    
-    "events-title": "Події/Найближчим часом", "events-more": "Всі події →",
-    "ann-title": "Нові оголошення", "ann-more": "Всі оголошення →",
-    "target-title": "Для кого наш центр?", "target-more": "Переглянути всі напрямки →",
-    "help-title": "Чим ми допомагаємо", "help-desc": "Ми поруч у важливих питаннях щодня.",
-    "count-1": "Людей отримали допомогу", "count-2": "Волонтерів у спільноті", "count-3": "Заходів щомісяця", "count-4": "Для українців у Цюриху",
-    "c1-t": "Гуманітарна допомога", "c1-d": "Продукти, одяг, засоби гігієни та інша підтримка.",
-    "c2-t": "Консультації та документи", "c2-d": "Допомога в оформленні, перекладі та юридичних питаннях.",
-    "c3-t": "Інтеграція та адаптація", "c3-d": "Підтримка новоприбулих на кожному етапі.",
-    "c4-t": "Курси німецької мови", "c4-d": "Безкоштовні та доступні уроки для всех рівнів.",
-    "c5-t": "Пошук роботи та кар'єра", "c5-d": "Консультації, резюме, вакансії та контакти.",
-    "c6-t": "Спорт-ти СВІТ! Спортивні програми", "c6-d": "Пошук житла, реєстрація, комунальні рахунки.",
-    "c7-t": "Здоров'я та лікарі", "c7-d": "Медичне страхування, лікарі та психологічна допомога.",
-    "c8-t": "Події для дітей", "c8-d": "Творчі заняття, табори, свята та дитячі групи.",
-    "c9-t": "Волонтерство та участь в екологічних програмах Швейцарії.", "c9-d": "Долучайтеся до допомоги іншим та розвитку громади.",
-    "c10-t": "Культурні дозвілля", "c10-d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
+      // --- СЕКЦИИ ---
+      "s-title": "Напрямки нашої діяльності",
+      "s-desc": "Ми створюємо умови для швидкої адаптації, навчання та взаємодопомоги",
+      "s1-t": "Інтеграційні курси",
+      "s1-d": "Мовні курси (Німецька), консультації з працевлаштування та юридична підтримка в Швейцарії.",
+      "s2-t": "Культурні події",
+      "s2-d": "Українські вечорниці, виставки, кінопокази та зустрічі для збереження нашої ідентичності.",
+      "s3-t": "Дитячий простір",
+      "s3-d": "Розвиваючі заняття, гуртки, психологічна адаптація та допомога з інтеграцією до місцевих шкіл.",
+      "s4-t": "Гуманітарна допомога",
+      "s4-d": "Координація зборів, логістика та адресна допомога постраждалим та новоприбулим.",
+      "ev-title": "Найближчі події та зустрічі",
+      "ev-desc": "Долучайтеся до наших заходів, щоб знайти нових друзів та отримати корисну інформацію",
+      "ev1-t": "Розмовний клуб німецької мови",
+      "ev1-d": "Практика мови з носіями у дружній атмосфері. Для всех рівнів.",
+      "ev2-t": "Арт-терапія для детей та дорослих",
+      "ev2-d": "Психологічне розвантаження через творчість под керівництвом спеціаліста.",
+      "ev3-t": "Семінар: Життя та робота в Швейцарії",
+      "ev3-d": "Юрист відповідає на поширені питання про статус S та працевлаштування.",
+      "b-all-ev": "Всі події",
+      "stat-t": "Центр у цифрах",
+      "stat1-n": "1,200+",
+      "stat1-t": "Підопічних",
+      "stat2-n": "150+",
+      "stat2-t": "Заходів",
+      "stat3-n": "50+",
+      "stat3-t": "Волонтерів",
+      "stat4-n": "3",
+      "stat4-t": "Роки роботи",
+      "nav-home": "Головна",
+      "f-desc": "Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всіх українців у Швейцарії.",
+      "f-title-center": "Центр",
+      "f-about": "Про нас",
+      "f-services": "Послуги",
+      "f-events": "Події",
+      "f-announcements": "Оголошення",
+      "f-title-useful": "Корисне",
+      "f-knowledge": "Knowledge Center",
+      "f-faq": "Часті питання (FAQ)",
+      "f-urgent": "Термінова допомога",
+      "f-title-hours": "Години роботи",
+      "f-day-wf": "Пн-Пт:",
+      "f-day-sat": "Сб:",
+      "f-day-sun": "Нд:",
+      "f-closed": "Зачинено",
+      "f-together": "Разом для майбутнього",
+      
+      "b1": "Терміново", "n1t": "Гуманітарна видача продуктів", "n1m": "18 травня, 10:00–14:00 · Albisriederplatz 1",
+      "b2": "Новина", "n2t": "Нові курси німецької мови для початківців", "n2m": "Реєстрація відкрита",
+      "b3": "Подія", "n3m": "24 травня, 18:00 · Gemeinschaftszentrum",
+      
+      "tc2": "Події найближчим часом", "tc2l": "Всі події →",
+      "mo1": "ТРАВ", "e1t": "Дитячий театр-студія \"Чомучки\"", "e1d": "Сб, 12:00–14:00",
+      "mo2": "ТРАВ", "e2t": "Мовний клуб (німецька) Рівень A1–A2", "e2d": "Вт, 18:30–20:00",
+      "mo3": "ТРАВ", "e3t": "Community Evening · Знайомства та спілкування", "e3d": "Пт, 18:00–21:00",
+      
+      "tc3": "Нові оголошення", "tc3l": "Всі оголошення →",
+      "ab1": "Житло", "a1t": "Здається кімната в Цюриху · 800 CHF/міс.", "a1m": "Сьогодні, 10:15",
+      "ab2": "Робота", "a2t": "Потрібна няня для дитини 4 роки · Teilzeit", "a2m": "Сьогодні, 09:40",
+      "ab3": "Послуги", "a3t": "Переклади документів (укр/нім) · Швидко та якісно", "a3m": "Сьогодні, 08:30",
+      
+      "fw-h": "Для кого наш центр?",
+      "fw-l": "Переглянути всі можливості →",
+      "w1": "Новоприбулі",
+      "w2": "Мами з дітьми",
+      "w3": "Люди зі статусом S",
+      "w4": "Волонтери",
+      "w5": "Бізнес",
+      "w6": "Студенти",
+      "w7": "Люди в пошуку роботи",
+      "w8": "Пенсіонери",
+      
+      "dir-h1": "Чим ми допомагаємо",
+      "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
+      "ds1": "Людей отримали допомогу",
+      "ds2": "Волонтерів у спільноті",
+      "ds3": "Заходів щомісяця",
+      "ds4": "for українців у Цюриху",
+      "d1": "Гуманітарна допомога", "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
+      "d2": "Консультації та документи", "d2d": "Допомога з формами, заявами та офіційними листами.",
+      "d3": "Інтеграція та адаптація", "d3d": "Підтримка новоприбулих на кожному етапі.",
+      "d4": "Курси німецької мови", "d4d": "Безкоштовні та доступні курси для всіх рівнів.",
+      "d5": "Пошук роботи та кар'єра", "d5d": "Консультації, резюме, вакансії та контакти.",
+      "d6": "Спорт-ти СВІТ! Спортивні програми", "d6d": "Пошук житла, реєстрація, страхування, рахунки.",
+      "d7": "Здоров'я та лікарі", "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
+      "d8": "Події для дітей", "d8d": "Творчі заняття, табори, свята та дитячі групи.",
+      "d9": "Волонтерство та участь в екологічних програмах Швейцарії.", "d9d": "Долучайтеся та допомагайте разом із нами.",
+      "d10": "Культура та дозвілля", "d10d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
+      "cta-h": "Потрібна індивідуальна консультація?",
+      "cta-p": "Напишіть нам, і ми знайдемо відповідного спеціаліста.",
+      "cta-b": "Зв'язатися",
+      
+      "events-title": "Події/Найближчим часом", "events-more": "Всі події →",
+      "ann-title": "Нові оголошення", "ann-more": "Всі оголошення →",
+      "target-title": "Для кого наш центр?", "target-more": "Переглянути всі напрямки →",
+      "help-title": "Чим ми допомагаємо", "help-desc": "Ми поруч у важливих питаннях щодня.",
+      "count-1": "Людей отримали допомогу", "count-2": "Волонтерів у спільноті", "count-3": "Заходів щомісяця", "count-4": "Для українців у Цюриху",
+      "c1-t": "Гуманітарна допомога", "c1-d": "Продукти, одяг, засоби гігієни та інша підтримка.",
+      "c2-t": "Консультації та документи", "c2-d": "Допомога в оформленні, перекладі та юридичних питаннях.",
+      "c3-t": "Інтеграція та адаптація", "c3-d": "Підтримка новоприбулих на кожному етапі.",
+      "c4-t": "Курси німецької мови", "c4-d": "Безкоштовні та доступні уроки для всех рівнів.",
+      "c5-t": "Пошук роботи та кар'єра", "c5-d": "Консультації, резюме, вакансії та контакти.",
+      "c6-t": "Спорт-ти СВІТ! Спортивні програми", "c6-d": "Пошук житла, реєстрація, комунальні рахунки.",
+      "c7-t": "Здоров'я та лікарі", "c7-d": "Медичне страхування, лікарі та психологічна допомога.",
+      "c8-t": "Події для дітей", "c8-d": "Творчі заняття, табори, свята та дитячі групи.",
+      "c9-t": "Волонтерство та участь в екологічних програмах Швейцарії.", "c9-d": "Долучайтеся до допомоги іншим та розвитку громади.",
+      "c10-t": "Культурні дозвілля", "c10-d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
 
-    "cta-t": "Стати волонтером",
-    "cta-d": "Ваш час і навички можуть змінити чиєсь життя на краще.",
-    "b-vol": "Приєднатися",
-    "m-title": "Підтримати центр",
-    "m-desc": "Ми є некомерційною організацією і працюємо завдяки вашим пожертвам.",
-    "b-don": "Зробити внесок",
-    "cta-find-h": "Шукаєте житло чи роботу?",
-    "cta-find-p": "Перегляньте актуальні пропозиції або додайте власне оголошення.",
-    "cta-find-b": "До таблиці",
-    "cta-news-h": "Бюлетень центру",
-    "cta-news-p": "Підпишіться на важливі оновлення та корисні матеріали.",
-    "cta-email-input": "Ваш Email",
-    "tr-association": "Офіційно зареєстрована асоціація у Швейцарії",
-    "tr-count": "Понад 5000 українців уже з нами",
-    
-    // ════════ MODAL TRANSLATIONS (UA) ════════
-    "mh-t": "Приєднуйтесь до спільноти",
-    "mh-s": "Реєстрація безкоштовна · Для українців у Швейцарії",
-    "t-reg": "Реєстрація",
-    "t-log": "Вхід",
-    "l-fn": "Ім'я",
-    "l-ln": "Прізвище",
-    "l-ph": "Телефон (опційно)",
-    "l-pw": "Пароль",
-    "l-cat": "Я — (оберіть категорію)",
-    "c1": "Новоприбул(-а)",
-    "c2": "Мама з дітьми",
-    "c3": "Волонтер",
-    "c4": "Шукаю роботу",
-    "c5": "Студент",
-    "c6": "Інше",
-    "l-or": "або зареєструватися через",
-    "l-sub": "Зареєструватися безкоштовно",
-    "l-terms": "Реєструючись, ви погоджуєтесь з умовами використання та політикою конфіденційності.",
-    "s-t": "Ласкаво просимо до спільноти!",
-    "s-s": "Перевірте вашу електронну пошту для підтвердження реєстрації.",
-    "l-pw2": "Пароль",
-    "l-fp": "Забули пароль?",
-    "l-or2": "або увійти через",
-    "l-sub2": "Увійти",
-    "team-l": "Дізнатися більше про команду →",
-    // ════════ БЛОК "ЧИМ МИ ДОПОМАГАЄМО" (UA) ════════
-    "sv-h": "Чим ми допомагаємо",
-    "sv-a": "Дивитися всі послуги →",
-    "s1": "Гуманітарна допомога",
-    "s2": "Продукти",
-    "s3": "Інтеграція та консультації",
-    "s4": "Курси нім. мови",
-    "s5": "Допомога з документами",
-    "s6": "Пошук роботи",
-    "s7": "Події для дітей",
-    "s8": "Волонтерство",
-    "s9": "Community support",
-    "form-msg": "Опишіть ваше питання"
-  },
-  de: {
-    "how-tag": "Wie es funktioniert",
-    "how-h1": "Einfach. Schnell. Menschlich.",
-    "how-sub": "Wir haben den Prozess, Hilfe zu erhalten, so einfach und verständlich wie möglich gestaltet.",
-    "st1-h": "Antrag einreichen",
-    "st1-p": "Füllen Sie ein einfaches Formular auf der Website aus — es dauert nur wenige Minuten.",
-    "st2-h": "Wir kontaktieren Sie",
-    "st2-p": "Unser Koordinator wird sich mit Ihnen in Verbindung setzen und Ihr Anliegen bearbeiten.",
-    "st3-h": "Hilfe oder Beratung erhalten",
-    "st3-p": "Sie erhalten die notwendige Unterstützung, Informationen oder Beratung.",
-    "team-h": "Wir sind an Ihrer Seite",
-    "team-p": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
-    "team-l": "Mehr über das Team erfahren →",
-    "stat-1": "Menschen haben Unterstützung erhalten",
-    "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
-    "qc-h": "Schneller Kontakt",
-    "q-t": "\"Ich habe Antworten auf all meine Fragen bekommen und vom ersten Tag an Unterstützung gespürt. Vielen Dank an das UAGZ-Team!\"",
-    "q-n": "Olena",
-    "nl-1": "Startseite",
-    "nl-2": "Über uns",
-    "nl-3": "Hilfe",
-    "nl-4": "Events",
-    "nav-knowledge": "Wissenszentrum",
-    "nav-announcements": "Ankündigungen",
-    "nav-volunteering": "Freiwilligenarbeit",
-    "btn-donate-nav": "Spenden",
-    "nav-contacts": "Kontakte",
-    "n-sub": "Gemeindezentrum",
-    
-    // ГЛАВНЫЙ БАННЕР (HERO DE)
-    "h-badge": "Offizielle NGO · Zürich",
-    "h-t": "Ukrainisches Integrations- und Kulturzentrum Zürich",
-    "h-s": "Unterstützung, Events, Gemeinschaft, humanitäre Hilfe und neue Möglichkeiten für Ukrainer in der Schweiz.",
-    "h-b1": "Hilfe erhalten",
-    "h-b2t": "Der Gemeinschaft beitreten",
+      "cta-t": "Стати волонтером",
+      "cta-d": "Ваш час і навички можуть змінити чиєсь життя на краще.",
+      "b-vol": "Приєднатися",
+      "m-title": "Підтримати центр",
+      "m-desc": "Ми є некомерційною організацією і працюємо завдяки вашим пожертвам.",
+      "b-don": "Зробити внесок",
+      "cta-find-h": "Шукаєте житло чи роботу?",
+      "cta-find-p": "Перегляньте актуальні пропозиції або додайте власне оголошення.",
+      "cta-find-b": "До таблиці",
+      "cta-news-h": "Бюлетень центру",
+      "cta-news-p": "Підпишіться на важливі оновлення та корисні матеріали.",
+      "cta-email-input": "Ваш Email",
+            "tr-association": "Офіційно зареєстрована асоціація у Швейцарії",
+      "tr-count": "Понад 1000 українців уже з нами",
+      
+      // --- МОДАЛЬНЫЕ ОКНА ---
+      "mh-t": "Приєднуйтесь до спільноти",
+      "mh-s": "Реєстрація безкоштовна · Для українців у Швейцарії",
+      "t-reg": "Реєстрація",
+      "t-log": "Вхід",
+      "l-fn": "Ім'я",
+      "l-ln": "Прізвище",
+      "l-ph": "Телефон (опційно)",
+      "l-pw": "Пароль",
+      "l-cat": "Я — (оберіть категорію)",
+      "c1": "Новоприбул(-а)",
+      "c2": "Мама з дітьми",
+      "c3": "Волонтер",
+      "c4": "Шукаю роботу",
+      "c5": "Студент",
+      "c6": "Інше",
+      "l-or": "або зареєструватися через",
+      "l-sub": "Зареєструватися безкоштовно",
+      "l-terms": "Реєструючись, ви погоджуєтесь з умовами використання та політикою конфіденційності.",
+      "s-t": "Ласкаво просимо до спільноти!",
+      "s-s": "Перевірте вашу електронну пошту для підтвердження реєстрації.",
+      "l-pw2": "Пароль",
+      "l-fp": "Забули пароль?",
+      "l-or2": "або увійти через",
+      "l-sub2": "Увійти",
+      
+      // --- Ключи для блоков (добавлены вручную из вашего HTML) ---
+      "center-title": "Сімейний центр",
+      "join-btn": "Приєднуйтесь",
+      "near-title": "Ми поруч з вами",
+      "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+      "near-btn": "Дізнатися більше про команду &rarr;",
+      "stat-1": "людей отримали підтримку",
+      "stat-2": "волонтерів щодня допомагають громаді",
+      "see-more-btn": "Дивіться далі",
+      "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\"",
+      "news-title": "Наші новини",
+      "news-more": "Дивитися",
+      "form-msg": "Опишіть ваше питання"
+    },
+    de: {
+      // --- Основные элементы ---
+      "how-tag": "Wie es funktioniert",
+      "how-h1": "Einfach. Schnell. Menschlich.",
+      "how-sub": "Wir haben den Prozess, Hilfe zu erhalten, so einfach und verständlich wie möglich gestaltet.",
+      "st1-h": "Antrag einreichen",
+      "st1-p": "Füllen Sie ein einfaches Formular auf der Website aus — es dauert nur wenige Minuten.",
+      "st2-h": "Wir kontaktieren Sie",
+      "st2-p": "Unser Koordinator wird sich mit Ihnen in Verbindung setzen und Ihr Anliegen bearbeiten.",
+      "st3-h": "Hilfe oder Beratung erhalten",
+      "st3-p": "Sie erhalten die notwendige Unterstützung, Informationen oder Beratung.",
+      "team-h": "Wir sind an Ihrer Seite",
+      "team-p": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
+      "team-l": "Mehr über das Team erfahren →",
+      "stat-1": "Menschen haben Unterstützung erhalten",
+      "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
+      "qc-h": "Schneller Kontakt",
+      "q-t": "\"Ich habe Antworten auf all meine Fragen bekommen und vom ersten Tag an Unterstützung gespürt. Vielen Dank an das UAGZ-Team!\"",
+      "q-n": "Olena",
+      "nl-1": "Startseite",
+      "nl-2": "Über uns",
+      "nl-3": "Hilfe",
+      "nl-4": "Events",
+      "nav-knowledge": "Wissenszentrum",
+      "nav-announcements": "Ankündigungen",
+      "nav-volunteering": "Freiwilligenarbeit",
+      "btn-donate-nav": "Spenden",
+      "nav-contacts": "Kontakte",
+      "n-sub": "Gemeindezentrum",
+      
+      // --- HERO ---
+      "h-badge": "Offizielle NGO · Zürich",
+      "h-t": "Ukrainisches Integrations- und Kulturzentrum Zürich",
+      "h-s": "Unterstützung, Events, Gemeinschaft, humanitäre Hilfe und neue Möglichkeiten für Ukrainer in der Schweiz.",
+      "h-b1": "Hilfe erhalten",
+      "h-b2t": "Der Gemeinschaft beitreten",
 
-    "s-title": "Unsere Aktivitäten",
-    "s-desc": "Wir schaffen Bedingungen für schnelle Anpassung, Lernen und gegenseitige Hilfe",
-    "s1-t": "Integrationskurse",
-    "s1-d": "Sprachkurse (Deutsch), Berufsberatung und rechtliche Unterstützung in der Schweiz.",
-    "s2-t": "Kulturelle Veranstaltungen",
-    "s2-d": "Ukrainische Abende, Ausstellungen, Filmvorführungen und Treffen zur Wahrung unserer Identität.",
-    "s3-t": "Kinderbereich",
-    "s3-d": "Entwicklungsaktivitäten, Kreise, psychologische Anpassung und Unterstützung bei der Integration in lokale Schulen.",
-    "s4-t": "Humanitäre Hilfe",
-    "s4-d": "Koordination von Sammlungen, Logistik und gezielte Unterstützung für Betroffene und Neuankömmlinge.",
-    "ev-title": "Nächste Events & Treffen",
-    "ev-desc": "Nehmen Sie an unseren Veranstaltungen teil, um neue Freunde zu finden und nützliche Informationen zu erhalten",
-    "ev1-t": "Deutsch-Konversationsclub",
-    "ev1-d": "Sprachpraxis mit Muttersprachlern in freundlicher Atmosphäre. Für alle Niveaus.",
-    "ev2-t": "Kunsttherapie für Kinder und Erwachsene",
-    "ev2-d": "Psychologische Entlastung durch Kreativität unter Anleitung eines Spezialisten.",
-    "ev3-t": "Seminar: Leben und Arbeiten in der Schweiz",
-    "ev3-d": "Ein Anwalt beantwortet häufige Fragen zum S-Status und zur Beschäftigung.",
-    "b-all-ev": "Alle Events",
-    "stat-t": "Zentrum in Zahlen",
-    "stat1-n": "1,200+",
-    "stat1-t": "Begünstigte",
-    "stat2-n": "150+",
-    "stat2-t": "Veranstaltungen",
-    "stat3-n": "50+",
-    "stat3-t": "Freiwillige",
-    "stat4-n": "3",
-    "stat4-t": "Jahre Arbeit",
-    "nav-home": "Startseite",
-    "f-desc": "Das Ukrainische Integrations- und Kulturzentrum Zürich ist ein Raum für Unterstützung, Entwicklung und Einheit für alle Ukrainer in der Schweiz.",
-    "f-title-center": "Zentrum",
-    "f-about": "Über uns",
-    "f-services": "Dienstleistungen",
-    "f-events": "Events",
-    "f-announcements": "Ankündigungen",
-    "f-title-useful": "Nützliches",
-    "f-knowledge": "Wissenszentrum",
-    "f-faq": "FAQ",
-    "f-urgent": "Nothilfe",
-    "f-title-hours": "Öffnungszeiten",
-    "f-day-wf": "Mo-Fr:",
-    "f-day-sat": "Sa:",
-    "f-day-sun": "So:",
-    "f-closed": "Geschlossen",
-    "f-together": "Gemeinsam für die Zukunft",
-    
-    "b1": "Dringend", "n1t": "Humanitäre Lebensmittelausgabe", "n1m": "18. Mai, 10:00–14:00 · Albisriederplatz 1",
-    "b2": "News", "n2t": "Neue Deutschkurse für Anfänger", "n2m": "Anmeldung geöffnet",
-    "b3": "Event", "n3m": "24. Mai, 18:00 · Gemeinschaftszentrum",
-    
-    "tc2": "Nächste Veranstaltungen", "tc2l": "Alle Events →",
-    "mo1": "MAI", "e1t": "Kindertheater-Studio \"Chomuchky\"", "e1d": "Sa, 12:00–14:00",
-    "mo2": "MAI", "e2t": "Sprachcafé (Deutsch) Niveau A1–A2", "e2d": "Di, 18:30–20:00",
-    "mo3": "MAI", "e3t": "Community Evening · Kennenlernen & Austausch", "e3d": "Fr, 18:00–21:00",
-    
-    "tc3": "Neue Anzeigen", "tc3l": "Alle Anzeigen →",
-    "ab1": "Wohnen", "a1t": "Zimmer zu vermieten in Zürich · 800 CHF/Monat", "a1m": "Heute, 10:15",
-    "ab2": "Arbeit", "a2t": "Babysitter für 4-jähriges Kind gesucht · Teilzeit", "a2m": "Heute, 09:40",
-    "ab3": "Dienste", "a3t": "Dokumentenübersetzungen (UKR/DE) · Schnell & zuverlässig", "a3m": "Heute, 08:30",
-    
-    "fw-h": "Für wen ist unser Zentrum?",
-    "fw-l": "Alle Angebote anzeigen →",
-    "w1": "Neuangekommene",
-    "w2": "Mütter mit Kindern",
-    "w3": "Personen mit Schutzstatus S",
-    "w4": "Freiwillige",
-    "w5": "Unternehmen",
-    "w6": "Studierende",
-    "w7": "Arbeitssuchende",
-    "w8": "Rentnerinnen & Rentner",
-    
-    "dir-h1": "Wie wir helfen",
-    "dir-sub": "Wir unterstützen Sie täglich bei wichtigen Fragen.",
-    "ds1": "Menschen haben Hilfe erhalten",
-    "ds2": "Freiwillige in der Gemeinschaft",
-    "ds3": "Veranstaltungen monatlich",
-    "ds4": "für Ukrainer in Zürich",
-    "d1": "Humanitäre Hilfe", "d1d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
-    "d2": "Beratung & Dokumente", "d2d": "Hilfe beim Ausfüllen von Formularen, Anträgen und behördlichen Schreiben.",
-    "d3": "Integration & Anpassung", "d3d": "Unterstützung für Neuankömmlinge in jeder Phase.",
-    "d4": "Deutschkurse", "d4d": "Kostenlose und zugängliche Kurse für alle Niveaustufen.",
-    "d5": "Jobsuche & Karriere", "d5d": "Beratung, Lebenslauf-Erstellung, Stellenangebote und Kontakte.",
-    "d6": "Wohnen & Alltagsfragen", "d6d": "Wohnungssuche, Anmeldung, Krankenkassen und Rechnungen.",
-    "d7": "Gesundheit & Ärzte", "d7d": "Krankenversicherung, Arztsuche und medizinische Notfallhilfe.",
-    "d8": "Angebote für Kinder", "d8d": "Kreativkurse, Ferienlager, Feste und Kindergruppen.",
-    "d9": "Freiwilligenarbeit", "d9d": "Engagieren Sie sich und helfen Sie gemeinsam mit uns.",
-    "d10": "Kultur & Freizeit", "d10d": "Treffen, Interessenclubs und integrative Veranstaltungen.",
-    "cta-h": "Benötigen Sie eine individuelle Beratung?",
-    "cta-p": "Schreiben Sie uns und wir finden die passende Fachperson für Sie.",
-    "cta-b": "Kontakt aufnehmen",
-    
-    "events-title": "Nächste Veranstaltungen", "events-more": "Alle Events →",
-    "ann-title": "Neue Anzeigen", "ann-more": "Alle Anzeigen →",
-    "target-title": "Für wen ist unser Zentrum?", "target-more": "Alle Richtungen sehen →",
-    "help-title": "Wie wir helfen", "help-desc": "Wie unterstützen Sie täglich bei wichtigen Fragen.",
-    "count-1": "Menschen haben Hilfe erhalten", "count-2": "Freiwillige in der Gemeinschaft", "count-3": "Veranstaltungen monatlich", "count-4": "Für Ukrainer in Zürich",
-    "c1-t": "Humanitäre Hilfe", "c1-d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
-    "c2-t": "Beratung & Dokumente", "c2-d": "Hilfe beim Ausfüllen von Formularen, Übersetzungen und rechtlichen Fragen.",
-    "c3-t": "Integration & Anpassung", "c3-d": "Unterstützung für Neuankömmlinge in jeder Phase.",
-    "c4-t": "Deutschkurse", "c4-d": "Kostenlose und zugängliche Kurse für alle Niveaustufen.",
-    "c5-t": "Jobsuche & Karriere", "c5-d": "Beratung, Lebenslauf-Erstellung, Stellenangebote und Kontakte.",
-    "c6-t": "Wohnen & Alltagsfragen", "c6-d": "Wohnungssuche, Anmeldung, Behörgengänge und Nebenkostenabrechnungen.",
-    "c7-t": "Gesundheit & Ärzte", "c7-d": "Krankenversicherung, Arztsuche und psychologische Unterstützung.",
-    "c8-t": "Angebote für Kinder", "c8-d": "Kreativkurse, Ferienlager, Feste und Kindergruppen.",
-    "c9-t": "Freiwilligenarbeit", "c9-d": "Engagieren Sie sich, um anderen zu helfen und die Gemeinschaft zu stärken.",
-    "c10-t": "Kultur & Freizeit", "c10-d": "Treffen, Interessenclubs und integrative Veranstaltungen.",
+      // --- СЕКЦИИ ---
+      "s-title": "Unsere Aktivitäten",
+      "s-desc": "Wir schaffen Bedingungen für schnelle Anpassung, Lernen und gegenseitige Hilfe",
+      "s1-t": "Integrationskurse",
+      "s1-d": "Sprachkurse (Deutsch), Berufsberatung und rechtliche Unterstützung in der Schweiz.",
+      "s2-t": "Kulturelle Veranstaltungen",
+      "s2-d": "Ukrainische Abende, Ausstellungen, Filmvorführungen und Treffen zur Wahrung unserer Identität.",
+      "s3-t": "Kinderbereich",
+      "s3-d": "Entwicklungsaktivitäten, Kreise, psychologische Anpassung und Unterstützung bei der Integration in lokale Schulen.",
+      "s4-t": "Humanitäre Hilfe",
+      "s4-d": "Koordination von Sammlungen, Logistik und gezielte Unterstützung für Betroffene und Neuankömmlinge.",
+      "ev-title": "Nächste Events & Treffen",
+      "ev-desc": "Nehmen Sie an unseren Veranstaltungen teil, um neue Freunde zu finden und nützliche Informationen zu erhalten",
+      "ev1-t": "Deutsch-Konversationsclub",
+      "ev1-d": "Sprachpraxis mit Muttersprachlern in freundlicher Atmosphäre. Für alle Niveaus.",
+      "ev2-t": "Kunsttherapie für Kinder und Erwachsene",
+      "ev2-d": "Psychologische Entlastung durch Kreativität unter Anleitung eines Spezialisten.",
+      "ev3-t": "Seminar: Leben und Arbeiten in der Schweiz",
+      "ev3-d": "Ein Anwalt beantwortet häufige Fragen zum S-Status und zur Beschäftigung.",
+      "b-all-ev": "Alle Events",
+      "stat-t": "Zentrum in Zahlen",
+      "stat1-n": "1,200+",
+      "stat1-t": "Begünstigte",
+      "stat2-n": "150+",
+      "stat2-t": "Veranstaltungen",
+      "stat3-n": "50+",
+      "stat3-t": "Freiwillige",
+      "stat4-n": "3",
+      "stat4-t": "Jahre Arbeit",
+      "nav-home": "Startseite",
+      "f-desc": "Das Ukrainische Integrations- und Kulturzentrum Zürich ist ein Raum für Unterstützung, Entwicklung und Einheit für alle Ukrainer in der Schweiz.",
+      "f-title-center": "Zentrum",
+      "f-about": "Über uns",
+      "f-services": "Dienstleistungen",
+      "f-events": "Events",
+      "f-announcements": "Ankündigungen",
+      "f-title-useful": "Nützliches",
+      "f-knowledge": "Wissenszentrum",
+      "f-faq": "FAQ",
+      "f-urgent": "Nothilfe",
+      "f-title-hours": "Öffnungszeiten",
+      "f-day-wf": "Mo-Fr:",
+      "f-day-sat": "Sa:",
+      "f-day-sun": "So:",
+      "f-closed": "Geschlossen",
+      "f-together": "Gemeinsam für die Zukunft",
+      
+      "b1": "Dringend", "n1t": "Humanitäre Lebensmittelausgabe", "n1m": "18. Mai, 10:00–14:00 · Albisriederplatz 1",
+      "b2": "News", "n2t": "Neue Deutschkurse für Anfänger", "n2m": "Anmeldung geöffnet",
+      "b3": "Event", "n3m": "24. Mai, 18:00 · Gemeinschaftszentrum",
+      
+      "tc2": "Nächste Veranstaltungen", "tc2l": "Alle Events →",
+      "mo1": "MAI", "e1t": "Kindertheater-Studio \"Chomuchky\"", "e1d": "Sa, 12:00–14:00",
+      "mo2": "MAI", "e2t": "Sprachcafé (Deutsch) Niveau A1–A2", "e2d": "Di, 18:30–20:00",
+      "mo3": "MAI", "e3t": "Community Evening · Kennenlernen & Austausch", "e3d": "Fr, 18:00–21:00",
+      
+      "tc3": "Neue Anzeigen", "tc3l": "Alle Anzeigen →",
+      "ab1": "Wohnen", "a1t": "Zimmer zu vermieten in Zürich · 800 CHF/Monat", "a1m": "Heute, 10:15",
+      "ab2": "Arbeit", "a2t": "Babysitter für 4-jähriges Kind gesucht · Teilzeit", "a2m": "Heute, 09:40",
+      "ab3": "Dienste", "a3t": "Dokumentenübersetzungen (UKR/DE) · Schnell & zuverlässig", "a3m": "Heute, 08:30",
+      
+      "fw-h": "Für wen ist unser Zentrum?",
+      "fw-l": "Alle Angebote anzeigen →",
+      "w1": "Neuangekommene",
+      "w2": "Mütter mit Kindern",
+      "w3": "Personen mit Schutzstatus S",
+      "w4": "Freiwillige",
+      "w5": "Unternehmen",
+      "w6": "Studierende",
+      "w7": "Arbeitssuchende",
+      "w8": "Rentnerinnen & Rentner",
+      
+      "dir-h1": "Wie wir helfen",
+      "dir-sub": "Wir unterstützen Sie täglich bei wichtigen Fragen.",
+      "ds1": "Menschen haben Hilfe erhalten",
+      "ds2": "Freiwillige in der Gemeinschaft",
+      "ds3": "Veranstaltungen monatlich",
+      "ds4": "für Ukrainer in Zürich",
+      "d1": "Humanitäre Hilfe", "d1d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
+      "d2": "Beratung & Dokumente", "d2d": "Hilfe beim Ausfüllen von Formularen, Anträgen und behördlichen Schreiben.",
+      "d3": "Integration & Anpassung", "d3d": "Unterstützung für Neuankömmlinge in jeder Phase.",
+      "d4": "Deutschkurse", "d4d": "Kostenlose und zugängliche Kurse für alle Niveaustufen.",
+      "d5": "Jobsuche & Karriere", "d5d": "Beratung, Lebenslauf-Erstellung, Stellenangebote und Kontakte.",
+      "d6": "Wohnen & Alltagsfragen", "d6d": "Wohnungssuche, Anmeldung, Krankenkassen und Rechnungen.",
+      "d7": "Gesundheit & Ärzte", "d7d": "Krankenversicherung, Arztsuche und medizinische Notfallhilfe.",
+      "d8": "Angebote für Kinder", "d8d": "Kreativkurse, Ferienlager, Feste und Kindergruppen.",
+      "d9": "Freiwilligenarbeit", "d9d": "Engagieren Sie sich und helfen Sie gemeinsam mit uns.",
+      "d10": "Kultur & Freizeit", "d10d": "Treffen, Interessenclubs und integrative Veranstaltungen.",
+      "cta-h": "Benötigen Sie eine individuelle Beratung?",
+      "cta-p": "Schreiben Sie uns und wir finden die passende Fachperson für Sie.",
+      "cta-b": "Kontakt aufnehmen",
+      
+      "events-title": "Nächste Veranstaltungen", "events-more": "Alle Events →",
+      "ann-title": "Neue Anzeigen", "ann-more": "Alle Anzeigen →",
+      "target-title": "Für wen ist unser Zentrum?", "target-more": "Alle Richtungen sehen →",
+      "help-title": "Wie wir helfen", "help-desc": "Wie unterstützen Sie täglich bei wichtigen Fragen.",
+      "count-1": "Menschen haben Hilfe erhalten", "count-2": "Freiwillige in der Gemeinschaft", "count-3": "Veranstaltungen monatlich", "count-4": "Für Ukrainer in Zürich",
+      "c1-t": "Humanitäre Hilfe", "c1-d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
+      "c2-t": "Beratung & Dokumente", "c2-d": "Hilfe beim Ausfüllen von Formularen, Übersetzungen und rechtlichen Fragen.",
+      "c3-t": "Integration & Anpassung", "c3-d": "Unterstützung für Neuankömmlinge in jeder Phase.",
+      "c4-t": "Deutschkurse", "c4-d": "Kostenlose und zugängliche Kurse für alle Niveaustufen.",
+      "c5-t": "Jobsuche & Karriere", "c5-d": "Beratung, Lebenslauf-Erstellung, Stellenangebote und Kontakte.",
+      "c6-t": "Wohnen & Alltagsfragen", "c6-d": "Wohnungssuche, Anmeldung, Behörgengänge und Nebenkostenabrechnungen.",
+      "c7-t": "Gesundheit & Ärzte", "c7-d": "Krankenversicherung, Arztsuche und psychologische Unterstützung.",
+      "c8-t": "Angebote für Kinder", "c8-d": "Kreativkurse, Ferienlager, Feste und Kindergruppen.",
+      "c9-t": "Freiwilligenarbeit", "c9-d": "Engagieren Sie sich, um anderen zu helfen und die Gemeinschaft zu stärken.",
+      "c10-t": "Kultur & Freizeit", "c10-d": "Treffen, Interessenclubs und integrative Veranstaltungen.",
 
-    "cta-t": "Freiwillige werden",
-    "cta-d": "Ihre Zeit und Ihre Fähigkeiten können das Leben von jemandem verbessern.",
-    "b-vol": "Mitmachen",
-    "m-title": "Zentrum unterstützen",
-    "m-desc": "Wir sind eine gemeinnützige Organisation und arbeiten dank Ihrer Spenden.",
-    "b-don": "Beitrag leisten",
-    "cta-find-h": "Suchen Sie eine Unterkunft oder Arbeit?",
-    "cta-find-p": "Sehen Sie sich aktuelle Angebote an oder fügen Sie Ihre eigene Anzeige hinzu.",
-    "cta-find-b": "Zur Tabelle",
-    "cta-news-h": "Newsletter des Zentrums",
-    "cta-news-p": "Abonnieren Sie wichtige Updates und nützliche Materialien.",
-    "cta-email-input": "Ihre E-Mail",
-    "tr-association": "Offiziell eingetragener Verein in der Schweiz",
-    "tr-count": "Über 5000 Ukrainer sind schon mit uns",
+      "cta-t": "Freiwillige werden",
+      "cta-d": "Ihre Zeit und Ihre Fähigkeiten können das Leben von jemandem verbessern.",
+      "b-vol": "Mitmachen",
+      "m-title": "Zentrum unterstützen",
+      "m-desc": "Wir sind eine gemeinnützige Organisation und arbeiten dank Ihrer Spenden.",
+      "b-don": "Beitrag leisten",
+      "cta-find-h": "Suchen Sie eine Unterkunft oder Arbeit?",
+      "cta-find-p": "Sehen Sie sich aktuelle Angebote an oder fügen Sie Ihre eigene Anzeige hinzu.",
+      "cta-find-b": "Zur Tabelle",
+      "cta-news-h": "Newsletter des Zentrums",
+      "cta-news-p": "Abonnieren Sie wichtige Updates und nützliche Materialien.",
+      "cta-email-input": "Ihre E-Mail",
+      "tr-association": "Offiziell eingetragener Verein in der Schweiz",
+      "tr-count": "Über 1000 Ukrainer sind schon mit uns",
+      
+      // --- МОДАЛЬНЫЕ ОКНА ---
+      "mh-t": "Treten Sie der Gemeinschaft bei",
+      "mh-s": "Kostenlose Registrierung · Für Ukrainer in der Schweiz",
+      "t-reg": "Registrierung",
+      "t-log": "Login",
+      "l-fn": "Vorname",
+      "l-ln": "Nachname",
+      "l-ph": "Telefon (optional)",
+      "l-pw": "Passwort",
+      "l-cat": "Ich bin — (Kategorie auswählen)",
+      "c1": "Neuankömmling",
+      "c2": "Mutter mit Kindern",
+      "c3": "Freiwillige(r)",
+      "c4": "Arbeitssuchend",
+      "c5": "Studierende(r)",
+      "c6": "Andere",
+            "l-or": "oder registrieren Sie sich mit",
+      "l-sub": "Kostenlos registrieren",
+      "l-terms": "Mit der Registrierung stimmen Sie den Nutzungsbedingungen und der Datenschutzutzerklärung zu.",
+      "s-t": "Willkommen in der Gemeinschaft!",
+      "s-s": "Bitte überprüfen Sie Ihre E-Mail, um Ihre Registrierung zu bestätigen.",
+      "l-pw2": "Passwort",
+      "l-fp": "Passwort vergessen?",
+      "l-or2": "oder anmelden mit",
+      "l-sub2": "Anmelden",
+      
+      // --- Закрытие объектов и инициализация ---
+      "center-title": "Familienzentrum",
+      "join-btn": "Beitreten",
+      "near-title": "Wir sind bei Ihnen",
+      "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
+      "near-btn": "Mehr über das Team erfahren &rarr;",
+      "see-more-btn": "Mehr sehen",
+      "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, innere Ruhe, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\"",
+      "news-title": "Unsere Neuigkeiten",
+      "form-msg": "Beschreiben Sie Ihre Frage"
+    }
+  };
+
+  // Функция переключения языка
+  function updateLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[lang] && dict[lang] [key]) {
+        el.textContent = dict[lang] [key];
+      }
+    });
     
-    // ════════ MODAL TRANSLATIONS (DE) ════════
-    "mh-t": "Treten Sie der Gemeinschaft bei",
-    "mh-s": "Kostenlose Registrierung · Für Ukrainer in der Schweiz",
-    "t-reg": "Registrierung",
-    "t-log": "Login",
-    "l-fn": "Vorname",
-    "l-ln": "Nachname",
-    "l-ph": "Telefon (optional)",
-    "l-pw": "Passwort",
-    "l-cat": "Ich bin — (Kategorie auswählen)",
-    "c1": "Neuankömmling",
-    "c2": "Mutter mit Kindern",
-    "c3": "Freiwillige(r)",
-    "c4": "Arbeitssuchend",
-    "c5": "Studierende(r)",
-    "c6": "Andere",
-    "l-or": "oder registrieren mit",
-    "l-sub": "Kostenlos registrieren",
-    "l-terms": "Mit der Registrierung stimmen Sie den Nutzungsbedingungen und der Datenschutzerklärung zu.",
-    "s-t": "Willkommen in der Gemeinschaft!",
-    "s-s": "Bitte überprüfen Sie Ihre E-Mail, um die Registrierung zu bestätigen.",
-    "l-pw2": "Passwort",
-    "l-fp": "Passwort vergessen?",
-    "l-or2": "oder anmelden mit",
-    "l-sub2": "Einloggen",
-    "team-l": "Mehr über das Team erfahren →",
-    // ════════ БЛОК "ЧИМ МИ ДОПОМАГАЄМО" (DE) ════════
-    "sv-h": "Wie wir helfen",
-    "sv-a": "Alle Dienstleistungen anzeigen →",
-    "s1": "Humanitäre Hilfe",
-    "s2": "Lebensmittel",
-    "s3": "Integration & Beratung",
-    "s4": "Deutschkurse",
-    "s5": "Hilfe mit Dokumenten",
-    "s6": "Jobsuche",
-    "s7": "Angebote für Kinder",
-    "s8": "Freiwilligenarbeit",
-    "s9": "Community-Unterstützung", 
+    // Сохраняем выбор пользователя
+    localStorage.setItem('lang', lang);
+    
+    // Обновляем активную кнопку
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
   }
-};
 
-    // --- ДОБАВЬТЕ ЭТОТ БЛОК СРАЗУ ПОСЛЕ ЗАКРЫТИЯ ОБЪЕКТА dict ---
-    
-   // ══════════════════════════════════════════════════════════════════
-// 1. Функция применения языка
-// ══════════════════════════════════════════════════════════════════
+  // Инициализация при загрузке
+  document.addEventListener('DOMContentLoaded', () => {
+    // Проверка сохраненного языка или установка дефолтного (ua)
+    const savedLang = localStorage.getItem('lang') || 'ua';
+    updateLanguage(savedLang);
 
-function applyTranslation(lang) {
-    // Находим все элементы с атрибутом data-translate
-    document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.getAttribute("data-translate");
-        if (dict[lang] && dict[lang] [key]) {
-            if (dict[lang] [key].includes("<")) {
-                el.innerHTML = dict[lang] [key];
-            } else {
-                el.textContent = dict[lang] [key];
-            }
-        }
+    // Навешиваем обработчики на кнопки переключения языка
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newLang = btn.dataset.lang;
+        updateLanguage(newLang);
+      });
     });
-
-    // Обновляем стиль кнопок
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-        if (btn.dataset.lang === lang) {
-            btn.style.background = "#1A56C4";
-            btn.style.color = "#fff";
-            btn.classList.add("active");
-        } else {
-            btn.style.background = "";
-            btn.style.color = "";
-            btn.classList.remove("active");
-        }
-    });
-}
-
-// ══════════════════════════════════════════════════════════════════
-// 2. Обработчики событий для кнопок
-// ══════════════════════════════════════════════════════════════════
-
-const langButtons = document.querySelectorAll(".lang-btn");
-langButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const selectedLang = btn.dataset.lang;
-        localStorage.setItem("lang", selectedLang); // Сохраняем выбор
-        applyTranslation(selectedLang);
-    });
-});
-
-// ══════════════════════════════════════════════════════════════════
-// 3. Запуск при загрузке страницы
-// ══════════════════════════════════════════════════════════════════
-
-const savedLang = localStorage.getItem("lang") || "ua";
-applyTranslation(savedLang);
-// --- КОНЕЦ ДОБАВЛЕНИЯ ---  
+  });
+</script>
   
 
 function setLang(lang) {
@@ -1902,17 +1890,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Словник перекладів (об'єднаний та виправлений)
     const dict = {
         ua: {
-            "center-title": "Сімейний центр",
-            "join-btn": "Приєднуйтесь",
-            "near-title": "Ми поруч з вами",
-            "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
-            "near-btn": "Дізнатися більше про команду &rarr;",
-            "stat-1": "людей отримали підтримку",
-            "stat-2": "волонтерів щодня допомагають громаді",
-            "see-more-btn": "Дивіться далі",
-            "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\"",
-            "news-title": "Наші новини",
-            "news-more": "Дивитися",
             "how-tag": "Як це працює",
             "how-h1": "Просто. Швидко. Людяно.",
             "h-t": "Український інтеграційний та громадський центр Цюриха",
@@ -1931,20 +1908,20 @@ document.addEventListener("DOMContentLoaded", () => {
             "l-pw": "Пароль",
             "mh-t": "Приєднуйтесь до спільноти",
             "t-reg": "Реєстрація",
-            "t-log": "Вхід"
+            "t-log": "Вхід",
+            "center-title": "Сімейний центр",
+            "join-btn": "Приєднуйтесь",
+            "near-title": "Ми поруч з вами",
+            "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+            "near-btn": "Дізнатися більше про команду &rarr;",
+            "stat-1": "людей отримали підтримку",
+            "stat-2": "волонтерів щодня допомагають громаді",
+            "see-more-btn": "Дивіться далі",
+            "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\"",
+            "news-title": "Наші новини",
+            "news-more": "Дивитися"
         },
         de: {
-            "center-title": "Familienzentrum",
-            "join-btn": "Beitreten",
-            "near-title": "Wir sind an Ihrer Seite",
-            "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
-            "near-btn": "Mehr über das Team erfahren &rarr;",
-            "stat-1": "Menschen haben Unterstützung erhalten",
-            "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
-            "see-more-btn": "Mehr sehen",
-            "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\"",
-            "news-title": "Unsere Nachrichten",
-            "news-more": "Ansehen",
             "how-tag": "Wie es funktioniert",
             "how-h1": "Einfach. Schnell. Menschlich.",
             "h-t": "Ukrainisches Integrations- und Kulturzentrum Zürich",
@@ -1963,50 +1940,65 @@ document.addEventListener("DOMContentLoaded", () => {
             "l-pw": "Passwort",
             "mh-t": "Treten Sie der Gemeinschaft bei",
             "t-reg": "Registrierung",
-            "t-log": "Login"
+            "t-log": "Login",
+            "center-title": "Familienzentrum",
+            "join-btn": "Beitreten",
+            "near-title": "Wir sind an Ihrer Seite",
+            "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
+            "near-btn": "Mehr über das Team erfahren &rarr;",
+            "stat-1": "Menschen haben Unterstützung erhalten",
+            "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
+            "see-more-btn": "Mehr sehen",
+            "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\"",
+            "news-title": "Unsere Nachrichten",
+            "news-more": "Ansehen"
         }
     };
 
-    function setLanguage(lang) {
-        localStorage.setItem("lang", lang);
+    // 2. Функция переключения языка (исправленная версия)
+  function setLanguage(lang) {
+    localStorage.setItem("lang", lang);
 
-        // Оновлення стану кнопок
-        document.querySelectorAll(".lang-btn").forEach(btn => {
-            if (btn.dataset.lang === lang) {
-                btn.classList.add("active");
-                btn.style.background = "#1A56C4";
-                btn.style.color = "#fff";
-            } else {
-                btn.classList.remove("active");
-                btn.style.background = "";
-                btn.style.color = "";
-            }
-        });
+    // Обновление состояния кнопок
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      if (btn.dataset.lang === lang) {
+        btn.classList.add("active");
+        btn.style.background = "#1A56C4";
+        btn.style.color = "#fff";
+      } else {
+        btn.classList.remove("active");
+        btn.style.background = "";
+        btn.style.color = "";
+      }
+    });
 
-        // Переклад тексту
-        document.querySelectorAll("[data-translate]").forEach(el => {
-            const key = el.getAttribute("data-translate");
-            if (dict[lang] && dict[lang] [key]) {
-                if (dict[lang] [key].includes("<")) {
-                    el.innerHTML = dict[lang] [key];
-                } else {
-                    el.textContent = dict[lang] [key];
-                }
-            }
-        });
-    }
+    // Перевод текста
+    document.querySelectorAll("[data-translate]").forEach(el => {
+      const key = el.getAttribute("data-translate");
+      if (dict[lang] && dict[lang] [key]) {
+        if (dict[lang] [key].includes("<")) {
+          el.innerHTML = dict[lang] [key];
+        } else {
+          el.textContent = dict[lang] [key];
+        }
+      }
+    });
+  }
 
+  // 3. Инициализация при загрузке страницы
+  // УБЕДИТЕСЬ, ЧТО ЭТА СТРОЧКА ЕСТЬ В НАЧАЛЕ ЛОГИКИ!
+  document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll(".lang-btn");
     const savedLang = localStorage.getItem("lang") || "ua";
 
     buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            setLanguage(btn.dataset.lang);
-        });
+      btn.addEventListener("click", () => {
+        setLanguage(btn.dataset.lang);
+      });
     });
 
     setLanguage(savedLang);
-});
+  }); // Закрывающая скобка для DOMContentLoaded
 </script>
 </body>
 </html>

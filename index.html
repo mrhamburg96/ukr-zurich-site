@@ -1434,7 +1434,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             "toggle-lang-ua": "Перейти на німецьку",
             "toggle-lang-de": "Switch to Ukrainian"
         },
+        // ... выше идет ваш блок ua: { ... }, который заканчивается запятой
         de: {
+            "nav-sub": "Ukrainisches Integrations- und Gemeinschaftszentrum Zürich",
             "how-tag": "Wie es funktioniert",
             "how-h1": "Einfach. Schnell. Menschlich.",
             "how-sub": "Wir haben den Hilfsprozess so einfach und verständlich wie möglich gestaltet.",
@@ -1588,9 +1590,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             "lang-current-ua": "Ukrainisch",
             "lang-current-de": "Deutsch",
             "toggle-lang-ua": "Auf Deutsch umstellen",
-            "toggle-lang-de": "Switch to Ukrainian"
+            "toggle-lang-de": "Auf Ukrainisch umstellen" // 🛠 Исправлено на немецкий язык
         }
-    };
+    }; // Конец объекта translations
 
     // 2. ИЗОЛИРОВАННАЯ ФУНКЦИЯ ПЕРЕВОДА
     function applyTranslation(lang) {

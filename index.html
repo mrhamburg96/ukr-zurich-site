@@ -1770,5 +1770,77 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     };
 })();
 </script>
+  <style>
+    @media (max-width: 768px) {
+      
+      /* 1. ИСПРАВЛЕНИЕ ДЛЯ МЕНЮ (НАВИГАЦИИ) */
+      /* Находим верхнюю панель и убираем жесткую фиксацию, чтобы не перекрывала экран */
+      div[style*="position: fixed"][style*="background: white"],
+      div[style*="position: fixed"][style*="background: #ffffff"],
+      header {
+        position: static !important; /* возвращает в поток документа */
+        height: auto !important;
+        padding: 10px !important;
+      }
+
+      /* Выстраиваем кнопки (Головна, Про центр...) в одну линию и разрешаем скролл */
+      div[style*="position: fixed"] > div,
+      header > div {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;   /* запрещаем перенос на вторую строку */
+        overflow-x: auto !important;     /* разрешаем скролл пальцем влево-вправо */
+        gap: 8px !important;
+        width: 100% !important;
+        padding-bottom: 5px !important;
+        -webkit-overflow-scrolling: touch; /* плавный скролл на iOS */
+      }
+
+      /* Прячем некрасивый системный скроллбар */
+      div[style*="position: fixed"] > div::-webkit-scrollbar,
+      header > div::-webkit-scrollbar {
+        display: none !important;
+      }
+
+      /* Делаем пункты меню компактными кнопками */
+      div[style*="position: fixed"] a,
+      header a {
+        display: inline-block !important;
+        font-size: 13px !important;
+        padding: 6px 12px !important;
+        background: #f1f5f9 !important; /* легкий фон для читаемости */
+        border-radius: 20px !important;
+        white-space: nowrap !important; /* запрещаем перенос слов внутри кнопки */
+      }
+
+
+      /* 2. ИСПРАВЛЕНИЕ ДЛЯ ГЛАВНОГО БАННЕРА (ЦЮРИХ) */
+      /* Ограничиваем высоту контейнера баннера на мобильном */
+      div[style*="position: relative"][style*="height:"][style*="margin-bottom:"] {
+        height: 260px !important; /* уменьшаем высоту, чтобы не занимал весь экран */
+      }
+
+      /* Заставляем саму картинку Цюриха сжиматься адаптивно */
+      div[style*="position: relative"] img[src*="zurich"],
+      div[style*="position: relative"] img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* картинка сжимается пропорционально без деформации */
+      }
+
+      /* Уменьшаем текст "Український інтеграційний та..." на баннере */
+      div[style*="position: absolute"] h1,
+      div[style*="position: absolute"] div {
+        font-size: 20px !important; /* уменьшаем шрифт, чтобы текст полностью вошел */
+        line-height: 1.3 !important;
+        bottom: 15px !important;    /* аккуратно прижимаем к низу */
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
+      }
+    }
+    </style>
+    </body>
+</html>
 </body>
 </html>

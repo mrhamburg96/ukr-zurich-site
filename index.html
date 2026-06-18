@@ -725,9 +725,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 <div class="main-how-layout" style="display: flex !important; flex-direction: row !important; gap: 24px !important; padding-left: 24px !important; padding-right: 24px !important; box-sizing: border-box !important; width: 100% !important; align-items: stretch !important; flex-wrap: nowrap !important; margin-top: 75px !important;">
       
   <!-- 1. ЛЕВАЯ КОЛОНКА (Сімейний центр + Статистика) -->
-  <div class="left-steps-column" style="display: flex !important; flex-direction: column !important; gap: 24px !important; flex: 1.2 !important; min-width: 320px !important; box-sizing: border-box !important; margin: 0 !important; align-self: stretch !important;">
- <!-- БЛОК КНОПОК СОЦСЕТЕЙ (TELEGRAM И WHATSAPP) -->
-    <div style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center; justify-content: flex-start; width: 100%;">
+  <div class="left-steps-column" style="display: flex !important; flex-direction: column !important; gap: 24px !important; flex: 1.2 !important; min-width: 320px !important; box-sizing: border-box !important; margin: 0 !important; align-self: stretch !important; position: relative !important;">
+
+    <!-- БЛОК КНОПОК СОЦСЕТЕЙ (ПОДНЯТЫ НАВЕРХ, НЕ СДВИГАЮТ КАРТОЧКУ) -->
+    <div style="display: flex; gap: 12px; position: absolute; top: -52px; left: 0; align-items: center; justify-content: flex-start; z-index: 20;">
       
       <!-- Кнопка Telegram -->
       <a href="https://t.me/your_link" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #24A1DE; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 13px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: opacity 0.2s;">
@@ -747,7 +748,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </a>
 
     </div>
-    
+
     <!-- Блок: Сімейний центр -->
     <div style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; position: relative; height: 250px; box-sizing: border-box; width: 100%;">
       <img src="family-center.webp" alt="Сімейний центр" style="width: 100%; height: 100%; object-fit: cover; display: block;">

@@ -570,41 +570,46 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   }
 
 
-  /* ==========================================================================
-     2. ЧИНИМ ГЛАВНЫЙ БАННЕР (Чтобы фото сжималось и текст помещался)
-     ========================================================================== */
-  
-  /* Находим блок главного баннера (с Цюрихом) */
-  .hero-banner-container, 
-  div[style*="news.webp"],
-  div:has(> img[src*="zurich"]) { 
-    height: 340px !important; /* Даем блоку фиксированную высоту на мобильном */
-    position: relative !important;
-  }
+ /* ==========================================================================
+         2. РЕШЕНИЕ ДЛЯ ГЛАВНОГО БАННЕРА (ЦЮРИХ) — ОБНОВЛЕННЫЙ ВАРИАНТ
+         ========================================================================== */
+      
+      /* Находим блок-контейнер баннера (перед кнопками Telegram/WhatsApp) */
+      div:has(> img) + div:has(a[href*="t.me"]),
+      div:has(h1) {
+        /* Принудительно ограничиваем высоту родительского контейнера */
+        height: 220px !important;     
+        min-height: 220px !important;
+        max-height: 220px !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
 
-  /* Заставляем саму фоновую картинку внутри баннера сжиматься под размер экрана */
-  .hero-banner-container img,
-  div:has(> img[src*="zurich"]) img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* Картинка пропорционально заполняет блок, не растягиваясь уродливо */
-  }
+      /* Точечно воздействуем на САМУ КАРТИНКУ с Цюрихом */
+      div img, 
+      img[src*="zurich"],
+      div[style*="position: relative"] img {
+        width: 100% !important;       /* Сжимаем ровно по ширине экрана */
+        height: 100% !important;      /* Вписываем в заданные 220px высоты */
+        object-fit: cover !important;  /* Сохраняет пропорции: не сплющивает и не растягивает */
+        object-position: center 30% !important; /* Фокусируется на лицах людей */
+        display: block !important;
+      }
 
-  /* Сжимаем сам текст на баннере, чтобы он не вылезал за границы */
-  .hero-banner-container h1,
-  .hero-banner-container h2,
-  div[style*="position: absolute"] h1,
-  h1:contains("Український") { 
-    font-size: 22px !important; /* Уменьшаем шрифт главного заголовка */
-    line-height: 1.2 !important;
-    bottom: 15px !important;    /* Сдвигаем аккуратно вниз */
-    left: 15px !important;
-    right: 15px !important;
-    padding: 0 !important;
-    width: auto !important;
-  }
-
-
+      /* Настройка и уменьшение текста на баннере */
+      h1, 
+      div[style*="position: absolute"] h1 {
+        font-size: 18px !important;    /* Уменьшаем буквы, чтобы текст не обрезался */
+        line-height: 1.25 !important;
+        position: absolute !important;
+        bottom: 10px !important;       /* Опускаем аккуратно к нижнему краю */
+        left: 12px !important;
+        right: 12px !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7) !important; /* Тень для идеальной читаемости букв */
+      }
   /* ==========================================================================
      3. СТРАУКТУРА ТРЕХ КОЛОНОК (Ваш рабочий код)
      ========================================================================== */

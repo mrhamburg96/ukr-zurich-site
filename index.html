@@ -519,74 +519,42 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   white-space: nowrap !important;
 }
 
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
+/* Когда ширина экрана 768px или меньше (планшеты и телефоны) */
 @media (max-width: 768px) {
   
-  .hero {
-    aspect-ratio: 16 / 11.5 !important; /* Оптимальная высота, чтобы видеть фото */
+  /* Перестраиваем три колонки из горизонтального ряда в один вертикальный столбец */
+  .main-how-layout {
+    flex-direction: column !important;
+    padding-left: 16px !important;  /* Слегка уменьшаем боковые отступы на смартфонах */
+    padding-right: 16px !important;
+    gap: 16px !important;           /* Делаем зазоры между блоками чуть компактнее */
+    margin-top: 40px !important;    /* Уменьшаем слишком большой верхний отступ */
+    height: auto !important;        /* Сбрасываем общую фиксированную высоту! */
+  }
+
+  /* Сбрасываем жесткую высоту колонок, чтобы они не переполнялись */
+  .left-steps-column,
+  .right-review-column,
+  .news-column-holder {
+    height: auto !important;
+    width: 100% !important;        /* Каждая колонка теперь занимает всю ширину экрана */
+  }
+
+  /* Карточки внутри левой колонки (Ми поруч и Статистика) тоже пускаем друг под другом */
+  .left-steps-column > div:last-child {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  /* Корректируем фиксированную высоту внутренних элементов, чтобы на мобильных всё смотрелось пропорционально */
+  .right-review-column a.hero-review-card-compact {
+    height: 380px !important;      /* Центральное фото на мобильном сделаем чуть аккуратнее */
+    min-height: 380px !important;
   }
   
-  .hero-inner {
-    padding: 10px 0 0 12px !important; /* Жестко сдвигаем в самый верхний левый угол */
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+  .news-column-holder > div {
+    height: auto !important;        /* Блок контактов подстроится под контент */
   }
-
-  /* Текст занимает только левую часть экрана и не лезет на лица */
-  .hero-text {
-    max-width: 60% !important; 
-    width: 100% !important;
-  }
-
-  /* Уменьшаем мини-флаги */
-  .hero-logo-row {
-    margin-bottom: 2px !important;
-    gap: 4px !important;
-    transform: scale(0.8);
-    transform-origin: left center;
-  }
-
-  /* Пропорционально уменьшаем главный заголовок */
-  #h-t {
-    font-size: 0.9rem !important; 
-    line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
-  }
-
-  /* Пропорционально уменьшаем подзаголовок */
-  #h-s {
-    font-size: 0.6rem !important; 
-    line-height: 1.3 !important;
-    margin: 0 0 8px 0 !important;
-  }
-
-  /* Компактные кнопки друг под другом, чтобы не занимать ширину */
-  .hero-btns {
-    flex-direction: column !important; 
-    gap: 5px !important;
-    align-items: flex-start !important;
-  }
-
-  .btn-hero-main, .btn-hero-sec {
-    padding: 6px 10px !important; 
-    font-size: 11px !important; 
-    border-radius: 4px !important;
-    width: auto !important;
-    max-width: 130px !important;
-    text-align: center !important;
-  }
-/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
-
-.left-steps-column{
-    position: relative !important;
-    left: -40px !important;
-}
-
-/* мобильная версия */
-@media (max-width:768px){
-    .left-steps-column{
-        left: 0 !important;
-    }
 }
 /* ===================================================================== */
 </style>

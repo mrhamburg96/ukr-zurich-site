@@ -1691,10 +1691,58 @@ const dict = {
     "s6": "Jobsuche",
     "s7": "Angebote für Kinder",
     "s8": "Freiwilligenarbeit",
-    "s9": "Community-Unterstützung"
+    "s9": "Community-Unterstützung",
     "form-msg": "Beschreiben Sie Ihre Frage"
   }
 };
+
+    // --- ДОБАВЬТЕ ЭТОТ БЛОК СРАЗУ ПОСЛЕ ЗАКРЫТИЯ ОБЪЕКТА dict ---
+    
+    // 1. Функция применения языка
+    function applyTranslation(lang) {
+        // Находим все элементы с атрибутом data-translate
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            if (dict[lang] && dict[lang] [key]) {
+                if (dict[lang] [key].includes("<")) {
+                    el.innerHTML = dict[lang] [key];
+                } else {
+                    el.textContent = dict[lang] [key];
+                }
+            }
+        });
+
+        // Обновляем стиль кнопок
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+            if (btn.dataset.lang === lang) {
+                btn.style.background = "#1A56C4";
+                btn.style.color = "#fff";
+                btn.classList.add("active");
+            } else {
+                btn.style.background = "";
+                btn.style.color = "";
+                btn.classList.remove("active");
+            }
+        });
+    }
+
+    // 2. Находим кнопки и вешаем на них слушатели событий
+    const langButtons = document.querySelectorAll(".lang-btn");
+    
+    langButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const selectedLang = btn.dataset.lang;
+            localStorage.setItem("lang", selectedLang); // Сохраняем выбор
+            applyTranslation(selectedLang); // Применяем перевод
+        });
+    });
+
+    // 3. Загружаем сохраненный язык при старте страницы
+    const savedLang = localStorage.getItem("lang") || "ua";
+    applyTranslation(savedLang);
+    
+// --- КОНЕЦ ДОБАВЛЕНИЯ ---  
+  
 
 function setLang(lang) {
   localStorage.setItem('lang', lang);

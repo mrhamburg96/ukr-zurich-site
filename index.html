@@ -130,23 +130,128 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .success p{font-size:13px;color:var(--text2)}
 
 /* ── NAV ────────────────────────────── */
-nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px;gap:.75rem}
-.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
-.nav-logo-flags{display:flex;align-items:center;gap:4px}
-.logo-heart{color:var(--yellow);font-size:20px}
-.brand{font-size:14px;font-weight:700;color:var(--blue);line-height:1.1}
-.brand small{font-size:9px;color:var(--text3);font-weight:400;display:block}
-.nav-links{display:flex;gap:.1rem;list-style:none}
-.nav-links a{font-size:12px;font-weight:500;color:var(--text2);padding:4px 7px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-light)}
-.nav-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.lang-sw{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.lb{background:none;border:none;padding:4px 9px;font-size:11px;font-weight:700;color:var(--text3);cursor:pointer;transition:all .15s}
-.lb.on{background:var(--blue);color:#fff}
-.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700}
-.btn-outline:hover{background:var(--blue-light)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700}.btn-donate-nav{background:var(--yellow);color:#333;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-.btn-solid:hover{background:var(--blue-dark)}
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem; /* 🛠 Змінили padding, щоб при перенесенні рядків була гарна рамка */
+    min-height: 60px;       /* 🛠 ЗАМІСТЬ height:60px; тепер шапка може розтягуватися вниз, якщо тексти не влазять */
+    gap: 1rem;              /* 🛠 Трохи збільшили загальний простір */
+    flex-wrap: wrap;        /* 🛠 Дозволяє шапці акуратно складатися на менших екранах */
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+.nav-logo-flags {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.logo-heart {
+    color: var(--yellow);
+    font-size: 20px;
+}
+.brand {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.1;
+}
+.brand small {
+    font-size: 9px;
+    color: var(--text3);
+    font-weight: 400;
+    display: block;
+}
+.nav-links {
+    display: flex;
+    gap: .5rem;             /* 🛠 ЗБІЛЬШИЛИ з .1rem до .5rem, щоб слова не зливалися */
+    list-style: none;
+    flex-wrap: wrap;        /* 🛠 Якщо німецькі пункти меню не помістяться в ряд, вони акуратно перейдуть на другий рівень */
+    justify-content: center;
+}
+.nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    padding: 6px 10px;      /* 🛠 Трохи збільшили клікабельну зону для зручності */
+    border-radius: 5px;
+    transition: all .15s;
+    white-space: nowrap;    /* Залишаємо, щоб окремі слова не розривалися всередині пунктів */
+}
+.nav-links a:hover, .nav-links a.active {
+    color: var(--blue);
+    background: var(--blue-light);
+}
+.nav-r {
+    display: flex;
+    align-items: center;
+    gap: 12px;              /* 🛠 Збільшили відступ між перемикачем мов та кнопкою */
+    flex-shrink: 0;
+}
+.lang-sw {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.lb {
+    background: none;
+    border: none;
+    padding: 4px 9px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all .15s;
+}
+.lb.on {
+    background: var(--blue);
+    color: #fff;
+}
+.btn-outline {
+    background: transparent;
+    color: var(--blue);
+    border: 1.5px solid var(--blue);
+    border-radius: 7px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.btn-outline:hover {
+    background: var(--blue-light);
+}
+.btn-solid {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.btn-donate-nav {
+    background: var(--yellow);
+    color: #333;
+    border: none;
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.btn-solid:hover {
+    background: var(--blue-dark);
+}
 
 /* ── HERO ───────────────────────────── */
 hero {

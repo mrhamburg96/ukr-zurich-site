@@ -1849,33 +1849,115 @@ function toggleConsultModal(show) {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".lang-btn");
-    const blocks = document.querySelectorAll(".lang");
+    // Словник перекладів (об'єднаний та виправлений)
+    const dict = {
+        ua: {
+            "center-title": "Сімейний центр",
+            "join-btn": "Приєднуйтесь",
+            "near-title": "Ми поруч з вами",
+            "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+            "near-btn": "Дізнатися більше про команду &rarr;",
+            "stat-1": "людей отримали підтримку",
+            "stat-2": "волонтерів щодня допомагають громаді",
+            "see-more-btn": "Дивіться далі",
+            "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\"",
+            "news-title": "Наші новини",
+            "news-more": "Дивитися",
+            "how-tag": "Як це працює",
+            "how-h1": "Просто. Швидко. Людяно.",
+            "h-t": "Український інтеграційний та громадський центр Цюриха",
+            "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
+            "h-b1": "Отримати допомогу",
+            "h-b2": "До громади",
+            "dir-h1": "Чим ми допомагаємо",
+            "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
+            "cta-h": "Потрібна індивідуальна консультація?",
+            "cta-p": "Напишіть нам, і ми знайдемо відповідного спеціаліста.",
+            "cta-b": "Зв'язатися",
+            "form-msg": "Опишіть ваше питання",
+            "l-fn": "Ім'я",
+            "l-ln": "Прізвище",
+            "l-ph": "Телефон (опційно)",
+            "l-pw": "Пароль",
+            "mh-t": "Приєднуйтесь до спільноти",
+            "t-reg": "Реєстрація",
+            "t-log": "Вхід"
+        },
+        de: {
+            "center-title": "Familienzentrum",
+            "join-btn": "Beitreten",
+            "near-title": "Wir sind an Ihrer Seite",
+            "near-desc": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
+            "near-btn": "Mehr über das Team erfahren &rarr;",
+            "stat-1": "Menschen haben Unterstützung erhalten",
+            "stat-2": "Freiwillige helfen der Gemeinschaft jeden Tag",
+            "see-more-btn": "Mehr sehen",
+            "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\"",
+            "news-title": "Unsere Nachrichten",
+            "news-more": "Ansehen",
+            "how-tag": "Wie es funktioniert",
+            "how-h1": "Einfach. Schnell. Menschlich.",
+            "h-t": "Ukrainisches Integrations- und Kulturzentrum Zürich",
+            "h-s": "Unterstützung, Events, Gemeinschaft, humanitäre Hilfe und neue Möglichkeiten für Ukrainer in der Schweiz.",
+            "h-b1": "Hilfe erhalten",
+            "h-b2": "Der Gemeinschaft beitreten",
+            "dir-h1": "Wie wir helfen",
+            "dir-sub": "Wir unterstützen Sie täglich bei wichtigen Fragen.",
+            "cta-h": "Benötigen Sie eine individuelle Beratung?",
+            "cta-p": "Schreiben Sie uns und wir finden die passende Fachperson für Sie.",
+            "cta-b": "Kontakt aufnehmen",
+            "form-msg": "Beschreiben Sie Ihre Frage",
+            "l-fn": "Vorname",
+            "l-ln": "Nachname",
+            "l-ph": "Telefon (optional)",
+            "l-pw": "Passwort",
+            "mh-t": "Treten Sie der Gemeinschaft bei",
+            "t-reg": "Registrierung",
+            "t-log": "Login"
+        }
+    };
 
     function setLanguage(lang) {
-        blocks.forEach(block => {
-            block.style.display = block.classList.contains(lang) ? "block" : "none";
-        });
-
-        buttons.forEach(btn => {
-            btn.classList.toggle("active", btn.dataset.lang === lang);
-        });
-
         localStorage.setItem("lang", lang);
+
+        // Оновлення стану кнопок
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+            if (btn.dataset.lang === lang) {
+                btn.classList.add("active");
+                btn.style.background = "#1A56C4";
+                btn.style.color = "#fff";
+            } else {
+                btn.classList.remove("active");
+                btn.style.background = "";
+                btn.style.color = "";
+            }
+        });
+
+        // Переклад тексту
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            if (dict[lang] && dict[lang] [key]) {
+                if (dict[lang] [key].includes("<")) {
+                    el.innerHTML = dict[lang] [key];
+                } else {
+                    el.textContent = dict[lang] [key];
+                }
+            }
+        });
     }
+
+    const buttons = document.querySelectorAll(".lang-btn");
+    const savedLang = localStorage.getItem("lang") || "ua";
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
-            const lang = btn.dataset.lang;
-            setLanguage(lang);
+            setLanguage(btn.dataset.lang);
         });
     });
 
-    const savedLang = localStorage.getItem("lang") || "ua";
     setLanguage(savedLang);
 });
 </script>
-
 </body>
 </html>
 

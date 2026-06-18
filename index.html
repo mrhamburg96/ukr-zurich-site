@@ -1885,6 +1885,7 @@ function toggleConsultModal(show) {
     }
   };
 
+<!-- СКРИПТ ПЕРЕВОДА (ВСТАВЬТЕ ЭТО В КОНЕЦ ФАЙЛА, ПЕРЕД </body>) -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     // Словник перекладів (об'єднаний та виправлений)
@@ -1919,7 +1920,21 @@ document.addEventListener("DOMContentLoaded", () => {
             "see-more-btn": "Дивіться далі",
             "quote-text": "\"Наша мета — оточити турботою та увагою кожного, хто цього потребує. Ми допомагаємо літнім людям знайти душевний спокій, затишок і впевненість у завтрашньому дні.\"",
             "news-title": "Наші новини",
-            "news-more": "Дивитися"
+            "news-more": "Дивитися",
+            "tc1": "Наші новини", "tc1l": "Дивитися →",
+            "tc2": "Події найближчим часом", "tc2l": "Всі події →",
+            "tc3": "Нові оголошення", "tc3l": "Всі оголошення →",
+            "b1": "Терміново", "b2": "Новина", "b3": "Подія",
+            "n1t": "Гуманітарна видача продуктів", "n2t": "Нові курси німецької мови для початківців", "n3t": "Community Evening",
+            "e1t": "Дитячий театр-студія 'Чомучки'", "e2t": "Мовний клуб (німецька) Рівень A1–A2", "e3t": "Community Evening · Знайомства та спілкування",
+            "ab1": "Житло", "ab2": "Робота", "ab3": "Послуги",
+            "a1t": "Здається кімната в Цюриху · 800 CHF/міс.", "a2t": "Потрібна няня для дитини 4 роки · Teilzeit", "a3t": "Переклади документів (укр/нім) · Швидко та якісно",
+            "ds1": "Людей отримали допомогу", "ds2": "Волонтерів у спільноті", "ds3": "Заходів щомісяця", "ds4": "Працюємо для українців у Цюриху",
+            "d1": "Гуманітарна допомога", "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
+            "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+            "nl-1": "Головна", "nl-2": "Про центр", "nl-3": "Допомога", "nl-4": "Події",
+            "nav-knowledge": "Knowledge Center", "nav-announcements": "Оголошення", "nav-volunteering": "Волонтерство", "nav-contacts": "Контакти",
+            "btn-donate-nav": "Donate"
         },
         de: {
             "how-tag": "Wie es funktioniert",
@@ -1951,55 +1966,68 @@ document.addEventListener("DOMContentLoaded", () => {
             "see-more-btn": "Mehr sehen",
             "quote-text": "\"Unser Ziel ist es, jeden, der es braucht, mit Fürsorge und Aufmerksamkeit zu umgeben. Wir helfen älteren Menschen, Seelenfrieden, Gemütlichkeit und Vertrauen in die Zukunft zu finden.\"",
             "news-title": "Unsere Nachrichten",
-            "news-more": "Ansehen"
+            "news-more": "Ansehen",
+            "tc1": "Unsere Nachrichten", "tc1l": "Ansehen →",
+            "tc2": "Kommende Veranstaltungen", "tc2l": "Alle Veranstaltungen →",
+            "tc3": "Neue Ankündigungen", "tc3l": "Alle Ankündigungen →",
+            "b1": "Dringend", "b2": "Neuheit", "b3": "Veranstaltung",
+            "n1t": "Humanitäre Lebensmittelverteilung", "n2t": "Neue Deutschkurse für Anfänger", "n3t": "Community Evening",
+            "e1t": "Kindertheaterstudio 'Chomutschky'", "e2t": "Sprachclub (Deutsch) Niveau A1–A2", "e3t": "Community Evening · Kennenlernen und Kommunikation",
+            "ab1": "Wohnen", "ab2": "Job", "ab3": "Dienstleistungen",
+            "a1t": "Zimmer in Zürich zu vermieten · 800 CHF/Monat", "a2t": "Babysitter für 4-jähriges Kind gesucht · Teilzeit", "a3t": "Dokumentenübersetzungen (ukr/ger) · Schnell und qualitativ",
+            "ds1": "Menschen erhielten Hilfe", "ds2": "Freiwillige in der Gemeinschaft", "ds3": "Veranstaltungen pro Monat", "ds4": "Für Ukrainer in Zürich",
+            "d1": "Humanitäre Hilfe", "d1d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
+            "nav-sub": "Ukrainisches Integrations- und Kulturzentrum Zürich",
+            "nl-1": "Startseite", "nl-2": "Über uns", "nl-3": "Hilfe", "nl-4": "Veranstaltungen",
+            "nav-knowledge": "Wissenszentrum", "nav-announcements": "Ankündigungen", "nav-volunteering": "Freiwilligenarbeit", "nav-contacts": "Kontakt",
+            "btn-donate-nav": "Spenden"
         }
     };
 
-    // 2. Функция переключения языка (исправленная версия)
-  function setLanguage(lang) {
-    localStorage.setItem("lang", lang);
+    // Функция переключения языка
+    function setLanguage(lang) {
+        localStorage.setItem("lang", lang);
 
-    // Обновление состояния кнопок
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-      if (btn.dataset.lang === lang) {
-        btn.classList.add("active");
-        btn.style.background = "#1A56C4";
-        btn.style.color = "#fff";
-      } else {
-        btn.classList.remove("active");
-        btn.style.background = "";
-        btn.style.color = "";
-      }
-    });
+        // Обновление состояния кнопок
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+            if (btn.dataset.lang === lang) {
+                btn.classList.add("on"); // Добавляем класс 'on' (вместо 'active', если в CSS он 'on')
+                btn.style.background = "#1A56C4";
+                btn.style.color = "#fff";
+            } else {
+                btn.classList.remove("on");
+                btn.style.background = "";
+                btn.style.color = "";
+            }
+        });
 
-    // Перевод текста
-    document.querySelectorAll("[data-translate]").forEach(el => {
-      const key = el.getAttribute("data-translate");
-      if (dict[lang] && dict[lang] [key]) {
-        if (dict[lang] [key].includes("<")) {
-          el.innerHTML = dict[lang] [key];
-        } else {
-          el.textContent = dict[lang] [key];
-        }
-      }
-    });
-  }
+        // Перевод текста
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            if (dict[lang] && dict[lang] [key]) {
+                if (dict[lang] [key].includes("<")) {
+                    el.innerHTML = dict[lang] [key];
+                } else {
+                    el.textContent = dict[lang] [key];
+                }
+            }
+        });
+    }
 
-  // 3. Инициализация при загрузке страницы
-  // УБЕДИТЕСЬ, ЧТО ЭТА СТРОЧКА ЕСТЬ В НАЧАЛЕ ЛОГИКИ!
-  document.addEventListener('DOMContentLoaded', () => {
+    // Инициализация при загрузке
     const buttons = document.querySelectorAll(".lang-btn");
     const savedLang = localStorage.getItem("lang") || "ua";
 
     buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        setLanguage(btn.dataset.lang);
-      });
+        btn.addEventListener("click", () => {
+            setLanguage(btn.dataset.lang);
+        });
     });
 
     setLanguage(savedLang);
-  }); // Закрывающая скобка для DOMContentLoaded
+});
 </script>
+ 
 </body>
 </html>
 

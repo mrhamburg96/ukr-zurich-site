@@ -1767,25 +1767,28 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     };
 })();
 </script>
-    <style>
-/* СТИЛИ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (до 768px) */
+  <style>
+/* ==========================================================================
+   АДАПТИВНЫЕ СТИЛИ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (Экран до 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
 
-  /* ТРАНСФОРМАЦИЯ БАННЕРА В МИНИАТЮРУ */
+  /* 1. ПРЕВРАЩАЕМ БАННЕР В СТИЛЬНУЮ КАРТОЧКУ С МИНИАТЮРОЙ */
   .hero {
-    background-image: none !important; /* Убираем огромный фон */
-    background: #f8fafc !important;    /* Красивая светлая плашка */
-    padding: 16px 12px !important;
-    margin: 10px 8px 20px 8px !important;
+    background-image: none !important; /* Убираем большой десктопный фон */
+    background: #f8fafc !important;    /* Чистая светлая подложка */
+    padding: 14px 12px !important;
+    margin: 10px 8px 16px 8px !important;
     border-radius: 20px !important;
     border: 1px solid #e2e8f0 !important;
     height: auto !important;
     min-height: auto !important;
   }
 
+  /* Текст пускаем влево, миниатюру вправо */
   .hero-inner {
     display: flex !important;
-    flex-direction: row !important; /* Текст слева, фото справа */
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 12px !important;
@@ -1793,80 +1796,94 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     padding: 0 !important;
   }
 
+  /* Контейнер для текста слева */
   .hero-text {
     flex: 1.4 !important;
-    max-width: 70% !important;
+    max-width: 68% !important;
     text-align: left !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  /* Настройка уменьшенного шрифта для телефона */
+  /* Настройка заголовка (для UA и DE языков) */
   .hero-text h1 {
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
     color: #1e293b !important;
     line-height: 1.3 !important;
-    margin: 4px 0 0 0 !important;
-    text-shadow: none !important;
+    margin: 0 !important;
+    text-shadow: none !important;      /* Убираем тень, на светлом фоне она не нужна */
+    word-break: break-word !important; /* Чтобы длинные немецкие слова не вылезали за край */
   }
 
-  /* Скрываем на мобильном лишние элементы, чтобы освободить место */
+  /* Скрываем на мобильных кнопках, мелкие иконки и описание, чтобы не перегружать экран */
   .hero-logo-row, .hero-sub, .hero-btns {
     display: none !important;
   }
 
-  /* СОЗДАНИЕ КРАСИВОЙ МИНИАТЮРЫ СПРАВА */
+  /* Создаем миниатюру города справа из псевдоэлемента */
   .hero-inner::after {
     content: "" !important;
     display: block !important;
     flex: 1 !important;
-    width: 95px !important;
-    height: 95px !important;
-    min-width: 95px !important;
-    max-width: 95px !important;
+    width: 90px !important;
+    height: 90px !important;
+    min-width: 90px !important;
+    max-width: 90px !important;
     border-radius: 14px !important;
-    background-image: url('zurich.jpg') !important; /* Название вашего фото баннера */
+    background-image: url('zurich.jpg') !important; /* Имя вашей картинки города */
     background-size: cover !important;
     background-position: center !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
   }
 
-  /* РЕМОНТ КНОПОК МЕНЮ (Возвращаем горизонтальный скролл) */
+
+  /* 2. ЧИНИМ ВЕРХНИЕ ПЛАШКИ НАВИГАЦИИ (Включаем скролл пальцем) */
+  /* Очищаем фиксированную шапку, ломающую мобильный интерфейс */
   div[style*="position: fixed"][style*="background: white"],
   div[style*="position: fixed"][style*="background: #ffffff"],
   header {
     position: static !important;
     height: auto !important;
-    padding: 8px 4px !important;
+    padding: 6px 4px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  div[style*="position: fixed"] > div, header > div, nav {
+  /* Настраиваем контейнер плашек: выстраиваем в линию и разрешаем скролл */
+  div[style*="position: fixed"] > div,
+  header > div,
+  nav {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important;       /* В один ряд */
-    overflow-x: auto !important;         /* Листаются пальцем */
+    flex-wrap: nowrap !important;       /* Кнопки не падают на второй ряд */
+    overflow-x: auto !important;         /* Разрешаем листать пальцем право-лево */
     gap: 6px !important;
     width: 100% !important;
-    padding: 6px 6px 12px 6px !important;
+    padding: 4px 6px 10px 6px !important;
     box-sizing: border-box !important;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;   /* Плавная прокрутка на iOS */
   }
 
+  /* Скрываем системный уродливый ползунок прокрутки */
   div[style*="position: fixed"] > div::-webkit-scrollbar,
   header > div::-webkit-scrollbar,
   nav::-webkit-scrollbar {
-    display: none !important; /* Прячем системный скроллбар */
+    display: none !important;
   }
 
-  div[style*="position: fixed"] a, header a, nav a {
+  /* Оформляем ссылки меню в виде аккуратных скругленных кнопок */
+  div[style*="position: fixed"] a,
+  header a,
+  nav a {
     display: inline-block !important;
     font-size: 13px !important;
     padding: 6px 14px !important;
-    background: #e2e8f0 !important;
+    background: #e2e8f0 !important;      /* Светло-серый фон плашек */
     border-radius: 20px !important;
-    color: #0070F3 !important;
+    color: #0070F3 !important;           /* Красивый синий цвет текста */
     text-decoration: none !important;
-    white-space: nowrap !important;     /* Запрет переноса букв */
+    white-space: nowrap !important;     /* Запрещаем переносить слова внутри одной плашки */
     font-family: sans-serif !important;
     font-weight: 600 !important;
   }

@@ -743,39 +743,51 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </nav>
 
 <!-- ═══════ HERO ════════════════════════════════════ -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-logo-row" style="display: inline-flex; align-items: center; gap: 9px;">
-        <!-- Флаг Украины -->
-        <div class="flag-ua" style="width:22px;height:15px"><div class="t"></div><div class="b"></div></div>
-        
-        <!-- Флаг Швейцарии -->
-        <div class="flag-ch" style="width:15px;height:15px"></div>
-        
-        <!-- Еще более увеличенный Logo01.png -->
-        <img src="Logo01.png" alt="Logo" style="width: 23px; height: 21px; object-fit: contain; display: block; margin-top: -1px;">
-        
-        <!-- Текстовая часть -->
-        <span class="hero-logo-text">UAGZ</span>
-        <span class="hero-logo-sub" id="h-badge" data-translate="h-badge">Офіційний NGO · Zürich</span>
+<div class="main-hero-wrapper">
+  
+  <div class="hero-desktop-only" style="position: relative; width: 100%; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 24px;">
+    <img src="zurich.jpg" alt="Zurich" style="width: 100%; height: auto; display: block;">
+    
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; box-sizing: border-box;">
+      
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: #ffffff; font-family: sans-serif; font-size: 14px; font-weight: 600; opacity: 0.9;">
+        <div class="flag-ua" style="width:22px;height:15px; display: inline-block; vertical-align: middle;"><div class="t"></div><div class="b"></div></div>
+        <div class="flag-ch" style="width:15px;height:15px; display: inline-block; vertical-align: middle;"></div>
+        <img src="Logo01.png" alt="Logo" style="width: 23px; height: 21px; object-fit: contain; display: inline-block; vertical-align: middle;">
+        <span class="hero-logo-text" style="color: #ffffff; font-weight: 700;">UAGZ</span>
+        <span class="hero-logo-sub" id="h-badge" data-translate="h-badge" style="color: rgba(255,255,255,0.8); margin-left: 4px;">Офіційний NGO · Zürich</span>
       </div>
       
-      <!-- Главный заголовок (добавили перевод) -->
-      <h1 id="h-t" data-translate="h-t">Український інтеграционный та громадський центр Цюриха</h1>
+      <h1 id="h-t" data-translate="h-t" style="color: #ffffff; font-size: 38px; font-weight: 800; margin: 0 0 8px 0; font-family: sans-serif; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+        Український інтеграційний та громадський центр Цюриха
+      </h1>
       
-      <!-- Подзаголовок (добавили перевод) -->
-      <p class="hero-sub" id="h-s" data-translate="h-s">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
+      <p class="hero-sub" id="h-s" data-translate="h-s" style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 0 0 20px 0; font-family: sans-serif; max-width: 700px;">
+        Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.
+      </p>
       
-      <!-- Кнопки (добавили перевод) -->
-      <div class="hero-btns">
+      <div class="hero-btns" style="display: flex; gap: 12px;">
         <a href="help.html" class="btn-hero-main" id="h-b1" data-translate="h-b1">Отримати допомогу</a>
         <a href="https://t.me/uagz_zurich" target="_blank" class="btn-hero-sec" id="h-b2" data-translate="h-b2t">До громади</a>
       </div>
     </div>
   </div>
-</div>
 
+  <div class="hero-mobile-only">
+    <div class="hero-mobile-text">
+      <div class="mobile-badge-line">
+        <div class="flag-ua" style="width:18px;height:12px; display: inline-block;"><div class="t"></div><div class="b"></div></div>
+        <div class="flag-ch" style="width:12px;height:12px; display: inline-block;"></div>
+        <span id="h-badge-mob" data-translate="h-badge">UAGZ · NGO Zürich</span>
+      </div>
+      <h2 id="h-t-mob" data-translate="h-t">Український інтеграційний та громадський центр Цюриха</h2>
+    </div>
+    <div class="hero-mobile-thumb">
+      <img src="zurich.jpg" alt="Zurich Mini">
+    </div>
+  </div>
+
+</div>
 <!-- ═══════ STRIP: Чим ми допомагаємо ════════════════ -->
 <!-- ОСНОВНОЙ КОНТЕЙНЕР ДЛЯ ТРЕХ КОЛОНОК (С ОТСТУПОМ ВНИЗ) -->
 <div class="main-how-layout" style="display: flex !important; flex-direction: row !important; gap: 24px !important; padding-left: 24px !important; padding-right: 24px !important; box-sizing: border-box !important; width: 100% !important; align-items: stretch !important; flex-wrap: nowrap !important; margin-top: 75px !important;">
@@ -1777,69 +1789,132 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </script>
   <style>
     /* МОБИЛЬНАЯ ВЕРСИЯ (Экран смартфона до 768px) */
-    @media (max-width: 768px) {
-      
-      /* 1. ПЕРЕСТРОЙКА БАННЕРА В МИНИАТЮРУ */
-      /* Находим контейнер баннера по заголовку h1 внутри него */
-      div:has(> h1), 
-      div:has(> div > h1) {
-        display: flex !important;
-        flex-direction: row !important; /* Текст и картинка встают в одну линию */
-        align-items: center !important;
-        justify-content: space-between !important;
-        background: #f8fafc !important; /* Красивая светлая подложка */
-        padding: 12px !important;
-        border-radius: 20px !important;
-        height: auto !important;
-        min-height: auto !important;
-        max-height: auto !important;
-        margin: 12px 16px !important;
-        gap: 12px !important;
-        position: static !important;
-      }
+   <style>
+/* Базове налаштування для відображення спрощеної версії */
+.hero-mobile-only { display: none; }
+.hero-desktop-only { display: block; }
 
-      /* Левая сторона: контейнер с текстом */
-      div:has(> h1) > div:not(:has(img)),
-      div:has(> h1) .hero-text-side {
-        flex: 1.4 !important;
-        position: static !important;
-        padding: 0 !important;
-        margin: 0 !important;
-      }
+/* ==========================================================================
+   МЕДІА-ЗАПРОСИ ДЛЯ СМАРТФОНІВ (Екрани до 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* ХОВАЄМО десктопний баннер і ПОКАЗУЄМО спрощений мобільний */
+  .hero-desktop-only { display: none !important; }
+  .hero-mobile-only { 
+    display: flex !important; 
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #f8fafc !important; /* красива світла плашечка */
+    padding: 14px !important;
+    border-radius: 20px !important;
+    margin: 12px 4px 20px 4px !important;
+    gap: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+  }
 
-      /* Шрифт заголовка становится аккуратным слева от картинки */
-      h1, 
-      div:has(> h1) h1 {
-        font-size: 15px !important;
-        line-height: 1.3 !important;
-        color: #1e293b !important;
-        font-weight: 700 !important;
-        position: static !important;
-        text-shadow: none !important; /* Убираем десктопную тень */
-        margin: 0 !important;
-        width: auto !important;
-      }
+  /* Налаштування тексту всередині мобільного баннера (Зліва) */
+  .hero-mobile-text {
+    flex: 1.3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+  }
+  .mobile-badge-line {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin-bottom: 6px !important;
+  }
+  .mobile-badge-line img {
+    width: 16px !important;
+    height: auto !important;
+  }
+  .mobile-badge-line span {
+    font-size: 11px !important;
+    color: #64748b !important;
+    font-family: sans-serif !important;
+    font-weight: 600 !important;
+  }
+  .hero-mobile-text h2 {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    font-family: sans-serif !important;
+  }
 
-      /* Правая сторона: превращаем фото в маленькую аккуратную миниатюру */
-      div:has(> h1) img,
-      img[src*="zurich"] {
-        flex: 1 !important;
-        width: 100px !important;
-        height: 100px !important;
-        max-width: 100px !important;
-        max-height: 100px !important;
-        border-radius: 14px !important; /* Скругленные уголки */
-        object-fit: cover !important;   /* Фото сжимается без искажений */
-        position: static !important;
-        display: block !important;
-      }
+  /* Перетворюємо фото на акуратну МИНІАТЮРУ (Справа) */
+  .hero-mobile-thumb {
+    flex: 1 !important;
+    width: 100px !important;
+    height: 100px !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+    min-width: 100px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+  .hero-mobile-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* картинка сжимається без викривлення пропорцій */
+    object-position: center !important;
+  }
 
-      /* Убираем мелкие служебные флажки/значки на мобильном, чтобы не забивать экран */
-      div:has(> h1) span, 
-      div:has(> h1) div:has(img[src*="flag"]) {
-        display: none !important;
-      }
-    }
-    </style>
+  /* ==========================================================================
+     Ремонт меню на навігації (Повертаємо горизонтальний скролл)
+     ========================================================================== */
+  /* Очищуємо жорстку фіксацію верхньої панелі */
+  div[style*="position: fixed"][style*="background: white"],
+  div[style*="position: fixed"][style*="background: #ffffff"],
+  header {
+    position: static !important;
+    height: auto !important;
+    padding: 8px 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Контейнер для кнопок: вмикаємо рух пальцем (горизонтальний скролл) */
+  div[style*="position: fixed"] > div,
+  header > div,
+  nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;       /* ЗАБОРОНЯЄМО перенос кнопок вниз */
+    overflow-x: auto !important;         /* ДОЗВОЛЯЄМО гортати пальцем ліво-право */
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 6px 4px 10px 4px !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;   /* ідеально плавний скролл на iPhone */
+  }
+
+  /* Ховаємо системну смугу прокручування під кнопками */
+  div[style*="position: fixed"] > div::-webkit-scrollbar,
+  header > div::-webkit-scrollbar,
+  nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Робимо плашки "Головна", "Про центр"... красивими мобільними кнопочками */
+  div[style*="position: fixed"] a,
+  header a,
+  nav a {
+    display: inline-block !important;
+    font-size: 13px !important;
+    padding: 6px 14px !important;
+    background: #e2e8f0 !important;      /* легкий фоновий колір плашки */
+    border-radius: 20px !important;
+    color: #0070F3 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;     /* ЗАБОРОНЯЄМО перенос слів у назві однієї кнопки */
+    font-family: sans-serif !important;
+    font-weight: 600 !important;
+  }
+}
+</style>
     </body>
 </html>

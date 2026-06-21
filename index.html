@@ -688,10 +688,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 <!-- === НАЧАЛО ИЗМЕНЕНИЙ: ГЛАВНЫЙ БАННЕР, ИНФОРМЕРЫ И ТРИ ЦЕНТРА === -->
 <section class="hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 120px 0 60px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif;">
-   <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2;">
+   <!-- === НАЧАЛО КОРРЕКТИРОВКИ: БЛОК ОПУЩЕН К НИЖНЕЙ ГРАНИЦЕ ФОТО === -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; height: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end;">
         
-        <div style="max-width: 520px; text-align: left; display: flex; flex-direction: column; gap: 0;">
+        <!-- margin-bottom регулирует высоту над панелью контактов -->
+        <div style="max-width: 520px; text-align: left; display: flex; flex-direction: column; gap: 0; margin-bottom: 32px;">
             
+            <!-- ПЛАШКА С ФЛАГАМИ (БЕЙДЖ) -->
             <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 12px; border: 1px solid #e5e7eb; width: max-content;">
                 <div class="flag-ua" style="width:16px; height:11px; display:inline-block; background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%); border-radius: 1px;"></div>
                 <div class="flag-ch" style="width:11px; height:11px; display:inline-block; background: #DA291C; position: relative; border-radius: 1px;"><div style="position:absolute; background:white; width:3px; height:7px; top:2px; left:4px;"></div><div style="position:absolute; background:white; width:7px; height:3px; top:4px; left:2px;"></div></div>
@@ -699,10 +702,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                 <span id="h-badge" data-translate="h-badge" style="color: #4B5563;">UAGZ Офіційний NGO - Zürich</span>
             </div>
 
+            <!-- 1. ЗАГОЛОВОК -->
             <h1 id="h-t" data-translate="h-t" style="font-size: 28px; font-weight: 800; line-height: 1.3; color: #111827; margin: 0 0 10px 0;">Український інтеграційний та громадський центр Цюриха</h1>
             
+            <!-- 2. ПОДЗАГОЛОВОК -->
             <p id="h-s" data-translate="h-s" style="font-size: 14px; color: #111827; line-height: 1.5; margin: 0 0 20px 0; word-wrap: break-word; font-weight: 500;">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
         
+            <!-- 3. КНОПКИ УПРАВЛЕНИЯ -->
             <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                 <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px;">Отримати допомогу</a>
                 <a href="https://t.me/uagz_zurich" target="_blank" id="h-b2" data-translate="h-b2t" style="display: inline-block; background: white; color: #111827; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid #d1d5db;">До громади</a>
@@ -710,6 +716,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
         </div>
     </div>
+    <!-- === КОНЕЦ КОРРЕКТИРОВКИ === -->
     
 
     <!-- Белая панель с тремя контактами (Email, Телефон, Соцсети) -->

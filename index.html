@@ -686,49 +686,24 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </nav>
 
-<!-- УДАЛИТЕ ЭТОТ БЛОК ЦЕЛИКОМ -->
-<div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 3; margin-top: 40px;">
-    
-    <div style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; align-items: center; margin-bottom: 0; transform: translateY(0);">
-        
-        <!-- БЛОК EMAIL -->
-        <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="background: #EEF2F6; padding: 12px; border-radius: 12px; color: #1A56C4;">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ГЛАВНЫЙ БАННЕР, ИНФОРМЕРЫ И ТРИ ЦЕНТРА === -->
+<section class="hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 120px 0 60px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2;">
+        <div style="max-width: 650px; margin-bottom: 60px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 16px; border: 1px solid #e5e7eb;">
+                <div class="flag-ua" style="width:16px; height:11px; display:inline-block; background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%); border-radius: 1px;"></div>
+                <div class="flag-ch" style="width:11px; height:11px; display:inline-block; background: #DA291C; position: relative; border-radius: 1px;"><div style="position:absolute; background:white; width:3px; height:7px; top:2px; left:4px;"></div><div style="position:absolute; background:white; width:7px; height:3px; top:4px; left:2px;"></div></div>
+                <img src="Logo01.png" alt="UAGZ" style="width: 14px; height: 14px; object-fit: contain;">
+                <span id="h-badge" data-translate="h-badge">UAGZ Офіційний NGO - Zürich</span>
             </div>
-            <div>
-                <p style="margin: 0; font-size: 13px; color: #6B7280;">Email</p>
-                <a href="mailto:info@ukr-zurich.ch" style="margin: 0; font-size: 16px; font-weight: 700; color: #111827; text-decoration: none;">info@ukr-zurich.ch</a>
-                <p id="c-mail-sub" data-translate="c-mail-sub" style="margin: 4px 0 0 0; font-size: 12px; color: #9CA3AF;">Ми відповімо вам якнайшвидше.</p>
-            </div>
-        </div>
-
-        <!-- БЛОК ТЕЛЕФОН -->
-        <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="background: #EEF2F6; padding: 12px; border-radius: 12px; color: #1A56C4;">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            </div>
-            <div>
-                <p style="margin: 0; font-size: 13px; color: #6B7280;">Telephone</p>
-                <a href="tel:+41783491555" style="margin: 0; font-size: 16px; font-weight: 700; color: #111827; text-decoration: none;">+41 78 349 1555</a>
-                <p style="margin: 4px 0 0 0; font-size: 12px; color: #9CA3AF;">Пн – Пт: 09:00 – 17:00</p>
+            <h1 id="h-t" data-translate="h-t" style="font-size: 42px; font-weight: 800; line-height: 1.2; color: #111827; margin: 0 0 16px 0;">Український інтеграційний та громадський центр Цюриха</h1>
+            <p id="h-s" data-translate="h-s" style="font-size: 18px; color: #4B5563; line-height: 1.5; margin: 0 0 24px 0;">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px;">Отримати допомогу</a>
+                <a href="https://t.me/uagz_zurich" target="_blank" id="h-b2" data-translate="h-b2t" style="display: inline-block; background: white; color: #111827; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid #d1d5db;">До громади</a>
             </div>
         </div>
-
-        <!-- БЛОК СОЦСЕТИ (БЕЗ LINKEDIN) -->
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-            <p id="c-social-title" data-translate="c-social-title" style="margin: 0; font-size: 13px; color: #6B7280; font-weight: 500;">Ми в соцмережах</p>
-            <div style="display: flex; gap: 12px; align-items: center;">
-                <a href="https://facebook.com" target="_blank" style="color: #1877F2; text-decoration: none;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a>
-                <a href="https://instagram.com" target="_blank" style="color: #E1306C; text-decoration: none;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                <a href="https://t.me/uagz_zurich" target="_blank" style="color: #229ED9; text-decoration: none;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.7-2.46 2.75-2.68.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.83 1.16-5.16 3.41-.49.33-.93.5-1.33.49-.44-.01-1.29-.25-1.92-.45-.77-.25-1.39-.39-1.34-.83.03-.23.35-.46.97-.71 3.82-1.66 6.37-2.75 7.64-3.28 3.64-1.53 4.4-1.8 4.89-1.81.11 0 .35.03.5.15.13.1.17.24.18.34z"/></svg></a>
-            </div>
-        </div>
-
     </div>
-</div>
-<!-- === КОНЕЦ ФИКСИРОВАННОГО БЛОКА === -->
-    
 
     <!-- Белая панель с тремя контактами (Email, Телефон, Соцсети) -->
     <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2; margin-top: auto;">
@@ -770,6 +745,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         </div>
     </div>
 </section>
+
 
 <!-- Тройная микро-плашка под баннером -->
 <div style="background: #FAFBFD; padding: 18px 0; border-bottom: 1px solid #e5e7eb; font-family: system-ui, -apple-system, sans-serif;">

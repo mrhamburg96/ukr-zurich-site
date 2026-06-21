@@ -686,17 +686,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </nav>
 
-<!-- === НАЧАЛО ИЗМЕНЕНИЙ === -->
-<section class="hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 60px 0 80px 0; position: relative; min-height: 450px; display: flex; flex-direction: column; justify-content: center; font-family: system-ui, -apple-system, sans-serif;">
+<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ГЛАВНЫЙ БАННЕР, ИНФОРМЕРЫ И ТРИ ЦЕНТРА === -->
+<section class="hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 120px 0 60px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif;">
     <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2;">
-        
-        <!-- КНОПКИ ПОДНЯТЫ В ВЕРХНИЙ ЛЕВЫЙ УГОЛ -->
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px;">
-            <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px;">Отримати допомогу</a>
-            <a href="https://t.me/uagz_zurich" target="_blank" id="h-b2" data-translate="h-b2t" style="display: inline-block; background: white; color: #111827; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; border: 1px solid #d1d5db;">До громади</a>
-        </div>
-
-        <div style="max-width: 650px;">
+        <div style="max-width: 650px; margin-bottom: 60px;">
             <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 16px; border: 1px solid #e5e7eb;">
                 <div class="flag-ua" style="width:16px; height:11px; display:inline-block; background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%); border-radius: 1px;"></div>
                 <div class="flag-ch" style="width:11px; height:11px; display:inline-block; background: #DA291C; position: relative; border-radius: 1px;"><div style="position:absolute; background:white; width:3px; height:7px; top:2px; left:4px;"></div><div style="position:absolute; background:white; width:7px; height:3px; top:4px; left:2px;"></div></div>
@@ -704,93 +697,49 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                 <span id="h-badge" data-translate="h-badge">UAGZ Офіційний NGO - Zürich</span>
             </div>
             <h1 id="h-t" data-translate="h-t" style="font-size: 42px; font-weight: 800; line-height: 1.2; color: #111827; margin: 0 0 16px 0;">Український інтеграційний та громадський центр Цюриха</h1>
-            <p id="h-s" data-translate="h-s" style="font-size: 18px; color: #4B5563; line-height: 1.5; margin: 0;">Допомога, події, спільнота, гуманітарна підтримка та нові возможности для українців у Швейцарії.</p>
-        </div>
-    </div>
-</section>
-<!-- Тройная микро-плашка под баннером -->
-<div style="background: #FAFBFD; padding: 18px 0; border-bottom: 1px solid #e5e7eb; font-family: system-ui, -apple-system, sans-serif;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div>
-                <strong style="font-size: 14px; color: #111827; display: block;" data-translate="loc-title">Цюрих, Швейцарія</strong>
-                <span style="font-size: 12px; color: #6B7280;" data-translate="loc-desc">Працюємо для української громади</span>
-            </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            <div>
-                <strong style="font-size: 14px; color: #111827; display: block;" data-translate="support-title">Підтримуємо. Інтегруємо. Об'єднуємо.</strong>
-                <span style="font-size: 12px; color: #6B7280;" data-translate="support-desc">Разом ми сильніші</span>
-            </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="Logo01.png" alt="UAGZ" style="width: 18px; height: 18px; object-fit: contain;">
-            <div>
-                <strong style="font-size: 14px; color: #111827; display: block;" data-translate="comm-title">Разом для сильної громади</strong>
-                <span style="font-size: 12px; color: #6B7280;" data-translate="comm-desc">Кожен може зробити внесок</span>
+            <p id="h-s" data-translate="h-s" style="font-size: 18px; color: #4B5563; line-height: 1.5; margin: 0 0 24px 0;">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px;">Отримати допомогу</a>
+                <a href="https://t.me/uagz_zurich" target="_blank" id="h-b2" data-translate="h-b2t" style="display: inline-block; background: white; color: #111827; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid #d1d5db;">До громади</a>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Раздел: Наші центри (Три одинаковых аккуратных блока горизонтально) -->
-<section style="padding: 60px 0; background: #ffffff; font-family: system-ui, -apple-system, sans-serif;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
-            <h2 style="font-size: 28px; font-weight: 700; color: #111827; margin: 0;" data-translate="centers-main-title">Наші центри</h2>
-            <a href="centers.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 4px; font-size: 14px;">
-                <span data-translate="centers-more-link">Дізнатися більше про центри</span> →
-            </a>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-            <!-- Карточка 1: Центр сім'ї -->
-            <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
-                <div style="height: 180px; position: relative;">
-                    <img src="family-center.webp" alt="Центр сім'ї" style="width:100%; height:100%; object-fit: cover;">
+    <!-- Белая панель с тремя контактами (Email, Телефон, Соцсети) -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2; margin-top: auto;">
+        <div style="background: #ffffff; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border: 1px solid #e5e7eb; align-items: center;">
+            <!-- Блок 1: Email -->
+            <div style="display: flex; align-items: flex-start; gap: 16px; border-right: 1px solid #e5e7eb; padding-right: 16px;">
+                <div style="width: 44px; height: 44px; background: #E8F1FD; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
-                <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px;">
-                    <div>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 8px 0;" data-translate="center1-title">Центр сім'ї, молоді та спорту UAGZ</h3>
-                        <p style="font-size: 14px; color: #4B5563; line-height: 1.4; margin: 0 0 16px 0;" data-translate="center1-desc">Підтримуємо сім'ї, дітей та молодь через освітні, спортивні та культурні програми.</p>
-                    </div>
-                    <a href="family-center.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
-                        <span data-translate="center-go-btn">Перейти до центру</span> →
-                    </a>
+                <div>
+                    <div style="font-size: 13px; color: #6B7280; font-weight: 500;">Email</div>
+                    <a href="mailto:info@ukr-zurich.ch" style="font-size: 15px; font-weight: 700; color: #111827; text-decoration: none; display: block; margin: 2px 0;">info@ukr-zurich.ch</a>
+                    <div style="font-size: 12px; color: #9CA3AF;">Ми відповімо вам якнайшвидше.</div>
                 </div>
             </div>
-
-            <!-- Карточка 2: Інтеграційний центр -->
-            <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
-                <div style="height: 180px; position: relative;">
-                    <img src="main.webp" alt="Інтеграційний центр" style="width:100%; height:100%; object-fit: cover;">
+            <!-- Блок 2: Телефон -->
+            <div style="display: flex; align-items: flex-start; gap: 16px; border-right: 1px solid #e5e7eb; padding-right: 16px;">
+                <div style="width: 44px; height: 44px; background: #E8F1FD; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
-                <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px;">
-                    <div>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 8px 0;" data-translate="center2-title">Інтеграційний центр UAGZ</h3>
-                        <p style="font-size: 14px; color: #4B5563; line-height: 1.4; margin: 0 0 16px 0;" data-translate="center2-desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знайти роботу.</p>
-                    </div>
-                    <a href="integration.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
-                        <span data-translate="center-go-btn">Перейти до центру</span> →
-                    </a>
+                <div>
+                    <div style="font-size: 13px; color: #6B7280; font-weight: 500;">Телефон</div>
+                    <a href="tel:+41783491555" style="font-size: 15px; font-weight: 700; color: #111827; text-decoration: none; display: block; margin: 2px 0;">+41 78 349 1555</a>
+                    <div style="font-size: 12px; color: #9CA3AF;">Пн – Пт: 09:00 – 17:00</div>
                 </div>
             </div>
-
-            <!-- Карточка 3: Волонтерський центр -->
-            <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
-                <div style="height: 180px; position: relative;">
-                    <img src="elderly1.webp" alt="Волонтерський центр" style="width:100%; height:100%; object-fit: cover;">
-                </div>
-                <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px;">
-                    <div>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 8px 0;" data-translate="center3-title">Волонтерський центр UAGZ</h3>
-                        <p style="font-size: 14px; color: #4B5563; line-height: 1.4; margin: 0 0 16px 0;" data-translate="center3-desc">Об'єднуємо людей, які хочуть допомагати та розвивати нашу громаду.</p>
+            <!-- Блок 3: Оригинальные логотипы соцсетей -->
+            <div style="display: flex; align-items: flex-start; gap: 16px; padding-left: 8px;">
+                <div>
+                    <div style="font-size: 13px; color: #6B7280; margin-bottom: 6px; font-weight: 500;">Ми в соцмережах</div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="https://facebook.com" target="_blank" style="display: inline-block; width: 28px; height: 28px;"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" style="width:100%; height:100%; object-fit: contain;"></a>
+                        <a href="https://instagram.com" target="_blank" style="display: inline-block; width: 28px; height: 28px;"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width:100%; height:100%; object-fit: contain;"></a>
+                        <a href="https://t.me/uagz_zurich" target="_blank" style="display: inline-block; width: 28px; height: 28px;"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width:100%; height:100%; object-fit: contain;"></a>
+                        <a href="https://linkedin.com" target="_blank" style="display: inline-block; width: 28px; height: 28px;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:100%; height:100%; object-fit: contain;"></a>
                     </div>
-                    <a href="volunteer.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
-                        <span data-translate="center-go-btn">Перейти до центру</span> →
-                    </a>
                 </div>
             </div>
         </div>

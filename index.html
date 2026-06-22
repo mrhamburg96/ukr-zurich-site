@@ -670,6 +670,15 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <span class="brand">UAGZ<small id="nav-sub" data-translate="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
     </div>
   </a>
+
+  <button class="nav-toggle" aria-label="Toggle navigation" style="display: none; background: none; border: none; cursor: pointer; padding: 8px;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5" stroke-linecap="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+
   <ul class="nav-links">
     <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
     <li><a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a></li>
@@ -681,6 +690,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button></li>
     <li><a href="about.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a></li>
   </ul>
+
   <div class="lang-sw">
     <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
       <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
@@ -1676,5 +1686,59 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     };
 })();
 </script>
+  <style>
+  <style>
+  @media (max-width: 768px) {
+    /* Показываем кнопку-три полоски на смартфонах */
+    .nav-toggle {
+      display: block !important;
+    }
+    
+    /* Скрываем ссылки меню и превращаем их в выпадающий список */
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 16px 24px !important;
+      z-index: 9998;
+      gap: 12px !important;
+    }
+
+    /* Класс, который JS будет добавлять при клике для открытия меню */
+    .nav-links.mobile-open {
+      display: flex !important;
+    }
+    
+    .nav-links li {
+      width: 100%;
+    }
+    
+    .nav-links a, .btn-donate-nav {
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (toggleBtn && navLinks) {
+      toggleBtn.addEventListener('click', function() {
+        // Переключаем класс открытия меню при нажатии на три полоски
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

@@ -1619,44 +1619,50 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         localStorage.setItem('siteLang', lang);
     }
 
-    // 3. НАВЕШИВАНИЕ ОБРАБОТЧИКОВ НА КНОПКИ БЕЗ ONCLICK В HTML
+    // 3. НАВЕШИВАНИЕ ОБРАБОТЧИКОВ НА КНОПКИ (Усовершенствованный безопасный вариант)
     function initLanguageSwitchers() {
-        // Ищем все возможные кнопки переключения языков на странице
-        const targets = [
-            { id: 'lang-ua', lang: 'ua' },
-            { id: 'lang-de', lang: 'de' },
-            { selector: '.lang-btn[data-lang="ua"]', lang: 'ua' },
-            { selector: '.lang-btn[data-lang="de"]', lang: 'de' }
-        ];
-
-        targets.forEach(t => {
-            const el = t.id ? document.getElementById(t.id) : document.querySelector(t.selector);
-            if (el) {
-                // Удаляем старый инлайновый onclick, чтобы он не вызывал ошибки
-                el.removeAttribute('onclick');
-                // Привязываем чистое JS-событие
-                el.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    applyTranslation(t.lang);
-                });
+        // Глобальный перехватчик кликов: сработает, даже если кнопки загрузились позже
+        document.addEventListener('click', function(e) {
+            const targetBtn = e.target.closest('.lang-btn[data-lang], #lang-ua, #lang-de');
+            
+            if (targetBtn) {
+                e.preventDefault();
+                let lang = targetBtn.getAttribute('data-lang');
+                if (!lang) {
+                    lang = targetBtn.id === 'lang-ua' ? 'ua' : 'de';
+                }
+                
+                // Проверяем, существует ли функция и словарь перед запуском
+                if (typeof applyTranslation === 'function') {
+                    applyTranslation(lang);
+                }
             }
         });
 
         // Запуск перевода при загрузке страницы
         const savedLang = localStorage.getItem('siteLang') || 'ua';
+        
+        // Проверка: если словаря dict нет на странице, создаем пустой объект, чтобы код не падал
+        if (typeof dict === 'undefined') {
+            window.dict = { ua: {}, de: {} };
+            console.warn("Предупреждение: Переменная 'dict' (словарь переводов) не найдена на странице!");
+        }
+        
         applyTranslation(savedLang);
     }
 
-    // БЕЗОПАСНЫЙ СТАРТ: если DOM уже готов — запускаем сразу, если нет — ждем загрузки
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLanguageSwitchers);
-    } else {
+    // БЕЗОПАСНЫЙ СТАРТ: ждем полной загрузки всех элементов и других скриптов с переводами
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
         initLanguageSwitchers();
+    } else {
+        window.addEventListener('load', initLanguageSwitchers);
     }
 
     // Создаем глобальный дубликат на случай, если где-то глубоко в коде остался вызов
     window.changeLanguage = function(lang) {
-        applyTranslation(lang);
+        if (typeof applyTranslation === 'function') {
+            applyTranslation(lang);
+        }
     };
 })();
 </script>

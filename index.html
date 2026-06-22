@@ -523,72 +523,77 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
    /* ... все ваши старые существующие стили сайта ... */
 
-      /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ (Начало вашего кода) */
-      @media (max-width: 768px) {
-        .hero {
-          aspect-ratio: 16 / 11.5 !important;
-        }
-        .hero-inner {
-          padding: 10px 0 0 12px !important;
-          justify-content: flex-start !important;
-          align-items: flex-start !important;
-        }
-        .hero-text {
-          max-width: 60% !important; 
-          width: 100% !important;
-        }
-        .hero-logo-row {
-          margin-bottom: 2px !important;
-          gap: 4px !important;
-          transform: scale(0.8);
-          transform-origin: left center;
-        }
-        #h-t {
-          font-size: 0.9rem !important; 
-          line-height: 1.2 !important;
-          margin: 0 0 4px 0 !important;
-        }
-        #h-s {
-          font-size: 0.6rem !important; 
-          line-height: 1.3 !important;
-          margin: 0 0 8px 0 !important;
-        }
-        .hero-btns {
-          flex-direction: column !important; 
-          gap: 5px !important;
-          align-items: flex-start !important;
-        }
-        .btn-hero-main, .btn-hero-sec {
-          padding: 6px 10px !important; 
-          font-size: 11px !important; 
-          border-radius: 4px !important;
-          width: auto !important;
-          max-width: 130px !important;
-          text-align: center !important;
-        }
+     /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
+    @media (max-width: 768px) {
+      .hero {
+        aspect-ratio: 16 / 11.5 !important;
+      }
+      .hero-inner {
+        padding: 10px 0 0 12px !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+      }
+      .hero-text {
+        max-width: 60% !important; 
+        width: 100% !important;
+      }
+      .hero-logo-row {
+        margin-bottom: 2px !important;
+        gap: 4px !important;
+        transform: scale(0.8);
+        transform-origin: left center;
+      }
+      #h-t {
+        font-size: 0.9rem !important; 
+        line-height: 1.2 !important;
+        margin: 0 0 4px 0 !important;
+      }
+      #h-s {
+        font-size: 0.6rem !important; 
+        line-height: 1.3 !important;
+        margin: 0 0 8px 0 !important;
+      }
+      .hero-btns {
+        flex-direction: column !important; 
+        gap: 5px !important;
+        align-items: flex-start !important;
+      }
+      .btn-hero-main, .btn-hero-sec {
+        padding: 6px 10px !important; 
+        font-size: 11px !important; 
+        border-radius: 4px !important;
+        width: auto !important;
+        max-width: 130px !important;
+        text-align: center !important;
       }
 
-      /* 📱 Адаптация карточек центров в одну колонку (Добавлено сюда) */
-      @media (max-width: 768px) {
-          .centers-grid {
-              grid-template-columns: 1fr !important; 
-              gap: 20px !important;
-          }
+      /* 📱 СКРЫВАЕМ ПАНЕЛЬ КОНТАКТОВ НА МОБИЛЬНЫХ (Добавлено сюда!) */
+      .hero-contacts-block {
+        display: none !important;
       }
+    }
 
-      /* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
-      .left-steps-column {
-          position: relative !important;
-          left: -40px !important;
-      }
+    /* 📱 Адаптация карточек центров в одну колонку */
+    @media (max-width: 768px) {
+        .centers-grid {
+            grid-template-columns: 1fr !important; 
+            gap: 20px !important;
+        }
+    }
 
-      /* мобильная версия */
-      @media (max-width:768px) {
-          .left-steps-column {
-              left: 0 !important;
-          }
-      }
-      /* ===================================================================== */
+    /* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
+    .left-steps-column {
+        position: relative !important;
+        left: -40px !important;
+    }
+
+    /* мобильная версия */
+    @media (max-width:768px) {
+        .left-steps-column {
+            left: 0 !important;
+        }
+    }
+    /* ===================================================================== */
     </style>
 </head>
 <body>
@@ -711,7 +716,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
 
     <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); z-index: 10; font-size: 80%;">
-        <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 16px; padding: 16px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);">
+        <!-- Вот сюда я добавил класс hero-contacts-block: -->
+        <div class="hero-contacts-block" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 16px; padding: 16px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);">
             <div style="display: flex; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(17, 24, 39, 0.1); padding-right: 16px;">
                 <div style="width: 38px; height: 38px; background: rgba(26, 86, 196, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

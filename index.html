@@ -523,7 +523,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
    /* ... все ваши старые существующие стили сайта ... */
 
-     /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
+    /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
     @media (max-width: 768px) {
       .hero {
         aspect-ratio: 16 / 11.5 !important;
@@ -567,13 +567,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         text-align: center !important;
       }
 
-      /* 📱 СКРЫВАЕМ ПАНЕЛЬ КОНТАКТОВ НА МОБИЛЬНЫХ (Добавлено сюда!) */
-      .hero-contacts-block {
+      /* 📱 Полное удаление всего внешнего контейнера контактов на мобильных */
+      #hero-contacts-wrapper {
         display: none !important;
       }
     }
 
-    /* 📱 Адаптация карточек центров в одну колонку */
+    /* 📱 Адаптация карточек центров в одну行走 колонку */
     @media (max-width: 768px) {
         .centers-grid {
             grid-template-columns: 1fr !important; 

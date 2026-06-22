@@ -660,8 +660,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <!-- ═══════ NAV ═══════════════════════════════════════ -->
-<nav style="position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box;">
-  <a class="nav-logo" href="./" style="display: flex; align-items: center; text-decoration: none; max-width: 80%;">
+<nav style="position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box; flex-wrap: wrap; padding: 10px 12px;">
+  <a class="nav-logo" href="./" style="display: flex; align-items: center; text-decoration: none; max-width: 75%;">
     <div class="nav-logo-flags">
       <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
       <div class="flag-ch" style="width:18px;height:18px"></div>
@@ -671,13 +671,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </a>
 
-  <button class="nav-toggle" aria-label="Toggle navigation" style="background: none; border: none; cursor: pointer; padding: 12px; display: none; z-index: 10000; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5" stroke-linecap="round">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </button>
+  <div class="lang-sw" style="margin-left: auto;">
+    <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
+      <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
+        <button class="lang-btn" data-lang="ua">UA</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+      </div>
+    </div>
+  </div>
 
   <ul class="nav-links">
     <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
@@ -690,15 +691,6 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button></li>
     <li><a href="about.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a></li>
   </ul>
-
-  <div class="lang-sw">
-    <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
-      <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
-        <button class="lang-btn" data-lang="ua">UA</button>
-        <button class="lang-btn" data-lang="de">DE</button>
-      </div>
-    </div>
-  </div>
 </nav>
 <!-- === НАЧАЛО ИЗМЕНЕНИЙ: ПАНЕЛЬ КОНТАКТОВ СДВИНУТА ВНИЗ НА 50% === -->
 <section class="hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 40px 0 120px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box;">
@@ -1686,60 +1678,46 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 })();
 </script>
   <style>
- <style>
+<style>
   @media (max-width: 768px) {
-    /* 1. ПОКАЗЫВАЕМ КНОПКУ (ТРИ ПОЛОСКИ) НА СМАРТФОНАХ */
-    .nav-toggle {
-      display: block !important;
+    /* Перестраиваем шапку: логотип и языки сверху, ссылки под ними */
+    nav {
+      flex-wrap: wrap !important;
     }
-    
-    /* 2. ЖЕСТКО СКРЫВАЕМ СТРОКУ МЕНЮ И ЯЗЫКИ НА ТЕЛЕФОНАХ ПО УМОЛЧАНИЮ */
-    .nav-links, .lang-sw {
+
+    /* Превращаем список ссылок в аккуратную горизонтальную ленту */
+    .nav-links {
+      display: flex !important;
+      flex-direction: row !important;  /* Выстраиваем строго в одну линию */
+      overflow-x: auto !important;     /* Включаем прокрутку пальцем по горизонтали */
+      white-space: nowrap !important;  /* Запрещаем кнопкам переноситься на новую строку */
+      width: 100% !important;
+      margin-top: 12px !important;
+      padding: 8px 0 !important;
+      gap: 16px !important;
+      list-style: none !important;
+      
+      /* Делаем скролл на айфонах и андроид-смартфонах плавным */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Прячем некрасивый серый ползунок прокрутки, чтобы меню выглядело чисто */
+    .nav-links::-webkit-scrollbar {
       display: none !important;
     }
 
-    /* 3. А ЗДЕСЬ СТИЛИ ДЛЯ МЕНЮ, КОГДА ОНО ОТКРЫВАЕТСЯ ПО КЛИКУ */
-    .nav-links.mobile-open {
-      display: flex !important;
-      flex-direction: column !important;
-      position: absolute !important;
-      top: 60px !important;
-      left: 0 !important;
-      width: 100% !important;
-      background: #ffffff !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
-      padding: 16px 24px !important;
-      z-index: 9999 !important;
-      gap: 12px !important;
+    /* Запрещаем пунктам меню сжиматься, сохраняем их нормальный размер */
+    .nav-links li {
+      display: inline-block !important;
+      flex-shrink: 0 !important;
     }
     
-    .nav-links.mobile-open li {
-      width: 100% !important;
-    }
-    
-    .nav-links.mobile-open a, .nav-links.mobile-open .btn-donate-nav {
-      display: block !important;
-      width: 100% !important;
-      padding: 8px 0 !important;
-      color: #1A56C4 !important; /* Делаем ссылки синими на мобильном для видимости */
+    .nav-links a, .btn-donate-nav {
+      display: inline-block !important;
+      white-space: nowrap !important;
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtn = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (toggleBtn && navLinks) {
-      toggleBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Переключаем класс открытия (скрыть/показать)
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  });
-</script>
 
 </body>
 </html>

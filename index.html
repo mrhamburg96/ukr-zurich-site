@@ -518,69 +518,77 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   text-decoration: none !important;
   white-space: nowrap !important;
 }
-</head> ```
+</head> 
 
-И **замените** её, чтобы получилась вот такая структура:
 
-```html
-    /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ */
-    @media (max-width: 768px) {
-      .hero {
-        aspect-ratio: 16 / 11.5 !important;
-      }
-      .hero-inner {
-        padding: 10px 0 0 12px !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-      }
-      .hero-text {
-        max-width: 60% !important; 
-        width: 100% !important;
-      }
-      .hero-logo-row {
-        margin-bottom: 2px !important;
-        gap: 4px !important;
-        transform: scale(0.8);
-        transform-origin: left center;
-      }
-      #h-t {
-        font-size: 0.9rem !important; 
-        line-height: 1.2 !important;
-        margin: 0 0 4px 0 !important;
-      }
-      #h-s {
-        font-size: 0.6rem !important; 
-        line-height: 1.3 !important;
-        margin: 0 0 8px 0 !important;
-      }
-      .hero-btns {
-        flex-direction: column !important; 
-        gap: 5px !important;
-        align-items: flex-start !important;
-      }
-      .btn-hero-main, .btn-hero-sec {
-        padding: 6px 10px !important; 
-        font-size: 11px !important; 
-        border-radius: 4px !important;
-        width: auto !important;
-        max-width: 130px !important;
-        text-align: center !important;
-      }
-    }
+   /* ... все ваши старые существующие стили сайта ... */
 
-    /* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
-    .left-steps-column {
-        position: relative !important;
-        left: -40px !important;
-    }
-
-    /* мобильная версия */
-    @media (max-width:768px) {
-        .left-steps-column {
-            left: 0 !important;
+      /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ ДЛЯ СМАРТФОНОВ (Начало вашего кода) */
+      @media (max-width: 768px) {
+        .hero {
+          aspect-ratio: 16 / 11.5 !important;
         }
-    }
-    /* ===================================================================== */
+        .hero-inner {
+          padding: 10px 0 0 12px !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+        }
+        .hero-text {
+          max-width: 60% !important; 
+          width: 100% !important;
+        }
+        .hero-logo-row {
+          margin-bottom: 2px !important;
+          gap: 4px !important;
+          transform: scale(0.8);
+          transform-origin: left center;
+        }
+        #h-t {
+          font-size: 0.9rem !important; 
+          line-height: 1.2 !important;
+          margin: 0 0 4px 0 !important;
+        }
+        #h-s {
+          font-size: 0.6rem !important; 
+          line-height: 1.3 !important;
+          margin: 0 0 8px 0 !important;
+        }
+        .hero-btns {
+          flex-direction: column !important; 
+          gap: 5px !important;
+          align-items: flex-start !important;
+        }
+        .btn-hero-main, .btn-hero-sec {
+          padding: 6px 10px !important; 
+          font-size: 11px !important; 
+          border-radius: 4px !important;
+          width: auto !important;
+          max-width: 130px !important;
+          text-align: center !important;
+        }
+      }
+
+      /* 📱 Адаптация карточек центров в одну колонку (Добавлено сюда) */
+      @media (max-width: 768px) {
+          .centers-grid {
+              grid-template-columns: 1fr !important; 
+              gap: 20px !important;
+          }
+      }
+
+      /* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
+      .left-steps-column {
+          position: relative !important;
+          left: -40px !important;
+      }
+
+      /* мобильная версия */
+      @media (max-width:768px) {
+          .left-steps-column {
+              left: 0 !important;
+          }
+      }
+      /* ===================================================================== */
     </style>
 </head>
 <body>
@@ -750,7 +758,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             </a>
         </div>
         
-         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div class="centers-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
             <!-- Карточка 1: Центр сім'ї -->
             <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
                 <div style="height: 180px; position: relative;">

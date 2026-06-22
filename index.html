@@ -660,8 +660,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <!-- ═══════ NAV ═══════════════════════════════════════ -->
-<nav>
-  <a class="nav-logo" href="./">
+<nav style="position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box;">
+  <a class="nav-logo" href="./" style="display: flex; align-items: center; text-decoration: none; max-width: 80%;">
     <div class="nav-logo-flags">
       <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
       <div class="flag-ch" style="width:18px;height:18px"></div>
@@ -671,8 +671,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </a>
 
-  <button class="nav-toggle" aria-label="Toggle navigation" style="display: none; background: none; border: none; cursor: pointer; padding: 8px;">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5" stroke-linecap="round">
+  <button class="nav-toggle" aria-label="Toggle navigation" style="background: none; border: none; cursor: pointer; padding: 12px; display: none; z-index: 10000; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5" stroke-linecap="round">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
       <line x1="3" y1="18" x2="21" y2="18"></line>

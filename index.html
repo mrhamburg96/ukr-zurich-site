@@ -665,17 +665,37 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <span class="brand">UAGZ<small id="nav-sub" data-translate="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
     </div>
   </a>
-  <ul class="nav-links">
-    <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
-    <li><a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a></li>
-    <li><a href="help.html" id="nl-3" data-translate="nl-3">Допомога</a></li>
-    <li><a href="events.html" id="nl-4" data-translate="nl-4">Події</a></li>
-    <li><a href="knowledge.html" id="nav-knowledge" data-translate="nav-knowledge">Knowledge Center</a></li>
-    <li><a href="announcements.html" id="nav-announcements" data-translate="nav-announcements">Оголошення</a></li>
-    <li><a href="volunteering.html" id="nav-volunteering" data-translate="nav-volunteering">Волонтерство</a></li>
-    <li><button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button></li>
-    <li><a href="about.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a></li>
-  </ul>
+
+  <div class="desktop-nav">
+    <a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a>
+    <a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a>
+    <a href="help.html" id="nl-3" data-translate="nl-3">Допомога</a>
+    <a href="events.html" id="nl-4" data-translate="nl-4">Події</a>
+    <a href="knowledge.html" id="nav-knowledge" data-translate="nav-knowledge">Knowledge Center</a>
+    <a href="announcements.html" id="nav-announcements" data-translate="nav-announcements">Оголошення</a>
+    <a href="volunteering.html" id="nav-volunteering" data-translate="nav-volunteering">Волонтерство</a>
+    <button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button>
+    <a href="about.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a>
+  </div>
+
+  <div class="mobile-nav-container">
+    <button id="mobile-hamburger" class="hamburger-btn">
+        <span></span><span></span><span></span>
+    </button>
+    
+    <div id="mobile-drop-menu" class="mobile-menu-wrapper">
+        <a href="./" class="active" data-translate="nav-home">Головна</a>
+        <a href="about.html" data-translate="nl-2">Про центр</a>
+        <a href="help.html" data-translate="nl-3">Допомога</a>
+        <a href="events.html" data-translate="nl-4">Події</a>
+        <a href="knowledge.html" data-translate="nav-knowledge">Knowledge Center</a>
+        <a href="announcements.html" data-translate="nav-announcements">Оголошення</a>
+        <a href="volunteering.html" data-translate="nav-volunteering">Волонтерство</a>
+        <button class="btn-donate-nav" data-translate="nav-donate">Donate</button>
+        <a href="about.html" data-translate="nav-contacts">Контакти</a>
+    </div>
+  </div>
+
   <div class="lang-sw">
     <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
       <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">

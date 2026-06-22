@@ -660,8 +660,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </div>
 
 <!-- ═══════ NAV ═══════════════════════════════════════ -->
-<nav style="position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box; flex-wrap: wrap; padding: 10px 12px;">
-  <a class="nav-logo" href="./" style="display: flex; align-items: center; text-decoration: none; max-width: 75%;">
+<nav>
+  <a class="nav-logo" href="./">
     <div class="nav-logo-flags">
       <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
       <div class="flag-ch" style="width:18px;height:18px"></div>
@@ -671,7 +671,19 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </a>
 
-  <div class="lang-sw" style="margin-left: auto;">
+  <ul class="nav-links">
+    <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
+    <li><a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a></li>
+    <li><a href="help.html" id="nl-3" data-translate="nl-3">Допомога</a></li>
+    <li><a href="events.html" id="nl-4" data-translate="nl-4">Події</a></li>
+    <li><a href="knowledge.html" id="nav-knowledge" data-translate="nav-knowledge">Knowledge Center</a></li>
+    <li><a href="announcements.html" id="nav-announcements" data-translate="nav-announcements">Оголошення</a></li>
+    <li><a href="volunteering.html" id="nav-volunteering" data-translate="nav-volunteering">Волонтерство</a></li>
+    <li><button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button></li>
+    <li><a href="about.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a></li>
+  </ul>
+
+  <div class="lang-sw">
     <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
       <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
         <button class="lang-btn" data-lang="ua">UA</button>
@@ -679,6 +691,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
     </div>
   </div>
+</nav>
 
   <ul class="nav-links">
     <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
@@ -1680,38 +1693,57 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   <style>
 <style>
   @media (max-width: 768px) {
-    /* Перестраиваем шапку: логотип и языки сверху, ссылки под ними */
+    /* На смартфонах разрешаем шапке разделяться на две строчки */
     nav {
+      display: flex !important;
       flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 10px 12px !important;
     }
 
-    /* Превращаем список ссылок в аккуратную горизонтальную ленту */
+    /* Логотип занимает левую часть верха */
+    .nav-logo {
+      max-width: 70% !important;
+    }
+
+    /* Переключатель языков на смартфонах принудительно ставим в правый верхний угол */
+    .lang-sw {
+      display: block !important;
+      margin-left: auto !important;
+    }
+
+    /* Превращаем блок ссылок в принудительную плавающую ленту ПОД логотипом */
     .nav-links {
       display: flex !important;
-      flex-direction: row !important;  /* Выстраиваем строго в одну линию */
-      overflow-x: auto !important;     /* Включаем прокрутку пальцем по горизонтали */
-      white-space: nowrap !important;  /* Запрещаем кнопкам переноситься на новую строку */
-      width: 100% !important;
-      margin-top: 12px !important;
-      padding: 8px 0 !important;
-      gap: 16px !important;
+      flex-direction: row !important;      /* Строго в один ряд */
+      overflow-x: auto !important;         /* Включаем горизонтальный скролл */
+      overflow-y: hidden !important;
+      white-space: nowrap !important;      /* Запрещаем кнопкам переноситься вниз */
+      width: 100% !important;              /* Растягиваем на всю ширину экрана */
+      margin: 12px 0 0 0 !important;
+      padding: 8px 4px !important;
+      gap: 14px !important;
       list-style: none !important;
       
-      /* Делаем скролл на айфонах и андроид-смартфонах плавным */
-      -webkit-overflow-scrolling: touch;
+      /* Активируем плавный скролл пальцем для iOS и Android */
+      -webkit-overflow-scrolling: touch !important;
     }
 
-    /* Прячем некрасивый серый ползунок прокрутки, чтобы меню выглядело чисто */
+    /* Прячем стандартную полосу прокрутки, чтобы меню выглядело красиво */
     .nav-links::-webkit-scrollbar {
       display: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
 
-    /* Запрещаем пунктам меню сжиматься, сохраняем их нормальный размер */
+    /* Запрещаем каждому пункту меню сжиматься в размерах */
     .nav-links li {
       display: inline-block !important;
-      flex-shrink: 0 !important;
+      flex-shrink: 0 !important;          /* Ключевое свойство, чтобы текст не сжимался */
+      margin: 0 !important;
     }
-    
+
     .nav-links a, .btn-donate-nav {
       display: inline-block !important;
       white-space: nowrap !important;

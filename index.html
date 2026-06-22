@@ -1686,41 +1686,42 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 })();
 </script>
   <style>
-  <style>
+ <style>
   @media (max-width: 768px) {
-    /* Показываем кнопку-три полоски на смартфонах */
+    /* 1. ПОКАЗЫВАЕМ КНОПКУ (ТРИ ПОЛОСКИ) НА СМАРТФОНАХ */
     .nav-toggle {
       display: block !important;
     }
     
-    /* Скрываем ссылки меню и превращаем их в выпадающий список */
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 16px 24px !important;
-      z-index: 9998;
-      gap: 12px !important;
+    /* 2. ЖЕСТКО СКРЫВАЕМ СТРОКУ МЕНЮ И ЯЗЫКИ НА ТЕЛЕФОНАХ ПО УМОЛЧАНИЮ */
+    .nav-links, .lang-sw {
+      display: none !important;
     }
 
-    /* Класс, который JS будет добавлять при клике для открытия меню */
+    /* 3. А ЗДЕСЬ СТИЛИ ДЛЯ МЕНЮ, КОГДА ОНО ОТКРЫВАЕТСЯ ПО КЛИКУ */
     .nav-links.mobile-open {
       display: flex !important;
+      flex-direction: column !important;
+      position: absolute !important;
+      top: 60px !important;
+      left: 0 !important;
+      width: 100% !important;
+      background: #ffffff !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      padding: 16px 24px !important;
+      z-index: 9999 !important;
+      gap: 12px !important;
     }
     
-    .nav-links li {
-      width: 100%;
+    .nav-links.mobile-open li {
+      width: 100% !important;
     }
     
-    .nav-links a, .btn-donate-nav {
-      display: block;
-      width: 100%;
-      padding: 8px 0;
+    .nav-links.mobile-open a, .nav-links.mobile-open .btn-donate-nav {
+      display: block !important;
+      width: 100% !important;
+      padding: 8px 0 !important;
+      color: #1A56C4 !important; /* Делаем ссылки синими на мобильном для видимости */
     }
   }
 </style>
@@ -1731,8 +1732,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     const navLinks = document.querySelector('.nav-links');
 
     if (toggleBtn && navLinks) {
-      toggleBtn.addEventListener('click', function() {
-        // Переключаем класс открытия меню при нажатии на три полоски
+      toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Переключаем класс открытия (скрыть/показать)
         navLinks.classList.toggle('mobile-open');
       });
     }

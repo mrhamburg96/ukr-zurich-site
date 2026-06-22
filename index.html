@@ -1642,17 +1642,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             }
         });
 
-        // Запуск перевода при загрузке страницы
+      // Запуск перевода при загрузке страницы
         const savedLang = localStorage.getItem('siteLang') || 'ua';
         applyTranslation(savedLang);
     }
 
-    // БЕЗОПАСНЫЙ СТАРТ: если DOM уже готов — запускаем сразу, если нет — ждем загрузки
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLanguageSwitchers);
-    } else {
-        initLanguageSwitchers();
-    }
+    // БЕЗОПАСНЫЙ СТАРТ: гарантированный запуск после полной загрузки всего HTML и кнопок
+    window.addEventListener('load', initLanguageSwitchers);
 
     // Создаем глобальный дубликат на случай, если где-то глубоко в коде остался вызов
     window.changeLanguage = function(lang) {

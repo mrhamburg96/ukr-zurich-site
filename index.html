@@ -523,98 +523,99 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
    /* ... все ваши старые существующие стили сайта ... */
 
-   /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ С МИНИАТЮРОЙ ДЛЯ СМАРТФОНОВ */
-  @media (max-width: 768px) {
-    
-    /* 1. ОГРАНИЧИВАЕМ ВЫСОТУ БАННЕРА (Новый универсальный код) */
-    .hero, .hero-section, .main-banner, section:first-of-type, [class*="hero"], .hero-inner {
-      height: 180px !important;            /* Жесткая компактная высота баннера на мобильном */
-      min-height: 0 !important;             /* Сбрасываем высоту от ПК версии */
-      overflow: hidden !important;          /* Прячем лишнее, если контент выйдет за пределы */
-    }
+  /* ===================================================================== */
+/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ С МИНИАТЮРОЙ ДЛЯ СМАРТФОНОВ (ОБНОВЛЕННЫЙ) */
+@media screen and (max-width: 768px) {
 
-    /* 2. АДАПТИРУЕМ КАРТИНКУ (Новый универсальный код) */
-    .hero, .hero-section, .main-banner, section:first-of-type, [class*="hero"] {
-      background-size: cover !important;
-      background-position: center !important;
-    }
-    /* Для картинок внутри, если они добавлены тегом img */
-    .hero img, .hero-section img, section:first-of-type img, [class*="hero"] img, .hero-bg, .hero-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;         /* Картинка пропорционально сжимается без искажений */
-      object-position: center !important;   /* Удерживает центр фотографии в кадре */
-    }
-
-    /* 3. ОСТАЛЬНЫЕ НАСТРОЙКИ ВНУТРЕННИХ ЭЛЕМЕНТОВ (Ваш рабочий код для текста и кнопок) */
-    .hero-inner {
-      padding: 10px 0 0 12px !important;
-      justify-content: flex-start !important;
-      align-items: flex-start !important;
-    }
-    .hero-text {
-      max-width: 60% !important; 
-      width: 100% !important;
-    }
-    .hero-logo-row {
-      margin-bottom: 2px !important;
-      gap: 4px !important;
-      transform: scale(0.8);
-      transform-origin: left center;
-    }
-    #h-t {
-      font-size: 14px !important; 
-      line-height: 1.2 !important;
-      margin: 0 0 4px 0 !important;
-      font-weight: 700 !important;
-    }
-    #h-s {
-      font-size: 11px !important; 
-      line-height: 1.3 !important;
-      margin: 0 0 8px 0 !important;
-    }
-    .hero-btns {
-      flex-direction: column !important; 
-      gap: 5px !important;
-      align-items: flex-start !important;
-    }
-    .btn-hero-main, .btn-hero-sec {
-      padding: 4px 8px !important; 
-      font-size: 10px !important; 
-      border-radius: 4px !important;
-      width: auto !important;
-      max-width: 120px !important;
-      text-align: center !important;
-    }
-
-    /* 📱 Полное удаление всего внешнего контейнера контактов на мобильных */
-    #hero-contacts-wrapper {
-      display: none !important;
-    }
+  /* 1. ПРИНУДИТЕЛЬНО РЕЖЕМ ВЫСОТУ БАННЕРА ДО МИНИАТЮРЫ */
+  div[class*="hero"], section[class*="hero"], .hero, .hero-section, .hero-inner, section:first-of-type {
+    height: 190px !important;
+    min-height: 190px !important;
+    max-height: 190px !important;
+    padding: 8px 0 0 10px !important;
+    overflow: hidden !important;
   }
 
-    /* 📱 Адаптация карточек центров в одну行走 колонку */
-    @media (max-width: 768px) {
-        .centers-grid {
-            grid-template-columns: 1fr !important; 
-            gap: 20px !important;
-        }
-    }
+  /* 2. СЖИМАЕМ ФОН ПОД РАЗМЕР МИНИАТЮРЫ */
+  div[class*="hero"], section[class*="hero"], .hero, .hero-section {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  /* На случай, если фото вставлено картинкой тега img */
+  div[class*="hero"] img, section[class*="hero"] img, .hero img, .hero-inner img, .hero-bg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
 
-    /* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
+  /* 3. УМЕНЬШАЕМ КОНТЕНТНУЮ ЧАСТЬ БАННЕРА */
+  .hero-text, [class*="hero-text"] {
+    max-width: 65% !important;
+    width: 65% !important;
+  }
+
+  /* 4. МАКСИМАЛЬНО КОМПАКТНЫЙ ШРИФТ (ПИКСЕЛИ) */
+  #h-t, .hero h1, .hero-section h1, [class*="hero"] h1 {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 3px 0 !important;
+    font-weight: 700 !important;
+  }
+
+  #h-s, .hero p, .hero-section p, [class*="hero"] p {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  /* 5. УМЕНЬШАЕМ ПЛАШКИ КНОПОК НА МОБИЛЬНОМ */
+  .hero-btns, [class*="hero-btns"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    align-items: flex-start !important;
+  }
+
+  .btn-hero-main, .btn-hero-sec, .hero .btn, [class*="btn-hero"] {
+    padding: 3px 6px !important;          /* Ультра-тонкие отступы вокруг текста плашки */
+    font-size: 9px !important;            /* Компактный размер букв в кнопке */
+    line-height: 1.1 !important;
+    border-radius: 3px !important;
+    width: auto !important;
+    max-width: 115px !important;
+    text-align: center !important;
+    white-space: nowrap !important;       /* Запрещаем тексту переноситься на вторую строку */
+  }
+
+  /* Удаление внешнего контейнера контактов */
+  #hero-contacts-wrapper, .hero-contacts {
+    display: none !important;
+  }
+}
+
+/* 📱 Адаптация карточек центров в одну колонку */
+@media (max-width: 768px) {
+    .centers-grid {
+        grid-template-columns: 1fr !important; 
+        gap: 20px !important;
+    }
+}
+
+/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
+.left-steps-column {
+    position: relative !important;
+    left: -40px !important;
+}
+
+/* мобильная версия */
+@media (max-width:768px) {
     .left-steps-column {
-        position: relative !important;
-        left: -40px !important;
+        left: 0 !important;
     }
-
-    /* мобильная версия */
-    @media (max-width:768px) {
-        .left-steps-column {
-            left: 0 !important;
-        }
-    }
-    /* ===================================================================== */
-    </style>
+}
+/* ===================================================================== */
+</style>
 </head>
 <body>
 

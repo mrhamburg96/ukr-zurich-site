@@ -527,6 +527,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     @media (max-width: 768px) {
       .hero {
         aspect-ratio: 16 / 11.5 !important;
+        background-size: cover !important;      /* Масштабирует картинку, чтобы она полностью заполняла компактный баннер */
+        background-position: center !important;  /* Центрирует изображение, чтобы лица людей оставались в кадре */
+      }
+      .hero img, .hero-bg, .hero-inner img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;   /* Заставит фото пропорционально сжаться под новые размеры */
+        object-position: center !important;
       }
       .hero-inner {
         padding: 10px 0 0 12px !important;

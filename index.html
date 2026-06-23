@@ -523,29 +523,30 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
    /* ... все ваши старые существующие стили сайта ... */
 
-    /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ С МИНИАТЮРОЙ ДЛЯ СМАРТФОНОВ */
+   /* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ С МИНИАТЮРОЙ ДЛЯ СМАРТФОНОВ */
   @media (max-width: 768px) {
     
-    /* 1. ОГРАНИЧИВАЕМ ВЫСОТУ БАННЕРА И ДЕЛАЕМ МИНИАТЮРУ (Новый код) */
-    .hero, .hero-inner {
+    /* 1. ОГРАНИЧИВАЕМ ВЫСОТУ БАННЕРА (Новый универсальный код) */
+    .hero, .hero-section, .main-banner, section:first-of-type, [class*="hero"], .hero-inner {
       height: 180px !important;            /* Жесткая компактная высота баннера на мобильном */
       min-height: 0 !important;             /* Сбрасываем высоту от ПК версии */
       overflow: hidden !important;          /* Прячем лишнее, если контент выйдет за пределы */
     }
 
-    /* 2. АДАПТИРУЕМ КАРТИНКУ ПОД РАЗМЕР МИНИАТЮРЫ (Новый код + объединение) */
-    .hero {
+    /* 2. АДАПТИРУЕМ КАРТИНКУ (Новый универсальный код) */
+    .hero, .hero-section, .main-banner, section:first-of-type, [class*="hero"] {
       background-size: cover !important;
       background-position: center !important;
     }
-    .hero img, .hero-bg, .hero-inner img {
+    /* Для картинок внутри, если они добавлены тегом img */
+    .hero img, .hero-section img, section:first-of-type img, [class*="hero"] img, .hero-bg, .hero-inner img {
       width: 100% !important;
       height: 100% !important;
       object-fit: cover !important;         /* Картинка пропорционально сжимается без искажений */
-      object-position: center !important;   /* Лица людей остаются в центре миниатюры */
+      object-position: center !important;   /* Удерживает центр фотографии в кадре */
     }
 
-    /* 3. ОСТАЛЬНЫЕ НАСТРОЙКИ ВНУТРЕННИХ ЭЛЕМЕНТОВ (Ваш текущий рабочий код) */
+    /* 3. ОСТАЛЬНЫЕ НАСТРОЙКИ ВНУТРЕННИХ ЭЛЕМЕНТОВ (Ваш рабочий код для текста и кнопок) */
     .hero-inner {
       padding: 10px 0 0 12px !important;
       justify-content: flex-start !important;

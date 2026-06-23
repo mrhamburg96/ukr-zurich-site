@@ -740,14 +740,13 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </nav>
 
 
-<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ГАРАНТИРОВАННАЯ НАСТРОЙКА ЧЕРЕЗ СКРИПТ === -->
+<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ФИКСИРОВАННАЯ ШИРИНА ОПИСАНИЯ === -->
 <section class="hero-section" id="responsive-hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 40px 0 120px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box;">
     
-    <!-- МИКРО-СКРИПТ, КОТОРЫЙ ЖЕСТКО ДЕЛАЕТ ИЗМЕНЕНИЯ НА МОБИЛЬНЫХ -->
     <script>
         function applyMobileHeroStyles() {
             if (window.innerWidth <= 768) {
-                // 1. Сжимаем сам баннер
+                // 1. Высота баннера
                 var section = document.getElementById('responsive-hero-section');
                 if (section) {
                     section.style.setProperty('min-height', '190px', 'important');
@@ -756,7 +755,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                     section.style.setProperty('overflow', 'hidden', 'important');
                 }
 
-                // 2. Сдвигаем плашку с флагами ниже и уменьшаем
+                // 2. Плашка с флагами
                 var badgeWrapper = document.getElementById('h-badge-wrapper');
                 if (badgeWrapper) {
                     badgeWrapper.style.setProperty('margin-top', '20px', 'important');
@@ -769,28 +768,28 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                     badgeText.style.setProperty('font-size', '10px', 'important');
                 }
 
-                // 3. Уменьшаем главный заголовок
+                // 3. Главный заголовок
                 var title = document.getElementById('h-t');
                 if (title) {
                     title.style.setProperty('font-size', '13px', 'important');
                     title.style.setProperty('line-height', '1.2', 'important');
                     title.style.setProperty('margin', '0 0 4px 0', 'important');
-                    title.style.setProperty('max-width', '65%', 'important');
+                    title.style.setProperty('max-width', '250px', 'important'); /* Жесткое ограничение заголовка */
                 }
 
-                // 4. Перекрашиваем описание в БЕЛЫЙ и сужаем его границы
+                // 4. Описание: жестко сжимаем текст в пикселях по границе заголовка
                 var subtitle = document.getElementById('h-s');
                 if (subtitle) {
                     subtitle.style.setProperty('color', '#ffffff', 'important');
                     subtitle.style.setProperty('font-size', '9px', 'important');
                     subtitle.style.setProperty('line-height', '1.2', 'important');
                     subtitle.style.setProperty('margin', '0 0 8px 0', 'important');
-                    subtitle.style.setProperty('max-width', '65%', 'important');
+                    subtitle.style.setProperty('max-width', '250px', 'important'); /* Текст сожмется строго под заголовок */
                     subtitle.style.setProperty('font-weight', '600', 'important');
                     subtitle.style.setProperty('text-shadow', '1px 1px 2px rgba(0,0,0,0.6)', 'important');
                 }
 
-                // 5. Кнопки выстраиваем в колонку и уменьшаем
+                // 5. Кнопки
                 var btnContainer = document.getElementById('h-btn-container');
                 if (btnContainer) {
                     btnContainer.style.setProperty('display', 'flex', 'important');
@@ -822,11 +821,9 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             }
         }
         
-        // Запуск при загрузке страницы и изменении размеров экрана
         window.addEventListener('DOMContentLoaded', applyMobileHeroStyles);
         window.addEventListener('load', applyMobileHeroStyles);
         window.addEventListener('resize', applyMobileHeroStyles);
-        // Моментальный вызов на случай, если DOM уже готов
         applyMobileHeroStyles();
     </script>
     

@@ -740,104 +740,27 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 </nav>
 
 
-<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ФИКСИРОВАННАЯ ШИРИНА ОПИСАНИЯ === -->
+<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ЧИСТЫЙ HTML БЕЗ СКРИПТОВ === -->
 <section class="hero-section" id="responsive-hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 40px 0 120px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box;">
     
-    <script>
-        function applyMobileHeroStyles() {
-            if (window.innerWidth <= 768) {
-                // 1. Настройка высоты секции баннера
-                var section = document.getElementById('responsive-hero-section');
-                if (section) {
-                    section.style.setProperty('min-height', '190px', 'important');
-                    section.style.setProperty('height', '190px', 'important');
-                    section.style.setProperty('padding', '15px 0 0 0', 'important');
-                    section.style.setProperty('overflow', 'hidden', 'important');
-                }
-
-                // 2. Сдвиг и масштабирование плашки с флагами ниже меню
-                var badgeWrapper = document.getElementById('h-badge-wrapper');
-                if (badgeWrapper) {
-                    badgeWrapper.style.setProperty('margin-top', '20px', 'important');
-                    badgeWrapper.style.setProperty('margin-bottom', '4px', 'important');
-                    badgeWrapper.style.setProperty('transform', 'scale(0.8)', 'important');
-                    badgeWrapper.style.setProperty('transform-origin', 'left center', 'important');
-                }
-                var badgeText = document.getElementById('h-badge');
-                if (badgeText) {
-                    badgeText.style.setProperty('font-size', '10px', 'important');
-                }
-
-                // 3. Контейнер, который заставляет описание сжиматься строго по длине заголовка
-                var textBlock = document.getElementById('h-text-block');
-                if (textBlock) {
-                    textBlock.style.setProperty('display', 'inline-block', 'important');
-                    textBlock.style.setProperty('max-width', '240px', 'important'); /* Ограничиваем общую ширину текста, чтобы не заходить на лица */
-                }
-
-                // 4. Главный заголовок
-                var title = document.getElementById('h-t');
-                if (title) {
-                    title.style.setProperty('font-size', '13px', 'important');
-                    title.style.setProperty('line-height', '1.2', 'important');
-                    title.style.setProperty('margin', '0 0 4px 0', 'important');
-                    title.style.setProperty('width', '100%', 'important');
-                }
-
-                // 5. Описание (Белый цвет + автовыравнивание по границе заголовка выше)
-                var subtitle = document.getElementById('h-s');
-                if (subtitle) {
-                    subtitle.style.setProperty('color', '#ffffff', 'important');
-                    subtitle.style.setProperty('font-size', '9px', 'important');
-                    subtitle.style.setProperty('line-height', '1.2', 'important');
-                    subtitle.style.setProperty('margin', '0 0 8px 0', 'important');
-                    subtitle.style.setProperty('width', '100%', 'important');
-                    subtitle.style.setProperty('font-weight', '600', 'important');
-                    subtitle.style.setProperty('text-shadow', '1px 1px 2px rgba(0,0,0,0.7)', 'important');
-                }
-
-                // 6. Кнопки в мобильной версии
-                var btnContainer = document.getElementById('h-btn-container');
-                if (btnContainer) {
-                    btnContainer.style.setProperty('display', 'flex', 'important');
-                    btnContainer.style.setProperty('flex-direction', 'column', 'important');
-                    btnContainer.style.setProperty('gap', '4px', 'important');
-                    btnContainer.style.setProperty('align-items', 'flex-start', 'important');
-                }
-                
-                var btn1 = document.getElementById('h-b1');
-                var btn2 = document.getElementById('h-b2');
-                [btn1, btn2].forEach(function(btn) {
-                    if (btn) {
-                        btn.style.setProperty('padding', '3px 6px', 'important');
-                        btn.style.setProperty('border-radius', '4px', 'important');
-                        btn.style.setProperty('font-size', '9px', 'important');
-                        btn.style.setProperty('line-height', '1.1', 'important');
-                        btn.style.setProperty('width', 'auto', 'important');
-                        btn.style.setProperty('max-width', '115px', 'important');
-                        btn.style.setProperty('text-align', 'center', 'important');
-                        btn.style.setProperty('white-space', 'nowrap', 'important');
-                    }
-                });
-
-                // Скрытие блока контактов на мобильных
-                var contacts = document.getElementById('hero-contacts-wrapper');
-                if (contacts) {
-                    contacts.style.setProperty('display', 'none', 'important');
-                }
-            }
+    <!-- Стили внутри тега style, но теперь свойства продублированы inline -->
+    <style>
+        @media (max-width: 768px) {
+            #responsive-hero-section { min-height: 190px !important; height: 190px !important; padding: 15px 0 0 0 !important; overflow: hidden !important; }
+            #h-badge-wrapper { margin-top: 20px !important; margin-bottom: 4px !important; transform: scale(0.8) !important; transform-origin: left center !important; }
+            #h-badge { font-size: 10px !important; }
+            #h-t { font-size: 13px !important; line-height: 1.2 !important; margin: 0 0 4px 0 !important; max-width: 230px !important; }
+            #h-s { color: #ffffff !important; font-size: 9px !important; line-height: 1.2 !important; margin: 0 0 8px 0 !important; max-width: 230px !important; font-weight: 600 !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.7) !important; }
+            #h-btn-container { display: flex !important; flex-direction: column !important; gap: 4px !important; align-items: flex-start !important; }
+            #h-b1, #h-b2 { padding: 3px 6px !important; border-radius: 4px !important; font-size: 9px !important; line-height: 1.1 !important; width: auto !important; max-width: 115px !important; text-align: center !important; white-space: nowrap !important; }
+            #hero-contacts-wrapper { display: none !important; }
         }
-        
-        // Корректный вызов при любых сценариях загрузки
-        window.addEventListener('DOMContentLoaded', applyMobileHeroStyles);
-        window.addEventListener('load', applyMobileHeroStyles);
-        window.addEventListener('resize', applyMobileHeroStyles);
-        applyMobileHeroStyles();
-    </script>
+    </style>
     
     <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2;">
         <div style="max-width: 520px; text-align: left;">
             
+            <!-- ПЛАШКА С ФЛАГАМИ -->
             <div id="h-badge-wrapper" style="display: inline-flex; align-items: center; gap: 8px; background: transparent; padding: 6px 0; font-size: 13px; font-weight: 600; margin-bottom: 12px; border: none; width: max-content;">
                 <div class="flag-ua" style="width:16px; height:11px; display:inline-block; background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%); border-radius: 1px;"></div>
                 <div class="flag-ch" style="width:11px; height:11px; display:inline-block; background: #DA291C; position: relative; border-radius: 1px;"><div style="position:absolute; background:white; width:3px; height:7px; top:2px; left:4px;"></div><div style="position:absolute; background:white; width:7px; height:3px; top:4px; left:2px;"></div></div>
@@ -845,12 +768,21 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                 <span id="h-badge" data-translate="h-badge" style="color: #000000 !important;">UAGZ Офіційний NGO - Zürich</span>
             </div>
             
-            <div id="h-text-block" style="display: block; width: 100%;">
-                <h1 id="h-t" data-translate="h-t" style="font-size: 28px; font-weight: 800; line-height: 1.3; color: #111827; margin: 0 0 10px 0;">Український інтеграційний та громадський центр Цюриха</h1>
+            <!-- БЛОК ТЕКСТА С ОГРАНИЧЕНИЕМ ШИРИНЫ ПРЯМО В СТИЛЯХ -->
+            <div style="max-width: 230px; display: block;">
+                <!-- Главный заголовок -->
+                <h1 id="h-t" data-translate="h-t" style="font-size: 28px; font-weight: 800; line-height: 1.3; color: #111827; margin: 0 0 10px 0; max-width: 100%;">Український інтеграційний та громадський центр Цюриха</h1>
                 
-                <p id="h-s" data-translate="h-s" style="font-size: 14px; color: #000000 !important; line-height: 1.5; margin: 0 0 20px 0; word-wrap: break-word; font-weight: 500;">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
+                <!-- Описание с принудительными переносами строк <br> -->
+                <p id="h-s" data-translate="h-s" style="font-size: 14px; color: #ffffff !important; line-height: 1.5; margin: 0 0 20px 0; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); max-width: 100%;">
+                    Допомога, події, спільнота,<br>
+                    гуманітарна підтримка<br>
+                    та нові можливості для<br>
+                    українців у Швейцарії.
+                </p>
             </div>
             
+            <!-- Контейнер для кнопок -->
             <div id="h-btn-container" style="display: flex; gap: 12px; flex-wrap: wrap;">
                 <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px;">Отримати допомогу</a>
                 <a href="https://t.me/uagz_zurich" target="_blank" id="h-b2" data-translate="h-b2t" style="display: inline-block; background: white; color: #111827; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; border: 1px solid #d1d5db;">До громади</a>
@@ -858,6 +790,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         </div>
     </div>
 
+    <!-- ПАНЕЛЬ КОНТАКТОВ -->
     <div id="hero-contacts-wrapper" class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); z-index: 10; font-size: 80%;">
         <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 16px; padding: 16px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);">
             <div style="display: flex; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(17, 24, 39, 0.1); padding-right: 16px;">

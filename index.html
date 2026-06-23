@@ -745,66 +745,70 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     
     <style>
         @media (max-width: 768px) {
-            /* 1. Сжимаем высоту самой секции-баннера до аккуратной миниатюры */
+            /* 1. Высота самого баннера */
             section.hero-section {
                 min-height: 190px !important;
                 height: 190px !important;
-                padding: 12px 0 0 0 !important;
+                padding: 10px 0 0 0 !important;
                 overflow: hidden !important;
             }
             
-            /* Уменьшаем отступы внутреннего контейнера */
             section.hero-section .container {
                 padding: 0 12px !important;
             }
 
-            /* 2. Делаем тексты ультра-компактными */
-            #h-t {
-                font-size: 14px !important;
-                line-height: 1.2 !important;
-                margin: 0 0 4px 0 !important;
-                font-weight: 700 !important;
-                max-width: 65% !important;
+            /* 2. УМЕНЬШЕНИЕ НАДПИСЕЙ (Пробиваем инлайн-стили через ID) */
+            #h-badge-wrapper {
+                margin-bottom: 2px !important;
+                gap: 4px !important;
+                transform: scale(0.85);
+                transform-origin: left center;
             }
-            #h-s {
-                font-size: 10px !important;
-                line-height: 1.2 !important;
-                margin: 0 0 8px 0 !important;
-                max-width: 65% !important;
-            }
-
-            /* Уменьшаем плашку с флагами */
+            
             #h-badge {
                 font-size: 10px !important;
             }
-            #h-badge-wrapper {
-                margin-bottom: 4px !important;
-                gap: 4px !important;
-                transform: scale(0.9);
-                transform-origin: left center;
+
+            /* Уменьшаем главный заголовок */
+            h1#h-t {
+                font-size: 13px !important;
+                line-height: 1.2 !important;
+                margin: 0 0 3px 0 !important;
+                font-weight: 700 !important;
+                max-width: 65% !important;
+                color: #111827 !important;
             }
 
-            /* 3. Выстраиваем кнопки в одну вертикальную колонку */
+            /* Уменьшаем подзаголовок */
+            p#h-s {
+                font-size: 9px !important;
+                line-height: 1.2 !important;
+                margin: 0 0 6px 0 !important;
+                max-width: 65% !important;
+                font-weight: 500 !important;
+            }
+
+            /* 3. УМЕНЬШЕНИЕ КНОПОК-ПЛАШЕК */
             #h-btn-container {
                 display: flex !important;
-                flex-direction: column !important;
+                flex-direction: column !important; /* Строго друг под другом */
                 gap: 4px !important;
                 align-items: flex-start !important;
             }
 
-            /* Делаем плашки кнопок маленькими аккуратными прямоугольниками */
-            #h-b1, #h-b2 {
-                padding: 4px 8px !important;
+            /* Экстремально компактный размер для самих плашек */
+            a#h-b1, a#h-b2 {
+                padding: 3px 6px !important;
                 border-radius: 4px !important;
                 font-size: 9px !important;
                 line-height: 1.1 !important;
                 width: auto !important;
-                max-width: 120px !important;
+                max-width: 115px !important;
                 text-align: center !important;
-                white-space: nowrap !important;
+                white-space: nowrap !important; /* Запрещаем перенос текста плашки */
             }
 
-            /* Полностью убираем панель контактов, чтобы освободить место */
+            /* Скрываем нижний блок контактов, чтобы не мешал */
             #hero-contacts-wrapper { 
                 display: none !important; 
             }
@@ -823,7 +827,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
             
             <h1 id="h-t" data-translate="h-t" style="font-size: 28px; font-weight: 800; line-height: 1.3; color: #111827; margin: 0 0 10px 0;">Український інтеграційний та громадський центр Цюриха</h1>
             
-            <p id="h-s" data-translate="h-s" style="font-size: 14px; color: #000000 !important; line-height: 1.5; margin: 0 0 20px 0; word-wrap: break-word; font-weight: 500;">Допомога, події, спільнота, гуманітарна підтримка та нові возможности для українців у Швейцарії.</p>
+            <p id="h-s" data-translate="h-s" style="font-size: 14px; color: #000000 !important; line-height: 1.5; margin: 0 0 20px 0; word-wrap: break-word; font-weight: 500;">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
             
             <div id="h-btn-container" style="display: flex; gap: 12px; flex-wrap: wrap;">
                 <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px;">Отримати допомогу</a>

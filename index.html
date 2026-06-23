@@ -745,11 +745,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     
     <style>
         @media (max-width: 768px) {
-            /* 1. Высота самого баннера */
+            /* Высота самого баннера */
             section.hero-section {
                 min-height: 190px !important;
                 height: 190px !important;
-                padding: 10px 0 0 0 !important;
+                padding: 15px 0 0 0 !important; /* Чуть увеличили верхний отступ всей секции */
                 overflow: hidden !important;
             }
             
@@ -757,11 +757,12 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                 padding: 0 12px !important;
             }
 
-            /* 2. УМЕНЬШЕНИЕ НАДПИСЕЙ (Пробиваем инлайн-стили через ID) */
+            /* 1. ПЛАШКА С ФЛАГАМИ: Сдвигаем вниз от меню и уменьшаем */
             #h-badge-wrapper {
-                margin-bottom: 2px !important;
+                margin-top: 12px !important; /* Добавили отступ сверху, чтобы уйти из зоны меню */
+                margin-bottom: 4px !important;
                 gap: 4px !important;
-                transform: scale(0.85);
+                transform: scale(0.8); /* Слегка уменьшили масштаб для аккуратности */
                 transform-origin: left center;
             }
             
@@ -769,34 +770,35 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                 font-size: 10px !important;
             }
 
-            /* Уменьшаем главный заголовок */
+            /* Главный заголовок */
             h1#h-t {
                 font-size: 13px !important;
                 line-height: 1.2 !important;
-                margin: 0 0 3px 0 !important;
+                margin: 0 0 4px 0 !important;
                 font-weight: 700 !important;
-                max-width: 65% !important;
+                max-width: 65% !important; /* Ограничение ширины заголовка */
                 color: #111827 !important;
             }
 
-            /* Уменьшаем подзаголовок */
+            /* 2. ОПИСАНИЕ: Меняем цвет на БЕЛЫЙ и жестко сжимаем по границе заголовка */
             p#h-s {
+                color: #ffffff !important; /* Цвет изменен на чисто белый */
                 font-size: 9px !important;
                 line-height: 1.2 !important;
-                margin: 0 0 6px 0 !important;
-                max-width: 65% !important;
-                font-weight: 500 !important;
+                margin: 0 0 8px 0 !important;
+                max-width: 65% !important; /* Жесткое ограничение ширины вровень с h1 */
+                font-weight: 600 !important; /* Чуть увеличили плотность для лучшей читаемости белого на фоне */
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important; /* Легкая тень, чтобы текст читался на любом участке фото */
             }
 
-            /* 3. УМЕНЬШЕНИЕ КНОПОК-ПЛАШЕК */
+            /* Кнопки-плашки */
             #h-btn-container {
                 display: flex !important;
-                flex-direction: column !important; /* Строго друг под другом */
+                flex-direction: column !important;
                 gap: 4px !important;
                 align-items: flex-start !important;
             }
 
-            /* Экстремально компактный размер для самих плашек */
             a#h-b1, a#h-b2 {
                 padding: 3px 6px !important;
                 border-radius: 4px !important;
@@ -805,10 +807,10 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
                 width: auto !important;
                 max-width: 115px !important;
                 text-align: center !important;
-                white-space: nowrap !important; /* Запрещаем перенос текста плашки */
+                white-space: nowrap !important;
             }
 
-            /* Скрываем нижний блок контактов, чтобы не мешал */
+            /* Скрываем панель контактов */
             #hero-contacts-wrapper { 
                 display: none !important; 
             }

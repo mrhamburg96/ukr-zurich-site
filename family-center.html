@@ -21,18 +21,92 @@
         /* Заголовки */
         h1, h2, h3 { font-weight: 700; color: #003399; text-align: center; }
         
-        /* === ВЕРХНЯЯ ЧАСТЬ (ШАПКА ИЗ index.html) === */
-        main-header { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 0; font-size: 13px; }
-        .header-grid { display: flex; align-items: center; justify-content: space-between; }
-        .logo-block { display: flex; align-items: center; gap: 10px; max-width: 300px; }
+       /* === ИСПРАВЛЕННАЯ ШАПКА САЙТА (ПК-версия) === */
+        .main-header { 
+            background: #ffffff; 
+            border-bottom: 1px solid #e5e7eb; 
+            padding: 12px 0; 
+            font-size: 13px; 
+            width: 100%;
+        }
+        
+        .main-header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px; /* Задает единую безопасную границу сайта */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-grid { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            width: 100%;
+        }
+
+        /* 1. Логотип: Сдвинут влево, на общую внутреннюю границу сайта */
+        .logo-block { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            max-width: 300px;
+            margin-left: -15px; /* Точечный микровдвиг влево для компенсации внутренних отступов */
+        }
         .logo-text h2 { font-size: 16px; font-weight: 800; color: #1a56c4; text-align: left; }
         .logo-text p { font-size: 10px; color: #6b7280; line-height: 1.2; }
-        .main-nav { display: flex; items-center: center; gap: 16px; list-style: none; font-weight: 500; }
-        .main-nav a { color: #111827; }
-        .main-nav a:hover, .main-nav .active { color: #1a56c4; font-weight: 700; }
-        .header-actions { display: flex; align-items: center; gap: 12px; }
-        .btn-donate { background: #ffb700; color: #111827; padding: 6px 14px; border-radius: 4px; font-weight: 700; }
-        .lang-switcher { display: flex; gap: 6px; font-weight: 700; }
+
+        /* 2. Меню и кнопки: Выстраиваем строго в один ряд */
+        .header-right-wrap {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Расстояние между элементами в ряду */
+        }
+
+        .main-nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+            list-style: none; 
+            font-weight: 600; 
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Окрашиваем ссылки меню в фирменный синий цвет */
+        .main-nav a { 
+            color: #001f54; /* Синий цвет текста */
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .main-nav a:hover, .main-nav .active { 
+            color: #1a56c4; 
+            font-weight: 700; 
+        }
+
+        .header-actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        
+        .btn-donate { 
+            background: #ffb700; 
+            color: #111827; 
+            padding: 6px 14px; 
+            border-radius: 4px; 
+            font-weight: 700; 
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .lang-switcher { 
+            display: flex; 
+            gap: 6px; 
+            font-weight: 700; 
+            color: #001f54; /* Синий цвет переключателя */
+        }
         .lang-switcher span { padding: 2px 4px; border-radius: 2px; cursor: pointer; }
         .lang-switcher .active { background: #001f54; color: #fff; }
 

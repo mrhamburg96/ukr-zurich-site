@@ -41,25 +41,40 @@
         .breadcrumbs a { color: #1a56c4; }
         
         /* === БАННЕР HERO === */
+        /* === АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ ДЛЯ ПК === */
         .hero-section { 
             background: url('banner-family.webp') no-repeat center center/cover; 
             padding: 70px 0; 
             position: relative; 
             min-height: 480px; 
-            display: flex; 
-            align-items: center;
         }
-        .hero-content { 
-    max-width: 540px; 
-    text-align: left; 
-    margin-left: -80px !important; /* Жестко принудительно двигаем блок влево на 80px */
-}
-.hero-content h1 { font-size: 40px; font-weight: 800; line-height: 1.2; color: #ffffff; text-align: left; margin-bottom: 20px; }
-.hero-content p { font-size: 16px; color: #ffffff; line-height: 1.5; margin-bottom: 30px; font-weight: 400; }
-.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-yellow { background: #ffb700; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; }
-.btn-white { background: #ffffff; color: #001f54; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; border: 1px solid #d1d5db; }
+        
+        .hero-section .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
 
+        .hero-content { 
+            max-width: 540px; 
+            text-align: left; 
+            position: absolute; /* Вырываем блок из флекс-сетки */
+            top: 50%;           /* Центрируем по вертикали */
+            transform: translateY(-50%); /* Идеальное выравнивание по центру высоты */
+            
+            /* ТОЧЕЧНЫЙ СДВИГ ПО ОСИ X: */
+            left: 0px;        /* 0px — это крайняя левая точка контентной сетки (1200px) */
+                              /* Если нужно СДВИНУТЬ ЕЩЕ ЛЕВЕЕ (ближе к краю монитора), ставьте минус, например: -60px */
+                              /* Если нужно СДВИНУТЬ ВПРАВО, ставьте плюс, например: 40px */
+        }
+        
+        .hero-content h1 { font-size: 40px; font-weight: 800; line-height: 1.2; color: #ffffff; text-align: left; margin-bottom: 20px; }
+        .hero-content p { font-size: 16px; color: #ffffff; line-height: 1.5; margin-bottom: 30px; font-weight: 400; }
+        .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn-yellow { background: #ffb700; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; }
+        .btn-white { background: #ffffff; color: #001f54; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; border: 1px solid #d1d5db; }
         /* === СЕКЦИЯ: ЧИМ МИ ЗАЙМАЄМОСЯ === */
         .section-padding { padding: 50px 0; }
         .section-title { font-size: 24px; font-weight: 700; color: #001f54; margin-bottom: 35px; text-align: center; }

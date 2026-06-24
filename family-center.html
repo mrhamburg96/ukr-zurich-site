@@ -141,7 +141,17 @@
         }
         
         .hero-content h1 { font-size: 40px; font-weight: 800; line-height: 1.2; color: #ffffff; text-align: left; margin-bottom: 20px; }
-        .hero-content p { font-size: 16px; color: #ffffff; line-height: 1.5; margin-bottom: 30px; font-weight: 400; }
+     .hero-content p { 
+            display: block !important;
+            font-size: 16px; 
+            color: #ffffff; 
+            line-height: 1.5; 
+            margin-bottom: 30px; 
+            font-weight: 400; 
+            max-width: 420px !important; /* Жестко ограничиваем ширину текстового блока */
+            width: 100% !important;
+            white-space: normal !important; /* Разрешаем тексту переноситься на новые строки */
+        }
         .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
         .btn-yellow { background: #ffb700; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; }
         .btn-white { background: #ffffff; color: #001f54; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; border: 1px solid #d1d5db; }

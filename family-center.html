@@ -251,7 +251,11 @@
         }
         /* Точечное уменьшение расстояния между секциями */
         .features-grid + .section-title, 
+        /* Ужимаем расстояние между Программами и Для кого работает центр */
         section:has(.features-grid) {
+            padding-top: 15px !important;    /* Уменьшаем внутреннюю пустоту сверху */
+            margin-top: -35px !important;    /* Подтягиваем блок выше к предыдущему */
+        }
             padding-bottom: 15px !important; /* Ужимаем низ секции с иконками */
         }
         .programs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }

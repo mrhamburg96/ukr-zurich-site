@@ -243,28 +243,72 @@
             margin: 0;
             font-weight: 400;
         }
-       /* === СЕКЦИЯ: НАШІ ПРОГРАМИ ТА АКТИВНОСТІ === */
-        /* Добавляем класс-регулятор высоты */
-        .programs-section {
-            margin-top: -40px !important;   /* Тянет весь блок программ вверх */
-            padding-top: 10px !important;   /* Уменьшает пустой отступ внутри самой секции */
+      /* === СЕКЦИЯ: НАШІ ПРОГРАМИ ТА АКТИВНОСТІ (ИСПРАВЛЕННАЯ СЕТКА) === */
+        /* Управление всей секцией и подтяжка вверх */
+        section.programs-section {
+            margin-top: -35px !important;    /* Подтягиваем блок выше к иконкам */
+            padding-top: 15px !important;    /* Ужимаем пустой зазор внутри */
+            width: 100% !important;
+            display: block !important;
         }
-        /* Точечное уменьшение расстояния между секциями */
-        .features-grid + .section-title, 
-        /* Ужимаем расстояние между Программами и Для кого работает центр */
-        section:has(.features-grid) {
-            padding-top: 15px !important;    /* Уменьшаем внутреннюю пустоту сверху */
-            margin-top: -35px !important;    /* Подтягиваем блок выше к предыдущему */
+
+        /* Жестко задаем сетку на 5 колонок для ПК */
+        section.programs-section .programs-grid { 
+            display: grid !important; 
+            grid-template-columns: repeat(5, 1fr) !important; 
+            gap: 16px !important; 
+            width: 100% !important;
         }
-            padding-bottom: 15px !important; /* Ужимаем низ секции с иконками */
+
+        /* Стили самих карточек */
+        .program-card { 
+            background: #ffffff; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            display: flex;
+            flex-direction: column;
         }
-        .programs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-        .program-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .program-img { height: 140px; width: 100%; object-fit: cover; }
-        .program-info { padding: 16px; min-height: 140px; display: flex; flex-direction: column; justify-content: space-between; }
-        .program-info h3 { font-size: 13px; font-weight: 700; color: #001f54; text-align: left; margin-bottom: 4px; }
-        .program-info .status { font-size: 11px; font-weight: 700; color: #111827; margin-bottom: 12px; }
-        .program-geo { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #6b7280; font-weight: 500; }
+
+        .program-img { 
+            height: 140px; 
+            width: 100%; 
+            object-fit: cover; 
+        }
+
+        .program-info { 
+            padding: 16px; 
+            min-height: 140px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+
+        .program-info h3 { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: #001f54; 
+            text-align: left; 
+            margin-top: 0;
+            margin-bottom: 4px; 
+        }
+
+        .program-info .status { 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: #111827; 
+            margin-bottom: 12px; 
+        }
+
+        .program-geo { 
+            display: flex; 
+            align-items: center; 
+            gap: 4px; 
+            font-size: 10px; 
+            color: #6b7280; 
+            font-weight: 500; 
+        }
 
         /* === СЕКЦИЯ: ДЛЯ КОГО ПРАЦЮЄ ЦЕНТР === */
         .audience-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }

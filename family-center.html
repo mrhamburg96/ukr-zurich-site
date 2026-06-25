@@ -352,10 +352,18 @@
         .footer-bottom { display: flex; justify-content: center; gap: 24px; padding-top: 15px; color: rgba(255,255,255,0.4); font-size: 10px; }
         .footer-bottom a { color: rgba(255,255,255,0.4); }
 
+        /* ========================================================= */
+        /* ВОТ СЮДА ВСТАВЛЯЕМ НАШ КОД ДЛЯ ПОДНЯТИЯ СЕКЦИИ:           */
+        /* ========================================================= */
+        section.target-section {
+            margin-top: -55px !important;    /* Сдвигает блок вверх, убирая дыру */
+            padding-top: 10px !important;    /* Делает аккуратный зазор до заголовка */
+        }
+
         /* ==========================================
-       /* ==========================================
-           МОБИЛЬНАЯ ВЕРСИЯ (ЭКРАНЫ ДО 768px)
-        ========================================== */
+           ==========================================
+            МОБИЛЬНАЯ ВЕРСИЯ (ЭКРАНЫ ДО 768px)
+         ========================================== */
         @media (max-width: 768px) {
             .main-nav, .header-actions { display: none !important; }
             
@@ -594,7 +602,7 @@
     </section>
 
     <!-- ДЛЯ КОГО ПРАЦЮЄ ЦЕНТР -->
-    <section class="section-padding">
+    <section class="section-padding target-section">
             <div class="container">
                 <h2 class="section-title" data-translate="target_title">Для кого працює центр</h2>
                 

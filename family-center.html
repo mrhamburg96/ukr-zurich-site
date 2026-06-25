@@ -157,13 +157,88 @@
         .btn-white { background: #ffffff; color: #001f54; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; border: 1px solid #d1d5db; }
 
         /* === СЕКЦИЯ: ЧИМ МИ ЗАЙМАЄМОСЯ === */
-        .section-padding { padding: 50px 0; }
-        .section-title { font-size: 24px; font-weight: 700; color: #001f54; margin-bottom: 35px; text-align: center; }
-        .features-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-        .feature-card { background: #fff; border: 1px solid #f3f4f6; border-radius: 8px; padding: 20px 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-        .feature-icon { width: 40px; height: 40px; margin: 0 auto 12px auto; display: flex; align-items: center; justify-content: center; }
-        .feature-card h3 { font-size: 12px; font-weight: 700; color: #001f54; margin-bottom: 8px; }
-        .feature-card p { font-size: 10px; color: #4b5563; line-height: 1.4; }
+        /* === СЕКЦИЯ: ЧИМ МИ ЗАЙМАЄМОСЯ (ПК-версия) === */
+        .section-padding { 
+            padding: 60px 0; 
+            background: #ffffff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .section-title { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: #001f54; 
+            margin-bottom: 35px; 
+            text-align: center; 
+            width: 100%;
+        }
+
+        /* Сетка на 6 колонок для ПК-версии */
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 20px; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Стилизация карточек 1:1 по макету */
+        .feature-card { 
+            background: #ffffff; 
+            border: 1px solid #e5e7eb; /* Легкая серая рамка */
+            border-radius: 12px;       /* Скругление углов */
+            padding: 24px 16px;        /* Внутренние отступы */
+            text-align: center; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Мягкая тень */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 220px;         /* Одинаковая высота карточек */
+            box-sizing: border-box;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Эффект при наведении на карточку */
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Контейнер для иконок */
+        .feature-icon { 
+            width: 48px; 
+            height: 48px; 
+            margin-bottom: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-shrink: 0;
+        }
+
+        /* Стилизация заголовков внутри карточек */
+        .feature-card h3 { 
+            font-size: 14px; 
+            font-weight: 700; 
+            color: #001f54;          /* Фирменный темно-синий */
+            margin-top: 0;
+            margin-bottom: 10px; 
+            line-height: 1.3;
+            min-height: 36px;        /* Запас под перевод заголовка в 2 строки */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Стилизация описания */
+        .feature-card p { 
+            font-size: 11px; 
+            color: #4b5563;          /* Серый читаемый текст */
+            line-height: 1.5; 
+            margin: 0;
+            font-weight: 400;
+        }
         /* === СЕКЦИЯ: НАШІ ПРОГРАМИ ТА АКТИВНОСТІ === */
         .programs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
         .program-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
@@ -216,11 +291,30 @@
         .footer-bottom a { color: rgba(255,255,255,0.4); }
 
         /* ==========================================
+       /* ==========================================
            МОБИЛЬНАЯ ВЕРСИЯ (ЭКРАНЫ ДО 768px)
         ========================================== */
         @media (max-width: 768px) {
             .main-nav, .header-actions { display: none !important; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            
+            /* --- ОБНОВЛЕННАЯ СЕТКА КАРТОЧЕК ДЛЯ МОБИЛЬНЫХ (1:1 ПО МАКЕТУ) --- */
+            .features-grid { 
+                grid-template-columns: repeat(2, 1fr) !important; 
+                gap: 12px !important; 
+            }
+            .feature-card { 
+                min-height: auto !important; 
+                padding: 16px 10px !important; 
+            }
+            .feature-card h3 {
+                font-size: 12px !important;
+                min-height: auto !important;
+            }
+            .feature-card p {
+                font-size: 10px !important;
+            }
+            /* ---------------------------------------------------------------- */
+
             .programs-grid { grid-template-columns: 1fr; gap: 16px; }
             .team-grid { grid-template-columns: 1fr; gap: 14px; }
             .footer-grid { grid-template-columns: 1fr; gap: 24px; }

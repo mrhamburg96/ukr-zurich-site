@@ -183,27 +183,26 @@
             box-sizing: border-box;
         }
 
-        /* Стилизация карточек 1:1 по макету */
+       /* === КАРТКИ БЕЗ ВІЗУАЛЬНИХ КОРДОНІВ === */
         .feature-card { 
-            background: #ffffff; 
-            border: 1px solid #e5e7eb; /* Легкая серая рамка */
-            border-radius: 12px;       /* Скругление углов */
-            padding: 24px 16px;        /* Внутренние отступы */
+            background: transparent;   /* Робимо фон прозорим */
+            border: none;              /* Повністю прибираємо рамку */
+            border-radius: 0;          /* Скруглення більше не потрібне */
+            padding: 16px 10px;        /* Трохи зменшуємо відступи, оскільки рамки немає */
             text-align: center; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Мягкая тень */
+            box-shadow: none;          /* Повністю прибираємо тінь */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            min-height: 220px;         /* Одинаковая высота карточек */
+            min-height: 200px;         /* Зберігаємо однакову висоту для вирівнювання тексту */
             box-sizing: border-box;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
-        /* Эффект при наведении на карточку */
+        /* Ефект легкого підняття при наведенні мишкою (за бажанням) */
         .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
         }
 
         /* Контейнер для иконок */

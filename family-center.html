@@ -207,7 +207,7 @@
 
         /* Настроечный класс для поднятия блока программ */
         .programs-section {
-            margin-top: -60px !important;   /* Сильно тянет блок вверх */
+            margin-top: -40px !important;   /* Сильно тянет блок вверх */
             padding-top: 10px !important;   /* Ужимает пустоту внутри самого блока */
         }
         /* Контейнер для иконок */
@@ -246,10 +246,14 @@
        /* === СЕКЦИЯ: НАШІ ПРОГРАМИ ТА АКТИВНОСТІ === */
         /* Добавляем класс-регулятор высоты */
         .programs-section {
-            margin-top: -60px !important;   /* Тянет весь блок программ вверх */
+            margin-top: -40px !important;   /* Тянет весь блок программ вверх */
             padding-top: 10px !important;   /* Уменьшает пустой отступ внутри самой секции */
         }
-
+        /* Точечное уменьшение расстояния между секциями */
+        .features-grid + .section-title, 
+        section:has(.features-grid) {
+            padding-bottom: 15px !important; /* Ужимаем низ секции с иконками */
+        }
         .programs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
         .program-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
         .program-img { height: 140px; width: 100%; object-fit: cover; }
@@ -483,7 +487,7 @@
         </section>
 
     <!-- НАШІ ПРОГРАМИ ТА АКТИВНОСТІ -->
-    <section class="section-padding" style="background-color: #fafafa;">
+   <section class="section-padding programs-section" style="background-color: #fafafa;">
         <div class="container">
             <h2 class="section-title">Наші програми та активності</h2>
             <div class="programs-grid">

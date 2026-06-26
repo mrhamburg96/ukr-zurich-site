@@ -363,23 +363,73 @@
         .footer-bottom { display: flex; justify-content: center; gap: 24px; padding-top: 15px; color: rgba(255,255,255,0.4); font-size: 10px; }
         .footer-bottom a { color: rgba(255,255,255,0.4); }
 
-       /* ========================================================= */
-        /* ВОТ СЮДА ВСТАВЛЯЕМ НАШ КОД ДЛЯ ПОДНЯТИЯ СЕКЦИИ:           */
+      /* ========================================================= */
+        /* === СЕКЦИЯ: ДЛЯ КОГО ПРАЦЮЄ ЦЕНТР (НА ВСЮ ШИРИНУ) ======= */
         /* ========================================================= */
         section.target-section {
-            margin-top: -55px !important;    /* Сдвигает блок вверх, убирая дыру */
-            padding-top: 10px !important;    /* Делает аккуратный зазор до заголовка */
-        }
-
-        /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (ШИРОКИЙ ФОРМАТ НА ВСЮ ШИРИНУ) === */
-        section.team-section {
-            margin-top: -55px !important;    /* Подтягивает команду выше к иконкам */
+            margin-top: -55px !important;    /* Подтяжка вверх к программам */
             padding-top: 10px !important;    
             width: 100% !important;
             display: block !important;
         }
 
-        /* Расширяем контейнер команды до 94% (точно как у программ) */
+        /* Расширяем контейнер до 94% (как у программ и команды) */
+        section.target-section .container {
+            max-width: 94% !important;       
+            width: 94% !important;
+            padding-left: 20px !important;   
+            padding-right: 20px !important;  
+            margin: 0 auto !important;       
+        }
+
+        /* Выстраиваем 6 карточек в один аккуратный горизонтальный ряд */
+        section.target-section .features-grid { 
+            display: grid !important; 
+            grid-template-columns: repeat(6, 1fr) !important; /* 6 равных колонок */
+            gap: 16px !important;            /* Небольшие аккуратные зазоры */
+            width: 100% !important;
+        }
+
+        /* Стили самих карточек */
+        .feature-card { 
+            background: #ffffff; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 12px; 
+            padding: 20px 15px !important;   
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;             
+            text-align: center;
+            width: 100% !important;          
+        }
+
+        .feature-card h3 {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            color: #001f54 !important;
+            margin-top: 12px !important;
+            margin-bottom: 6px !important;
+        }
+
+        .feature-card p {
+            font-size: 11px !important;
+            color: #4b5563 !important;
+            line-height: 1.4 !important;
+            margin: 0 !important;
+        }
+
+        /* ========================================================= */
+        /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (ШИРОКИЙ ФОРМАТ НА ВСЮ ШИРИНУ) === */
+        /* ========================================================= */
+        section.team-section {
+            margin-top: -55px !important;    /* Подтягивает команду выше */
+            padding-top: 10px !important;    
+            width: 100% !important;
+            display: block !important;
+        }
+
+        /* Расширяем контейнер команды до 94% */
         section.team-section .container {
             max-width: 94% !important;       
             width: 94% !important;
@@ -396,7 +446,6 @@
             width: 100% !important;
         }
 
-        /* Карточка занимает 100% ширины своей колонки */
         .team-card { 
             background: #ffffff; 
             border: 1px solid #e5e7eb; 
@@ -408,15 +457,13 @@
             width: 100% !important;          
         }
 
-        /* Стилизация аватаров с сохранением пропорций */
         .team-avatar { 
             width: 100% !important; 
-            height: 280px !important;        /* Фиксированная высота портрета */
-            object-fit: cover !important;    /* Картинка заполняет блок без искажений облич */
+            height: 280px !important;        
+            object-fit: cover !important;    
             display: block !important;
         }
 
-        /* Текстовый блок под фото */
         .team-details { 
             padding: 20px; 
             display: flex; 
@@ -448,7 +495,6 @@
             margin-bottom: 15px;
         }
 
-        /* Блок с иконками соцсетей прижимаем к самому низу */
         .team-socials {
             display: flex;
             gap: 10px;

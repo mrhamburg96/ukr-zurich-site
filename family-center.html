@@ -243,22 +243,29 @@
             margin: 0;
             font-weight: 400;
         }
-     /* === СЕКЦИЯ: НАШІ ПРОГРАМИ ТА АКТИВНОСТІ (РАСТЯНУТАЯ НА ВСЮ ШИРИНУ) === */
+    /* === СЕКЦИЯ: НАШІ ПРОГРАМИ ТА АКТИВНОСТІ (ШИРОКИЙ ФОРМАТ КАК БАННЕР) === */
         section.programs-section {
-            margin-top: -60px !important;    /* Сохраняем вашу подтяжку вверх */
+            margin-top: -60px !important;    
             padding-top: 15px !important;    
             width: 100% !important;
             display: block !important;
         }
 
-        /* Распределяем 5 колонок равномерно на 100% ширины контейнера */
+        /* Заставляем контейнер внутри программ стать широким */
+        section.programs-section .container {
+            max-width: 94% !important;       /* Задает ширину практически во весь экран (как баннер) */
+            width: 94% !important;
+            padding-left: 20px !important;   /* Минимальный аккуратный отступ слева */
+            padding-right: 20px !important;  /* Минимальный аккуратный отступ справа */
+            margin: 0 auto !important;       /* Центрирует блок по центру экрана */
+        }
+
+        /* Сама сетка карточек */
         section.programs-section .programs-grid { 
             display: grid !important; 
             grid-template-columns: repeat(5, 1fr) !important; 
-            gap: 20px !important; /* Чуть увеличили зазор для красоты при широком экране */
+            gap: 16px !important;            /* Небольшие зазоры между карточками */
             width: 100% !important;
-            max-width: 1200px !important; /* Ограничение по ширине сайта */
-            margin: 0 auto !important;
         }
 
         /* Заставляем карточки растягиваться на всю ширину выделенной им колонки */

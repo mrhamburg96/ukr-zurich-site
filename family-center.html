@@ -420,7 +420,7 @@
         }
 
         /* ========================================================= */
-      /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (ГОРИЗОНТАЛЬНЫЕ КАРТОЧКИ) === */
+     /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (4 В РЯД, ФОТО СЛЕВА) === */
         section.team-section {
             margin-top: -55px !important;    
             padding-top: 10px !important;    
@@ -436,15 +436,15 @@
             margin: 0 auto !important;       
         }
 
-        /* Делаем 2 широкие колонки, чтобы карточки легли горизонтально */
+        /* Возвращаем жесткую сетку на 4 колонки в один ряд */
         section.team-section .team-grid { 
             display: grid !important; 
-            grid-template-columns: repeat(2, 1fr) !important; 
-            gap: 20px !important;            
+            grid-template-columns: repeat(4, 1fr) !important; 
+            gap: 15px !important; /* Небольшой зазор, чтобы всё поместилось на ПК */
             width: 100% !important;
         }
 
-        /* Главное изменение: row (в ряд) вместо column */
+        /* Карточка горизонтальная */
         .team-card { 
             background: #ffffff; 
             border: 1px solid #e5e7eb; 
@@ -453,28 +453,30 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
             display: flex !important;
             flex-direction: row !important; /* Фото слева, текст справа */
-            padding: 15px !important;       /* Внутренний отступ всей карточки */
-            gap: 15px !important;
+            padding: 12px !important;       /* Компактные внутренние отступы */
+            gap: 12px !important;
             width: 100% !important;          
+            min-height: 190px !important;   /* Выравниваем общую высоту карток */
         }
 
-        /* Настройка круглых углов и размеров для фото, как на скриншоте */
+        /* Оптимальные размеры аватара для сетки из 4-х штук */
         .team-avatar { 
-            width: 140px !important;         /* Фиксированная ширина фотографии */
-            min-width: 140px !important;
-            height: 180px !important;        /* Высота под обрезку портрета */
+            width: 105px !important;         /* Уменьшили ширину, чтобы оставить место тексту */
+            min-width: 105px !important;
+            height: 140px !important;        /* Пропорциональная высота портрета */
             object-fit: cover !important;    
-            border-radius: 8px !important;   /* Аккуратное скругление фото */
+            border-radius: 8px !important;   
             display: block !important;
         }
 
-        /* Блок с текстом и кнопками справа */
+        /* Текстовая панель справа */
         .team-details { 
             display: flex !important; 
             flex-direction: column !important; 
-            justify-content: space-between !important; /* Разносит текст наверх, соцсети вниз */
+            justify-content: space-between !important; 
             flex-grow: 1 !important;
             padding: 0 !important;
+            min-width: 0 !important;         /* Защита от вылезания длинного текста */
         }
 
         .team-text {
@@ -483,38 +485,38 @@
         }
 
         .team-details h3 { 
-            font-size: 15px !important; 
+            font-size: 13px !important;      /* Слегка адаптировали шрифты под 4 колонки */
             font-weight: 700 !important; 
             color: #001f54 !important; 
             margin-top: 0 !important;
-            margin-bottom: 8px !important; 
+            margin-bottom: 4px !important; 
         }
 
         .team-details .role { 
-            font-size: 11px !important; 
+            font-size: 10px !important; 
             font-weight: 700 !important; 
             color: #1a56c4 !important; 
-            margin-bottom: 8px !important; 
-            line-height: 1.3 !important;
+            margin-bottom: 6px !important; 
+            line-height: 1.2 !important;
         }
 
         .team-details .desc { 
-            font-size: 11px !important; 
+            font-size: 10px !important; 
             color: #4b5563 !important; 
-            line-height: 1.4 !important;
+            line-height: 1.3 !important;
             margin: 0 !important;
         }
 
-        /* Соцсети в самом низу текстовой части */
+        /* Иконки соцсетей на своем месте */
         .team-socials {
             display: flex !important;
             gap: 8px !important;
-            margin-top: 10px !important;
+            margin-top: 8px !important;
         }
 
         .team-socials img {
-            width: 22px !important;          /* Размер иконок tg и fb */
-            height: 22px !important;
+            width: 20px !important;          
+            height: 20px !important;
             object-fit: contain !important;
         }
 

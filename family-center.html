@@ -363,17 +363,96 @@
         .footer-bottom { display: flex; justify-content: center; gap: 24px; padding-top: 15px; color: rgba(255,255,255,0.4); font-size: 10px; }
         .footer-bottom a { color: rgba(255,255,255,0.4); }
 
-        /* ========================================================= */
+       /* ========================================================= */
         /* ВОТ СЮДА ВСТАВЛЯЕМ НАШ КОД ДЛЯ ПОДНЯТИЯ СЕКЦИИ:           */
         /* ========================================================= */
         section.target-section {
             margin-top: -55px !important;    /* Сдвигает блок вверх, убирая дыру */
             padding-top: 10px !important;    /* Делает аккуратный зазор до заголовка */
         }
-        /* ВОТ СЮДА ДОБАВЛЯЕМ КОД ДЛЯ КОМАНДЫ ЦЕНТРА: */
+
+        /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (ШИРОКИЙ ФОРМАТ НА ВСЮ ШИРИНУ) === */
         section.team-section {
             margin-top: -55px !important;    /* Подтягивает команду выше к иконкам */
-            padding-top: 10px !important;    /* Убирает лишнюю пустоту внутри */
+            padding-top: 10px !important;    
+            width: 100% !important;
+            display: block !important;
+        }
+
+        /* Расширяем контейнер команды до 94% (точно как у программ) */
+        section.team-section .container {
+            max-width: 94% !important;       
+            width: 94% !important;
+            padding-left: 20px !important;   
+            padding-right: 20px !important;  
+            margin: 0 auto !important;       
+        }
+
+        /* Задаем сетку строго на 4 равные колонки для ПК */
+        section.team-section .team-grid { 
+            display: grid !important; 
+            grid-template-columns: repeat(4, 1fr) !important; 
+            gap: 20px !important;            
+            width: 100% !important;
+        }
+
+        /* Карточка занимает 100% ширины своей колонки */
+        .team-card { 
+            background: #ffffff; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            display: flex;
+            flex-direction: column;
+            width: 100% !important;          
+        }
+
+        /* Стилизация аватаров с сохранением пропорций */
+        .team-avatar { 
+            width: 100% !important; 
+            height: 280px !important;        /* Фиксированная высота портрета */
+            object-fit: cover !important;    /* Картинка заполняет блок без искажений облич */
+            display: block !important;
+        }
+
+        /* Текстовый блок под фото */
+        .team-details { 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            flex-grow: 1;                    
+        }
+
+        .team-details h3 { 
+            font-size: 14px; 
+            font-weight: 700; 
+            color: #001f54; 
+            margin-top: 0;
+            margin-bottom: 6px; 
+        }
+
+        .team-details .role { 
+            font-size: 11px; 
+            font-weight: 600; 
+            color: #1a56c4; 
+            margin-bottom: 10px; 
+            line-height: 1.3;
+        }
+
+        .team-details .desc { 
+            font-size: 11px; 
+            color: #4b5563; 
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        /* Блок с иконками соцсетей прижимаем к самому низу */
+        .team-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
         }
 
         /* ==========================================

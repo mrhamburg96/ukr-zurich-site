@@ -157,13 +157,26 @@
         .btn-white { background: #ffffff; color: #001f54; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; border: 1px solid #d1d5db; }
 
         /* === СЕКЦИЯ: ЧИМ МИ ЗАЙМАЄМОСЯ === */
-        /* === СЕКЦИЯ: ЧИМ МИ ЗАЙМАЄМОСЯ (ПК-версия) === */
+        /* === СЕКЦИЯ: ЧИМ МИ ЗАЙМАЄМОСЯ (ПК-версия НА ВСЮ ШИРИНУ) === */
         .section-padding { 
             padding: 60px 0; 
             background: #ffffff;
             width: 100%;
             box-sizing: border-box;
         }
+
+        /* Заставляем контейнер секции "Чим ми займаємося" стать широким (на 94%) */
+        /* Привязываемся через селектор тега/класса, чтобы точно перекрыть старые стили */
+        section:not(.programs-section):not(.team-section):not(.target-section) .container {
+            max-width: 94% !important;       /* Ширина во весь экран, как у баннера */
+            width: 94% !important;
+            padding-left: 20px !important;   
+            padding-right: 20px !important;  
+            margin: 0 auto !important;       /* Центрируем на странице */
+        }
+
+        /* Если у секции есть конкретный класс (например, .occupations-section), лучше использовать его: */
+        /* .occupations-section .container { max-width: 94% !important; width: 94% !important; margin: 0 auto !important; } */
 
         .section-title { 
             font-size: 24px; 
@@ -174,7 +187,7 @@
             width: 100%;
         }
 
-        /* Сетка на 6 колонок для ПК-версии */
+        /* Сетка на 6 колонок теперь растянется по новому широкому контейнеру */
         .features-grid { 
             display: grid; 
             grid-template-columns: repeat(6, 1fr); 
@@ -183,33 +196,28 @@
             box-sizing: border-box;
         }
 
-       /* === КАРТКИ БЕЗ ВІЗУАЛЬНИХ КОРДОНІВ === */
+        /* === КАРТКИ БЕЗ ВІЗУАЛЬНИХ КОРДОНІВ === */
         .feature-card { 
-            background: transparent;   /* Робимо фон прозорим */
-            border: none;              /* Повністю прибираємо рамку */
-            border-radius: 0;          /* Скруглення більше не потрібне */
-            padding: 16px 10px;        /* Трохи зменшуємо відступи, оскільки рамки немає */
+            background: transparent !important;   /* Делаем фон прозрачным */
+            border: none !important;              /* Полностью прибираем рамку */
+            border-radius: 0 !important;          /* Скругление больше не нужно */
+            box-shadow: none !important;          /* Полностью прибираем тень */
+            padding: 16px 10px;        
             text-align: center; 
-            box-shadow: none;          /* Повністю прибираємо тінь */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            min-height: 200px;         /* Зберігаємо однакову висоту для вирівнювання тексту */
+            min-height: 200px;         /* Сохраняем одинаковую высоту для выравнивания текста */
             box-sizing: border-box;
             transition: transform 0.2s ease;
         }
 
-        /* Ефект легкого підняття при наведенні мишкою (за бажанням) */
+        /* Эффект легкого поднятия при наведении мышкой */
         .feature-card:hover {
             transform: translateY(-3px);
         }
 
-        /* Настроечный класс для поднятия блока программ */
-        .programs-section {
-            margin-top: -40px !important;   /* Сильно тянет блок вверх */
-            padding-top: 10px !important;   /* Ужимает пустоту внутри самого блока */
-        }
         /* Контейнер для иконок */
         .feature-icon { 
             width: 48px; 
@@ -225,7 +233,7 @@
         .feature-card h3 { 
             font-size: 14px; 
             font-weight: 700; 
-            color: #001f54;          /* Фирменный темно-синий */
+            color: #001f54; 
             margin-top: 0;
             margin-bottom: 10px; 
             line-height: 1.3;
@@ -238,7 +246,7 @@
         /* Стилизация описания */
         .feature-card p { 
             font-size: 11px; 
-            color: #4b5563;          /* Серый читаемый текст */
+            color: #4b5563; 
             line-height: 1.5; 
             margin: 0;
             font-weight: 400;

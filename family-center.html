@@ -428,7 +428,7 @@
         }
 
         /* ========================================================= */
-     /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (4 В РЯД, ФОТО СЛЕВА) === */
+    /* === СЕКЦИЯ: КОМАНДА ЦЕНТРУ (ФОТО УВЕЛИЧЕНО НА 40%) === */
         section.team-section {
             margin-top: -55px !important;    
             padding-top: 10px !important;    
@@ -444,15 +444,13 @@
             margin: 0 auto !important;       
         }
 
-        /* Возвращаем жесткую сетку на 4 колонки в один ряд */
         section.team-section .team-grid { 
             display: grid !important; 
             grid-template-columns: repeat(4, 1fr) !important; 
-            gap: 15px !important; /* Небольшой зазор, чтобы всё поместилось на ПК */
+            gap: 15px !important;            
             width: 100% !important;
         }
 
-        /* Карточка горизонтальная */
         .team-card { 
             background: #ffffff; 
             border: 1px solid #e5e7eb; 
@@ -460,31 +458,30 @@
             overflow: hidden; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
             display: flex !important;
-            flex-direction: row !important; /* Фото слева, текст справа */
-            padding: 12px !important;       /* Компактные внутренние отступы */
-            gap: 12px !important;
+            flex-direction: row !important; 
+            padding: 14px !important;       /* Чуть увеличили внутренний отступ карточки */
+            gap: 14px !important;
             width: 100% !important;          
-            min-height: 190px !important;   /* Выравниваем общую высоту карток */
+            min-height: 220px !important;   /* Увеличили минимальную высоту под новые фото */
         }
 
-        /* Оптимальные размеры аватара для сетки из 4-х штук */
+        /* Фотографии увеличены на 40% (было 105x140, стало 147x196) */
         .team-avatar { 
-            width: 105px !important;         /* Уменьшили ширину, чтобы оставить место тексту */
-            min-width: 105px !important;
-            height: 140px !important;        /* Пропорциональная высота портрета */
+            width: 147px !important;         
+            min-width: 147px !important;
+            height: 196px !important;        
             object-fit: cover !important;    
             border-radius: 8px !important;   
             display: block !important;
         }
 
-        /* Текстовая панель справа */
         .team-details { 
             display: flex !important; 
             flex-direction: column !important; 
             justify-content: space-between !important; 
             flex-grow: 1 !important;
             padding: 0 !important;
-            min-width: 0 !important;         /* Защита от вылезания длинного текста */
+            min-width: 0 !important;         
         }
 
         .team-text {
@@ -493,7 +490,7 @@
         }
 
         .team-details h3 { 
-            font-size: 13px !important;      /* Слегка адаптировали шрифты под 4 колонки */
+            font-size: 13px !important;      
             font-weight: 700 !important; 
             color: #001f54 !important; 
             margin-top: 0 !important;
@@ -515,7 +512,6 @@
             margin: 0 !important;
         }
 
-        /* Иконки соцсетей на своем месте */
         .team-socials {
             display: flex !important;
             gap: 8px !important;
@@ -527,7 +523,6 @@
             height: 20px !important;
             object-fit: contain !important;
         }
-
         /* ==========================================
            ==========================================
             МОБИЛЬНАЯ ВЕРСИЯ (ЭКРАНЫ ДО 768px)

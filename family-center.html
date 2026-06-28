@@ -1279,9 +1279,7 @@
                 span.textContent = "−";
             }
         }
-    </script>
-    <!-- === МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ === -->
-<div id="registerModal" class="custom-modal">
+   <div id="registerModal" class="custom-modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
         <h3>Реєстрація у родинне коло</h3>
@@ -1295,7 +1293,7 @@
             
             <div class="form-group">
                 <label for="regName">Ім'я</label>
-                <input type="text" id="regName" placeholder="Ваше ім'я або прізвище" required>
+                <input type="text" id="regName" placeholder="Ваше ім'я та прізвище" required>
             </div>
             
             <div class="form-group-row">
@@ -1328,91 +1326,126 @@
         </form>
     </div>
 </div>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("registerModal");
-        const openBtn = document.querySelector(".cta-button"); // Наша кнопка в баннере
-        const closeBtn = document.querySelector(".close-modal");
-        const form = document.getElementById("registrationForm");
-
-        // Открытие модального окна
-        if (openBtn && modal) {
-            openBtn.addEventListener("click", function (e) {
-                e.preventDefault(); // Отменяем переход по ссылке #
-                modal.style.display = "flex";
-                
-                // Автоматически подставляем сегодняшнюю дату в поле даты
-                const dateInput = document.getElementById("regDate");
-                if (dateInput) {
-                    dateInput.value = new Date().toISOString().split('T')[0];
-                }
-            });
-        }
-
-        // Закрытие при клике на крестик
-        if (closeBtn && modal) {
-            closeBtn.addEventListener("click", function () {
-                modal.style.display = "none";
-            });
-        }
-
-        // Закрытие при клике на серое пространство вокруг окна
-        window.addEventListener("click", function (e) {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-
-        // Обработка отправки формы
-        if (form) {
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
-                alert("Дякуємо! Вашу заявку успішно надіслано.");
-                form.reset();
-                modal.style.display = "none";
-            });
-        }
-    });
-    </script>
 document.addEventListener("DOMContentLoaded", function () {
+    
+    // ==========================================
+    // 1. ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (UA / DE)
+    // ==========================================
     const langButtons = document.querySelectorAll(".lang-switcher .lang-btn");
 
-    langButtons.forEach(btn => {
-        btn.addEventListener("click", function (e) {
-            e.preventDefault(); // Отменяем стандартный переход по ссылке #
-            
-            // Если кнопка уже активна — ничего не делаем
-            if (this.classList.contains("active")) return;
+    if (langButtons.length > 0) {
+        langButtons.forEach(btn => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault(); 
+                
+                if (this.classList.contains("active")) return;
 
-            // 1. Меняем активный класс у кнопок визуально
-            langButtons.forEach(b => b.classList.remove("active"));
-            this.classList.add("active");
-            
-            const selectedLang = this.getAttribute("data-lang");
+                langButtons.forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+                
+                const selectedLang = this.getAttribute("data-lang");
 
-            // 2. Вызываем вашу функцию загрузки JSON-перевода
-            // (Замените 'loadLanguage' на реальное название вашей функции, если оно отличается)
-            if (typeof loadLanguage === "function") {
-                loadLanguage(selectedLang);
-            } else if (typeof changeLanguage === "function") {
-                changeLanguage(selectedLang);
-            }
+                // Вызов вашей функции перевода JSON
+                if (typeof loadLanguage === "function") {
+                    loadLanguage(selectedLang);
+                } else if (typeof changeLanguage === "function") {
+                    changeLanguage(selectedLang);
+                }
 
-            // Сохраняем выбор в браузере, чтобы при перезагрузке язык не слетал
-            localStorage.setItem("siteLanguage", selectedLang);
+                localStorage.setItem("siteLanguage", selectedLang);
+            });
         });
-    });
+    }
 
-    // Проверяем, сохранен ли язык пользователя, и делаем его активным при старте
+    // Проверка сохраненного языка при старте страницы
     const savedLang = localStorage.getItem("siteLanguage");
     if (savedLang) {
         const activeBtn = document.querySelector(`.lang-switcher .lang-btn[data-lang="${savedLang}"]`);
         if (activeBtn) {
-            langButtons.forEach(b => b.classList.remove("active"));
+            if (langButtons.length > 0) {
+                langButtons.forEach(b => b.classList.remove("active"));
+            }
             activeBtn.classList.add("active");
-            // Тут также можно вызвать вашу функцию перевода для инициализации
         }
     }
+
+    // ==========================================
+    // 2. ЛОГИКА МОДАЛЬНОГО ОКНА РЕГИСТРАЦИИ
+    // ==========================================
+    const modal = document.getElementById("registerModal");
+    const openBtn = document.querySelector(".cta-button"); // Наша кнопка в баннере
+    const closeBtn = document.querySelector(".close-modal");
+    const form = document.getElementById("registrationForm");
+
+    if (openBtn && modal) {
+        openBtn.addEventListener("click", function (e) {
+            e.preventDefault(); 
+            modal.style.display = "flex";
+            
+            const dateInput = document.getElementById("regDate");
+            if (dateInput) {
+                dateInput.value = new Date().toISOString().split('T')[0];
+            }
+        });
+    }
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+    }
+
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Обработка отправки формы в Google Таблицу
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector(".submit-modal-btn");
+            if (submitBtn) {
+                submitBtn.innerText = "Відправка...";
+                submitBtn.disabled = true;
+            }
+
+            const formData = new FormData(form);
+            const object = {};
+            formData.forEach((value, key) => object[key] = value);
+            
+            // Замените этот URL на вашу реальную ссылку из Google Apps Script
+            const googleScriptUrl = "ВСТАВЬТЕ_СЮДА_ВАШ_URL_ВЕБ_ПРИЛОЖЕНИЯ";
+
+            fetch(googleScriptUrl, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(object)
+            })
+            .then(() => {
+                alert("Дякуємо! Вашу заявку успішно надіслано.");
+                form.reset();
+                modal.style.display = "none";
+            })
+            .catch(error => {
+                console.error("Помилка!", error);
+                alert("Сталася помилка при відправці. Спробуйте пізніше.");
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.innerText = "Надіслати заявку";
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+    }
 });
+</script>
+
 </body>
 </html>

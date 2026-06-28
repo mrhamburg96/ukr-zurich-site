@@ -632,6 +632,124 @@
             height: 20px !important;
             object-fit: contain !important;
         }
+        /* === СТИЛИ МОДАЛЬНОГО ОКНА === */
+        .custom-modal {
+            display: none; 
+            position: fixed !important;
+            z-index: 9999 !important; /* Поверх всех элементов сайта */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 31, 84, 0.4) !important; /* Фирменный синий с прозрачностью */
+            backdrop-filter: blur(4px); /* Красивое размытие фона */
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Контентная область окна */
+        .modal-content {
+            background-color: #ffffff !important;
+            padding: 35px !important;
+            border-radius: 16px !important;
+            width: 100% !important;
+            max-width: 500px !important; /* Оптимальная ширина формы */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+            position: relative;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Кнопка закрытия (крестик) */
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #001f54;
+        }
+
+        .modal-content h3 {
+            font-size: 20px !important;
+            color: #001f54 !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 6px !important;
+        }
+
+        .modal-subtitle {
+            font-size: 12px !important;
+            color: #6b7280 !important;
+            margin-bottom: 25px !important;
+        }
+
+        /* Поля формы */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+        }
+
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group label {
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            color: #001f54 !important;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            padding: 10px 14px !important;
+            border: 1px solid #e5e7eb !important;
+            border-radius: 8px !important;
+            font-size: 13px !important;
+            color: #001f54 !important;
+            background: #f9fafb !important;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #1a56c4 !important;
+            background: #fff !important;
+        }
+
+        /* Кнопка отправки формы */
+        .submit-modal-btn {
+            width: 100% !important;
+            background-color: #ffb703 !important;
+            color: #001f54 !important;
+            padding: 12px !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px !important;
+        }
+
+        .submit-modal-btn:hover {
+            background-color: #fca311 !important;
+        }
         /* ==========================================
            ==========================================
             МОБИЛЬНАЯ ВЕРСИЯ (ЭКРАНЫ ДО 768px)
@@ -1118,5 +1236,100 @@
             }
         }
     </script>
+    <!-- === МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ === -->
+<div id="registerModal" class="custom-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Реєстрація у родинне коло</h3>
+        <p class="modal-subtitle">Будь ласка, заповніть форму для приєднання до громади UAGZ</p>
+        
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="regDate">Дата</label>
+                <input type="date" id="regDate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regName">Ім'я</label>
+                <input type="text" id="regName" placeholder="Ваше ім'я та прізвище" required>
+            </div>
+            
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">Телефон</label>
+                    <input type="tel" id="regPhone" placeholder="+41 XX XXX XX XX" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="regKidsCount">Кількість дітей</label>
+                <input type="number" id="regKidsCount" min="0" placeholder="0" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regGirlsInfo">Кількість дітей (дiвчина, вік)</label>
+                <input type="text" id="regGirlsInfo" placeholder="Наприклад: 1 дівчина (7 років), 1 дівчина (12 років)">
+            </div>
+            
+            <div class="form-group">
+                <label for="regBoysInfo">Кількість дітей (хлопець, вік)</label>
+                <input type="text" id="regBoysInfo" placeholder="Наприклад: 1 хлопець (5 років)">
+            </div>
+            
+            <button type="submit" class="submit-modal-btn">Надіслати заявку</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("registerModal");
+        const openBtn = document.querySelector(".cta-button"); // Наша кнопка в баннере
+        const closeBtn = document.querySelector(".close-modal");
+        const form = document.getElementById("registrationForm");
+
+        // Открытие модального окна
+        if (openBtn && modal) {
+            openBtn.addEventListener("click", function (e) {
+                e.preventDefault(); // Отменяем переход по ссылке #
+                modal.style.display = "flex";
+                
+                // Автоматически подставляем сегодняшнюю дату в поле даты
+                const dateInput = document.getElementById("regDate");
+                if (dateInput) {
+                    dateInput.value = new Date().toISOString().split('T')[0];
+                }
+            });
+        }
+
+        // Закрытие при клике на крестик
+        if (closeBtn && modal) {
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+        }
+
+        // Закрытие при клике на серое пространство вокруг окна
+        window.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Обработка отправки формы
+        if (form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                alert("Дякуємо! Вашу заявку успішно надіслано.");
+                form.reset();
+                modal.style.display = "none";
+            });
+        }
+    });
+    </script>
+
 </body>
 </html>

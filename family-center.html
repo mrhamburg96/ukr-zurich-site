@@ -346,9 +346,9 @@
         .team-socials { display: flex; gap: 8px; }
         .team-socials a { width: 16px; height: 16px; display: inline-block; }
 
-      /* === СЕКЦИЯ: ПРИЗЫВ К ДЕЙСТВИЮ (ИДЕАЛЬНЫЙ МАСШТАБ И ФИКС ФОТО) === */
-        section.cta-section {
-            padding: 45px 0 !important;
+          section.cta-section {
+            padding: 0 0 45px 0 !important; /* Обнулили верхний внутренний отступ (padding-top: 0) */
+            margin-top: 0 !important;       /* Убираем любой зазор сверху секции */
             width: 100% !important;
             display: block !important;
             background: #ffffff !important;

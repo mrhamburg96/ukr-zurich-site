@@ -449,11 +449,25 @@
             z-index: 1 !important;
         }
         /* === СЕКЦИЯ: ЧАСТІ ПИТАННЯ === */
+        /* Добавили общее поднятие для всей секции, где лежит заголовок */
+        section.section-padding:has(.faq-wrapper), 
+        section:has(.faq-wrapper) {
+            margin-top: -30px !important;    /* Подтягиваем блок вверх к баннеру */
+            padding-top: 10px !important;    /* Уменьшаем пустой зазор сверху */
+        }
+
+        /* Добавили сброс отступа для заголовка внутри этой секции */
+        section:has(.faq-wrapper) h2,
+        section:has(.faq-wrapper) .section-title {
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+        }
+
+        /* Ваши оригинальные стили (оставляем без изменений) */
         .faq-wrapper { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
         .faq-item { border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; background: #fff; }
         .faq-trigger { width: 100%; padding: 12px 20px; background: #fff; border: none; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; color: #001f54; cursor: pointer; text-align: left; }
         .faq-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; font-size: 12px; color: #4b5563; line-height: 1.5; }
-
         /* === НИЖНЯЯ ЧАСТЬ (ФУТЕР) === */
         .main-footer { background: #001f54; color: #ffffff; padding: 40px 0 20px 0; font-size: 11px; }
         .footer-grid { display: grid; grid-template-columns: 2.5fr 1.5fr 1.5fr 2fr 1.5fr; gap: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }

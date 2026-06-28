@@ -346,9 +346,9 @@
         .team-socials { display: flex; gap: 8px; }
         .team-socials a { width: 16px; height: 16px; display: inline-block; }
 
-        /* === СЕКЦИЯ: ПРИЗЫВ К ДЕЙСТВИЮ (КОМПАКТНЫЙ С ФОТО) === */
+       /* === СЕКЦИЯ: ПРИЗЫВ К ДЕЙСТВИЮ (УВЕЛИЧЕННЫЙ ВАРИАНТ) === */
         section.cta-section {
-            padding: 35px 0 !important;
+            padding: 40px 0 !important;
             width: 100% !important;
             display: block !important;
             background: #ffffff !important;
@@ -362,7 +362,7 @@
             margin: 0 auto !important;       
         }
 
-        /* Ограничиваем общую высоту баннера до аккуратных 140px */
+        /* Общая высота баннера увеличена до 180px */
         .cta-banner.with-photo {
             background: #f0f4fa !important;             
             border-radius: 14px !important; 
@@ -370,13 +370,13 @@
             position: relative !important;
             display: flex !important;
             flex-direction: row !important;
-            min-height: 140px !important;     
-            height: 140px !important;
+            min-height: 180px !important;     
+            height: 180px !important;
             width: 100% !important;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
         }
 
-        /* Настройка фото семьи слева */
+        /* Фото семьи слева автоматически подстраивается под новые 180px */
         .cta-banner.with-photo .cta-image-side {
             width: 28% !important;           
             height: 100% !important;
@@ -386,9 +386,9 @@
             flex-shrink: 0 !important;
         }
 
-        /* Настройка текста по центру */
+        /* Текстовая зона стала просторнее */
         .cta-banner.with-photo .cta-content-side {
-            padding: 0 0 0 35px !important;   
+            padding: 0 0 0 45px !important;   /* Чуть увеличили отступ от картинки */
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
@@ -397,51 +397,57 @@
             z-index: 2 !important;                      
         }
 
+        /* Увеличили размер главного заголовка */
         .cta-banner.with-photo .cta-content-side h2 {
-            font-size: 16px !important;       
+            font-size: 20px !important;       /* Было 16px, стало крупнее */
             font-weight: 700 !important;
             color: #001f54 !important;       
             margin-top: 0 !important;
-            margin-bottom: 4px !important;    
+            margin-bottom: 6px !important;    
             line-height: 1.2 !important;
         }
 
+        /* Увеличили размер подзаголовка */
         .cta-banner.with-photo .cta-content-side p {
-            font-size: 11px !important;       
+            font-size: 12px !important;       
             color: #4b5563 !important;
             line-height: 1.4 !important;
             margin-top: 0 !important;
-            margin-bottom: 12px !important;   
+            margin-bottom: 16px !important;   
             font-weight: 500 !important;
         }
 
-        /* Маленькая желтая кнопка */
+        /* Кнопка стала солиднее и крупнее */
         .cta-banner.with-photo .cta-button {
             background-color: #ffb703 !important; 
             color: #001f54 !important;
-            padding: 6px 20px !important;     
-            border-radius: 6px !important;
-            font-size: 11px !important;       
+            padding: 10px 24px !important;    /* Увеличили внутренние отступы */
+            border-radius: 8px !important;    /* Скругление под стиль сайта */
+            font-size: 12px !important;       
             font-weight: 700 !important;
             text-decoration: none !important;
-            transition: background-color 0.2s ease !important;
+            transition: background-color 0.2s ease, transform 0.1s ease !important;
             display: inline-block !important;
         }
 
-        /* Декоративное сердце уменьшено до 105px (на 75% меньше) */
+        .cta-banner.with-photo .cta-button:hover {
+            background-color: #fca311 !important; 
+            transform: translateY(-1px);
+        }
+
+        /* Сердце пропорционально увеличено до 145px */
         .cta-banner.with-photo .cta-heart-decor {
             position: absolute !important;
-            right: 15px !important;           
+            right: 25px !important;           /* Симметричный аккуратный отступ справа */
             top: 50% !important;
             transform: translateY(-50%) !important; 
-            height: 105px !important;         
+            height: 145px !important;         /* Было 105px — теперь крупнее и четче */
             width: auto !important;
             object-fit: contain !important;
             opacity: 0.95 !important;
             pointer-events: none !important;            
             z-index: 1 !important;
         }
-
         /* === СЕКЦИЯ: ЧАСТІ ПИТАННЯ === */
         .faq-wrapper { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
         .faq-item { border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; background: #fff; }

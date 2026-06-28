@@ -778,10 +778,29 @@
             .programs-grid { grid-template-columns: 1fr; gap: 16px; }
             .team-grid { grid-template-columns: 1fr; gap: 14px; }
             .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-            .cta-banner { flex-direction: column; padding: 24px; text-align: center; }
-            .cta-left h2 { text-align: center; }
-            .cta-right { display: none; }
             
+            /* === АДАПТИВ БАННЕРА ПОД МОБИЛЬНЫЕ === */
+            .cta-banner.with-photo { 
+                flex-direction: column !important; 
+                height: auto !important; 
+                min-height: initial !important;
+                padding: 30px 20px !important; 
+            }
+            .cta-banner.with-photo .cta-image-side { 
+                width: 100% !important; 
+                height: 150px !important; 
+            }
+            .cta-banner.with-photo .cta-content-side { 
+                width: 100% !important; 
+                padding: 20px 0 0 0 !important; 
+                align-items: center !important; 
+                text-align: center !important; 
+            }
+            .cta-banner.with-photo .cta-content-side h2 { text-align: center !important; }
+            /* Скрываем сердце на мобильных, чтобы не перекрывало текст */
+            .cta-banner.with-photo .cta-heart-decor { display: none !important; }
+            
+            /* === АДАПТИВ HERO-БЛОКА === */
             .hero-section { min-height: 240px !important; height: 240px !important; padding: 0 !important; overflow: hidden !important; display: block !important; position: relative !important; }
             .hero-section .container { position: absolute !important; bottom: 14px !important; left: 0 !important; width: 100% !important; padding: 0 16px !important; }
             
@@ -808,6 +827,31 @@
             .btn-yellow, .btn-white { padding: 3px 6px !important; border-radius: 4px !important; font-size: 8.5px !important; line-height: 1.1 !important; width: auto !important; max-width: 120px !important; text-align: center !important; white-space: nowrap !important; }
         }
 
+        /* === ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (UA / DE) === */
+        .lang-switcher {
+            display: inline-flex !important;
+            gap: 8px !important; 
+            align-items: center !important;
+        }
+
+        .lang-switcher .lang-btn {
+            text-decoration: none !important;
+            font-size: 14px !important; 
+            font-weight: 500 !important;
+            color: #718096 !important; 
+            cursor: pointer !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .lang-switcher .lang-btn:hover {
+            color: #001f54 !important; 
+        }
+
+        .lang-switcher .lang-btn.active {
+            color: #001f54 !important; 
+            font-weight: 700 !important; 
+            pointer-events: none !important; 
+        }
     </style>
 </head>
 <body>
@@ -840,12 +884,12 @@
                 </ul>
 
                 <div class="header-actions">
-                    <a href="#" class="btn-donate">Donate</a>
-                    <div class="lang-switcher">
-                        <span class="active">UA</span>
-                        <span>DE</span>
-                    </div>
-                </div>
+    <a href="#" class="btn-donate">Donate</a>
+    <div class="lang-switcher">
+        <a href="#" class="lang-btn active" data-lang="ua">UA</a>
+        <a href="#" class="lang-btn" data-lang="de">DE</a>
+        </div>
+               </div>
             </div>
 
         </div>
@@ -1330,6 +1374,45 @@
         }
     });
     </script>
+document.addEventListener("DOMContentLoaded", function () {
+    const langButtons = document.querySelectorAll(".lang-switcher .lang-btn");
 
+    langButtons.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault(); // Отменяем стандартный переход по ссылке #
+            
+            // Если кнопка уже активна — ничего не делаем
+            if (this.classList.contains("active")) return;
+
+            // 1. Меняем активный класс у кнопок визуально
+            langButtons.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+            
+            const selectedLang = this.getAttribute("data-lang");
+
+            // 2. Вызываем вашу функцию загрузки JSON-перевода
+            // (Замените 'loadLanguage' на реальное название вашей функции, если оно отличается)
+            if (typeof loadLanguage === "function") {
+                loadLanguage(selectedLang);
+            } else if (typeof changeLanguage === "function") {
+                changeLanguage(selectedLang);
+            }
+
+            // Сохраняем выбор в браузере, чтобы при перезагрузке язык не слетал
+            localStorage.setItem("siteLanguage", selectedLang);
+        });
+    });
+
+    // Проверяем, сохранен ли язык пользователя, и делаем его активным при старте
+    const savedLang = localStorage.getItem("siteLanguage");
+    if (savedLang) {
+        const activeBtn = document.querySelector(`.lang-switcher .lang-btn[data-lang="${savedLang}"]`);
+        if (activeBtn) {
+            langButtons.forEach(b => b.classList.remove("active"));
+            activeBtn.classList.add("active");
+            // Тут также можно вызвать вашу функцию перевода для инициализации
+        }
+    }
+});
 </body>
 </html>

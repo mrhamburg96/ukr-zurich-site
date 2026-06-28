@@ -346,12 +346,101 @@
         .team-socials { display: flex; gap: 8px; }
         .team-socials a { width: 16px; height: 16px; display: inline-block; }
 
-        /* === СЕКЦИЯ: ПРИЗЫВ К ДЕЙСТВИЮ === */
-        .cta-banner { background: #f0f4fc; border-radius: 16px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; position: relative; overflow: hidden; }
-        .cta-left { max-width: 550px; z-index: 2; }
-        .cta-left h2 { font-size: 24px; font-weight: 800; color: #001f54; text-align: left; margin-bottom: 12px; }
-        .cta-left p { font-size: 13px; color: #4b5563; margin-bottom: 24px; font-weight: 500; }
-        .cta-right { width: 180px; opacity: 0.8; z-index: 1; }
+        /* === СЕКЦИЯ: ПРИЗЫВ К ДЕЙСТВИЮ (КОМПАКТНЫЙ С ФОТО) === */
+        section.cta-section {
+            padding: 35px 0 !important;
+            width: 100% !important;
+            display: block !important;
+            background: #ffffff !important;
+        }
+
+        section.cta-section .container {
+            max-width: 94% !important;       
+            width: 94% !important;
+            padding-left: 20px !important;   
+            padding-right: 20px !important;  
+            margin: 0 auto !important;       
+        }
+
+        /* Ограничиваем общую высоту баннера до аккуратных 140px */
+        .cta-banner.with-photo {
+            background: #f0f4fa !important;             
+            border-radius: 14px !important; 
+            overflow: hidden !important;                
+            position: relative !important;
+            display: flex !important;
+            flex-direction: row !important;
+            min-height: 140px !important;     
+            height: 140px !important;
+            width: 100% !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+        }
+
+        /* Настройка фото семьи слева */
+        .cta-banner.with-photo .cta-image-side {
+            width: 28% !important;           
+            height: 100% !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            flex-shrink: 0 !important;
+        }
+
+        /* Настройка текста по центру */
+        .cta-banner.with-photo .cta-content-side {
+            padding: 0 0 0 35px !important;   
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+            width: 55% !important;           
+            z-index: 2 !important;                      
+        }
+
+        .cta-banner.with-photo .cta-content-side h2 {
+            font-size: 16px !important;       
+            font-weight: 700 !important;
+            color: #001f54 !important;       
+            margin-top: 0 !important;
+            margin-bottom: 4px !important;    
+            line-height: 1.2 !important;
+        }
+
+        .cta-banner.with-photo .cta-content-side p {
+            font-size: 11px !important;       
+            color: #4b5563 !important;
+            line-height: 1.4 !important;
+            margin-top: 0 !important;
+            margin-bottom: 12px !important;   
+            font-weight: 500 !important;
+        }
+
+        /* Маленькая желтая кнопка */
+        .cta-banner.with-photo .cta-button {
+            background-color: #ffb703 !important; 
+            color: #001f54 !important;
+            padding: 6px 20px !important;     
+            border-radius: 6px !important;
+            font-size: 11px !important;       
+            font-weight: 700 !important;
+            text-decoration: none !important;
+            transition: background-color 0.2s ease !important;
+            display: inline-block !important;
+        }
+
+        /* Декоративное сердце уменьшено до 105px (на 75% меньше) */
+        .cta-banner.with-photo .cta-heart-decor {
+            position: absolute !important;
+            right: 15px !important;           
+            top: 50% !important;
+            transform: translateY(-50%) !important; 
+            height: 105px !important;         
+            width: auto !important;
+            object-fit: contain !important;
+            opacity: 0.95 !important;
+            pointer-events: none !important;            
+            z-index: 1 !important;
+        }
 
         /* === СЕКЦИЯ: ЧАСТІ ПИТАННЯ === */
         .faq-wrapper { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }

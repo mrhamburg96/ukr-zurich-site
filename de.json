@@ -121,5 +121,18 @@
   "act_status_every_sunday": "Jeden Sonntag",
   "act_status_forming": "Gruppe wird gebildet",
   "act_status_recruitment": "Anmeldung läuft",
-  "act_status_soon": "Ankündigungen in Kürze"
+  "act_status_soon": "Ankündigungen in Kürze",
+  "target_title": "Für wen das Zentrum arbeitet",
+  "target1_title": "Familien",
+  "target1_desc": "Umfassende Unterstützung, gemeinsame Freizeitgestaltung und Integration ukrainischer Familien.",
+  "target2_title": "Kinder",
+  "target2_desc": "Entwicklungskurse, Spieltreffen und ein sicherer Raum für Kommunikation.",
+  "target3_title": "Jugendliche",
+  "target3_desc": "Projekte, Sozialisierung, Unterstützung von Initiativen und sinnvolle Freizeitgestaltung.",
+  "target4_title": "Eltern",
+  "target4_desc": "Erfahrungsaustausch, psychologische Hilfe und nützliche Beratungen.",
+  "target5_title": "Junge Sportler",
+  "target5_desc": "Sportsektionen, Training, Schwimmen und Teamgeist.",
+  "target6_title": "Kreative Kinder",
+  "target6_desc": "Theaterstudio, Workshops und Talententwicklung."
 }

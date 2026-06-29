@@ -10,51 +10,24 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Manrope', sans-serif; font-weight: 400; color: #111827; background-color: #fdfdfd; line-height: 1.6; }
+        body { font-family: 'Manrope', sans-serif; background-color: #ffffff; color: #111827; }
         
-        .container { max-width: 1000px; margin: 0 auto; width: 100%; padding: 0 24px; }
-        img { max-width: 100%; height: auto; display: block; border-radius: 12px; }
+        .container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; }
         
-        /* Кнопка Назад */
-        .back-nav { padding: 30px 0 10px 0; }
+        /* Панель навигации для кнопки возврата */
+        .nav-bar { background-color: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
         .btn-back { display: inline-flex; align-items: center; gap: 8px; color: #1a56c4; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
         .btn-back:hover { transform: translateX(-4px); }
 
-        /* Главный блок профиля */
-        .profile-wrapper { display: grid; grid-template-columns: 320px 1fr; gap: 40px; padding: 30px 0 60px 0; }
-        
-        @media (max-width: 768px) {
-            .profile-wrapper { grid-template-columns: 1fr; gap: 30px; }
-            .profile-sidebar { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        }
-
-        .profile-avatar { width: 100%; aspect-ratio: 1/1; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        
-        /* Информация */
-        .profile-info h1 { font-size: 32px; font-weight: 800; color: #002366; margin-bottom: 8px; line-height: 1.2; }
-        .profile-role { font-size: 16px; font-weight: 700; color: #1a56c4; margin-bottom: 24px; }
-        
-        .profile-section { margin-bottom: 30px; }
-        .profile-section h2 { font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 12px; border-bottom: 2px solid #f3f4f6; padding-bottom: 6px; }
-        .profile-section p { font-size: 15px; color: #4b5563; margin-bottom: 12px; }
-        
-        /* Списки */
-        .profile-list { list-style: none; }
-        .profile-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 15px; color: #4b5563; }
-        .profile-list li::before { content: "•"; color: #1a56c4; font-weight: bold; font-size: 18px; position: absolute; left: 0; top: -2px; }
-
-        /* Соцсети в профиле */
-        .profile-socials { display: flex; gap: 12px; margin-top: 20px; }
-        .profile-socials a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #f3f4f6; border-radius: 50%; transition: all 0.2s; }
-        .profile-socials a:hover { background: #1a56c4; }
-        .profile-socials a:hover img { filter: brightness(0) invert(1); }
-        .profile-socials img { width: 18px; height: 18px; }
+        /* Блок с картинкой-лендингом */
+        .landing-wrapper { display: flex; justify-content: center; width: 100%; padding: 20px 0 60px 0; }
+        .landing-image { width: 100%; max-width: 1000px; height: auto; display: block; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-radius: 8px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="back-nav">
+    <nav class="nav-bar">
+        <div class="container">
             <a href="family-center.html" class="btn-back">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -63,52 +36,20 @@
                 <span data-i18n="btn_back_to_center">Повернутися до Центру сім'ї</span>
             </a>
         </div>
+    </nav>
 
-        <div class="profile-wrapper">
-            
-            <div class="profile-sidebar">
-                <img src="juliana_koval.webp" class="profile-avatar" alt="Юліана Куранда-Коваль">
-                
-                <div class="profile-socials">
-                    <a href="#" class="tg-link"><img src="telegram-logo.svg" alt="Telegram"></a>
-                    <a href="#" class="fb-link"><img src="facebook-logo.svg" alt="Facebook"></a>
-                </div>
-            </div>
-            
-            <div class="profile-info">
-                <h1 data-i18n="profile_juliana_name">Юліана Куранда-Коваль</h1>
-                <div class="profile-role" data-i18n="profile_juliana_role">Керівник Центру сім'ї, молоді та спорту UAGZ</div>
-                
-                <div class="profile-section">
-                    <h2 data-i18n="profile_section_about">Про керівника</h2>
-                    <p data-i18n="profile_juliana_about_p1">Юліана Куранда-Коваль здійснює загальну координацію діяльності Центру сім'ї, молоді та спорту UAGZ. Під її керівництвом розробляються та впроваджуються ключові соціальні, спортивні та освітні програми, спрямовані на підтримку українських родин у Німеччині.</p>
-                    <p data-i18n="profile_juliana_about_p2">Вона активно займається розвитком стратегічних партнерств із місцевими та міжнародними організаціями, забезпечуючи високу якість роботи кожного напрямку центру.</p>
-                </div>
-
-                <div class="profile-section">
-                    <h2 data-i18n="profile_section_responsibilities">Основні напрямки діяльності</h2>
-                    <ul class="profile-list">
-                        <li data-i18n="profile_juliana_resp_1">Стратегічне планування та загальне керівництво всіма проектами Центру.</li>
-                        <li data-i18n="profile_juliana_resp_2">Координація роботи команди та взаємодія з партнерами проекту.</li>
-                        <li data-i18n="profile_juliana_resp_3">Розвиток інтеграційних програм, сімейних ініціатив та молодіжного сектору.</li>
-                        <li data-i18n="profile_juliana_resp_4">Забезпечення внутрішнього контролю якості проведення заходів.</li>
-                    </ul>
-                </div>
-
-                <div class="profile-section">
-                    <h2 data-i18n="profile_section_contacts">Контакти</h2>
-                    <p><strong>Email:</strong> juliana.koval@uagz.org</p>
-                    <p data-i18n="profile_section_work_hours"><strong>Графік прийому:</strong> Пн - Пт: 10:00 - 17:00</p>
-                </div>
-            </div>
-
+    <main class="container">
+        <div class="landing-wrapper">
+            <img src="juliana_koval.webp" class="landing-image" alt="Юліана Куранда-Коваль">
         </div>
-    </div>
+    </main>
 
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
-        // Если на основном сайте у вас настроен вызов функции перевода (applyTranslations), скрипт подтянет языковые ключи.
+        if (typeof applyTranslations === 'function') {
+            applyTranslations(savedLang);
+        }
     });
     </script>
 

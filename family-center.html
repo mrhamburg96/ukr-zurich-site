@@ -1073,32 +1073,37 @@
         <h2 class="section-title" data-i18n="team_title">Команда центру</h2>
         <div class="team-grid">
             
-         <!-- Юліана Куранда-Коваль -->
+        <!-- Юліана Куранда-Коваль -->
 <div class="team-card">
     <img src="juliana.webp" class="team-avatar" alt="Юліана Куранда-Коваль">
     
-    <!-- Добавляем флекс-колонку, чтобы заставить внутренности тянуться вниз -->
+    <!-- Контейнер, который держит всю структуру по высоте -->
     <div class="team-details" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
         
         <div class="team-text">
             <h3 data-i18n="team_member_1_name">Юліана Куранда-Коваль</h3>
             <div class="role" data-i18n="team_member_1_role">Керівник Центру сім'ї, молоді та спорту UAGZ</div>
-            <div class="desc" data-i18n="team_member_1_desc" style="margin-bottom: 10px;">Загальна координація роботи центру, розвиток програм та партнерств.</div>
+            <div class="desc" data-i18n="team_member_1_desc">Загальна координація работы центру, розвиток програм та партнерств.</div>
+        </div>
+        
+        <!-- Нижний блок: ссылка + соцсети опущены в самый низ -->
+        <div class="team-footer" style="margin-top: auto; padding-top: 15px;">
             
-            <!-- Ссылка: аккуратная, маленькая, со стрелочкой, строго внизу текста -->
-            <a href="juliana-profile.html" class="btn-more" data-i18n="btn_read_more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 13px; font-weight: bold; margin-top: 5px;">
+            <!-- Ссылка «Детальніше» (аккуратный уменьшенный шрифт, голубой цвет) -->
+            <a href="juliana-profile.html" class="btn-more" data-i18n="btn_read_more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 13px; font-weight: bold; margin-bottom: 10px;">
                 Детальніше
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
             </a>
-        </div>
-        
-        <!-- ВОЗВРАЩАЕМ ИКОНКИ СОЦСЕТЕЙ НА МЕСТО -->
-        <div class="team-social" style="margin-top: auto; padding-top: 10px;">
-            <a href="#" class="social-link tg"><i class="fab fa-telegram"></i></a>
-            <a href="#" class="social-link fb"><i class="fab fa-facebook"></i></a>
+
+            <!-- Соцсети на месте -->
+            <div class="team-social">
+                <a href="#" class="social-link tg"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link fb"><i class="fab fa-facebook"></i></a>
+            </div>
+            
         </div>
         
     </div>

@@ -1108,28 +1108,34 @@
         
     </div>
 </div>
-        <!-- Олена Воронцова -->
+       <!-- Олена Воронцова -->
 <div class="team-card">
     <img src="vorontsova.webp" class="team-avatar" alt="Олена Воронцова">
-    
-    <!-- Тот самый надежный флекс-контейнер, который держит форму -->
-    <div class="team-details" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-        
-        <!-- Блок текста -->
-        <div class="team-text" style="display: flex; flex-direction: column;">
+    <div class="team-details">
+        <div class="team-text">
             <h3 data-i18n="team_member_2_name">Олена Воронцова</h3>
             <div class="role" data-i18n="team_member_2_role">Координатор Центру</div>
-            <div class="desc" data-i18n="team_member_2_desc" style="margin-bottom: 0px;">Організація заходів, комунікація з учасниками та супровід програм.</div>
+            <div class="desc" data-i18n="team_member_2_desc">Організація заходів, комунікація з учасниками та супровід програм.</div>
             
-            <!-- Опускаем ссылку ниже к соцсетям за счет большого margin-top (ставим 65px) -->
-            <a href="olena-profile.html" class="btn-more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 11px; font-weight: bold; margin-top: 65px;">
-                Детальніше
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </a>
+            <!-- Безопасное размещение ссылки без flex-эффектов -->
+            <p style="margin: 15px 0 0 0; padding: 0;">
+                <a href="olena-profile.html" class="btn-more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 11px; font-weight: bold;">
+                    Детальніше
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </p>
         </div>
+        
+        <!-- Оригинальный блок соцсетей со стандартными классами темы -->
+        <div class="team-socials">
+            <a href="#"><img src="telegram-logo.svg" alt="Telegram"></a>
+            <a href="#"><img src="facebook-logo.svg" alt="Facebook"></a>
+        </div>
+    </div>
+</div>
         
         <!-- В самом низу блок соцсетей, который стоит на одной линии у всей команды -->
         <div class="team-social" style="margin-top: auto; padding-top: 15px; display: flex; gap: 8px; align-items: center;">

@@ -1108,21 +1108,41 @@
         
     </div>
 </div>
-            <!-- Олена Воронцова -->
-            <div class="team-card">
-                <img src="vorontsova.webp" class="team-avatar" alt="Олена Воронцова">
-                <div class="team-details">
-                    <div class="team-text">
-                        <h3 data-i18n="team_member_2_name">Олена Воронцова</h3>
-                        <div class="role" data-i18n="team_member_2_role">Координатор Центру</div>
-                        <div class="desc" data-i18n="team_member_2_desc">Організація заходів, комунікація з учасниками та супровід програм.</div>
-                    </div>
-                    <div class="team-socials">
-                        <a href="#"><img src="telegram-logo.svg" alt="Telegram"></a>
-                        <a href="#"><img src="facebook-logo.svg" alt="Facebook"></a>
-                    </div>
-                </div>
-            </div>
+           <!-- Олена Воронцова -->
+<div class="team-card">
+    <img src="vorontsova.webp" class="team-avatar" alt="Олена Воронцова">
+    
+    <!-- Главный флекс-контейнер, растянутый на всю высоту карточки -->
+    <div class="team-details" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        
+        <!-- Блок текста с ссылкой "Детальніше" -->
+        <div class="team-text" style="display: flex; flex-direction: column;">
+            <h3 data-i18n="team_member_2_name">Олена Воронцова</h3>
+            <div class="role" data-i18n="team_member_2_role">Координатор Центру</div>
+            <div class="desc" data-i18n="team_member_2_desc" style="margin-bottom: 0px;">Організація заходів, комунікація з учасниками та супровід програм.</div>
+            
+            <!-- "Детальніше" выше соцсетей, шрифт уменьшен (11px), цвет голубой, отступ 25px -->
+            <a href="olena-profile.html" class="btn-more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 11px; font-weight: bold; margin-top: 25px;">
+                Детальніше
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+        
+        <!-- В самом низу блок соцсетей с SVG файлами -->
+        <div class="team-social" style="margin-top: auto; padding-top: 15px; display: flex; gap: 8px; align-items: center;">
+            <a href="#" class="social-link tg">
+                <img src="telegram-logo.svg" alt="Telegram" style="width: 16px; height: 16px; display: block;">
+            </a>
+            <a href="#" class="social-link fb">
+                <img src="facebook-logo.svg" alt="Facebook" style="width: 16px; height: 16px; display: block;">
+            </a>
+        </div>
+        
+    </div>
+</div>
 
             <!-- Олена Самородова -->
             <div class="team-card">

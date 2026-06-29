@@ -3,313 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Юліана Куранда-Коваль - UAGZ</title>
+    <title data-i18n="profile_juliana_title">Юліана Куранда-Коваль - Профіль</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --primary-blue: #002366;
-            --accent-blue: #1a56c4;
-            --light-blue: #e6f0ff;
-            --text-dark: #1a1a1a;
-            --text-muted: #4a4a4a;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Manrope', sans-serif; font-weight: 400; color: #111827; background-color: #fdfdfd; line-height: 1.6; }
+        
+        .container { max-width: 1000px; margin: 0 auto; width: 100%; padding: 0 24px; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 12px; }
+        
+        /* Кнопка Назад */
+        .back-nav { padding: 30px 0 10px 0; }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: #1a56c4; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
+        .btn-back:hover { transform: translateX(-4px); }
+
+        /* Главный блок профиля */
+        .profile-wrapper { display: grid; grid-template-columns: 320px 1fr; gap: 40px; padding: 30px 0 60px 0; }
+        
+        @media (max-width: 768px) {
+            .profile-wrapper { grid-template-columns: 1fr; gap: 30px; }
+            .profile-sidebar { display: flex; flex-direction: column; align-items: center; text-align: center; }
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 40px 20px;
-        }
+        .profile-avatar { width: 100%; aspect-ratio: 1/1; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        
+        /* Информация */
+        .profile-info h1 { font-size: 32px; font-weight: 800; color: #002366; margin-bottom: 8px; line-height: 1.2; }
+        .profile-role { font-size: 16px; font-weight: 700; color: #1a56c4; margin-bottom: 24px; }
+        
+        .profile-section { margin-bottom: 30px; }
+        .profile-section h2 { font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 12px; border-bottom: 2px solid #f3f4f6; padding-bottom: 6px; }
+        .profile-section p { font-size: 15px; color: #4b5563; margin-bottom: 12px; }
+        
+        /* Списки */
+        .profile-list { list-style: none; }
+        .profile-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 15px; color: #4b5563; }
+        .profile-list li::before { content: "•"; color: #1a56c4; font-weight: bold; font-size: 18px; position: absolute; left: 0; top: -2px; }
 
-        .profile-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Верхняя двухколоночная секция */
-        .profile-main {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 900px) {
-            .profile-main {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Главное фото слева */
-        .profile-photo-wrapper {
-            width: 100%;
-        }
-
-        .main-photo {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 20px;
-            display: block;
-        }
-
-        /* Информационная колонка справа */
-        .profile-info {
-            padding-top: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--light-blue);
-            color: var(--accent-blue);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
-
-        .profile-name {
-            font-size: 42px;
-            color: var(--primary-blue);
-            margin: 0 0 10px 0;
-            font-weight: 800;
-        }
-
-        .profile-role {
-            font-size: 20px;
-            color: var(--accent-blue);
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .bio-text p {
-            font-size: 14px;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-
-        /* Сетка инфоблоков (Освіта, Досвід...) */
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 35px;
-            border-top: 1px solid #eaeaea;
-            padding-top: 30px;
-        }
-
-        @media (max-width: 600px) {
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .detail-block {
-            margin-bottom: 10px;
-        }
-
-        .block-title-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .block-icon {
-            width: 24px;
-            height: 24px;
-            fill: var(--accent-blue);
-            flex-shrink: 0;
-        }
-
-        .block-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin: 0;
-        }
-
-        .detail-block ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .detail-block li {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 15px;
-            line-height: 1.5;
-        }
-
-        .detail-block li::before {
-            content: "•";
-            color: var(--accent-blue);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* Сетка галереи снизу */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 900px) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .gallery-item {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            border-radius: 15px;
-            display: block;
-        }
+        /* Соцсети в профиле */
+        .profile-socials { display: flex; gap: 12px; margin-top: 20px; }
+        .profile-socials a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #f3f4f6; border-radius: 50%; transition: all 0.2s; }
+        .profile-socials a:hover { background: #1a56c4; }
+        .profile-socials a:hover img { filter: brightness(0) invert(1); }
+        .profile-socials img { width: 18px; height: 18px; }
     </style>
 </head>
 <body>
 
-<div class="profile-container">
-    
-    <!-- ВЕРХНИЙ БЛОК: ФОТО + ОПИСАНИЕ -->
-    <main class="profile-main">
-        
-        <!-- Левая колонка: Главное фото -->
-        <div class="profile-photo-wrapper">
-            <img src="juliana_koval.png" alt="Юліана Куранда-Коваль" class="main-photo">
+    <div class="container">
+        <div class="back-nav">
+            <a href="family-center.html" class="btn-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span data-i18n="btn_back_to_center">Повернутися до Центру сім'ї</span>
+            </a>
         </div>
-        
-        <!-- Правая колонка: Данные и Биография -->
-        <div class="profile-info">
-            <div class="badge">Команда центру</div>
-            <h1 class="profile-name">Юліана Куранда-Коваль</h1>
-            <div class="profile-role">Керівник Центру сім'ї, молоді та спорту UAGZ</div>
+
+        <div class="profile-wrapper">
             
-            <div class="bio-text">
-                <p>Я — мама, волонтерка, організатор та людина, яка щиро вірить у силу добра, підтримки і єднання.</p>
-                <p>Моє головне натхнення — діти, молодь і можливість створювати для них середовище, де вони можуть розвиватися, мріяти та досягати своїх цілей.</p>
-                <p>З 2022 року я живу в Швейцарії та активно займаюся волонтерською діяльністю на підтримку України та української громади.</p>
-                <p>Організовую благодійні швейцарсько-українські вечори та культурні події, щоб збирати кошти для гуманітарної допомоги України.</p>
-                <p>Є активною учасницею волонтерських ініціатив, співпрацюю з місцевими організаціями та небайдужими людьми, щоб разом робити важливі справи та підтримувати тих, хто цього потребує.</p>
-                <p>Люблю дітей і завжди готова допомогти їм розкрити свій потенціал.</p>
-                <p>Вірю, що кожна дитина заслуговує на підтримку, увагу та можливості для розвитку.</p>
-                <p>Для мене Центр сім'ї, молоді та спорту UAGZ — це місце, де народжуються ідеї, дружба та майбутні перемоги.</p>
+            <div class="profile-sidebar">
+                <img src="juliana_koval.webp" class="profile-avatar" alt="Юліана Куранда-Коваль">
+                
+                <div class="profile-socials">
+                    <a href="#" class="tg-link"><img src="telegram-logo.svg" alt="Telegram"></a>
+                    <a href="#" class="fb-link"><img src="facebook-logo.svg" alt="Facebook"></a>
+                </div>
             </div>
             
-            <!-- ДЕТАЛЬНАЯ ИНФОРМАЦИЯ (ДВЕ КОЛОНКИ) -->
-            <div class="details-grid">
+            <div class="profile-info">
+                <h1 data-i18n="profile_juliana_name">Юліана Куранда-Коваль</h1>
+                <div class="profile-role" data-i18n="profile_juliana_role">Керівник Центру сім'ї, молоді та спорту UAGZ</div>
                 
-                <!-- Левая колонка блоков -->
-                <div class="left-details">
-                    <!-- Блок: Освіта -->
-                    <div class="detail-block" style="margin-bottom: 25px;">
-                        <div class="block-title-wrap">
-                            <svg class="block-icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-                            <h3 class="block-title">Освіта</h3>
-                        </div>
-                        <ul>
-                            <li>2000–2005 — Київський національний університет імені Тараса Григоровича Шевченка<br><span style="font-size:12px; color:#777;">Спеціальність: генетик, викладач біології</span></li>
-                            <li>1997–2000 — Медичний коледж</li>
-                        </ul>
-                    </div>
-
-                    <!-- Блок: Додаткова освіта -->
-                    <div class="detail-block" style="margin-bottom: 25px;">
-                        <div class="block-title-wrap">
-                            <svg class="block-icon" viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
-                            <h3 class="block-title">Додаткова освіта</h3>
-                        </div>
-                        <ul>
-                            <li>Digital Marketing</li>
-                        </ul>
-                    </div>
-
-                    <!-- Блок: Досвід -->
-                    <div class="detail-block">
-                        <div class="block-title-wrap">
-                            <svg class="block-icon" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-                            <h3 class="block-title">Досвід</h3>
-                        </div>
-                        <ul>
-                            <li>Багаторічний досвід підприємницької діяльності</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Правая колонка блоков -->
-                <div class="right-details">
-                    <!-- Блок: Волонтерська діяльність -->
-                    <div class="detail-block" style="margin-bottom: 25px;">
-                        <div class="block-title-wrap">
-                            <svg class="block-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            <h3 class="block-title">Волонтерська діяльність</h3>
-                        </div>
-                        <ul>
-                            <li>З 2022 року — Швейцарія</li>
-                            <li>Організатор благодійних швейцарсько-українських вечорів та культурних подій</li>
-                            <li>Збір коштів на підтримку України</li>
-                            <li>Активна учасниця волонтерських ініціатив та соціальних проектів</li>
-                        </ul>
-                    </div>
-
-                    <!-- Блок: Підхід -->
-                    <div class="detail-block" style="margin-bottom: 25px;">
-                        <div class="block-title-wrap">
-                            <svg class="block-icon" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                            <h3 class="block-title">Підхід</h3>
-                        </div>
-                        <ul>
-                            <li>Підтримка, розвиток, командна робота, турбота та любов до дітей</li>
-                        </ul>
-                    </div>
-
-                    <!-- Блок: Особисте -->
-                    <div class="detail-block">
-                        <div class="block-title-wrap">
-                            <svg class="block-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            <h3 class="block-title">Особисте</h3>
-                        </div>
-                        <ul>
-                            <li>Найбільше щастя — бути мамою своєї доньки та бачити, як діти ростуть щасливими</li>
-                        </ul>
-                    </div>
+                <div class="profile-section">
+                    <h2 data-i18n="profile_section_about">Про керівника</h2>
+                    <p data-i18n="profile_juliana_about_p1">Юліана Куранда-Коваль здійснює загальну координацію діяльності Центру сім'ї, молоді та спорту UAGZ. Під її керівництвом розробляються та впроваджуються ключові соціальні, спортивні та освітні програми, спрямовані на підтримку українських родин у Німеччині.</p>
+                    <p data-i18n="profile_juliana_about_p2">Вона активно займається розвитком стратегічних партнерств із місцевими та міжнародними організаціями, забезпечуючи високу якість роботи кожного напрямку центру.</p>
                 </div>
 
+                <div class="profile-section">
+                    <h2 data-i18n="profile_section_responsibilities">Основні напрямки діяльності</h2>
+                    <ul class="profile-list">
+                        <li data-i18n="profile_juliana_resp_1">Стратегічне планування та загальне керівництво всіма проектами Центру.</li>
+                        <li data-i18n="profile_juliana_resp_2">Координація роботи команди та взаємодія з партнерами проекту.</li>
+                        <li data-i18n="profile_juliana_resp_3">Розвиток інтеграційних програм, сімейних ініціатив та молодіжного сектору.</li>
+                        <li data-i18n="profile_juliana_resp_4">Забезпечення внутрішнього контролю якості проведення заходів.</li>
+                    </ul>
+                </div>
+
+                <div class="profile-section">
+                    <h2 data-i18n="profile_section_contacts">Контакти</h2>
+                    <p><strong>Email:</strong> juliana.koval@uagz.org</p>
+                    <p data-i18n="profile_section_work_hours"><strong>Графік прийому:</strong> Пн - Пт: 10:00 - 17:00</p>
+                </div>
             </div>
+
         </div>
-    </main>
+    </div>
 
-    <!-- НИЖНИЙ БЛОК: ГАЛЕРЕЯ ИЗ 5 ИЗОБРАЖЕНИЙ -->
-    <section class="gallery-grid">
-        <img src="gallery1.jpg" alt="Волонтерська подія UAGZ 1" class="gallery-item">
-        <img src="gallery2.jpg" alt="Волонтерська подія UAGZ 2" class="gallery-item">
-        <img src="gallery3.jpg" alt="Волонтерська подія UAGZ 3" class="gallery-item">
-        <img src="gallery4.jpg" alt="Волонтерська подія UAGZ 4" class="gallery-item">
-        <img src="gallery5.jpg" alt="Волонтерська подія UAGZ 5" class="gallery-item">
-    </section>
-
-</div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
+        // Если на основном сайте у вас настроен вызов функции перевода (applyTranslations), скрипт подтянет языковые ключи.
+    });
+    </script>
 
 </body>
 </html>

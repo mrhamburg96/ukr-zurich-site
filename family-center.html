@@ -1074,31 +1074,35 @@
         <div class="team-grid">
             
          <!-- Юліана Куранда-Коваль -->
-<div class="team-card" style="display: flex; gap: 20px; align-items: stretch; margin-bottom: 30px;">
+<div class="team-card">
+    <img src="juliana.webp" class="team-avatar" alt="Юліана Куранда-Коваль">
     
-    <!-- Фото остается на своем месте -->
-    <img src="juliana.webp" class="team-avatar" alt="Юліана Куранда-Коваль" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; flex-shrink: 0;">
-    
-    <!-- Контейнер с текстом: выстраивает элементы вертикально и прижимает ссылку к самому низу -->
-    <div class="team-details" style="display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; padding: 5px 0;">
+    <!-- Добавляем флекс-колонку, чтобы заставить внутренности тянуться вниз -->
+    <div class="team-details" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        
         <div class="team-text">
-            <h3 data-i18n="team_member_1_name" style="margin: 0 0 5px 0; font-size: 18px; color: #002366; font-weight: bold;">Юліана Куранда-Коваль</h3>
-            <div class="role" data-i18n="team_member_1_role" style="font-size: 14px; color: #1a56c4; font-weight: 600; margin-bottom: 8px;">Керівник Центру сім'ї, молоді та спорту UAGZ</div>
-            <div class="desc" data-i18n="team_member_1_desc" style="font-size: 13px; color: #4a4a4a; line-height: 1.5; margin-bottom: 10px;">Загальна координація роботи центру, розвиток програм та партнерств.</div>
+            <h3 data-i18n="team_member_1_name">Юліана Куранда-Коваль</h3>
+            <div class="role" data-i18n="team_member_1_role">Керівник Центру сім'ї, молоді та спорту UAGZ</div>
+            <div class="desc" data-i18n="team_member_1_desc" style="margin-bottom: 10px;">Загальна координація роботи центру, розвиток програм та партнерств.</div>
+            
+            <!-- Ссылка: аккуратная, маленькая, со стрелочкой, строго внизу текста -->
+            <a href="juliana-profile.html" class="btn-more" data-i18n="btn_read_more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 13px; font-weight: bold; margin-top: 5px;">
+                Детальніше
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
         </div>
         
-        <!-- Ссылка «Детальніше»: маленькая, голубая, со стрелочкой, строго внизу -->
-        <a href="juliana-profile.html" class="btn-more" data-i18n="btn_read_more" style="display: inline-flex; align-items: center; gap: 4px; color: #1a56c4; text-decoration: none; font-size: 13px; font-weight: bold; width: fit-content; margin-top: auto;">
-            Детальніше
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-        </a>
+        <!-- ВОЗВРАЩАЕМ ИКОНКИ СОЦСЕТЕЙ НА МЕСТО -->
+        <div class="team-social" style="margin-top: auto; padding-top: 10px;">
+            <a href="#" class="social-link tg"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="social-link fb"><i class="fab fa-facebook"></i></a>
+        </div>
+        
     </div>
-
 </div>
-
             <!-- Олена Воронцова -->
             <div class="team-card">
                 <img src="vorontsova.webp" class="team-avatar" alt="Олена Воронцова">

@@ -147,5 +147,19 @@
   "team_member_3_desc": "Organisation von kreativen Aktivitäten, Vorbereitung von Auftritten und Arbeit mit Kindern.",
   "team_member_4_name": "Vadym Lepskyi",
   "team_member_4_role": "Trainer, Koordinator der Schwimmprogramme für Kinder und Jugendliche",
-  "team_member_4_desc": "Durchführung von Trainings und Entwicklung der Sportprogramme des Zentrums."
+  "team_member_4_desc": "Durchführung von Trainings und Entwicklung der Sportprogramme des Zentrums.",
+  "modal_title": "Anmeldung zum Familienkreis",
+  "modal_subtitle": "Bitte füllen Sie das Formular aus, um der UAGZ-Gemeinschaft beizutreten",
+  "modal_date": "Datum",
+  "modal_name": "Name",
+  "modal_name_placeholder": "Ihr Vor- oder Nachname",
+  "modal_phone": "Telefon",
+  "modal_phone_placeholder": "+41 XX XXX XX XX",
+  "modal_kids_count": "Anzahl der Kinder",
+  "modal_girls_info": "Anzahl der Kinder (Mädchen, Alter)",
+  "modal_girls_placeholder": "Z.B.: 1 Mädchen (7 Jahre), 1 Mädchen (12 Jahre)",
+  "modal_boys_info": "Anzahl der Kinder (Junge, Alter)",
+  "modal_boys_placeholder": "Z.B.: 1 Junge (5 Jahre)",
+  "modal_submit": "Anmeldung absenden",
+  "form_success": "Vielen Dank! Ihre Anmeldung wurde erfolgreich übermittelt."
 }

@@ -39,12 +39,11 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-        /* === ГЛАВНИЙ БАННЕР СЕКЦІЇ (Точна копія 1:1) === */
+        /* === ГЛАВНИЙ БАННЕР СЕКЦІЇ === */
         .hero-section { background-color: #ffffff; overflow: hidden; position: relative; }
         .hero-grid { display: grid; grid-template-columns: 1.1fr 1.9fr; align-items: center; min-height: 420px; }
 
-        /* Текстовий контент зліва */
-        .hero-content { padding: 40px 0 40px 0; position: relative; z-index: 10; max-width: 480px; }
+        .hero-content { padding: 40px 0; position: relative; z-index: 10; max-width: 480px; }
         
         .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #9ca3af; margin-bottom: 24px; }
         .breadcrumbs a { color: #4b5563; text-decoration: none; }
@@ -57,11 +56,9 @@
         .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(26,86,196,0.2); transition: background 0.2s, transform 0.2s; }
         .btn-primary:hover { background-color: #13439c; transform: translateY(-1px); }
 
-        /* Графічна зона справа */
         .hero-image-wrapper { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-end; }
         .hero-img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; object-position: center right; }
 
-        /* Ефект плавного розмиття лівого краю картинки від 0 до чіткості */
         .hero-image-wrapper::before {
             content: '';
             position: absolute;
@@ -84,6 +81,46 @@
         .feature-text h3 { font-size: 16px; font-weight: 700; color: #002366; margin-bottom: 4px; }
         .feature-text p { font-size: 13.5px; color: #6b7280; font-weight: 500; line-height: 1.4; }
 
+        /* === СЕКЦІЯ: НАПРЯМКИ ДІЯЛЬНОСТІ === */
+        .content-section { padding: 60px 0; background-color: #ffffff; }
+        .section-title { font-size: 28px; font-weight: 800; color: #002366; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .section-intro { font-size: 15px; color: #4b5563; margin-bottom: 40px; max-width: 800px; }
+
+        .directions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        
+        .direction-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 30px; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+        .direction-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); }
+        
+        .card-icon-title { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+        .card-icon { width: 40px; height: 40px; background-color: #f0f5ff; color: #1a56c4; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .card-icon svg { width: 22px; height: 22px; }
+        
+        .direction-card h3 { font-size: 18px; font-weight: 700; color: #111827; }
+        .direction-card p { font-size: 14.5px; color: #4b5563; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+
+        /* Список послуг всередині картки */
+        .services-list { list-style: none; margin-bottom: 24px; }
+        .services-list li { font-size: 14px; color: #374151; padding-left: 20px; position: relative; margin-bottom: 10px; font-weight: 500; }
+        .services-list li::before { content: "→"; color: #1a56c4; position: absolute; left: 0; font-weight: 700; }
+
+        /* Кнопка всередині картки */
+        .btn-secondary { display: inline-flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: #111827; font-size: 14px; font-weight: 700; padding: 12px 20px; border-radius: 8px; text-decoration: none; transition: background 0.2s; margin-top: auto; }
+        .btn-secondary:hover { background-color: #e5e7eb; }
+
+        /* === МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ === */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 23, 102, 0.4); backdrop-filter: blur(4px); justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
+        .modal-content { background: #ffffff; padding: 40px; border-radius: 16px; max-width: 450px; width: 100%; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 28px; color: #9ca3af; cursor: pointer; background: none; border: none; line-height: 1; }
+        .close-modal:hover { color: #111827; }
+        .modal h2 { font-size: 24px; font-weight: 800; color: #002366; margin-bottom: 10px; }
+        .modal p { font-size: 14px; color: #4b5563; margin-bottom: 24px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 6px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: inherit; font-size: 14px; color: #111827; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: #1a56c4; box-shadow: 0 0 0 3px rgba(26,86,196,0.1); }
+        .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; border: none; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        .btn-submit:hover { background-color: #13439c; }
+
         /* Адаптивність */
         @media (max-width: 1024px) {
             .hero-grid { grid-template-columns: 1fr; min-height: auto; }
@@ -92,6 +129,7 @@
             .hero-image-wrapper { justify-content: center; height: 300px; }
             .hero-image-wrapper::before { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 30%); }
             .features-grid { grid-template-columns: 1fr; gap: 24px; }
+            .directions-grid { grid-template-columns: 1fr; gap: 20px; }
             .nav-menu { display: none; }
         }
     </style>
@@ -159,7 +197,7 @@
                     <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
                     <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
                     
-                    <a href="#programs" class="btn-primary" data-i18n="btn_join_programs">Приєднатися до програм</a>
+                    <a href="#programs" class="btn-primary" id="openConsultationHero" data-i18n="btn_join_programs">Приєднатися до програм</a>
                 </div>
 
                 <div class="hero-image-wrapper">
@@ -208,11 +246,173 @@
         </div>
     </section>
 
+    <section class="content-section" id="programs">
+        <div class="container">
+            <h2 class="section-title" data-i18n="int_sec_title">Напрямки діяльності Інтеграційного центру</h2>
+            <p class="section-intro" data-i18n="int_sec_intro">Ми створили комплексне середовище для підтримки українців на кожному етапі інтеграції. Наші програми розроблені з урахуванням реальних потреб та вимог законодавства Швейцарії.</p>
+            
+            <div class="directions-grid">
+                
+                <div class="direction-card">
+                    <div class="card-icon-title">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3 data-i18n="int_card1_title">Мовна адаптація</h3>
+                    </div>
+                    <p data-i18n="int_card1_desc">Подолання мовного бар'єру — це перший та найважливіший крок до успішної інтеграції в суспільство та на ринок праці.</p>
+                    <ul class="services-list">
+                        <li data-i18n="int_card1_li1">Курси німецької мови різних рівнів (A1-B2)</li>
+                        <li data-i18n="int_card1_li2">Розмовні клуби з носіями мови</li>
+                        <li data-i18n="int_card1_li3">Спеціалізовані курси ділової мови</li>
+                    </ul>
+                    <a href="#" class="btn-secondary open-modal-trigger" data-program="Мовна адаптація" data-i18n="btn_register">Записатися</a>
+                </div>
+
+                <div class="direction-card">
+                    <div class="card-icon-title">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3 data-i18n="int_card2_title">Юридична та соціальна підтримка</h3>
+                    </div>
+                    <p data-i18n="int_card2_desc">Фахові консультації з адміністративних, юридичних та щоденних життєвих питань у Швейцарії.</p>
+                    <ul class="services-list">
+                        <li data-i18n="int_card2_li1">Допомога з оформленням офіційних документів</li>
+                        <li data-i18n="int_card2_li2">Консультації щодо медичного страхування</li>
+                        <li data-i18n="int_card2_li3">Роз'яснення прав та обов'язків мігрантів</li>
+                    </ul>
+                    <a href="#" class="btn-secondary open-modal-trigger" data-program="Юридична та соціальна підтримка" data-i18n="btn_register">Записатися</a>
+                </div>
+
+                <div class="direction-card">
+                    <div class="card-icon-title">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <h3 data-i18n="int_card3_title">Професійна інтеграція</h3>
+                    </div>
+                    <p data-i18n="int_card3_desc">Сприяння у пошуку роботи, підготовці документів та побудові успішної кар'єри на місцевому ринку праці.</p>
+                    <ul class="services-list">
+                        <li data-i18n="int_card3_li1">Складання резюме (CV) за швейцарськими стандартами</li>
+                        <li data-i18n="int_card3_li2">Підготовка до співбесід</li>
+                        <li data-i18n="int_card3_li3">Процедура визначення дипломів та кваліфікацій</li>
+                    </ul>
+                    <a href="#" class="btn-secondary open-modal-trigger" data-program="Професійна інтеграція" data-i18n="btn_register">Записатися</a>
+                </div>
+
+                <div class="direction-card">
+                    <div class="card-icon-title">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line></svg>
+                        </div>
+                        <h3 data-i18n="int_card4_title">Культурний обмін та дозвілля</h3>
+                    </div>
+                    <p data-i18n="int_card4_desc">Створення містків між культурами через спільні освітні, творчі заходи та цікаві зустрічі.</p>
+                    <ul class="services-list">
+                        <li data-i18n="int_card4_li1">Інформаційні семінари про культуру Швейцарії</li>
+                        <li data-i18n="int_card4_li2">Творчі майстер-класи та сімейні зустрічі</li>
+                        <li data-i18n="int_card4_li3">Екскурсійні програми містом Цюрих</li>
+                    </ul>
+                    <a href="#" class="btn-secondary open-modal-trigger" data-program="Культурний обмін та дозвілля" data-i18n="btn_register">Записатися</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="consultationModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 id="modalTitle">Записатися на консультацію</h2>
+            <p>Залиште ваші контакти, і координатор програми зв'яжеться з вами найближчим часом.</p>
+            
+            <form id="consultationForm">
+                <input type="hidden" id="selectedProgram" name="program" value="">
+                <div class="form-group">
+                    <label for="clientName">Ваше ім'я та прізвище</label>
+                    <input type="text" id="clientName" required placeholder="Іван Іванов">
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Номер телефону</label>
+                    <input type="tel" id="clientPhone" required placeholder="+41 XX XXX XX XX">
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail" required placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label for="preferredLang">Бажана мова спілкування</label>
+                    <select id="preferredLang">
+                        <option value="Українська">Українська</option>
+                        <option value="Німецька">Німецька (Deutsch)</option>
+                        <option value="Англійська">Англійська (English)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Надіслати заявку</button>
+            </form>
+        </div>
+    </div>
+
     <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Локалізація
         const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
         if (typeof applyTranslations === 'function') {
             applyTranslations(savedLang);
+        }
+
+        // Логіка модального вікна
+        const modal = document.getElementById("consultationModal");
+        const closeModalBtn = document.getElementById("closeModal");
+        const form = document.getElementById("consultationForm");
+        const programInput = document.getElementById("selectedProgram");
+        const modalTitle = document.getElementById("modalTitle");
+
+        // Відкриття з головної кнопки Hero
+        const heroBtn = document.getElementById("openConsultationHero");
+        if (heroBtn) {
+            heroBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                modalTitle.textContent = "Записатися на програму";
+                programInput.value = "Загальний запит з банера";
+                modal.style.display = "flex";
+            });
+        }
+
+        // Відкриття з карток напрямків
+        const cardsButtons = document.querySelectorAll(".open-modal-trigger");
+        cardsButtons.forEach(button => {
+            button.addEventListener("click", function(e) {
+                e.preventDefault();
+                const programName = this.getAttribute("data-program");
+                modalTitle.textContent = `Запис: ${programName}`;
+                programInput.value = programName;
+                modal.style.display = "flex";
+            });
+        });
+
+        // Закриття вікна
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        }
+
+        window.addEventListener("click", function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Сабміт форми
+        if (form) {
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                alert("Дякуємо! Вашу заявку успішно надіслано. Координатор центру зв'яжеться з вами.");
+                form.reset();
+                modal.style.display = "none";
+            });
         }
     });
     </script>

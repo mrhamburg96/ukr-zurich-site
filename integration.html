@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="integration_title">Інтеграційний центр UAGZ</title>
-    <!-- Подключение шрифта Manrope из общего проекта -->
+    <!-- Подключение шрифта Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Базовые стили сброса */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Manrope', sans-serif; color: #111827; background-color: #ffffff; line-height: 1.5; }
         
@@ -20,25 +19,24 @@
         .main-header { background: #ffffff; padding: 15px 0; border-bottom: 1px solid #f3f4f6; }
         .header-container { display: flex; align-items: center; justify-content: space-between; }
         
-        /* Логитипная группа */
         .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        
+        /* Стилизация встроенных SVG-флагов */
         .logo-images { display: flex; align-items: center; gap: 6px; }
-        .logo-images img { height: 24px; width: auto; }
+        .logo-images svg { width: 24px; height: 18px; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        
         .logo-text { font-size: 28px; font-weight: 800; color: #002366; letter-spacing: -0.5px; }
         .logo-slogan { font-size: 11px; font-weight: 600; color: #1a56c4; max-width: 200px; line-height: 1.3; border-left: 1px solid #e5e7eb; padding-left: 10px; margin-left: 4px; }
 
-        /* Навигация */
         .nav-menu { display: flex; align-items: center; gap: 20px; list-style: none; }
         .nav-menu a { font-size: 13px; font-weight: 700; color: #111827; text-decoration: none; transition: color 0.2s; padding: 6px 0; position: relative; }
         .nav-menu a:hover, .nav-menu a.active { color: #1a56c4; }
         .nav-menu a.active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #1a56c4; border-radius: 2px; }
 
-        /* Правый блок действий */
         .header-actions { display: flex; align-items: center; gap: 12px; }
         .btn-donate { display: inline-flex; align-items: center; gap: 6px; background-color: #ffcc00; color: #111827; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
         .btn-donate:hover { background-color: #e6b800; }
         
-        /* Переключатель языков */
         .lang-switcher { display: flex; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; }
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
@@ -46,62 +44,60 @@
         /* === ГЛАВНЫЙ БАННЕР СЕКЦИИ === */
         .hero-section { 
             position: relative; 
-            background-image: url('integration-banner.webp'); 
+            /* Если integration-banner.webp лежит в той же папке, раскомментируйте строку ниже, а тестовую удалите */
+            /* background-image: url('integration-banner.webp'); */
+            background-image: url('https://picsum.photos/id/201/1920/1080'); /* Временная заглушка, чтобы баннер не был белым */
             background-size: cover; 
-            background-position: right center; 
+            background-position: center right; 
             background-repeat: no-repeat;
-            min-height: 540px;
+            min-height: 560px;
             display: flex;
             align-items: center;
         }
 
-        /* Мягкий градиентный перенос слева направо для читаемости текста */
+        /* Плавный градиент для сохранения читаемости текста поверх фото */
         .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 60%;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,1) 65%, rgba(255,255,255,0.9) 80%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(to right, rgba(255,255,255,1) 40%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0) 85%);
             z-index: 1;
         }
 
         .hero-container { position: relative; z-index: 2; width: 100%; }
-        .hero-content { max-width: 480px; padding: 40px 0; }
+        .hero-content { max-width: 520px; padding: 50px 0; }
 
-        /* Хлебные крошки */
         .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #9ca3af; margin-bottom: 24px; }
         .breadcrumbs a { color: #4b5563; text-decoration: none; }
         .breadcrumbs a:hover { color: #1a56c4; }
         .breadcrumbs span.active { color: #9ca3af; }
 
-        /* Заголовок и подзаголовок */
         .hero-content h1 { font-size: 44px; font-weight: 800; color: #002366; line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.5px; }
         .hero-description { font-size: 16px; font-weight: 500; color: #374151; line-height: 1.6; margin-bottom: 32px; }
 
-        /* Кнопка действия */
         .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(26,86,196,0.2); transition: background 0.2s, transform 0.2s; }
         .btn-primary:hover { background-color: #13439c; transform: translateY(-1px); }
 
-        /* === НИЖНИЕ ПРЕИМУЩЕСТВА (ТРИГГЕРЫ) === */
-        .features-bar { background-color: #ffffff; padding: 24px 0; border-bottom: 1px solid #f3f4f6; }
+        /* === НИЖНИЕ ПРЕИМУЩЕСТВА === */
+        .features-bar { background-color: #ffffff; padding: 35px 0; border-bottom: 1px solid #f3f4f6; }
         .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         
         .feature-item { display: flex; align-items: flex-start; gap: 14px; }
         .feature-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex-shrink: 0; color: #1a56c4; }
         .feature-icon svg { width: 100%; height: 100%; }
         
-        .feature-text h3 { font-size: 15px; font-weight: 700; color: #002366; margin-bottom: 4px; }
-        .feature-text p { font-size: 13px; color: #6b7280; font-weight: 500; line-height: 1.4; }
+        .feature-text h3 { font-size: 16px; font-weight: 700; color: #002366; margin-bottom: 4px; }
+        .feature-text p { font-size: 13.5px; color: #6b7280; font-weight: 500; line-height: 1.4; }
 
-        /* Адаптивность для мобильных */
         @media (max-width: 1024px) {
-            .hero-section::before { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.95) 100%, rgba(255,255,255,0.85) 100%); }
+            .hero-section::before { background: linear-gradient(to bottom, rgba(255,255,255,0.95) 100%, rgba(255,255,255,0.85) 100%); }
             .hero-content { max-width: 100%; text-align: center; }
             .breadcrumbs { justify-content: center; }
-            .features-grid { grid-template-columns: 1fr; gap: 20px; }
-            .nav-menu { display: none; } /* Для продакшена тут обычно бургер-меню */
+            .features-grid { grid-template-columns: 1fr; gap: 24px; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
@@ -111,14 +107,23 @@
     <header class="main-header">
         <div class="container header-container">
             
-            <!-- Логотип UAGZ -->
+            <!-- Логотип UAGZ с вечными встроенными SVG флагами -->
             <a href="index.html" class="logo-group">
                 <div class="logo-images">
-                    <img src="ua-flag.svg" alt="UA">
-                    <img src="ch-flag.svg" alt="CH">
+                    <!-- Флаг Украины -->
+                    <svg viewBox="0 0 3 2">
+                        <rect width="3" height="1" fill="#0057B7"/>
+                        <rect y="1" width="3" height="1" fill="#FFDD00"/>
+                    </svg>
+                    <!-- Флаг Швейцарии -->
+                    <svg viewBox="0 0 1 1">
+                        <rect width="1" height="1" fill="#D81E05"/>
+                        <rect x="0.4" y="0.2" width="0.2" height="0.6" fill="#FFFFFF"/>
+                        <rect x="0.2" y="0.4" width="0.6" height="0.2" fill="#FFFFFF"/>
+                    </svg>
                 </div>
                 <div class="logo-text">UAGZ</div>
-                <div class="logo-slogan" data-i18n="header_slogan">Український інтеграційний та громадський центр Цюриха</div>
+                <div class="logo-slogan" data-i18n="header_slogan">Український інтеграційний та громадський中心 Цюриха</div>
             </a>
 
             <!-- Навигация -->
@@ -134,7 +139,7 @@
                 </ul>
             </nav>
 
-            <!-- Кнопки действий -->
+            <!-- Действия -->
             <div class="header-actions">
                 <a href="donate.html" class="btn-donate">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -149,12 +154,11 @@
         </div>
     </header>
 
-    <!-- ОСНОВНОЙ БАННЕР СЕКЦИИ -->
+    <!-- ГЛАВНЫЙ БАННЕР СЕКЦИИ -->
     <section class="hero-section">
         <div class="container hero-container">
             <div class="hero-content">
                 
-                <!-- Хлебные крошки -->
                 <div class="breadcrumbs">
                     <a href="index.html" data-i18n="bc_home">Головна</a>
                     <span>&gt;</span>
@@ -163,7 +167,6 @@
                     <span class="active" data-i18n="bc_current">Інтеграційний центр UAGZ</span>
                 </div>
 
-                <!-- Контент -->
                 <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
                 <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
                 
@@ -178,10 +181,8 @@
         <div class="container">
             <div class="features-grid">
                 
-                <!-- Точка 1: Локация -->
                 <div class="feature-item">
                     <div class="feature-icon">
-                        <!-- Иконка гео-маркера -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div class="feature-text">
@@ -190,10 +191,8 @@
                     </div>
                 </div>
 
-                <!-- Точка 2: Миссия -->
                 <div class="feature-item">
                     <div class="feature-icon">
-                        <!-- Иконка рукопожатия / сердца -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     </div>
                     <div class="feature-text">
@@ -202,10 +201,8 @@
                     </div>
                 </div>
 
-                <!-- Точка 3: Для кого -->
                 <div class="feature-item">
                     <div class="feature-icon">
-                        <!-- Иконка группы людей -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
                     <div class="feature-text">
@@ -217,8 +214,6 @@
             </div>
         </div>
     </section>
-
-    <!-- СЮДА ДАЛЬШЕ БУДЕМ ДОБАВЛЯТЬ БЛОКИ -->
 
     <!-- Скрипт мультиязычности -->
     <script>

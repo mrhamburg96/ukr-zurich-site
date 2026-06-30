@@ -41,19 +41,19 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-        /* === ГЛАВНЫЙ БАННЕР СЕКЦИИ === */
-        .hero-section { 
-            position: relative; 
-            /* Если integration-banner.webp лежит в той же папке, раскомментируйте строку ниже, а тестовую удалите */
-            /* background-image: url('integration-banner.webp'); */
-            background-image: url('https://picsum.photos/id/201/1920/1080'); /* Временная заглушка, чтобы баннер не был белым */
-            background-size: cover; 
-            background-position: center right; 
-            background-repeat: no-repeat;
-            min-height: 560px;
-            display: flex;
-            align-items: center;
-        }
+       /* === ГЛАВНЫЙ БАННЕР СЕКЦИИ === */
+.hero-section { 
+    position: relative; 
+    /* Проверьте, чтобы имя файла в кавычках ТОЧНО совпадало с именем на GitHub */
+    background-image: url('integration-banner.webp'); 
+    background-size: cover; 
+    background-position: center right; 
+    background-repeat: no-repeat;
+    background-color: #002366; /* Темный фон-подстраховка, пока грузится картинка */
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+}
 
         /* Плавный градиент для сохранения читаемости текста поверх фото */
         .hero-section::before {

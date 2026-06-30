@@ -42,30 +42,32 @@
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
        /* === ГЛАВНЫЙ БАННЕР СЕКЦИИ === */
-.hero-section { 
+         .hero-section { 
     position: relative; 
-    /* Проверьте, чтобы имя файла в кавычках ТОЧНО совпадало с именем на GitHub */
     background-image: url('integration-banner.webp'); 
-    background-size: cover; 
-    background-position: center right; 
+    /* contain гарантирует, что картинка уменьшится пропорционально и влезет ВСЯ */
+    background-size: contain; 
+    background-position: right center; 
     background-repeat: no-repeat;
-    background-color: #002366; /* Темный фон-подстраховка, пока грузится картинка */
-    min-height: 560px;
+    background-color: #ffffff; 
+    /* Уменьшаем высоту баннера, чтобы соответствовать пропорциям макета */
+    min-height: 460px; 
     display: flex;
     align-items: center;
 }
 
-        /* Плавный градиент для сохранения читаемости текста поверх фото */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,1) 40%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0) 85%);
-            z-index: 1;
-        }
+        /* Смещаем градиент чуть правее, чтобы он мягко размывал край уменьшенного фото, как на Screenshot_2_2.jpg */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Градиент теперь начинается позже, оставляя больше пространства для уменьшенных людей в кадре */
+    background: linear-gradient(to right, rgba(255,255,255,1) 35%, rgba(255,255,255,0.8) 48%, rgba(255,255,255,0) 65%);
+    z-index: 1;
+}
 
         .hero-container { position: relative; z-index: 2; width: 100%; }
         .hero-content { max-width: 520px; padding: 50px 0; }

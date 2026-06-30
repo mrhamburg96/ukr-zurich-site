@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="integration_title">Інтеграційний центр UAGZ</title>
-    <!-- Подключение шрифта Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* Базове скидання стилів */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Manrope', sans-serif; color: #111827; background-color: #ffffff; line-height: 1.5; }
         
         .container { max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 24px; }
 
-        /* === ХЕДЕР (ШАПКА САЙТА) === */
+        /* === ХЕДЕР (ШАПКА) === */
         .main-header { background: #ffffff; padding: 15px 0; border-bottom: 1px solid #f3f4f6; }
         .header-container { display: flex; align-items: center; justify-content: space-between; }
         
         .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        
-        /* Стилизация встроенных SVG-флагов */
         .logo-images { display: flex; align-items: center; gap: 6px; }
         .logo-images svg { width: 24px; height: 18px; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         
@@ -41,66 +39,42 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-       /* === ГЛАВНЫЙ БАННЕР СЕКЦИИ === */
-.hero-section { 
-    position: relative; 
-    background-image: url('integration-banner.webp'); 
-    /* Картинка занимает 70% ширины и 100% высоты блока */
-    background-size: 70% 100%; 
-    background-position: right center; 
-    background-repeat: no-repeat;
-    background-color: #ffffff; 
-    
-    /* Управляем высотой баннера (сделали компактнее) */
-    min-height: 420px; 
-    display: flex;
-    align-items: center;
+        /* === ГЛАВНИЙ БАННЕР СЕКЦІЇ (Точна копія 1:1) === */
+        .hero-section { background-color: #ffffff; overflow: hidden; position: relative; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 1.9fr; align-items: center; min-height: 420px; }
 
-    /* Эффект проявления левого края: от прозрачного (0) к полной чёткости */
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 25%, rgba(0,0,0,1) 50%);
-    mask-image: linear-gradient(to right, rgba(0,0,0,0) 25%, rgba(0,0,0,1) 50%);
-}
-
-/* Этот блок отвечает за то, чтобы текст слева отлично читался */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Мягкая белая подложка под текст, которая уходит в прозрачность к центру */
-    background: linear-gradient(to right, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 60%);
-    z-index: 1;
-}
-
-/* Ограничиваем контент, чтобы он красиво накладывался на картинку */
-.hero-container { 
-    position: relative; 
-    z-index: 2; 
-    width: 100%; 
-}
-.hero-content { 
-    max-width: 550px; /* Текст может заходить чуть дальше на изображение */
-    padding: 30px 0; 
-}
-
-        .hero-container { position: relative; z-index: 2; width: 100%; }
-        .hero-content { max-width: 520px; padding: 50px 0; }
-
+        /* Текстовий контент зліва */
+        .hero-content { padding: 40px 0 40px 0; position: relative; z-index: 10; max-width: 480px; }
+        
         .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #9ca3af; margin-bottom: 24px; }
         .breadcrumbs a { color: #4b5563; text-decoration: none; }
         .breadcrumbs a:hover { color: #1a56c4; }
         .breadcrumbs span.active { color: #9ca3af; }
 
-        .hero-content h1 { font-size: 44px; font-weight: 800; color: #002366; line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.5px; }
+        .hero-content h1 { font-size: 42px; font-weight: 800; color: #002366; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px; }
         .hero-description { font-size: 16px; font-weight: 500; color: #374151; line-height: 1.6; margin-bottom: 32px; }
 
         .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(26,86,196,0.2); transition: background 0.2s, transform 0.2s; }
         .btn-primary:hover { background-color: #13439c; transform: translateY(-1px); }
 
-        /* === НИЖНИЕ ПРЕИМУЩЕСТВА === */
-        .features-bar { background-color: #ffffff; padding: 35px 0; border-bottom: 1px solid #f3f4f6; }
+        /* Графічна зона справа */
+        .hero-image-wrapper { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-end; }
+        .hero-img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; object-position: center right; }
+
+        /* Ефект плавного розмиття лівого краю картинки від 0 до чіткості */
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%);
+            z-index: 2;
+        }
+
+        /* === ПАНЕЛЬ ПЕРЕВАГ === */
+        .features-bar { background-color: #ffffff; padding: 35px 0; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; }
         .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         
         .feature-item { display: flex; align-items: flex-start; gap: 14px; }
@@ -110,10 +84,13 @@
         .feature-text h3 { font-size: 16px; font-weight: 700; color: #002366; margin-bottom: 4px; }
         .feature-text p { font-size: 13.5px; color: #6b7280; font-weight: 500; line-height: 1.4; }
 
+        /* Адаптивність */
         @media (max-width: 1024px) {
-            .hero-section::before { background: linear-gradient(to bottom, rgba(255,255,255,0.95) 100%, rgba(255,255,255,0.85) 100%); }
-            .hero-content { max-width: 100%; text-align: center; }
+            .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+            .hero-content { max-width: 100%; text-align: center; padding: 40px 0 20px 0; }
             .breadcrumbs { justify-content: center; }
+            .hero-image-wrapper { justify-content: center; height: 300px; }
+            .hero-image-wrapper::before { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 30%); }
             .features-grid { grid-template-columns: 1fr; gap: 24px; }
             .nav-menu { display: none; }
         }
@@ -121,19 +98,15 @@
 </head>
 <body>
 
-    <!-- ХЕДЕР САЙТА -->
     <header class="main-header">
         <div class="container header-container">
             
-            <!-- Логотип UAGZ с вечными встроенными SVG флагами -->
             <a href="index.html" class="logo-group">
                 <div class="logo-images">
-                    <!-- Флаг Украины -->
                     <svg viewBox="0 0 3 2">
                         <rect width="3" height="1" fill="#0057B7"/>
                         <rect y="1" width="3" height="1" fill="#FFDD00"/>
                     </svg>
-                    <!-- Флаг Швейцарии -->
                     <svg viewBox="0 0 1 1">
                         <rect width="1" height="1" fill="#D81E05"/>
                         <rect x="0.4" y="0.2" width="0.2" height="0.6" fill="#FFFFFF"/>
@@ -141,10 +114,9 @@
                     </svg>
                 </div>
                 <div class="logo-text">UAGZ</div>
-                <div class="logo-slogan" data-i18n="header_slogan">Український інтеграційний та громадський中心 Цюриха</div>
+                <div class="logo-slogan" data-i18n="header_slogan">Український інтеграційний та громадський центр Цюриха</div>
             </a>
 
-            <!-- Навигация -->
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
@@ -157,7 +129,6 @@
                 </ul>
             </nav>
 
-            <!-- Действия -->
             <div class="header-actions">
                 <a href="donate.html" class="btn-donate">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -172,29 +143,33 @@
         </div>
     </header>
 
-    <!-- ГЛАВНЫЙ БАННЕР СЕКЦИИ -->
     <section class="hero-section">
-        <div class="container hero-container">
-            <div class="hero-content">
+        <div class="container">
+            <div class="hero-grid">
                 
-                <div class="breadcrumbs">
-                    <a href="index.html" data-i18n="bc_home">Головна</a>
-                    <span>&gt;</span>
-                    <a href="about.html" data-i18n="bc_centers">Наші центри</a>
-                    <span>&gt;</span>
-                    <span class="active" data-i18n="bc_current">Інтеграційний центр UAGZ</span>
+                <div class="hero-content">
+                    <div class="breadcrumbs">
+                        <a href="index.html" data-i18n="bc_home">Головна</a>
+                        <span>&gt;</span>
+                        <a href="about.html" data-i18n="bc_centers">Наші центри</a>
+                        <span>&gt;</span>
+                        <span class="active" data-i18n="bc_current">Інтеграційний центр UAGZ</span>
+                    </div>
+
+                    <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
+                    <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
+                    
+                    <a href="#programs" class="btn-primary" data-i18n="btn_join_programs">Приєднатися до програм</a>
                 </div>
 
-                <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
-                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
-                
-                <a href="#programs" class="btn-primary" data-i18n="btn_join_programs">Приєднатися до програм</a>
-                
+                <div class="hero-image-wrapper">
+                    <img src="integration-banner.webp" class="hero-img" alt="Integration Banner">
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- НИЖНЯЯ ПАНЕЛЬ С ПРЕИМУЩЕСТВАМИ -->
     <section class="features-bar">
         <div class="container">
             <div class="features-grid">
@@ -233,7 +208,6 @@
         </div>
     </section>
 
-    <!-- Скрипт мультиязычности -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const savedLang = localStorage.getItem('selectedLanguage') || 'ua';

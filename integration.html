@@ -66,21 +66,89 @@
         .feature-text h3 { font-size: 15px; font-weight: 700; color: #002366; margin-bottom: 4px; }
         .feature-text p { font-size: 13px; color: #6b7280; font-weight: 500; }
 
-        /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
-        .help-section { padding: 70px 0 50px 0; background-color: #ffffff; text-align: center; }
-        .section-title { font-size: 30px; font-weight: 800; color: #002366; margin-bottom: 40px; position: relative; display: inline-block; }
-        .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #ffcc00; border-radius: 2px; }
-        
-        .help-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-bottom: 24px; }
-        .help-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; padding: 40px 30px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); transition: transform 0.2s; }
-        .help-card:hover { transform: translateY(-4px); }
-        .help-card-span-2 { grid-column: span 2; }
-        .help-card-offset-1 { grid-column: 2 / span 2; }
-        
-        .card-emoji { font-size: 44px; margin-bottom: 20px; display: block; }
-        .help-card h3 { font-size: 18px; font-weight: 800; color: #002366; margin-bottom: 16px; line-height: 1.3; }
-        .help-card p { font-size: 14px; color: #4b5563; line-height: 1.6; font-weight: 500; }
+       /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
+.help-section { 
+    padding: 70px 0 50px 0; 
+    background-color: #ffffff; 
+    text-align: center; 
+}
+.section-title { 
+    font-size: 30px; 
+    font-weight: 800; 
+    color: #002366; 
+    margin-bottom: 40px; 
+    position: relative; 
+    display: inline-block; 
+}
+.section-title::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -12px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 40px; 
+    height: 3px; 
+    background-color: #ffcc00; 
+    border-radius: 2px; 
+}
 
+/* Оновлена сітка: 5 колонок в один ряд на всю ширину */
+.help-grid { 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); /* Рівно 5 однакових колонок */
+    gap: 16px; /* Трохи зменшено відступ, щоб картки гарно вміщалися */
+    margin-bottom: 24px; 
+}
+
+/* Базовий стиль картки (тепер вони всі однакові) */
+.help-card { 
+    background: #ffffff; 
+    border: 1px solid #f3f4f6; 
+    border-radius: 16px; 
+    padding: 30px 20px; /* Оптимізовані падінги для п'яти колонок */
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+    transition: transform 0.2s; 
+}
+.help-card:hover { 
+    transform: translateY(-4px); 
+}
+
+/* Скидаємо старі стилі розтягування, щоб вони не ламали 5-колонковий ряд */
+.help-card-span-2, .help-card-offset-1 { 
+    grid-column: auto !important; 
+}
+
+.card-emoji { 
+    font-size: 36px; /* Трохи зменшено, щоб текст мав більше місця */
+    margin-bottom: 16px; 
+    display: block; 
+}
+.help-card h3 { 
+    font-size: 15px; /* Зменшено для балансу в одну лінію/дві лінії */
+    font-weight: 800; 
+    color: #002366; 
+    margin-bottom: 12px; 
+    line-height: 1.3; 
+}
+.help-card p { 
+    font-size: 12.5px; /* Компактний опис для кращої читабельності */
+    color: #4b5563; 
+    line-height: 1.5; 
+    font-weight: 500; 
+}
+
+/* Адаптивність для мобільних екранів */
+@media (max-width: 1024px) {
+    .help-grid { 
+        grid-template-columns: repeat(2, 1fr); /* На планшетах у два ряди */
+    }
+}
+@media (max-width: 640px) {
+    .help-grid { 
+        grid-template-columns: 1fr; /* На телефонах в один стовпчик */
+    }
+}
         /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
         .programs-section { padding: 50px 0 70px 0; background-color: #ffffff; text-align: center; }
         .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }

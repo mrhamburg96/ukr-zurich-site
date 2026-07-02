@@ -189,10 +189,19 @@
 
        /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
 .help-section { 
-    padding: 70px 0 50px 0; 
+    padding: 70px 0; 
     background-color: #ffffff; 
     text-align: center; 
+    width: 100%; /* Розтягуємо саму секцію на всю ширину */
 }
+
+/* Новий контейнер для сітки: розтягується на всю ширину екрана з невеликими відступами по боках */
+.help-container-fluid {
+    width: 100%;
+    padding: 0 40px; /* Відступи від країв екрана, щоб картки не липли до границь */
+    box-sizing: border-box;
+}
+
 .section-title { 
     font-size: 30px; 
     font-weight: 800; 
@@ -213,62 +222,66 @@
     border-radius: 2px; 
 }
 
-/* Оновлена сітка: 5 колонок в один ряд на всю ширину */
+/* 5 колонок в один ряд на всю доступну ширину */
 .help-grid { 
     display: grid; 
-    grid-template-columns: repeat(5, 1fr); /* Рівно 5 однакових колонок */
-    gap: 16px; /* Трохи зменшено відступ, щоб картки гарно вміщалися */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; /* Комфортний відступ між картками */
     margin-bottom: 24px; 
 }
 
-/* Базовий стиль картки (тепер вони всі однакові) */
 .help-card { 
     background: #ffffff; 
     border: 1px solid #f3f4f6; 
     border-radius: 16px; 
-    padding: 30px 20px; /* Оптимізовані падінги для п'яти колонок */
+    padding: 35px 24px; 
     text-align: center; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
-    transition: transform 0.2s; 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 .help-card:hover { 
     transform: translateY(-4px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Скидаємо старі стилі розтягування, щоб вони не ламали 5-колонковий ряд */
 .help-card-span-2, .help-card-offset-1 { 
     grid-column: auto !important; 
 }
 
-.card-emoji { 
-    font-size: 36px; /* Трохи зменшено, щоб текст мав більше місця */
-    margin-bottom: 16px; 
-    display: block; 
+/* Стилі для нових .webp іконок замість емодзи */
+.card-icon-img { 
+    width: 54px; /* Оптимальний розмір для графічних іконок */
+    height: 54px; 
+    object-fit: contain;
+    margin-bottom: 20px; 
+    display: inline-block; 
 }
+
 .help-card h3 { 
-    font-size: 15px; /* Зменшено для балансу в одну лінію/дві лінії */
+    font-size: 16px; 
     font-weight: 800; 
     color: #002366; 
     margin-bottom: 12px; 
     line-height: 1.3; 
 }
 .help-card p { 
-    font-size: 12.5px; /* Компактний опис для кращої читабельності */
+    font-size: 13px; 
     color: #4b5563; 
     line-height: 1.5; 
     font-weight: 500; 
 }
 
-/* Адаптивність для мобільних екранів */
-@media (max-width: 1024px) {
-    .help-grid { 
-        grid-template-columns: repeat(2, 1fr); /* На планшетах у два ряди */
-    }
+/* Адаптивність для менших екранів */
+@media (max-width: 1200px) {
+    .help-container-fluid { padding: 0 24px; }
+    .help-grid { grid-template-columns: repeat(3, 1fr); } /* 3 в ряд на середніх екранах */
 }
-@media (max-width: 640px) {
-    .help-grid { 
-        grid-template-columns: 1fr; /* На телефонах в один стовпчик */
-    }
+@media (max-width: 768px) {
+    .help-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд */
+}
+@media (max-width: 480px) {
+    .help-grid { grid-template-columns: 1fr; } /* 1 в ряд на телефонах */
+}
 }
         /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
         .programs-section { padding: 50px 0 70px 0; background-color: #ffffff; text-align: center; }
@@ -393,39 +406,45 @@
     </section>
 
     <!-- СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО -->
-    <section class="help-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
+   <section class="help-section">
+        <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
+        
+        <div class="help-container-fluid">
             <div class="help-grid">
-                <div class="help-card help-card-span-2">
-                    <span class="card-emoji" data-i18n="card_1_emoji">📄</span>
+                
+                <div class="help-card">
+                    <img src="icon-integration1.webp" class="card-icon-img" alt="Допомога з документами">
                     <h3 data-i18n="card_1_title">Допомога з документами</h3>
                     <p data-i18n="card_1_desc">Підтримка у питаннях проживання, страхування, соціальних виплат, освіти та інших важливих документів.</p>
                 </div>
-                <div class="help-card help-card-span-2">
-                    <span class="card-emoji" data-i18n="card_2_emoji">💬</span>
+                
+                <div class="help-card">
+                    <img src="icon-integration2.webp" class="card-icon-img" alt="Курси німецької мови">
                     <h3 data-i18n="card_2_title">Курси німецької мови</h3>
                     <p data-i18n="card_2_desc">Курси для різних рівнів – від початківців до впевненого спілкування в повсякденному житті.</p>
                 </div>
-                <div class="help-card help-card-span-2">
-                    <span class="card-emoji" data-i18n="card_3_emoji">💼</span>
+                
+                <div class="help-card">
+                    <img src="icon-integration1.webp" class="card-icon-img" alt="Працевлаштування">
                     <h3 data-i18n="card_3_title">Працевлаштування</h3>
                     <p data-i18n="card_3_desc">Допомагаємо знайти роботу: консультації, підготовка резюме, пошук вакансій та співбесіди.</p>
                 </div>
-                <div class="help-card help-card-span-2 help-card-offset-1">
-                    <span class="card-emoji" data-i18n="card_4_emoji">🤝</span>
+                
+                <div class="help-card">
+                    <img src="icon-integration4.webp" class="card-icon-img" alt="Адаптація до життя у Швейцарії">
                     <h3 data-i18n="card_4_title">Адаптація до життя у Швейцарії</h3>
                     <p data-i18n="card_4_desc">Індивідуальний супровід під час адаптації: орієнтація в системі, підтримка та корисні поради.</p>
                 </div>
-                <div class="help-card help-card-span-2">
-                    <span class="card-emoji" data-i18n="card_5_emoji">👥</span>
+                
+                <div class="help-card">
+                    <img src="icon-integration5.webp" class="card-icon-img" alt="Зустрічі та спільнота">
                     <h3 data-i18n="card_5_title">Зустрічі та спільнота</h3>
                     <p data-i18n="card_5_desc">Заходи, майстер-класи, екскурсії та культурні активності для спілкування та нових знайомств.</p>
                 </div>
+
             </div>
         </div>
     </section>
-
     <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ -->
     <section class="programs-section">
         <div class="container">

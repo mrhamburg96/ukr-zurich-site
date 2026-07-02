@@ -31,30 +31,30 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-       /* === СЕКЦІЯ HERO (Повна ширина з ефектом розмиття) === */
+      /* === СЕКЦІЯ HERO (Зменшено на 30%) === */
 .hero-section { 
     background-color: #ffffff; 
-    position: relative; /* Необхідно для позиціонування фонового банера */
+    position: relative; 
     overflow: hidden; 
-    padding-top: 16px; 
-    min-height: 450px; /* Збільшуємо висоту секції для масштабу */
+    padding-top: 12px; 
+    min-height: 315px; /* Зменшено з 450px */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* Контейнер хлібних крихт залишається зверху */
+/* Контейнер хлібних крихт */
 .hero-top-nav {
     position: relative;
     z-index: 5;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Зменшено відступ */
 }
 
 .breadcrumbs { 
     display: flex; 
     align-items: center; 
     gap: 6px; 
-    font-size: 12px; 
+    font-size: 11px; /* Трохи менший шрифт */
     font-weight: 600; 
     color: #1a56c4; 
 }
@@ -70,34 +70,34 @@
     opacity: 0.7; 
 }
 
-/* Оновлена структура контенту поверх банера */
+/* Контент поверх баннера */
 .hero-container-inner {
     position: relative;
     z-index: 3;
     display: flex;
     align-items: center;
-    min-height: 380px;
+    min-height: 265px; /* Зменшено з 380px */
 }
 
 .hero-content { 
-    padding: 40px 0; 
-    max-width: 520px; /* Текст не заходить на обличчя людей */
+    padding: 20px 0; /* Зменшено падінги */
+    max-width: 390px; /* Зменшено з 520px, щоб відповідати масштабу */
     position: relative;
     z-index: 4;
 }
 .hero-content h1 { 
-    font-size: 42px; 
+    font-size: 29px; /* Зменшено з 42px (~30%) */
     font-weight: 800; 
     color: #002366; 
     line-height: 1.2; 
-    margin-bottom: 16px; 
+    margin-bottom: 12px; 
 }
 .hero-description { 
-    font-size: 16px; 
+    font-size: 13px; /* Зменшено з 16px */
     font-weight: 500; 
     color: #4b5563; 
-    line-height: 1.6; 
-    margin-bottom: 28px; 
+    line-height: 1.5; 
+    margin-bottom: 20px; /* Зменшено з 28px */
 }
 
 .btn-primary { 
@@ -106,22 +106,22 @@
     justify-content: center; 
     background-color: #1a56c4; 
     color: #ffffff; 
-    font-size: 14px; 
+    font-size: 12.5px; /* Зменшено з 14px */
     font-weight: 700; 
-    padding: 13px 28px; 
-    border-radius: 8px; 
+    padding: 9px 20px; /* Компактніші відступи кнопки */
+    border-radius: 6px; 
     text-decoration: none; 
     cursor: pointer; 
     border: none; 
-    box-shadow: 0 4px 14px rgba(26, 86, 196, 0.2);
+    box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15);
 }
 
-/* Обгортка зображення на всю ширину екрана */
+/* Фоновий баннер на всю ширину (також стискається під нову висоту секції) */
 .hero-image-outer {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%; /* Картинка займає 60% ширини сайту справа */
+    width: 60%; 
     height: 100%;
     z-index: 1;
 }
@@ -130,16 +130,16 @@
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    object-position: top 10% right; /* Тримаємо голови в кадрі */
+    object-position: top 10% right; 
 }
 
-/* Ефект плавного розмиття/затінення зліва (Градієнт від чисто білого до прозорого) */
+/* Плавний градієнт зліва */
 .hero-image-outer::before { 
     content: ''; 
     position: absolute; 
     top: 0; 
     left: 0; 
-    width: 40%; /* Ширина розмиття */
+    width: 40%; 
     height: 100%; 
     background: linear-gradient(to right, 
         rgba(255,255,255,1) 0%, 
@@ -149,32 +149,18 @@
     z-index: 2; 
 }
 
-/* Адаптивність для планшетів та телефонів */
+/* Адаптивність */
 @media (max-width: 1024px) {
-    .hero-section {
-        min-height: auto;
-    }
     .hero-image-outer {
         position: relative;
         width: 100%;
-        height: 300px;
-        margin-top: 20px;
-    }
-    .hero-image-outer::before {
-        width: 100%;
-        height: 40%;
-        top: 0;
-        left: 0;
-        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        height: 210px; /* Зменшено для мобільних з 300px */
+        margin-top: 15px;
     }
     .hero-content {
         max-width: 100%;
         text-align: center;
-        padding: 20px 0;
-    }
-    .hero-container-inner {
-        min-height: auto;
-        flex-direction: column;
+        padding: 15px 0;
     }
 }
         .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }

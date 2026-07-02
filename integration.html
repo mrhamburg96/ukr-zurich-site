@@ -31,30 +31,151 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-        /* === СЕКЦІЯ HERO (Зміни розташування крихт) === */
-        .hero-section { background-color: #ffffff; overflow: hidden; padding-top: 16px; }
-        
-        /* Блакитні хлібні крихти прямо під шапкою */
-        .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #1a56c4; margin-bottom: 8px; }
-        .breadcrumbs a { color: #1a56c4; text-decoration: none; }
-        .breadcrumbs a:hover { text-decoration: underline; }
-        .breadcrumbs span { color: #1a56c4; opacity: 0.7; }
+       /* === СЕКЦІЯ HERO (Повна ширина з ефектом розмиття) === */
+.hero-section { 
+    background-color: #ffffff; 
+    position: relative; /* Необхідно для позиціонування фонового банера */
+    overflow: hidden; 
+    padding-top: 16px; 
+    min-height: 450px; /* Збільшуємо висоту секції для масштабу */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; align-items: center; min-height: 300px; }
-        .hero-content { padding: 16px 0 24px 0; max-width: 500px; }
-        .hero-content h1 { font-size: 36px; font-weight: 800; color: #002366; line-height: 1.2; margin-bottom: 12px; }
-        .hero-description { font-size: 14.5px; font-weight: 500; color: #4b5563; line-height: 1.5; margin-bottom: 24px; }
-        
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 13.5px; font-weight: 700; padding: 11px 22px; border-radius: 8px; text-decoration: none; cursor: pointer; border: none; }
-        
-        .hero-image-wrapper { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-end; }
-        .hero-img { 
+/* Контейнер хлібних крихт залишається зверху */
+.hero-top-nav {
+    position: relative;
+    z-index: 5;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs { 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    font-size: 12px; 
+    font-weight: 600; 
+    color: #1a56c4; 
+}
+.breadcrumbs a { 
+    color: #1a56c4; 
+    text-decoration: none; 
+}
+.breadcrumbs a:hover { 
+    text-decoration: underline; 
+}
+.breadcrumbs span { 
+    color: #1a56c4; 
+    opacity: 0.7; 
+}
+
+/* Оновлена структура контенту поверх банера */
+.hero-container-inner {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    min-height: 380px;
+}
+
+.hero-content { 
+    padding: 40px 0; 
+    max-width: 520px; /* Текст не заходить на обличчя людей */
+    position: relative;
+    z-index: 4;
+}
+.hero-content h1 { 
+    font-size: 42px; 
+    font-weight: 800; 
+    color: #002366; 
+    line-height: 1.2; 
+    margin-bottom: 16px; 
+}
+.hero-description { 
+    font-size: 16px; 
+    font-weight: 500; 
+    color: #4b5563; 
+    line-height: 1.6; 
+    margin-bottom: 28px; 
+}
+
+.btn-primary { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: #1a56c4; 
+    color: #ffffff; 
+    font-size: 14px; 
+    font-weight: 700; 
+    padding: 13px 28px; 
+    border-radius: 8px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    border: none; 
+    box-shadow: 0 4px 14px rgba(26, 86, 196, 0.2);
+}
+
+/* Обгортка зображення на всю ширину екрана */
+.hero-image-outer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%; /* Картинка займає 60% ширини сайту справа */
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img { 
     width: 100%; 
     height: 100%; 
-    max-height: 300px; 
     object-fit: cover; 
-    /* Змінюємо center right на top right, щоб підняти фокус зображення і не різати голови */
-    object-position: top right; 
+    object-position: top 10% right; /* Тримаємо голови в кадрі */
+}
+
+/* Ефект плавного розмиття/затінення зліва (Градієнт від чисто білого до прозорого) */
+.hero-image-outer::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 40%; /* Ширина розмиття */
+    height: 100%; 
+    background: linear-gradient(to right, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,0.8) 30%, 
+        rgba(255,255,255,0) 100%
+    ); 
+    z-index: 2; 
+}
+
+/* Адаптивність для планшетів та телефонів */
+@media (max-width: 1024px) {
+    .hero-section {
+        min-height: auto;
+    }
+    .hero-image-outer {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        margin-top: 20px;
+    }
+    .hero-image-outer::before {
+        width: 100%;
+        height: 40%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    }
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+    .hero-container-inner {
+        min-height: auto;
+        flex-direction: column;
+    }
 }
         .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
 
@@ -229,25 +350,25 @@
     </header>
 
     <!-- СЕКЦІЯ HERO -->
-    <section class="hero-section">
-        <div class="container">
-            <!-- Хлібні крихти піднято на самий верх блоку -->
+   <section class="hero-section">
+        <div class="container hero-top-nav">
             <div class="breadcrumbs">
                 <a href="index.html" data-i18n="bc_home">Головна</a><span>&gt;</span>
                 <a href="about.html" data-i18n="bc_centers">Наші центри</a><span>&gt;</span>
                 <span data-i18n="bc_current">Інтеграційний центр UAGZ</span>
             </div>
-            
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
-                    <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
-                    <button class="btn-primary open-modal-btn" data-i18n="btn_join_programs">Приєднатися до програм</button>
-                </div>
-                <div class="hero-image-wrapper">
-                    <img src="integration-banner.webp" class="hero-img" alt="Integration Banner">
-                </div>
+        </div>
+        
+        <div class="container hero-container-inner">
+            <div class="hero-content">
+                <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
+                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
+                <button class="btn-primary open-modal-btn" data-i18n="btn_join_programs">Приєднатися до програм</button>
             </div>
+        </div>
+
+        <div class="hero-image-outer">
+            <img src="integration-banner.webp" class="hero-img" alt="Integration Banner">
         </div>
     </section>
 

@@ -165,14 +165,54 @@
 }
         .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
 
-        /* === БАР ХАРАКТЕРИСТИК === */
-        .features-bar { background-color: #ffffff; padding: 30px 0; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; }
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .feature-item { display: flex; align-items: flex-start; gap: 14px; }
-        .feature-icon { font-size: 24px; line-height: 1; padding-top: 2px; }
-        .feature-text h3 { font-size: 15px; font-weight: 700; color: #002366; margin-bottom: 4px; }
-        .feature-text p { font-size: 13px; color: #6b7280; font-weight: 500; }
+        /* === БАР ХАРАКТЕРИСТИК (Перенесено в лівий край) === */
+.features-bar { 
+    background-color: #ffffff; 
+    padding: 20px 0; 
+    border-top: 1px solid #f3f4f6; 
+    border-bottom: 1px solid #f3f4f6; 
+}
+/* Замість grid використовуємо flex, щоб посунути всі елементи ліворуч */
+.features-grid { 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Вирівнювання по лівому краю */
+    gap: 48px; /* Комфортний відступ між трьома елементами */
+}
+.feature-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
 
+/* Стиль для нових .webp іконок у барі характеристик */
+.feature-icon-img { 
+    width: 24px; 
+    height: 24px; 
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.feature-text h3 { 
+    font-size: 13.5px; 
+    font-weight: 700; 
+    color: #002366; 
+    margin-bottom: 2px; 
+}
+.feature-text p { 
+    font-size: 11.5px; 
+    color: #6b7280; 
+    font-weight: 500; 
+    line-height: 1.4;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .features-grid { 
+        gap: 20px;
+        flex-direction: column; /* На мобільних картки стають в стовпчик */
+    }
+}
        /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
 .help-section { 
     padding: 70px 0; 
@@ -372,25 +412,37 @@
     </section>
 
     <!-- БАР ХАРАКТЕРИСТИК -->
-    <section class="features-bar">
+   <section class="features-bar">
         <div class="container">
             <div class="features-grid">
+                
                 <div class="feature-item">
-                    <div class="feature-icon">📍</div>
-                    <div class="feature-text"><h3 data-i18n="feat_1_title">Цюрих, Швейцарія</h3><p data-i18n="feat_1_desc">Працюємо для української громади</p></div>
+                    <img src="icon-integration7.webp" class="feature-icon-img" alt="Цюрих, Швейцарія">
+                    <div class="feature-text">
+                        <h3 data-i18n="feat_1_title">Цюрих, Швейцарія</h3>
+                        <p data-i18n="feat_1_desc">Працюємо для української громади</p>
+                    </div>
                 </div>
+                
                 <div class="feature-item">
-                    <div class="feature-icon">🤝</div>
-                    <div class="feature-text"><h3 data-i18n="feat_2_title">Разом ми сильніші</h3><p data-i18n="feat_2_desc">Підтримка, об'єднання та розвиток</p></div>
+                    <img src="icon-integration4.webp" class="feature-icon-img" alt="Разом ми сильніші">
+                    <div class="feature-text">
+                        <h3 data-i18n="feat_2_title">Разом ми сильніші</h3>
+                        <p data-i18n="feat_2_desc">Підтримка, об'єднання та розвиток</p>
+                    </div>
                 </div>
+                
                 <div class="feature-item">
-                    <div class="feature-icon">👥</div>
-                    <div class="feature-text"><h3 data-i18n="feat_3_title">Для всієї родини</h3><p data-i18n="feat_3_desc">Діти, молодь, батьки та старше покоління</p></div>
+                    <img src="icon-integration6.webp" class="feature-icon-img" alt="Для всієї родини">
+                    <div class="feature-text">
+                        <h3 data-i18n="feat_3_title">Для всієї родини</h3>
+                        <p data-i18n="feat_3_desc">Діти, молодь, батьки та старше покоління</p>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
-
     <!-- СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО -->
    <section class="help-section">
         <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>

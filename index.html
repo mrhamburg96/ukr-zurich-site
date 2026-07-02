@@ -1,0 +1,1868 @@
+<!DOCTYPE html><div 
+<html lang="uk">
+<head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "http://ukr-zurich.ch/",
+  "logo": "http://ukr-zurich.ch/favicon.png"
+}
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UAGZ — Українській інтеграційний та громадський центр Цюриха</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html, body {
+  overflow-x: hidden; 
+  width: 100%;        
+}
+
+:root {
+  --blue:#1A56C4;--blue-dark:#0F3A8A;--blue-light:#E8F1FD;
+  --yellow:#F5C518;--yellow-bg:#FFFBEA;
+  --green:#25A244;--green-bg:#E6F5EC;
+  --red:#D52B1E;
+  --text:#111827;--text2:#4B5563;--text3:#9CA3AF;
+  --border:#E5E7EB;--surface:#F9FAFB;--white:#fff;
+  --radius:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button{font-family:'Inter',sans-serif;cursor:pointer}
+
+/* ─── НАШИ НОВЫЕ СТИЛИ ДЛЯ ВЫПАДАЮЩИХ ОКОН ─── */
+.svc {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column !important; /* Текст выпадает строго вниз */
+  align-items: stretch !important;   
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Строка с иконкой, текстом и стрелочкой */
+.svc-main-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Маленькая стрелочка справа */
+.dir-arrow {
+  margin-left: auto;
+  font-size: 10px;
+  color: #a0aec0;
+  transition: transform 0.3s ease;
+}
+
+/* Скрытое описание (выпадающее окошко) */
+.dir-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.2s ease;
+  padding-top: 0;
+}
+
+.dir-desc p {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.4;
+  margin: 10px 0 5px 0;
+  padding-left: 34px; /* Текст встает вровень с заголовком */
+}
+/* ─────────────────────────────────────────── */
+
+/* ── FLAGS ─────────────────── */
+.flag-ua{display:flex;flex-direction:column;border-radius:3px;overflow:hidden;flex-shrink:0}
+.flag-ua .t{background:var(--blue);flex:1}
+.flag-ua .b{background:var(--yellow);flex:1}
+.flag-ch{background:var(--red);border-radius:3px;position:relative;flex-shrink:0}
+.flag-ch::before{content:'';position:absolute;background:#fff;width:56%;height:20%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.flag-ch::after{content:'';position:absolute;background:#fff;width:20%;height:56%;top:50%;left:50%;transform:translate(-50%,-50%)}
+
+/* ── ICONS (SVG inline replacements) ─── */
+.icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ── MODAL ──────────────────────────── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(17,24,39,0.55);z-index:600;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:460px;box-shadow:0 24px 64px rgba(0,0,0,0.18)}
+.modal-hd{background:linear-gradient(135deg,#0F3A8A,var(--blue));padding:1.25rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;border-radius:16px 16px 0 0}
+.modal-hd h2{color:#fff;font-size:1rem;font-weight:700}
+.modal-hd p{color:rgba(255,255,255,.7);font-size:11px;margin-top:2px}
+.modal-x{background:rgba(255,255,255,.15);border:none;color:#fff;width:26px;height:26px;border-radius:50%;font-size:14px;margin-left:.75rem;flex-shrink:0}
+.modal-x:hover{background:rgba(255,255,255,.28)}
+.modal-tabs{display:flex;border-bottom:1px solid var(--border)}
+.mtab{flex:1;padding:11px;text-align:center;font-size:13px;font-weight:600;color:var(--text3);border-bottom:2px solid transparent;cursor:pointer;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none}
+.mtab.on{color:var(--blue);border-bottom-color:var(--blue)}
+.mpanel{display:none;padding:1.25rem 1.5rem 1.5rem}
+.mpanel.on{display:block}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.fg{margin-bottom:.75rem}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:3px}
+.fg input{width:100%;border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:13px;font-family:inherit;outline:none;transition:border-color .15s}
+.fg input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,196,.08)}
+.cat-g{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.25rem}
+.cbt{border:1px solid var(--border);border-radius:8px;padding:8px 4px;text-align:center;cursor:pointer;font-size:10px;font-weight:600;color:var(--text2);background:#fff;transition:all .15s;line-height:1.3}
+.cbt:hover,.cbt.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cbt .ce{font-size:17px;display:block;margin-bottom:2px}.cbt .ce-svg{display:block;margin:0 auto 4px;stroke:var(--blue)}.cbt.on .ce-svg{stroke:#fff}
+.divdr{text-align:center;font-size:11px;color:var(--text3);margin:.65rem 0;position:relative}
+.divdr::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
+.divdr span{background:#fff;padding:0 10px;position:relative}
+.soc{display:flex;gap:.5rem;margin-bottom:.5rem}
+.socbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border);border-radius:8px;padding:9px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;font-family:inherit}
+.socbtn:hover{background:var(--surface)}
+.fsub{width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:11px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.fsub:hover{background:var(--blue-dark)}
+.fnote{font-size:11px;color:var(--text3);text-align:center;margin-top:.6rem;line-height:1.5}
+.success{text-align:center;padding:.5rem 0 1rem}
+.success .si{font-size:2.8rem;margin-bottom:.6rem}
+.success h3{font-size:1rem;font-weight:700;margin-bottom:.35rem}
+.success p{font-size:13px;color:var(--text2)}
+
+/* ── NAV ────────────────────────────── */
+nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px;gap:.75rem}
+.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.nav-logo-flags{display:flex;align-items:center;gap:4px}
+.logo-heart{color:var(--yellow);font-size:20px}
+.brand{font-size:14px;font-weight:700;color:var(--blue);line-height:1.1}
+.brand small{font-size:9px;color:var(--text3);font-weight:400;display:block}
+.nav-links{display:flex;gap:.1rem;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--text2);padding:4px 7px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-light)}
+.nav-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.lang-sw{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lb{background:none;border:none;padding:4px 9px;font-size:11px;font-weight:700;color:var(--text3);cursor:pointer;transition:all .15s}
+.lb.on{background:var(--blue);color:#fff}
+.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700}
+.btn-outline:hover{background:var(--blue-light)}
+.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700}.btn-donate-nav{background:var(--yellow);color:#333;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.btn-solid:hover{background:var(--blue-dark)}
+
+/* ── HERO ───────────────────────────── */
+hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px; /* 🖥️ Задали высоту 480px для компьютеров */
+  background: #EBF2FF;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  background: url('main.webp') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.0) 100%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center; /* Выравниваем контент красиво по центру */
+  justify-content: space-between;
+  padding: 2.5rem 1.5rem;
+  min-height: 480px; /* 🖥️ Дублируем высоту 480px для содержимого */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+.hero-text {
+  max-width: 480px;
+}
+.hero-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.hero-logo-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+}
+.hero-logo-sub {
+  font-size: 11px;
+  color: var(--text3);
+}
+hero h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.15;
+  margin-bottom: .75rem;
+}
+.hero-sub {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  text-shadow: 0 0 8px rgba(255,255,255,0.9);
+}
+.hero-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn-hero-main {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.btn-hero-main:hover {
+  background: var(--blue-dark);
+}
+.btn-hero-sec {
+  background: #fff;
+  color: var(--blue);
+  border: 1.5px solid var(--blue);
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-hero-sec:hover {
+  background: var(--blue-light);
+}
+
+/* ── TG WIDGET (top-right) ─── */
+.tg-widget{background:#fff;border-radius:14px;padding:1.1rem;box-shadow:0 8px 32px rgba(26,86,196,.12);width:220px;flex-shrink:0;align-self:flex-start}
+.tg-widget h4{font-size:12px;font-weight:700;color:var(--text);margin-bottom:.7rem;text-align:center}
+.tg-channel-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#229ED9;color:#fff;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:600;width:100%;margin-bottom:.6rem}
+.tg-qr{background:var(--surface);border-radius:8px;height:72px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3);border:1px solid var(--border)}
+.tg-note{font-size:9px;color:var(--text3);text-align:center;margin-top:.4rem}
+
+/* ── STRIP: Чим ми допомагаємо ─ */
+.strip{background:#fff;padding:1rem 1.5rem;border-bottom:1px solid var(--border)}
+.strip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
+.strip-head span{font-size:15px;font-weight:700}
+.strip-head a{font-size:12px;color:var(--blue);font-weight:600}
+.svc-row{display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.svc{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 3px;border-radius:8px;cursor:pointer;transition:background .15s}
+.svc:hover{background:var(--blue-light)}
+.svc-ic{width:36px;height:36px;border-radius:9px;background:var(--blue-light);display:flex;align-items:center;justify-content:center}
+.svc-ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.6}
+.svc span{font-size:9.5px;color:var(--text2);font-weight:500;line-height:1.3;text-align:center}
+
+/* ── HOW IT WORKS ─────────────── */
+.how-sec{background:#fff;padding:2rem 1.5rem}
+.how-tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-bg);border:1px solid rgba(245,197,24,.4);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:#92700A;margin-bottom:.6rem}
+.how-h1{font-size:1.6rem;font-weight:800;margin-bottom:.3rem}
+.how-sub{font-size:13px;color:var(--text2);margin-bottom:1.5rem}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem}
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;position:relative}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:.6rem;color:#fff}
+.sn1{background:var(--blue)}
+.sn2{background:var(--yellow)}
+.sn3{background:var(--green)}
+.sn2{color:#333}
+.step-icon{margin-bottom:.5rem}
+.step-icon svg{width:36px;height:36px;stroke:var(--text2);fill:none;stroke-width:1.4}
+.step-card h4{font-size:12px;font-weight:700;margin-bottom:.25rem}
+.step-card p{font-size:11px;color:var(--text2);line-height:1.5}
+.step-arr{position:absolute;top:38px;right:-14px;color:var(--border);font-size:20px;z-index:1}
+.how-photo-col{display:flex;flex-direction:column;gap:.75rem}
+.how-photo{border-radius:14px;overflow:hidden;height:200px}
+.quote-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.quote-card p{font-size:12px;color:var(--text2);font-style:italic;line-height:1.55;margin-bottom:.5rem}
+.quote-author{display:flex;align-items:center;gap:.5rem}
+.quote-av{width:28px;height:28px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.quote-name{font-size:11px;font-weight:600;color:var(--text)}
+.quote-loc{font-size:10px;color:var(--text3)}
+.how-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem}
+.team-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem}
+.team-card h3{font-size:13px;font-weight:700;margin-bottom:.3rem}
+.team-card p{font-size:11px;color:var(--text2);margin-bottom:.6rem;line-height:1.5}
+.team-avs{display:flex;margin-bottom:.5rem}
+.tav{width:32px;height:32px;border-radius:50%;border:2px solid #fff;overflow:hidden;margin-left:-7px;flex-shrink:0}
+.tav:first-child{margin-left:0}
+.stats-card{background:var(--blue-light);border:1px solid rgba(26,86,196,.15);border-radius:12px;padding:1rem;display:flex;flex-direction:column;justify-content:center;gap:.75rem}
+.stat-row{display:flex;align-items:center;gap:.6rem}
+.stat-ic{width:36px;height:36px;background:var(--blue-light);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stat-ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.6}
+.stat-big{font-size:1.3rem;font-weight:800;color:var(--blue);line-height:1}
+.stat-lbl{font-size:10px;color:var(--text2);line-height:1.3}
+.qc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem}
+.qc-card h3{font-size:13px;font-weight:700;margin-bottom:.6rem}
+.qc-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.qc-row:last-child{border-bottom:none}
+.qc-left{display:flex;align-items:center;gap:.6rem}
+.qc-ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qc-ic svg{width:16px;height:16px;stroke-width:1.8;fill:none}
+.qc-name{font-size:12px;font-weight:600}
+.qc-val{font-size:10px;color:var(--blue)}
+.qc-arr{color:var(--text3);font-size:12px}
+
+/* ── THREE COL ─────────────────── */
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;padding:1.5rem;background:var(--surface);border-top:1px solid var(--border)}
+.col-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.7rem}
+.col-hd h3{font-size:13px;font-weight:800}
+.col-hd a{font-size:11px;color:var(--blue);font-weight:600}
+.news-item{padding:.6rem 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.badge{display:inline-block;border-radius:5px;padding:2px 8px;font-size:9px;font-weight:700;margin-bottom:3px;text-transform:uppercase}
+.b-urg{background:#FEE2E2;color:#B91C1C}
+.b-new{background:var(--blue-light);color:var(--blue)}
+.b-ev{background:var(--green-bg);color:var(--green)}
+.b-home{background:#DBEAFE;color:#1E40AF}
+.b-job{background:var(--green-bg);color:var(--green)}
+.b-svc{background:#FEF3C7;color:#92700A}
+.news-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px;line-height:1.4}
+.news-meta{font-size:10px;color:var(--text3)}
+.ev-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.ev-row:last-child{border-bottom:none}
+.ev-date{width:40px;height:40px;background:var(--blue);color:#fff;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-size:8px;text-transform:uppercase;line-height:1}
+.ev-date strong{font-size:15px;font-weight:800}
+.ev-info h4{font-size:11px;font-weight:600;line-height:1.4}
+.ev-info p{font-size:10px;color:var(--text3)}
+
+/* ── FOR WHOM ─────────────────── */
+.forwhom{padding:1.5rem;background:#fff;border-top:1px solid var(--border)}
+.fw-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem}
+.fw-head .sec-title{font-size:1.1rem;font-weight:800}
+.fw-head a{font-size:11px;color:var(--blue);font-weight:600}
+.whom-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:.5rem}
+.whom-item{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:10px 4px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:all .15s}
+.whom-item:hover{background:var(--surface);border-color:var(--border)}
+.whom-ic{width:44px;height:44px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center}
+.whom-ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.5}
+.whom-item span{font-size:10px;color:var(--text2);font-weight:500;text-align:center;line-height:1.3}
+
+/* ── DIRECTIONS ─────────────────── */
+.dir-sec{padding:1.5rem;background:var(--surface);border-top:1px solid var(--border)}
+.dir-sec-head{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}
+.dir-sec-head svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:2}
+.dir-h1{font-size:1.4rem;font-weight:800;margin-bottom:.2rem}
+.dir-sub{font-size:13px;color:var(--text2);margin-bottom:.35rem}
+.dir-sub u{text-decoration-color:var(--blue)}
+.dir-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.25rem}
+.dstat{display:flex;align-items:center;gap:.6rem}
+.dstat-ic{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dstat-ic svg{width:18px;height:18px;stroke-width:1.6;fill:none}
+.dstat-n{font-size:1.1rem;font-weight:800;line-height:1}
+.dstat-l{font-size:10px;color:var(--text2);line-height:1.3}
+.dir-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem}
+.dir-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.dir-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.09)}
+.dir-photo{height:150px;position:relative;overflow:hidden;background:#e8f1fd}
+.dir-photo img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .3s}
+.dir-card:hover .dir-photo img{transform:scale(1.06)}
+.dir-ic{position:absolute;top:8px;left:8px;width:32px;height:32px;background:rgba(255,255,255,.92);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.dir-ic svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.8}
+.dir-body{padding:.6rem .75rem .75rem}
+.dir-title{font-size:11.5px;font-weight:700;margin-bottom:2px;line-height:1.3}
+.dir-desc{font-size:10px;color:var(--text3);line-height:1.4}
+.dir-cta-row{background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;margin-top:.75rem}
+.dir-cta-left{display:flex;align-items:center;gap:.75rem}
+.dir-cta-ic{width:40px;height:40px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dir-cta-ic svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.6}
+.dir-cta-left h4{font-size:13px;font-weight:700}
+.dir-cta-left p{font-size:11px;color:var(--text2)}
+.dir-cta-btns{display:flex;gap:.5rem}
+
+/* ── CTA GRID ─────────────────── */
+.cta-sec{padding:1.5rem;background:#fff;border-top:1px solid var(--border)}
+.cta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.cta-card{border-radius:12px;padding:1.1rem;display:flex;flex-direction:column;gap:.4rem}
+.cc-blue{background:var(--blue)}
+.cc-blue h3,.cc-blue p{color:#fff}
+.cc-outline{background:#fff;border:1px solid var(--border)}
+.cc-yellow{background:var(--yellow-bg);border:1px solid rgba(245,197,24,.35)}
+.cc-light{background:var(--surface);border:1px solid var(--border)}
+.cta-card h3{font-size:13px;font-weight:700}
+.cta-card p{font-size:11px;color:var(--text2);line-height:1.5;flex:1}
+.cc-blue p{color:rgba(255,255,255,.8)}
+.ctabtn{border-radius:7px;padding:9px 13px;font-size:12px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;justify-content:center;margin-top:.25rem;font-family:inherit}
+.cb-w{background:#fff;color:var(--blue)}
+.cb-b{background:var(--blue);color:#fff}
+.cb-g{background:var(--green);color:#fff}
+.cb-y{background:var(--yellow);color:#333}
+.email-r{display:flex;gap:5px;margin-top:.25rem}
+.email-r input{flex:1;border:1px solid var(--border);border-radius:7px;padding:8px 10px;font-size:12px;font-family:inherit;outline:none}
+.email-r button{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 12px;font-size:13px}
+
+/* ── TRUST ─────────────────────── */
+.trust{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 1.5rem}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.trust-item{display:flex;align-items:center;gap:.5rem}
+.trust-ic{width:30px;height:30px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.trust-ic svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:1.8}
+.trust-text{font-size:11.5px;font-weight:600;color:var(--text2)}
+.trust-avs{display:flex}
+.tav2{width:28px;height:28px;border-radius:50%;border:2px solid #fff;overflow:hidden;margin-left:-6px;flex-shrink:0}
+.tav2:first-child{margin-left:0}
+
+/* ── FOOTER ─────────────────────── */
+footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:.65rem}
+.footer-logo-name{font-size:14px;font-weight:700;color:#fff}
+.footer-desc{font-size:11px;line-height:1.8;margin-bottom:.6rem}
+.footer-addr{font-size:11px;line-height:2}
+.fc h4{font-size:9px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem}
+.fc a{display:block;font-size:11px;color:rgba(255,255,255,.55);margin-bottom:.35rem;transition:color .15s}
+.fc a:hover{color:var(--yellow)}
+.fc a.green-link{color:#4ADE80}
+.hgrid{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11px}
+.hday{color:rgba(255,255,255,.35)}
+.hopen{color:#4ADE80;font-weight:600}
+.hclosed{color:rgba(255,255,255,.4)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:10px;flex-wrap:wrap;gap:.4rem}
+.footer-flag-row{display:flex;align-items:center;gap:5px}
+
+@media(max-width:1024px){
+  .svc-row{grid-template-columns:repeat(5,1fr)}
+  .how-grid{grid-template-columns:1fr}.how-photo{height:180px}
+  .how-bottom{grid-template-columns:1fr 1fr}
+  .dir-grid{grid-template-columns:repeat(3,1fr)}
+  .three-col{grid-template-columns:1fr}
+  .whom-grid{grid-template-columns:repeat(4,1fr)}
+  .cta-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+/* ================= ЕДИНЫЙ СТИЛЬ БАННЕРА ДЛЯ ПК ================= */
+.hero {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 7.1 !important; 
+  background-image: url('main.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden !important;
+}
+
+.hero-inner {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; 
+  align-items: flex-start !important;    
+  text-align: left !important;            
+  padding: 3.5rem 0 0 4rem !important;    
+  box-sizing: border-box !important;
+  z-index: 2 !important;
+}
+
+.hero-text {
+  max-width: 520px !important; 
+  width: 100% !important;
+}
+
+.hero-logo-row {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+}
+
+.hero-logo-text {
+  color: #1e293b !important;
+  font-weight: 700 !important;
+}
+
+#h-badge {
+  color: #475569 !important;
+}
+
+#h-t {
+  font-size: 1.85rem !important;
+  color: #1e293b !important;   
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 10px 0 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.9) !important;
+}
+
+#h-s {
+  font-size: 1rem !important;
+  color: #334155 !important;   
+  line-height: 1.4 !important;
+  margin: 0 0 22px 0 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
+}
+
+.hero-btns {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+}
+
+.btn-hero-main, .btn-hero-sec {
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+</head> 
+
+
+   /* ... все ваши старые существующие стили сайта ... */
+
+/* ===================================================================== */
+/* ===================================================================== */
+/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ С МИНИАТЮРОЙ ДЛЯ СМАРТФОНОВ (ЖЕСТКИЙ СБРОС) */
+@media screen and (max-width: 768px) {
+
+  /* 1. НАХОДИМ САМУЮ ПЕРВУЮ СЕКЦИЮ И ЖЕСТКО ДЕЛАЕМ ИЗ НЕЕ МИНИАТЮРУ */
+  body section:first-of-type, 
+  header + section, 
+  div[class*="hero"], 
+  section[class*="hero"], 
+  .hero {
+    height: 190px !important;
+    min-height: 190px !important;
+    max-height: 190px !important;
+    padding: 10px 0 0 12px !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* 2. ПРИНУДИТЕЛЬНО СЖИМАЕМ ЛЮБОЙ ФОН ИЛИ КАРТИНКУ ВНУТРИ БАННЕРА */
+  body section:first-of-type, div[class*="hero"], section[class*="hero"], .hero {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  
+  /* Если фото добавлено внутри как тег img */
+  body section:first-of-type img, [class*="hero"] img, .hero img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  /* 3. УМЕНЬШАЕМ ШРИФТЫ ВСЕХ ЗАГОЛОВКОВ И ТЕКСТОВ В ПЕРВОЙ СЕКЦИИ */
+  body section:first-of-type h1, [class*="hero"] h1, #h-t {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 4px 0 !important;
+    font-weight: 700 !important;
+    max-width: 65% !important;
+  }
+
+  body section:first-of-type p, [class*="hero"] p, #h-s {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 8px 0 !important;
+    max-width: 65% !important;
+  }
+
+  /* Логотипы или мелкие плашки над заголовком */
+  .hero-logo-row, [class*="logo-row"] {
+    transform: scale(0.75) !important;
+    transform-origin: left center !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* 4. ПЕРЕСТРАИВАЕМ КНОПКИ В ОДНУ КОЛОНКУ И УМЕНЬШАЕМ ПЛАШКИ */
+  body section:first-of-type a, 
+  body section:first-of-type button,
+  .btn-hero-main, 
+  .btn-hero-sec, 
+  [class*="btn"] {
+    /* Применяем только к элементам внутри первого баннера */
+  }
+  
+  /* Чтобы не сломать все кнопки сайта, найдем контейнер кнопок в первой секции */
+  body section:first-of-type div:has(a), 
+  .hero-btns, 
+  [class*="btns"] {
+    display: flex !important;
+    flex-direction: column !important; /* Выстраиваем плашки друг под друга */
+    gap: 4px !important;
+    align-items: flex-start !important;
+  }
+
+  /* Делаем сами плашки кнопок ультра-компактными */
+  body section:first-of-type div:has(a) a,
+  body section:first-of-type div:has(button) button,
+  .btn-hero-main, .btn-hero-sec,
+  [class*="hero"] a[class*="btn"] {
+    padding: 4px 8px !important;         /* Тонкие отступы */
+    font-size: 9px !important;           /* Маленький шрифт на плашке */
+    line-height: 1.1 !important;
+    border-radius: 4px !important;
+    width: auto !important;
+    max-width: 120px !important;
+    text-align: center !important;
+    white-space: nowrap !important;      /* Текст плашки строго в один ряд */
+  }
+
+  /* Скрываем блоки контактов, которые ломают компактность */
+  #hero-contacts-wrapper, .hero-contacts, [class*="contacts-wrapper"] {
+    display: none !important;
+  }
+}
+
+/* 📱 Адаптация карточек центров в одну колонку */
+@media (max-width: 768px) {
+    .centers-grid {
+        grid-template-columns: 1fr !important; 
+        gap: 20px !important;
+    }
+}
+
+/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
+.left-steps-column {
+    position: relative !important;
+    left: -40px !important;
+}
+
+/* мобильная версия */
+@media (max-width:768px) {
+    .left-steps-column {
+        left: 0 !important;
+    }
+}
+/* ===================================================================== */
+</style>
+</head>
+<body>
+
+<!-- ═══════ MODAL ═══════════════════════════════════ -->
+<div class="modal-overlay" id="mOverlay" onclick="if(event.target===this)mClose()">
+<div class="modal">
+  <div class="modal-hd">
+    <div><h2 id="mh-t">Приєднуйтесь до спільноти</h2><p id="mh-s">Реєстрація безкоштовна · Для українців у Швейцарії</p></div>
+    <button class="modal-x" onclick="mClose()">✕</button>
+  </div>
+  <div style="display:flex;border-bottom:1px solid var(--border)">
+    <button class="mtab on" id="tab-r" onclick="mTab('r')"><span id="t-reg">Реєстрація</span></button>
+    <button class="mtab" id="tab-l" onclick="mTab('l')"><span id="t-log">Вхід</span></button>
+  </div>
+  <!-- REGISTER -->
+  <div class="mpanel on" id="p-r">
+    <div id="reg-form">
+      <div class="frow">
+        <div class="fg"><label id="l-fn">Ім'я</label><input type="text" placeholder="Олена"></div>
+        <div class="fg"><label id="l-ln">Прізвище</label><input type="text" placeholder="Коваленко"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+      <div class="fg"><label id="l-ph">Телефон (опційно)</label><input type="tel" placeholder="+41 79 000 00 00"></div>
+      <div class="fg"><label id="l-pw">Пароль</label><input type="password" placeholder="Мінімум 8 символів"></div>
+      <div class="fg">
+        <label id="l-cat">Я — (оберіть категорію)</label>
+        <div class="cat-g">
+          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span id="c1">Новоприбул(-а)</span></div>
+          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span id="c2">Мама з дітьми</span></div>
+          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span id="c3">Волонтер</span></div>
+          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span id="c4">Шукаю роботу</span></div>
+          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-7 10 7M12 22V12"/><path d="M9 22v-6h6v6"/></svg><span id="c5">Студент</span></div>
+          <div class="cbt" onclick="pickCat(this)"><svg class="ce-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="c6">Інше</span></div>
+        </div>
+      </div>
+      <div class="divdr"><span id="l-or">або зареєструватися через</span></div>
+      <div class="soc">
+        <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
+        <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z"/></svg> Telegram</button>
+      </div>
+      <button class="fsub" id="l-sub" onclick="doReg()">Зареєструватися безкоштовно</button>
+      <p class="fnote" id="l-terms">Реєструючись, ви погоджуєтесь з умовами використання та політикою конфіденційності.</p>
+    </div>
+    <div id="reg-ok" class="success" style="display:none">
+      <div class="si">Успішно</div>
+      <h3 id="s-t">Ласкаво просимо до спільноти!</h3>
+      <p id="s-s">Перевірте вашу електронну пошту для підтвердження реєстрації.</p>
+    </div>
+  </div>
+  <!-- LOGIN -->
+  <div class="mpanel" id="p-l">
+    <div class="fg"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+    <div class="fg"><label id="l-pw2">Пароль</label><input type="password" placeholder="••••••••"></div>
+    <div style="text-align:right;margin-bottom:.65rem"><a href="#" style="font-size:12px;color:var(--blue);font-weight:500" id="l-fp">Забули пароль?</a></div>
+    <div class="divdr"><span id="l-or2">або увійти через</span></div>
+    <div class="soc">
+      <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
+      <button class="socbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.89 8.22l-1.97 9.28c-.15.66-.54.82-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.6.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.54-.2 1.01.13.83.94z"/></svg> Telegram</button>
+    </div>
+    <button class="fsub" id="l-sub2">Увійти</button>
+  </div>
+</div>
+</div>
+
+<!-- ═══════ NAV ═══════════════════════════════════════ -->
+<nav class="main-navbar">
+  <a class="nav-logo" href="./">
+    <div class="nav-logo-flags">
+      <div class="flag-ua" style="width:26px;height:18px"><div class="t"></div><div class="b"></div></div>
+      <div class="flag-ch" style="width:18px;height:18px"></div>
+    </div>
+    <div>
+      <span class="brand">UAGZ<small id="nav-sub" data-translate="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
+    <li><a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a></li>
+    <li><a href="help.html" id="nl-3" data-translate="nl-3">Допомога</a></li>
+    <li><a href="events.html" id="nl-4" data-translate="nl-4">Події</a></li>
+    <li><a href="knowledge.html" id="nav-knowledge" data-translate="nav-knowledge">Knowledge Center</a></li>
+    <li><a href="announcements.html" id="nav-announcements" data-translate="nav-announcements">Оголошення</a></li>
+    <li><a href="volunteering.html" id="nav-volunteering" data-translate="nav-volunteering">Волонтерство</a></li>
+    <li><button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button></li>
+    <li><a href="about.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a></li>
+  </ul>
+
+  <div class="lang-sw">
+    <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
+      <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
+        <button class="lang-btn" data-lang="ua">UA</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- === НАЧАЛО ИЗМЕНЕНИЙ: ИСПРАВЛЕНИЕ ДЛЯ СКРИПТОВ ПЕРЕВОДА === -->
+<section class="hero-section" id="responsive-hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 40px 0 120px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box;">
+    
+    <style>
+        @media (max-width: 768px) {
+            /* 1. Настройки главного баннера для мобильных */
+            #responsive-hero-section { 
+                min-height: 230px !important; 
+                height: 230px !important; 
+                padding: 0 !important; 
+                overflow: hidden !important; 
+                display: block !important;
+            }
+            
+            /* Создаем внутренний контейнер со сдвигом всей группы вниз под обрез фото */
+            #responsive-hero-section .container {
+                position: absolute !important;
+                bottom: 12px !important; /* Опускаем всю группу надписей и кнопок вниз */
+                left: 0 !important;
+                width: 100% !important;
+                padding: 0 16px !important;
+                box-sizing: border-box !important;
+            }
+
+            /* 2. Плашка с флагами: уменьшаем размер и сдвигаем влево, чтобы не наползала на скролл/край */
+            #h-badge-wrapper { 
+                margin-top: 0 !important;
+                margin-bottom: 2px !important; 
+                transform: scale(0.7) !important; 
+                transform-origin: left center !important; 
+                display: inline-flex !important;
+            }
+            #h-badge { font-size: 10px !important; }
+            
+            /* 3. Текстовый блок: заставляем описание быть строго по ширине заголовка */
+            #h-text-block { 
+                display: table !important; 
+                width: auto !important; 
+                max-width: 180px !important; 
+            }
+            
+            #h-t { 
+                display: table-cell !important; 
+                font-size: 12px !important; 
+                line-height: 1.2 !important; 
+                margin: 0 !important; 
+                padding-bottom: 2px !important; 
+                max-width: 180px !important; 
+                color: #111827 !important;
+            }
+            
+            /* Описание: Белый цвет + ограничение ширины по границам заголовка */
+            #h-s { 
+                display: table-caption !important; 
+                caption-side: bottom !important; 
+                color: #ffffff !important; /* Сделать текст белым */
+                font-size: 8.5px !important; 
+                line-height: 1.2 !important; 
+                margin: 0 !important; 
+                max-width: 180px !important; 
+                font-weight: 600 !important; 
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important; /* Тень для читаемости на фото */
+            }
+            
+            /* 4. Кнопки: компактное размещение внизу группы */
+            #h-btn-container { 
+                display: flex !important; 
+                flex-direction: column !important; 
+                gap: 3px !important; 
+                align-items: flex-start !important; 
+                margin-top: 4px !important; 
+            }
+            #h-b1, #h-b2 { 
+                padding: 2px 5px !important; 
+                border-radius: 4px !important; 
+                font-size: 8px !important; 
+                line-height: 1.1 !important; 
+                width: auto !important; 
+                max-width: 110px !important; 
+                text-align: center !important; 
+                white-space: nowrap !important; 
+            }
+            
+            /* Скрытие блока контактов */
+            #hero-contacts-wrapper { display: none !important; }
+        }
+    </style>
+    
+    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2;">
+        <div style="max-width: 520px; text-align: left;">
+            
+            <div id="h-badge-wrapper" style="display: inline-flex; align-items: center; gap: 8px; background: transparent; padding: 2px 0; font-size: 13px; font-weight: 600; margin-bottom: 12px; border: none; width: max-content;">
+                <div class="flag-ua" style="width:16px; height:11px; display:inline-block; background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%); border-radius: 1px;"></div>
+                <div class="flag-ch" style="width:11px; height:11px; display:inline-block; background: #DA291C; position: relative; border-radius: 1px;"><div style="position:absolute; background:white; width:3px; height:7px; top:2px; left:4px;"></div><div style="position:absolute; background:white; width:7px; height:3px; top:4px; left:2px;"></div></div>
+                <img src="Logo01.png" alt="UAGZ" style="width: 18px; height: 19px; object-fit: contain;">
+                <span id="h-badge" data-translate="h-badge" style="color: #000000 !important;">UAGZ Офіційний NGO - Zürich</span>
+            </div>
+            
+            <div id="h-text-block">
+                <h1 id="h-t" data-translate="h-t" style="font-size: 28px; font-weight: 800; line-height: 1.3; color: #111827; margin: 0 0 10px 0;">Український інтеграційний та громадський центр Цюриха</h1>
+                
+                <p id="h-s" data-translate="h-s" style="font-size: 14px; color: #000000 !important; line-height: 1.5; margin: 0 0 20px 0; font-weight: 500;">Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.</p>
+            </div>
+            
+            <div id="h-btn-container" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="help.html" id="h-b1" data-translate="h-b1" style="display: inline-block; background: #1A56C4; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px;">Отримати допомогу</a>
+                <a href="https://t.me/uagz_zurich" target="_blank" id="h-b2" data-translate="h-b2t" style="display: inline-block; background: white; color: #111827; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; border: 1px solid #d1d5db;">До громади</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="hero-contacts-wrapper" class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); z-index: 10; font-size: 80%;">
+        <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 16px; padding: 16px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);">
+            <div style="display: flex; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(17, 24, 39, 0.1); padding-right: 16px;">
+                <div style="width: 38px; height: 38px; background: rgba(26, 86, 196, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                    <div style="font-size: 13px; color: #000000; font-weight: 500;">Email</div>
+                    <a href="mailto:info@ukr-zurich.ch" style="font-size: 15px; font-weight: 700; color: #111827; text-decoration: none; display: block; margin: 2px 0;">info@ukr-zurich.ch</a>
+                    <div id="c-mail-sub" data-translate="c-mail-sub" style="font-size: 12px; color: #4B5563;">Ми відповімо вам якнайшвидше.</div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(17, 24, 39, 0.1); padding-right: 16px;">
+                <div style="width: 38px; height: 38px; background: rgba(26, 86, 196, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                    <div style="font-size: 13px; color: #000000; font-weight: 500;">Телефон</div>
+                    <a href="tel:+41783491555" style="font-size: 15px; font-weight: 700; color: #111827; text-decoration: none; display: block; margin: 2px 0;">+41 78 349 1555</a>
+                    <div style="font-size: 12px; color: #4B5563;">Пн – Пт: 09:00 – 17:00</div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px; padding-left: 8px;">
+                <div>
+                    <div id="c-social-title" data-translate="c-social-title" style="font-size: 13px; color: #000000; margin-bottom: 6px; font-weight: 500;">Ми в соцмережах</div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="https://facebook.com" target="_blank" style="display: inline-block; width: 24px; height: 24px;"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" style="width:100%; height:100%; object-fit: contain;"></a>
+                        <a href="https://instagram.com" target="_blank" style="display: inline-block; width: 24px; height: 24px;"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width:100%; height:100%; object-fit: contain;"></a>
+                        <a href="https://t.me/uagz_zurich" target="_blank" style="display: inline-block; width: 24px; height: 24px;"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width:100%; height:100%; object-fit: contain;"></a>
+                        <a href="https://linkedin.com" target="_blank" style="display: inline-block; width: 24px; height: 24px;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:100%; height:100%; object-fit: contain;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- === КОНЕЦ ИЗМЕНЕНИЙ === -->
+
+<!-- Раздел: Наші центри (Три одинаковых аккуратных блока горизонтально) -->
+<section style="padding: 60px 0; background: #ffffff; font-family: system-ui, -apple-system, sans-serif;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+           <h2 style="font-size: 28px; font-weight: 600; color: #1A56C4; font-family: 'Comic Sans MS', cursive, sans-serif; margin: 0;" data-translate="centers-main-title">Наші центри</h2>
+            <a href="centers.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 4px; font-size: 14px;">
+                
+            </a>
+        </div>
+        
+        <div class="centers-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <!-- Карточка 1: Центр сім'ї -->
+            <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
+                <div style="height: 180px; position: relative;">
+                    <img src="family-center.webp" alt="Центр сім'ї" style="width:100%; height:100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px;">
+                    <div>
+                       <h3 style="font-size: 22px; font-weight: 600; color: #1A56C4; font-family: 'Caveat', cursive;" data-translate="center1-title">Центр сім'ї, молоді та спорту UAGZ</h3>
+                        <p style="font-size: 14px; color: #4B5563; line-height: 1.4; margin: 0 0 16px 0;" data-translate="center1-desc">Підтримуємо сім'ї, дітей та молодь через освітні, спортивні та культурні програми.</p>
+                    </div>
+                    <a href="family-center.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                        <span data-translate="center-go-btn">Перейти до центру</span> →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Інтеграційний центр -->
+              <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
+                <div style="height: 180px; position: relative;">
+                    <img src="integration.webp" alt="Інтеграційний центр" style="width:100%; height:100%; object-fit: cover; object-position: center 10%;">
+                </div>
+                <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px;">
+                    <div>
+                      <h3 style="font-size: 22px; font-weight: 600; color: #1A56C4; font-family: 'Caveat', cursive; margin: 0 0 8px 0;" data-translate="center2-title">Інтеграційний центр UAGZ</h3>
+                        <p style="font-size: 14px; color: #4B5563; line-height: 1.4; margin: 0 0 16px 0;" data-translate="center2-desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знайти роботу.</p>
+                    </div>
+                    <a href="integration.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                        <span data-translate="center-go-btn">Перейти до центру</span> →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Волонтерський центр -->
+            <div style="background: #FAFBFD; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; display: flex; flex-direction: column;">
+                <div style="height: 180px; position: relative;">
+                 <img src="volunteers-main.webp" alt="Волонтерський центр" style="width:100%; height:100%; object-fit: cover; object-position: center 20%;">
+                </div>
+                <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px;">
+                    <div>
+                       <h3 style="font-size: 22px; font-weight: 600; color: #1A56C4; font-family: 'Caveat', cursive; margin: 0 0 8px 0;" data-translate="center3-title">Волонтерський центр UAGZ</h3>
+                        <p style="font-size: 14px; color: #4B5563; line-height: 1.4; margin: 0 0 16px 0;" data-translate="center3-desc">Об'єднуємо людей, які хочуть допомагати та розвивати нашу громаду.</p>
+                    </div>
+                   <a href="volunteering.html" style="color: #1A56C4; font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                   <span data-translate="center-go-btn">Перейти до центру</span> →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- === КОНЕЦ ИЗМЕНЕНИЙ === -->
+<!-- ═══════ THREE COL: Актуально / Події / Оголошення ═ -->
+<div class="three-col">
+  <div>
+    <div class="col-hd"><h3 id="tc1">Наші новини</h3><a href="#" id="tc1l">Дивитися →</a></div>
+    <div class="news-item"><span class="badge b-urg" id="b1">Терміново</span><div class="news-title" id="n1t">Гуманітарна видача продуктів</div><div class="news-meta" id="n1m">18 травня, 10:00–14:00 · Albisriederplatz 1</div></div>
+    <div class="news-item"><span class="badge b-new" id="b2">Новина</span><div class="news-title" id="n2t">Нові курси німецької мови для початківців</div><div class="news-meta" id="n2m">Реєстрація відкрита</div></div>
+    <div class="news-item"><span class="badge b-ev" id="b3">Подія</span><div class="news-title" id="n3t">Community Evening</div><div class="news-meta" id="n3m">24 травня, 18:00 · Gemeinschaftszentrum</div></div>
+  </div>
+  <div>
+    <div class="col-hd"><h3 id="tc2">Події найближчим часом</h3><a href="#" id="tc2l">Всі події →</a></div>
+    <div class="ev-row"><div class="ev-date"><strong>18</strong><span id="mo1">ТРАВ</span></div><div class="ev-info"><h4 id="e1t">Дитячий театр-студія "Чомучки"</h4><p id="e1d">Сб, 12:00–14:00</p></div></div>
+    <div class="ev-row"><div class="ev-date" style="background:var(--green)"><strong>21</strong><span id="mo2">ТРАВ</span></div><div class="ev-info"><h4 id="e2t">Мовний клуб (німецька) Рівень A1–A2</h4><p id="e2d">Вт, 18:30–20:00</p></div></div>
+    <div class="ev-row"><div class="ev-date" style="background:var(--yellow)"><strong style="color:#333">24</strong><span id="mo3" style="color:rgba(0,0,0,.6)">ТРАВ</span></div><div class="ev-info"><h4 id="e3t">Community Evening · Знайомства та спілкування</h4><p id="e3d">Пт, 18:00–21:00</p></div></div>
+  </div>
+  <div>
+    <div class="col-hd"><h3 id="tc3">Нові оголошення</h3><a href="#" id="tc3l">Всі оголошення →</a></div>
+    <div class="news-item"><span class="badge b-home" id="ab1">Житло</span><div class="news-title" id="a1t">Здається кімната в Цюриху · 800 CHF/міс.</div><div class="news-meta" id="a1m">Сьогодні, 10:15</div></div>
+    <div class="news-item"><span class="badge b-job" id="ab2">Робота</span><div class="news-title" id="a2t">Потрібна няня для дитини 4 роки · Teilzeit</div><div class="news-meta" id="a2m">Сьогодні, 09:40</div></div>
+    <div class="news-item"><span class="badge b-svc" id="ab3">Послуги</span><div class="news-title" id="a3t">Переклади документів (укр/нім) · Швидко та якісно</div><div class="news-meta" id="a3m">Сьогодні, 08:30</div></div>
+  </div>
+</div>
+
+<!-- ═══════ DIRECTIONS ════════════════════════════════ -->
+<section class="dir-sec">
+  <div class="dir-sec-head">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+  </div>
+  <div class="dir-h1" id="dir-h1">Чим ми допомагаємо</div>
+  <div class="dir-sub" id="dir-sub">Ми поруч у важливих питаннях <u>щодня</u>.</div>
+  <div class="dir-stats">
+    <div class="dstat"><div class="dstat-ic" style="background:var(--blue-light)"><svg style="stroke:var(--blue)" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div><div class="dstat-n" style="color:var(--blue)">1000+</div><div class="dstat-l" id="ds1">Людей отримали допомогу</div></div></div>
+    <div class="dstat"><div class="dstat-ic" style="background:#FEF9E7"><svg style="stroke:var(--yellow)" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><div class="dstat-n" style="color:#92700A">200+</div><div class="dstat-l" id="ds2">Волонтерів у спільноті</div></div></div>
+    <div class="dstat"><div class="dstat-ic" style="background:var(--green-bg)"><svg style="stroke:var(--green)" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="dstat-n" style="color:var(--green)">50+</div><div class="dstat-l" id="ds3">Заходів щомісяця</div></div></div>
+    <div class="dstat"><div class="dstat-ic" style="background:#FEF9E7"><svg style="stroke:var(--yellow)" viewBox="0 0 24 24"><path d="M16 11h6v10H2V11h6M9 7l3-5 3 5"/><path d="M12 2v14"/></svg></div><div><div class="dstat-n" style="color:#92700A">Працюємо</div><div class="dstat-l" id="ds4">для українців у Цюриху</div></div></div>
+  </div>
+  <div class="dir-grid">
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80" alt="Гуманітарна допомога">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d1" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Гуманітарна допомога</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d1d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Продукти, одяг, засоби гігієни та інша підтримка.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt="Консультації">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d2" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Консультації та документи</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d2d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Допомога з формами, заявами та офіційними листами.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80&fit=crop&crop=faces,top" alt="Інтеграція">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d3" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Інтеграція та адаптація</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d3d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Підтримка новоприбулих на кожному етапі.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80" alt="Курси мови">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d4" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Курси німецької мови</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d4d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Безкоштовні та доступні курси для всіх рівнів.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80" alt="Пошук роботи">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d5" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Пошук роботи та кар'єра</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d5d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Консультації, резюме, вакансії та контакти.</div>
+      </div>
+    </div>
+  </div>
+<a href="sport.html" class="dir-card" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit;">
+  <div class="dir-photo">
+    <!-- Новая картинка из вашего репозитория -->
+    <img src="sport-world.jpg" alt="Спорт-ти СВІТ! Спортивні програми">
+    <div class="dir-ic">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </div>
+  </div>
+  <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+    <div class="dir-title" id="d6" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <span>Спорт-ти СВІТ! Спортивні програми</span>
+    </div>
+  </div>
+</a>
+
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80&fit=crop&crop=face" alt="Здоров'я">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d7" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Здоров'я та лікарі</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d7d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Медичне страхування, лікарі та невідкладна допомога.</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="events.html" class="dir-card" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit;">
+  <div class="dir-photo">
+    <img src="children.jpg" alt="Події для дітей">
+    <div class="dir-ic">
+      <svg viewBox="0 0 24 24">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+      </svg>
+    </div>
+  </div>
+  <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+    <div class="dir-title" id="d8" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <span>Події для дітей</span>
+    </div>
+  </div>
+</a>
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&q=80" alt="Волонтерство">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d9" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Волонтерство та участь в екологічних програмах Швейцарії.</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d9d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Долучайтеся та допомагайте разом із нами.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dir-card" onclick="toggleDirCard(this)" style="cursor: pointer; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="dir-photo">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80" alt="Громада">
+      <div class="dir-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+    </div>
+    <div class="dir-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <div class="dir-title" id="d10" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Культура та дозвілля</span>
+        <span class="dir-arrow" style="font-size: 12px; transition: transform 0.3s; margin-left: 8px;">▼</span>
+      </div>
+      <div class="dir-desc" id="d10d" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; margin-top: 0; opacity: 0;">
+        <div style="padding-top: 8px;">Зустрічі, клуби за інтересами, інтеграційні заходи.</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="dir-cta-row">
+    <div class="dir-cta-left">
+      <div class="dir-cta-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div>
+        <h4 id="cta-h">Потрібна індивідуальна консультація?</h4>
+        <p id="cta-p">Напишіть нам, і ми знайдемо відповідного спеціаліста.</p>
+      </div>
+    </div>
+    <div class="dir-cta-btns">
+      <a href="mailto:info@ukr-zurich.ch" class="btn-solid" id="cta-b" style="text-decoration:none">Зв'язатися</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA GRID ─────────────────── -->
+<section class="cta-sec">
+  <div class="cta-grid">
+    <div class="cta-card cc-blue">
+      <h3 id="cta-t">Стати волонтером</h3>
+      <p class="vol-sub"><!-- Ваш класс для подзаголовка -->Ваш час і навички можуть змінити чиєсь життя на краще.</p>
+<a href="volunteering.html" class="btn-hero-sec" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="v-btn-id">
+  <span id="v-btn-text">Приєднатися</span>
+</a>
+    </div>
+    <div class="cta-card cc-outline">
+      <h3 id="m-title">Підтримати центр</h3>
+      <p id="m-desc">Ми є некомерційною організацією і працюємо завдяки вашим пожертвам.</p>
+      <button class="ctabtn cb-b" id="b-don">Зробити внесок</button>
+    </div>
+    <div class="cta-card cc-yellow">
+      <h3 id="cta-find-h">Шукаєте житло чи роботу?</h3>
+      <p id="cta-find-p">Перегляньте актуальні пропозиції або додайте власне оголошення.</p>
+      <button class="ctabtn cb-y" id="cta-find-b">До таблиці</button>
+    </div>
+    <div class="cta-card cc-light">
+      <h3 id="cta-news-h">Бюлетень центру</h3>
+      <p id="cta-news-p">Підпишіться на важливі оновлення та корисні матеріали.</p>
+      <div class="email-r">
+        <!-- Добавили id и data-placeholder для перевода подсказки внутри поля -->
+        <input type="email" id="cta-email-input" data-placeholder="cta-email-ph" placeholder="Ваш Email">
+        <button>→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TRUST ─────────────────────── -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-ic"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <div class="trust-text" id="tr-association">Офіційно зареєстрована асоціація у Швейцарії</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-avs">
+        <img class="tav2" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&q=70" alt="Учасник">
+        <img class="tav2" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&q=70" alt="Учасник">
+        <img class="tav2" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&q=70" alt="Учасник">
+      </div>
+      <div class="trust-text" id="tr-count">Понад 1000 українців уже з нами</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="volunteer-cta-container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px; box-sizing: border-box;">
+  <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);">
+    
+ <div style="flex: 1;">
+      <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 75, 209, 0.08); color: #004bd1; padding: 6px 12px; border-radius: 30px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <span>Стати волонтером</span>
+      </div>
+      <h2 style="font-size: 24px; font-weight: 800; color: #1e293b; margin: 0 0 8px 0; letter-spacing: -0.02em;">Ваш час і навички можуть змінити чиєсь життя на краще.</h2>
+      <p style="font-size: 15px; color: #64748b; margin: 0; font-weight: 400;">Долучайтеся до команди волонтерів UAGZ та допомагайте іншим.</p>
+    </div>
+
+    <div style="flex-shrink: 0;">
+      <button id="open-volunteer-modal" class="volunteer-join-btn" style="cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; background: #004bd1; color: #ffffff; padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 75, 209, 0.25); transition: all 0.2s ease;">
+        <span>Приєднатися</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+
+  </div>
+</div>   
+
+<div id="volunteer-modal" class="v-modal-overlay">
+  <div class="v-modal-window">
+    <button id="close-volunteer-modal" class="v-modal-close-btn">&times;</button>
+    
+    <div style="text-align: center; margin-bottom: 24px;">
+      <h3 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
+      <p style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
+    </div>
+
+    <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
+      <div>
+        <label class="v-label">Ім'я</label>
+        <input type="text" name="name" required placeholder="Олена" class="v-input" style="width: 100%; box-sizing: border-box;">
+      </div>
+
+      <div>
+        <label class="v-label">Email</label>
+        <input type="email" name="email" required placeholder="olena@example.com" class="v-input">
+      </div>
+
+      <div>
+        <label class="v-label">Телефон (Telegram / WhatsApp)</label>
+        <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input">
+      </div>
+
+      <div>
+        <label class="v-label">Чим ви хочете допомогти?</label>
+        <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;"></textarea>
+      </div>
+
+      <button type="submit" id="v-submit-btn" class="v-submit-btn">Надіслати заявку</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .v-label { display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 5px; }
+  .v-input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+  .v-input:focus { border-color: #004bd1; }
+  
+  .v-submit-btn { cursor: pointer; background: #004bd1; color: white; border: none; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 10px; margin-top: 10px; transition: all 0.2s; }
+  .v-submit-btn:hover { background: #003699; transform: translateY(-1px); }
+  .v-submit-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+
+  .volunteer-join-btn:hover { background: #003699 !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 75, 209, 0.35) !important; }
+  
+  .v-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .v-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+  .v-modal-window { background: white; width: 100%; max-width: 480px; padding: 32px; border-radius: 18px; position: relative; transform: scale(0.9); transition: transform 0.3s; margin: 0 20px; }
+  .v-modal-overlay.is-open .v-modal-window { transform: scale(1); }
+  .v-modal-close-btn { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 30px; color: #94a3b8; cursor: pointer; line-height: 1; }
+
+  @media (max-width: 768px) {
+    .volunteer-cta-container > div { flex-direction: column !important; text-align: center !important; padding: 30px 24px !important; gap: 24px !important; }
+    .volunteer-join-btn { width: 100% !important; }
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('volunteer-modal');
+  const form = document.getElementById('volunteer-form');
+  const submitBtn = document.getElementById('v-submit-btn');
+
+  // Управление окном
+  document.getElementById('open-volunteer-modal').onclick = () => { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
+  document.getElementById('close-volunteer-modal').onclick = () => { modal.classList.remove('is-open'); document.body.style.overflow = ''; };
+  modal.onclick = (e) => { if(e.target === modal) document.getElementById('close-volunteer-modal').click(); };
+
+  // Отправка формы напрямую в вашу таблицу Google Sheets
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Надсилаємо...';
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwDCzbS7FQb4X4ttPbXAOS0ZeXVVVjGX4Ow3yE2lHibnzTfivaFPZo345IuGrlv2Bs2/exec'; 
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом.');
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Надіслати заявку';
+        document.getElementById('close-volunteer-modal').click();
+      })
+      .catch(error => {
+        alert('Помилка при відправці. Спробуйте ще раз або напишіть нам на почту.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Надіслати заявку';
+      });
+  });
+</script>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><div class="footer-logo-name">UAGZ</div></div>
+      <p class="footer-desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.</p>
+      <p class="footer-addr">Zürich, Switzerland<br>Email: info@ukr-zurich.ch</p>
+    </div>
+    <div class="fc">
+      <h4>Центр</h4>
+      <a href="about.html">Про нас</a>
+      <a href="help.html">Послуги</a>
+      <a href="events.html">Події</a>
+      <a href="announcements.html">Оголошення</a>
+    </div>
+    <div class="fc">
+      <h4>Корисне</h4>
+      <a href="knowledge.html">Knowledge Center</a>
+      <a href="#">FAQ</a>
+      <a href="#" class="green-link">Термінова допомога</a>
+    </div>
+    <div class="fc">
+      <h4>Години роботи</h4>
+      <div class="hgrid">
+        <span class="hday">Пн-Пт:</span><span class="hopen">09:00 - 18:00</span>
+        <span class="hday">Сб:</span><span class="hopen">10:00 - 15:00</span>
+        <span class="hday">Нд:</span><span class="hclosed">Зачинено</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 UAGZ. All rights reserved.</div>
+    <div class="footer-flag-row"><span>Разом для майбутнього</span></div>
+  </div>
+
+
+</footer>
+
+<script>
+(function() {
+    // 1. ПОЛНЫЙ СЛОВАРЬ ПЕРЕВОДОВ (Синтаксис исправлен)
+    const dict = {
+        ua: {
+            "h-badge": "UAGZ Офіційний NGO - Zürich",
+            "loc-title": "Цюрих, Швейцарія",
+            "loc-desc": "Працюємо для української громади",
+            "support-title": "Підтримуємо. Інтегруємо. Об'єднуємо.",
+            "support-desc": "Разом ми сильніші",
+            "comm-title": "Разом для сильної громади",
+            "comm-desc": "Кожен може зробити внесок",
+            "centers-main-title": "Наші центри",
+            "centers-more-link": "Дізнатися більше про центри",
+            "center1-title": "Центр сім'ї, молоді та спорту UAGZ",
+            "center1-desc": "Підтримуємо сім'ї, дітей та молодь через освітні, спортивні та культурні програми.",
+            "center2-title": "Інтеграційний центр UAGZ",
+            "center2-desc": "Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знайти роботу.",
+            "center3-title": "Волонтерський центр UAGZ",
+            "center3-desc": "Об'єднуємо людей, які хочуть допомагати та розвивати нашу громаду.",
+            "center-go-btn": "Перейти до центру →",
+            "center-go-btn": "Перейти до центру",
+            "contact-reply-speed": "Ми відповімо вам якнайшвидше.",
+            "c-mail-sub": "Ми відповімо вам якнайшвидше.",
+            "c-contact-phone": "Телефон",
+            "social-title": "Ми в соцмережах",
+            "c-social-title": "Ми в соцмережах",
+            "how-tag": "Як це працює",
+            "how-h1": "Просто. Швидко. Людяно.",
+            "how-sub": "Ми зробили процес отримання допомоги максимально простим і зрозумілим.",
+            "st1-h": "Подайте заявку",
+            "st1-p": "Заповніть просту форму на сайті — це займе лише кілька хвилин.",
+            "st2-h": "Ми зв'яжемося з вами",
+            "st2-p": "Наш coordinator зв'яжеться з вами та допоможе визначити ваш запит.",
+            "st3-h": "Оримайте допомогу або консультацію",
+            "st3-p": "Ви отримаєте необхідну підтримку, інформацію або консультацію.",
+            "near-title": "Ми поруч з вами",
+            "near-desc": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+            "team-p": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
+            "team-l": "Дізнатися більше про команду →",
+            "stat-1": "людей отримали підтримку",
+            "stat-2": "волонтерів щодня допомагають громаді",
+            "qc-h": "Швидкий зв'язок",
+            "q-t": "\"Я отримала відповіді на всі свои питання та відчула підтримку з першого дня. Дякую команді UAGZ!\"",
+            "q-n": "Олена",
+            "nl-1": "Головна",
+            "nl-2": "Про центр",
+            "nl-3": "Допомога",
+            "nl-4": "Події",
+            "nav-knowledge": "Knowledge Center",
+            "nav-announcements": "Оголошення",
+            "nav-volunteering": "Волонтерство",
+            "btn-donate-nav": "Підтримати",
+            "nav-contacts": "Контакти",
+            "n-sub": "Громадський Центр",
+            "h-badge-main": "Офіційна NGO · Zürich",
+            "h-t": "Український інтеграційний та громадський центр Цюриха",
+            "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
+            "h-b1": "Отримати допомогу",
+            "h-b2t": "Долучитися до громади",
+            "s-title": "Напрямки нашої діяльності",
+            "s-desc": "Ми створюємо умови для швидкої адаптації, навчання та взаємодопомоги",
+            "s1-t": "Інтеграційні курси",
+            "s1-d": "Мовні курси (Німецька), консультації з працевлаштування та юридична підтримка в Швейцарії.",
+            "s2-t": "Культурні події",
+            "s2-d": "Українські вечорниці, виставки, кінопокази та зустрічі для збереження нашої ідентичності.",
+            "s3-t": "Дитячий простір",
+            "s3-d": "Розвиваючі заняття, гуртки, психологічна адаптація та допомога з інтеграцією до місцевих шкіл.",
+            "s4-t": "Гуманітарна допомога",
+            "s4-d": "Координація зборів, логістика та адресна допомога постраждалим та новоприбулим.",
+            "ev-title": "Найближчі події та зустрічі",
+            "ev-desc": "Долучайтеся до наших заходів, щоб знайти нових друзів та отримати корисну інформацію",
+            "ev1-t": "Розмовний клуб німецької мови",
+            "ev1-d": "Практика мови з носіями у дружній атмосфері. Для всех рівнів.",
+            "ev2-t": "Арт-терапія для детей та дорослих",
+            "ev2-d": "Психологічне розвантаження через творчість под керівництвом спеціаліста.",
+            "ev3-t": "Семінар: Життя та робота в Швейцарії",
+            "ev3-d": "Юрист відповідає на поширені питання про статус S та працевлаштування.",
+            "b-all-ev": "Всі події",
+            "stat-t": "Центр у цифрах",
+            "stat1-n": "1,200+",
+            "stat1-t": "Підопічних",
+            "stat2-n": "150+",
+            "stat2-t": "Заходів",
+            "stat3-n": "50+",
+            "stat3-t": "Волонтерів",
+            "stat4-n": "3",
+            "stat4-t": "Роки работы",
+            "nav-home": "Головна",
+            "f-desc": "Український інтеграційний та громадський центр Цюриха — це простір підтримки, розвитку та єднання для всех українців у Швейцарії.",
+            "f-title-center": "Центр",
+            "f-about": "Про нас",
+            "f-services": "Послуги",
+            "f-events": "Події",
+            "f-announcements": "Оголошення",
+            "f-title-useful": "Корисне",
+            "f-knowledge": "Knowledge Center",
+            "f-faq": "Часті питання (FAQ)",
+            "f-urgent": "Термінова допомога",
+            "f-title-hours": "Години роботи",
+            "f-day-wf": "Пн-Пт:",
+            "f-day-sat": "Сб:",
+            "f-day-sun": "Нд:",
+            "f-closed": "Зачинено",
+            "f-together": "Разом для майбутнього",
+            "tc1": "Наші новини", "tc1l": "Дивитися →",
+            "b1": "Терміново", "n1t": "Гуманітарна видача продуктів", "n1m": "18 травня, 10:00–14:00 · Albisriederplatz 1",
+            "b2": "Новина", "n2t": "Нові курси німецької мови для початківців", "n2m": "Реєстрація відкрита",
+            "b3": "Подія", "n3m": "24 травня, 18:00 · Gemeinschaftszentrum",
+            "tc2": "Події найближчим часом", "tc2l": "Всі події →",
+            "mo1": "ТРАВ", "e1t": "Дитячий театр-студія \"Чомучки\"", "e1d": "Сб, 12:00–14:00",
+            "mo2": "ТРАВ", "e2t": "Мовний клуб (німецька) Рівень A1–A2", "e2d": "Вт, 18:30–20:00",
+            "mo3": "ТРАВ", "e3t": "Community Evening · Знайомства та спілкування", "e3d": "Пт, 18:00–21:00",
+            "tc3": "Новые оголошення", "tc3l": "Всі оголошення →",
+            "ab1": "Житло", "a1t": "Здається кімната в Цюриху · 800 CHF/міс.", "a1m": "Сьогодні, 10:15",
+            "ab2": "Робота", "a2t": "Потрібна няня для дитини 4 роки · Teilzeit", "a2m": "Сьогодні, 09:40",
+            "ab3": "Послуги", "a3t": "Переклади документів (укр/нім) · Швидко та якісно", "a3m": "Сьогодні, 08:30",
+            "fw-h": "Для кого наш центр?",
+            "fw-l": "Переглянути всі можливості →",
+            "w1": "Новоприбулі",
+            "w2": "Мами з дітьми",
+            "w3": "Люди зі статусом S",
+            "w4": "Волонтери",
+            "w5": "Бізнес",
+            "w6": "Студенти",
+            "w7": "Люди в пошуку роботи",
+            "w8": "Пенсіонери",
+            "dir-h1": "Чим мы допомагаємо",
+            "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
+            "ds1": "Людей отримали допомогу",
+            "ds2": "Волонтерів у спільноті",
+            "ds3": "Заходів щомісяця",
+            "ds4": "for українців у Цюриху",
+            "d1": "Гуманітарна допомога", "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
+            "d2": "Консультації та документи", "d2d": "Допомога з формами, заявами та офіційними листами.",
+            "d3": "Інтеграція та адаптація", "d3d": "Підтримка новоприбулих на кожному етапі.",
+            "d4": "Курси німецької мови", "d4d": "Безкоштовні та доступні курси для всех рівнів.",
+            "d5": "Пошук роботи та кар'єра", "d5d": "Консультації, резюме, вакансії та контакти.",
+            "d6": "Спорт-ти СВІТ! Спортивні програми", "d6d": "Пошук житла, регистрация, страхування, рахунки.",
+            "d7": "Здоров'я та лікарі", "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
+            "d8": "Події для детей", "d8d": "Творчі заняття, табори, свята та дитячі групи.",
+            "d9": "Волонтерство та участь в екологічних програмах Швейцарії.", "d9d": "Долучайтеся та допомагайте разом із нами.",
+            "d10": "Культура та дозвілля", "d10d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
+            "cta-h": "Потрібна індивідуальна консультація?",
+            "cta-p": "Напишіть нам, і we знайдемо відповідного спеціаліста.",
+            "cta-b": "Зв'язатися",
+            "news-title": "Наші новини", "news-more": "Дивитися",
+            "events-title": "Події/Найближчим часом", "events-more": "Всі події →",
+            "ann-title": "Нові оголошення", "ann-more": "Всі оголошення →",
+            "target-title": "Для кого наш центр?", "target-more": "Переглянути всі напрямки →",
+            "help-title": "Чим ми допомагаємо", "help-desc": "Ми поруч у важливих питаннях щодня.",
+            "count-1": "Людей отримали допомогу", "count-2": "Волонтерів у спільноті", "count-3": "Заходів щомісяця", "count-4": "Для українців у Цюриху",
+            "c1-t": "Гуманітарна допомога", "c1-d": "Продукти, одяг, засоби гігієни та інша підтримка.",
+            "c2-t": "Консультації та документи", "c2-d": "Допомога в оформленні, перекладі та юридичних питаннях.",
+            "c3-t": "Інтеграція та адаптація", "c3-d": "Підтримка новоприбулих на кожному етапі.",
+            "c4-t": "Курси німецької мови", "c4-d": "Безкоштовні та доступні уроки для всех рівнів.",
+            "c5-t": "Пошук роботи та кар'єра", "c5-d": "Консультації, резюме, вакансії та контакти.",
+            "c6-t": "Спорт-ти СВІТ! Спортивні програми", "c6-d": "Пошук житла, реєстрація, комунальні рахунки.",
+            "c7-t": "Здоров'я та лікарі", "c7-d": "Медичне страхування, лікарі та психологічна допомога.",
+            "c8-t": "Події для дітей", "c8-d": "Творчі заняття, табори, свята та дитячі групи.",
+            "c9-t": "Волонтерство та участь в екологічних програмах Швейцарії.", "c9-d": "Долучайтеся до допомоги іншим та розвитку громади.",
+            "c10-t": "Культурні дозвілля", "c10-d": "Зустрічі, клуби за інтересами, інтеграційні заходи.",
+            "cta-t": "Стати волонтером",
+            "cta-d": "Ваш час і навички можуть змінити чиєсь життя на краще.",
+            "b-vol": "Приєднатися",
+            "m-title": "Підтримати центр",
+            "m-desc": "Ми є некомерційною організацією і працюємо завдяки вашим пожертвам.",
+            "b-don": "Зробити внесок",
+            "cta-find-h": "Шукаєте житло чи роботу?",
+            "cta-find-p": "Перегляньте актуальні пропозиції або додайте власне оголошення.",
+            "cta-find-b": "До таблиці",
+            "cta-news-h": "Бюлетень центру",
+            "cta-news-p": "Підпишіться на важливі оновлення та корисні матеріали.",
+            "cta-email-input": "Ваш Email",
+            "tr-association": "Офіційно зареєстрована асоціація у Швейцарії",
+            "tr-count": "Понад 5000 українців вже отримали допомогу",
+            "lang-ua": "UA",
+            "lang-de": "DE",
+            "lang-current-ua": "Українська",
+            "lang-current-de": "Deutsch",
+            "toggle-lang-ua": "Перейти на німецьку",
+            "toggle-lang-de": "Switch to Ukrainian"
+        },
+        de: {
+            "h-badge": "UAGZ Offizielle NGO - Zürich",
+            "loc-title": "Zürich, Schweiz",
+            "loc-desc": "Wir arbeiten für die ukrainische Gemeinschaft",
+            "support-title": "Unterstützen. Integrieren. Verbinden.",
+            "support-desc": "Zusammen sind wir stärker",
+            "comm-title": "Gemeinsam für eine starke Gemeinschaft",
+            "comm-desc": "Jeder kann einen Beitrag leisten",
+            "centers-main-title": "Unsere Zentren",
+            "centers-more-link": "Erfahren Sie mehr über die Zentren",
+            "center1-title": "UAGZ Zentrum für Familie, Jugend und Sport",
+            "center1-desc": "Wir unterstützen Familien, Kinder und Jugendliche durch Bildungs-, Sport- und Kulturprogramme.",
+            "center2-title": "UAGZ Integrationszentrum",
+            "center2-desc": "Wir helfen bei der Anpassung an das Leben in der Schweiz, beim Erlernen der Sprache und bei der Jobsuche.",
+            "center3-title": "UAGZ Freiwilligenzentrum",
+            "center3-desc": "Wir bringen Menschen zusammen, die helfen und unsere Gemeinschaft entwickeln möchten.",
+            "center_go_btn": "Zum Zentrum gehen", // <-- Была пропущена запятая
+            "center-go-btn": "Zum Zentrum →",
+            "contact-reply-speed": "Wir werden Ihnen so schnell wie möglich antworten.",
+            "c-mail-sub": "Wir werden Ihnen so schnell wie möglich antworten.",
+            "contact-phone": "Telefon",
+            "social-title": "Wir sind in den sozialen Netzwerken",
+            "c-social-title": "Wir sind in den sozialen Netzwerken",
+            "nav-sub": "Ukrainisches Integrations- und Gemeinschaftszentrum Zürich",
+            "how-tag": "Wie es funktioniert",
+            "how-h1": "Einfach. Schnell. Menschlich.",
+            "how-sub": "Wir haben den Hilfsprozess so einfach und verständlich wie möglich gestaltet.",
+            "st1-h": "Antrag stellen",
+            "st1-p": "Füllen Sie ein einfaches Formular auf der Website aus – das dauert nur wenige Minuten.",
+            "st2-h": "Wir kontaktieren Sie",
+            "st2-p": "Unser Koordinator wird Sie kontaktieren und Ihnen helfen, Ihre Anfrage zu klären.",
+            "st3-h": "Hilfe oder Beratung erhalten",
+            "st3-p": "Sie erhalten die notwendige Unterstützung, Information oder Beratung.",
+            "team-h": "Wir sind für Sie da",
+            "team-p": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
+            "team-l": "Mehr über das Team erfahren →",
+            "stat-1": "Menschen erhielten Unterstützung",
+            "stat-2": "Freiwillige helfen täglich der Gemeinschaft",
+            "qc-h": "Schnelle Kommunikation",
+            "q-t": "\"Ich habe Antworten auf alle meine Fragen erhalten und habe mich vom ersten Tag an unterstützt gefühlt. Danke an das Team UAGZ!\"",
+            "q-n": "Olena",
+            "nl-1": "Startseite",
+            "nl-2": "Über uns",
+            "nl-3": "Hilfe",
+            "nl-4": "Veranstaltungen",
+            "nav-knowledge": "Wissenszentrum",
+            "nav-announcements": "Ankündigungen",
+            "nav-volunteering": "Freiwilligenarbeit",
+            "btn-donate-nav": "Unterstützen",
+            "nav-contacts": "Kontakt",
+            "n-sub": "Gemeinschaftszentrum",
+            "h-badge-main": "Offizielle NGO · Zürich",
+            "h-t": "Ukrainisches Integrations- und Gemeinschaftszentrum von Zürich",
+            "h-s": "Hilfe, Veranstaltungen, Gemeinschaft, humanitäre Unterstützung und neue Möglichkeiten für Ukrainer in der Schweiz.",
+            "h-b1": "Hilfe erhalten",
+            "h-b2t": "Der Gemeinschaft beitreten",
+            "s-title": "Unsere Aktivitätenbereiche",
+            "s-desc": "Wir pflegen Bedingungen für schnelle Anpassung, Lernen und gegenseitige Hilfe",
+            "s1-t": "Integrationskurse",
+            "s1-d": "Sprachkurse (Deutsch), Beratung zur Arbeitssuche und rechtliche Unterstützung in der Schweiz.",
+            "s2-t": "Kulturelle Veranstaltungen",
+            "s2-d": "Ukrainische Abende, Ausstellungen, Filmvorführungen und Treffen zum Erhalt unserer Identität.",
+            "s3-t": "Kinderbereich",
+            "s3-d": "Entwicklungsaktivitäten, Kurse, psychologische Anpassung und Hilfe bei der Integration in lokale Schulen.",
+            "s4-t": "Humanitäre Hilfe",
+            "s4-d": "Koordinierung von Sammlungen, Logistik und gezielte Hilfe für Betroffene und Neuankömmlinge.",
+            "ev-title": "Kommende Veranstaltungen und Treffen",
+            "ev-desc": "Nehmen Sie an unseren Veranstaltungen teil, um neue Freunde zu finden und nützliche Informationen zu erhalten",
+            "ev1-t": "Deutschsprachiger Konversationsklub",
+            "ev1-d": "Sprachenpraxis mit Muttersprachlern in freundlicher Atmosphäre. Für alle Niveaus.",
+            "ev2-t": "Kunsttherapie für Kinder und Erwachsene",
+            "ev2-d": "Psychologische Entlastung durch kreatives Schaffen unter Anleitung eines Spezialisten.",
+            "ev3-t": "Seminar: Leben und Arbeiten in der Schweiz",
+            "ev3-d": "Ein Anwalt beantwortet häufige Fragen zum Status S und zur Arbeitssuche.",
+            "b-all-ev": "Alle Veranstaltungen",
+            "stat-t": "Das Zentrum in Zahlen",
+            "stat1-n": "1.200+",
+            "stat1-t": "Begünstigte",
+            "stat2-n": "150+",
+            "stat2-t": "Veranstaltungen",
+            "stat3-n": "50+",
+            "stat3-t": "Freiwillige",
+            "stat4-n": "3",
+            "stat4-t": "Jahre Arbeit",
+            "nav-home": "Startseite",
+            "f-desc": "Das Ukrainische Integrations- und Gemeinschaftszentrum von Zürich ist ein Raum der Unterstützung, Entwicklung und Einheit für alle Ukrainer in der Schweiz.",
+            "f-title-center": "Zentrum",
+            "f-about": "Über uns",
+            "f-services": "Dienstleistungen",
+            "f-events": "Veranstaltungen",
+            "f-announcements": "Ankündigungen",
+            "f-title-useful": "Nützliches",
+            "f-knowledge": "Wissenszentrum",
+            "f-faq": "Häufige Fragen (FAQ)",
+            "f-urgent": "Dringende Hilfe",
+            "f-title-hours": "Öffnungszeiten",
+            "f-day-wf": "Mo-Fr:",
+            "f-day-sat": "Sa:",
+            "f-day-sun": "So:",
+            "f-closed": "Geschlossen",
+            "f-together": "Zusammen für die Zukunft",
+            "tc1": "Unsere Neuigkeiten", "tc1l": "Ansehen →",
+            "b1": "Dringend", "n1t": "Humanitäre Lebensmittelverteilung", "n1m": "18. Mai, 10:00–14:00 · Albisriederplatz 1",
+            "b2": "Neuigkeit", "n2t": "Neue Deutschkurse für Anfänger", "n2m": "Anmeldung geöffnet",
+            "b3": "Veranstaltung", "n3m": "24. Mai, 18:00 · Gemeinschaftszentrum",
+            "tc2": "Kommende Veranstaltungen", "tc2l": "Alle Veranstaltungen →",
+            "mo1": "MAI", "e1t": "Kindertheaterstudio \"Tsomutschky\"", "e1d": "Sa, 12:00–14:00",
+            "mo2": "MAI", "e2t": "Sprachklub (Deutsch) Niveau A1–A2", "e2d": "Di, 18:30–20:00",
+            "mo3": "MAI", "e3t": "Community Evening · Kennenlernen und Kommunikation", "e3d": "Fr, 18:00–21:00",
+            "tc3": "Neue Ankündigungen", "tc3l": "Alle Ankündigungen →",
+            "ab1": "Wohnen", "a1t": "Zimmer in Zürich zu vermieten · 800 CHF/Monat", "a1m": "Heute, 10:15",
+            "ab2": "Arbeit", "a2t": "Babysitter für 4-Jähriges Kind gesucht · Teilzeit", "a2m": "Heute, 09:40",
+            "ab3": "Dienstleistungen", "a3t": "Dokumentenübersetzung (ukr/de) · Schnell und qualitativ", "a3m": "Heute, 08:30",
+            "fw-h": "Für wen ist unser Zentrum?",
+            "fw-l": "Alle Möglichkeiten ansehen →",
+            "w1": "Neuankömmlinge",
+            "w2": "Mütter mit Kindern",
+            "w3": "Menschen mit Status S",
+            "w4": "Freiwillige",
+            "w5": "Unternehmen",
+            "w6": "Studenten",
+            "w7": "Arbeitssuchende",
+            "w8": "Rentner",
+            "dir-h1": "Wie wir helfen",
+            "dir-sub": "Wir sind jeden Tag bei wichtigen Fragen <u>für Sie da</u>.",
+            "ds1": "Menschen erhielten Hilfe",
+            "ds2": "Freiwillige in der Gemeinschaft",
+            "ds3": "Veranstaltungen monatlich",
+            "ds4": "für Ukrainer in Zürich",
+            "d1": "Humanitäre Hilfe", "d1d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
+            "d2": "Beratung und Dokumente", "d2d": "Hilfe bei Formulare, Anträgen und offiziellen Briefen.",
+            "d3": "Integration und Anpassung", "d3d": "Unterstützung für Neuankömmlinge in jedem Schritt.",
+            "d4": "Deutschkurse", "d4d": "Kostenlose und zugängliche Kurse für alle Niveaus.",
+            "d5": "Arbeitssuche und Karriere", "d5d": "Beratung, Lebensläufe, Stellenangebote und Kontakte.",
+            "d6": "Sport-ти СВІТ! Sportprogramme", "d6d": "Wohnungssuche, Registrierung, Versicherungen, Rechnungen.",
+            "d7": "Gesundheit und Ärzte", "d7d": "Krankenversicherung, Ärzte und Notdienste.",
+            "d8": "Veranstaltungen für Kinder", "d8d": "Kreative Aktivitäten, Lager, Feiern und Kindergruppen.",
+            "d9": "Freiwilligenarbeit und Teilnahme an Umweltprogrammen der Schweiz.", "d9d": "Machen Sie mit und helfen Sie mit uns.",
+            "d10": "Kultur und Freizeit", "d10d": "Treffen, Interessengruppen, Integrationsveranstaltungen.",
+            "cta-h": "Benötigen Sie eine individuelle Beratung?",
+            "cta-p": "Schreiben Sie uns, und wir finden den passenden Spezialisten.",
+            "cta-b": "Kontaktieren",
+            "news-title": "Unsere Neuigkeiten", "news-more": "Ansehen",
+            "events-title": "Veranstaltungen/Kommend", "events-more": "Alle Veranstaltungen →",
+            "ann-title": "Neue Ankündigungen", "ann-more": "Alle Ankündigungen →",
+            "target-title": "Für wen ist unser Zentrum?", "target-more": "Alle Bereiche ansehen →",
+            "help-title": "Wie wir helfen", "help-desc": "Wir sind jeden Tag bei wichtigen Fragen für Sie da.",
+            "count-1": "Menschen erhielten Hilfe", "count-2": "Freiwillige in der Gemeinschaft", "count-3": "Veranstaltungen monatlich", "count-4": "Für Ukrainer in Zürich",
+            "c1-t": "Humanitäre Hilfe", "c1-d": "Lebensmittel, Kleidung, Hygieneartikel und weitere Unterstützung.",
+            "c2-t": "Beratung und Dokumente", "c2-d": "Hilfe bei Formularen, Übersetzungen und rechtlichen Fragen.",
+            "c3-t": "Integration und Anpassung", "c3-d": "Unterstützung für Neuankömmlinge in jedem Schritt.",
+            "c4-t": "Deutschkurse", "c4-d": "Kostenlose und zugängliche Kurse für alle Niveaus.",
+            "c5-t": "Arbeitssuche und Karriere", "c5-d": "Beratung, Lebensläufe, Stellenangebote und Kontakte.",
+            "c6-t": "Sport-ти СВІТ! Sportprogramme", "c6-d": "Wohnungssuche, Registrierung, Versorgungsrechnungen.",
+            "c7-t": "Gesundheit und Ärzte", "c7-d": "Krankenversicherung, Ärzte und psychologische Hilfe.",
+            "c8-t": "Veranstaltungen für Kinder", "c8-d": "Kreative Aktivitäten, Lager, Feiern und Kindergruppen.",
+            "c9-t": "Freiwilligenarbeit und Teilnahme an Umweltprogrammen der Schweiz.", "c9-d": "Machen Sie mit und helfen Sie der Gemeinschaft.",
+            "c10-t": "Kulturelle Freizeit", "c10-d": "Treffen, Interessengruppen, Integrationsveranstaltungen.",
+            "cta-t": "Werden Sie Freiwilliger",
+            "cta-d": "Ihre Zeit und Fähigkeiten können das Leben eines anderen zum Besseren verändern.",
+            "b-vol": "Beitreten",
+            "m-title": "Das Zentrum unterstützen",
+            "m-desc": "Wir sind eine gemeinnützige Organisation und arbeiten dank Ihrer Spenden.",
+            "b-don": "Beitrag leisten",
+            "cta-find-h": "Suchen Sie eine Wohnung oder Arbeit?",
+            "cta-find-p": "Sehen Sie sich aktuelle Angebote an oder fügen Sie Ihre eigene Anzeige hinzu.",
+            "cta-find-b": "Zur Tabelle",
+            "cta-news-h": "Newsletter des Zentrums",
+            "cta-news-p": "Melden Sie sich für wichtige Updates und nützliche Materialien an.",
+            "cta-email-input": "Ihre E-Mail",
+            "tr-association": "Offiziell registrierte Vereinigung in der Schweiz",
+            "tr-count": "Über 5000 Ukrainer haben bereits Hilfe erhalten",
+            "lang-ua": "UA",
+            "lang-de": "DE",
+            "lang-current-ua": "Ukrainisch",
+            "lang-current-de": "Deutsch",
+            "toggle-lang-ua": "Auf Deutsch umstellen",
+            "toggle-lang-de": "Auf Ukrainisch umstellen"
+        }
+    };
+
+    // 2. ИЗОЛИРОВАННАЯ ФУНКЦИЯ ПЕРЕВОДА
+    function applyTranslation(lang) {
+        if (!dict[lang]) return;
+        const data = dict[lang];
+        
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (key === 'lang-ua' || key === 'lang-de') return;
+
+            if (data[key]) {
+                if (data[key].includes('<')) {
+                    el.innerHTML = data[key];
+                } else {
+                    el.innerText = data[key];
+                }
+            }
+        });
+
+        // СТИЛИЗАЦИЯ КНОПОК ЯЗЫКА
+        const btnUA = document.getElementById('lang-ua') || document.querySelector('.lang-btn[data-lang="ua"]');
+        const btnDE = document.getElementById('lang-de') || document.querySelector('.lang-btn[data-lang="de"]');
+        
+        if (btnUA && btnDE) {
+            const activeStyle = { 'background-color': '#ffffff', 'color': '#0070F3', 'font-weight': '700', 'box-shadow': '0 1px 3px rgba(0,0,0,0.1)' };
+            const inactiveStyle = { 'background-color': 'transparent', 'color': '#64748b', 'font-weight': '600', 'box-shadow': 'none' };
+            
+            const setStyles = (el, styles) => {
+                for (let prop in styles) el.style.setProperty(prop, styles[prop], 'important');
+            };
+
+            if (lang === 'ua') {
+                setStyles(btnUA, activeStyle);
+                setStyles(btnDE, inactiveStyle);
+            } else {
+                setStyles(btnDE, activeStyle);
+                setStyles(btnUA, inactiveStyle);
+            }
+        }
+        localStorage.setItem('siteLang', lang);
+    }
+
+    // 3. НАВЕШИВАНИЕ ОБРАБОТЧИКОВ НА КНОПКИ
+    function initLanguageSwitchers() {
+        document.addEventListener('click', function(e) {
+            const targetBtn = e.target.closest('.lang-btn[data-lang], #lang-ua, #lang-de');
+            
+            if (targetBtn) {
+                e.preventDefault();
+                let lang = targetBtn.getAttribute('data-lang');
+                if (!lang) {
+                    lang = targetBtn.id === 'lang-ua' ? 'ua' : 'de';
+                }
+                
+                applyTranslation(lang);
+            }
+        });
+
+        // Запуск перевода при загрузке страницы
+        const savedLang = localStorage.getItem('siteLang') || 'ua';
+        applyTranslation(savedLang);
+    }
+
+    // БЕЗОПАСНЫЙ СТАРТ
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initLanguageSwitchers();
+    } else {
+        window.addEventListener('load', initLanguageSwitchers);
+    }
+
+    // Глобальный дубликат
+    window.changeLanguage = function(lang) {
+        applyTranslation(lang);
+    };
+})();
+</script>
+<style>
+@media (max-width: 768px) {
+    /* На смартфонах разрешаем шапке разделяться на две строчки */
+    nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 4px 12px 0px 12px !important; /* Минимальный отступ шапки сверху и снизу */
+    }
+
+    /* Логотип занимает левую часть верха */
+    .nav-logo {
+        max-width: 70% !important;
+    }
+
+    /* Переключатель языков на смартфонах принудительно ставим в правый верхний угол */
+    .lang-sw {
+        display: block !important;
+        margin-left: auto !important;
+    }
+
+    /* Превращаем блок ссылок в принудительную плавающую ленту ПОД логотипом */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;      /* Строго в один ряд */
+        overflow-x: auto !important;         /* Включаем горизонтальный скролл */
+        overflow-y: hidden !important;
+        white-space: nowrap !important;      /* Запрещаем кнопкам переноситься вниз */
+        width: 100% !important;              /* Растягиваем на всю ширину экрана */
+        margin: 2px 0 0 0 !important;        /* Минимальный зазор под логотипом, чтобы поднять меню максимально вверх */
+        padding: 4px 4px !important;         /* Компактные внутренние отступы кнопок */
+        gap: 14px !important;
+        list-style: none !important;
+        -webkit-overflow-scrolling: touch !important; /* Активируем плавный скролл пальцем для iOS и Android */
+    }
+
+    /* Прячем стандартную полосу прокрутки, чтобы меню выглядело красиво */
+    .nav-links::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    /* Запрещаем каждому пункту меню сжиматься в размерах */
+    .nav-links li {
+        display: inline-block !important;
+        flex-shrink: 0 !important;           /* Ключевое свойство, чтобы текст не сжимался */
+        margin: 0 !important;
+    }
+
+    .nav-links a, .btn-donate-nav {
+        display: inline-block !important;
+        white-space: nowrap !important;
+        padding: 2px 0 !important;          /* Уменьшили вертикальный размер самих ссылок */
+    }
+}
+</style>
+
+</body>
+</html>

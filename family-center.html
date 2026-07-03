@@ -1353,15 +1353,16 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // --- ФУНКЦИЯ ПЕРЕВОДА СТРАНИЦЫ ---
     function applyTranslations(lang) {
+        // Загружаем файл в зависимости от выбранного языка
         const jsonFile = lang === 'de' ? 'de.json' : 'ua.json';
         
         fetch(jsonFile)
             .then(response => {
-                if (!response.ok) throw new Error('Файл перевода не найден');
+                if (!response.ok) throw new Error('Не вдалося завантажити файл: ' + jsonFile);
                 return response.json();
             })
             .then(translations => {
-                // Перевод текстовых блоков (ищет и по data-i18n, и по data-translate)
+                // Находим все элементы с атрибутами data-i18n или data-translate
                 document.querySelectorAll('[data-i18n], [data-translate]').forEach(element => {
                     const key = element.getAttribute('data-i18n') || element.getAttribute('data-translate');
                     if (translations[key]) {
@@ -1369,7 +1370,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
 
-                // Перевод плейсхолдеров
+                // Перевод плейсхолдеров в полях ввода
                 document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
                     const key = element.getAttribute('data-i18n-placeholder');
                     if (translations[key]) {
@@ -1380,7 +1381,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.documentElement.lang = lang;
             })
             .catch(error => {
-                console.warn('Локализация не применилась, оставлен исходный текст:', error);
+                console.error('Помилка локалізації:', error);
             });
     }
 
@@ -1392,29 +1393,33 @@ document.addEventListener("DOMContentLoaded", function () {
             btn.addEventListener("click", function (e) {
                 e.preventDefault();
                 
+                // Если кнопка уже активна, ничего не делаем
                 if (this.classList.contains("active")) return;
                 
+                // Переключаем класс active на кнопках
                 langButtons.forEach(b => b.classList.remove("active"));
                 this.classList.add("active");
                 
+                // Берем текст (UA/DE) и переводим в нижний регистр (ua/de)
                 const selectedLang = this.textContent.trim().toLowerCase();
                 
                 localStorage.setItem("siteLanguage", selectedLang);
                 applyTranslations(selectedLang);
             });
         });
-    }
 
-    // Проверка сохраненного языка при загрузке страницы
-    const savedLang = localStorage.getItem("siteLanguage") || 'ua';
-    const activeBtn = Array.from(langButtons).find(b => b.textContent.trim().toLowerCase() === savedLang);
-    if (activeBtn) {
-        langButtons.forEach(b => b.classList.remove("active"));
-        activeBtn.classList.add("active");
+        // Проверка сохраненного языка при загрузке страницы
+        const savedLang = localStorage.getItem("siteLanguage") || 'ua';
+        const activeBtn = Array.from(langButtons).find(b => b.textContent.trim().toLowerCase() === savedLang);
+        
+        if (activeBtn) {
+            langButtons.forEach(b => b.classList.remove("active"));
+            activeBtn.classList.add("active");
+        }
+        
+        // Запускаем перевод страницы
+        applyTranslations(savedLang);
     }
-    
-    // Запускаем перевод для выбранного языка (даже если это UA, чтобы подхватить динамический текст)
-    applyTranslations(savedLang);
 
     // --- ЛОГИКА МОДАЛЬНОГО ОКНА РЕГИСТРАЦИИ ---
     const modal = document.getElementById("registerModal");
@@ -1446,7 +1451,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // --- ОТПРАВКА ФОРМЫ (Единый рабочий обработчик) ---
+    // --- ОТПРАВКА ФОРМЫ В GOOGLE СЦЕНАРИЙ ---
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1481,7 +1486,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     form.style.display = 'block';
                     if(successMsg) successMsg.style.display = 'none';
                     button.disabled = false;
-                    button.innerText = 'Зареєструватися'; // Возвращаем исходный текст кнопки
+                    button.innerText = 'Зареєструватися';
                 }, 3000);
             })
             .catch(error => {

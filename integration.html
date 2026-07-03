@@ -362,7 +362,11 @@
 }
 }
         /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
-        .programs-section { padding: 50px 0 70px 0; background-color: #ffffff; text-align: center; }
+        .programs-section { padding: 25px 0 70px 0; background-color: #ffffff; text-align: center; }
+        /* Окреме правило для заголовка саме цієї секції */
+        .programs-section .section-title {
+            font-weight: 500; /* Змінено на Manrope Bold (500) */
+        }
         .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
         .program-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; }
         .program-img-box { position: relative; width: 100%; height: 180px; background-color: #f3f4f6; }

@@ -165,7 +165,7 @@
 }
         .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
 
-    /* === БАР ХАРАКТЕРИСТИК (Идеальное fluid-выравнивание влево) === */
+   /* === БАР ХАРАКТЕРИСТИК (Компактный и выровненный влево) === */
         .features-bar { 
             background-color: #ffffff; 
             padding: 20px 0; 
@@ -173,35 +173,36 @@
             border-bottom: 1px solid #f3f4f6; 
             width: 100%;
         }
-        /* Используем точно такие же отступы, как у нижней секции help-container-fluid */
+        /* Выравниваем контейнер по левому краю аналогично help-container-fluid */
         .features-bar .container {
             max-width: 100%;
             padding: 0 40px;
             margin: 0;
             width: 100%;
         }
-        /* Сетка флексов строго с левого края */
+        /* Уменьшаем gap (расстояние между блоками), чтобы они уместились до градиента */
         .features-grid { 
             display: flex; 
             flex-wrap: wrap;
             justify-content: flex-start;
-            gap: 40px; /* Фиксированный безопасный зазор между колонками */
+            gap: 28px; /* Уменьшено, чтобы сдвинуть всю группу компактно влево */
         }
-        /* Ограничиваем элементы по ширине, чтобы тексты не растягивались шире карточек */
+        /* Ограничиваем максимальную ширину элемента, чтобы подзаголовок не выходил за рамки заголовка */
         .feature-item { 
             display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            flex: 0 1 calc(20% - 32px); /* Занимает пропорционально столько же, сколько одна карточка снизу */
-            min-width: 250px; /* Предотвращает критическое сжатие текста */
+            align-items: flex-start; /* Выравнивание по верхней линии для аккуратности */
+            gap: 10px; 
+            max-width: 210px; /* Жесткое ограничение ширины под размер заголовков */
+            width: 100%;
         }
 
         /* Стиль для .webp иконок */
         .feature-icon-img { 
-            width: 24px; 
-            height: 24px; 
+            width: 22px; 
+            height: 22px; 
             object-fit: contain;
             flex-shrink: 0;
+            margin-top: 2px; /* Легкое смещение иконки под базовую линию шрифта */
         }
 
         .feature-text h3 { 
@@ -209,21 +210,21 @@
             font-weight: 700; 
             color: #002366; 
             margin-bottom: 2px; 
-            white-space: nowrap; /* Заголовки остаются в одну строку */
+            white-space: nowrap; /* Заголовок строго в одну строку */
         }
         .feature-text p { 
             font-size: 11.5px; 
             color: #6b7280; 
             font-weight: 500; 
-            line-height: 1.4;
-            word-wrap: break-word; /* Безопасный перенос длинных описаний */
+            line-height: 1.35;
+            word-break: keep-all; /* Красивый перенос слов без разрывов */
         }
 
-        /* Адаптивность для мобильных устройств */
+        /* Адаптивность */
         @media (max-width: 1024px) {
             .features-bar .container { padding: 0 24px; }
             .features-grid { gap: 20px; }
-            .feature-item { flex: 1 1 100%; }
+            .feature-item { max-width: 100%; }
         }
         @media (max-width: 768px) {
             .features-grid { flex-direction: column; }
@@ -428,7 +429,6 @@
     </section>
 
     <!-- БАР ХАРАКТЕРИСТИК -->
-  <!-- БАР ХАРАКТЕРИСТИК -->
    <section class="features-bar">
         <div class="container">
             <div class="features-grid">

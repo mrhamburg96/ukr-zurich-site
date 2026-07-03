@@ -17,33 +17,155 @@
         .main-header { background: #ffffff; padding: 15px 0; border-bottom: 1px solid #f3f4f6; }
         .header-container { display: flex; align-items: center; justify-content: space-between; }
         .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { width: 42px; height: 42px; object-fit: contain; }
-        .logo-text h1 { font-size: 16px; font-weight: 800; color: #002366; tracking: -0.3px; }
-        .logo-text p { font-size: 11px; color: #6b7280; font-weight: 500; }
-        
-        .header-actions { display: flex; align-items: center; gap: 16px; }
-        .btn-back { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 8px; color: #4b5563; font-size: 13.5px; font-weight: 600; text-decoration: none; background: #ffffff; transition: all 0.2s; }
-        .btn-back:hover { background: #f9fafb; border-color: #d1d5db; color: #1f2937; }
+        .logo-images { display: flex; align-items: center; gap: 6px; }
+        .logo-images svg { width: 24px; height: 18px; border-radius: 2px; }
+        .logo-text { font-size: 28px; font-weight: 800; color: #002366; }
+        .logo-slogan { font-size: 11px; font-weight: 600; color: #1a56c4; max-width: 200px; line-height: 1.3; border-left: 1px solid #e5e7eb; padding-left: 10px; margin-left: 4px; }
+        .nav-menu { display: flex; align-items: center; gap: 20px; list-style: none; }
+        .nav-menu a { font-size: 13px; font-weight: 700; color: #111827; text-decoration: none; padding: 6px 0; position: relative; }
+        .nav-menu a.active { color: #1a56c4; }
+        .nav-menu a.active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #1a56c4; }
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+        .btn-donate { display: inline-flex; align-items: center; gap: 6px; background-color: #ffcc00; color: #111827; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; }
+        .lang-switcher { display: flex; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; }
+        .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
+        .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-        /* === HERO СЕКЦІЯ === */
-        .hero-section { background-color: #ffffff; padding: 40px 0 20px 0; width: 100%; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        
-        .hero-content { max-width: 540px; }
-        .hero-content h1 { 
-            font-size: 29px; 
-            font-weight: 700; /* Змінено з 800 на 700 (Manrope Bold) */
-            color: #002366; 
-            line-height: 1.2; 
-            margin-bottom: 12px; 
-        }
-        .hero-content p { font-size: 15px; color: #4b5563; line-height: 1.55; font-weight: 500; }
+      /* === СЕКЦІЯ HERO (Зменшено на 30%) === */
+.hero-section { 
+    background-color: #ffffff; 
+    position: relative; 
+    overflow: hidden; 
+    padding-top: 12px; 
+    min-height: 315px; /* Зменшено з 450px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .hero-banner-box { position: relative; width: 100%; height: 320px; border-radius: 20px; overflow: hidden; background-color: #f3f4f6; }
-        .hero-banner-img { width: 100%; height: 100%; object-fit: cover; }
-        .hero-banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0) 100%); }
+/* Контейнер хлібних крихт */
+.hero-top-nav {
+    position: relative;
+    z-index: 5;
+    margin-bottom: 10px; /* Зменшено відступ */
+}
 
-        /* === БАР ХАРАКТЕРИСТИК (Ультра-компактний і зміщений ліворуч) === */
+.breadcrumbs { 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    font-size: 11px; /* Трохи менший шрифт */
+    font-weight: 600; 
+    color: #1a56c4; 
+}
+.breadcrumbs a { 
+    color: #1a56c4; 
+    text-decoration: none; 
+}
+.breadcrumbs a:hover { 
+    text-decoration: underline; 
+}
+.breadcrumbs span { 
+    color: #1a56c4; 
+    opacity: 0.7; 
+}
+
+/* Контент поверх баннера */
+.hero-container-inner {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    min-height: 265px; /* Зменшено з 380px */
+}
+
+.hero-content { 
+    padding: 20px 0; /* Зменшено падінги */
+    max-width: 390px; /* Зменшено з 520px, щоб відповідати масштабу */
+    position: relative;
+    z-index: 4;
+}
+.hero-content h1 { 
+    font-size: 29px; /* Зменшено з 42px (~30%) */
+    font-weight: 700; 
+    color: #002366; 
+    line-height: 1.2; 
+    margin-bottom: 12px; 
+}
+.hero-description { 
+    font-size: 13px; /* Зменшено з 16px */
+    font-weight: 500; 
+    color: #4b5563; 
+    line-height: 1.5; 
+    margin-bottom: 20px; /* Зменшено з 28px */
+}
+
+.btn-primary { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: #1a56c4; 
+    color: #ffffff; 
+    font-size: 12.5px; /* Зменшено з 14px */
+    font-weight: 700; 
+    padding: 9px 20px; /* Компактніші відступи кнопки */
+    border-radius: 6px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    border: none; 
+    box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15);
+}
+
+/* Фоновий баннер на всю ширину (також стискається під нову висоту секції) */
+.hero-image-outer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%; 
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: top 10% right; 
+}
+
+/* Плавний градієнт зліва */
+.hero-image-outer::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 40%; 
+    height: 100%; 
+    background: linear-gradient(to right, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,0.8) 30%, 
+        rgba(255,255,255,0) 100%
+    ); 
+    z-index: 2; 
+}
+
+/* Адаптивність */
+@media (max-width: 1024px) {
+    .hero-image-outer {
+        position: relative;
+        width: 100%;
+        height: 210px; /* Зменшено для мобільних з 300px */
+        margin-top: 15px;
+    }
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+}
+        .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
+
+ /* === БАР ХАРАКТЕРИСТИК (Ультра-компактный слева) === */
         .features-bar { 
             background-color: #ffffff; 
             padding: 20px 0; 
@@ -51,30 +173,36 @@
             border-bottom: 1px solid #f3f4f6; 
             width: 100%;
         }
+        /* Жидкий контейнер, выравнивающий первую иконку строго по левому краю карточек */
         .features-bar .container {
             max-width: 100%;
             padding: 0 40px;
             margin: 0;
             width: 100%;
         }
+        /* Минимальный gap (16px), чтобы блоки плотно прижались влево до начала размытия баннера */
         .features-grid { 
             display: flex; 
             flex-wrap: wrap;
             justify-content: flex-start;
             gap: 16px; 
         }
+     /* Жесткий лимит ширины увеличен до 195px, чтобы компенсировать крупную иконку */
         .feature-item { 
             display: flex; 
             align-items: flex-start; 
-            gap: 10px; 
+            gap: 10px; /* Немного увеличили зазор между иконкой и текстом */
             max-width: 195px; 
             width: 100%;
         }
+
+        /* УВЕЛИЧЕННЫЙ РАЗМЕР ИКОНКИ */
         .feature-icon-img { 
-            width: 32px; 
-            height: 32px; 
+            width: 32px;         /* Было: 22px */
+            height: 32px;        /* Было: 22px */
             object-fit: contain;
             flex-shrink: 0;
+            margin-top: 0px;     /* Сбросили отступ, так как крупная иконка сама центрируется отлично */
         }
         .feature-text h3 { 
             font-size: 13.5px; 
@@ -93,20 +221,23 @@
 
         /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
         .help-section { 
-            padding: 30px 0 70px 0; /* Зменшено верхній відступ, щоб підняти під бар */
+            padding: 30px 0 70px 0; /* Зменшено верхній відступ з 70px до 30px, щоб заголовок піднявся впритул */
             background-color: #ffffff; 
             width: 100%; 
         }
+        
+        /* Заголовок теперь центрируется по экрану. Вес шрифта изменен на Manrope Bold (600) */
         .section-title { 
             font-size: 30px; 
-            font-weight: 600; /* Встановлено Manrope Bold (600) */
+            font-weight: 500; /* Переведено на 600 (Manrope Bold) */
             color: #002366; 
             margin-bottom: 40px; 
             position: relative; 
             display: block;
-            text-align: center; 
+            text-align: center; /* Центрирование текста */
             width: 100%;
         }
+        /* Центрируем желтую полоску под заголовком */
         .section-title::after { 
             content: ''; 
             position: absolute; 
@@ -119,123 +250,285 @@
             border-radius: 2px; 
         }
 
-        .help-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
-        .help-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-        
-        .help-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; padding: 24px; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
-        .help-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04); }
-        .card-icon { font-size: 28px; margin-bottom: 16px; display: inline-block; }
-        .help-card h3 { font-size: 16px; font-weight: 800; color: #002366; margin-bottom: 10px; line-height: 1.3; }
-        .help-card p { font-size: 13px; color: #4b5563; line-height: 1.45; font-weight: 500; margin-bottom: 20px; flex-grow: 1; }
-        .btn-card-action { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 10px; background: #f3f4f6; color: #002366; font-size: 13px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
-        .btn-card-action:hover { background: #e5e7eb; }
+        .help-container-fluid {
+            width: 100%;
+            padding: 0 40px; 
+            box-sizing: border-box;
+        }
 
-        /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ (На всю ширину) === */
+        /* Адаптивность для мобильных экранов */
+        @media (max-width: 1024px) {
+            .features-bar .container { padding: 0 24px; }
+            .feature-item { max-width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .features-grid { flex-direction: column; gap: 20px; }
+        }
+}
+       /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
+.help-section { 
+    padding: 70px 0; 
+    background-color: #ffffff; 
+    text-align: center; 
+    width: 100%; /* Розтягуємо саму секцію на всю ширину */
+}
+
+/* Новий контейнер для сітки: розтягується на всю ширину екрана з невеликими відступами по боках */
+.help-container-fluid {
+    width: 100%;
+    padding: 0 40px; /* Відступи від країв екрана, щоб картки не липли до границь */
+    box-sizing: border-box;
+}
+
+.section-title { 
+    font-size: 30px; 
+    font-weight: 800; 
+    color: #002366; 
+    margin-bottom: 40px; 
+    position: relative; 
+    display: inline-block; 
+}
+.section-title::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -12px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 40px; 
+    height: 3px; 
+    background-color: #ffcc00; 
+    border-radius: 2px; 
+}
+
+/* 5 колонок в один ряд на всю доступну ширину */
+.help-grid { 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; /* Комфортний відступ між картками */
+    margin-bottom: 24px; 
+}
+
+.help-card { 
+    background: #ffffff; 
+    border: 1px solid #f3f4f6; 
+    border-radius: 16px; 
+    padding: 35px 24px; 
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+.help-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.help-card-span-2, .help-card-offset-1 { 
+    grid-column: auto !important; 
+}
+
+/* Стилі для нових .webp іконок замість емодзи */
+.card-icon-img { 
+    width: 54px; /* Оптимальний розмір для графічних іконок */
+    height: 54px; 
+    object-fit: contain;
+    margin-bottom: 20px; 
+    display: inline-block; 
+}
+
+.help-card h3 { 
+    font-size: 16px; 
+    font-weight: 800; 
+    color: #002366; 
+    margin-bottom: 12px; 
+    line-height: 1.3; 
+}
+.help-card p { 
+    font-size: 13px; 
+    color: #4b5563; 
+    line-height: 1.5; 
+    font-weight: 500; 
+}
+
+/* Адаптивність для менших екранів */
+@media (max-width: 1200px) {
+    .help-container-fluid { padding: 0 24px; }
+    .help-grid { grid-template-columns: repeat(3, 1fr); } /* 3 в ряд на середніх екранах */
+}
+@media (max-width: 768px) {
+    .help-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд */
+}
+@media (max-width: 480px) {
+    .help-grid { grid-template-columns: 1fr; } /* 1 в ряд на телефонах */
+}
+}
+      /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ (На всю ширину сайту) === */
         .programs-section { 
-            padding: 10px 0 60px 0; /* Максимально наближено до секції вище */
+            padding: 10px 0 60px 0; 
             background-color: #ffffff; 
             text-align: center; 
             width: 100%;
         }
-        .programs-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
-        .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        
-        .program-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
-        .program-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
-        
-        .program-img-box { position: relative; width: 100%; height: 200px; background-color: #f3f4f6; }
-        .program-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Використовуємо флюїдний контейнер на всю ширину екрану */
+        .programs-container-fluid {
+            width: 100%;
+            padding: 0 40px; 
+            box-sizing: border-box;
+        }
+
+        /* 4 колонки в один ряд на всю доступну ширину */
+        .programs-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; /* Однаковий зазор, як і в секції вище */
+        }
+
+        .program-card { 
+            background: #ffffff; 
+            border: 1px solid #f3f4f6; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            text-align: left; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .program-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Контейнер для фото з фіксованою пропорцією */
+        .program-img-box { 
+            position: relative; 
+            width: 100%; 
+            height: 200px; /* Оптимальна висота для широких карток */
+            background-color: #f3f4f6; 
+        }
+        /* Фото автоматично заповнює блок без деформації */
+        .program-img-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
         .program-badge { position: absolute; bottom: -18px; left: 24px; width: 36px; height: 36px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-        
         .program-text-box { padding: 32px 24px 24px 24px; flex-grow: 1; }
         .program-text-box h3 { font-size: 17px; font-weight: 800; color: #002366; margin-bottom: 12px; }
         .program-text-box p { font-size: 13.5px; color: #4b5563; line-height: 1.5; font-weight: 500; }
 
+        /* Окреме точкове правило для відповідності заголовка */
         .programs-section .section-title {
-            font-weight: 500; /* Встановлено Manrope Bold (500) */
-            font-size: 31px; 
+            font-weight: 500;
+            font-size: 31px;
             letter-spacing: -0.2px;
         }
 
-        /* === МОДАЛЬНЕ ВІКНО === */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 35, 102, 0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 1000; }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-container { background: #ffffff; width: 100%; max-width: 440px; border-radius: 20px; padding: 32px; box-shadow: 0 20px 50px rgba(0, 35, 102, 0.15); position: relative; transform: translateY(-20px); transition: transform 0.3s ease; }
-        .modal-overlay.active .modal-container { transform: translateY(0); }
-        .modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; color: #9ca3af; cursor: pointer; transition: color 0.2s; }
-        .modal-close:hover { color: #4b5563; }
-        .modal-container h2 { font-size: 22px; font-weight: 800; color: #002366; margin-bottom: 8px; }
-        .modal-container p { font-size: 14px; color: #6b7280; margin-bottom: 24px; font-weight: 500; }
-        .form-group { margin-bottom: 16px; text-align: left; }
-        .form-group label { display: block; font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 6px; }
-        .form-group input { width: 100%; padding: 10px 14px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: inherit; font-size: 14px; color: #111827; transition: border-color 0.2s; }
-        .form-group input:focus { outline: none; border-color: #002366; }
-        .btn-submit { width: 100%; padding: 12px; background: #ffcc00; color: #002366; font-size: 14px; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
-        .btn-submit:hover { background: #e6b800; }
-
-        /* АДАПТИВНІСТЬ */
+        /* Адаптивність для менших екранів */
         @media (max-width: 1200px) {
-            .help-grid { grid-template-columns: repeat(3, 1fr); }
-            .programs-grid { grid-template-columns: repeat(2, 1fr); }
-            .help-container-fluid, .programs-container-fluid { padding: 0 24px; }
+            .programs-container-fluid { padding: 0 24px; }
+            .programs-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд на планшетах */
         }
+        @media (max-width: 640px) {
+            .programs-grid { grid-template-columns: 1fr; } /* 1 в ряд на мобільних */
+        }
+
+        /* === ФУТЕР-БАННЕР === */
+        .footer-banner { margin: 20px 0 60px 0; }
+        .banner-box { background: #f0f4ff; border-radius: 16px; padding: 40px 50px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+        .banner-left { display: flex; align-items: center; gap: 24px; max-width: 700px; }
+        .banner-heart { font-size: 54px; display: block; flex-shrink: 0; }
+        .banner-text h3 { font-size: 21px; font-weight: 800; color: #002366; margin-bottom: 6px; }
+        .banner-text p { font-size: 14px; color: #4b5563; font-weight: 500; line-height: 1.5; }
+        .btn-blue-action { display: inline-flex; align-items: center; gap: 10px; background-color: #1a56c4; color: #ffffff; font-size: 13.5px; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; white-space: nowrap; cursor: pointer; border: none; }
+
+        /* === МОДАЛЬНЕ ВІКНО === */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 35, 102, 0.4); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-container { background: #ffffff; width: 100%; max-width: 440px; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; transform: scale(0.9); transition: transform 0.3s ease; }
+        .modal-overlay.active .modal-container { transform: scale(1); }
+        .modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; color: #9ca3af; cursor: pointer; transition: color 0.2s; }
+        .modal-close:hover { color: #111827; }
+        .modal-container h2 { font-size: 24px; font-weight: 800; color: #002366; margin-bottom: 24px; text-align: center; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; color: #4b5563; margin-bottom: 6px; }
+        .form-group input { width: 100%; padding: 12px 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: inherit; font-size: 14px; color: #111827; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus { border-color: #1a56c4; }
+        .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; margin-top: 10px; }
+        .btn-submit:hover { background-color: #14439c; }
+
         @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero-content { max-width: 100%; text-align: center; }
-            .hero-banner-box { height: 260px; }
-            .features-bar .container { padding: 0 24px; }
-            .feature-item { max-width: 100%; }
-            .section-title { left: 0; transform: none; }
-        }
-        @media (max-width: 768px) {
-            .help-grid { grid-template-columns: repeat(2, 1fr); }
-            .features-grid { flex-direction: column; gap: 20px; }
-        }
-        @media (max-width: 520px) {
-            .help-grid, .programs-grid { grid-template-columns: 1fr; }
-            .logo-text { display: none; }
-            .modal-container { padding: 24px; }
+            .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+            .hero-image-wrapper { justify-content: center; margin-top: 20px; }
+            .hero-img { max-height: 240px; }
+            .features-grid, .programs-grid { grid-template-columns: 1fr; }
+            .help-grid { grid-template-columns: 1fr; }
+            .help-card-span-2, .help-card-offset-1 { grid-column: span 1; }
+            .banner-box { flex-direction: column; text-align: center; padding: 30px; }
+            .banner-left { flex-direction: column; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ШАПКА -->
     <header class="main-header">
         <div class="container header-container">
             <a href="index.html" class="logo-group">
-                <img src="logo.webp" alt="UAGZ Logo" class="logo-img">
-                <div class="logo-text">
-                    <h1 data-i18n="logo_title">UAGZ</h1>
-                    <p data-i18n="logo_subtitle">Українська Громада Цюриху</p>
+                <div class="logo-images">
+                    <svg viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFDD00"/></svg>
+                    <svg viewBox="0 0 1 1"><rect width="1" height="1" fill="#D81E05"/><rect x="0.4" y="0.2" width="0.2" height="0.6" fill="#FFFFFF"/><rect x="0.2" y="0.4" width="0.6" height="0.2" fill="#FFFFFF"/></svg>
                 </div>
+                <div class="logo-text">UAGZ</div>
+                <div class="logo-slogan">Український інтеграційний та громадський центр Цюриха</div>
             </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="about.html" class="active">Про центр</a></li>
+                    <li><a href="help.html">Допомога</a></li>
+                    <li><a href="events.html">Події</a></li>
+                    <li><a href="knowledge.html">Knowledge Center</a></li>
+                    <li><a href="announcements.html">Оголошення</a></li>
+                    <li><a href="volunteering.html">Волонтерство</a></li>
+                </ul>
+            </nav>
             <div class="header-actions">
-                <a href="index.html" class="btn-back">
-                    <span>←</span> <span data-i18n="btn_back">Назад на головну</span>
-                </a>
+                <a href="donate.html" class="btn-donate"><span>Donate</span></a>
+                <div class="lang-switcher"><button class="lang-btn active">UA</button><button class="lang-btn">DE</button></div>
             </div>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1 data-i18n="integration_main_title">Інтеграційний центр UAGZ</h1>
-                    <p data-i18n="integration_main_desc">Простір створений для підтримки, адаптації та розвитку українців у Швейцарії. Ми допомагаємо знайти відповіді на важливі питання, отримати нові знання, корисні контакти та відчути себе частиною дружньої спільноти.</p>
-                </div>
-                <div class="hero-banner-box">
-                    <img src="banner-integration.webp" alt="Integration Banner" class="hero-banner-img">
-                    <div class="hero-banner-overlay"></div>
-                </div>
+    <!-- СЕКЦІЯ HERO -->
+   <section class="hero-section">
+        <div class="container hero-top-nav">
+            <div class="breadcrumbs">
+                <a href="index.html" data-i18n="bc_home">Головна</a><span>&gt;</span>
+                <a href="about.html" data-i18n="bc_centers">Наші центри</a><span>&gt;</span>
+                <span data-i18n="bc_current">Інтеграційний центр UAGZ</span>
             </div>
+        </div>
+        
+        <div class="container hero-container-inner">
+            <div class="hero-content">
+                <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
+                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
+                <button class="btn-primary open-modal-btn" data-i18n="btn_join_programs">Приєднатися до програм</button>
+            </div>
+        </div>
+
+        <div class="hero-image-outer">
+            <img src="integration-banner.webp" class="hero-img" alt="Integration Banner">
         </div>
     </section>
 
-    <section class="features-bar">
+    <!-- БАР ХАРАКТЕРИСТИК -->
+   <section class="features-bar">
         <div class="container">
             <div class="features-grid">
-                
                 <div class="feature-item">
                     <img src="icon-integration7.webp" class="feature-icon-img" alt="Цюрих, Швейцарія">
                     <div class="feature-text">
@@ -243,7 +536,6 @@
                         <p data-i18n="feat_1_desc">Працюємо для української громади</p>
                     </div>
                 </div>
-                
                 <div class="feature-item">
                     <img src="icon-integration4.webp" class="feature-icon-img" alt="Разом ми сильніші">
                     <div class="feature-text">
@@ -251,7 +543,6 @@
                         <p data-i18n="feat_2_desc">Підтримка, об'єднання та розвиток</p>
                     </div>
                 </div>
-                
                 <div class="feature-item">
                     <img src="icon-integration6.webp" class="feature-icon-img" alt="Для всієї родини">
                     <div class="feature-text">
@@ -259,63 +550,59 @@
                         <p data-i18n="feat_3_desc">Діти, молодь, батьки та старше покоління</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="help-section">
+   <section class="help-section">
+        <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
+        
+        
         <div class="help-container-fluid">
-            <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
             <div class="help-grid">
                 
                 <div class="help-card">
-                    <span class="card-icon">📄</span>
+                    <img src="icon-integration1.webp" class="card-icon-img" alt="Допомога з документами">
                     <h3 data-i18n="card_1_title">Допомога з документами</h3>
-                    <p data-i18n="card_1_desc">Роз'яснення офіційних листів, заповнення анкет, допомога в комунікації зі швейцарськими органами влади.</p>
-                    <button class="btn-card-action open-modal-btn" data-i18n="btn_register">Записатись</button>
+                    <p data-i18n="card_1_desc">Підтримка у питаннях проживання, страхування, соціальних виплат, освіти та інших важливих документів.</p>
                 </div>
-
+                
                 <div class="help-card">
-                    <span class="card-icon">💼</span>
-                    <h3 data-i18n="card_2_title">Житло та працевлаштування</h3>
-                    <p data-i18n="card_2_desc">Поради щодо пошуку квартир, аналіз договорів оренди, базові консультації з прав працівників у Швейцарії.</p>
-                    <button class="btn-card-action open-modal-btn" data-i18n="btn_register">Записатись</button>
+                    <img src="icon-integration2.webp" class="card-icon-img" alt="Курси німецької мови">
+                    <h3 data-i18n="card_2_title">Курси німецької мови</h3>
+                    <p data-i18n="card_2_desc">Курси для різних рівнів – від початківців до впевненого спілкування в повсякденному житті.</p>
                 </div>
-
+                
                 <div class="help-card">
-                    <span class="card-icon">🏫</span>
-                    <h3 data-i18n="card_3_title">Школа та освіта</h3>
-                    <p data-i18n="card_3_desc">Допомога при реєстрації дітей у школи чи дитячі садки, роз'яснення системи освіти у кантоні Цюрих.</p>
-                    <button class="btn-card-action open-modal-btn" data-i18n="btn_register">Записатись</button>
+                    <img src="icon-integration1.webp" class="card-icon-img" alt="Працевлаштування">
+                    <h3 data-i18n="card_3_title">Працевлаштування</h3>
+                    <p data-i18n="card_3_desc">Допомагаємо знайти роботу: консультації, підготовка резюме, пошук вакансій та співбесіди.</p>
                 </div>
-
+                
                 <div class="help-card">
-                    <span class="card-icon">🏥</span>
-                    <h3 data-i18n="card_4_title">Медицина та страхування</h3>
-                    <p data-i18n="card_4_desc">Допомога з вибором медичної каси (Krankenkasse), пошуком лікарів та роз'ясненням рахунків за лікування.</p>
-                    <button class="btn-card-action open-modal-btn" data-i18n="btn_register">Записатись</button>
+                    <img src="icon-integration4.webp" class="card-icon-img" alt="Адаптація до життя у Швейцарії">
+                    <h3 data-i18n="card_4_title">Адаптація до життя у Швейцарії</h3>
+                    <p data-i18n="card_4_desc">Індивідуальний супровід під час адаптації: орієнтація в системі, підтримка та корисні поради.</p>
                 </div>
-
+                
                 <div class="help-card">
-                    <span class="card-icon">🗣️</span>
-                    <h3 data-i18n="card_5_title">Переклад та супровід</h3>
-                    <p data-i18n="card_5_desc">Усний переклад під час візитів до соціальних служб, лікарень чи шкіл (за попередньою домовленістю).</p>
-                    <button class="btn-card-action open-modal-btn" data-i18n="btn_register">Записатись</button>
+                    <img src="icon-integration5.webp" class="card-icon-img" alt="Зустрічі та спільнота">
+                    <h3 data-i18n="card_5_title">Зустрічі та спільнота</h3>
+                    <p data-i18n="card_5_desc">Заходи, майстер-класи, екскурсії та культурні активності для спілкування та нових знайомств.</p>
                 </div>
 
             </div>
         </div>
     </section>
-
-    <section class="programs-section">
+    <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ -->
+  <section class="programs-section">
         <div class="programs-container-fluid">
             <h2 class="section-title" data-i18n="section_2_title">Наші програми та можливості</h2>
             <div class="programs-grid">
                 
                 <div class="program-card">
                     <div class="program-img-box">
-                        <img src="integr-foto1.webp" alt="Rozmovnyi Klub">
+                        <img src="integr-foto1.webp" alt="Розмовний клуб">
                         <div class="program-badge" data-i18n="prog_1_emoji">☕</div>
                     </div>
                     <div class="program-text-box">
@@ -326,7 +613,7 @@
 
                 <div class="program-card">
                     <div class="program-img-box">
-                        <img src="integr-foto2.webp" alt="Career Consultations">
+                        <img src="integr-foto2.webp" alt="Кар'єрні консультації">
                         <div class="program-badge" data-i18n="prog_2_emoji">📁</div>
                     </div>
                     <div class="program-text-box">
@@ -337,7 +624,7 @@
 
                 <div class="program-card">
                     <div class="program-img-box">
-                        <img src="integr-foto3.webp" alt="Integration Meetings">
+                        <img src="integr-foto3.webp" alt="Інтеграційні зустрічі">
                         <div class="program-badge" data-i18n="prog_3_emoji">👨‍👩‍👧‍👦</div>
                     </div>
                     <div class="program-text-box">
@@ -348,7 +635,7 @@
 
                 <div class="program-card">
                     <div class="program-img-box">
-                        <img src="integr-foto4.webp" alt="Cultural Events">
+                        <img src="integr-foto4.webp" alt="Культурні заходи">
                         <div class="program-badge" data-i18n="prog_4_emoji">🎉</div>
                     </div>
                     <div class="program-text-box">
@@ -361,19 +648,34 @@
         </div>
     </section>
 
+    <!-- НИЖНІЙ БАННЕР -->
+    <section class="footer-banner">
+        <div class="container">
+            <div class="banner-box">
+                <div class="banner-left">
+                    <span class="banner-heart">💙💛</span>
+                    <div class="banner-text">
+                        <h3 data-i18n="footer_banner_title">Разом ми сильніші</h3>
+                        <p data-i18n="footer_banner_desc">Приєднуйтесь до наших програм та заходів. Ми допоможемо вам зробити Швейцарію вашим новим домом.</p>
+                    </div>
+                </div>
+                <button class="btn-blue-action open-modal-btn">
+                    <span data-i18n="btn_contact_us">Зв'язатися з нами</span>
+                    <span>➔</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНЕ ВІКНО -->
     <div class="modal-overlay" id="registrationModal">
         <div class="modal-container">
             <button class="modal-close" id="closeModalBtn">&times;</button>
-            <h2 data-i18n="modal_title">Запис на консультацію</h2>
-            <p data-i18n="modal_desc">Будь ласка, заповніть форму, і наші координатори зв'яжуться з вами найближчим часом.</p>
+            <h2 data-i18n="modal_title">Реєстрація на програму</h2>
             <form id="modalForm">
                 <div class="form-group">
-                    <label for="userName" data-i18n="modal_name">Ім'я та Прізвище</label>
+                    <label for="userName" data-i18n="modal_name">Ваше ім'я</label>
                     <input type="text" id="userName" required>
-                </div>
-                <div class="form-group">
-                    <label for="userEmail" data-i18n="modal_email">Email адреса</label>
-                    <input type="email" id="userEmail" required>
                 </div>
                 <div class="form-group">
                     <label for="userPhone" data-i18n="modal_phone">Телефон</label>
@@ -384,6 +686,7 @@
         </div>
     </div>
 
+    <!-- СКРИПТ -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const savedLang = localStorage.getItem('selectedLanguage') || 'ua';

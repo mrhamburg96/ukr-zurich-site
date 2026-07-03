@@ -361,11 +361,18 @@
     .help-grid { grid-template-columns: 1fr; } /* 1 в ряд на телефонах */
 }
 }
-        /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
-        .programs-section { padding: 25px 0 70px 0; background-color: #ffffff; text-align: center; }
-        /* Окреме правило для заголовка саме цієї секції */
+       /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ (Точкове зближення та стилізація) === */
+        .programs-section { 
+            padding: 10px 0 60px 0; /* Максимально зменшено верхній відступ з 50px до 10px, щоб підняти секцію */
+            background-color: #ffffff; 
+            text-align: center; 
+        }
+
+        /* Точкове правило для другого заголовка, щоб відповідав першому */
         .programs-section .section-title {
-            font-weight: 500; /* Змінено на Manrope Bold (500) */
+            font-weight: 500;       /* Встановлено Manrope Bold (500) за запитом */
+            font-size: 31px;        /* Легке збільшення на 1px, щоб компенсувати товщину та зрівняти вагу з першим заголовком */
+            letter-spacing: -0.2px; /* Надання тексту зібраності, як у жирного начертання */
         }
         .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
         .program-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; }

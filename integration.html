@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <style>
+ <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Manrope', sans-serif; color: #111827; background-color: #ffffff; line-height: 1.5; }
         .container { max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 24px; }
@@ -31,284 +31,251 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-      /* === СЕКЦІЯ HERO (Зменшено на 30%) === */
-.hero-section { 
-    background-color: #ffffff; 
-    position: relative; 
-    overflow: hidden; 
-    padding-top: 12px; 
-    min-height: 315px; /* Зменшено з 450px */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        /* === СЕКЦІЯ HERO (Зменшено на 30%, вирівняно ліворуч) === */
+        .hero-section { 
+            background-color: #ffffff; 
+            position: relative; 
+            overflow: hidden; 
+            padding-top: 12px; 
+            min-height: 315px; /* Зменшено з 450px */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-/* Контейнер хлібних крихт */
-.hero-top-nav {
-    position: relative;
-    z-index: 5;
-    margin-bottom: 10px; /* Зменшено відступ */
-}
+        /* Контейнер хлібних крихт */
+        .hero-top-nav {
+            position: relative;
+            z-index: 5;
+            margin-bottom: 10px; /* Зменшено відступ */
+        }
 
-.breadcrumbs { 
-    display: flex; 
-    align-items: center; 
-    gap: 6px; 
-    font-size: 11px; /* Трохи менший шрифт */
-    font-weight: 600; 
-    color: #1a56c4; 
-}
-.breadcrumbs a { 
-    color: #1a56c4; 
-    text-decoration: none; 
-}
-.breadcrumbs a:hover { 
-    text-decoration: underline; 
-}
-.breadcrumbs span { 
-    color: #1a56c4; 
-    opacity: 0.7; 
-}
+        .breadcrumbs { 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+            font-size: 11px; /* Трохи менший шрифт */
+            font-weight: 600; 
+            color: #1a56c4; 
+        }
+        .breadcrumbs a { 
+            color: #1a56c4; 
+            text-decoration: none; 
+        }
+        .breadcrumbs a:hover { 
+            text-decoration: underline; 
+        }
+        .breadcrumbs span { 
+            color: #1a56c4; 
+            opacity: 0.7; 
+        }
 
-/* Контент поверх баннера */
-.hero-container-inner {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    min-height: 265px; /* Зменшено з 380px */
-}
+        /* Контент поверх баннера */
+        .hero-container-inner {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Вирівнювання вмісту по лівому краю сторінки */
+            min-height: 265px; /* Зменшено з 380px */
+        }
 
-.hero-content { 
-    padding: 20px 0; /* Зменшено падінги */
-    max-width: 390px; /* Зменшено з 520px, щоб відповідати масштабу */
-    position: relative;
-    z-index: 4;
-}
-.hero-content h1 { 
-    font-size: 29px; /* Зменшено з 42px (~30%) */
-    font-weight: 800; 
-    color: #002366; 
-    line-height: 1.2; 
-    margin-bottom: 12px; 
-}
-.hero-description { 
-    font-size: 13px; /* Зменшено з 16px */
-    font-weight: 500; 
-    color: #4b5563; 
-    line-height: 1.5; 
-    margin-bottom: 20px; /* Зменшено з 28px */
-}
+        .hero-content { 
+            padding: 20px 0; /* Зменшено падінги */
+            max-width: 390px; /* Зменшено з 520px, щоб відповідати масштабу */
+            position: relative;
+            z-index: 4;
+            text-align: left; /* Текст чітко притиснутий ліворуч */
+        }
+        .hero-content h1 { 
+            font-size: 29px; /* Зменшено з 42px (~30%) */
+            font-weight: 800; 
+            color: #002366; 
+            line-height: 1.2; 
+            margin-bottom: 12px; 
+        }
+        .hero-description { 
+            font-size: 13px; /* Зменшено з 16px */
+            font-weight: 500; 
+            color: #4b5563; 
+            line-height: 1.5; 
+            margin-bottom: 20px; /* Зменшено з 28px */
+        }
 
-.btn-primary { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    background-color: #1a56c4; 
-    color: #ffffff; 
-    font-size: 12.5px; /* Зменшено з 14px */
-    font-weight: 700; 
-    padding: 9px 20px; /* Компактніші відступи кнопки */
-    border-radius: 6px; 
-    text-decoration: none; 
-    cursor: pointer; 
-    border: none; 
-    box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15);
-}
+        .btn-primary { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            background-color: #1a56c4; 
+            color: #ffffff; 
+            font-size: 12.5px; /* Зменшено з 14px */
+            font-weight: 700; 
+            padding: 9px 20px; /* Компактніші відступи кнопки */
+            border-radius: 6px; 
+            text-decoration: none; 
+            cursor: pointer; 
+            border: none; 
+            box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15);
+        }
 
-/* Фоновий баннер на всю ширину (також стискається під нову висоту секції) */
-.hero-image-outer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%; 
-    height: 100%;
-    z-index: 1;
-}
+        /* Фоновий баннер на всю ширину */
+        .hero-image-outer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%; 
+            height: 100%;
+            z-index: 1;
+        }
 
-.hero-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    object-position: top 10% right; 
-}
+        .hero-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: top 10% right; 
+        }
 
-/* Плавний градієнт зліва */
-.hero-image-outer::before { 
-    content: ''; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 40%; 
-    height: 100%; 
-    background: linear-gradient(to right, 
-        rgba(255,255,255,1) 0%, 
-        rgba(255,255,255,0.8) 30%, 
-        rgba(255,255,255,0) 100%
-    ); 
-    z-index: 2; 
-}
-
-/* Адаптивність */
-@media (max-width: 1024px) {
-    .hero-image-outer {
-        position: relative;
-        width: 100%;
-        height: 210px; /* Зменшено для мобільних з 300px */
-        margin-top: 15px;
-    }
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-        padding: 15px 0;
-    }
-}
-        .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
+        /* Плавний градієнт зліва */
+        .hero-image-outer::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 45%; 
+            height: 100%; 
+            background: linear-gradient(to right, 
+                rgba(255,255,255,1) 0%, 
+                rgba(255,255,255,0.8) 30%, 
+                rgba(255,255,255,0) 100
+            ); 
+            z-index: 2; 
+        }
 
         /* === БАР ХАРАКТЕРИСТИК (Перенесено в лівий край) === */
-.features-bar { 
-    background-color: #ffffff; 
-    padding: 20px 0; 
-    border-top: 1px solid #f3f4f6; 
-    border-bottom: 1px solid #f3f4f6; 
-}
-/* Замість grid використовуємо flex, щоб посунути всі елементи ліворуч */
-.features-grid { 
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Вирівнювання по лівому краю */
-    gap: 48px; /* Комфортний відступ між трьома елементами */
-}
-.feature-item { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-}
+        .features-bar { 
+            background-color: #ffffff; 
+            padding: 20px 0; 
+            border-top: 1px solid #f3f4f6; 
+            border-bottom: 1px solid #f3f4f6; 
+        }
+        /* Замість grid використовуємо flex, щоб посунути всі елементи ліворуч */
+        .features-grid { 
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Вирівнювання по лівому краю */
+            gap: 48px; /* Комфортний відступ між трьома елементами */
+        }
+        .feature-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
 
-/* Стиль для нових .webp іконок у барі характеристик */
-.feature-icon-img { 
-    width: 24px; 
-    height: 24px; 
-    object-fit: contain;
-    flex-shrink: 0;
-}
+        /* Стиль для нових .webp іконок у барі характеристик */
+        .feature-icon-img { 
+            width: 24px; 
+            height: 24px; 
+            object-fit: contain;
+            flex-shrink: 0;
+        }
 
-.feature-text h3 { 
-    font-size: 13.5px; 
-    font-weight: 700; 
-    color: #002366; 
-    margin-bottom: 2px; 
-}
-.feature-text p { 
-    font-size: 11.5px; 
-    color: #6b7280; 
-    font-weight: 500; 
-    line-height: 1.4;
-}
+        .feature-text h3 { 
+            font-size: 13.5px; 
+            font-weight: 700; 
+            color: #002366; 
+            margin-bottom: 2px; 
+        }
+        .feature-text p { 
+            font-size: 11.5px; 
+            color: #6b7280; 
+            font-weight: 500; 
+            line-height: 1.4;
+        }
 
-/* Адаптивність */
-@media (max-width: 768px) {
-    .features-grid { 
-        gap: 20px;
-        flex-direction: column; /* На мобільних картки стають в стовпчик */
-    }
-}
-       /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
-.help-section { 
-    padding: 70px 0; 
-    background-color: #ffffff; 
-    text-align: center; 
-    width: 100%; /* Розтягуємо саму секцію на всю ширину */
-}
+        /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
+        .help-section { 
+            padding: 70px 0; 
+            background-color: #ffffff; 
+            text-align: center; 
+            width: 100%; /* Розтягуємо саму секцію на всю ширину */
+        }
 
-/* Новий контейнер для сітки: розтягується на всю ширину екрана з невеликими відступами по боках */
-.help-container-fluid {
-    width: 100%;
-    padding: 0 40px; /* Відступи від країв екрана, щоб картки не липли до границь */
-    box-sizing: border-box;
-}
+        /* Новий контейнер для сітки: розтягується на всю ширину екрана з невеликими відступами по боках */
+        .help-container-fluid {
+            width: 100%;
+            padding: 0 40px; /* Відступи від країв екрана, щоб картки не липли до границь */
+            box-sizing: border-box;
+        }
 
-.section-title { 
-    font-size: 30px; 
-    font-weight: 800; 
-    color: #002366; 
-    margin-bottom: 40px; 
-    position: relative; 
-    display: inline-block; 
-}
-.section-title::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: -12px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 40px; 
-    height: 3px; 
-    background-color: #ffcc00; 
-    border-radius: 2px; 
-}
+        .section-title { 
+            font-size: 30px; 
+            font-weight: 800; 
+            color: #002366; 
+            margin-bottom: 40px; 
+            position: relative; 
+            display: inline-block; 
+        }
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -12px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 40px; 
+            height: 3px; 
+            background-color: #ffcc00; 
+            border-radius: 2px; 
+        }
 
-/* 5 колонок в один ряд на всю доступну ширину */
-.help-grid { 
-    display: grid; 
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 20px; /* Комфортний відступ між картками */
-    margin-bottom: 24px; 
-}
+        /* 5 колонок в один ряд на всю доступну ширину */
+        .help-grid { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 20px; /* Комфортний відступ між картками */
+            margin-bottom: 24px; 
+        }
 
-.help-card { 
-    background: #ffffff; 
-    border: 1px solid #f3f4f6; 
-    border-radius: 16px; 
-    padding: 35px 24px; 
-    text-align: center; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
-    transition: transform 0.2s, box-shadow 0.2s; 
-}
-.help-card:hover { 
-    transform: translateY(-4px); 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
+        .help-card { 
+            background: #ffffff; 
+            border: 1px solid #f3f4f6; 
+            border-radius: 16px; 
+            padding: 35px 24px; 
+            text-align: center; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+            transition: transform 0.2s, box-shadow 0.2s; 
+        }
+        .help-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
 
-.help-card-span-2, .help-card-offset-1 { 
-    grid-column: auto !important; 
-}
+        .help-card-span-2, .help-card-offset-1 { 
+            grid-column: auto !important; 
+        }
 
-/* Стилі для нових .webp іконок замість емодзи */
-.card-icon-img { 
-    width: 54px; /* Оптимальний розмір для графічних іконок */
-    height: 54px; 
-    object-fit: contain;
-    margin-bottom: 20px; 
-    display: inline-block; 
-}
+        /* Стилі для нових .webp іконок замість емодзи */
+        .card-icon-img { 
+            width: 54px; /* Оптимальний розмір для графічних іконок */
+            height: 54px; 
+            object-fit: contain;
+            margin-bottom: 20px; 
+            display: inline-block; 
+        }
 
-.help-card h3 { 
-    font-size: 16px; 
-    font-weight: 800; 
-    color: #002366; 
-    margin-bottom: 12px; 
-    line-height: 1.3; 
-}
-.help-card p { 
-    font-size: 13px; 
-    color: #4b5563; 
-    line-height: 1.5; 
-    font-weight: 500; 
-}
+        .help-card h3 { 
+            font-size: 16px; 
+            font-weight: 800; 
+            color: #002366; 
+            margin-bottom: 12px; 
+            line-height: 1.3; 
+        }
+        .help-card p { 
+            font-size: 13px; 
+            color: #4b5563; 
+            line-height: 1.5; 
+            font-weight: 500; 
+        }
 
-/* Адаптивність для менших екранів */
-@media (max-width: 1200px) {
-    .help-container-fluid { padding: 0 24px; }
-    .help-grid { grid-template-columns: repeat(3, 1fr); } /* 3 в ряд на середніх екранах */
-}
-@media (max-width: 768px) {
-    .help-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд */
-}
-@media (max-width: 480px) {
-    .help-grid { grid-template-columns: 1fr; } /* 1 в ряд на телефонах */
-}
-}
         /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
         .programs-section { padding: 50px 0 70px 0; background-color: #ffffff; text-align: center; }
         .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -344,16 +311,26 @@
         .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; margin-top: 10px; }
         .btn-submit:hover { background-color: #14439c; }
 
+        /* === АДАПТИВНІСТЬ ДЛЯ МЕНШИХ ЕКРАНІВ === */
         @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; min-height: auto; }
-            .hero-image-wrapper { justify-content: center; margin-top: 20px; }
-            .hero-img { max-height: 240px; }
+            .hero-image-outer { position: relative; width: 100%; height: 210px; margin-top: 15px; }
+            .hero-image-outer::before { display: none; }
+            .hero-content { max-width: 100%; text-align: center; padding: 15px 0; }
+            .hero-container-inner { justify-content: center; }
             .features-grid, .programs-grid { grid-template-columns: 1fr; }
-            .help-grid { grid-template-columns: 1fr; }
-            .help-card-span-2, .help-card-offset-1 { grid-column: span 1; }
+            .help-grid { grid-template-columns: repeat(3, 1fr); }
             .banner-box { flex-direction: column; text-align: center; padding: 30px; }
             .banner-left { flex-direction: column; }
             .nav-menu { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid { gap: 20px; flex-direction: column; }
+            .help-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .help-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -419,24 +396,24 @@
                 <div class="feature-item">
                     <img src="icon-integration7.webp" class="feature-icon-img" alt="Цюрих, Швейцарія">
                     <div class="feature-text">
-                        <h3 data-i18n="feat_1_title">Цюрих, Швейцарія</h3>
-                        <p data-i18n="feat_1_desc">Працюємо для української громади</p>
+                        <h3 data-i18n="hero_badge">Цюрих, Швейцарія</h3>
+                        <p data-i18n="hero_title">Працюємо для української громади</p>
                     </div>
                 </div>
                 
                 <div class="feature-item">
                     <img src="icon-integration4.webp" class="feature-icon-img" alt="Разом ми сильніші">
                     <div class="feature-text">
-                        <h3 data-i18n="feat_2_title">Разом ми сильніші</h3>
-                        <p data-i18n="feat_2_desc">Підтримка, об'єднання та розвиток</p>
+                        <h3 data-i18n="hero_subtitle">Разом ми сильніші</h3>
+                        <p data-i18n="hero_desc">Підтримка, об'єднання та розвиток</p>
                     </div>
                 </div>
                 
                 <div class="feature-item">
                     <img src="icon-integration6.webp" class="feature-icon-img" alt="Для всієї родини">
                     <div class="feature-text">
-                        <h3 data-i18n="feat_3_title">Для всієї родини</h3>
-                        <p data-i18n="feat_3_desc">Діти, молодь, батьки та старше покоління</p>
+                        <h3 data-i18n="hero_family_title">Для всієї родини</h3>
+                        <p data-i18n="hero_family_desc">Діти, молодь, батьки та старше покоління</p>
                     </div>
                 </div>
 

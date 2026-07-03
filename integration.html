@@ -187,23 +187,23 @@
             justify-content: flex-start;
             gap: 16px; 
         }
-        /* Жесткий лимит ширины (175px) гарантирует, что текст не выйдет за рамки самого короткого заголовка */
+     /* Жесткий лимит ширины увеличен до 195px, чтобы компенсировать крупную иконку */
         .feature-item { 
             display: flex; 
             align-items: flex-start; 
-            gap: 8px; 
-            max-width: 175px; 
+            gap: 10px; /* Немного увеличили зазор между иконкой и текстом */
+            max-width: 195px; 
             width: 100%;
         }
 
+        /* УВЕЛИЧЕННЫЙ РАЗМЕР ИКОНКИ */
         .feature-icon-img { 
-            width: 22px; 
-            height: 22px; 
+            width: 32px;         /* Было: 22px */
+            height: 32px;        /* Было: 22px */
             object-fit: contain;
             flex-shrink: 0;
-            margin-top: 2px;
+            margin-top: 0px;     /* Сбросили отступ, так как крупная иконка сама центрируется отлично */
         }
-
         .feature-text h3 { 
             font-size: 13.5px; 
             font-weight: 700; 

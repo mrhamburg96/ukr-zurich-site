@@ -165,7 +165,7 @@
 }
         .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
 
-  /* === БАР ХАРАКТЕРИСТИК (Максимально компактный слева) === */
+ /* === БАР ХАРАКТЕРИСТИК (Ультра-компактный слева) === */
         .features-bar { 
             background-color: #ffffff; 
             padding: 20px 0; 
@@ -173,26 +173,26 @@
             border-bottom: 1px solid #f3f4f6; 
             width: 100%;
         }
-        /* Выравниваем контейнер по левой линии общего fluid-контента */
+        /* Жидкий контейнер, выравнивающий первую иконку строго по левому краю карточек */
         .features-bar .container {
             max-width: 100%;
             padding: 0 40px;
             margin: 0;
             width: 100%;
         }
-        /* Ещё сильнее уменьшаем расстояние (gap) между блоками */
+        /* Минимальный gap (16px), чтобы блоки плотно прижались влево до начала размытия баннера */
         .features-grid { 
             display: flex; 
             flex-wrap: wrap;
             justify-content: flex-start;
-            gap: 20px; /* Уменьшено до 20px для максимальной компактности */
+            gap: 16px; 
         }
-        /* Ограничиваем ширину элемента под размер самого короткого заголовка */
+        /* Жесткий лимит ширины (175px) гарантирует, что текст не выйдет за рамки самого короткого заголовка */
         .feature-item { 
             display: flex; 
             align-items: flex-start; 
-            gap: 10px; 
-            max-width: 185px; /* Уменьшено до 185px, чтобы текст не выходил за рамки */
+            gap: 8px; 
+            max-width: 175px; 
             width: 100%;
         }
 
@@ -223,21 +223,21 @@
         .help-section { 
             padding: 70px 0; 
             background-color: #ffffff; 
-            text-align: center; 
             width: 100%; 
         }
-        /* Центрируем заголовок секции и ставим шрифт Manrope Bold (600) */
+        
+        /* Заголовок теперь центрируется по экрану. Вес шрифта изменен на Manrope Bold (600) */
         .section-title { 
             font-size: 30px; 
-            font-weight: 600; /* Изменено на Manrope Bold (600) */
+            font-weight: 600; /* Переведено на 600 (Manrope Bold) */
             color: #002366; 
             margin-bottom: 40px; 
             position: relative; 
-            display: inline-block;
-            text-align: center;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
+            text-align: center; /* Центрирование текста */
+            width: 100%;
         }
+        /* Центрируем желтую полоску под заголовком */
         .section-title::after { 
             content: ''; 
             position: absolute; 
@@ -256,11 +256,10 @@
             box-sizing: border-box;
         }
 
-        /* Адаптивность */
+        /* Адаптивность для мобильных экранов */
         @media (max-width: 1024px) {
             .features-bar .container { padding: 0 24px; }
             .feature-item { max-width: 100%; }
-            .section-title { left: 0; transform: none; }
         }
         @media (max-width: 768px) {
             .features-grid { flex-direction: column; gap: 20px; }
@@ -468,7 +467,6 @@
    <section class="features-bar">
         <div class="container">
             <div class="features-grid">
-                
                 <div class="feature-item">
                     <img src="icon-integration7.webp" class="feature-icon-img" alt="Цюрих, Швейцарія">
                     <div class="feature-text">
@@ -476,7 +474,6 @@
                         <p data-i18n="feat_1_desc">Працюємо для української громади</p>
                     </div>
                 </div>
-                
                 <div class="feature-item">
                     <img src="icon-integration4.webp" class="feature-icon-img" alt="Разом ми сильніші">
                     <div class="feature-text">
@@ -484,7 +481,6 @@
                         <p data-i18n="feat_2_desc">Підтримка, об'єднання та розвиток</p>
                     </div>
                 </div>
-                
                 <div class="feature-item">
                     <img src="icon-integration6.webp" class="feature-icon-img" alt="Для всієї родини">
                     <div class="feature-text">
@@ -492,13 +488,13 @@
                         <p data-i18n="feat_3_desc">Діти, молодь, батьки та старше покоління</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-    <!-- СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО -->
+
    <section class="help-section">
         <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
+        
         
         <div class="help-container-fluid">
             <div class="help-grid">

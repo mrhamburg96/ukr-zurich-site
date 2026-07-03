@@ -361,27 +361,78 @@
     .help-grid { grid-template-columns: 1fr; } /* 1 в ряд на телефонах */
 }
 }
-       /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ (Точкове зближення та стилізація) === */
+      /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ (На всю ширину сайту) === */
         .programs-section { 
-            padding: 10px 0 60px 0; /* Максимально зменшено верхній відступ з 50px до 10px, щоб підняти секцію */
+            padding: 10px 0 60px 0; 
             background-color: #ffffff; 
             text-align: center; 
+            width: 100%;
         }
 
-        /* Точкове правило для другого заголовка, щоб відповідав першому */
-        .programs-section .section-title {
-            font-weight: 500;       /* Встановлено Manrope Bold (500) за запитом */
-            font-size: 31px;        /* Легке збільшення на 1px, щоб компенсувати товщину та зрівняти вагу з першим заголовком */
-            letter-spacing: -0.2px; /* Надання тексту зібраності, як у жирного начертання */
+        /* Використовуємо флюїдний контейнер на всю ширину екрану */
+        .programs-container-fluid {
+            width: 100%;
+            padding: 0 40px; 
+            box-sizing: border-box;
         }
-        .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .program-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; }
-        .program-img-box { position: relative; width: 100%; height: 180px; background-color: #f3f4f6; }
-        .program-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* 4 колонки в один ряд на всю доступну ширину */
+        .programs-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; /* Однаковий зазор, як і в секції вище */
+        }
+
+        .program-card { 
+            background: #ffffff; 
+            border: 1px solid #f3f4f6; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            text-align: left; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .program-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Контейнер для фото з фіксованою пропорцією */
+        .program-img-box { 
+            position: relative; 
+            width: 100%; 
+            height: 200px; /* Оптимальна висота для широких карток */
+            background-color: #f3f4f6; 
+        }
+        /* Фото автоматично заповнює блок без деформації */
+        .program-img-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
         .program-badge { position: absolute; bottom: -18px; left: 24px; width: 36px; height: 36px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
         .program-text-box { padding: 32px 24px 24px 24px; flex-grow: 1; }
         .program-text-box h3 { font-size: 17px; font-weight: 800; color: #002366; margin-bottom: 12px; }
         .program-text-box p { font-size: 13.5px; color: #4b5563; line-height: 1.5; font-weight: 500; }
+
+        /* Окреме точкове правило для відповідності заголовка */
+        .programs-section .section-title {
+            font-weight: 500;
+            font-size: 31px;
+            letter-spacing: -0.2px;
+        }
+
+        /* Адаптивність для менших екранів */
+        @media (max-width: 1200px) {
+            .programs-container-fluid { padding: 0 24px; }
+            .programs-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд на планшетах */
+        }
+        @media (max-width: 640px) {
+            .programs-grid { grid-template-columns: 1fr; } /* 1 в ряд на мобільних */
+        }
 
         /* === ФУТЕР-БАННЕР === */
         .footer-banner { margin: 20px 0 60px 0; }
@@ -544,10 +595,11 @@
         </div>
     </section>
     <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ -->
-    <section class="programs-section">
-        <div class="container">
+  <section class="programs-section">
+        <div class="programs-container-fluid">
             <h2 class="section-title" data-i18n="section_2_title">Наші програми та можливості</h2>
             <div class="programs-grid">
+                
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="program-club.webp" alt="Розмовний клуб">
@@ -558,6 +610,7 @@
                         <p data-i18n="prog_1_desc">Практикуємо німецьку мову в дружній атмосфері за чашкою кави.</p>
                     </div>
                 </div>
+
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="program-career.webp" alt="Кар'єрні консультації">
@@ -568,6 +621,7 @@
                         <p data-i18n="prog_2_desc">Профорієнтація, резюме, підготовка до співбесіди та поради щодо пошуку роботи.</p>
                     </div>
                 </div>
+
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="program-meetings.webp" alt="Інтеграційні зустрічі">
@@ -578,6 +632,7 @@
                         <p data-i18n="prog_3_desc">Заходи для всієї родини: підтримка, спілкування та спільного відпочинку.</p>
                     </div>
                 </div>
+
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="program-events.webp" alt="Культурні заходи">
@@ -588,6 +643,7 @@
                         <p data-i18n="prog_4_desc">Екскурсії, свята, воркшопи та інші події, що об'єднують нашу громаду.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

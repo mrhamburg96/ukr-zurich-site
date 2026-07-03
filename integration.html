@@ -151,19 +151,26 @@
             z-index: 2; 
         }
 
-        /* === БАР ХАРАКТЕРИСТИК (Перенесено в лівий край) === */
+       /* === БАР ХАРАКТЕРИСТИК (Точечное выравнивание влево) === */
         .features-bar { 
             background-color: #ffffff; 
             padding: 20px 0; 
             border-top: 1px solid #f3f4f6; 
             border-bottom: 1px solid #f3f4f6; 
+            width: 100%;
         }
-        /* Замість grid використовуємо flex, щоб посунути всі елементи ліворуч */
+        /* Убираем лишние паддинги контейнера только внутри этой секции, чтобы выровнять по левому краю */
+        .features-bar .container {
+            padding-left: 0; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Флекс-сетка сдвигает элементы влево */
         .features-grid { 
             display: flex; 
             flex-wrap: wrap;
-            justify-content: flex-start; /* Вирівнювання по лівому краю */
-            gap: 48px; /* Комфортний відступ між трьома елементами */
+            justify-content: flex-start; /* Прижимаем к левому краю */
+            gap: 48px; /* Расстояние между тремя блоками */
         }
         .feature-item { 
             display: flex; 

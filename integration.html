@@ -69,8 +69,11 @@
 
         /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
         .help-section { padding: 30px 0 0 0; background-color: #ffffff; width: 100%; text-align: center; }
-        .section-title { font-size: 30px; font-weight: 700; color: #002366; margin-bottom: 40px; position: relative; display: block; text-align: center; width: 100%; }
-        .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #ffcc00; border-radius: 2px; }
+        
+        /* Точкове підняття карток впритул до краю лінії заголовка */
+        .help-section .section-title { font-size: 30px; font-weight: 600; color: #002366; margin-bottom: 14px; position: relative; display: block; text-align: center; width: 100%; }
+        .help-section .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #ffcc00; border-radius: 2px; }
+        
         .help-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
         .help-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 0; }
         .help-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; padding: 35px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); transition: transform 0.2s, box-shadow 0.2s; }
@@ -97,7 +100,8 @@
         .program-text-box p { font-size: 13.5px; color: #4b5563; line-height: 1.5; font-weight: 500; }
         
         /* Стилізація шрифту заголовка: Manrope Bold (700) */
-        .programs-section .section-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 31px; letter-spacing: -0.2px; }
+        .programs-section .section-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 31px; letter-spacing: -0.2px; margin-bottom: 40px; position: relative; display: block; text-align: center; width: 100%; }
+        .programs-section .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #ffcc00; border-radius: 2px; }
 
         /* === ФУТЕР-БАННЕР === */
         .footer-banner { margin: 20px 0 60px 0; }
@@ -241,7 +245,7 @@
                 <div class="help-card">
                     <img src="icon-integration1.webp" class="card-icon-img" alt="Допомога з документами">
                     <h3 data-i18n="card_1_title">Допомога з документами</h3>
-                    <p data-i18n="card_1_desc">Підтримка у питаннях проживання, страхування, соціальних виплат, освіти та інших важливих документів.</p>
+                    <p data-i18n="card_1_desc">Підтримка у питаннях проживання, страхування, sociale-виплат, освіти та інших важливих документів.</p>
                 </div>
                 <div class="help-card">
                     <img src="icon-integration2.webp" class="card-icon-img" alt="Курси німецької мови">
@@ -267,7 +271,7 @@
         </div>
     </section>
 
-    <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ (ПЕРЕНЕСЕНО ВВЕРХ) -->
+    <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ -->
     <section class="programs-section">
         <div class="programs-container-fluid">
             <h2 class="section-title" data-i18n="section_2_title">Наші програми та можливості</h2>

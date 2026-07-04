@@ -951,27 +951,176 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
 </section>
 <!-- === КОНЕЦ ИЗМЕНЕНИЙ === -->
-<!-- ═══════ THREE COL: Актуально / Події / Оголошення ═ -->
-<div class="three-col">
-  <div>
-    <div class="col-hd"><h3 id="tc1">Наші новини</h3><a href="#" id="tc1l">Дивитися →</a></div>
-    <div class="news-item"><span class="badge b-urg" id="b1">Терміново</span><div class="news-title" id="n1t">Гуманітарна видача продуктів</div><div class="news-meta" id="n1m">18 травня, 10:00–14:00 · Albisriederplatz 1</div></div>
-    <div class="news-item"><span class="badge b-new" id="b2">Новина</span><div class="news-title" id="n2t">Нові курси німецької мови для початківців</div><div class="news-meta" id="n2m">Реєстрація відкрита</div></div>
-    <div class="news-item"><span class="badge b-ev" id="b3">Подія</span><div class="news-title" id="n3t">Community Evening</div><div class="news-meta" id="n3m">24 травня, 18:00 · Gemeinschaftszentrum</div></div>
+<!-- ═══════ СЕКЦІЯ: НАША КОМАНДА ═══════ -->
+<section class="team-section" style="padding: 60px 0; background: #fff;">
+  <div class="container">
+    <div class="col-hd" style="margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
+      <h2 id="team_title" style="font-size: 2rem; color: #0d233a; font-weight: 700;">Наша команда</h2>
+      <a href="#" id="team_all_link" class="btn-link">Уся команда →</a>
+    </div>
+    <p id="team_subtitle" style="color: #4a5568; margin-top: -20px; margin-bottom: 40px; max-width: 800px; line-height: 1.6;">
+      Ми — команда небайдужих професіоналів та волонтерів для швейцарії у працюють для підтримки в Швейцарії.
+    </p>
+    
+    <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+      <!-- Член команди 1 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/oleksandr.jpg" alt="Олександр Садич" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm1_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Олександр Садич</h4>
+        <p id="tm1_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Керівник організації</p>
+      </div>
+      <!-- Член команди 2 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/yuliana.jpg" alt="Юліана Куранд-Коваль" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm2_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Юліана Куранд-Коваль</h4>
+        <p id="tm2_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Керівник розвитку та партнерств</p>
+      </div>
+      <!-- Член команди 3 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/olena.jpg" alt="Олена Самородова" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm3_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Олена Самородова</h4>
+        <p id="tm3_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Координатор програми «Дитячо-молодіжний театр»</p>
+      </div>
+      <!-- Член команди 4 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/oleksiy.jpg" alt="Олексій Матюкін" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm4_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Олексій Матюкін</h4>
+        <p id="tm4_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Координатор цифрових систем та технічної підтримки</p>
+      </div>
+      <!-- Член команди 5 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/vadym.jpg" alt="Вадим Лепський" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm5_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Вадим Лепський</h4>
+        <p id="tm5_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Координатор спортивних програм, тренер з плавання</p>
+      </div>
+      <!-- Член команди 6 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/olena_v.jpg" alt="Олена Воронцова" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm6_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Олена Воронцова</h4>
+        <p id="tm6_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Координатор сімейного центру</p>
+      </div>
+      <!-- Член команди 7 -->
+      <div class="team-card" style="background: #fff; border-radius: 8px; overflow: hidden; text-align: left;">
+        <img src="img/team/mykola.jpg" alt="Микола Кравцов" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        <h4 id="tm7_name" style="font-size: 1rem; margin: 12px 0 4px; color: #0d233a;">Микола Кравцов</h4>
+        <p id="tm7_role" style="font-size: 0.85rem; color: #718096; margin: 0;">Координатор заходів та активностей громади</p>
+      </div>
+    </div>
   </div>
-  <div>
-    <div class="col-hd"><h3 id="tc2">Події найближчим часом</h3><a href="#" id="tc2l">Всі події →</a></div>
-    <div class="ev-row"><div class="ev-date"><strong>18</strong><span id="mo1">ТРАВ</span></div><div class="ev-info"><h4 id="e1t">Дитячий театр-студія "Чомучки"</h4><p id="e1d">Сб, 12:00–14:00</p></div></div>
-    <div class="ev-row"><div class="ev-date" style="background:var(--green)"><strong>21</strong><span id="mo2">ТРАВ</span></div><div class="ev-info"><h4 id="e2t">Мовний клуб (німецька) Рівень A1–A2</h4><p id="e2d">Вт, 18:30–20:00</p></div></div>
-    <div class="ev-row"><div class="ev-date" style="background:var(--yellow)"><strong style="color:#333">24</strong><span id="mo3" style="color:rgba(0,0,0,.6)">ТРАВ</span></div><div class="ev-info"><h4 id="e3t">Community Evening · Знайомства та спілкування</h4><p id="e3d">Пт, 18:00–21:00</p></div></div>
+</section>
+
+<!-- ═══════ СЕКЦІЯ: НАЙБЛИЖЧІ ПОДІЇ ТА САЙДБАР ═══════ -->
+<section class="events-layout" style="padding: 40px 0 60px; background: #fafafa;">
+  <div class="container" style="display: flex; gap: 30px; flex-wrap: wrap;">
+    
+    <!-- Ліва колонка: Події та Форма реєстрації -->
+    <div class="events-main-col" style="flex: 2; min-width: 300px;">
+      <div class="col-hd" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <h2 id="ev_main_title" style="font-size: 2rem; color: #0d233a; font-weight: 700; margin: 0;">Найближчі події</h2>
+        <a href="#" id="ev_all_link" class="btn-link">Усі події →</a>
+      </div>
+      
+      <!-- Таби/Фільтри центрів -->
+      <div class="events-tabs" style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; font-size: 0.9rem; flex-wrap: wrap;">
+        <span id="tab_all" style="color: #3182ce; font-weight: 600; cursor: pointer; border-bottom: 2px solid #3182ce; padding-bottom: 10px; margin-bottom: -12px;">Усі події</span>
+        <span id="tab_family" style="color: #4a5568; cursor: pointer;">Центр сім'ї, молоді та спорту</span>
+        <span id="tab_integ" style="color: #4a5568; cursor: pointer;">Інтеграційний центр</span>
+        <span id="tab_volunteer" style="color: #4a5568; cursor: pointer;">Волонтерський центр</span>
+      </div>
+
+      <!-- Карточка події "Родинне коло" -->
+      <div class="event-featured-card" style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px;">
+          <img src="img/events/rodynne_kolo.jpg" alt="Родинне коло" style="width: 100%; border-radius: 8px;">
+        </div>
+        <div style="flex: 1.5; min-width: 200px;">
+          <h3 id="ev_feat_title" style="font-size: 1.4rem; color: #0d233a; margin: 0 0 4px 0;">Родинне коло</h3>
+          <p id="ev_feat_subtitle" style="color: #dd6b20; font-weight: 600; font-size: 0.9rem; margin: 0 0 12px 0;">Центр сім'ї, молоді та спорту</p>
+          <p id="ev_feat_desc" style="color: #4a5568; font-size: 0.95rem; line-height: 1.5; margin: 0;">Тепла зустріч для сімей з дітьми: ігри, творчість, спілкування та чай для всіх.</p>
+        </div>
+      </div>
+
+      <!-- Форма реєстрації для батьків -->
+      <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+        <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
+        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 200px;">
+              <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я родителя</label>
+              <input type="text" placeholder="Введіть ваше ім'я" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+            </div>
+            <div style="flex: 1; min-width: 200px;">
+              <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
+              <select style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #a0aec0;">
+                <option value="">Оберіть кількість</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3+</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 200px;">
+              <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
+              <input type="text" placeholder="Введіть ім'я дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+            </div>
+            <div style="flex: 1; min-width: 200px;">
+              <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
+              <input type="text" placeholder="Введіть вік дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+            </div>
+          </div>
+          <div>
+            <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
+            <input type="tel" placeholder="Введіть ваш номер телефону" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+          </div>
+          <div style="margin-top: 10px;">
+            <button type="submit" id="btn_register" style="background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Зареєструватися →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Права колонка: Сайдбар зі стікерами дій -->
+    <div class="sidebar-actions-col" style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 20px;">
+      <!-- Картка: Стати волонтером -->
+      <div class="sidebar-card card-yellow" style="background: #fffdf5; border: 1px solid #fef3c7; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="font-size: 1.5rem;">💛</span>
+          <div>
+            <h4 id="side_vol_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Стати волонтером</h4>
+            <p id="side_vol_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваш час, навички та підтримка допомагають нам змінювати життя у Швейцарії.</p>
+          </div>
+        </div>
+        <a href="#" id="side_vol_btn" style="background: #ecc94b; color: #333; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Стати волонтером ➔</a>
+      </div>
+
+      <!-- Картка: Отримати допомогу -->
+      <div class="sidebar-card card-blue" style="background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; color: #2b6cb0;">👥</span>
+          <div>
+            <h4 id="side_help_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Отримати допомогу</h4>
+            <p id="side_help_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Якщо ви або ваші близькі потребуєте підтримки, ми поруч. Звертайтеся до нас.</p>
+          </div>
+        </div>
+        <a href="#" id="side_help_btn" style="background: #1a56db; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Отримати допомогу ➔</a>
+      </div>
+
+      <!-- Картка: Допомогти (Донат) -->
+      <div class="sidebar-card card-green" style="background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; color: #38a169;">🤝</span>
+          <div>
+            <h4 id="side_donate_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Допомогти</h4>
+            <p id="side_donate_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваша фінансова допомога дозволяє нам реалізовувати важливі проекти та події.</p>
+          </div>
+        </div>
+        <a href="#" id="side_donate_btn" style="background: #38a169; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Допомогти ➔</a>
+      </div>
+    </div>
+
   </div>
-  <div>
-    <div class="col-hd"><h3 id="tc3">Нові оголошення</h3><a href="#" id="tc3l">Всі оголошення →</a></div>
-    <div class="news-item"><span class="badge b-home" id="ab1">Житло</span><div class="news-title" id="a1t">Здається кімната в Цюриху · 800 CHF/міс.</div><div class="news-meta" id="a1m">Сьогодні, 10:15</div></div>
-    <div class="news-item"><span class="badge b-job" id="ab2">Робота</span><div class="news-title" id="a2t">Потрібна няня для дитини 4 роки · Teilzeit</div><div class="news-meta" id="a2m">Сьогодні, 09:40</div></div>
-    <div class="news-item"><span class="badge b-svc" id="ab3">Послуги</span><div class="news-title" id="a3t">Переклади документів (укр/нім) · Швидко та якісно</div><div class="news-meta" id="a3m">Сьогодні, 08:30</div></div>
-  </div>
-</div>
+</section>
 
 <!-- ═══════ DIRECTIONS ════════════════════════════════ -->
 <section class="dir-sec">

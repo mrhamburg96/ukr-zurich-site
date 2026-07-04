@@ -31,408 +31,72 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-      /* === СЕКЦІЯ HERO (Зменшено на 30%) === */
-.hero-section { 
-    background-color: #ffffff; 
-    position: relative; 
-    overflow: hidden; 
-    padding-top: 12px; 
-    min-height: 315px; /* Зменшено з 450px */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Контейнер хлібних крихт */
-.hero-top-nav {
-    position: relative;
-    z-index: 5;
-    margin-bottom: 10px; /* Зменшено відступ */
-}
-
-.breadcrumbs { 
-    display: flex; 
-    align-items: center; 
-    gap: 6px; 
-    font-size: 11px; /* Трохи менший шрифт */
-    font-weight: 600; 
-    color: #1a56c4; 
-}
-.breadcrumbs a { 
-    color: #1a56c4; 
-    text-decoration: none; 
-}
-.breadcrumbs a:hover { 
-    text-decoration: underline; 
-}
-.breadcrumbs span { 
-    color: #1a56c4; 
-    opacity: 0.7; 
-}
-
-/* Контент поверх баннера */
-.hero-container-inner {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    min-height: 265px; /* Зменшено з 380px */
-}
-
-.hero-content { 
-    padding: 20px 0; /* Зменшено падінги */
-    max-width: 390px; /* Зменшено з 520px, щоб відповідати масштабу */
-    position: relative;
-    z-index: 4;
-}
-.hero-content h1 { 
-    font-size: 29px; /* Зменшено з 42px (~30%) */
-    font-weight: 700; 
-    color: #002366; 
-    line-height: 1.2; 
-    margin-bottom: 12px; 
-}
-.hero-description { 
-    font-size: 13px; /* Зменшено з 16px */
-    font-weight: 500; 
-    color: #4b5563; 
-    line-height: 1.5; 
-    margin-bottom: 20px; /* Зменшено з 28px */
-}
-
-.btn-primary { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    background-color: #1a56c4; 
-    color: #ffffff; 
-    font-size: 12.5px; /* Зменшено з 14px */
-    font-weight: 700; 
-    padding: 9px 20px; /* Компактніші відступи кнопки */
-    border-radius: 6px; 
-    text-decoration: none; 
-    cursor: pointer; 
-    border: none; 
-    box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15);
-}
-
-/* Фоновий баннер на всю ширину (також стискається під нову висоту секції) */
-.hero-image-outer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%; 
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    object-position: top 10% right; 
-}
-
-/* Плавний градієнт зліва */
-.hero-image-outer::before { 
-    content: ''; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 40%; 
-    height: 100%; 
-    background: linear-gradient(to right, 
-        rgba(255,255,255,1) 0%, 
-        rgba(255,255,255,0.8) 30%, 
-        rgba(255,255,255,0) 100%
-    ); 
-    z-index: 2; 
-}
-
-/* Адаптивність */
-@media (max-width: 1024px) {
-    .hero-image-outer {
-        position: relative;
-        width: 100%;
-        height: 210px; /* Зменшено для мобільних з 300px */
-        margin-top: 15px;
-    }
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-        padding: 15px 0;
-    }
-}
-        .hero-image-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 35%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 100%); z-index: 2; }
-
- /* === БАР ХАРАКТЕРИСТИК (Ультра-компактный слева) === */
-        .features-bar { 
+        /* === СЕКЦІЯ HERO === */
+        .hero-section { 
             background-color: #ffffff; 
-            padding: 20px 0; 
-            border-top: 1px solid #f3f4f6; 
-            border-bottom: 1px solid #f3f4f6; 
-            width: 100%;
+            position: relative; 
+            overflow: hidden; 
+            padding-top: 12px; 
+            min-height: 315px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        /* Жидкий контейнер, выравнивающий первую иконку строго по левому краю карточек */
-        .features-bar .container {
-            max-width: 100%;
-            padding: 0 40px;
-            margin: 0;
-            width: 100%;
-        }
-        /* Минимальный gap (16px), чтобы блоки плотно прижались влево до начала размытия баннера */
-        .features-grid { 
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 16px; 
-        }
-     /* Жесткий лимит ширины увеличен до 195px, чтобы компенсировать крупную иконку */
-        .feature-item { 
-            display: flex; 
-            align-items: flex-start; 
-            gap: 10px; /* Немного увеличили зазор между иконкой и текстом */
-            max-width: 195px; 
-            width: 100%;
-        }
+        .hero-top-nav { position: relative; z-index: 5; margin-bottom: 10px; }
+        .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #1a56c4; }
+        .breadcrumbs a { color: #1a56c4; text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: #1a56c4; opacity: 0.7; }
+        
+        .hero-container-inner { position: relative; z-index: 3; display: flex; align-items: center; min-height: 265px; }
+        .hero-content { padding: 20px 0; max-width: 390px; position: relative; z-index: 4; }
+        .hero-content h1 { font-size: 29px; font-weight: 700; color: #002366; line-height: 1.2; margin-bottom: 12px; }
+        .hero-description { font-size: 13px; font-weight: 500; color: #4b5563; line-height: 1.5; margin-bottom: 20px; }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 12.5px; font-weight: 700; padding: 9px 20px; border-radius: 6px; text-decoration: none; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15); }
+        
+        .hero-image-outer { position: absolute; top: 0; right: 0; width: 60%; height: 100%; z-index: 1; }
+        .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: top 10% right; }
+        .hero-image-outer::before { content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%); z-index: 2; }
 
-        /* УВЕЛИЧЕННЫЙ РАЗМЕР ИКОНКИ */
-        .feature-icon-img { 
-            width: 32px;         /* Было: 22px */
-            height: 32px;        /* Было: 22px */
-            object-fit: contain;
-            flex-shrink: 0;
-            margin-top: 0px;     /* Сбросили отступ, так как крупная иконка сама центрируется отлично */
-        }
-        .feature-text h3 { 
-            font-size: 13.5px; 
-            font-weight: 700; 
-            color: #002366; 
-            margin-bottom: 2px; 
-            white-space: nowrap; 
-        }
-        .feature-text p { 
-            font-size: 11.5px; 
-            color: #6b7280; 
-            font-weight: 500; 
-            line-height: 1.35;
-            word-break: keep-all; 
-        }
+        /* === БАР ХАРАКТЕРИСТИК === */
+        .features-bar { background-color: #ffffff; padding: 20px 0; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; width: 100%; }
+        .features-bar .container { max-width: 100%; padding: 0 40px; margin: 0; width: 100%; }
+        .features-grid { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 16px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 10px; max-width: 195px; width: 100%; }
+        .feature-icon-img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+        .feature-text h3 { font-size: 13.5px; font-weight: 700; color: #002366; margin-bottom: 2px; white-space: nowrap; }
+        .feature-text p { font-size: 11.5px; color: #6b7280; font-weight: 500; line-height: 1.35; word-break: keep-all; }
 
         /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
-        .help-section { 
-            padding: 30px 0 70px 0; /* Зменшено верхній відступ з 70px до 30px, щоб заголовок піднявся впритул */
-            background-color: #ffffff; 
-            width: 100%; 
-        }
+        .help-section { padding: 30px 0 70px 0; background-color: #ffffff; width: 100%; text-align: center; }
+        .section-title { font-size: 30px; font-weight: 600; color: #002366; margin-bottom: 40px; position: relative; display: block; text-align: center; width: 100%; }
+        .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #ffcc00; border-radius: 2px; }
+        .help-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
+        .help-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 24px; }
+        .help-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; padding: 35px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); transition: transform 0.2s, box-shadow 0.2s; }
+        .help-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
+        .card-icon-img { width: 54px; height: 54px; object-fit: contain; margin-bottom: 20px; display: inline-block; }
+        .help-card h3 { font-size: 16px; font-weight: 800; color: #002366; margin-bottom: 12px; line-height: 1.3; }
+        .help-card p { font-size: 13px; color: #4b5563; line-height: 1.5; font-weight: 500; }
+
+        /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
+        .programs-section { padding: 10px 0 60px 0; background-color: #ffffff; text-align: center; width: 100%; }
+        .programs-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
+        .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .program-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+        .program-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
         
-        /* Заголовок теперь центрируется по экрану. Вес шрифта изменен на Manrope Bold (600) */
-        .section-title { 
-            font-size: 30px; 
-            font-weight: 500; /* Переведено на 600 (Manrope Bold) */
-            color: #002366; 
-            margin-bottom: 40px; 
-            position: relative; 
-            display: block;
-            text-align: center; /* Центрирование текста */
-            width: 100%;
-        }
-        /* Центрируем желтую полоску под заголовком */
-        .section-title::after { 
-            content: ''; 
-            position: absolute; 
-            bottom: -12px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: 40px; 
-            height: 3px; 
-            background-color: #ffcc00; 
-            border-radius: 2px; 
-        }
-
-        .help-container-fluid {
-            width: 100%;
-            padding: 0 40px; 
-            box-sizing: border-box;
-        }
-
-        /* Адаптивность для мобильных экранов */
-        @media (max-width: 1024px) {
-            .features-bar .container { padding: 0 24px; }
-            .feature-item { max-width: 100%; }
-        }
-        @media (max-width: 768px) {
-            .features-grid { flex-direction: column; gap: 20px; }
-        }
-}
-       /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
-.help-section { 
-    padding: 70px 0; 
-    background-color: #ffffff; 
-    text-align: center; 
-    width: 100%; /* Розтягуємо саму секцію на всю ширину */
-}
-
-/* Новий контейнер для сітки: розтягується на всю ширину екрана з невеликими відступами по боках */
-.help-container-fluid {
-    width: 100%;
-    padding: 0 40px; /* Відступи від країв екрана, щоб картки не липли до границь */
-    box-sizing: border-box;
-}
-
-.section-title { 
-    font-size: 30px; 
-    font-weight: 800; 
-    color: #002366; 
-    margin-bottom: 40px; 
-    position: relative; 
-    display: inline-block; 
-}
-.section-title::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: -12px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 40px; 
-    height: 3px; 
-    background-color: #ffcc00; 
-    border-radius: 2px; 
-}
-
-/* 5 колонок в один ряд на всю доступну ширину */
-.help-grid { 
-    display: grid; 
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 20px; /* Комфортний відступ між картками */
-    margin-bottom: 24px; 
-}
-
-.help-card { 
-    background: #ffffff; 
-    border: 1px solid #f3f4f6; 
-    border-radius: 16px; 
-    padding: 35px 24px; 
-    text-align: center; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
-    transition: transform 0.2s, box-shadow 0.2s; 
-}
-.help-card:hover { 
-    transform: translateY(-4px); 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-.help-card-span-2, .help-card-offset-1 { 
-    grid-column: auto !important; 
-}
-
-/* Стилі для нових .webp іконок замість емодзи */
-.card-icon-img { 
-    width: 54px; /* Оптимальний розмір для графічних іконок */
-    height: 54px; 
-    object-fit: contain;
-    margin-bottom: 20px; 
-    display: inline-block; 
-}
-
-.help-card h3 { 
-    font-size: 16px; 
-    font-weight: 800; 
-    color: #002366; 
-    margin-bottom: 12px; 
-    line-height: 1.3; 
-}
-.help-card p { 
-    font-size: 13px; 
-    color: #4b5563; 
-    line-height: 1.5; 
-    font-weight: 500; 
-}
-
-/* Адаптивність для менших екранів */
-@media (max-width: 1200px) {
-    .help-container-fluid { padding: 0 24px; }
-    .help-grid { grid-template-columns: repeat(3, 1fr); } /* 3 в ряд на середніх екранах */
-}
-@media (max-width: 768px) {
-    .help-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд */
-}
-@media (max-width: 480px) {
-    .help-grid { grid-template-columns: 1fr; } /* 1 в ряд на телефонах */
-}
-}
-      /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ (На всю ширину сайту) === */
-        .programs-section { 
-            padding: 10px 0 60px 0; 
-            background-color: #ffffff; 
-            text-align: center; 
-            width: 100%;
-        }
-
-        /* Використовуємо флюїдний контейнер на всю ширину екрану */
-        .programs-container-fluid {
-            width: 100%;
-            padding: 0 40px; 
-            box-sizing: border-box;
-        }
-
-        /* 4 колонки в один ряд на всю доступну ширину */
-        .programs-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px; /* Однаковий зазор, як і в секції вище */
-        }
-
-        .program-card { 
-            background: #ffffff; 
-            border: 1px solid #f3f4f6; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            text-align: left; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
-            display: flex; 
-            flex-direction: column; 
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .program-card:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Контейнер для фото з фіксованою пропорцією */
-        .program-img-box { 
-            position: relative; 
-            width: 100%; 
-            height: 200px; /* Оптимальна висота для широких карток */
-            background-color: #f3f4f6; 
-        }
-        /* Фото автоматично заповнює блок без деформації */
-        .program-img-box img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-
-        .program-badge { position: absolute; bottom: -18px; left: 24px; width: 36px; height: 36px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        .program-img-box { position: relative; width: 100%; height: 200px; background-color: #f3f4f6; }
+        .program-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Стилізація бейджа з іконкою */
+        .program-badge { position: absolute; bottom: -18px; left: 24px; width: 36px; height: 36px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.08); padding: 7px; }
+        .program-badge img { width: 100%; height: 100%; object-fit: contain; }
+        
         .program-text-box { padding: 32px 24px 24px 24px; flex-grow: 1; }
         .program-text-box h3 { font-size: 17px; font-weight: 800; color: #002366; margin-bottom: 12px; }
         .program-text-box p { font-size: 13.5px; color: #4b5563; line-height: 1.5; font-weight: 500; }
-
-        /* Окреме точкове правило для відповідності заголовка */
-        .programs-section .section-title {
-            font-weight: 500;
-            font-size: 31px;
-            letter-spacing: -0.2px;
-        }
-
-        /* Адаптивність для менших екранів */
-        @media (max-width: 1200px) {
-            .programs-container-fluid { padding: 0 24px; }
-            .programs-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд на планшетах */
-        }
-        @media (max-width: 640px) {
-            .programs-grid { grid-template-columns: 1fr; } /* 1 в ряд на мобільних */
-        }
+        .programs-section .section-title { font-weight: 500; font-size: 31px; letter-spacing: -0.2px; }
 
         /* === ФУТЕР-БАННЕР === */
         .footer-banner { margin: 20px 0 60px 0; }
@@ -458,22 +122,35 @@
         .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; margin-top: 10px; }
         .btn-submit:hover { background-color: #14439c; }
 
+        /* АДАПТИВНІСТЬ */
+        @media (max-width: 1200px) {
+            .help-container-fluid, .programs-container-fluid { padding: 0 24px; }
+            .help-grid { grid-template-columns: repeat(3, 1fr); }
+            .programs-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; min-height: auto; }
-            .hero-image-wrapper { justify-content: center; margin-top: 20px; }
-            .hero-img { max-height: 240px; }
-            .features-grid, .programs-grid { grid-template-columns: 1fr; }
+            .hero-image-outer { position: relative; width: 100%; height: 210px; margin-top: 15px; }
+            .hero-content { max-width: 100%; text-align: center; padding: 15px 0; }
+            .features-bar .container { padding: 0 24px; }
+            .feature-item { max-width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .features-grid { flex-direction: column; gap: 20px; }
+            .help-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .programs-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
             .help-grid { grid-template-columns: 1fr; }
-            .help-card-span-2, .help-card-offset-1 { grid-column: span 1; }
-            .banner-box { flex-direction: column; text-align: center; padding: 30px; }
-            .banner-left { flex-direction: column; }
+            .banner-box { flex-direction: column; text-align: center; padding: 30px; gap: 20px; }
+            .banner-left { flex-direction: column; gap: 16px; }
             .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА -->
     <header class="main-header">
         <div class="container header-container">
             <a href="index.html" class="logo-group">
@@ -502,8 +179,7 @@
         </div>
     </header>
 
-    <!-- СЕКЦІЯ HERO -->
-   <section class="hero-section">
+    <section class="hero-section">
         <div class="container hero-top-nav">
             <div class="breadcrumbs">
                 <a href="index.html" data-i18n="bc_home">Головна</a><span>&gt;</span>
@@ -515,7 +191,7 @@
         <div class="container hero-container-inner">
             <div class="hero-content">
                 <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
-                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
+                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити свое місце в громаді.</p>
                 <button class="btn-primary open-modal-btn" data-i18n="btn_join_programs">Приєднатися до програм</button>
             </div>
         </div>
@@ -525,8 +201,7 @@
         </div>
     </section>
 
-    <!-- БАР ХАРАКТЕРИСТИК -->
-   <section class="features-bar">
+    <section class="features-bar">
         <div class="container">
             <div class="features-grid">
                 <div class="feature-item">
@@ -554,48 +229,40 @@
         </div>
     </section>
 
-   <section class="help-section">
+    <section class="help-section">
         <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
-        
-        
         <div class="help-container-fluid">
             <div class="help-grid">
-                
                 <div class="help-card">
                     <img src="icon-integration1.webp" class="card-icon-img" alt="Допомога з документами">
                     <h3 data-i18n="card_1_title">Допомога з документами</h3>
                     <p data-i18n="card_1_desc">Підтримка у питаннях проживання, страхування, соціальних виплат, освіти та інших важливих документів.</p>
                 </div>
-                
                 <div class="help-card">
                     <img src="icon-integration2.webp" class="card-icon-img" alt="Курси німецької мови">
                     <h3 data-i18n="card_2_title">Курси німецької мови</h3>
                     <p data-i18n="card_2_desc">Курси для різних рівнів – від початківців до впевненого спілкування в повсякденному житті.</p>
                 </div>
-                
                 <div class="help-card">
                     <img src="icon-integration1.webp" class="card-icon-img" alt="Працевлаштування">
                     <h3 data-i18n="card_3_title">Працевлаштування</h3>
                     <p data-i18n="card_3_desc">Допомагаємо знайти роботу: консультації, підготовка резюме, пошук вакансій та співбесіди.</p>
                 </div>
-                
                 <div class="help-card">
                     <img src="icon-integration4.webp" class="card-icon-img" alt="Адаптація до життя у Швейцарії">
                     <h3 data-i18n="card_4_title">Адаптація до життя у Швейцарії</h3>
                     <p data-i18n="card_4_desc">Індивідуальний супровід під час адаптації: орієнтація в системі, підтримка та корисні поради.</p>
                 </div>
-                
                 <div class="help-card">
                     <img src="icon-integration5.webp" class="card-icon-img" alt="Зустрічі та спільнота">
                     <h3 data-i18n="card_5_title">Зустрічі та спільнота</h3>
                     <p data-i18n="card_5_desc">Заходи, майстер-класи, екскурсії та культурні активності для спілкування та нових знайомств.</p>
                 </div>
-
             </div>
         </div>
     </section>
-    <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ -->
-  <section class="programs-section">
+
+    <section class="programs-section">
         <div class="programs-container-fluid">
             <h2 class="section-title" data-i18n="section_2_title">Наші програми та можливості</h2>
             <div class="programs-grid">
@@ -603,7 +270,9 @@
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto1.webp" alt="Розмовний клуб">
-                        <div class="program-badge" data-i18n="prog_1_emoji">☕</div>
+                        <div class="program-badge">
+                            <img src="inter-icon1.webp" alt="Icon 1">
+                        </div>
                     </div>
                     <div class="program-text-box">
                         <h3 data-i18n="prog_1_title">Розмовний клуб</h3>
@@ -614,7 +283,9 @@
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto2.webp" alt="Кар'єрні консультації">
-                        <div class="program-badge" data-i18n="prog_2_emoji">📁</div>
+                        <div class="program-badge">
+                            <img src="inter-icon2.webp" alt="Icon 2">
+                        </div>
                     </div>
                     <div class="program-text-box">
                         <h3 data-i18n="prog_2_title">Кар'єрні консультації</h3>
@@ -625,7 +296,9 @@
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto3.webp" alt="Інтеграційні зустрічі">
-                        <div class="program-badge" data-i18n="prog_3_emoji">👨‍👩‍👧‍👦</div>
+                        <div class="program-badge">
+                            <img src="inter-icon3.webp" alt="Icon 3">
+                        </div>
                     </div>
                     <div class="program-text-box">
                         <h3 data-i18n="prog_3_title">Інтеграційні зустрічі</h3>
@@ -636,7 +309,9 @@
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto4.webp" alt="Культурні заходи">
-                        <div class="program-badge" data-i18n="prog_4_emoji">🎉</div>
+                        <div class="program-badge">
+                            <img src="inter-icon4.webp" alt="Icon 4">
+                        </div>
                     </div>
                     <div class="program-text-box">
                         <h3 data-i18n="prog_4_title">Культурні заходи</h3>
@@ -648,7 +323,6 @@
         </div>
     </section>
 
-    <!-- НИЖНІЙ БАННЕР -->
     <section class="footer-banner">
         <div class="container">
             <div class="banner-box">
@@ -667,7 +341,6 @@
         </div>
     </section>
 
-    <!-- МОДАЛЬНЕ ВІКНО -->
     <div class="modal-overlay" id="registrationModal">
         <div class="modal-container">
             <button class="modal-close" id="closeModalBtn">&times;</button>
@@ -686,7 +359,6 @@
         </div>
     </div>
 
-    <!-- СКРИПТ -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const savedLang = localStorage.getItem('selectedLanguage') || 'ua';

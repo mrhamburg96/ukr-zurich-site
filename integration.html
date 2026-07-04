@@ -68,11 +68,11 @@
         .feature-text p { font-size: 11.5px; color: #6b7280; font-weight: 500; line-height: 1.35; word-break: keep-all; }
 
         /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
-        .help-section { padding: 30px 0 70px 0; background-color: #ffffff; width: 100%; text-align: center; }
+        .help-section { padding: 30px 0 0 0; background-color: #ffffff; width: 100%; text-align: center; }
         .section-title { font-size: 30px; font-weight: 600; color: #002366; margin-bottom: 40px; position: relative; display: block; text-align: center; width: 100%; }
         .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #ffcc00; border-radius: 2px; }
         .help-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
-        .help-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 24px; }
+        .help-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 0; }
         .help-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; padding: 35px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); transition: transform 0.2s, box-shadow 0.2s; }
         .help-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
         .card-icon-img { width: 54px; height: 54px; object-fit: contain; margin-bottom: 20px; display: inline-block; }
@@ -80,7 +80,7 @@
         .help-card p { font-size: 13px; color: #4b5563; line-height: 1.5; font-weight: 500; }
 
         /* === СЕКЦІЯ 2: НАШІ ПРОГРАМИ === */
-        .programs-section { padding: 10px 0 60px 0; background-color: #ffffff; text-align: center; width: 100%; }
+        .programs-section { padding: 50px 0 60px 0; background-color: #ffffff; text-align: center; width: 100%; }
         .programs-container-fluid { width: 100%; padding: 0 40px; box-sizing: border-box; }
         .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .program-card { background: #ffffff; border: 1px solid #f3f4f6; border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
@@ -89,14 +89,15 @@
         .program-img-box { position: relative; width: 100%; height: 200px; background-color: #f3f4f6; }
         .program-img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* Стилізація бейджа з іконкою */
         .program-badge { position: absolute; bottom: -18px; left: 24px; width: 36px; height: 36px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.08); padding: 7px; }
         .program-badge img { width: 100%; height: 100%; object-fit: contain; }
         
         .program-text-box { padding: 32px 24px 24px 24px; flex-grow: 1; }
         .program-text-box h3 { font-size: 17px; font-weight: 800; color: #002366; margin-bottom: 12px; }
         .program-text-box p { font-size: 13.5px; color: #4b5563; line-height: 1.5; font-weight: 500; }
-        .programs-section .section-title { font-weight: 500; font-size: 31px; letter-spacing: -0.2px; }
+        
+        /* Стилізація шрифту заголовка: Manrope Bold (700) */
+        .programs-section .section-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 31px; letter-spacing: -0.2px; }
 
         /* === ФУТЕР-БАННЕР === */
         .footer-banner { margin: 20px 0 60px 0; }
@@ -151,6 +152,7 @@
 </head>
 <body>
 
+    <!-- ШАПКА -->
     <header class="main-header">
         <div class="container header-container">
             <a href="index.html" class="logo-group">
@@ -179,6 +181,7 @@
         </div>
     </header>
 
+    <!-- СЕКЦІЯ HERO -->
     <section class="hero-section">
         <div class="container hero-top-nav">
             <div class="breadcrumbs">
@@ -191,7 +194,7 @@
         <div class="container hero-container-inner">
             <div class="hero-content">
                 <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
-                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити свое місце в громаді.</p>
+                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити своє місце в громаді.</p>
                 <button class="btn-primary open-modal-btn" data-i18n="btn_join_programs">Приєднатися до програм</button>
             </div>
         </div>
@@ -201,6 +204,7 @@
         </div>
     </section>
 
+    <!-- БАР ХАРАКТЕРИСТИК -->
     <section class="features-bar">
         <div class="container">
             <div class="features-grid">
@@ -229,6 +233,7 @@
         </div>
     </section>
 
+    <!-- СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО -->
     <section class="help-section">
         <h2 class="section-title" data-i18n="section_1_title">Чим ми допомагаємо</h2>
         <div class="help-container-fluid">
@@ -250,7 +255,7 @@
                 </div>
                 <div class="help-card">
                     <img src="icon-integration4.webp" class="card-icon-img" alt="Адаптація до життя у Швейцарії">
-                    <h3 data-i18n="card_4_title">Адаптація до життя у Швейцарії</h3>
+                    <h3 data-i18n="card_4_title">Адаптація до жизнь у Швейцарії</h3>
                     <p data-i18n="card_4_desc">Індивідуальний супровід під час адаптації: орієнтація в системі, підтримка та корисні поради.</p>
                 </div>
                 <div class="help-card">
@@ -262,16 +267,18 @@
         </div>
     </section>
 
+    <!-- СЕКЦІЯ 2: НАШІ ПРОГРАМИ ТА МОЖЛИВОСТІ (ПЕРЕНЕСЕНО ВВЕРХ) -->
     <section class="programs-section">
         <div class="programs-container-fluid">
             <h2 class="section-title" data-i18n="section_2_title">Наші програми та можливості</h2>
             <div class="programs-grid">
                 
+                <!-- Картка 1 -->
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto1.webp" alt="Розмовний клуб">
                         <div class="program-badge">
-                            <img src="inter-icon1.webp" alt="Icon 1">
+                            <img src="inter-icon1.webp" alt="Розмовний клуб">
                         </div>
                     </div>
                     <div class="program-text-box">
@@ -280,11 +287,12 @@
                     </div>
                 </div>
 
+                <!-- Картка 2 -->
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto2.webp" alt="Кар'єрні консультації">
                         <div class="program-badge">
-                            <img src="inter-icon2.webp" alt="Icon 2">
+                            <img src="inter-icon2.webp" alt="Кар'єрні консультації">
                         </div>
                     </div>
                     <div class="program-text-box">
@@ -293,11 +301,12 @@
                     </div>
                 </div>
 
+                <!-- Картка 3 -->
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto3.webp" alt="Інтеграційні зустрічі">
                         <div class="program-badge">
-                            <img src="inter-icon3.webp" alt="Icon 3">
+                            <img src="inter-icon3.webp" alt="Інтеграційні зустрічі">
                         </div>
                     </div>
                     <div class="program-text-box">
@@ -306,11 +315,12 @@
                     </div>
                 </div>
 
+                <!-- Картка 4 -->
                 <div class="program-card">
                     <div class="program-img-box">
                         <img src="integr-foto4.webp" alt="Культурні заходи">
                         <div class="program-badge">
-                            <img src="inter-icon4.webp" alt="Icon 4">
+                            <img src="inter-icon4.webp" alt="Культурні заходи">
                         </div>
                     </div>
                     <div class="program-text-box">
@@ -323,6 +333,7 @@
         </div>
     </section>
 
+    <!-- НИЖНІЙ БАННЕР -->
     <section class="footer-banner">
         <div class="container">
             <div class="banner-box">
@@ -341,6 +352,7 @@
         </div>
     </section>
 
+    <!-- МОДАЛЬНЕ ВІКНО -->
     <div class="modal-overlay" id="registrationModal">
         <div class="modal-container">
             <button class="modal-close" id="closeModalBtn">&times;</button>
@@ -359,6 +371,7 @@
         </div>
     </div>
 
+    <!-- СКРИПТ -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const savedLang = localStorage.getItem('selectedLanguage') || 'ua';

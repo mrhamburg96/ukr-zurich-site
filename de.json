@@ -241,6 +241,10 @@
     "modal_title": "Anmeldung zum Programm",
     "modal_name": "Ihr Name",
     "modal_phone": "Telefonnummer",
-    "modal_submit": "Anmeldung abschicken"
+    "modal_submit": "Anmeldung abschicken",
+  {
+  "team_title": "Unser Team",
+  "kolo_logo_src": "rodine-kolo-logoDE.webp"
 }
+
 

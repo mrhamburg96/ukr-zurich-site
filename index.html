@@ -1003,115 +1003,110 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </section>
 <!-- ═══════ СЕКЦІЯ: НАЙБЛИЖЧІ ПОДІЇ ТА САЙДБАР ═══════ -->
-<section class="events-layout" style="padding: 40px 0 60px; background: #fafafa;">
-  <div class="container" style="display: flex; gap: 30px; flex-wrap: wrap;">
+<section class="events-layout" style="padding: 40px 0 60px; background: #fafafa; width: 100%;">
+  <div class="container-fluid" style="width: 100%; padding: 0 4%; margin: 0 auto;">
     
-    <!-- Ліва колонка: Події та Форма реєстрації -->
-    <div class="events-main-col" style="flex: 2; min-width: 300px;">
-      <div class="col-hd" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <h2 id="ev_main_title" style="font-size: 2rem; color: #0d233a; font-weight: 700; margin: 0;">Найближчі події</h2>
-        <a href="#" id="ev_all_link" class="btn-link">Усі події →</a>
+    <div class="events-header" style="margin-bottom: 30px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <h2 id="ev_main_title" style="font-family: 'Manrope', sans-serif; font-size: 2rem; color: #1A56C4; font-weight: 700; margin: 0 text-align: center;">Найближчі події</h2>
+    </div>
+    
+    <div class="events-grid-container" style="display: flex; gap: 30px; flex-wrap: wrap; width: 100%;">
+      
+      <div class="events-main-col" style="flex: 2; min-width: 300px;">
+        
+        <div class="events-tabs" style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; font-size: 0.9rem; flex-wrap: wrap;">
+          <span id="tab_all" style="color: #3182ce; font-weight: 600; cursor: pointer; border-bottom: 2px solid #3182ce; padding-bottom: 10px; margin-bottom: -12px;">Усі події</span>
+          <span id="tab_family" style="color: #4a5568; cursor: pointer;">Центр сім'ї, молоді та спорту</span>
+          <span id="tab_integ" style="color: #4a5568; cursor: pointer;">Інтеграційний centre</span>
+          <span id="tab_volunteer" style="color: #4a5568; cursor: pointer;">Волонтерський центр</span>
+        </div>
+
+        <div class="event-featured-card" style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px;">
+            <img src="rodynne_kolo.jpg" alt="Родинне коло" style="width: 100%; border-radius: 8px; object-fit: cover;">
+          </div>
+          <div style="flex: 1.5; min-width: 200px;">
+            <h3 id="ev_feat_title" style="font-size: 1.4rem; color: #0d233a; margin: 0 0 4px 0;">Родинне коло</h3>
+            <p id="ev_feat_subtitle" style="color: #dd6b20; font-weight: 600; font-size: 0.9rem; margin: 0 0 12px 0;">Центр сім'ї, молоді та спорту</p>
+            <p id="ev_feat_desc" style="color: #4a5568; font-size: 0.95rem; line-height: 1.5; margin: 0;">Тепла зустріч для сімей з дітьми: ігри, творчість, спілкування та чай для всіх.</p>
+          </div>
+        </div>
+
+        <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
+          <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 200px;">
+                <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я родителя</label>
+                <input type="text" placeholder="Введіть ваше ім'я" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+              </div>
+              <div style="flex: 1; min-width: 200px;">
+                <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
+                <select style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #a0aec0;">
+                  <option value="">Оберіть кількість</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3+</option>
+                </select>
+              </div>
+            </div>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 200px;">
+                <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
+                <input type="text" placeholder="Введіть ім'я дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+              </div>
+              <div style="flex: 1; min-width: 200px;">
+                <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
+                <input type="text" placeholder="Введіть вік дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+              </div>
+            </div>
+            <div>
+              <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
+              <input type="tel" placeholder="Введіть ваш номер телефону" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+            </div>
+            <div style="margin-top: 10px;">
+              <button type="submit" id="btn_register" style="background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Зареєструватися →</button>
+            </div>
+          </form>
+        </div>
       </div>
       
-      <!-- Таби/Фільтри центрів -->
-      <div class="events-tabs" style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; font-size: 0.9rem; flex-wrap: wrap;">
-        <span id="tab_all" style="color: #3182ce; font-weight: 600; cursor: pointer; border-bottom: 2px solid #3182ce; padding-bottom: 10px; margin-bottom: -12px;">Усі події</span>
-        <span id="tab_family" style="color: #4a5568; cursor: pointer;">Центр сім'ї, молоді та спорту</span>
-        <span id="tab_integ" style="color: #4a5568; cursor: pointer;">Інтеграційний центр</span>
-        <span id="tab_volunteer" style="color: #4a5568; cursor: pointer;">Волонтерський центр</span>
+      <div class="sidebar-actions-col" style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 20px;">
+        <div class="sidebar-card card-yellow" style="background: #fffdf5; border: 1px solid #fef3c7; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="font-size: 1.5rem;">💛</span>
+            <div>
+              <h4 id="side_vol_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Стати волонтером</h4>
+              <p id="side_vol_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваш час, навички та підтримка допомагають нам змінювати життя у Швейцарії.</p>
+            </div>
+          </div>
+          <a href="#" id="side_vol_btn" style="background: #ecc94b; color: #333; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Стати волонтером ➔</a>
+        </div>
+
+        <div class="sidebar-card card-blue" style="background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="font-size: 1.5rem; color: #2b6cb0;">👥</span>
+            <div>
+              <h4 id="side_help_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Отримати допомогу</h4>
+              <p id="side_help_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Якщо ви або ваші близькі потребуєте підтримки, ми поруч. Звертайтеся до нас.</p>
+            </div>
+          </div>
+          <a href="#" id="side_help_btn" style="background: #1a56db; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Отримати допомогу ➔</a>
+        </div>
+
+        <div class="sidebar-card card-green" style="background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="font-size: 1.5rem; color: #38a169;">🤝</span>
+            <div>
+              <h4 id="side_donate_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Допомогти</h4>
+              <p id="side_donate_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваша фінансова допомога дозволяє нам реалізовувати важливі проекти та події.</p>
+            </div>
+          </div>
+          <a href="#" id="side_donate_btn" style="background: #38a169; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Допомогти ➔</a>
+        </div>
       </div>
 
-      <!-- Карточка події "Родинне коло" -->
-      <div class="event-featured-card" style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 200px;">
-          <img src="img/events/rodynne_kolo.jpg" alt="Родинне коло" style="width: 100%; border-radius: 8px;">
-        </div>
-        <div style="flex: 1.5; min-width: 200px;">
-          <h3 id="ev_feat_title" style="font-size: 1.4rem; color: #0d233a; margin: 0 0 4px 0;">Родинне коло</h3>
-          <p id="ev_feat_subtitle" style="color: #dd6b20; font-weight: 600; font-size: 0.9rem; margin: 0 0 12px 0;">Центр сім'ї, молоді та спорту</p>
-          <p id="ev_feat_desc" style="color: #4a5568; font-size: 0.95rem; line-height: 1.5; margin: 0;">Тепла зустріч для сімей з дітьми: ігри, творчість, спілкування та чай для всіх.</p>
-        </div>
-      </div>
-
-      <!-- Форма реєстрації для батьків -->
-      <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-        <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
-        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 200px;">
-              <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я родителя</label>
-              <input type="text" placeholder="Введіть ваше ім'я" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-            </div>
-            <div style="flex: 1; min-width: 200px;">
-              <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
-              <select style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #a0aec0;">
-                <option value="">Оберіть кількість</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3+</option>
-              </select>
-            </div>
-          </div>
-          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 200px;">
-              <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
-              <input type="text" placeholder="Введіть ім'я дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-            </div>
-            <div style="flex: 1; min-width: 200px;">
-              <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
-              <input type="text" placeholder="Введіть вік дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-            </div>
-          </div>
-          <div>
-            <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
-            <input type="tel" placeholder="Введіть ваш номер телефону" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-          </div>
-          <div style="margin-top: 10px;">
-            <button type="submit" id="btn_register" style="background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Зареєструватися →</button>
-          </div>
-        </form>
-      </div>
     </div>
-    
-    <!-- Права колонка: Сайдбар зі стікерами дій -->
-    <div class="sidebar-actions-col" style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 20px;">
-      <!-- Картка: Стати волонтером -->
-      <div class="sidebar-card card-yellow" style="background: #fffdf5; border: 1px solid #fef3c7; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <span style="font-size: 1.5rem;">💛</span>
-          <div>
-            <h4 id="side_vol_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Стати волонтером</h4>
-            <p id="side_vol_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваш час, навички та підтримка допомагають нам змінювати життя у Швейцарії.</p>
-          </div>
-        </div>
-        <a href="#" id="side_vol_btn" style="background: #ecc94b; color: #333; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Стати волонтером ➔</a>
-      </div>
-
-      <!-- Картка: Отримати допомогу -->
-      <div class="sidebar-card card-blue" style="background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <span style="font-size: 1.5rem; color: #2b6cb0;">👥</span>
-          <div>
-            <h4 id="side_help_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Отримати допомогу</h4>
-            <p id="side_help_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Якщо ви або ваші близькі потребуєте підтримки, ми поруч. Звертайтеся до нас.</p>
-          </div>
-        </div>
-        <a href="#" id="side_help_btn" style="background: #1a56db; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Отримати допомогу ➔</a>
-      </div>
-
-      <!-- Картка: Допомогти (Донат) -->
-      <div class="sidebar-card card-green" style="background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <span style="font-size: 1.5rem; color: #38a169;">🤝</span>
-          <div>
-            <h4 id="side_donate_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 700;">Допомогти</h4>
-            <p id="side_donate_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваша фінансова допомога дозволяє нам реалізовувати важливі проекти та події.</p>
-          </div>
-        </div>
-        <a href="#" id="side_donate_btn" style="background: #38a169; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Допомогти ➔</a>
-      </div>
-    </div>
-
   </div>
 </section>
 

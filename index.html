@@ -1032,44 +1032,85 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           </div>
         </div>
 
-        <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
-          <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я родителі</label>
-                <input type="text" placeholder="Введіть ваше ім'я" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-              </div>
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
-                <select style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #a0aec0;">
-                  <option value="">Оберіть кількість</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3+</option>
-                </select>
-              </div>
-            </div>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
-                <input type="text" placeholder="Введіть ім'я дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-              </div>
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
-                <input type="text" placeholder="Введіть вік дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-              </div>
-            </div>
-            <div>
-              <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
-              <input type="tel" placeholder="Введіть ваш номер телефону" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-            </div>
-            <div style="margin-top: 10px;">
-              <button type="submit" id="btn_register" style="background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Зареєструватися →</button>
-            </div>
-          </form>
-        </div>
+       <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); width: 100%; box-sizing: border-box;">
+  <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
+  
+  <form id="orderForm" style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+    
+    <div style="display: flex; flex-direction: column; width: 100%;">
+      <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я батьків</label>
+      <input type="text" name="parentName" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; width: 100%;">
+      <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
+      <select name="kidsCount" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #4a5568; box-sizing: border-box;">
+        <option value="">Оберіть кількість</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3+</option>
+      </select>
+    </div>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; width: 100%;">
+      <div style="flex: 1; min-width: 130px;">
+        <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
+        <input type="text" name="childName" placeholder="Введіть ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
       </div>
+      <div style="flex: 1; min-width: 90px;">
+        <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
+        <input type="text" name="childAge" placeholder="Вік" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; width: 100%;">
+      <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
+      <input type="tel" name="phone" placeholder="Введіть ваш номер телефону" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+    </div>
+
+    <div style="margin-top: 10px; width: 100%;">
+      <button type="submit" id="btn_register" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: background 0.2s;">Зареєструватися →</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const button = document.getElementById('btn_register');
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Відправка...';
+
+    // ВСТАВЬТЕ СЮДА ВАШ URL ИЗ GOOGLE APPS SCRIPT
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzDvltSrh8oMXY4I0RbWByQhmLGyx5sUhRWphhHSd-tFqRvd0eZ_PSHWYg6-uzXv4Ps/exec'; 
+
+    const formData = new FormData(this);
+
+    fetch(scriptURL, { 
+      method: 'POST', 
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.result === 'success') {
+        alert('Реєстрація успішно завершена!');
+        document.getElementById('orderForm').reset();
+      } else {
+        alert('Сталася помилка при реєстрації. Спробуйте ще раз.');
+      }
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert('Помилка з\'єднання з сервером.');
+    })
+    .finally(() => {
+      button.disabled = false;
+      button.textContent = originalText;
+    });
+  });
+</script>
       
     <!-- Правая колонка: Сайдбар с цветными карточками действий -->
      <!-- Правая колонка: Сайдбар с цветными карточками действий -->

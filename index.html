@@ -1003,76 +1003,83 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </section>
 <!-- ═══════ СЕКЦІЯ: НАЙБЛИЖЧІ ПОДІЇ ТА САЙДБАР ═══════ -->
-<section class="events-layout" style="padding: 0 0 60px 0; background: #fafafa; width: 100%; margin-top: 0; border-top: none;">
-  <div class="container-fluid" style="width: 100%; padding: 0 4%; margin: 0 auto;">
+<section class="events-section" style="padding: 60px 0; width: 100%; background: #F8FAFC; font-family: 'Manrope', 'Inter', system-ui, -apple-system, sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     
-    <div class="events-header" style="margin: 0; padding-top: 30px; padding-bottom: 30px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <h2 id="ev_main_title" style="font-family: 'Manrope', sans-serif; font-size: 2rem; color: #1A56C4; font-weight: 700; margin: 0; text-align: center;">Найближчі події</h2>
-    </div>
-    
-    <div class="events-grid-container" style="display: flex; gap: 30px; flex-wrap: wrap; width: 100%;">
+    <h2 data-translate="events_main_title" style="font-family: 'Manrope', sans-serif; font-size: 32px; color: #1A56C4; font-weight: 700; margin-bottom: 30px; letter-spacing: -0.02em;">Найближчі події</h2>
+
+    <div class="events-grid-container" style="display: flex; gap: 30px; flex-wrap: wrap; align-items: stretch; justify-content: center;">
       
-      <div class="events-main-col" style="flex: 2; min-width: 300px;">
+      <div class="event-info-card" style="flex: 1.2; min-width: 320px; background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #E2E8F0;">
+        <div>
+          <span data-translate="event_tag" style="display: inline-block; background: #E8F1FD; color: #1A56C4; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px;">Зустріч громади</span>
+          
+          <h3 id="event_title" style="font-family: 'Manrope', sans-serif; font-size: 1.6rem; color: #0d233a; margin: 0 0 14px 0; font-weight: 800; line-height: 1.3;">Родинне коло II</h3>
+          
+          <p id="event_desc" style="font-size: 1rem; color: #4a5568; margin: 0 0 24px 0; line-height: 1.6;">Запрошуємо батьків та дітей на теплу зустріч у нашому центрі. Спілкування, підтримка, обмін досвідом та цікаві активності для малечі.</p>
+          
+          <div class="event-details-list" style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px; color: #4a5568; font-size: 0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span><strong>Дата:</strong> <span id="event_date_val">Щонеділі</span></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; color: #4a5568; font-size: 0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span><strong>Час:</strong> <span id="event_time_val">15:00 - 17:00</span></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; color: #4a5568; font-size: 0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><strong>Адреса:</strong> <span id="event_address_val">Weinbergstrasse 11, 8001 Zürich</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="registration-form-block" style="flex: 1; min-width: 320px; background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #E2E8F0; box-sizing: border-box;">
+        <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
         
-        <div class="events-tabs" style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; font-size: 0.9rem; flex-wrap: wrap;">
-          <span id="tab_all" style="color: #3182ce; font-weight: 600; cursor: pointer; border-bottom: 2px solid #3182ce; padding-bottom: 10px; margin-bottom: -12px;">Усі події</span>
-          <span id="tab_family" style="color: #4a5568; cursor: pointer;">Центр сім'ї, молоді та спорту</span>
-          <span id="tab_integ" style="color: #4a5568; cursor: pointer;">Інтеграційний центр</span>
-          <span id="tab_volunteer" style="color: #4a5568; cursor: pointer;">Волонтерський центр</span>
-        </div>
-
-        <div class="event-featured-card" style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 200px;">
-            <img data-translate="kolo-logo" src="rodine-kolo-logo.webp" alt="Родинне коло" style="width: 100%; border-radius: 8px; object-fit: cover;">
+        <form id="orderForm" style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+          
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я батьків</label>
+            <input type="text" name="parentName" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
           </div>
-          <div style="flex: 1.5; min-width: 200px;">
-            <h3 id="ev_feat_title" style="font-size: 1.4rem; color: #1A56C4; margin: 0 0 4px 0;">Родинне коло</h3>
-            <p id="ev_feat_subtitle" style="color: #dd6b20; font-weight: 600; font-size: 0.9rem; margin: 0 0 12px 0;">Центр сім'ї, молоді та спорту</p>
-            <p id="ev_feat_desc" style="color: #4a5568; font-size: 0.95rem; line-height: 1.5; margin: 0;">Тепла зустріч для сімей з дітьми: ігри, творчість, спілкування та чай для всіх.</p>
+
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
+            <select name="kidsCount" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #4a5568; box-sizing: border-box;">
+              <option value="">Оберіть кількість</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+            </select>
           </div>
-        </div>
 
-     <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); width: 100%; box-sizing: border-box;">
-  <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
-  
-  <form id="orderForm" style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
-    
-    <div style="display: flex; flex-direction: column; width: 100%;">
-      <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я батьків</label>
-      <input type="text" name="parentName" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
-    </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; width: 100%;">
+            <div style="flex: 1; min-width: 130px;">
+              <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
+              <input type="text" name="childName" placeholder="Введіть ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+            </div>
+            <div style="flex: 1; min-width: 80px;">
+              <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
+              <input type="text" name="childAge" placeholder="Вік" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+            </div>
+          </div>
 
-    <div style="display: flex; flex-direction: column; width: 100%;">
-      <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
-      <select name="kidsCount" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #4a5568; box-sizing: border-box;">
-        <option value="">Оберіть кількість</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3+</option>
-      </select>
-    </div>
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
+            <input type="tel" name="phone" placeholder="Введіть ваш номер телефону" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
 
-    <div style="display: flex; gap: 12px; flex-wrap: wrap; width: 100%;">
-      <div style="flex: 1; min-width: 130px;">
-        <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
-        <input type="text" name="childName" placeholder="Введіть ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
+          <div style="margin-top: 10px; width: 100%;">
+            <button type="submit" id="btn_register" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: background 0.2s;">Зареєструватися →</button>
+          </div>
+        </form>
       </div>
-      <div style="flex: 1; min-width: 90px;">
-        <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
-        <input type="text" name="childAge" placeholder="Вік" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
-      </div>
-    </div>
 
-    <div style="display: flex; flex-direction: column; width: 100%;">
-      <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
-      <input type="tel" name="phone" placeholder="Введіть ваш номер телефону" required style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;">
     </div>
-
-    <div style="margin-top: 10px; width: 100%;">
-      <button type="submit" id="btn_register" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: background 0.2s;">Зареєструватися →</button>
-    </div>
-  </form>
-</div>
+  </div>
+</section>
 
 <script>
   document.getElementById('orderForm').addEventListener('submit', function(e) {

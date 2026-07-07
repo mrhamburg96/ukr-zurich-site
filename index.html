@@ -1003,7 +1003,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   </div>
 </section>
 <!-- ═══════ СЕКЦІЯ: НАЙБЛИЖЧІ ПОДІЇ ТА САЙДБАР ═══════ -->
-<section class="events-layout" style="padding: 0 0 60px 0; background: #fafafa; width: 100%; margin-top: 0; border-top: none;">
+<section class="events-layout" style="padding: 0 0 60px 0; background: #fafafa; width: 100%; margin-top: 0; border-top: none; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
   <div class="container-fluid" style="width: 100%; padding: 0 4%; margin: 0 auto;">
     
     <div class="events-header" style="margin: 0; padding-top: 30px; padding-bottom: 30px; text-align: center; display: flex; flex-direction: column; align-items: center;">
@@ -1012,7 +1012,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     
     <div class="events-grid-container" style="display: flex; gap: 30px; flex-wrap: wrap; width: 100%;">
       
-      <div class="events-main-col" style="flex: 2; min-width: 300px;">
+      <div class="events-main-col" style="flex: 2.2; min-width: 320px; display: flex; flex-direction: column;">
         
         <div class="events-tabs" style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; font-size: 0.9rem; flex-wrap: wrap;">
           <span id="tab_all" style="color: #3182ce; font-weight: 600; cursor: pointer; border-bottom: 2px solid #3182ce; padding-bottom: 10px; margin-bottom: -12px;">Усі події</span>
@@ -1021,64 +1021,65 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <span id="tab_volunteer" style="color: #4a5568; cursor: pointer;">Волонтерський центр</span>
         </div>
 
-        <div class="event-featured-card" style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 200px;">
-            <img data-translate="kolo-logo" src="rodine-kolo-logo.webp" alt="Родинне коло" style="width: 100%; border-radius: 8px; object-fit: cover;">
+        <div class="event-content-row" style="display: flex; gap: 20px; flex-wrap: wrap; align-items: stretch; width: 100%;">
+          
+          <div class="event-featured-card" style="flex: 1; min-width: 280px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 15px; border: 1px solid #e2e8f0; box-sizing: border-box;">
+            <div style="width: 100%;">
+              <img data-translate="kolo-logo" src="rodine-kolo-logo.webp" alt="Родинне коло" style="width: 100%; border-radius: 8px; object-fit: cover; height: auto;">
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: flex-start; height: 100%;">
+              <h3 id="ev_feat_title" style="font-size: 1.4rem; color: #1A56C4; margin: 0 0 4px 0; font-weight: 700;">Родинне коло</h3>
+              <p id="ev_feat_subtitle" style="color: #dd6b20; font-weight: 600; font-size: 0.9rem; margin: 0 0 12px 0;">Центр сім'ї, молоді та спорту</p>
+              <p id="ev_feat_desc" style="color: #4a5568; font-size: 0.95rem; line-height: 1.5; margin: 0;">Тепла зустріч для сімей з дітьми: ігри, творчість, спілкування та чай для всіх.</p>
+            </div>
           </div>
-          <div style="flex: 1.5; min-width: 200px;">
-            <h3 id="ev_feat_title" style="font-size: 1.4rem; color: #1A56C4; margin: 0 0 4px 0;">Родинне коло</h3>
-            <p id="ev_feat_subtitle" style="color: #dd6b20; font-weight: 600; font-size: 0.9rem; margin: 0 0 12px 0;">Центр сім'ї, молоді та спорту</p>
-            <p id="ev_feat_desc" style="color: #4a5568; font-size: 0.95rem; line-height: 1.5; margin: 0;">Тепла зустріч для сімей з дітьми: ігри, творчість, спілкування та чай для всіх.</p>
-          </div>
-        </div>
 
-        <div class="registration-form-block" style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <h3 id="form_title" style="font-size: 1.25rem; color: #0d233a; margin: 0 0 20px 0; font-weight: 700;">Реєстрація для батьків</h3>
-          <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_parent_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я родителі</label>
-                <input type="text" placeholder="Введіть ваше ім'я" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+          <div class="registration-form-block" style="flex: 1.1; min-width: 280px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; box-sizing: border-box;">
+            <h3 id="form_title" style="font-size: 1.15rem; color: #0d233a; margin: 0 0 15px 0; font-weight: 700;">Реєстрація для батьків</h3>
+            
+            <form id="orderForm" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+              
+              <div style="display: flex; flex-direction: column; width: 100%;">
+                <label id="lbl_parent_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я батьків</label>
+                <input type="text" name="parentName" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
               </div>
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_kids_count" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Кількість дітей</label>
-                <select style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background: #fff; color: #a0aec0;">
+
+              <div style="display: flex; flex-direction: column; width: 100%;">
+                <label id="lbl_kids_count" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Кількість дітей</label>
+                <select name="kidsCount" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; background: #fff; color: #4a5568; box-sizing: border-box;">
                   <option value="">Оберіть кількість</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3+</option>
                 </select>
               </div>
-            </div>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_child_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Ім'я дитини</label>
-                <input type="text" placeholder="Введіть ім'я дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; width: 100%;">
+                <div style="flex: 1; min-width: 110px;">
+                  <label id="lbl_child_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я дитини</label>
+                  <input type="text" name="childName" placeholder="Введіть ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1; min-width: 70px;">
+                  <label id="lbl_kids_age" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Вік дитини</label>
+                  <input type="text" name="childAge" placeholder="Вік" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+                </div>
               </div>
-              <div style="flex: 1; min-width: 200px;">
-                <label id="lbl_kids_age" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Вік дитини</label>
-                <input type="text" placeholder="Введіть вік дитини" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+
+              <div style="display: flex; flex-direction: column; width: 100%;">
+                <label id="lbl_phone" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Телефон</label>
+                <input type="tel" name="phone" placeholder="Введіть ваш номер телефону" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
               </div>
-            </div>
-            <div>
-              <label id="lbl_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600;">Телефон</label>
-              <input type="tel" placeholder="Введіть ваш номер телефону" style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
-            </div>
-            <div style="margin-top: 10px;">
-              <button type="submit" id="btn_register" style="background: #1a56db; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Зареєструватися →</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      
-    <!-- Правая колонка: Сайдбар с цветными карточками действий -->
-     <!-- Правая колонка: Сайдбар с цветными карточками действий -->
-      <div class="sidebar-actions-col" style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 20px;">
+
+              <div style="margin-top: 5px; width: 100%;">
+                <button type="submit" id="btn_register" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;">Зареєструватися →</button>
+              </div>
+            </form>
+          </div>
+
+        </div> </div> <div class="sidebar-actions-col" style="flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: 20px;">
         
-        <!-- Карточка: Стати волонтером -->
         <div class="sidebar-card card-yellow" style="background: #fffdf5; border: 1px solid #fef3c7; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
           <div style="display: flex; gap: 16px; align-items: center;">
-            <!-- Иконка увеличена на 100% (до 48px) -->
             <img src="icon1-rodinkolö.webp" alt="Icon" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0;">
             <div>
               <h4 id="side_vol_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 4px 0; font-weight: 700;">Стати волонтером</h4>
@@ -1088,10 +1089,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <a href="#" id="side_vol_btn" style="background: #ecc94b; color: #333; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Стати волонтером ➔</a>
         </div>
 
-        <!-- Карточка: Отримати допомогу -->
         <div class="sidebar-card card-blue" style="background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
           <div style="display: flex; gap: 16px; align-items: center;">
-            <!-- Иконка увеличена на 100% (до 48px) -->
             <img src="icon2-rodinkolö.webp" alt="Icon" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0;">
             <div>
               <h4 id="side_help_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 4px 0; font-weight: 700;">Отримати допомогу</h4>
@@ -1101,10 +1100,8 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           <a href="#" id="side_help_btn" style="background: #1a56db; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Отримати допомогу ➔</a>
         </div>
 
-        <!-- Карточка: Допомогти (Донат) -->
         <div class="sidebar-card card-green" style="background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
           <div style="display: flex; gap: 16px; align-items: center;">
-            <!-- Иконка увеличена на 100% (до 48px) -->
             <img src="icon3-rodinkolö.webp" alt="Icon" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0;">
             <div>
               <h4 id="side_donate_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 4px 0; font-weight: 700;">Допомогти</h4>
@@ -1113,10 +1110,47 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           </div>
           <a href="#" id="side_donate_btn" style="background: #38a169; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Допомогти ➔</a>
         </div>
-      </div>
-    </div>
-  </div>
+        
+      </div> </div> </div>
 </section>
+
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const button = document.getElementById('btn_register');
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Відправка...';
+
+    // Ссылка на ваш рабочий веб-скрипт Google Sheets
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzDvltSrh8oMXY4I0RbWByQhmLGyx5sUhRWphhHSd-tFqRvd0eZ_PSHWYg6-uzXv4Ps/exec'; 
+
+    const formData = new FormData(this);
+
+    fetch(scriptURL, { 
+      method: 'POST', 
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.result === 'success') {
+        alert('Реєстрація успішно завершена!');
+        document.getElementById('orderForm').reset();
+      } else {
+        alert('Сталася помилка при реєстрації. Спробуйте ще раз.');
+      }
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert('Помилка з\'єднання з сервером.');
+    })
+    .finally(() => {
+      button.disabled = false;
+      button.textContent = originalText;
+    });
+  });
+</script>
 
 <!-- ═══════ БЛОК: ЧИМ МИ ДОПОМАГАЄМО (Максимально прижат вверх, фото увеличены до 240x180px) ════════════════════════════════ -->
 <section class="help-section" style="padding: 0px 0 60px 0; margin-top: -10px; width: 100%; font-family: 'Manrope', 'Inter', system-ui, -apple-system, sans-serif;">

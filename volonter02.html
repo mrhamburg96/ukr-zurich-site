@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Волонтерський Центр — UAGZ</title>
+  <style>
+    /* Обнуляем отступы, чтобы картинка плотно прилегала к краям экрана */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #fafafa;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* Главный контейнер, который удерживает картинку и кнопки вместе */
+    .landing-container {
+      position: relative;
+      width: 100%;
+      max-width: 1920px; /* Ограничение максимальной ширины для огромных мониторов */
+      margin: 0 auto;
+      display: inline-block;
+    }
+
+    /* Базовая картинка-макет */
+    .landing-bg-image {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    /* Общий стиль для всех невидимых интерактивных кнопок */
+    .clickable-area {
+      position: absolute;
+      background: rgba(255, 255, 255, 0); /* Полностью прозрачные */
+      cursor: pointer;
+      display: block;
+      transition: background 0.2s ease-in-out;
+      border-radius: 4px; /* Мягкое скругление при наведении */
+    }
+
+    /* Эффект подсветки при наведении (опционально, для удобства тестирования) 
+       Если хотите сделать зоны абсолютно невидимыми даже при наведении, удалите код ниже */
+    .clickable-area:hover {
+      background: rgba(26, 86, 196, 0.08); 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="landing-container">
+    
+    <img src="volonter01.webp" alt="Волонтерська платформа" class="landing-bg-image">
+
+    <a href="?lang=ua" class="clickable-area" title="Українська" style="
+      top: 2%;       /* Корректируйте высоту от верхнего края картинки */
+      left: 82%;     /* Корректируйте отступ слева */
+      width: 4%;     /* Ширина области кнопки */
+      height: 3%;    /* Высота области кнопки */
+    "></a>
+
+    <a href="?lang=de" class="clickable-area" title="Deutsch" style="
+      top: 2%;       /* Высота должна совпадать с UA */
+      left: 87%;     /* Смещение правее относительно UA */
+      width: 4%;     /* Ширина области */
+      height: 3%;    /* Высота области */
+    "></a>
+
+
+    <a href="#need-help" class="clickable-area" title="Потрібна допомога" style="
+      top: 45%;      /* Высота расположения кнопки на картинке */
+      left: 15%;     /* Дистанция от левого края */
+      width: 28%;    /* Ширина кнопки */
+      height: 7%;    /* Высота кнопки */
+    "></a>
+
+    <a href="#want-to-help" class="clickable-area" title="Допомогти" style="
+      top: 45%;      /* Высота должна быть на одном уровне с соседней кнопкой */
+      left: 47%;     /* Смещение вправо, где нарисована вторая кнопка */
+      width: 28%;    /* Ширина кнопки */
+      height: 7%;    /* Высота кнопки */
+    "></a>
+
+
+    <a href="#contacts" class="clickable-area" title="Зв'язатися з нами" style="
+      top: 85%;      /* Находится в нижней части страницы */
+      left: 35%;     /* Центрирование по горизонтали */
+      width: 30%;    /* Ширина кнопки */
+      height: 6%;    /* Высота кнопки */
+    "></a>
+
+  </div>
+
+</body>
+</html>

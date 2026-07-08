@@ -295,12 +295,12 @@
         <a href="#" class="nav-link">Контакти</a>
       </nav>
 
-      <!-- Кнопка доната и языки -->
+     <!-- Кнопка доната и языки -->
       <div class="header-actions">
         <a href="#donate" class="btn-donate">Donate</a>
         <div class="lang-switcher">
-          <a href="?lang=ua" class="lang-item active">UA</a>
-          <a href="?lang=de" class="lang-item">DE</a>
+          <a href="?lang=ua" class="lang-item" id="lang-ua" onclick="changeLanguage(event, 'ua')">UA</a>
+          <a href="?lang=de" class="lang-item" id="lang-de" onclick="changeLanguage(event, 'de')">DE</a>
         </div>
       </div>
     </header>
@@ -444,6 +444,42 @@
 
   </div> 
   <!-- КОНЕЦ ОБЕРТКИ САЙТА -->
+<!-- СКРИПТ ДЛЯ АКТИВАЦИИ КНОПОК ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ -->
+  <script>
+    function changeLanguage(event, lang) {
+      // Предотвращаем стандартный переход по ссылке для демонстрации переключения
+      event.preventDefault();
+      
+      // Удаляем класс active у всех языковых кнопок
+      document.querySelectorAll('.lang-item').forEach(el => {
+        el.classList.remove('active');
+      });
+      
+      // Добавляем класс active к выбранной кнопке
+      const selectedLangButton = document.getElementById('lang-' + lang);
+      if (selectedLangButton) {
+        selectedLangButton.classList.add('active');
+      }
+      
+      // Обновляем параметр lang в адресной строке браузера без перезагрузки страницы
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+      
+      // Здесь в будущем можно будет вызывать функцию перевода текстов, если он потребуется
+      console.log('Язык переключен на: ' + lang.toUpperCase());
+    }
 
+    // Автоматическая проверка активного языка при загрузке страницы из URL
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentLang = urlParams.get('lang') || 'ua'; // По умолчанию ставим UA
+      
+      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+      const activeBtn = document.getElementById('lang-' + currentLang);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>

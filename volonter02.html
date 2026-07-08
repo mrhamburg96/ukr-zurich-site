@@ -306,7 +306,7 @@
     </div>
 
     <main class="banner-container">
-      <img src="volonter01.webp" alt="Волонтерський центр UAGZ" class="banner-img">
+      <img src="volonter01.webp" data-i18n="volonter_img_src" alt="Волонтерський центр UAGZ" class="banner-img">
       <a href="#need-help" class="banner-link" style="top: 29.3%; left: 3.3%; width: 17.1%; height: 4.8%;"></a>
       <a href="#give-help" class="banner-link" style="top: 29.3%; left: 22.1%; width: 13.9%; height: 4.8%;"></a>
       <a href="#contact-us" class="banner-link" style="top: 94.7%; left: 59.9%; width: 28.0%; height: 4.3%;"></a>
@@ -406,7 +406,7 @@
   </div>
 
   <script>
-    // Функция для динамической загрузки JSON-перевода и обновления текстов
+    // Функция для динамической загрузки JSON-перевода и обновления текстов и картинок
     async function loadTranslations(lang) {
       try {
         const response = await fetch(`${lang}.json`);
@@ -424,9 +424,14 @@
             if (text) text = text[key];
           });
 
-          // Если перевод найден — аккуратно обновляем текст на сайте
+          // Если перевод найден — аккуратно обновляем контент на сайте
           if (text) {
-            element.textContent = text;
+            // ПРОВЕРКА: если элемент является картинкой, меняем src, иначе — текст
+            if (element.tagName === 'IMG') {
+              element.src = text;
+            } else {
+              element.textContent = text;
+            }
           }
         });
       } catch (error) {
@@ -461,6 +466,6 @@
       
       loadTranslations(currentLang);
     });
-  </script>
+</script>
 </body>
 </html>

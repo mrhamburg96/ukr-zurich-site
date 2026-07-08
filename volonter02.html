@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Волонтерський центр UAGZ</title>
   <style>
-    /* Базовые сбросы стилей */
+    /* ════════════════ БАЗОВЫЕ И КОМПАКТНЫЕ СТИЛИ ════════════════ */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,23 +13,31 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #ffffff;
+      background-color: #f7fafc; /* Фон за пределами контейнера */
       color: #333;
     }
 
-    /* ════════════════ СТИЛИ ШАПКИ (СКРИНШОТ 1) ════════════════ */
+    /* Главная обертка для уменьшения масштаба всего сайта */
+    .site-wrapper {
+      width: 100%;
+      max-width: 1200px; /* Ограничивает ширину сайта, делая его компактным */
+      margin: 0 auto;    /* Центрирует сайт на экране */
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Стиль живой шапки сайта */
     .site-header {
       width: 100%;
       border-bottom: 1px solid #e2e8f0;
       background: #ffffff;
-      padding: 15px 4%;
+      padding: 15px 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 15px;
     }
-
-    /* Левая часть: Логотип и текст */
     .header-brand {
       display: flex;
       align-items: center;
@@ -39,7 +47,9 @@
     }
     .brand-logo {
       width: 42px;
-      height: auto;
+      height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
     .brand-text-title {
       font-size: 1.15rem;
@@ -53,8 +63,6 @@
       margin-top: 2px;
       line-height: 1.2;
     }
-
-    /* Центр: Меню навигации */
     .header-nav {
       display: flex;
       gap: 18px;
@@ -72,8 +80,6 @@
       text-decoration: underline;
       text-underline-offset: 4px;
     }
-
-    /* Правая часть: Действия */
     .header-actions {
       display: flex;
       align-items: center;
@@ -87,17 +93,11 @@
       padding: 8px 22px;
       border-radius: 6px;
       text-decoration: none;
-      transition: background 0.2s;
     }
-    .btn-donate:hover {
-      background-color: #e0a300;
-    }
-
-    /* Языковой переключатель */
     .lang-switcher {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-size: 0.85rem;
       font-weight: 700;
     }
@@ -112,9 +112,9 @@
       border-radius: 3px;
     }
 
-    /* Хлебные крошки под шапкой */
+    /* Хлебные крошки */
     .breadcrumbs {
-      padding: 15px 4%;
+      padding: 12px 25px;
       font-size: 0.8rem;
       color: #718096;
     }
@@ -123,288 +123,80 @@
       text-decoration: none;
     }
 
-    /* ════════════════ СТИЛИ ИНТЕРАКТИВНОГО БАННЕРА ════════════════ */
+    /* Интерактивный баннер */
     .banner-container {
       position: relative;
       width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
+      overflow: hidden;
     }
     .banner-img {
       width: 100%;
       display: block;
       height: auto;
     }
-
-    /* Прозрачные кликабельные области поверх картинки */
     .banner-link {
       position: absolute;
-      background: rgba(255, 255, 255, 0); /* Абсолютно прозрачные */
+      background: rgba(255, 255, 255, 0);
       cursor: pointer;
       display: block;
-      border-radius: 6px;
-      transition: background 0.2s;
+      border-radius: 4px;
     }
-    
-    /* Подсветка зон при наведении для контроля расположения */
     .banner-link:hover {
-      background: rgba(26, 86, 196, 0.1);
+      background: rgba(26, 86, 196, 0.1); /* Легкая подсветка кнопок баннера при наведении */
     }
-  </style>
-</head>
-<body>
 
-  <!-- БЛОК 1: ШАПКА САЙТА (По скриншоту 1) -->
-  <header class="site-header">
-    <!-- Логотип и название группы (Переход на главную) -->
-    <a href="index.html" class="header-brand">
-      <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
-      <div>
-        <div class="brand-text-title">UAGZ</div>
-        <div class="brand-text-desc">Український інтеграційний та громадський центр Цюриха</div>
-      </div>
-    </a>
-
-    <!-- Навигационное меню -->
-    <nav class="header-nav">
-      <!-- Переход на главную -->
-      <a href="index.html" class="nav-link">Головна</a>
-      <a href="#" class="nav-link">Про центр</a>
-      <a href="#" class="nav-link">Допомога</a>
-      <a href="#" class="nav-link">Події</a>
-      <a href="#" class="nav-link">Knowledge Center</a>
-      <a href="#" class="nav-link">Оголошення</a>
-      <a href="#" class="nav-link active">Волонтерство</a>
-      <a href="#" class="nav-link">Контакти</a>
-    </nav>
-
-    <!-- Кнопка доната и языки -->
-    <div class="header-actions">
-      <a href="#donate" class="btn-donate">Donate</a>
-      <div class="lang-switcher">
-        <a href="?lang=ua" class="lang-item active">UA</a>
-        <a href="?lang=de" class="lang-item">DE</a>
-      </div>
-    </div>
-  </header>
-
-  <div class="breadcrumbs">
-    <a href="#">Головна</a> &gt; <a href="#">Наші центри</a> &gt; Волонтерський центр UAGZ
-  </div>
-
-  <main class="banner-container">
-    <img src="volonter01.webp" alt="Волонтерський центр UAGZ" class="banner-img">
-
-    <a href="#need-help" class="banner-link" title="Потрібна допомога" style="
-      top: 29.3%;
-      left: 3.3%;
-      width: 17.1%;
-      height: 4.8%;
-    "></a>
-
-    <a href="#give-help" class="banner-link" title="Допомогти" style="
-      top: 29.3%;
-      left: 22.1%;
-      width: 13.9%;
-      height: 4.8%;
-    "></a>
-
-    <a href="#contact-us" class="banner-link" title="Зв'язатися з нами" style="
-      top: 94.7%;
-      left: 59.9%;
-      width: 28.0%;
-      height: 4.3%;
-    "></a>
-  </main>
-  <!-- БЛОК 3: ЧИМ МИ ДОПОМАГАЄМО -->
-  <section class="services-section">
-    <h2 class="section-title">Чим ми допомагаємо</h2>
-    
-    <div class="services-grid">
-      <!-- Карточка 1 -->
-      <div class="service-card">
-        <img src="icon-social.png" alt="Соціальна підтримка" class="service-icon">
-        <h3>Соціальна підтримка</h3>
-        <p>Допомагаємо людям у складних життєвих ситуаціях: поради, супровід та необхідна підтримка.</p>
-      </div>
-
-      <!-- Карточка 2 -->
-      <div class="service-card">
-        <img src="icon-humanitarian.png" alt="Гуманітарна допомога" class="service-icon">
-        <h3>Гуманітарна допомога</h3>
-        <p>Збір та розподіл пожертв: продуктів, одягу, засобів гігієни та інших необхідних речей.</p>
-      </div>
-
-      <!-- Карточка 3 -->
-      <div class="service-card">
-        <img src="icon-events.png" alt="Організація подій" class="service-icon">
-        <h3>Організація подій</h3>
-        <p>Проводимо заходи, майстер-класи та зустрічі для зміцнення громади та підтримки взаємозв’язків.</p>
-      </div>
-
-      <!-- Карточка 4 -->
-      <div class="service-card">
-        <img src="icon-partnership.png" alt="Партнерство" class="service-icon">
-        <h3>Партнерство</h3>
-        <p>Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.</p>
-      </div>
-
-      <!-- Карточка 5 -->
-      <div class="service-card">
-        <img src="icon-info.png" alt="Інформування" class="service-icon">
-        <h3>Інформування</h3>
-        <p>Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною.</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- БЛОК 4: НАШІ НАПРЯМКИ ТА МОЖЛИВОСТІ -->
-  <section class="directions-section">
-    <h2 class="section-title">Наші напрямки та можливості</h2>
-
-    <div class="directions-grid">
-      <!-- Направление 1 -->
-      <div class="direction-card">
-        <div class="dir-image-container">
-          <img src="dir-goods.jpg" alt="Збір та розподіл речей" class="direction-img">
-          <div class="dir-icon-badge"><img src="badge-bag.png" alt=""></div>
-        </div>
-        <div class="direction-content">
-          <h3>Збір та розподіл речей</h3>
-          <p>Організовуємо збори та розподіл речей першої необхідності для тих, хто потребує.</p>
-        </div>
-      </div>
-
-      <!-- Направление 2 -->
-      <div class="direction-card">
-        <div class="dir-image-container">
-          <img src="dir-volunteers.jpg" alt="Волонтерські ініціативи" class="direction-img">
-          <div class="dir-icon-badge"><img src="badge-edu.png" alt=""></div>
-        </div>
-        <div class="direction-content">
-          <h3>Волонтерські ініціативи</h3>
-          <p>Залучаємо волонтерів до різних проєктів та ініціатив у громаді.</p>
-        </div>
-      </div>
-
-      <!-- Направление 3 -->
-      <div class="direction-card">
-        <div class="dir-image-container">
-          <img src="dir-training.jpg" alt="Навчання та розвиток" class="direction-img">
-          <div class="dir-icon-badge"><img src="badge-people.png" alt=""></div>
-        </div>
-        <div class="direction-content">
-          <h3>Навчання та розвиток</h3>
-          <p>Пропонуємо навчальні програми та тренінги для волонтерів.</p>
-        </div>
-      </div>
-
-      <!-- Направление 4 -->
-      <div class="direction-card">
-        <div class="dir-image-container">
-          <img src="dir-support.jpg" alt="Індивідуальний супровід" class="direction-img">
-          <div class="dir-icon-badge"><img src="badge-chat.png" alt=""></div>
-        </div>
-        <div class="direction-content">
-          <h3>Індивідуальний супровід</h3>
-          <p>Надаємо персональний супровід та допомогу в інтеграції у Швейцарії.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- БЛОК 5: НИЖНИЙ СИНИЙ БАННЕР -->
-  <section class="cta-banner-container">
-    <div class="cta-banner">
-      <div class="cta-left">
-        <img src="blue-yellow-heart.png" alt="Heart" class="cta-heart-icon">
-        <div class="cta-text">
-          <h3>Разом ми сильніші</h3>
-          <p>Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
-        </div>
-      </div>
-      <a href="#contact-us" class="cta-button">Зв’язатися з нами <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-
-  <!-- СТИЛИ ДЛЯ НОВЫХ БЛОКОВ (Добавьте это внутрь тега <style> в шапке сайта) -->
-  <style>
-    /* Общие стили секций с минимальными отступами по высоте */
+    /* Секции контента с минимальными отступом по высоте */
     .services-section, .directions-section {
       width: 100%;
-      padding: 30px 4%; /* Минимальный вертикальный отступ */
-      background-color: #ffffff;
+      padding: 30px 25px;
     }
-    
     .section-title {
       text-align: center;
       color: #002060;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      margin-bottom: 25px;
-      position: relative;
+      margin-bottom: 20px;
     }
-    /* Желтая полосочка под заголовками */
     .section-title::after {
       content: '';
       display: block;
       width: 50px;
       height: 3px;
       background-color: #FFB800;
-      margin: 8px auto 0 auto;
+      margin: 6px auto 0 auto;
     }
-
-    /* Сетка для 5 карточек услуг */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 15px;
-      width: 100%;
     }
-    @media (max-width: 992px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 576px) { .services-grid { grid-template-columns: 1fr; } }
-
     .service-card {
-      background: #ffffff;
       border: 1px solid #E2E8F0;
       border-radius: 12px;
-      padding: 25px 15px;
+      padding: 20px 12px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
     .service-icon {
-      height: 65px;
-      width: auto;
-      margin-bottom: 15px;
+      height: 60px;
+      margin-bottom: 12px;
       object-fit: contain;
     }
-    .service-card h3 {
+    .service-card h3, .direction-content h3 {
       color: #002060;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+      font-size: 1rem;
+      margin-bottom: 10px;
     }
-    .service-card p {
+    .service-card p, .direction-content p {
       color: #4A5568;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       line-height: 1.4;
     }
-
-    /* Сетка для 4 направлений с фото */
     .directions-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      width: 100%;
+      gap: 15px;
     }
-    @media (max-width: 992px) { .directions-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 576px) { .directions-grid { grid-template-columns: 1fr; } }
-
     .direction-card {
-      background: #ffffff;
       border: 1px solid #E2E8F0;
       border-radius: 12px;
       overflow: hidden;
@@ -412,109 +204,242 @@
     .dir-image-container {
       position: relative;
       width: 100%;
-      height: 180px;
+      height: 160px;
     }
     .direction-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    /* Круглая иконка поверх фото */
     .dir-icon-badge {
       position: absolute;
-      bottom: -20px;
+      bottom: -15px;
       left: 15px;
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       background: #ffffff;
       border-radius: 50%;
       border: 1px solid #E2E8F0;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .dir-icon-badge img {
-      width: 22px;
-      height: 22px;
-      object-fit: contain;
-    }
-    .direction-content {
-      padding: 30px 15px 20px 15px;
-    }
-    .direction-content h3 {
-      color: #002060;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .direction-content p {
-      color: #4A5568;
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
+    .dir-icon-badge img { width: 18px; height: 18px; }
+    .direction-content { padding: 25px 15px 15px 15px; }
 
-    /* Синий баннер внизу */
+    /* Нижний баннер */
     .cta-banner-container {
       width: 100%;
-      padding: 15px 4% 30px 4%; /* Минимальный верхний отступ */
-      background-color: #ffffff;
+      padding: 10px 25px 30px 25px;
     }
     .cta-banner {
       background-color: #EBF3FF;
       border-radius: 12px;
-      padding: 20px 30px;
+      padding: 20px 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
-    @media (max-width: 768px) {
-      .cta-banner { flex-direction: column; text-align: center; }
-    }
-    .cta-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    @media (max-width: 576px) {
-      .cta-left { flex-direction: column; }
-    }
-    .cta-heart-icon {
-      width: 70px;
-      height: auto;
-      object-fit: contain;
-    }
-    .cta-text h3 {
-      color: #002060;
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-    .cta-text p {
-      color: #1A56C4;
-      font-size: 0.9rem;
-      font-weight: 500;
-      line-height: 1.4;
-    }
+    .cta-left { display: flex; align-items: center; gap: 15px; }
+    .cta-heart-icon { width: 60px; height: auto; }
+    .cta-text h3 { color: #002060; font-size: 1.2rem; margin-bottom: 4px; }
+    .cta-text p { color: #1A56C4; font-size: 0.85rem; font-weight: 500; }
     .cta-button {
       background-color: #0D53FC;
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 35px;
+      padding: 12px 28px;
       border-radius: 8px;
       white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: background 0.2s;
     }
-    .cta-button:hover {
-      background-color: #003ecb;
+
+    /* Адаптивность для мобильных */
+    @media (max-width: 992px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .directions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .site-header, .cta-banner { flex-direction: column; text-align: center; }
+      .services-grid, .directions-grid { grid-template-columns: 1fr; }
+      .cta-left { flex-direction: column; }
     }
   </style>
+</head>
+<body>
+
+  <!-- НАЧАЛО ОБЕРТКИ САЙТА -->
+  <div class="site-wrapper">
+
+    <!-- БЛОК 1: ШАПКА САЙТА (По скриншоту 1) -->
+    <header class="site-header">
+      <!-- Логотип и название группы (Переход на главную) -->
+      <a href="index.html" class="header-brand">
+        <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
+        <div>
+          <div class="brand-text-title">UAGZ</div>
+          <div class="brand-text-desc">Український інтеграційний та громадський центр Цюриха</div>
+        </div>
+      </a>
+
+      <!-- Навигационное меню -->
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Головна</a>
+        <a href="#" class="nav-link">Про центр</a>
+        <a href="#" class="nav-link">Допомога</a>
+        <a href="#" class="nav-link">Події</a>
+        <a href="#" class="nav-link">Knowledge Center</a>
+        <a href="#" class="nav-link">Оголошення</a>
+        <a href="#" class="nav-link active">Волонтерство</a>
+        <a href="#" class="nav-link">Контакти</a>
+      </nav>
+
+      <!-- Кнопка доната и языки -->
+      <div class="header-actions">
+        <a href="#donate" class="btn-donate">Donate</a>
+        <div class="lang-switcher">
+          <a href="?lang=ua" class="lang-item active">UA</a>
+          <a href="?lang=de" class="lang-item">DE</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Навигационная цепочка (Хлебные крошки) -->
+    <div class="breadcrumbs">
+      <a href="index.html">Головна</a> &gt; <a href="#">Наші центри</a> &gt; Волонтерський центр UAGZ
+    </div>
+
+    <!-- БЛОК 2: ИНТЕРАКТИВНЫЙ БАННЕР -->
+    <main class="banner-container">
+      <img src="volonter01.webp" alt="Волонтерський центр UAGZ" class="banner-img">
+
+      <a href="#need-help" class="banner-link" title="Потрібна допомога" style="
+        top: 29.3%;
+        left: 3.3%;
+        width: 17.1%;
+        height: 4.8%;
+      "></a>
+
+      <a href="#give-help" class="banner-link" title="Допомогти" style="
+        top: 29.3%;
+        left: 22.1%;
+        width: 13.9%;
+        height: 4.8%;
+      "></a>
+
+      <a href="#contact-us" class="banner-link" title="Зв'язатися з нами" style="
+        top: 94.7%;
+        left: 59.9%;
+        width: 28.0%;
+        height: 4.3%;
+      "></a>
+    </main>
+
+    <!-- БЛОК 3: ЧИМ МИ ДОПОМАГАЄМО -->
+    <section class="services-section">
+      <h2 class="section-title">Чим ми допомагаємо</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="icon-social.png" alt="Соціальна підтримка" class="service-icon">
+          <h3>Соціальна підтримка</h3>
+          <p>Допомагаємо людям у складних життєвих ситуаціях: поради, супровід та необхідна підтримка.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="icon-humanitarian.png" alt="Гуманітарна допомога" class="service-icon">
+          <h3>Гуманітарна допомога</h3>
+          <p>Збір та розподіл пожертв: продуктів, одягу, засобів гігієни та інших необхідних речей.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="icon-events.png" alt="Організація подій" class="service-icon">
+          <h3>Організація подій</h3>
+          <p>Проводимо заходи, майстер-класи та зустрічі для зміцнення громади та підтримки взаємозв’язків.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="icon-partnership.png" alt="Партнерство" class="service-icon">
+          <h3>Партнерство</h3>
+          <p>Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="icon-info.png" alt="Інформування" class="service-icon">
+          <h3>Інформування</h3>
+          <p>Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК 4: НАШІ НАПРЯМКИ ТА МОЖЛИВОСТІ -->
+    <section class="directions-section">
+      <h2 class="section-title">Наші напрямки та можливості</h2>
+
+      <div class="directions-grid">
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="dir-goods.jpg" alt="Збір та розподіл речей" class="direction-img">
+            <div class="dir-icon-badge"><img src="badge-bag.png" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3>Збір та розподіл речей</h3>
+            <p>Організовуємо збори та розподіл речей першої необхідності для тих, хто потребує.</p>
+          </div>
+        </div>
+
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="dir-volunteers.jpg" alt="Волонтерські ініціативи" class="direction-img">
+            <div class="dir-icon-badge"><img src="badge-edu.png" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3>Волонтерські ініціативи</h3>
+            <p>Залучаємо волонтерів до разных проєктів та ініціатив у громаді.</p>
+          </div>
+        </div>
+
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="dir-training.jpg" alt="Навчання та розвиток" class="direction-img">
+            <div class="dir-icon-badge"><img src="badge-people.png" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3>Навчання та розвиток</h3>
+            <p>Пропонуємо навчальні програми та тренінги для волонтерів.</p>
+          </div>
+        </div>
+
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="dir-support.jpg" alt="Індивідуальний супровід" class="direction-img">
+            <div class="dir-icon-badge"><img src="badge-chat.png" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3>Індивідуальний супровід</h3>
+            <p>Надаємо персональний супровід та допомогу в інтеграції у Швейцарії.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК 5: НИЖНИЙ СИНИЙ БАННЕР -->
+    <section class="cta-banner-container">
+      <div class="cta-banner">
+        <div class="cta-left">
+          <img src="blue-yellow-heart.png" alt="Heart" class="cta-heart-icon">
+          <div class="cta-text">
+            <h3>Разом ми сильніші</h3>
+            <p>Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
+          </div>
+        </div>
+        <a href="#contact-us" class="cta-button">Зв’язатися з нами →</a>
+      </div>
+    </section>
+
+  </div> 
+  <!-- КОНЕЦ ОБЕРТКИ САЙТА -->
 
 </body>
 </html>

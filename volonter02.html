@@ -3,98 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Волонтерський Центр — UAGZ</title>
+  <title>Волонтерський центр UAGZ</title>
   <style>
-    /* Обнуляем отступы, чтобы картинка плотно прилегала к краям экрана */
+    /* Базовые сбросы стилей */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    body, html {
-      width: 100%;
-      overflow-x: hidden;
-      background-color: #fafafa;
-      font-family: system-ui, -apple-system, sans-serif;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
     }
 
-    /* Главный контейнер, который удерживает картинку и кнопки вместе */
-    .landing-container {
+    /* ════════════════ СТИЛИ ШАПКИ (СКРИНШОТ 1) ════════════════ */
+    .site-header {
+      width: 100%;
+      border-bottom: 1px solid #e2e8f0;
+      background: #ffffff;
+      padding: 15px 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* Левая часть: Логотип и текст */
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      max-width: 320px;
+    }
+    .brand-logo {
+      width: 42px;
+      height: auto;
+    }
+    .brand-text-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #1A56C4;
+      line-height: 1.1;
+    }
+    .brand-text-desc {
+      font-size: 0.68rem;
+      color: #718096;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    /* Центр: Меню навигации */
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #1A56C4;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #2b6cb0;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Правая часть: Действия */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .btn-donate {
+      background-color: #FFB800;
+      color: #000000;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 8px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-donate:hover {
+      background-color: #e0a300;
+    }
+
+    /* Языковой переключатель */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .lang-item {
+      text-decoration: none;
+      color: #1A56C4;
+      padding: 4px 6px;
+    }
+    .lang-item.active {
+      background-color: #002060;
+      color: #ffffff;
+      border-radius: 3px;
+    }
+
+    /* Хлебные крошки под шапкой */
+    .breadcrumbs {
+      padding: 15px 4%;
+      font-size: 0.8rem;
+      color: #718096;
+    }
+    .breadcrumbs a {
+      color: #1A56C4;
+      text-decoration: none;
+    }
+
+    /* ════════════════ СТИЛИ ИНТЕРАКТИВНОГО БАННЕРА ════════════════ */
+    .banner-container {
       position: relative;
       width: 100%;
-      max-width: 1920px; /* Ограничение максимальной ширины для огромных мониторов */
+      max-width: 100%;
       margin: 0 auto;
-      display: inline-block;
     }
-
-    /* Базовая картинка-макет */
-    .landing-bg-image {
+    .banner-img {
       width: 100%;
       display: block;
       height: auto;
     }
 
-    /* Общий стиль для всех невидимых интерактивных кнопок */
-    .clickable-area {
+    /* Прозрачные кликабельные области поверх картинки */
+    .banner-link {
       position: absolute;
-      background: rgba(255, 0, 0, 0.4); /* Полностью прозрачные */
+      background: rgba(255, 255, 255, 0); /* Абсолютно прозрачные */
       cursor: pointer;
       display: block;
-      transition: background 0.2s ease-in-out;
-      border-radius: 4px; /* Мягкое скругление при наведении */
+      border-radius: 6px;
+      transition: background 0.2s;
     }
-
-    /* Эффект подсветки при наведении (опционально, для удобства тестирования) 
-       Если хотите сделать зоны абсолютно невидимыми даже при наведении, удалите код ниже */
-    .clickable-area:hover {
-      background: rgba(26, 86, 196, 0.08); 
+    
+    /* Подсветка зон при наведении для контроля расположения */
+    .banner-link:hover {
+      background: rgba(26, 86, 196, 0.1);
     }
   </style>
 </head>
 <body>
 
-  <div class="landing-container">
-    
-    <img src="volonter01.webp" alt="Волонтерська платформа" class="landing-bg-image">
+  <header class="site-header">
+    <a href="/" class="header-brand">
+      <img src="logo-heart.webp" alt="UAGZ Logo" class="brand-logo">
+      <div>
+        <div class="brand-text-title">UAGZ</div>
+        <div class="brand-text-desc">Український інтеграційний та громадський центр Цюриха</div>
+      </div>
+    </a>
 
-    <a href="?lang=ua" class="clickable-area" title="Українська" style="
-      top: 2%;       /* Корректируйте высоту от верхнего края картинки */
-      left: 90%;     /* Корректируйте отступ слева */
-      width: 1%;     /* Ширина области кнопки */
-      height: 1%;    /* Высота области кнопки */
-    "></a>
+    <nav class="header-nav">
+      <a href="#" class="nav-link">Головна</a>
+      <a href="#" class="nav-link">Про центр</a>
+      <a href="#" class="nav-link">Допомога</a>
+      <a href="#" class="nav-link">Події</a>
+      <a href="#" class="nav-link">Knowledge Center</a>
+      <a href="#" class="nav-link">Оголошення</a>
+      <a href="#" class="nav-link active">Волонтерство</a>
+      <a href="#" class="nav-link">Контакти</a>
+    </nav>
 
-    <a href="?lang=de" class="clickable-area" title="Deutsch" style="
-      top: 2%;       /* Высота должна совпадать с UA */
-      left: 93%;     /* Смещение правее относительно UA */
-      width: 1%;     /* Ширина области */
-      height: 1%;    /* Высота области */
-    "></a>
+    <div class="header-actions">
+      <a href="#donate" class="btn-donate">Donate</a>
+      <div class="lang-switcher">
+        <a href="?lang=ua" class="lang-item active">UA</a>
+        <a href="?lang=de" class="lang-item">DE</a>
+      </div>
+    </div>
+  </header>
 
-
-    <a href="#need-help" class="clickable-area" title="Потрібна допомога" style="
-      top: 45%;      /* Высота расположения кнопки на картинке */
-      left: 15%;     /* Дистанция от левого края */
-      width: 28%;    /* Ширина кнопки */
-      height: 7%;    /* Высота кнопки */
-    "></a>
-
-    <a href="#want-to-help" class="clickable-area" title="Допомогти" style="
-      top: 45%;      /* Высота должна быть на одном уровне с соседней кнопкой */
-      left: 47%;     /* Смещение вправо, где нарисована вторая кнопка */
-      width: 28%;    /* Ширина кнопки */
-      height: 7%;    /* Высота кнопки */
-    "></a>
-
-
-    <a href="#contacts" class="clickable-area" title="Зв'язатися з нами" style="
-      top: 85%;      /* Находится в нижней части страницы */
-      left: 35%;     /* Центрирование по горизонтали */
-      width: 30%;    /* Ширина кнопки */
-      height: 6%;    /* Высота кнопки */
-    "></a>
-
+  <div class="breadcrumbs">
+    <a href="#">Головна</a> &gt; <a href="#">Наші центри</a> &gt; Волонтерський центр UAGZ
   </div>
+
+  <main class="banner-container">
+    <img src="volonter01.webp" alt="Волонтерський центр UAGZ" class="banner-img">
+
+    <a href="#need-help" class="banner-link" title="Потрібна допомога" style="
+      top: 29.3%;
+      left: 3.3%;
+      width: 17.1%;
+      height: 4.8%;
+    "></a>
+
+    <a href="#give-help" class="banner-link" title="Допомогти" style="
+      top: 29.3%;
+      left: 22.1%;
+      width: 13.9%;
+      height: 4.8%;
+    "></a>
+
+    <a href="#contact-us" class="banner-link" title="Зв'язатися з нами" style="
+      top: 94.7%;
+      left: 59.9%;
+      width: 28.0%;
+      height: 4.3%;
+    "></a>
+  </main>
 
 </body>
 </html>

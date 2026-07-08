@@ -20,7 +20,7 @@
   "prog_2_title": "Kinder- und Jugendtheater",
   "prog_2_desc": "Kreative Entwicklung von Kindern, Aufführungen und Theaterprojekte.",
   "prog_3_title": "Schwimmunterricht",
-  "prog_3_desc": "Kurse für Kinder und Jugendliche unter Anleitung eines Trainers.",
+  "prog_3_desc": "Kurse für Kinder und Jugendliche unter Anleitung eines Trainer.",
   "prog_4_title": "Jugendinitiativen",
   "prog_4_desc": "Entwicklung aktiver Jugendlicher und gesellschaftliche Teilhabe.",
   "prog_5_title": "Sportprogramme",
@@ -196,6 +196,7 @@
   "h-b1": "Hilfe erhalten",
   "h-b2t": "Der Gemeinschaft beitreten",
   "kolo_logo_src": "rodine-kolo-logo.webp",
+  "volonter_img_src": "volonter01DE.webp",
 
   "volonter_bc_current": "Freiwilligenzentrum UAGZ",
   "volonter_services_title": "Wie wir helfen",

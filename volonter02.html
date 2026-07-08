@@ -268,13 +268,9 @@
   </style>
 </head>
 <body>
-
-  <!-- НАЧАЛО ОБЕРТКИ САЙТА -->
   <div class="site-wrapper">
 
-    <!-- БЛОК 1: ШАПКА САЙТА (По скриншоту 1) -->
     <header class="site-header">
-      <!-- Логотип и название группы (Переход на главную) -->
       <a href="index.html" class="header-brand">
         <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
         <div>
@@ -283,19 +279,17 @@
         </div>
       </a>
 
-      <!-- Навигационное меню -->
       <nav class="header-nav">
-        <a href="index.html" class="nav-link">Головна</a>
-        <a href="#" class="nav-link">Про центр</a>
-        <a href="#" class="nav-link">Допомога</a>
-        <a href="#" class="nav-link">Події</a>
-        <a href="#" class="nav-link">Knowledge Center</a>
-        <a href="#" class="nav-link">Оголошення</a>
-        <a href="#" class="nav-link active">Волонтерство</a>
-        <a href="#" class="nav-link">Контакти</a>
+        <a href="index.html" class="nav-link" data-i18n="nav.main">Головна</a>
+        <a href="#" class="nav-link" data-i18n="nav.about">Про центр</a>
+        <a href="#" class="nav-link" data-i18n="nav.help">Допомога</a>
+        <a href="#" class="nav-link" data-i18n="nav.events">Події</a>
+        <a href="#" class="nav-link" data-i18n="nav.knowledge">Knowledge Center</a>
+        <a href="#" class="nav-link" data-i18n="nav.ads">Оголошення</a>
+        <a href="#" class="nav-link active" data-i18n="nav.volunteer">Волонтерство</a>
+        <a href="#" class="nav-link" data-i18n="nav.contacts">Контакти</a>
       </nav>
 
-     <!-- Кнопка доната и языки -->
       <div class="header-actions">
         <a href="#donate" class="btn-donate">Donate</a>
         <div class="lang-switcher">
@@ -305,180 +299,167 @@
       </div>
     </header>
 
-    <!-- Навигационная цепочка (Хлебные крошки) -->
     <div class="breadcrumbs">
-      <a href="index.html">Головна</a> &gt; <a href="#">Наші центри</a> &gt; Волонтерський центр UAGZ
+      <a href="index.html" data-i18n="breadcrumbs.main">Головна</a> &gt; 
+      <a href="#" data-i18n="breadcrumbs.centers">Наші центри</a> &gt; 
+      <span data-i18n="breadcrumbs.current">Волонтерський центр UAGZ</span>
     </div>
 
-    <!-- БЛОК 2: ИНТЕРАКТИВНЫЙ БАННЕР -->
     <main class="banner-container">
       <img src="volonter01.webp" alt="Волонтерський центр UAGZ" class="banner-img">
-
-      <a href="#need-help" class="banner-link" title="Потрібна допомога" style="
-        top: 29.3%;
-        left: 3.3%;
-        width: 17.1%;
-        height: 4.8%;
-      "></a>
-
-      <a href="#give-help" class="banner-link" title="Допомогти" style="
-        top: 29.3%;
-        left: 22.1%;
-        width: 13.9%;
-        height: 4.8%;
-      "></a>
-
-      <a href="#contact-us" class="banner-link" title="Зв'язатися з нами" style="
-        top: 94.7%;
-        left: 59.9%;
-        width: 28.0%;
-        height: 4.3%;
-      "></a>
+      <a href="#need-help" class="banner-link" style="top: 29.3%; left: 3.3%; width: 17.1%; height: 4.8%;"></a>
+      <a href="#give-help" class="banner-link" style="top: 29.3%; left: 22.1%; width: 13.9%; height: 4.8%;"></a>
+      <a href="#contact-us" class="banner-link" style="top: 94.7%; left: 59.9%; width: 28.0%; height: 4.3%;"></a>
     </main>
 
-    <!-- БЛОК 3: ЧИМ МИ ДОПОМАГАЄМО -->
-   <section class="services-section">
-      <h2 class="section-title">Чим ми допомагаємо</h2>
+    <section class="services-section">
+      <h2 class="section-title" data-i18n="services.title">Чим ми допомагаємо</h2>
       
       <div class="services-grid">
         <div class="service-card">
-          <img src="1icon-volont.webp" alt="Соціальна підтримка" class="service-icon">
-          <h3>Соціальна підтримка</h3>
-          <p>Допомагаємо людям у складних життєвих ситуаціях: поради, супровід та необхідна підтримка.</p>
+          <img src="1icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card1_title">Соціальна підтримка</h3>
+          <p data-i18n="services.card1_text">Допомагаємо людям у складних життєвих ситуаціях: поради, супровід та необхідна підтримка.</p>
         </div>
-
         <div class="service-card">
-          <img src="2icon-volont.webp" alt="Гуманітарна допомога" class="service-icon">
-          <h3>Гуманітарна допомога</h3>
-          <p>Збір та розподіл пожертв: продуктів, одягу, засобів гігієни та інших необхідних речей.</p>
+          <img src="2icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card2_title">Гуманітарна допомога</h3>
+          <p data-i18n="services.card2_text">Збір та розподіл пожертв: продуктів, одягу, засобів гігієни та інших необхідних речей.</p>
         </div>
-
         <div class="service-card">
-          <img src="3icon-volont.webp" alt="Організація подій" class="service-icon">
-          <h3>Організація подій</h3>
-          <p>Проводимо заходи, майстер-класи та зустрічі для зміцнення громади та підтримки взаємозв’язків.</p>
+          <img src="3icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card3_title">Організація подій</h3>
+          <p data-i18n="services.card3_text">Проводимо заходи, майстер-класи та зустрічі для зміцнення громади та підтримки взаємозв’язків.</p>
         </div>
-
         <div class="service-card">
-          <img src="4icon-volont.webp" alt="Партнерство" class="service-icon">
-          <h3>Партнерство</h3>
-          <p>Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.</p>
+          <img src="4icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card4_title">Партнерство</h3>
+          <p data-i18n="services.card4_text">Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.</p>
         </div>
-
         <div class="service-card">
-          <img src="5icon-volont.webp" alt="Інформивання" class="service-icon">
-          <h3>Інформивання</h3>
-          <p>Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною.</p>
+          <img src="5icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card5_title">Інформування</h3>
+          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною.</p>
         </div>
       </div>
     </section>
 
-  <!-- БЛОК 4: НАШІ НАПРЯМКИ ТА МОЖЛИВОСТІ -->
     <section class="directions-section">
-      <h2 class="section-title">Наші напрямки та можливості</h2>
-
+      <h2 class="section-title" data-i18n="directions.title">Наші напрямки та можливості</h2>
       <div class="directions-grid">
-        <!-- Напрямок 1 -->
         <div class="direction-card">
           <div class="dir-image-container">
-            <img src="1volonter-napriamki.webp" alt="Збір та розподіл речей" class="direction-img">
+            <img src="1volonter-napriamki.webp" alt="" class="direction-img">
             <div class="dir-icon-badge"><img src="Screenshot_1.webp" alt=""></div>
           </div>
           <div class="direction-content">
-            <h3>Збір та розподіл речей</h3>
-            <p>Організовуємо збори та розподіл речей першої необхідності для тих, хто потребує.</p>
+            <h3 data-i18n="directions.dir1_title">Збір та розподіл речей</h3>
+            <p data-i18n="directions.dir1_text">Організовуємо збори та розподіл речей першої необхідності для тих, хто потребує.</p>
           </div>
         </div>
-
-        <!-- Напрямок 2 -->
         <div class="direction-card">
           <div class="dir-image-container">
-            <img src="2volonter-napriamki.webp" alt="Волонтерські ініціативи" class="direction-img">
+            <img src="2volonter-napriamki.webp" alt="" class="direction-img">
             <div class="dir-icon-badge"><img src="Screenshot_2.webp" alt=""></div>
           </div>
           <div class="direction-content">
-            <h3>Волонтерські ініціативи</h3>
-            <p>Залучаємо волонтерів до різних проєктів та ініціатив у громаді.</p>
+            <h3 data-i18n="directions.dir2_title">Волонтерські ініціативи</h3>
+            <p data-i18n="directions.dir2_text">Залучаємо волонтерів до різних проєктів та ініціатив у громаді.</p>
           </div>
         </div>
-
-        <!-- Напрямок 3 -->
         <div class="direction-card">
           <div class="dir-image-container">
-            <img src="3volonter-napriamki.webp" alt="Навчання та розвиток" class="direction-img">
+            <img src="3volonter-napriamki.webp" alt="" class="direction-img">
             <div class="dir-icon-badge"><img src="Screenshot_3.webp" alt=""></div>
           </div>
           <div class="direction-content">
-            <h3>Навчання та розвиток</h3>
-            <p>Пропонуємо навчальні програми та тренінги для волонтерів.</p>
+            <h3 data-i18n="directions.dir3_title">Навчання та розвиток</h3>
+            <p data-i18n="directions.dir3_text">Пропонуємо навчальні програми та тренінги для волонтерів.</p>
           </div>
         </div>
-
-        <!-- Напрямок 4 -->
         <div class="direction-card">
           <div class="dir-image-container">
-            <img src="4volonter-napriamki.webp" alt="Індивідуальний супровід" class="direction-img">
+            <img src="4volonter-napriamki.webp" alt="" class="direction-img">
             <div class="dir-icon-badge"><img src="Screenshot_4.webp" alt=""></div>
           </div>
           <div class="direction-content">
-            <h3>Індивідуальний супровід</h3>
-            <p>Надаємо персональний супровід та допомогу в інтеграції у Швейцарії.</p>
+            <h3 data-i18n="directions.dir4_title">Індивідуальний супровід</h3>
+            <p data-i18n="directions.dir4_text">Надаємо персональний супровід та допомогу в інтеграції у Швейцарії.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 5: НИЖНИЙ СИНИЙ БАННЕР -->
     <section class="cta-banner-container">
       <div class="cta-banner">
         <div class="cta-left">
-          <img src="Logo01.png" alt="Heart" class="cta-heart-icon">
+          <img src="blue-yellow-heart.png" alt="Heart" class="cta-heart-icon">
           <div class="cta-text">
-            <h3>Разом ми сильніші</h3>
-            <p>Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
+            <h3 data-i18n="cta.title">Разом ми сильніші</h3>
+            <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
           </div>
         </div>
-        <a href="#contact-us" class="cta-button">Зв’язатися з нами →</a>
+        <a href="#contact-us" class="cta-button" data-i18n="cta.button">Зв’язатися з нами</a>
       </div>
     </section>
 
-  </div> 
-  <!-- КОНЕЦ ОБЕРТКИ САЙТА -->
-<!-- СКРИПТ ДЛЯ АКТИВАЦИИ КНОПОК ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ -->
+  </div>
+
   <script>
+    // Функция для динамической загрузки JSON-перевода и обновления текстов
+    async function loadTranslations(lang) {
+      try {
+        const response = await fetch(`${lang}.json`);
+        if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
+        const translations = await response.json();
+
+        // Проходим по всем элементам с атрибутом data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const keyPath = element.getAttribute('data-i18n');
+          const keys = keyPath.split('.');
+          
+          // Бежим по объекту JSON до нужного значения
+          let text = translations;
+          keys.forEach(key => {
+            if (text) text = text[key];
+          });
+
+          // Если перевод найден — аккуратно обновляем текст на сайте
+          if (text) {
+            element.textContent = text;
+          }
+        });
+      } catch (error) {
+        console.error('Ошибка перевода:', error);
+      }
+    }
+
     function changeLanguage(event, lang) {
-      // Предотвращаем стандартный переход по ссылке для демонстрации переключения
       event.preventDefault();
       
-      // Удаляем класс active у всех языковых кнопок
-      document.querySelectorAll('.lang-item').forEach(el => {
-        el.classList.remove('active');
-      });
-      
-      // Добавляем класс active к выбранной кнопке
+      // Меняем активный класс у кнопок переключателя
+      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
       const selectedLangButton = document.getElementById('lang-' + lang);
-      if (selectedLangButton) {
-        selectedLangButton.classList.add('active');
-      }
+      if (selectedLangButton) selectedLangButton.classList.add('active');
       
-      // Обновляем параметр lang в адресной строке браузера без перезагрузки страницы
+      // Меняем хвостик URL ?lang=
       const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
       window.history.pushState({ path: newUrl }, '', newUrl);
       
-      // Здесь в будущем можно будет вызывать функцию перевода текстов, если он потребуется
-      console.log('Язык переключен на: ' + lang.toUpperCase());
+      // Запускаем применение текстов
+      loadTranslations(lang);
     }
 
-    // Автоматическая проверка активного языка при загрузке страницы из URL
+    // При первой загрузке страницы проверяем язык из ссылки
     document.addEventListener("DOMContentLoaded", function() {
       const urlParams = new URLSearchParams(window.location.search);
-      const currentLang = urlParams.get('lang') || 'ua'; // По умолчанию ставим UA
+      const currentLang = urlParams.get('lang') || 'ua';
       
       document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
       const activeBtn = document.getElementById('lang-' + currentLang);
-      if (activeBtn) {
-        activeBtn.classList.add('active');
-      }
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      loadTranslations(currentLang);
     });
   </script>
 </body>

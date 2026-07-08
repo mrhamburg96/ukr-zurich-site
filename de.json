@@ -268,5 +268,34 @@
   "directions-dir4_text": "Wir bieten persönliche Begleitung und Unterstützung bei der Integration in der Schweiz.",
   "cta-title": "Gemeinsam sind wir stärker",
   "cta-text": "Schließen Sie sich unserer Freiwilligengemeinschaft an! Gemeinsam können wir mehr Gutes tun und diejenigen unterstützen, die es brauchen.",
-  "cta-button": "Kontaktieren Sie uns"
-}
+  "cta-button": "Kontaktieren Sie uns",
+  "services": {
+    "title": "Wie wir helfen",
+    "card1_title": "Soziale Unterstützung",
+    "card1_text": "Wir helfen Menschen in schwierigen Lebenslagen: Beratung, Begleitung und notwendige Unterstützung.",
+    "card2_title": "Humanitäre Hilfe",
+    "card2_text": "Sammlung und Verteilung von Spenden: Lebensmittel, Kleidung, Hygieneartikel und andere lebensnotwendige Dinge.",
+    "card3_title": "Organisation von Veranstaltungen",
+    "card3_text": "Wir führen Veranstaltungen, Workshops und Treffen durch, um die Gemeinschaft zu stärken und Kontakte zu pflegen.",
+    "card4_title": "Partnerschaft",
+    "card4_text": "Wir arbeiten mit Organisationen und Unternehmen zusammen, um gemeinsame soziale Initiativen umzusetzen.",
+    "card5_title": "Informationsbereitstellung",
+    "card5_text": "Wir verbreiten wichtige Informationen und Ressourcen, die der Gemeinschaft helfen, informiert und geschützt zu bleiben."
+  },
+  "directions": {
+    "title": "Unsere Bereiche und Möglichkeiten",
+    "dir1_title": "Sammlung und Verteilung von Gütern",
+    "dir1_text": "Wir organisieren die Sammlung und Verteilung von Gütern des täglichen Bedarfs für Bedürftige.",
+    "dir2_title": "Freiwilligeninitiativen",
+    "dir2_text": "Wir binden Freiwillige in verschiedene Projekte und Initiativen in der Gemeinschaft ein.",
+    "dir3_title": "Ausbildung und Entwicklung",
+    "dir3_text": "Wir bieten Schulungsprogramme und Trainings für Freiwillige an.",
+    "dir4_title": "Individuelle Begleitung",
+    "dir4_text": "Wir bieten persönliche Begleitung und Unterstützung bei der Integration in der Schweiz."
+  },
+  "cta": {
+    "title": "Gemeinsam sind wir stärker",
+    "text": "Schließen Sie sich unserer Freiwilligengemeinschaft an! Gemeinsam können wir mehr Gutes tun und diejenigen unterstützen, die es brauchen.",
+    "button": "Kontaktieren Sie uns"
+  }
+

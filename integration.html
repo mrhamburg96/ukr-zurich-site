@@ -31,41 +31,25 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-        /* === СЕКЦІЯ HERO === */
-        .hero-section { 
-            background-color: #ffffff; 
-            position: relative; 
-            overflow: hidden; 
-            padding-top: 12px; 
-            min-height: 315px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .hero-top-nav { position: relative; z-index: 5; margin-bottom: 10px; }
-        .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #1a56c4; }
-        .breadcrumbs a { color: #1a56c4; text-decoration: none; }
-        .breadcrumbs a:hover { text-decoration: underline; }
-        .breadcrumbs span { color: #1a56c4; opacity: 0.7; }
+      /* === СЕКЦІЯ HERO === */
+.hero-section { 
+    background-color: #ffffff; 
+    position: relative; 
+    overflow: hidden; 
+    padding-top: 12px; 
+    /* Убираем жесткую минимальную высоту и flex-координацию во всю высоту, 
+       чтобы баннер встал ровно под текстовым контентом и шел на всю ширину */
+    display: block;
+}
+.hero-top-nav { position: relative; z-index: 5; margin-bottom: 10px; }
+.breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #1a56c4; }
+.breadcrumbs a { color: #1a56c4; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs span { color: #1a56c4; opacity: 0.7; }
         
-        .hero-container-inner { position: relative; z-index: 3; display: flex; align-items: center; min-height: 265px; }
-        .hero-content { padding: 20px 0; max-width: 390px; position: relative; z-index: 4; }
-        .hero-content h1 { font-size: 29px; font-weight: 700; color: #002366; line-height: 1.2; margin-bottom: 12px; }
-        .hero-description { font-size: 13px; font-weight: 500; color: #4b5563; line-height: 1.5; margin-bottom: 20px; }
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 12.5px; font-weight: 700; padding: 9px 20px; border-radius: 6px; text-decoration: none; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15); }
-        
-        .hero-image-outer { position: absolute; top: 0; right: 0; width: 60%; height: 100%; z-index: 1; }
-        .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: top 10% right; }
-        .hero-image-outer::before { content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%); z-index: 2; }
-
-        /* === БАР ХАРАКТЕРИСТИК === */
-        .features-bar { background-color: #ffffff; padding: 20px 0; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; width: 100%; }
-        .features-bar .container { max-width: 100%; padding: 0 40px; margin: 0; width: 100%; }
-        .features-grid { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 16px; }
-        .feature-item { display: flex; align-items: flex-start; gap: 10px; max-width: 195px; width: 100%; }
-        .feature-icon-img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
-        .feature-text h3 { font-size: 13.5px; font-weight: 700; color: #002366; margin-bottom: 2px; white-space: nowrap; }
-        .feature-text p { font-size: 11.5px; color: #6b7280; font-weight: 500; line-height: 1.35; word-break: keep-all; }
+.hero-container-inner { position: relative; z-index: 3; display: flex; align-items: center; }
+.hero-content { padding: 20px 0; max-width: 390px; position: relative; z-index: 4; }
+.hero-content h1 { font-size: 29px; font-weight: 700; color: #
 
         /* === СЕКЦІЯ 1: ЧИМ МИ ДОПОМАГАЄМО === */
         .help-section { padding: 30px 0 0 0; background-color: #ffffff; width: 100%; text-align: center; }

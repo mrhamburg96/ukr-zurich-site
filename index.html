@@ -1048,7 +1048,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
               
               <div style="display: flex; flex-direction: column; width: 100%;">
                 <label data-translate="lbl_parent_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я батьків</label>
-                <input type="text" name="parentName" data-translate-placeholder="placeholder_parent" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+               <input type="text" name="parentName" data-translate="parent_input" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
               </div>
 
               <div style="display: flex; flex-direction: column; width: 100%;">
@@ -1064,11 +1064,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
               <div style="display: flex; gap: 10px; flex-wrap: wrap; width: 100%;">
                 <div style="flex: 1; min-width: 110px;">
                   <label data-translate="lbl_child_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я дитини</label>
-                  <input type="text" name="childName" data-translate-placeholder="placeholder_child" placeholder="Введіть ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+                  <input type="text" name="childName" data-translate="child_input" placeholder="Введіть ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
                 </div>
                 <div style="flex: 1; min-width: 70px;">
                   <label data-translate="lbl_kids_age" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Вік дитини</label>
-                  <input type="text" name="childAge" data-translate-placeholder="placeholder_age" placeholder="Вік" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+                 <input type="text" name="childAge" data-translate="age_input" placeholder="Вік" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
                 </div>
               </div>
 
@@ -1734,7 +1734,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           "placeholder_parent": "Введіть ваше ім'я",
 "placeholder_child": "Введіть ім'я",
 "placeholder_age": "Вік",
-"placeholder_phone": "Введіть ваш номер телефону"
+"placeholder_phone": "Введіть ваш номер телефону",
+          "parent_input_placeholder": "Введіть ваше ім'я",
+"child_input_placeholder": "Введіть ім'я",
+"age_input_placeholder": "Вік",
+"phone_input_placeholder": "Введіть ваш номер телефону",
         },
         de: {
             "h-badge": "UAGZ Offizielle NGO - Zürich",
@@ -1959,12 +1963,16 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           "placeholder_parent": "Geben Sie Ihren Namen ein",
 "placeholder_child": "Name des Kindes eingeben",
 "placeholder_age": "Alter",
-"placeholder_phone": "Geben Sie Ihre Telefonnummer ein"
+"placeholder_phone": "Geben Sie Ihre Telefonnummer ein",
+          "parent_input_placeholder": "Geben Sie Ihren Namen ein",
+"child_input_placeholder": "Name des Kindes eingeben",
+"age_input_placeholder": "Alter",
+"phone_input_placeholder": "Geben Sie Ihre Telefonnummer ein",
        }
     };
 
   
-  // 2. ИЗОЛИРОВАННАЯ ФУНКЦИЯ ПЕРЕВОДА
+ // 2. ИЗОЛИРОВАННАЯ ФУНКЦИЯ ПЕРЕВОДА
 function applyTranslation(lang) {
     if (!dict[lang]) return;
     const data = dict[lang];
@@ -1984,7 +1992,13 @@ function applyTranslation(lang) {
                 el.innerText = data[key];
             }
         }
+
+        // АКУРАТНЕ ДОПОВНЕННЯ: Перевод плейсхолдеров, если у элемента есть этот атрибут
+        if (el.hasAttribute('placeholder') && data[key + '_placeholder']) {
+            el.setAttribute('placeholder', data[key + '_placeholder']);
+        }
     });
+}
 
     // === ДОПОЛНЕНИЕ ДЛЯ ПЕРЕВОДА ПЛЕЙСХОЛДЕРОВ (INPUT / TEXTAREA) ===
     const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');

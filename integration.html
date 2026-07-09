@@ -380,64 +380,53 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // --- 1. ЛОГИКА МУЛЬТИЯЗЫЧНОСТИ И СМЕНЫ БАННЕРА ---
-        const langButtons = document.querySelectorAll('.lang-btn');
-        const heroImg = document.querySelector('img[data-i18n="integration_banner_src"]');
-        
-        // Загружаем сохраненный язык или используем 'ua' по умолчанию
-        let currentLang = localStorage.getItem('selectedLanguage') || 'ua';
+       // --- 1. ЛОГИКА МУЛЬТИЯЗЫЧНОСТИ И СМЕНЫ БАННЕРА ---
+const langButtons = document.querySelectorAll('.lang-btn');
+const heroImg = document.querySelector('img[data-i18n="integration_banner_src"]');
 
-        // Функция обновления визуального стиля кнопок и картинки баннера
-        function updateLanguageInterface(lang) {
-            // 1. Подсветка активной кнопки UA/DE
-            langButtons.forEach(btn => {
-                if (btn.textContent.trim().toLowerCase() === lang.toLowerCase()) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+// Загружаем сохраненный язык или используем 'ua' по умолчанию
+let currentLang = localStorage.getItem('selectedLanguage') || 'ua';
 
-            // 2. Смена картинки баннера в зависимости от языка
-            if (heroImg) {
-                if (lang.toLowerCase() === 'de') {
-                    heroImg.src = 'integration-bannerDE.webp';
-                } else {
-                    heroImg.src = 'integration-banner.webp';
-                }
-            }
+function updateLanguageInterface(lang) {
+    // Подсветка активной кнопки UA/DE
+    langButtons.forEach(btn => {
+        if (btn.textContent.trim().toLowerCase() === lang.toLowerCase()) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
         }
+    });
 
-        // Вызываем функцию перевода текста (если она объявлена в основном скрипте сайта)
-        if (typeof applyTranslations === 'function') {
-            applyTranslations(currentLang);
-        }
-        
-        // Применяем правильную кнопку и баннер при первой загрузке страницы
-        updateLanguageInterface(currentLang);
+    // Смена картинки баннера под язык
+    if (heroImg) {
+        heroImg.src = lang.toLowerCase() === 'de' ? 'integration-bannerDE.webp' : 'integration-banner.webp';
+    }
+}
 
-        // Вешаем событие клика на кнопки UA и DE
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const selectedLang = this.textContent.trim().toLowerCase(); // 'ua' или 'de'
-                
-                // Сохраняем выбор в память браузера
-                localStorage.setItem('selectedLanguage', selectedLang);
-                
-                // Обновляем кнопки и баннер на странице
-                updateLanguageInterface(selectedLang);
+// Безопасный вызов функции перевода
+function triggerTranslation(lang) {
+    if (typeof applyTranslations === 'function') {
+        applyTranslations(lang);
+    } else if (window.parent && typeof window.parent.applyTranslations === 'function') {
+        window.parent.applyTranslations(lang);
+    } else {
+        console.warn("Функция applyTranslations еще не загружена глобально.");
+    }
+}
 
-                // Запускаем перевод текстовых блоков сайта
-                if (typeof applyTranslations === 'function') {
-                    applyTranslations(selectedLang);
-                } else {
-                    // Если функция applyTranslations в другом файле и еще не подгрузилась,
-                    // мягко обновляем страницу для применения языка
-                    window.location.reload();
-                }
-            });
-        });
+// Применяем язык при загрузке страницы
+updateLanguageInterface(currentLang);
+setTimeout(() => triggerTranslation(currentLang), 100); // небольшая задержка, чтобы глобальный скрипт успел встать
 
+// Навешиваем клики на переключатели
+langButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+        const selectedLang = this.textContent.trim().toLowerCase();
+        localStorage.setItem('selectedLanguage', selectedLang);
+        updateLanguageInterface(selectedLang);
+        triggerTranslation(selectedLang);
+    });
+});
 
         // --- 2. ЛОГИКА МОДАЛЬНОГО ОКНА ---
         const modal = document.getElementById('registrationModal');

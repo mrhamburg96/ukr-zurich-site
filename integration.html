@@ -403,15 +403,37 @@ function updateLanguageInterface(lang) {
     }
 }
 
-// Безопасный вызов функции перевода
+// Безопасный вызов функции перевода и автономная загрузка JSON
 function triggerTranslation(lang) {
+    // 1. Пытаемся вызвать глобальную функцию, если она есть в проекте
     if (typeof applyTranslations === 'function') {
         applyTranslations(lang);
-    } else if (window.parent && typeof window.parent.applyTranslations === 'function') {
-        window.parent.applyTranslations(lang);
-    } else {
-        console.warn("Функция applyTranslations еще не загружена глобально.");
+        return;
     }
+    
+    // 2. Если глобальной функции нет, этот код сам загрузит ua.json или de.json
+    fetch(`${lang.toLowerCase()}.json`)
+        .then(response => {
+            if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
+            return response.json();
+        })
+        .then(translations => {
+            // Находим все элементы с атрибутом data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                
+                // Если ключ есть в файле json, заменяем текст
+                if (translations[key]) {
+                    // Если это картинка, меняем src, иначе — обычный текст
+                    if (element.tagName.toLowerCase() === 'img') {
+                        element.src = translations[key];
+                    } else {
+                        element.textContent = translations[key];
+                    }
+                }
+            });
+        })
+        .catch(error => console.error("Ошибка перевода страницы:", error));
 }
 
 // Применяем язык при загрузке страницы

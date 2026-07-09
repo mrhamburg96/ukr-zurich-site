@@ -224,6 +224,7 @@
   "volonter_cta_title": "Gemeinsam sind wir stärker",
   "volonter_cta_desc": "Schließen Sie sich unserer Freiwilligengemeinschaft an! Gemeinsam können wir mehr Gutes tun und diejenigen unterstützen, die es brauchen.",
   "volonter_cta_btn": "Kontaktieren Sie uns",
+  "integration_banner_src": "integration-bannerDE.webp",
 
   "services": {
     "title": "Wie wir helfen",
@@ -252,6 +253,6 @@
   "cta": {
     "title": "Gemeinsam sind wir stärker",
     "text": "Schließen Sie sich unserer Freiwilligengemeinschaft an! Gemeinsam können wir mehr Gutes tun und diejenigen unterstützen, die es brauchen.",
-    "button": "Kontaktieren Sie uns"
+    "button": "Kontaktieren Sie uns",
   }
 }

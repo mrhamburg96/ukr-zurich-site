@@ -380,11 +380,54 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
-        if (typeof applyTranslations === 'function') {
-            applyTranslations(savedLang);
+        // --- 1. ЛОГИКА МУЛЬТИЯЗЫЧНОСТИ (UA/DE) ---
+        const langButtons = document.querySelectorAll('.lang-btn');
+        // Загружаем сохраненный язык или используем 'ua' по умолчанию
+        let currentLang = localStorage.getItem('selectedLanguage') || 'ua';
+
+        // Функция активации визуального стиля кнопок
+        function updateLangButtons(lang) {
+            langButtons.forEach(btn => {
+                // Переводим текст кнопки в нижний регистр для точного сравнения (ua или de)
+                if (btn.textContent.trim().toLowerCase() === lang.toLowerCase()) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         }
 
+        // Вызываем функцию перевода (если она объявлена в основном скрипте сайта)
+        if (typeof applyTranslations === 'function') {
+            applyTranslations(currentLang);
+        }
+        // Подсвечиваем правильную кнопку при загрузке страницы
+        updateLangButtons(currentLang);
+
+        // Вешаем событие клика на каждую кнопку UA / DE
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const selectedLang = this.textContent.trim().toLowerCase(); // 'ua' или 'de'
+                
+                // Сохраняем выбор пользователя в браузер
+                localStorage.setItem('selectedLanguage', selectedLang);
+                
+                // Меняем подсветку кнопок
+                updateLangButtons(selectedLang);
+
+                // Запускаем перерисовку текстов на странице
+                if (typeof applyTranslations === 'function') {
+                    applyTranslations(selectedLang);
+                } else {
+                    // Если функция applyTranslations находится в другом файле и еще не загрузилась,
+                    // можно просто перезагрузить страницу, чтобы применился сохраненный язык:
+                    window.location.reload();
+                }
+            });
+        });
+
+
+        // --- 2. ЛОГИКА МОДАЛЬНОГО ОКНА ---
         const modal = document.getElementById('registrationModal');
         const openBtns = document.querySelectorAll('.open-modal-btn');
         const closeBtn = document.getElementById('closeModalBtn');

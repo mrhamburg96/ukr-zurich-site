@@ -11,13 +11,10 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Manrope', sans-serif; color: #111827; background-color: #ffffff; line-height: 1.5; }
-        .container { max-width: 1140px; margin: 0 auto; width: 100%; padding: 0 20px; }
+        .container { max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 24px; }
 
         /* === ХЕДЕР === */
-       /* === ХЕДЕР === */
         .main-header { background: #ffffff; padding: 15px 0; border-bottom: 1px solid #f3f4f6; }
-        
-        /* Изменяем контейнер: ставим боковые отступы 40px, чтобы шапка была строго в один уровень с баннером */
         .header-container { 
             display: flex; 
             align-items: center; 
@@ -26,19 +23,17 @@
             padding: 0 40px; 
             box-sizing: border-box; 
         }
-        
         .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-images { display: flex; align-items: center; gap: 6px; }
         .logo-images svg { width: 24px; height: 18px; border-radius: 2px; }
         .logo-text { font-size: 28px; font-weight: 800; color: #002366; }
         .logo-slogan { font-size: 11px; font-weight: 600; color: #1a56c4; max-width: 200px; line-height: 1.3; border-left: 1px solid #e5e7eb; padding-left: 10px; margin-left: 4px; }
         
-        /* МАГИЯ ЗДЕСЬ: Тег nav автоматически забирает весь пустой отступ слева и прижимает себя и последующие элементы вправо */
+        /* Сдвигаем меню и кнопки в правый край */
         .header-container nav {
             margin-left: auto;
-            margin-right: 20px; /* Аккуратный зазор между ссылками меню и кнопкой Donate */
+            margin-right: 20px;
         }
-
         .nav-menu { display: flex; align-items: center; gap: 20px; list-style: none; }
         .nav-menu a { font-size: 13px; font-weight: 700; color: #111827; text-decoration: none; padding: 6px 0; position: relative; }
         .nav-menu a.active { color: #1a56c4; }
@@ -49,23 +44,30 @@
         .lang-btn { background: #ffffff; border: none; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; color: #4b5563; }
         .lang-btn.active { background-color: #1a56c4; color: #ffffff; }
 
-        /* === СЕКЦІЯ HERO (АККУРАТНО ВЫРАВНЕНА) === */
+        /* === СЕКЦІЯ HERO === */
         .hero-section { 
             background-color: #ffffff; 
             position: relative; 
             overflow: hidden; 
             padding-top: 12px; 
-            width: 100%;
+            min-height: 315px; 
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
-        .hero-top-nav { position: relative; z-index: 5; margin-bottom: 15px; }
+        .hero-top-nav { position: relative; z-index: 5; margin-bottom: 10px; }
         .breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #1a56c4; }
         .breadcrumbs a { color: #1a56c4; text-decoration: none; }
         .breadcrumbs a:hover { text-decoration: underline; }
         .breadcrumbs span { color: #1a56c4; opacity: 0.7; }
         
-       /* Задаем ширину 100% и боковые отступы по 40px, чтобы баннер встал в один уровень с секцией ниже */
+        .hero-container-inner { position: relative; z-index: 3; display: flex; align-items: center; min-height: 265px; }
+        .hero-content { padding: 20px 0; max-width: 390px; position: relative; z-index: 4; }
+        .hero-content h1 { font-size: 29px; font-weight: 700; color: #002366; line-height: 1.2; margin-bottom: 12px; }
+        .hero-description { font-size: 13px; font-weight: 500; color: #4b5563; line-height: 1.5; margin-bottom: 20px; }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #1a56c4; color: #ffffff; font-size: 12.5px; font-weight: 700; padding: 9px 20px; border-radius: 6px; text-decoration: none; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(26, 86, 196, 0.15); }
+        
+        /* Настройки внешнего окна баннера */
         .hero-image-outer { 
             width: 100%; 
             padding: 0 40px; 
@@ -74,14 +76,14 @@
             z-index: 1; 
             margin-bottom: 10px;
         }
-        /* Ограничиваем высоту картинки, чтобы она уменьшилась в размере и не растягивала страницу */
+        /* Ограничиваем высоту картинки баннера и настраиваем фокус */
         .hero-img { 
             width: 100%; 
-            height: 370px;        /* Здесь задаем фиксированную высоту баннера, например 320px */
+            height: 320px;        
             display: block; 
             border-radius: 16px; 
-            object-fit: cover;    /* Картинка красиво подрежется под этот размер, не сжимаясь */
-            object-position: center 20%; /* Фокусируем кадр чуть выше центра, чтобы лица людей не обрезались */
+            object-fit: cover;    
+            object-position: center 20%; 
         }
 
         /* === БАР ХАРАКТЕРИСТИК === */
@@ -153,11 +155,12 @@
         /* АДАПТИВНІСТЬ */
         @media (max-width: 1200px) {
             .help-container-fluid, .programs-container-fluid { padding: 0 24px; }
-            .hero-image-outer { padding: 0 24px; }
             .help-grid { grid-template-columns: repeat(3, 1fr); }
             .programs-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 1024px) {
+            .hero-image-outer { padding: 0 24px; }
+            .hero-content { max-width: 100%; text-align: center; padding: 15px 0; }
             .features-bar .container { padding: 0 24px; }
             .feature-item { max-width: 100%; }
         }
@@ -201,7 +204,7 @@
             </nav>
             <div class="header-actions">
                 <a href="donate.html" class="btn-donate"><span>Donate</span></a>
-                <div class="lang-switcher"><button class="lang-btn active">UA</button><button class="lang-btn">DE</button></div>
+                <div class="lang-switcher"><button class="lang-btn">UA</button><button class="lang-btn">DE</button></div>
             </div>
         </div>
     </header>
@@ -215,8 +218,16 @@
             </div>
         </div>
         
+        <div class="container hero-container-inner">
+            <div class="hero-content">
+                <h1 data-i18n="integration_hero_title">Інтеграційний центр UAGZ</h1>
+                <p class="hero-description" data-i18n="integration_hero_desc">Допомагаємо адаптуватися до життя у Швейцарії, вивчати мову та знаходити свое місце в громаді.</p>
+                <button class="btn-primary open-modal-btn" data-i18n="btn_join_programs">Приєднатися до програм</button>
+            </div>
+        </div>
+
         <div class="hero-image-outer">
-            <img src="integration-banner.webp" data-i18n="integration_banner_src" class="hero-img" alt="Integration Banner">
+            <img src="integration-banner.webp" class="hero-img" alt="Integration Banner" data-i18n="integration_banner_src">
         </div>
     </section>
 
@@ -234,7 +245,7 @@
                     <img src="icon-integration4.webp" class="feature-icon-img" alt="Разом ми сильніші">
                     <div class="feature-text">
                         <h3 data-i18n="feat_2_title">Разом ми сильніші</h3>
-                        <p data-i18n="feat_2_desc">Підтримка, об'єднання та развитие</p>
+                        <p data-i18n="feat_2_desc">Підтримка, об'єднання та розвиток</p>
                     </div>
                 </div>
                 <div class="feature-item">
@@ -269,7 +280,7 @@
                 </div>
                 <div class="help-card">
                     <img src="icon-integration4.webp" class="card-icon-img" alt="Адаптація до життя у Швейцарії">
-                    <h3 data-i18n="card_4_title">Адаптація до жизнь у Швейцарії</h3>
+                    <h3 data-i18n="card_4_title">Адаптація до життя у Швейцарії</h3>
                     <p data-i18n="card_4_desc">Індивідуальний супровід під час адаптації: орієнтація в системі, підтримка та корисні поради.</p>
                 </div>
                 <div class="help-card">
@@ -308,7 +319,7 @@
                     </div>
                     <div class="program-text-box">
                         <h3 data-i18n="prog_2_title">Кар'єрні консультації</h3>
-                        <p data-i18n="prog_2_desc">Профорієнтація, резюме, підготовка до співбесіди та поради щодо пошуку работы.</p>
+                        <p data-i18n="prog_2_desc">Профорієнтація, резюме, підготовка до співбесіди та поради щодо пошуку роботи.</p>
                     </div>
                 </div>
 
@@ -363,7 +374,7 @@
     <div class="modal-overlay" id="registrationModal">
         <div class="modal-container">
             <button class="modal-close" id="closeModalBtn">&times;</button>
-            <h2 data-i18n="modal_title">Реєстрація на программу</h2>
+            <h2 data-i18n="modal_title">Реєстрація на програму</h2>
             <form id="modalForm">
                 <div class="form-group">
                     <label for="userName" data-i18n="modal_name">Ваше ім'я</label>
@@ -389,7 +400,7 @@
 
         // Функция обновления визуального стиля кнопок и картинки баннера
         function updateLanguageInterface(lang) {
-            // 1. Подсветка активной кнопки UA/DE
+            // Подсветка активной кнопки UA/DE
             langButtons.forEach(btn => {
                 if (btn.textContent.trim().toLowerCase() === lang.toLowerCase()) {
                     btn.classList.add('active');
@@ -398,7 +409,7 @@
                 }
             });
 
-            // 2. Смена картинки баннера в зависимости от языка
+            // Смена картинки баннера в зависимости от языка
             if (heroImg) {
                 if (lang.toLowerCase() === 'de') {
                     heroImg.src = 'integration-bannerDE.webp';

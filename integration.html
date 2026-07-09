@@ -411,10 +411,13 @@ function triggerTranslation(lang) {
         return;
     }
     
-    // 2. Если глобальной функции нет, этот код сам загрузит ua.json или de.json
-    fetch(`${lang.toLowerCase()}.json`)
+    // 2. Исправленный путь к JSON-файлам (учитываем структуру папок проекта)
+    // Если файлы лежат в папке, например 'lang', замените на: `lang/${lang.toLowerCase()}.json`
+    const jsonPath = `${lang.toLowerCase()}.json`; 
+
+    fetch(jsonPath)
         .then(response => {
-            if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
+            if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${jsonPath}`);
             return response.json();
         })
         .then(translations => {
@@ -422,18 +425,35 @@ function triggerTranslation(lang) {
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 
-                // Если ключ есть в файле json, заменяем текст
                 if (translations[key]) {
-                    // Если это картинка, меняем src, иначе — обычный текст
+                    // Если это картинка баннера
                     if (element.tagName.toLowerCase() === 'img') {
                         element.src = translations[key];
                     } else {
+                        // Для всех остальных текстовых элементов
                         element.textContent = translations[key];
                     }
                 }
             });
         })
-        .catch(error => console.error("Ошибка перевода страницы:", error));
+        .catch(error => {
+            console.error("Ошибка перевода страницы:", error);
+            
+            // Запасной вариант на случай, если файлы лежат в папке /lang/
+            if (!jsonPath.startsWith('lang/')) {
+                console.log("Пробуем загрузить из папки lang/...");
+                fetch(`lang/${lang.toLowerCase()}.json`)
+                    .then(res => res.json())
+                    .then(translations => {
+                        document.querySelectorAll('[data-i18n]').forEach(element => {
+                            const key = element.getAttribute('data-i18n');
+                            if (translations[key] && element.tagName.toLowerCase() !== 'img') {
+                                element.textContent = translations[key];
+                            }
+                        });
+                    }).catch(err => console.error("Файлы перевода не найдены ни в корне, ни в /lang/"));
+            }
+        });
 }
 
 // Применяем язык при загрузке страницы

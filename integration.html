@@ -180,25 +180,25 @@
 
     <header class="main-header">
         <div class="container header-container">
-            <a href="index.html" class="logo-group">
-                <div class="logo-images">
-                    <svg viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFDD00"/></svg>
-                    <svg viewBox="0 0 1 1"><rect width="1" height="1" fill="#D81E05"/><rect x="0.4" y="0.2" width="0.2" height="0.6" fill="#FFFFFF"/><rect x="0.2" y="0.4" width="0.6" height="0.2" fill="#FFFFFF"/></svg>
-                </div>
-                <div class="logo-text">UAGZ</div>
-                <div class="logo-slogan">Український інтеграційний та громадський центр Цюриха</div>
-            </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="about.html" class="active">Про центр</a></li>
-                    <li><a href="help.html">Допомога</a></li>
-                    <li><a href="events.html">Події</a></li>
-                    <li><a href="knowledge.html">Knowledge Center</a></li>
-                    <li><a href="announcements.html">Оголошення</a></li>
-                    <li><a href="volunteering.html">Волонтерство</a></li>
-                </ul>
-            </nav>
+           <a href="index.html" class="logo-group">
+    <div class="logo-images">
+        <svg viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFDD00"/></svg>
+        <svg viewBox="0 0 1 1"><rect width="1" height="1" fill="#D81E05"/><rect x="0.4" y="0.2" width="0.2" height="0.6" fill="#FFFFFF"/><rect x="0.2" y="0.4" width="0.6" height="0.2" fill="#FFFFFF"/></svg>
+    </div>
+    <div class="logo-text">UAGZ</div>
+    <div class="logo-slogan" data-i18n="logo_slogan">Український інтеграційний та громадський центр Цюриха</div>
+</a>
+<nav>
+    <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="bc_home">Головна</a></li>
+        <li><a href="about.html" class="active" data-i18n="menu_about">Про центр</a></li>
+        <li><a href="help.html" data-i18n="menu_help">Допомога</a></li>
+        <li><a href="events.html" data-i18n="menu_events">Події</a></li>
+        <li><a href="knowledge.html" data-i18n="menu_knowledge">Knowledge Center</a></li>
+        <li><a href="announcements.html" data-i18n="menu_announcements">Оголошення</a></li>
+        <li><a href="volunteering.html" data-i18n="menu_volunteering">Волонтерство</a></li>
+    </ul>
+</nav>
             <div class="header-actions">
                 <a href="donate.html" class="btn-donate"><span>Donate</span></a>
                 <div class="lang-switcher"><button class="lang-btn active">UA</button><button class="lang-btn">DE</button></div>
@@ -406,6 +406,14 @@ function updateLanguageInterface(lang) {
 // Автономный объект с переводами (без использования fetch и внешних файлов)
 const localizationData = {
     "ua": {
+        "logo_slogan": "Український інтеграційний та громадський центр Цюриха",
+        "menu_about": "Про центр",
+        "menu_help": "Допомога",
+        "menu_events": "Події",
+        "menu_knowledge": "Knowledge Center",
+        "menu_announcements": "Оголошення",
+        "menu_volunteering": "Волонтерство",
+        
         "integration_title": "Інтеграційний центр UAGZ",
         "bc_home": "Головна",
         "bc_centers": "Наші центри",
@@ -421,7 +429,7 @@ const localizationData = {
         "card_1_title": "Допомога з документами",
         "card_1_desc": "Підтримка у питаннях проживання, страхування, соціальних виплат, освіти та інших важливих документів.",
         "card_2_title": "Курси німецької мови",
-        "card_2_desc": "Курси для разных рівнів – від початківців до впевненого спілкування в повсякденному житті.",
+        "card_2_desc": "Курси для різних рівнів – від початківців до впевненого спілкування в повсякденному житті.",
         "card_3_title": "Працевлаштування",
         "card_3_desc": "Допомагаємо знайти роботу: консультації, підготовка резюме, пошук вакансій та співбесіди.",
         "card_4_title": "Адаптація до життя у Швейцарії",
@@ -438,7 +446,7 @@ const localizationData = {
         "prog_4_title": "Культурні заходи",
         "prog_4_desc": "Екскурсії, свята, воркшопи та інші події, що об'єднують нашу громаду.",
         "footer_banner_title": "Разом ми сильніші",
-        "footer_banner_desc": "Приєднуйтесь до наших програм та заходів. Ми допоможемо вам зробити Швейцарію вашим новим домом.",
+        "footer_banner_desc": "Приєднуйтесь до наших програм та заходів. Ми допоможемо вам сделать Швейцарію вашим новим домом.",
         "btn_contact_us": "Зв'язатися з нами",
         "modal_title": "Реєстрація на програму",
         "modal_name": "Ваше ім'я",
@@ -446,6 +454,14 @@ const localizationData = {
         "modal_submit": "Надіслати заявку"
     },
     "de": {
+        "logo_slogan": "Ukrainisches Integrations- und Kulturzentrum Zürich",
+        "menu_about": "Über uns",
+        "menu_help": "Hilfe",
+        "menu_events": "Veranstaltungen",
+        "menu_knowledge": "Knowledge Center",
+        "menu_announcements": "Ankündigungen",
+        "menu_volunteering": "Freiwilligenarbeit",
+        
         "integration_title": "Integrationszentrum UAGZ",
         "bc_home": "Startseite",
         "bc_centers": "Unsere Zentren",

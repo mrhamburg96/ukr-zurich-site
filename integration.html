@@ -11,7 +11,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Manrope', sans-serif; color: #111827; background-color: #ffffff; line-height: 1.5; }
-        .container { max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 24px; }
+        .container { max-width: 1140px; margin: 0 auto; width: 100%; padding: 0 20px; }
 
         /* === ХЕДЕР === */
         .main-header { background: #ffffff; padding: 15px 0; border-bottom: 1px solid #f3f4f6; }
@@ -47,7 +47,7 @@
         .breadcrumbs a:hover { text-decoration: underline; }
         .breadcrumbs span { color: #1a56c4; opacity: 0.7; }
         
-        /* Задаем ширину 100% и боковые отступы по 40px, чтобы баннер встал в один уровень с секцией ниже */
+       /* Задаем ширину 100% и боковые отступы по 40px, чтобы баннер встал в один уровень с секцией ниже */
         .hero-image-outer { 
             width: 100%; 
             padding: 0 40px; 
@@ -56,13 +56,14 @@
             z-index: 1; 
             margin-bottom: 10px;
         }
-        /* Картинка подстраивается под ширину контента и имеет скругления */
+        /* Ограничиваем высоту картинки, чтобы она уменьшилась в размере и не растягивала страницу */
         .hero-img { 
             width: 100%; 
-            height: auto; 
+            height: 320px;        /* Здесь задаем фиксированную высоту баннера, например 320px */
             display: block; 
             border-radius: 16px; 
-            object-fit: cover; 
+            object-fit: cover;    /* Картинка красиво подрежется под этот размер, не сжимаясь */
+            object-position: center 20%; /* Фокусируем кадр чуть выше центра, чтобы лица людей не обрезались */
         }
 
         /* === БАР ХАРАКТЕРИСТИК === */

@@ -1972,7 +1972,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     };
 
   
- // 2. ИЗОЛИРОВАННАЯ ФУНКЦИЯ ПЕРЕВОДА
+// 2. ИЗОЛИРОВАННАЯ ФУНКЦИЯ ПЕРЕВОДА
 function applyTranslation(lang) {
     if (!dict[lang]) return;
     const data = dict[lang];
@@ -1998,75 +1998,62 @@ function applyTranslation(lang) {
             el.setAttribute('placeholder', data[key + '_placeholder']);
         }
     });
+
+    // СТИЛИЗАЦИЯ КНОПОК ЯЗЫКА
+    const btnUA = document.getElementById('lang-ua') || document.querySelector('.lang-btn[data-lang="ua"]');
+    const btnDE = document.getElementById('lang-de') || document.querySelector('.lang-btn[data-lang="de"]');
+    
+    if (btnUA && btnDE) {
+        const activeStyle = { 'background-color': '#ffffff', 'color': '#0070F3', 'font-weight': '700', 'box-shadow': '0 1px 3px rgba(0,0,0,0.1)' };
+        const inactiveStyle = { 'background-color': 'transparent', 'color': '#64748b', 'font-weight': '600', 'box-shadow': 'none' };
+        
+        const setStyles = (el, styles) => {
+            for (let prop in styles) el.style.setProperty(prop, styles[prop], 'important');
+        };
+
+        if (lang === 'ua') {
+            setStyles(btnUA, activeStyle);
+            setStyles(btnDE, inactiveStyle);
+        } else {
+            setStyles(btnDE, activeStyle);
+            setStyles(btnUA, inactiveStyle);
+        }
+    }
+    localStorage.setItem('siteLang', lang);
 }
 
-    // === ДОПОЛНЕНИЕ ДЛЯ ПЕРЕВОДА ПЛЕЙСХОЛДЕРОВ (INPUT / TEXTAREA) ===
-    const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
-    placeholderElements.forEach(el => {
-        const key = el.getAttribute('data-translate-placeholder');
-        if (data[key]) {
-            el.setAttribute('placeholder', data[key]);
+// 3. НАВЕШИВАНИЕ ОБРАБОТЧИКОВ НА КНОПКИ
+function initLanguageSwitchers() {
+    document.addEventListener('click', function(e) {
+        const targetBtn = e.target.closest('.lang-btn[data-lang], #lang-ua, #lang-de');
+        
+        if (targetBtn) {
+            e.preventDefault();
+            let lang = targetBtn.getAttribute('data-lang');
+            if (!lang) {
+                lang = targetBtn.id === 'lang-ua' ? 'ua' : 'de';
+            }
+            
+            applyTranslation(lang);
         }
     });
+
+    // Запуск перевода при загрузке страницы
+    const savedLang = localStorage.getItem('siteLang') || 'ua';
+    applyTranslation(savedLang);
 }
 
-        // СТИЛИЗАЦИЯ КНОПОК ЯЗЫКА (дальше код остается без изменений)
+// БЕЗОПАСНЫЙ СТАРТ
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initLanguageSwitchers();
+} else {
+    window.addEventListener('load', initLanguageSwitchers);
+}
 
-        // СТИЛИЗАЦИЯ КНОПОК ЯЗЫКА
-        const btnUA = document.getElementById('lang-ua') || document.querySelector('.lang-btn[data-lang="ua"]');
-        const btnDE = document.getElementById('lang-de') || document.querySelector('.lang-btn[data-lang="de"]');
-        
-        if (btnUA && btnDE) {
-            const activeStyle = { 'background-color': '#ffffff', 'color': '#0070F3', 'font-weight': '700', 'box-shadow': '0 1px 3px rgba(0,0,0,0.1)' };
-            const inactiveStyle = { 'background-color': 'transparent', 'color': '#64748b', 'font-weight': '600', 'box-shadow': 'none' };
-            
-            const setStyles = (el, styles) => {
-                for (let prop in styles) el.style.setProperty(prop, styles[prop], 'important');
-            };
-
-            if (lang === 'ua') {
-                setStyles(btnUA, activeStyle);
-                setStyles(btnDE, inactiveStyle);
-            } else {
-                setStyles(btnDE, activeStyle);
-                setStyles(btnUA, inactiveStyle);
-            }
-        }
-        localStorage.setItem('siteLang', lang);
-    }
-
-    // 3. НАВЕШИВАНИЕ ОБРАБОТЧИКОВ НА КНОПКИ
-    function initLanguageSwitchers() {
-        document.addEventListener('click', function(e) {
-            const targetBtn = e.target.closest('.lang-btn[data-lang], #lang-ua, #lang-de');
-            
-            if (targetBtn) {
-                e.preventDefault();
-                let lang = targetBtn.getAttribute('data-lang');
-                if (!lang) {
-                    lang = targetBtn.id === 'lang-ua' ? 'ua' : 'de';
-                }
-                
-                applyTranslation(lang);
-            }
-        });
-
-        // Запуск перевода при загрузке страницы
-        const savedLang = localStorage.getItem('siteLang') || 'ua';
-        applyTranslation(savedLang);
-    }
-
-    // БЕЗОПАСНЫЙ СТАРТ
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        initLanguageSwitchers();
-    } else {
-        window.addEventListener('load', initLanguageSwitchers);
-    }
-
-    // Глобальный дубликат
-    window.changeLanguage = function(lang) {
-        applyTranslation(lang);
-    };
+// Глобальный дубликат
+window.changeLanguage = function(lang) {
+    applyTranslation(lang);
+};
 })();
 </script>
 <style>

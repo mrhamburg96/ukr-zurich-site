@@ -270,6 +270,17 @@
   "modal_phone": "Telefonnummer",
   "modal_submit": "Anfrage senden",
 
+  "brand_desc": "Ukrainisches Integrations- und Gemeindezentrum Zürich",
+  "nav_home": "Startseite",
+  "nav_about": "Über uns",
+  "nav_help": "Angebote",
+  "nav_events": "Veranstaltungen",
+  "nav_knowledge": "Knowledge Center",
+  "nav_announcements": "Ankündigungen",
+  "nav_volunteers": "Freiwilligenarbeit",
+  "nav_contacts": "Kontakte",
+  "btn_donate": "Donate",
+
   "services": {
     "title": "Wie wir helfen",
     "card1_title": "Soziale Unterstützung",

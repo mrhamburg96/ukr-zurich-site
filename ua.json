@@ -280,6 +280,11 @@
   "nav_volunteers": "Волонтерство",
   "nav_contacts": "Контакти",
   "btn_donate": "Donate",
+  
+  "volonter_img_src": "volonter01.webp",
+  "brand_desc": "Український інтеграційний та громадський центр Цюриха",
+  "nav_home": "Головна"
+
 
   "services": {
     "title": "Чим ми допомагаємо",

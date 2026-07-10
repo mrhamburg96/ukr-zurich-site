@@ -1358,17 +1358,17 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 <div class="volunteer-cta-container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px; box-sizing: border-box;">
   <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);">
     
- <div style="flex: 1;">
-      <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 75, 209, 0.08); color: #004bd1; padding: 6px 12px; border-radius: 30px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+    <div style="flex: 1;">
+      <div data-translate="v_badge" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 75, 209, 0.08); color: #004bd1; padding: 6px 12px; border-radius: 30px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         <span>Стати волонтером</span>
       </div>
-      <h2 style="font-size: 24px; font-weight: 800; color: #1A56C4; margin: 0 0 8px 0; letter-spacing: -0.02em;">Ваш час і навички можуть змінити чиєсь життя на краще.</h2>
-      <p style="font-size: 15px; color: #64748b; margin: 0; font-weight: 400;">Долучайтеся до команди волонтерів UAGZ та допомагайте іншим.</p>
+      <h2 data-translate="v_title" style="font-size: 24px; font-weight: 800; color: #1A56C4; margin: 0 0 8px 0; letter-spacing: -0.02em;">Ваш час і навички можуть змінити чиєсь життя на краще.</h2>
+      <p data-translate="v_desc" style="font-size: 15px; color: #64748b; margin: 0; font-weight: 400;">Долучайтеся до команди волонтерів UAGZ та допомагайте іншим.</p>
     </div>
 
     <div style="flex-shrink: 0;">
-      <button id="open-volunteer-modal" class="volunteer-join-btn" style="cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; background: #004bd1; color: #ffffff; padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 75, 209, 0.25); transition: all 0.2s ease;">
+      <button id="open-volunteer-modal" class="volunteer-join-btn" data-translate="v_btn_join" style="cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; background: #004bd1; color: #ffffff; padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 75, 209, 0.25); transition: all 0.2s ease;">
         <span>Приєднатися</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
@@ -1382,32 +1382,32 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <button id="close-volunteer-modal" class="v-modal-close-btn">&times;</button>
     
     <div style="text-align: center; margin-bottom: 24px;">
-      <h3 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
-      <p style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
+      <h3 data-translate="v_modal_title" style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Реєстрація волонтера</h3>
+      <p data-translate="v_modal_subtitle" style="font-size: 14px; color: #64748b; margin: 0;">Ми зв'яжемося з вами найближчим часом!</p>
     </div>
 
     <form id="volunteer-form" style="display: flex; flex-direction: column; gap: 14px;">
       <div>
-        <label class="v-label">Ім'я</label>
-        <input type="text" name="name" required placeholder="Олена" class="v-input" style="width: 100%; box-sizing: border-box;">
+        <label class="v-label" data-translate="v_label_name">Ім'я</label>
+        <input type="text" name="name" required placeholder="Олена" class="v-input" style="width: 100%; box-sizing: border-box;" data-translate-placeholder="v_ph_name">
       </div>
 
       <div>
-        <label class="v-label">Email</label>
-        <input type="email" name="email" required placeholder="olena@example.com" class="v-input">
+        <label class="v-label" data-translate="v_label_email">Email</label>
+        <input type="email" name="email" required placeholder="olena@example.com" class="v-input" data-translate-placeholder="v_ph_email">
       </div>
 
       <div>
-        <label class="v-label">Телефон (Telegram / WhatsApp)</label>
-        <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input">
+        <label class="v-label" data-translate="v_label_phone">Телефон (Telegram / WhatsApp)</label>
+        <input type="tel" name="phone" required placeholder="+41 76 000 00 00" class="v-input" data-translate-placeholder="v_ph_phone">
       </div>
 
       <div>
-        <label class="v-label">Чим ви хочете допомогти?</label>
-        <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;"></textarea>
+        <label class="v-label" data-translate="v_label_message">Чим ви хочете допомогти?</label>
+        <textarea name="message" rows="3" placeholder="Ваші навички..." class="v-input" style="resize: none; font-family: inherit;" data-translate-placeholder="v_ph_message"></textarea>
       </div>
 
-      <button type="submit" id="v-submit-btn" class="v-submit-btn">Надіслати заявку</button>
+      <button type="submit" id="v-submit-btn" class="v-submit-btn" data-translate="v_btn_submit">Надіслати заявку</button>
     </form>
   </div>
 </div>
@@ -1764,7 +1764,22 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 "tg_banner_btn_action": "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='22' y1='2' x2='11' y2='13'/><polygon points='22 2 15 22 11 13 2 9 22 2'/></svg> Перейти до Telegram-каналу <span>↗</span>",
 "tg_banner_btn_contact": "Зв'язатися з нами <span>→</span>",
           "tr_association": "Офіційно зареєстрована асоціація у Швейцарії",
-"tr_count": "Понад 200 українців уже з нами"
+"tr_count": "Понад 200 українців уже з нами",
+          "v_badge": "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg> <span>Стати волонтером</span>",
+"v_title": "Ваш час і навички можуть змінити чиєсь життя на краще.",
+"v_desc": "Долучайтеся до команди волонтерів UAGZ та допомагайте іншим.",
+"v_btn_join": "<span>Приєднатися</span> <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='margin-left: 8px;'><line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg>",
+"v_modal_title": "Реєстрація волонтера",
+"v_modal_subtitle": "Ми зв'яжемося з вами найближчим часом!",
+"v_label_name": "Ім'я",
+"v_ph_name": "Олена",
+"v_label_email": "Email",
+"v_ph_email": "olena@example.com",
+"v_label_phone": "Телефон (Telegram / WhatsApp)",
+"v_ph_phone": "+41 76 000 00 00",
+"v_label_message": "Чим ви хочете допомогти?",
+"v_ph_message": "Ваші навички...",
+"v_btn_submit": "Надіслати заявку"
         },
         de: {
             "h-badge": "UAGZ Offizielle NGO - Zürich",
@@ -2020,7 +2035,22 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 "tg_banner_btn_action": "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='22' y1='2' x2='11' y2='13'/><polygon points='22 2 15 22 11 13 2 9 22 2'/></svg> Zum Telegram-Kanal <span>↗</span>",
 "tg_banner_btn_contact": "Kontaktieren Sie uns <span>→</span>",
           "tr_association": "Offiziell registrierter Verein in der Schweiz",
-"tr_count": "Über 200 Ukrainer sind уже bei uns"
+"tr_count": "Über 200 Ukrainer sind уже bei uns",
+          "v_badge": "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg> <span>Freiwillige werden</span>",
+"v_title": "Ihre Zeit und Ihre Fähigkeiten können das Leben eines Menschen zum Besseren wenden.",
+"v_desc": "Werden Sie Teil des UAGZ-Freiwilligenteams und helfen Sie anderen.",
+"v_btn_join": "<span>Mitmachen</span> <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='margin-left: 8px;'><line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg>",
+"v_modal_title": "Registrierung als Freiwillige/r",
+"v_modal_subtitle": "Wir werden uns in Kürze mit Ihnen in Verbindung setzen!",
+"v_label_name": "Name",
+"v_ph_name": "Olena",
+"v_label_email": "E-Mail",
+"v_ph_email": "olena@example.com",
+"v_label_phone": "Telefon (Telegram / WhatsApp)",
+"v_ph_phone": "+41 76 000 00 00",
+"v_label_message": "Wie möchten Sie helfen?",
+"v_ph_message": "Ihre Fähigkeiten...",
+"v_btn_submit": "Anmeldung absenden"
        }
     };
 

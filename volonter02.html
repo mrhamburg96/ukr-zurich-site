@@ -130,18 +130,19 @@
     }
 
     /* НАСТРОЙКА БАННЕРА НА ВЫСОТУ 370px */
-    .banner-container {
-      position: relative;
-      width: 100%;
-      height: 370px; /* Жестко заданная высота баннера */
-      overflow: hidden;
-    }
-    .banner-img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover; /* Картинка заполняет область без деформации */
-    }
+  .banner-container {
+  position: relative;
+  width: 100%;
+  height: 370px; /* Оставляем вашу высоту */
+  overflow: hidden;
+  background-color: #ffffff; /* Белый фон для пустых боковин, если экран слишком широкий */
+}
+.banner-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* Картинка сожмется, чтобы залезть целиком без искажений */
+}
     .banner-link {
       position: absolute;
       background: rgba(255, 255, 255, 0);

@@ -13,37 +13,37 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f7fafc; /* Фон за пределами контейнера */
+      background-color: #f7fafc; 
       color: #333;
     }
 
-    /* Главная обертка для уменьшения масштаба всего сайта */
+    /* РАСШИРЯЕМ ВЕСЬ САЙТ НА ВСЮ ШИРИНУ ЭКРАНА */
     .site-wrapper {
       width: 100%;
-      max-width: 1200px; /* Ограничивает ширину сайта, делая его компактным */
-      margin: 0 auto;    /* Центрирует сайт на экране */
+      max-width: 100%; /* Убрано ограничение в 1200px */
+      margin: 0 auto;    
       background-color: #ffffff;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     }
 
-    /* Стиль живой шапки сайта */
+    /* Стиль живой шапки сайта - Выстраивание элементов строго в один ряд */
     .site-header {
       width: 100%;
       border-bottom: 1px solid #e2e8f0;
       background: #ffffff;
-      padding: 15px 25px;
+      padding: 15px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
+      flex-wrap: nowrap; /* Запрещаем перенос элементов на новую строку */
     }
     .header-brand {
       display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      max-width: 320px;
+      flex-shrink: 0; /* Бренд не должен сжиматься */
     }
     .brand-logo {
       width: 42px;
@@ -63,16 +63,20 @@
       margin-top: 2px;
       line-height: 1.2;
     }
+
+    /* Компактное меню в одну линию */
     .header-nav {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: nowrap; /* Строго один ряд */
     }
     .nav-link {
-      font-size: 0.92rem;
+      font-size: 0.88rem; /* Немного уменьшен размер для идеального вхождения всех 8 пунктов */
       font-weight: 600;
       color: #1A56C4;
       text-decoration: none;
+      white-space: nowrap; /* Запрет переноса слов внутри ссылок */
       transition: color 0.2s;
     }
     .nav-link:hover, .nav-link.active {
@@ -84,6 +88,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      flex-shrink: 0; /* Экшены не сжимаются */
     }
     .btn-donate {
       background-color: #FFB800;
@@ -93,11 +98,12 @@
       padding: 8px 22px;
       border-radius: 6px;
       text-decoration: none;
+      white-space: nowrap;
     }
     .lang-switcher {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       font-size: 0.85rem;
       font-weight: 700;
     }
@@ -114,7 +120,7 @@
 
     /* Хлебные крошки */
     .breadcrumbs {
-      padding: 12px 25px;
+      padding: 12px 30px;
       font-size: 0.8rem;
       color: #718096;
     }
@@ -123,16 +129,18 @@
       text-decoration: none;
     }
 
-    /* Интерактивный баннер */
+    /* НАСТРОЙКА БАННЕРА НА ВЫСОТУ 370px */
     .banner-container {
       position: relative;
       width: 100%;
+      height: 370px; /* Жестко заданная высота баннера */
       overflow: hidden;
     }
     .banner-img {
       width: 100%;
+      height: 100%;
       display: block;
-      height: auto;
+      object-fit: cover; /* Картинка заполняет область без деформации */
     }
     .banner-link {
       position: absolute;
@@ -142,20 +150,20 @@
       border-radius: 4px;
     }
     .banner-link:hover {
-      background: rgba(26, 86, 196, 0.1); /* Легкая подсветка кнопок баннера при наведении */
+      background: rgba(26, 86, 196, 0.1); 
     }
 
-    /* Секции контента с минимальными отступом по высоте */
+    /* Секции контента */
     .services-section, .directions-section {
       width: 100%;
-      padding: 30px 25px;
+      padding: 40px 30px;
     }
     .section-title {
       text-align: center;
       color: #002060;
       font-size: 1.6rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .section-title::after {
       content: '';
@@ -168,13 +176,14 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
+      gap: 20px;
     }
     .service-card {
       border: 1px solid #E2E8F0;
       border-radius: 12px;
       padding: 20px 12px;
       text-align: center;
+      background: #fff;
     }
     .service-icon {
       height: 60px;
@@ -194,12 +203,13 @@
     .directions-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+      gap: 20px;
     }
     .direction-card {
       border: 1px solid #E2E8F0;
       border-radius: 12px;
       overflow: hidden;
+      background: #fff;
     }
     .dir-image-container {
       position: relative;
@@ -230,12 +240,12 @@
     /* Нижний баннер */
     .cta-banner-container {
       width: 100%;
-      padding: 10px 25px 30px 25px;
+      padding: 10px 30px 40px 30px;
     }
     .cta-banner {
       background-color: #EBF3FF;
       border-radius: 12px;
-      padding: 20px 25px;
+      padding: 24px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -255,14 +265,22 @@
       white-space: nowrap;
     }
 
-    /* Адаптивность для мобильных */
+    /* Планшетный режим и адаптив */
+    @media (max-width: 1200px) {
+      .site-header {
+        flex-wrap: wrap; /* Разрешаем перенос только на планшетах меньше 1200px */
+        justify-content: center;
+      }
+    }
     @media (max-width: 992px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .directions-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
-      .site-header, .cta-banner { flex-direction: column; text-align: center; }
+      .site-header { flex-direction: column; text-align: center; }
+      .header-nav { flex-direction: column; gap: 10px; }
       .services-grid, .directions-grid { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; }
       .cta-left { flex-direction: column; }
     }
   </style>
@@ -275,23 +293,23 @@
         <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
         <div>
           <div class="brand-text-title">UAGZ</div>
-          <div class="brand-text-desc">Український інтеграційний та громадський центр Цюриха</div>
+          <div class="brand-text-desc" data-i18n="brand_desc">Український інтеграційний та громадський центр Цюриха</div>
         </div>
       </a>
 
-     <nav class="header-nav">
-  <a href="index.html" class="nav-link" data-i18n="nav_home">Головна</a>
-  <a href="#" class="nav-link" data-i18n="nav_about">Про центр</a>
-  <a href="#" class="nav-link" data-i18n="nav_help">Допомога</a>
-  <a href="#" class="nav-link" data-i18n="nav_events">Події</a>
-  <a href="#" class="nav-link" data-i18n="nav_knowledge">Knowledge Center</a>
-  <a href="#" class="nav-link" data-i18n="nav_announcements">Оголошення</a>
-  <a href="#" class="nav-link active" data-i18n="nav_volunteers">Волонтерство</a>
-  <a href="#" class="nav-link" data-i18n="nav_contacts">Контакти</a>
-</nav>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Головна</a>
+        <a href="#" class="nav-link" data-i18n="nav_about">Про центр</a>
+        <a href="#" class="nav-link" data-i18n="nav_help">Допомога</a>
+        <a href="#" class="nav-link" data-i18n="nav_events">Події</a>
+        <a href="#" class="nav-link" data-i18n="nav_knowledge">Knowledge Center</a>
+        <a href="#" class="nav-link" data-i18n="nav_announcements">Оголошення</a>
+        <a href="#" class="nav-link active" data-i18n="nav_volunteers">Волонтерство</a>
+        <a href="#" class="nav-link" data-i18n="nav_contacts">Контакти</a>
+      </nav>
 
       <div class="header-actions">
-        <a href="#donate" class="btn-donate">Donate</a>
+        <a href="#donate" class="btn-donate" data-i18n="btn_donate">Donate</a>
         <div class="lang-switcher">
           <a href="?lang=ua" class="lang-item" id="lang-ua" onclick="changeLanguage(event, 'ua')">UA</a>
           <a href="?lang=de" class="lang-item" id="lang-de" onclick="changeLanguage(event, 'de')">DE</a>
@@ -396,37 +414,32 @@
           <img src="Logo01.png" alt="Heart" class="cta-heart-icon">
           <div class="cta-text">
             <h3 data-i18n="cta.title">Разом ми сильніші</h3>
-            <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
+            <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом мы можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
           </div>
         </div>
-        <a href="#contact-us" class="cta.button" data-i18n="cta-button">Зв’язатися з нами</a>
+        <a href="#contact-us" class="cta-button" data-i18n="cta_button">Зв’язатися з нами</a>
       </div>
     </section>
 
   </div>
 
   <script>
-    // Функция для динамической загрузки JSON-перевода и обновления текстов и картинок
     async function loadTranslations(lang) {
       try {
         const response = await fetch(`${lang}.json`);
         if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
         const translations = await response.json();
 
-        // Проходим по всем элементам с атрибутом data-i18n
         document.querySelectorAll('[data-i18n]').forEach(element => {
           const keyPath = element.getAttribute('data-i18n');
           const keys = keyPath.split('.');
           
-          // Бежим по объекту JSON до нужного значения
           let text = translations;
           keys.forEach(key => {
             if (text) text = text[key];
           });
 
-          // Если перевод найден — аккуратно обновляем контент на сайте
           if (text) {
-            // ПРОВЕРКА: если элемент является картинкой, меняем src, иначе — текст
             if (element.tagName === 'IMG') {
               element.src = text;
             } else {
@@ -441,21 +454,15 @@
 
     function changeLanguage(event, lang) {
       event.preventDefault();
-      
-      // Меняем активный класс у кнопок переключателя
       document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
       const selectedLangButton = document.getElementById('lang-' + lang);
       if (selectedLangButton) selectedLangButton.classList.add('active');
       
-      // Меняем хвостик URL ?lang=
       const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
       window.history.pushState({ path: newUrl }, '', newUrl);
-      
-      // Запускаем применение текстов
       loadTranslations(lang);
     }
 
-    // При первой загрузке страницы проверяем язык из ссылки
     document.addEventListener("DOMContentLoaded", function() {
       const urlParams = new URLSearchParams(window.location.search);
       const currentLang = urlParams.get('lang') || 'ua';
@@ -466,6 +473,6 @@
       
       loadTranslations(currentLang);
     });
-</script>
+  </script>
 </body>
 </html>

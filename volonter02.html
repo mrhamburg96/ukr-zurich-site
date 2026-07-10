@@ -209,16 +209,19 @@
       overflow: hidden;
       background: #fff;
     }
-    .dir-image-container {
-      position: relative;
-      width: 100%;
-      height: 160px;
-    }
-    .direction-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+   .dir-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Задает идеальное соотношение сторон, высота подстроится сама! */
+  overflow: visible;     /* Чтобы круглая иконка-бейдж снизу не скрывалась */
+}
+
+.direction-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Теперь cover будет работать идеально, так как пропорции сохранены */
+  display: block;
+}
     .dir-icon-badge {
       position: absolute;
       bottom: -15px;

@@ -7,231 +7,254 @@
     <!-- Подключение ваших общих стилей (измените пути, если стили лежат в папке) -->
     <link rel="stylesheet" href="style.css"> 
     <style>
-        /* Специфические стили для страницы контактов, обеспечивающие верстку 1:1 */
-        
-        /* Верхний баннер с фигурной формой */
-        .contacts-hero {
-            position: relative;
-            background-color: #f4f7fc;
-            overflow: hidden;
-            padding: 60px 0 80px 0;
-            display: flex;
-            align-items: center;
-        }
-        .hero-split {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-        .hero-info {
-            flex: 1;
-            max-width: 550px;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 75, 209, 0.06);
-            color: #004bd1;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        .hero-title {
-            font-size: 48px;
-            font-weight: 800;
-            color: #0d1b3e;
-            margin: 0 0 16px 0;
-        }
-        .hero-desc {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #4a5568;
-            margin: 0 0 24px 0;
-        }
-        .hero-decor-line {
-            width: 40px;
-            height: 4px;
-            background-color: #ffc837;
-            border-radius: 2px;
-        }
-        
-        /* Место под фоновую волнистую картинку справа */
-        .hero-image-wrapper {
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 45%;
-            z-index: 1;
-            background-color: #e2e8f0; /* Временная заливка вместо фото */
-            clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%, 8% 50%); /* Имитация красивой волны/изгиба */
-        }
+    /* HERO-БАННЕР С РАСШИРЕННОЙ ПРАВОЙ ЧАСТЬЮ */
+    .contacts-hero {
+        position: relative;
+        background-color: #f4f7fc;
+        overflow: hidden;
+        height: 320px; 
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Чёткая посадка по ширине нижнего блока */
+    .hero-container {
+        width: 100%;
+        max-width: 1200px; /* Совпадает с вашим основным контейнером сайта */
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        align-items: center; 
+        position: relative;
+        z-index: 2;
+    }
 
-        /* Основной контент: Сетка */
-        .contacts-main {
-            padding: 60px 0;
-            background-color: #ffffff;
-        }
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-        @media (max-width: 992px) {
-            .contacts-grid { grid-template-columns: 1fr; }
-            .hero-image-wrapper { display: none; }
-            .hero-info { max-width: 100%; }
-        }
+    /* Текстовая область слева адаптирована под расширение правой стороны */
+    .hero-info {
+        max-width: 520px; /* Немного сузили, чтобы правый баннер заходил глубже, как на скрине */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        height: 100%;
+        position: relative;
+    }
 
-        /* Левая колонка: Карточки */
-        .cards-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        @media (max-width: 576px) {
-            .cards-list { grid-template-columns: 1fr; }
-        }
-        .contact-card {
-            background: #ffffff;
-            border: 1px solid #eef2f6;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .card-icon-box {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(0, 75, 209, 0.06);
-            color: #004bd1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .card-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #0d1b3e;
-            margin: 0;
-        }
-        .card-content {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #4a5568;
-            margin: 0;
-        }
-        .card-link {
-            color: #004bd1;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: auto;
-        }
+    /* Бейдж поднят под обрез */
+    .hero-badge {
+        position: absolute;
+        top: 20px; 
+        left: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0, 75, 209, 0.06);
+        color: #004bd1;
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 500;
+    }
 
-        /* Социальные сети внутри карточки */
-        .card-socials {
-            display: flex;
-            gap: 12px;
-            margin-top: 4px;
-        }
-        .social-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #004bd1;
-        }
+    /* Заголовок цвета #1A56C4 */
+    .hero-title {
+        font-size: 48px;
+        font-weight: 800;
+        color: #1A56C4; 
+        margin: 40px 0 12px 0; 
+    }
 
-        /* Правая колонка: Форма */
-        .form-box {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 40px;
-        }
-        .form-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #0d1b3e;
-            margin: 0 0 8px 0;
-        }
-        .form-subtitle {
-            font-size: 14px;
-            color: #718096;
-            margin: 0 0 24px 0;
-        }
-        .form-group-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        @media (max-width: 576px) {
-            .form-group-row { grid-template-columns: 1fr; }
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-        .form-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-        .form-label span { color: #e53e3e; }
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 14px;
-            background: #ffffff;
-            color: #2d3748;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            border-color: #004bd1;
-        }
-        .form-textarea {
-            resize: vertical;
-            height: 100px;
-        }
-        .form-checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 13px;
-            color: #4a5568;
-            line-height: 1.4;
-            cursor: pointer;
-            margin-bottom: 24px;
-        }
-        .form-checkbox-label input {
-            margin-top: 2px;
-        }
-        .form-checkbox-label a {
-            color: #004bd1;
-            text-decoration: none;
-        }
-    </style>
+    .hero-desc {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4a5568;
+        margin: 0 0 20px 0;
+    }
+
+    .hero-decor-line {
+        width: 40px;
+        height: 4px;
+        background-color: #ffc837;
+        border-radius: 2px;
+    }
+    
+    /* ПРАВАЯ ЧАСТЬ БАННЕРА (РАСШИРЕНА НА 20%) */
+    .hero-image-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 52%; /* Увеличено с 42% для расширения графической области */
+        z-index: 1;
+        background-color: #e2e8f0;
+        /* Обновленная маска среза для более плавного и широкого наплыва */
+        clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%, 6% 50%);
+    }
+
+    /* Основной контент: Сетка */
+    .contacts-main {
+        padding: 60px 0;
+        background-color: #ffffff;
+    }
+    .contacts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    @media (max-width: 992px) {
+        .contacts-grid { grid-template-columns: 1fr; }
+        .hero-image-wrapper { display: none; }
+        .hero-info { max-width: 100%; }
+        .hero-badge { position: relative; top: 0; margin-bottom: 20px; }
+        .hero-title { margin-top: 0; }
+    }
+
+    /* Левая колонка: Карточки */
+    .cards-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    @media (max-width: 576px) {
+        .cards-list { grid-template-columns: 1fr; }
+    }
+    .contact-card {
+        background: #ffffff;
+        border: 1px solid #eef2f6;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .card-icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0, 75, 209, 0.06);
+        color: #004bd1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #0d1b3e;
+        margin: 0;
+    }
+    .card-content {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #4a5568;
+        margin: 0;
+    }
+    .card-link {
+        color: #004bd1;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: auto;
+    }
+
+    /* Социальные сети внутри карточки */
+    .card-socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 4px;
+    }
+    .social-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #004bd1;
+    }
+
+    /* Правая колонка: Форма */
+    .form-box {
+        background: #f8fafc;
+        border-radius: 20px;
+        padding: 40px;
+    }
+    .form-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #0d1b3e;
+        margin: 0 0 8px 0;
+    }
+    .form-subtitle {
+        font-size: 14px;
+        color: #718096;
+        margin: 0 0 24px 0;
+    }
+    .form-group-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+    @media (max-width: 576px) {
+        .form-group-row { grid-template-columns: 1fr; }
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+    .form-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #2d3748;
+    }
+    .form-label span { color: #e53e3e; }
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        background: #ffffff;
+        color: #2d3748;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: #004bd1;
+    }
+    .form-textarea {
+        resize: vertical;
+        height: 100px;
+    }
+    .form-checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13px;
+        color: #4a5568;
+        line-height: 1.4;
+        cursor: pointer;
+        margin-bottom: 24px;
+    }
+    .form-checkbox-label input {
+        margin-top: 2px;
+    }
+    .form-checkbox-label a {
+        color: #004bd1;
+        text-decoration: none;
+    }
+</style>
 </head>
 <body>
 
@@ -239,21 +262,22 @@
     <!-- Интегрируйте сюда вашу стандартную шапку, обязательно добавив класс активности кнопке "Контакти" -->
 
     <!-- БАННЕР СТРАНИЦЫ (ГЕРОЙ-БЛОК) -->
-    <section class="contacts-hero">
-        <div class="container hero-split">
+   <section class="contacts-hero">
+        <div class="hero-container">
             <div class="hero-info">
+                <!-- Бейдж поднят наверх -->
                 <div class="hero-badge">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     <span data-i18n="hero_badge">Ми завжди на зв'язку</span>
                 </div>
+                <!-- Заголовок цвета #1A56C4 и описание отцентрированы внутри контейнера -->
                 <h1 class="hero-title" data-i18n="hero_title">Контакти UAGZ</h1>
                 <p class="hero-desc" data-i18n="hero_desc">Маєте питання або хочете дізнатися більше про наші програми? Ми з радістю допоможемо вам та вашій родині!</p>
                 <div class="hero-decor-line"></div>
             </div>
         </div>
-        <!-- Заготовка для картинки справа. Когда появится изображение, добавьте его в src тега img внутри -->
         <div class="hero-image-wrapper">
-            <!-- <img src="path_to_photo.jpg" alt="UAGZ Contacts" style="width:100%; height:100%; object-fit:cover;"> -->
+            <!-- Сюда позже вставим фото -->
         </div>
     </section>
 

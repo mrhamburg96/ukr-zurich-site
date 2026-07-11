@@ -7,6 +7,176 @@
     <!-- Подключение ваших общих стилей (измените пути, если стили лежат в папке) -->
     <link rel="stylesheet" href="style.css"> 
     <style>
+        /* СТИЛИ ДЛЯ ШАПКИ САЙТА */
+.site-header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eef2f6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Блок логотипа */
+.header-logo-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.header-logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0d1b3e;
+    letter-spacing: -0.5px;
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+/* Меню навигации */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0d1b3e;
+    text-decoration: none;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link:hover {
+    color: #004bd1;
+}
+
+/* Активный пункт (как Контакти на скрине) */
+.nav-link.active {
+    color: #004bd1;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #004bd1;
+    border-radius: 2px;
+}
+
+/* Правые действия */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Желтая кнопка */
+.header-btn {
+    background-color: #ffc837;
+    color: #0d1b3e;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.header-btn:hover {
+    background-color: #f1bc31;
+}
+
+/* Выбор языка */
+.lang-switcher {
+    position: relative;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0d1b3e;
+    padding: 5px 0;
+}
+
+.lang-current {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    min-width: 60px;
+    overflow: hidden;
+}
+
+.lang-switcher:hover .lang-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.lang-item {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #4a5568;
+    transition: background 0.2s;
+}
+
+.lang-item:hover {
+    background: #f4f7fc;
+    color: #004bd1;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 992px) {
+    .header-nav { display: none; } /* Скрываем меню на планшетах/смартфонах */
+}
     /* HERO-БАННЕР С РАСШИРЕННОЙ ПРАВОЙ ЧАСТЬЮ */
     .contacts-hero {
         position: relative;
@@ -268,8 +438,50 @@
 
     <!-- ВЕРХНЕЕ МЕНЮ (ШАПКА САЙТА) -->
     <!-- Интегрируйте сюда вашу стандартную шапку, обязательно добавив класс активности кнопке "Контакти" -->
+<!-- ШАПКА САЙТА (HEADER) -->
+<header class="site-header">
+    <div class="header-container">
+        <!-- Левая часть: Логотип и описание -->
+        <a href="/" class="header-logo-block">
+            <img src="Logo01.png" alt="UAGZ Logo" class="header-logo-img">
+            <div class="header-logo-text">
+                <span class="logo-title">UAGZ</span>
+                <span class="logo-subtitle" data-i18n="header_subtitle">Сімейний центр<br>у Цюриху</span>
+            </div>
+        </a>
 
-    <!-- БАННЕР СТРАНИЦЫ (ГЕРОЙ-БЛОК) -->
+        <!-- Центр: Навигационное меню -->
+        <nav class="header-nav">
+            <a href="#" class="nav-link" data-i18n="nav_home">Головна</a>
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-i18n="nav_programs">Прорами <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+            <a href="#" class="nav-link" data-i18n="nav_schedule">Розклад</a>
+            <a href="#" class="nav-link" data-i18n="nav_events">Події</a>
+            <a href="#" class="nav-link" data-i18n="nav_team">Команда</a>
+            <a href="#" class="nav-link" data-i18n="nav_faq">FAQ</a>
+            <a href="#" class="nav-link active" data-i18n="nav_contacts">Контакти</a>
+        </nav>
+
+        <!-- Правая часть: Кнопка и языки -->
+        <div class="header-actions">
+            <!-- Желтая кнопка записи -->
+            <a href="#" class="header-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span data-i18n="btn_register">Записати дитину</span>
+            </a>
+            
+            <!-- Переключатель языков UA / DE -->
+            <div class="lang-switcher">
+                <span class="lang-current">UA <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div class="lang-dropdown">
+                    <a href="?lang=ua" class="lang-item">UA</a>
+                    <a href="?lang=de" class="lang-item">DE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
  <!-- ИСПРАВЛЕННАЯ РАЗМЕТКА БАННЕРА С КАРТИНКОЙ -->
 <section class="contacts-hero">
     <div class="hero-container">

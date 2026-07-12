@@ -207,17 +207,16 @@
         z-index: 2;
     }
 
- /* ЛЕВАЯ ЧАСТЬ: Ограничиваем ширину текста под новую границу картинки */
+ /* Текстовая область слева (сужена, чтобы освободить место под широкую картинку) */
 .hero-info {
+    max-width: 420px; 
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    max-width: 520px; /* Текст аккуратно встает до начала формы "Напишіть нам" */
-    width: 100%;
+    justify-content: center; 
+    height: 100%;
     position: relative;
-    z-index: 2;
 }
-
     /* Бейдж поднят под обрез */
     .hero-badge {
         position: absolute;
@@ -256,21 +255,20 @@
         border-radius: 2px;
     }
     
- /* ПРАВАЯ ЧАСТЬ: Картинка удлинена ровно до границы блока "Напишіть нам" */
+ /* ПРАВАЯ ЧАСТЬ: ШИРИНА УВЕЛИЧЕНА ДО 62%, ЛЕВЫЙ КРАЙ ЗАКРУГЛЕН */
 .hero-image-wrapper {
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    width: 48%; /* Изменено для точного выравнивания по сетке с формой */
+    width: 62%;
     z-index: 1;
     background-color: #e2e8f0;
     overflow: hidden;
     
-    /* Обновленная вогнутая дуга под ширину 48% (Высота баннера 320px) */
-    clip-path: path('M 1000 0 L 120 0 Q 0 160 120 320 L 1000 320 Z');
+    /* Используем clip-path с кривой Безье для создания вогнутой дуги */
+    clip-path: path('M 100 0 Q 0 160 100 320 L 1000 320 L 1000 0 Z');
 }
-
 /* Сама картинка внутри обтекаемого блока */
 .hero-img {
     width: 100%;

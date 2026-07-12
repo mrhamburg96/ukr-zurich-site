@@ -255,31 +255,41 @@
         border-radius: 2px;
     }
    /* ПРАВАЯ ЧАСТЬ: ШИРИНА УВЕЛИЧЕНА ДО 62%, ЛЕВЫЙ КРАЙ ЗАКРУГЛЕН */
+/* РОДИТЕЛЬСКИЙ БЛОК */
 .hero-image-wrapper {
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    width: 62%;
+    width: 62%; /* Ваша текущая рабочая ширина */
     z-index: 1;
-    background-color: #e2e8f0;
     overflow: hidden;
-    
-    /* Используем clip-path с кривой Безье для создания вогнутой дуги */
-    clip-path: path('M 100 0 Q 0 160 100 320 L 1000 320 L 1000 0 Z');
 }
-/* Сама картинка внутри обтекаемого блока */
-/* САМА КАРТИНКА С ПЛАВНЫМ РАЗМЫТИЕМ И ПЕРЕХОДОМ В ФОН */
+
+/* НАЛОЖЕНИЕ: Создает дымку цвета фона, перекрывающую левый бок фото */
+.hero-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    /* Переход от плотного цвета фона фона баннера к полной прозрачности */
+    background: linear-gradient(to right, 
+        #f4f6f9 0%, 
+        rgba(244, 246, 249, 0.8) 20%, 
+        rgba(244, 246, 249, 0) 60%
+    );
+    pointer-events: none;
+}
+
+/* КАРТИНКА (Четкая, под слоем дымки) */
 .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center right;
-
-    /* МАСКА ПРОЗРАЧНОСТИ: левый край (0%) полностью прозрачный, 
-       а к 25% ширины картинка плавно становится на 100% видимой */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 25%);
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 60%);
 }
     /* Основной контент: Сетка */
     .contacts-main {

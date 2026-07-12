@@ -68,28 +68,33 @@
     gap: 24px;
 }
 
+/* ОБНОВЛЕННЫЕ СТИЛИ НАВИГАЦИИ С ЦВЕТОМ #1A56C4 */
 .nav-link {
     font-size: 14px;
     font-weight: 600;
-    color: #0d1b3e;
+    color: #1A56C4; /* Все заголовки меню теперь этого цвета */
     text-decoration: none;
     padding: 8px 0;
     position: relative;
-    transition: color 0.2s;
+    transition: opacity 0.2s; /* Мягкое затухание при наведении вместо смены цвета */
     display: inline-flex;
     align-items: center;
     gap: 4px;
 }
 
+/* Эффект при наведении (становится чуть прозрачнее/ярче для отклика) */
 .nav-link:hover {
-    color: #004bd1;
+    color: #1A56C4;
+    opacity: 0.8;
 }
 
-/* Активный пункт (как Контакти на скрине) */
+/* Активный пункт меню («Контакти») */
 .nav-link.active {
-    color: #004bd1;
+    color: #1A56C4;
+    opacity: 1;
 }
 
+/* Линия подчеркивания активного пункта тоже в цвет текста */
 .nav-link.active::after {
     content: '';
     position: absolute;
@@ -97,7 +102,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #004bd1;
+    background-color: #1A56C4; 
     border-radius: 2px;
 }
 

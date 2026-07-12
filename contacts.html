@@ -269,11 +269,17 @@
     clip-path: path('M 100 0 Q 0 160 100 320 L 1000 320 L 1000 0 Z');
 }
 /* Сама картинка внутри обтекаемого блока */
+/* САМА КАРТИНКА С ПЛАВНЫМ РАЗМЫТИЕМ И ПЕРЕХОДОМ В ФОН */
 .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center right;
+
+    /* МАСКА ПРОЗРАЧНОСТИ: левый край (0%) полностью прозрачный, 
+       а к 25% ширины картинка плавно становится на 100% видимой */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 25%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 25%);
 }
     /* Основной контент: Сетка */
     .contacts-main {

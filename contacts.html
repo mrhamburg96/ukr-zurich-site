@@ -272,8 +272,10 @@
 .hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center right;
+    /* contain покажет картинку полностью без обрезки, 
+       но по краям фиксированного блока может появиться пустой фон */
+    object-fit: contain; 
+    object-position: right center;
 }
     /* Основной контент: Сетка */
     .contacts-main {

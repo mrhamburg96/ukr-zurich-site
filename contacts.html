@@ -193,18 +193,32 @@
     }
     
     /* Чёткая посадка по ширине нижнего блока */
-    .hero-container {
-        width: 100%;
-        max-width: 1200px; /* Совпадает с вашим основным контейнером сайта */
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-        height: 100%;
-        display: flex;
-        align-items: center; 
-        position: relative;
-        z-index: 2;
-    }
+   /* HERO-БАННЕР С РАСШИРЕННОЙ ПРАВОЙ ЧАСТЬЮ */
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px; /* Совпадает с вашим основным контейнером сайта */
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+    position: relative;
+    z-index: 2;
+}
+
+/* ДЕКОРАТИВНАЯ ЖЁЛТАЯ ЧЕРТА, ОТЦЕНТРИРОВАННАЯ В ТЕКСТЕ */
+.hero-line {
+    width: 45px;
+    height: 4px;
+    background-color: #ffc837; /* Ваш фирменный жёлтый цвет */
+    border-radius: 2px;
+    
+    /* Эти свойства идеально центрируют линию горизонтально внутри блока */
+    align-self: center; 
+    margin: 16px auto; /* Равномерные отступы сверху и снизу */
+}
 
    /* Текстовая область слева (сужена, чтобы освободить место под широкую картинку) */
 .hero-info {

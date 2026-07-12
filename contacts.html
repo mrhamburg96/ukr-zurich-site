@@ -261,9 +261,10 @@
     background-color: #e2e8f0;
     overflow: hidden;
     
-    /* Волнообразный срез */
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-    border-radius: 60% 0 0 0 / 100% 0 0 0;
+    /* Мягкий наклонный срез */
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 20px;
 }
 /* Сама картинка внутри обтекаемого блока */
 .hero-img {

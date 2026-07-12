@@ -254,20 +254,36 @@
         background-color: #ffc837;
         border-radius: 2px;
     }
-    
-    /* ПРАВАЯ ЧАСТЬ: ШИРИНА УВЕЛИЧЕНА ДО 62%, ЛЕВЫЙ КРАЙ ЗАКРУГЛЕН */
+   /* КАНВА ДЛЯ БАННЕРА (Остается фиксированной, держит форму изгиба) */
 .hero-image-wrapper {
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    width: 62%;
+    width: 48%; 
     z-index: 1;
-    background-color: #e2e8f0;
+    background-color: #e2e8f0; /* Цвет фона, если картинка станет слишком маленькой */
     overflow: hidden;
     
-    /* Используем clip-path с кривой Безье для создания вогнутой дуги */
-    clip-path: path('M 100 0 Q 0 160 100 320 L 1000 320 L 1000 0 Z');
+    /* Ваша адаптивная вогнутая дуга */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border-radius: 52% 0 0 52% / 50% 0 0 50%;
+}
+
+/* САМА КАРТИНКА: ВРУЧНУЮ УМЕНЬШАЕМ ЕЕ МАСШТАБ ТУТ */
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+    
+    /* ВРУЧНУЮ УМЕНЬШАЕМ МАСШТАБ: 0.85 — это 85% от исходного размера (меньше на 15%) */
+    transform: scale(0.85); 
+    
+    /* ДОПОЛНИТЕЛЬНО: Если картинка съехала после уменьшения, 
+       ее можно вручную подвинуть влево/вправо (например, translateX(20px)) */
+    transform-origin: right center; /* Масштабирование привязывается к правому краю */
+    transition: transform 0.2s ease;
 }
 /* Сама картинка внутри обтекаемого блока */
 .hero-img {

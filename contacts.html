@@ -678,8 +678,10 @@
             <span data-i18n="form_btn_send">Надіслати повідомлення</span>
         </button>
 
-        <!-- Новый пустой блок для фото: идет впритык к кнопке, растягивается до самого низа -->
-        <div class="form-photo-container" style="width: 100%; margin-top: 0; flex-grow: 1; min-height: 50px;"></div>
+        <!-- Блок с вашим фото впритык к кнопке -->
+        <div class="form-photo-container" style="width: 100%; margin-top: 0; flex-grow: 1; display: flex; overflow: hidden; border-radius: 0 0 4px 4px;">
+            <img src="contacts-podval.webp" alt="UAGZ" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
     </form>
 </div>
 

@@ -577,152 +577,157 @@
   </div>
 </div>
 
- <script>
-    async function loadTranslations(lang) {
-      try {
-        const response = await fetch(`${lang}.json`);
-        if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
-        const translations = await response.json();
+<!-- ... Здесь заканчивается верстка вашего футера или модального окна ... -->
 
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-          const keyPath = element.getAttribute('data-i18n');
-          const keys = keyPath.split('.');
-          
-          let text = translations;
-          keys.forEach(key => {
-            if (text) text = text[key];
-          });
+    <!-- ВСТАВЛЯЙТЕ СЮДА: -->
+    <script>
+      async function loadTranslations(lang) {
+        try {
+          const response = await fetch(`${lang}.json`);
+          if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
+          const translations = await response.json();
 
-          if (text) {
-            if (element.tagName === 'IMG') {
-              element.src = text;
-            } else {
-              element.textContent = text;
+          document.querySelectorAll('[data-i18n]').forEach(element => {
+            const keyPath = element.getAttribute('data-i18n');
+            const keys = keyPath.split('.');
+            
+            let text = translations;
+            keys.forEach(key => {
+              if (text) text = text[key];
+            });
+
+            if (text) {
+              if (element.tagName === 'IMG') {
+                element.src = text;
+              } else {
+                element.textContent = text;
+              }
             }
-          }
-        });
-
-        // ДОРАБОТКА: Автоматический перевод плейсхолдеров (placeholder) в полях формы
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-          const keyPath = element.getAttribute('data-i18n-placeholder');
-          const keys = keyPath.split('.');
-          
-          let text = translations;
-          keys.forEach(key => {
-            if (text) text = text[key];
           });
 
-          if (text) {
-            element.setAttribute('placeholder', text);
-          }
-        });
+          // Автоматический перевод плейсхолдеров (placeholder) в полях формы
+          document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const keyPath = element.getAttribute('data-i18n-placeholder');
+            const keys = keyPath.split('.');
+            
+            let text = translations;
+            keys.forEach(key => {
+              if (text) text = text[key];
+            });
 
-      } catch (error) {
-        console.error('Ошибка перевода:', error);
-      }
-    }
+            if (text) {
+              element.setAttribute('placeholder', text);
+            }
+          });
 
-    function changeLanguage(event, lang) {
-      event.preventDefault();
-      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
-      const selectedLangButton = document.getElementById('lang-' + lang);
-      if (selectedLangButton) selectedLangButton.classList.add('active');
-      
-      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
-      window.history.pushState({ path: newUrl }, '', newUrl);
-      loadTranslations(lang);
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-      // 1. Инициализация языков
-      const urlParams = new URLSearchParams(window.location.search);
-      const currentLang = urlParams.get('lang') || 'ua';
-      
-      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
-      const activeBtn = document.getElementById('lang-' + currentLang);
-      if (activeBtn) activeBtn.classList.add('active');
-      
-      loadTranslations(currentLang);
-
-      // 2. Управление модальным окном
-      const openBtn = document.getElementById('openVolunteerModal');
-      const overlay = document.getElementById('volunteerModalOverlay');
-      const closeBtn = document.getElementById('closeVolunteerModal');
-      const form = document.getElementById('volunteerForm');
-
-      if (openBtn && overlay && closeBtn) {
-        // Открытие модального окна
-        openBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          overlay.classList.add('is-active');
-          document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы сзади
-        });
-
-        // Закрытие по клику на крестик
-        closeBtn.addEventListener('click', closeModal);
-
-        // Закрытие по клику на область вокруг модального окна
-        overlay.addEventListener('click', function(e) {
-          if (e.target === overlay) {
-            closeModal();
-          }
-        });
-
-        function closeModal() {
-          overlay.classList.remove('is-active');
-          document.body.style.overflow = ''; // Возвращаем прокрутку
+        } catch (error) {
+          console.error('Ошибка перевода:', error);
         }
-
-        // Интеграция с Google Sheets (Вместо старого alert-скрипта)
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const submitButton = form.querySelector('.v-modal-submit');
-          const originalButtonText = submitButton.textContent;
-
-          // Блокируем кнопку на время отправки
-          submitButton.disabled = true;
-          submitButton.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
-
-          // Собираем данные прямо из полей формы (через FormData по атрибутам name)
-          const formData = new FormData(form);
-          
-          // URL вашего веб-приложения Google Скрипта
-          const scriptURL = 'https://script.google.com/macros/s/AKfycbxaJSzuMy3umheNjIo7GcW92SkyHaF5SPoK3g0Fkxwn1ykzXwnEY-TrlOcf31bYmyK_/exec';
-
-          fetch(scriptURL, { 
-            method: 'POST', 
-            body: formData 
-          })
-          .then(response => {
-            // Возвращаем кнопку в рабочее состояние
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-            
-            // Выводим сообщение на языке интерфейса
-            if (currentLang === 'de') {
-              alert('Vielen Dank! Ваша заявка успішно надіслана. Wir werden uns в ближайшее время связаться с вами!');
-            } else {
-              alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
-            }
-            
-            // Сбрасываем и закрываем окно, как у вас и было запланировано
-            form.reset();
-            closeModal();
-          })
-          .catch(error => {
-            console.error('Ошибка интеграции с Google Sheets:', error);
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-            
-            const errorMsg = currentLang === 'de' 
-              ? 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.' 
-              : 'Сталася помилка. Будь ласка, спробуйте ще раз.';
-            alert(errorMsg);
-          });
-        });
       }
-    });
-</script>
-</body>
+
+      function changeLanguage(event, lang) {
+        event.preventDefault();
+        document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+        const selectedLangButton = document.getElementById('lang-' + lang);
+        if (selectedLangButton) selectedLangButton.classList.add('active');
+        
+        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+        loadTranslations(lang);
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        // 1. Инициализация языков
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentLang = urlParams.get('lang') || 'ua';
+        
+        document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+        const activeBtn = document.getElementById('lang-' + currentLang);
+        if (activeBtn) activeBtn.classList.add('active');
+        
+        loadTranslations(currentLang);
+
+        // 2. Управление модальным окном
+        const openBtn = document.getElementById('openVolunteerModal');
+        const overlay = document.getElementById('volunteerModalOverlay');
+        const closeBtn = document.getElementById('closeVolunteerModal');
+        const form = document.getElementById('volunteerForm');
+
+        if (openBtn && overlay && closeBtn) {
+          // Открытие модального окна
+          openBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            overlay.classList.add('is-active');
+            document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы сзади
+          });
+
+          // Закрытие по клику на крестик
+          closeBtn.addEventListener('click', closeModal);
+
+          // Закрытие по клику на область вокруг модального окна
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+              closeModal();
+            }
+          });
+
+          function closeModal() {
+            overlay.classList.remove('is-active');
+            document.body.style.overflow = ''; // Возвращаем прокрутку
+          }
+
+          // Интеграция с Google Sheets с обходом CORS
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('.v-modal-submit');
+            const originalButtonText = submitButton.textContent;
+
+            // Блокируем кнопку на время отправки
+            submitButton.disabled = true;
+            submitButton.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
+
+            // Собираем данные прямо из полей формы (через FormData по атрибутам name)
+            const formData = new FormData(form);
+            
+            // URL вашего веб-приложения Google Скрипта
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxaJSzuMy3umheNjIo7GcW92SkyHaF5SPoK3g0Fkxwn1ykzXwnEY-TrlOcf31bYmyK_/exec';
+
+            // Настройки запроса с режимом no-cors для обхода блокировки безопасности
+            fetch(scriptURL, { 
+              method: 'POST', 
+              mode: 'no-cors', // Добавлено для решения проблемы CORS
+              body: formData 
+            })
+            .then(response => {
+              // Возвращаем кнопку в рабочее состояние
+              submitButton.disabled = false;
+              submitButton.textContent = originalButtonText;
+              
+              // Выводим сообщение на языке интерфейса
+              if (currentLang === 'de') {
+                alert('Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze mit Ihnen in Verbindung setzen!');
+              } else {
+                alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
+              }
+              
+              // Сбрасываем и закрываем окно
+              form.reset();
+              closeModal();
+            })
+            .catch(error => {
+              console.error('Ошибка интеграции с Google Sheets:', error);
+              submitButton.disabled = false;
+              submitButton.textContent = originalButtonText;
+              
+              const errorMsg = currentLang === 'de' 
+                ? 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.' 
+                : 'Сталася помилка. Будь ласка, спробуйте ще раз.';
+              alert(errorMsg);
+            });
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

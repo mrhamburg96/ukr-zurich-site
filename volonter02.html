@@ -130,16 +130,16 @@
     }
 
     /* НАСТРОЙКА БАННЕРА НА ВЫСОТУ 370px */
-  .banner-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-.banner-img {
-  width: 100%;
-  height: auto; /* Картинка пропорционально сжимается сама */
-  display: block;
-}
+    .banner-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .banner-img {
+      width: 100%;
+      height: auto; /* Картинка пропорционально сжимается сама */
+      display: block;
+    }
     .banner-link {
       position: absolute;
       background: rgba(255, 255, 255, 0);
@@ -209,19 +209,18 @@
       overflow: hidden;
       background: #fff;
     }
-   .dir-image-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9; /* Задает идеальное соотношение сторон, высота подстроится сама! */
-  overflow: visible;     /* Чтобы круглая иконка-бейдж снизу не скрывалась */
-}
-
-.direction-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* Теперь cover будет работать идеально, так как пропорции сохранены */
-  display: block;
-}
+    .dir-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9; /* Задает идеальное соотношение сторон, высота подстроится сама! */
+      overflow: visible;     /* Чтобы круглая иконка-бейдж снизу не скрывалась */
+    }
+    .direction-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* Теперь cover будет работать идеально, так как пропорции сохранены */
+      display: block;
+    }
     .dir-icon-badge {
       position: absolute;
       bottom: -15px;
@@ -283,6 +282,126 @@
       .services-grid, .directions-grid { grid-template-columns: 1fr; }
       .cta-banner { flex-direction: column; text-align: center; }
       .cta-left { flex-direction: column; }
+    }
+
+    /* ════════════════ СТИЛИ МОДАЛЬНОГО ОКНА ════════════════ */
+    .v-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(3, 21, 48, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .v-modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .v-modal-card {
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 480px;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(3, 21, 48, 0.15);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      box-sizing: border-box;
+    }
+    .v-modal-overlay.is-active .v-modal-card {
+      transform: translateY(0);
+    }
+    .v-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #A0AEC0;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 50%;
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .v-modal-close:hover {
+      color: #2D3748;
+      background-color: #EDF2F7;
+    }
+    .v-modal-title {
+      color: #031530;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      text-align: center;
+    }
+    .v-modal-subtitle {
+      color: #718096;
+      font-size: 14px;
+      margin: 0 0 24px 0;
+      text-align: center;
+    }
+    .v-modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .v-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .v-form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4A5568;
+      text-align: left;
+    }
+    .v-form-input, .v-form-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #CBD5E0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #2D3748;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .v-form-input:focus, .v-form-textarea:focus {
+      border-color: #1A56C4;
+      box-shadow: 0 0 0 3px rgba(26, 86, 196, 0.15);
+    }
+    .v-form-textarea {
+      resize: vertical;
+    }
+    .v-modal-submit {
+      background-color: #1A56C4; /* Фирменный синий цвет */
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .v-modal-submit:hover {
+      background-color: #14459F;
+    }
+    .v-modal-submit:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
@@ -358,7 +477,7 @@
         <div class="service-card">
           <img src="5icon-volont.webp" alt="" class="service-icon">
           <h3 data-i18n="services.card5_title">Інформування</h3>
-          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною.</p>
+          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагают громаді бути поінформованою та захищеною.</p>
         </div>
       </div>
     </section>
@@ -418,10 +537,44 @@
             <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом мы можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
           </div>
         </div>
-        <a href="#contact-us" class="cta-button" data-i18n="cta_button">Зв’язатися з нами</a>
+        <a href="#volunteerModal" id="openVolunteerModal" class="cta-button" data-i18n="cta_button">Зв’язатися з нами</a>
       </div>
     </section>
 
+  </div>
+
+  <!-- ════════════════ РАЗМЕТКА МОДАЛЬНОГО ОКНА ════════════════ -->
+  <div id="volunteerModalOverlay" class="v-modal-overlay">
+    <div class="v-modal-card">
+      <button type="button" class="v-modal-close" id="closeVolunteerModal" aria-label="Закрити">&times;</button>
+      
+      <h2 class="v-modal-title">Реєстрація волонтера</h2>
+      <p class="v-modal-subtitle">Ми зв'яжемося з вами найближчим часом!</p>
+      
+      <form id="volunteerForm" class="v-modal-form">
+        <div class="v-form-group">
+          <label for="v-name" class="v-form-label">Ім'я</label>
+          <input type="text" id="v-name" name="name" class="v-form-input" placeholder="Ваше ім'я" required autocomplete="given-name">
+        </div>
+        
+        <div class="v-form-group">
+          <label for="v-email" class="v-form-label">Емейл</label>
+          <input type="email" id="v-email" name="email" class="v-form-input" placeholder="example@email.com" required autocomplete="email">
+        </div>
+        
+        <div class="v-form-group">
+          <label for="v-phone" class="v-form-label">Телефон</label>
+          <input type="tel" id="v-phone" name="phone" class="v-form-input" placeholder="+41 76 000 00 00" required autocomplete="tel">
+        </div>
+        
+        <div class="v-form-group">
+          <label for="v-help" class="v-form-label">Чим ви хочете допомогти?</label>
+          <textarea id="v-help" name="help" class="v-form-textarea" rows="4" placeholder="Наприклад: допомога з дітьми, переклад, організація заходів..." required></textarea>
+        </div>
+        
+        <button type="submit" class="v-modal-submit">Надіслати</button>
+      </form>
+    </div>
   </div>
 
   <script>
@@ -465,6 +618,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function() {
+      // 1. Инициализация языков
       const urlParams = new URLSearchParams(window.location.search);
       const currentLang = urlParams.get('lang') || 'ua';
       
@@ -473,6 +627,56 @@
       if (activeBtn) activeBtn.classList.add('active');
       
       loadTranslations(currentLang);
+
+      // 2. Управление модальным окном
+      const openBtn = document.getElementById('openVolunteerModal');
+      const overlay = document.getElementById('volunteerModalOverlay');
+      const closeBtn = document.getElementById('closeVolunteerModal');
+      const form = document.getElementById('volunteerForm');
+
+      if (openBtn && overlay && closeBtn) {
+        // Открытие модального окна
+        openBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          overlay.classList.add('is-active');
+          document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы сзади
+        });
+
+        // Закрытие по клику на крестик
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закрытие по клику на область вокруг модального окна
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeModal();
+          }
+        });
+
+        function closeModal() {
+          overlay.classList.remove('is-active');
+          document.body.style.overflow = ''; // Возвращаем прокрутку
+        }
+
+        // Обработка заполнения и отправки формы
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const formData = {
+            name: document.getElementById('v-name').value,
+            email: document.getElementById('v-email').value,
+            phone: document.getElementById('v-phone').value,
+            help: document.getElementById('v-help').value
+          };
+          
+          console.log('Дані нового волонтера:', formData);
+          
+          // Показываем красивое сообщение об успехе на украинском языке
+          alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
+          
+          form.reset();
+          closeModal();
+        });
+      }
     });
   </script>
 </body>

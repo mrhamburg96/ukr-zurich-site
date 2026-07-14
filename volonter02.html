@@ -693,8 +693,15 @@
             submitButton.disabled = true;
             submitButton.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
 
-           // Собираем данные формы и переводим их в формат URL-запроса
+           // Собираем данные формы вручную, чтобы гарантировать отправку help
           const formData = new FormData(form);
+          
+          // Принудительно считываем текст из textarea и добавляем/перезаписываем его в FormData
+          const helpTextarea = document.getElementById('v-help');
+          if (helpTextarea) {
+            formData.set('help', helpTextarea.value);
+          }
+          
           const urlEncodedData = new URLSearchParams(formData).toString();
           
           // URL вашего веб-приложения Google Скрипта

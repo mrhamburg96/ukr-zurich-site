@@ -403,6 +403,42 @@
     .v-modal-submit:active {
       transform: scale(0.98);
     }
+    /* ════════════════ СТИЛИ ДЛЯ ТАБЛИЦЫ ВОЛОНТЕРОВ ════════════════ */
+    .v-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .v-table th {
+      background-color: #1A56C4; /* Ваш фирменный синий */
+      color: #ffffff;
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .v-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #2D3748;
+      vertical-align: middle;
+    }
+    .v-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .v-table tbody tr:hover {
+      background-color: #F7FAFC;
+    }
+    .v-table-date {
+      color: #718096;
+      font-size: 12px;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -527,7 +563,30 @@
         </div>
       </div>
     </section>
-
+    <!-- ════════════════ ТАБЛИЦА ВОЛОНТЕРОВ ════════════════ -->
+    <section class="services-section" id="volunteers-table-section">
+      <h2 class="section-title">Список зареєстрованих волонтерів</h2>
+      
+      <div style="overflow-x: auto; max-width: 100%; margin-top: 20px;">
+        <table class="v-table">
+          <thead>
+            <tr>
+              <th>Дата</th>
+              <th>Ім'я</th>
+              <th>Емейл</th>
+              <th>Телефон</th>
+              <th>Чим хочу допомогти</th>
+            </tr>
+          </thead>
+          <tbody id="volunteersTableBody">
+            <!-- Сюда с помощью JS будут добавляться новые строки -->
+            <tr id="no-data-row">
+              <td colspan="5" style="text-align: center; color: #a0aec0; padding: 20px;">Наразі немає зареєстрованих волонтерів. Будьте першим!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
     <section class="cta-banner-container">
       <div class="cta-banner">
         <div class="cta-left">
@@ -577,7 +636,10 @@
     </div>
   </div>
 
-  <script>
+ <script>
+    // Глобальная переменная для отслеживания текущего языка
+    let currentLanguage = 'ua';
+
     async function loadTranslations(lang) {
       try {
         const response = await fetch(`${lang}.json`);
@@ -608,6 +670,7 @@
 
     function changeLanguage(event, lang) {
       event.preventDefault();
+      currentLanguage = lang; // Запоминаем выбранный язык
       document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
       const selectedLangButton = document.getElementById('lang-' + lang);
       if (selectedLangButton) selectedLangButton.classList.add('active');
@@ -620,15 +683,15 @@
     document.addEventListener("DOMContentLoaded", function() {
       // 1. Инициализация языков
       const urlParams = new URLSearchParams(window.location.search);
-      const currentLang = urlParams.get('lang') || 'ua';
+      currentLanguage = urlParams.get('lang') || 'ua';
       
       document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
-      const activeBtn = document.getElementById('lang-' + currentLang);
+      const activeBtn = document.getElementById('lang-' + currentLanguage);
       if (activeBtn) activeBtn.classList.add('active');
       
-      loadTranslations(currentLang);
+      loadTranslations(currentLanguage);
 
-      // 2. Управление модальным окном
+      // 2. Управление модальным окном и таблицей
       const openBtn = document.getElementById('openVolunteerModal');
       const overlay = document.getElementById('volunteerModalOverlay');
       const closeBtn = document.getElementById('closeVolunteerModal');
@@ -657,25 +720,76 @@
           document.body.style.overflow = ''; // Возвращаем прокрутку
         }
 
-        // Обработка заполнения и отправки формы
+        // Обработка заполнения и отправки формы с добавлением в таблицу
         form.addEventListener('submit', function(e) {
           e.preventDefault();
           
-          const formData = {
-            name: document.getElementById('v-name').value,
-            email: document.getElementById('v-email').value,
-            phone: document.getElementById('v-phone').value,
-            help: document.getElementById('v-help').value
+          // Собираем данные из полей формы
+          const name = document.getElementById('v-name').value;
+          const email = document.getElementById('v-email').value;
+          const phone = document.getElementById('v-phone').value;
+          const help = document.getElementById('v-help').value;
+          
+          // Генерируем текущую дату в формате ДД.ММ.ГГГГ ЧЧ:ММ
+          const now = new Date();
+          const day = String(now.getDate()).padStart(2, '0');
+          const month = String(now.getMonth() + 1).padStart(2, '0');
+          const year = now.getFullYear();
+          const hours = String(now.getHours()).padStart(2, '0');
+          const minutes = String(now.getMinutes()).padStart(2, '0');
+          const formattedDate = `${day}.${month}.${year} ${hours}:${minutes}`;
+
+          // Находим тело таблицы и удаляем строку-заглушку "Нет волонтеров", если она есть
+          const tableBody = document.getElementById('volunteersTableBody');
+          if (tableBody) {
+            const noDataRow = document.getElementById('no-data-row');
+            if (noDataRow) {
+              noDataRow.remove();
+            }
+
+            // Создаем новую строку таблицы (tr)
+            const newRow = document.createElement('tr');
+
+            // Наполняем строку ячейками (используем escapeHTML для безопасности)
+            newRow.innerHTML = `
+              <td class="v-table-date">${formattedDate}</td>
+              <td style="font-weight: 600; color: #1A56C4;">${escapeHTML(name)}</td>
+              <td><a href="mailto:${escapeHTML(email)}" style="color: #2b6cb0; text-decoration: none;">${escapeHTML(email)}</a></td>
+              <td><a href="tel:${escapeHTML(phone)}" style="color: #2b6cb0; text-decoration: none;">${escapeHTML(phone)}</a></td>
+              <td style="line-height: 1.4;">${escapeHTML(help)}</td>
+            `;
+
+            // Добавляем новую строчку в самое начало таблицы
+            tableBody.insertBefore(newRow, tableBody.firstChild);
+          }
+          
+          // Тексты успешной отправки на разных языках
+          const successMessages = {
+            'ua': 'Дякуємо! Ваша заявка успішно надіслана, а дані додані до таблиці!',
+            'ru': 'Спасибо! Ваша заявка успешно отправлена, а данные добавлены в таблицу!'
           };
+
+          // Выводим сообщение на языке интерфейса
+          const alertMessage = successMessages[currentLanguage] || successMessages['ua'];
+          alert(alertMessage);
           
-          console.log('Дані нового волонтера:', formData);
-          
-          // Показываем красивое сообщение об успехе на украинском языке
-          alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
-          
+          // Сбрасываем поля формы и закрываем окно
           form.reset();
           closeModal();
         });
+      }
+
+      // Функция защиты от XSS-уязвимостей (предотвращает выполнение вредоносного JS из полей ввода)
+      function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+          tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+          }[tag] || tag)
+        );
       }
     });
   </script>

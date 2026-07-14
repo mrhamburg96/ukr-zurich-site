@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Волонтерський центр UAGZ</title>
+  <style>
+    /* ════════════════ БАЗОВЫЕ И КОМПАКТНЫЕ СТИЛИ ════════════════ */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f7fafc; 
+      color: #333;
+    }
+
+    /* РАСШИРЯЕМ ВЕСЬ САЙТ НА ВСЮ ШИРИНУ ЭКРАНА */
+    .site-wrapper {
+      width: 100%;
+      max-width: 100%; /* Убрано ограничение в 1200px */
+      margin: 0 auto;    
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Стиль живой шапки сайта - Выстраивание элементов строго в один ряд */
+    .site-header {
+      width: 100%;
+      border-bottom: 1px solid #e2e8f0;
+      background: #ffffff;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: nowrap; /* Запрещаем перенос элементов на новую строку */
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0; /* Бренд не должен сжиматься */
+    }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #1A56C4;
+      line-height: 1.1;
+    }
+    .brand-text-desc {
+      font-size: 0.68rem;
+      color: #718096;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    /* Компактное меню в одну линию */
+    .header-nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: nowrap; /* Строго один ряд */
+    }
+    .nav-link {
+      font-size: 0.88rem; /* Немного уменьшен размер для идеального вхождения всех 8 пунктов */
+      font-weight: 600;
+      color: #1A56C4;
+      text-decoration: none;
+      white-space: nowrap; /* Запрет переноса слов внутри ссылок */
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #2b6cb0;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0; /* Экшены не сжимаются */
+    }
+    .btn-donate {
+      background-color: #FFB800;
+      color: #000000;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 8px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .lang-item {
+      text-decoration: none;
+      color: #1A56C4;
+      padding: 4px 6px;
+    }
+    .lang-item.active {
+      background-color: #002060;
+      color: #ffffff;
+      border-radius: 3px;
+    }
+
+    /* Хлебные крошки */
+    .breadcrumbs {
+      padding: 12px 30px;
+      font-size: 0.8rem;
+      color: #718096;
+    }
+    .breadcrumbs a {
+      color: #1A56C4;
+      text-decoration: none;
+    }
+
+    /* НАСТРОЙКА БАННЕРА НА ВЫСОТУ 370px */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .banner-img {
+      width: 100%;
+      height: auto; /* Картинка пропорционально сжимается сама */
+      display: block;
+    }
+    .banner-link {
+      position: absolute;
+      background: rgba(255, 255, 255, 0);
+      cursor: pointer;
+      display: block;
+      border-radius: 4px;
+    }
+    .banner-link:hover {
+      background: rgba(26, 86, 196, 0.1); 
+    }
+
+    /* Секции контента */
+    .services-section, .directions-section {
+      width: 100%;
+      padding: 40px 30px;
+    }
+    .section-title {
+      text-align: center;
+      color: #002060;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: #FFB800;
+      margin: 6px auto 0 auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 20px 12px;
+      text-align: center;
+      background: #fff;
+    }
+    .service-icon {
+      height: 60px;
+      margin-bottom: 12px;
+      object-fit: contain;
+    }
+    .service-card h3, .direction-content h3 {
+      color: #002060;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .service-card p, .direction-content p {
+      color: #4A5568;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    .directions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .direction-card {
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .dir-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9; /* Задает идеальное соотношение сторон, высота подстроится сама! */
+      overflow: visible;     /* Чтобы круглая иконка-бейдж снизу не скрывалась */
+    }
+    .direction-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* Теперь cover будет работать идеально, так как пропорции сохранены */
+      display: block;
+    }
+    .dir-icon-badge {
+      position: absolute;
+      bottom: -15px;
+      left: 15px;
+      width: 35px;
+      height: 35px;
+      background: #ffffff;
+      border-radius: 50%;
+      border: 1px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dir-icon-badge img { width: 18px; height: 18px; }
+    .direction-content { padding: 25px 15px 15px 15px; }
+
+    /* Нижний баннер */
+    .cta-banner-container {
+      width: 100%;
+      padding: 10px 30px 40px 30px;
+    }
+    .cta-banner {
+      background-color: #EBF3FF;
+      border-radius: 12px;
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .cta-left { display: flex; align-items: center; gap: 15px; }
+    .cta-heart-icon { width: 60px; height: auto; }
+    .cta-text h3 { color: #002060; font-size: 1.2rem; margin-bottom: 4px; }
+    .cta-text p { color: #1A56C4; font-size: 0.85rem; font-weight: 500; }
+    .cta-button {
+      background-color: #0D53FC;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* Планшетный режим и адаптив */
+    @media (max-width: 1200px) {
+      .site-header {
+        flex-wrap: wrap; /* Разрешаем перенос только на планшетах меньше 1200px */
+        justify-content: center;
+      }
+    }
+    @media (max-width: 992px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .directions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .site-header { flex-direction: column; text-align: center; }
+      .header-nav { flex-direction: column; gap: 10px; }
+      .services-grid, .directions-grid { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; }
+      .cta-left { flex-direction: column; }
+    }
+
+    /* ════════════════ СТИЛИ МОДАЛЬНОГО ОКНА ════════════════ */
+    .v-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(3, 21, 48, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .v-modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .v-modal-card {
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 480px;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(3, 21, 48, 0.15);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      box-sizing: border-box;
+    }
+    .v-modal-overlay.is-active .v-modal-card {
+      transform: translateY(0);
+    }
+    .v-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #A0AEC0;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 50%;
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .v-modal-close:hover {
+      color: #2D3748;
+      background-color: #EDF2F7;
+    }
+    .v-modal-title {
+      color: #031530;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      text-align: center;
+    }
+    .v-modal-subtitle {
+      color: #718096;
+      font-size: 14px;
+      margin: 0 0 24px 0;
+      text-align: center;
+    }
+    .v-modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .v-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .v-form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4A5568;
+      text-align: left;
+    }
+    .v-form-input, .v-form-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #CBD5E0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #2D3748;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .v-form-input:focus, .v-form-textarea:focus {
+      border-color: #1A56C4;
+      box-shadow: 0 0 0 3px rgba(26, 86, 196, 0.15);
+    }
+    .v-form-textarea {
+      resize: vertical;
+    }
+    .v-modal-submit {
+      background-color: #1A56C4; /* Фирменный синий цвет */
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .v-modal-submit:hover {
+      background-color: #14459F;
+    }
+    .v-modal-submit:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+
+    <header class="site-header">
+      <a href="index.html" class="header-brand">
+        <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
+        <div>
+          <div class="brand-text-title">UAGZ</div>
+          <div class="brand-text-desc" data-i18n="brand_desc">Український інтеграційний та громадський центр Цюриха</div>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Головна</a>
+        <a href="#" class="nav-link" data-i18n="nav_about">Про центр</a>
+        <a href="#" class="nav-link" data-i18n="nav_help">Допомога</a>
+        <a href="#" class="nav-link" data-i18n="nav_events">Події</a>
+        <a href="knowledge.html" class="nav-link" data-i18n="nav_knowledge">Центр знань</a>
+        <a href="#" class="nav-link" data-i18n="nav_announcements">Оголошення</a>
+        <a href="volonter02.html" class="nav-link active" data-i18n="nav_volunteers">Волонтерство</a>
+        <a href="contacts.html" class="nav-link" data-i18n="nav_contacts">Контакти</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#donate" class="btn-donate" data-i18n="btn_donate">Donate</a>
+        <div class="lang-switcher">
+          <a href="?lang=ua" class="lang-item" id="lang-ua" onclick="changeLanguage(event, 'ua')">UA</a>
+          <a href="?lang=de" class="lang-item" id="lang-de" onclick="changeLanguage(event, 'de')">DE</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="breadcrumbs">
+      <a href="index.html" data-i18n="breadcrumbs.main">Головна</a> &gt; 
+      <a href="#" data-i18n="breadcrumbs.centers">Наші центри</a> &gt; 
+      <span data-i18n="breadcrumbs.current">Волонтерський центр UAGZ</span>
+    </div>
+
+    <main class="banner-container">
+      <img src="volonter01.webp" data-i18n="volonter_img_src" alt="Волонтерський центр UAGZ" class="banner-img">
+      <a href="#need-help" class="banner-link" style="top: 29.3%; left: 3.3%; width: 17.1%; height: 4.8%;"></a>
+      <a href="#give-help" class="banner-link" style="top: 29.3%; left: 22.1%; width: 13.9%; height: 4.8%;"></a>
+      <a href="#contact-us" class="banner-link" style="top: 94.7%; left: 59.9%; width: 28.0%; height: 4.3%;"></a>
+    </main>
+
+    <section class="services-section">
+      <h2 class="section-title" data-i18n="services.title">Чим ми допомагаємо</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="1icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card1_title">Соціальна підтримка</h3>
+          <p data-i18n="services.card1_text">Допомагаємо людям у складних життєвих ситуаціях: поради, супровід та необхідна підтримка.</p>
+        </div>
+        <div class="service-card">
+          <img src="2icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card2_title">Гуманітарна допомога</h3>
+          <p data-i18n="services.card2_text">Збір та розподіл пожертв: продуктів, одягу, засобів гігієни та інших необхідних речей.</p>
+        </div>
+        <div class="service-card">
+          <img src="3icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card3_title">Організація подій</h3>
+          <p data-i18n="services.card3_text">Проводимо заходи, майстер-класи та зустрічі для зміцнення громади та підтримки взаємозв’язків.</p>
+        </div>
+        <div class="service-card">
+          <img src="4icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card4_title">Партнерство</h3>
+          <p data-i18n="services.card4_text">Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.</p>
+        </div>
+        <div class="service-card">
+          <img src="5icon-volont.webp" alt="" class="service-icon">
+          <h3 data-i18n="services.card5_title">Інформування</h3>
+          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагают громаді бути поінформованою та захищеною.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="directions-section">
+      <h2 class="section-title" data-i18n="directions.title">Наші напрямки та можливості</h2>
+      <div class="directions-grid">
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="1volonter-napriamki.webp" alt="" class="direction-img">
+            <div class="dir-icon-badge"><img src="Screenshot_1.webp" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3 data-i18n="directions.dir1_title">Збір та розподіл речей</h3>
+            <p data-i18n="directions.dir1_text">Організовуємо збори та розподіл речей першої необхідності для тих, хто потребує.</p>
+          </div>
+        </div>
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="2volonter-napriamki.webp" alt="" class="direction-img">
+            <div class="dir-icon-badge"><img src="Screenshot_2.webp" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3 data-i18n="directions.dir2_title">Волонтерські ініціативи</h3>
+            <p data-i18n="directions.dir2_text">Залучаємо волонтерів до різних проєктів та ініціатив у громаді.</p>
+          </div>
+        </div>
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="3volonter-napriamki.webp" alt="" class="direction-img">
+            <div class="dir-icon-badge"><img src="Screenshot_3.webp" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3 data-i18n="directions.dir3_title">Навчання та розвиток</h3>
+            <p data-i18n="directions.dir3_text">Пропонуємо навчальні програми та тренінги для волонтерів.</p>
+          </div>
+        </div>
+        <div class="direction-card">
+          <div class="dir-image-container">
+            <img src="4volonter-napriamki.webp" alt="" class="direction-img">
+            <div class="dir-icon-badge"><img src="Screenshot_4.webp" alt=""></div>
+          </div>
+          <div class="direction-content">
+            <h3 data-i18n="directions.dir4_title">Індивідуальний супровід</h3>
+            <p data-i18n="directions.dir4_text">Надаємо персональний супровід та допомогу в інтеграції у Швейцарії.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner-container">
+      <div class="cta-banner">
+        <div class="cta-left">
+          <img src="Logo01.png" alt="Heart" class="cta-heart-icon">
+          <div class="cta-text">
+            <h3 data-i18n="cta.title">Разом ми сильніші</h3>
+            <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом мы можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
+          </div>
+        </div>
+        <a href="#volunteerModal" id="openVolunteerModal" class="cta-button" data-i18n="cta_button">Зв’язатися з нами</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ════════════════ РАЗМЕТКА МОДАЛЬНОГО ОКНА ════════════════ -->
+  <div id="volunteerModalOverlay" class="v-modal-overlay">
+    <div class="v-modal-card">
+      <button type="button" class="v-modal-close" id="closeVolunteerModal" aria-label="Закрити">&times;</button>
+      
+      <h2 class="v-modal-title">Реєстрація волонтера</h2>
+      <p class="v-modal-subtitle">Ми зв'яжемося з вами найближчим часом!</p>
+      
+      <form id="volunteerForm" class="v-modal-form">
+        <div class="v-form-group">
+          <label for="v-name" class="v-form-label">Ім'я</label>
+          <input type="text" id="v-name" name="name" class="v-form-input" placeholder="Ваше ім'я" required autocomplete="given-name">
+        </div>
+        
+        <div class="v-form-group">
+          <label for="v-email" class="v-form-label">Емейл</label>
+          <input type="email" id="v-email" name="email" class="v-form-input" placeholder="example@email.com" required autocomplete="email">
+        </div>
+        
+        <div class="v-form-group">
+          <label for="v-phone" class="v-form-label">Телефон</label>
+          <input type="tel" id="v-phone" name="phone" class="v-form-input" placeholder="+41 76 000 00 00" required autocomplete="tel">
+        </div>
+        
+        <div class="v-form-group">
+          <label for="v-help" class="v-form-label">Чим ви хочете допомогти?</label>
+          <textarea id="v-help" name="help" class="v-form-textarea" rows="4" placeholder="Наприклад: допомога з дітьми, переклад, організація заходів..." required></textarea>
+        </div>
+        
+        <button type="submit" class="v-modal-submit">Надіслати</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    async function loadTranslations(lang) {
+      try {
+        const response = await fetch(`${lang}.json`);
+        if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
+        const translations = await response.json();
+
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const keyPath = element.getAttribute('data-i18n');
+          const keys = keyPath.split('.');
+          
+          let text = translations;
+          keys.forEach(key => {
+            if (text) text = text[key];
+          });
+
+          if (text) {
+            if (element.tagName === 'IMG') {
+              element.src = text;
+            } else {
+              element.textContent = text;
+            }
+          }
+        });
+      } catch (error) {
+        console.error('Ошибка перевода:', error);
+      }
+    }
+
+    function changeLanguage(event, lang) {
+      event.preventDefault();
+      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+      const selectedLangButton = document.getElementById('lang-' + lang);
+      if (selectedLangButton) selectedLangButton.classList.add('active');
+      
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+      loadTranslations(lang);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Инициализация языков
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentLang = urlParams.get('lang') || 'ua';
+      
+      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+      const activeBtn = document.getElementById('lang-' + currentLang);
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      loadTranslations(currentLang);
+
+      // 2. Управление модальным окном
+      const openBtn = document.getElementById('openVolunteerModal');
+      const overlay = document.getElementById('volunteerModalOverlay');
+      const closeBtn = document.getElementById('closeVolunteerModal');
+      const form = document.getElementById('volunteerForm');
+
+      if (openBtn && overlay && closeBtn) {
+        // Открытие модального окна
+        openBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          overlay.classList.add('is-active');
+          document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы сзади
+        });
+
+        // Закрытие по клику на крестик
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закрытие по клику на область вокруг модального окна
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeModal();
+          }
+        });
+
+        function closeModal() {
+          overlay.classList.remove('is-active');
+          document.body.style.overflow = ''; // Возвращаем прокрутку
+        }
+
+        // Обработка заполнения и отправки формы
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const formData = {
+            name: document.getElementById('v-name').value,
+            email: document.getElementById('v-email').value,
+            phone: document.getElementById('v-phone').value,
+            help: document.getElementById('v-help').value
+          };
+          
+          console.log('Дані нового волонтера:', formData);
+          
+          // Показываем красивое сообщение об успехе на украинском языке
+          alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
+          
+          form.reset();
+          closeModal();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

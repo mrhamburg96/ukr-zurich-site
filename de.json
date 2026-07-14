@@ -91,21 +91,6 @@
   "footer_statute": "UAGZ-Statuten",
   "footer_regulations": "Reglement über die Zentren",
 
-  "modal_title": "Anmeldung zum Programm",
-  "modal_subtitle": "Bitte füllen Sie das Formular aus, um der UAGZ-Gemeinschaft beizutreten",
-  "modal_date": "Datum",
-  "modal_name": "Ihr Name",
-  "modal_name_placeholder": "Ihr Name oder Nachname",
-  "modal_phone": "Telefonnummer",
-  "modal_phone_placeholder": "+41 XX XXX XX XX",
-  "modal_kids_count": "Anzahl der Kinder",
-  "modal_girls_info": "Anzahl der Kinder (Mädchen, Alter)",
-  "modal_girls_placeholder": "Zum Beispiel: 1 Mädchen (7 Jahre), 1 Mädchen (12 Jahre)",
-  "modal_boys_info": "Anzahl der Kinder (Junge, Alter)",
-  "modal_boys_placeholder": "Zum Beispiel: 1 Junge (5 Jahre)",
-  "modal_submit": "Anfrage senden",
-  "form_success": "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.",
-
   "target_title": "Für wen das Zentrum arbeitet",
   "target1_title": "Familien",
   "target1_desc": "Umfasende Unterstützung, gemeinsame Freizeitgestaltung und Integration ukrainischer Familien.",
@@ -127,7 +112,7 @@
   "integration_hero_title": "Integrationszentrum UAGZ",
   "integration_hero_desc": "Wir helfen Ihnen, sich an das Leben in der Schweiz anzupassen, die Sprache zu lernen und Ihren Platz in der Gemeinschaft zu finden.",
   "btn_join_programs": "An Programmen teilnehmen",
-  "int_sec_title": "Aktivitätsbereiche des Integrationszentrums",
+  "int_sec_title": "Aktivitätsbereiche des Integrationsцентрums",
   "int_sec_intro": "Wir haben ein umfassendes Umfeld geschaffen, um Ukrainer in jeder Phase der Integration zu unterstützen. Unsere Programme sind auf die realen Bedürfnisse und Anforderungen der Schweizer Gesetzgebung abgestimmt.",
   "int_card1_title": "Sprachliche Anpassung",
   "int_card1_desc": "Das Überwinden der Sprachbarriere ist der erste und wichtigste Schritt zu einer erfolgreichen Integration in die Gesellschaft und den Arbeitsmarkt.",
@@ -166,7 +151,7 @@
   "card_2_desc": "Kurse für verschiedene Niveaustufen – von Anfängern bis zur sicheren Kommunikation im Alltag.",
   "card_3_emoji": "💼",
   "card_3_title": "Arbeitsvermittlung",
-  "card_3_desc": "Wir helfen bei der Jobsuche: Beratung, Erstellung von Lebensläufen, Stellensuche und Vorbereitung auf Vorstellungsgespräche.",
+  "card_3_desc": "Wir helfen bei की Jobsuche: Beratung, Erstellung von Lebensläufen, Stellensuche und Vorbereitung auf Vorstellungsgespräche.",
   "card_4_emoji": "🤝",
   "card_4_title": "Anpassung an das Leben in der Schweiz",
   "card_4_desc": "Individuelle Begleitung während der Integration: Orientierung im System, Unterstützung und nützliche Tipps.",
@@ -227,6 +212,20 @@
   "integration_banner_src": "integration-bannerDE.webp",
   "brand_desc": "Ukrainisches Integrations- und Gemeindezentrum Zürich",
 
+  "modal": {
+    "title": "Registrierung als Freiwilliger",
+    "subtitle": "Wir werden uns in Kürze mit Ihnen in Verbindung setzen!",
+    "name_label": "Name",
+    "name_placeholder": "Ihr Name",
+    "email_label": "E-Mail",
+    "email_placeholder": "example@email.com",
+    "phone_label": "Telefon",
+    "phone_placeholder": "+41 76 000 00 00",
+    "help_label": "Wie möchten Sie helfen?",
+    "help_placeholder": "Zum Beispiel: Hilfe mit Kindern, Übersetzung, Organisation von Veranstaltungen...",
+    "submit": "Absenden"
+  },
+
   "services": {
     "title": "Wie wir helfen",
     "card1_title": "Soziale Unterstützung",
@@ -240,6 +239,7 @@
     "card5_title": "Informationsbereitstellung",
     "card5_text": "Wir verbreiten wichtige Informationen und Ressourcen, die der Gemeinschaft helfen, informiert und geschützt zu bleiben."
   },
+
   "directions": {
     "title": "Unsere Bereiche und Möglichkeiten",
     "dir1_title": "Sammlung und Verteilung von Gütern",
@@ -251,6 +251,7 @@
     "dir4_title": "Individuelle Begleitung",
     "dir4_text": "Wir bieten persönliche Begleitung und Unterstützung bei der Integration in der Schweiz."
   },
+
   "cta": {
     "title": "Gemeinsam sind wir stärker",
     "text": "Schließen Sie sich unserer Freiwilligengemeinschaft an! Gemeinsam können wir mehr Gutes tun und diejenigen unterstützen, die es brauchen.",

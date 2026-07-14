@@ -581,7 +581,7 @@
 
     <!-- ВСТАВЛЯЙТЕ СЮДА: -->
     <script>
-      async function loadTranslations(lang) {
+    async function loadTranslations(lang) {
         try {
           const response = await fetch(`${lang}.json`);
           if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
@@ -599,6 +599,12 @@
             if (text) {
               if (element.tagName === 'IMG') {
                 element.src = text;
+              } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                // Для полей ввода переводить дефолтное значение напрямую НЕЛЬЗЯ, 
+                // иначе сотрется то, что ввел пользователь.
+                if (!element.value) {
+                  element.value = text;
+                }
               } else {
                 element.textContent = text;
               }

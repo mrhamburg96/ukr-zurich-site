@@ -687,19 +687,24 @@
             submitButton.disabled = true;
             submitButton.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
 
-            // Собираем данные прямо из полей формы (через FormData по атрибутам name)
-            const formData = new FormData(form);
-            
-            // URL вашего веб-приложения Google Скрипта
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxaJSzuMy3umheNjIo7GcW92SkyHaF5SPoK3g0Fkxwn1ykzXwnEY-TrlOcf31bYmyK_/exec';
+           // Собираем данные формы и переводим их в формат URL-запроса
+          const formData = new FormData(form);
+          const urlEncodedData = new URLSearchParams(formData).toString();
+          
+          // URL вашего веб-приложения Google Скрипта
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbxaJSzuMy3umheNjIo7GcW92SkyHaF5SPoK3g0Fkxwn1ykzXwnEY-TrlOcf31bYmyK_/exec';
 
-            // Настройки запроса с режимом no-cors для обхода блокировки безопасности
-            fetch(scriptURL, { 
-              method: 'POST', 
-              mode: 'no-cors', // Добавлено для решения проблемы CORS
-              body: formData 
-            })
-            .then(response => {
+          // Отправляем данные в правильном формате с заголовком urlencoded
+          fetch(scriptURL, { 
+            method: 'POST', 
+            mode: 'no-cors', 
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: urlEncodedData 
+          })
+          .then(response => {
+             // ... код обработки успешной отправки (остается без изменений) ...
               // Возвращаем кнопку в рабочее состояние
               submitButton.disabled = false;
               submitButton.textContent = originalButtonText;

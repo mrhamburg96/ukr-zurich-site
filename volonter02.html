@@ -543,41 +543,41 @@
 
   </div>
 
-  <!-- ════════════════ РАЗМЕТКА МОДАЛЬНОГО ОКНА ════════════════ -->
-  <div id="volunteerModalOverlay" class="v-modal-overlay">
-    <div class="v-modal-card">
-      <button type="button" class="v-modal-close" id="closeVolunteerModal" aria-label="Закрити">&times;</button>
+<!-- ════════════════ РАЗМЕТКА МОДАЛЬНОГО ОКНА ════════════════ -->
+<div id="volunteerModalOverlay" class="v-modal-overlay">
+  <div class="v-modal-card">
+    <button type="button" class="v-modal-close" id="closeVolunteerModal" aria-label="Закрити">&times;</button>
+    
+    <h2 class="v-modal-title" data-i18n="modal_title">Реєстрація волонтера</h2>
+    <p class="v-modal-subtitle" data-i18n="modal_subtitle">Ми зв'яжемося з вами найближчим часом!</p>
+    
+    <form id="volunteerForm" class="v-modal-form">
+      <div class="v-form-group">
+        <label for="v-name" class="v-form-label" data-i18n="form_label_name">Ім'я</label>
+        <input type="text" id="v-name" name="name" class="v-form-input" placeholder="Ваше ім'я" data-i18n-placeholder="form_placeholder_name" required autocomplete="given-name">
+      </div>
       
-      <h2 class="v-modal-title">Реєстрація волонтера</h2>
-      <p class="v-modal-subtitle">Ми зв'яжемося з вами найближчим часом!</p>
+      <div class="v-form-group">
+        <label for="v-email" class="v-form-label" data-i18n="form_label_email">Емейл</label>
+        <input type="email" id="v-email" name="email" class="v-form-input" placeholder="example@email.com" data-i18n-placeholder="form_placeholder_email" required autocomplete="email">
+      </div>
       
-      <form id="volunteerForm" class="v-modal-form">
-        <div class="v-form-group">
-          <label for="v-name" class="v-form-label">Ім'я</label>
-          <input type="text" id="v-name" name="name" class="v-form-input" placeholder="Ваше ім'я" required autocomplete="given-name">
-        </div>
-        
-        <div class="v-form-group">
-          <label for="v-email" class="v-form-label">Емейл</label>
-          <input type="email" id="v-email" name="email" class="v-form-input" placeholder="example@email.com" required autocomplete="email">
-        </div>
-        
-        <div class="v-form-group">
-          <label for="v-phone" class="v-form-label">Телефон</label>
-          <input type="tel" id="v-phone" name="phone" class="v-form-input" placeholder="+41 76 000 00 00" required autocomplete="tel">
-        </div>
-        
-        <div class="v-form-group">
-          <label for="v-help" class="v-form-label">Чим ви хочете допомогти?</label>
-          <textarea id="v-help" name="help" class="v-form-textarea" rows="4" placeholder="Наприклад: допомога з дітьми, переклад, організація заходів..." required></textarea>
-        </div>
-        
-        <button type="submit" class="v-modal-submit">Надіслати</button>
-      </form>
-    </div>
+      <div class="v-form-group">
+        <label for="v-phone" class="v-form-label" data-i18n="form_label_phone">Телефон</label>
+        <input type="tel" id="v-phone" name="phone" class="v-form-input" placeholder="+41 76 000 00 00" data-i18n-placeholder="form_placeholder_phone" required autocomplete="tel">
+      </div>
+      
+      <div class="v-form-group">
+        <label for="v-help" class="v-form-label" data-i18n="form_label_help">Чим ви хочете допомогти?</label>
+        <textarea id="v-help" name="help" class="v-form-textarea" rows="4" placeholder="Наприклад: допомога з дітьми, переклад, організація заходів..." data-i18n-placeholder="form_placeholder_help" required></textarea>
+      </div>
+      
+      <button type="submit" class="v-modal-submit" data-i18n="form_submit_btn">Надіслати</button>
+    </form>
   </div>
+</div>
 
-  <script>
+ <script>
     async function loadTranslations(lang) {
       try {
         const response = await fetch(`${lang}.json`);
@@ -601,6 +601,22 @@
             }
           }
         });
+
+        // ДОРАБОТКА: Автоматический перевод плейсхолдеров (placeholder) в полях формы
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const keyPath = element.getAttribute('data-i18n-placeholder');
+          const keys = keyPath.split('.');
+          
+          let text = translations;
+          keys.forEach(key => {
+            if (text) text = text[key];
+          });
+
+          if (text) {
+            element.setAttribute('placeholder', text);
+          }
+        });
+
       } catch (error) {
         console.error('Ошибка перевода:', error);
       }
@@ -657,27 +673,56 @@
           document.body.style.overflow = ''; // Возвращаем прокрутку
         }
 
-        // Обработка заполнения и отправки формы
+        // Интеграция с Google Sheets (Вместо старого alert-скрипта)
         form.addEventListener('submit', function(e) {
           e.preventDefault();
           
-          const formData = {
-            name: document.getElementById('v-name').value,
-            email: document.getElementById('v-email').value,
-            phone: document.getElementById('v-phone').value,
-            help: document.getElementById('v-help').value
-          };
+          const submitButton = form.querySelector('.v-modal-submit');
+          const originalButtonText = submitButton.textContent;
+
+          // Блокируем кнопку на время отправки
+          submitButton.disabled = true;
+          submitButton.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
+
+          // Собираем данные прямо из полей формы (через FormData по атрибутам name)
+          const formData = new FormData(form);
           
-          console.log('Дані нового волонтера:', formData);
-          
-          // Показываем красивое сообщение об успехе на украинском языке
-          alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
-          
-          form.reset();
-          closeModal();
+          // URL вашего веб-приложения Google Скрипта
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbxaJSzuMy3umheNjIo7GcW92SkyHaF5SPoK3g0Fkxwn1ykzXwnEY-TrlOcf31bYmyK_/exec';
+
+          fetch(scriptURL, { 
+            method: 'POST', 
+            body: formData 
+          })
+          .then(response => {
+            // Возвращаем кнопку в рабочее состояние
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            
+            // Выводим сообщение на языке интерфейса
+            if (currentLang === 'de') {
+              alert('Vielen Dank! Ваша заявка успішно надіслана. Wir werden uns в ближайшее время связаться с вами!');
+            } else {
+              alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
+            }
+            
+            // Сбрасываем и закрываем окно, как у вас и было запланировано
+            form.reset();
+            closeModal();
+          })
+          .catch(error => {
+            console.error('Ошибка интеграции с Google Sheets:', error);
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            
+            const errorMsg = currentLang === 'de' 
+              ? 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.' 
+              : 'Сталася помилка. Будь ласка, спробуйте ще раз.';
+            alert(errorMsg);
+          });
         });
       }
     });
-  </script>
+</script>
 </body>
 </html>

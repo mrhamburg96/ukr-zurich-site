@@ -1042,46 +1042,99 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
           </div>
 
           <div class="registration-form-block" style="flex: 1.1; min-width: 280px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; box-sizing: border-box;">
-            <h3 data-translate="form_title" style="font-size: 1.15rem; color: #0d233a; margin: 0 0 15px 0; font-weight: 700;">Реєстрація для батьків</h3>
-            
-            <form id="orderForm" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
-              
-              <div style="display: flex; flex-direction: column; width: 100%;">
-                <label data-translate="lbl_parent_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я батьків</label>
-               <input type="text" name="parentName" data-translate="parent_input" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
-              </div>
+  <h3 data-translate="form_title" style="font-size: 1.15rem; color: #0d233a; margin: 0 0 15px 0; font-weight: 700;">Реєстрація для батьків</h3>
+  
+  <form id="orderForm" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+    
+    <!-- Имя родителей -->
+    <div style="display: flex; flex-direction: column; width: 100%;">
+      <label data-translate="lbl_parent_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я батьків</label>
+      <input type="text" name="parentName" data-translate="parent_input" placeholder="Введіть ваше ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+    </div>
 
-              <div style="display: flex; flex-direction: column; width: 100%;">
-                <label data-translate="lbl_kids_count" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Кількість дітей</label>
-                <select name="kidsCount" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; background: #fff; color: #4a5568; box-sizing: border-box;">
-                  <option value="" data-translate="opt_choose">Оберіть кількість</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3+</option>
-                </select>
-              </div>
+    <!-- Количество детей -->
+    <div style="display: flex; flex-direction: column; width: 100%;">
+      <label data-translate="lbl_kids_count" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Кількість дітей</label>
+      <select name="kidsCount" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; background: #fff; color: #4a5568; box-sizing: border-box;">
+        <option value="" data-translate="opt_choose">Оберіть кількість</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3+</option>
+      </select>
+    </div>
 
-              <div style="display: flex; gap: 10px; flex-wrap: wrap; width: 100%;">
-                <div style="flex: 1; min-width: 110px;">
-                  <label data-translate="lbl_child_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я дитини</label>
-                  <input type="text" name="childName" data-translate="child_input" placeholder="Введіть ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
-                </div>
-                <div style="flex: 1; min-width: 70px;">
-                  <label data-translate="lbl_kids_age" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Вік дитини</label>
-                 <input type="text" name="childAge" data-translate="age_input" placeholder="Вік" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
-                </div>
-              </div>
+    <!-- Имя и возраст ребенка -->
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; width: 100%;">
+      <div style="flex: 1; min-width: 110px;">
+        <label data-translate="lbl_child_name" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Ім'я дитини</label>
+        <input type="text" name="childName" data-translate="child_input" placeholder="Введіть ім'я" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+      </div>
+      <div style="flex: 1; min-width: 70px;">
+        <label data-translate="lbl_kids_age" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Вік дитини</label>
+        <input type="text" name="childAge" data-translate="age_input" placeholder="Вік" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+      </div>
+    </div>
 
-              <div style="display: flex; flex-direction: column; width: 100%;">
-                <label data-translate="lbl_phone" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Телефон</label>
-                <input type="tel" name="phone" data-translate-placeholder="placeholder_phone" placeholder="Введіть ваш номер телефону" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
-              </div>
+    <!-- Телефон -->
+    <div style="display: flex; flex-direction: column; width: 100%;">
+      <label data-translate="lbl_phone" style="display: block; font-size: 0.8rem; color: #4a5568; margin-bottom: 4px; font-weight: 600;">Телефон</label>
+      <input type="tel" name="phone" data-translate-placeholder="placeholder_phone" placeholder="Введіть ваш номер телефону" required style="width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box;">
+    </div>
 
-              <div style="margin-top: 5px; width: 100%;">
-                <button type="submit" data-translate="btn_register" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;">Зареєструватися →</button>
-              </div>
-            </form>
-          </div>
+    <!-- Кнопка отправки -->
+    <div style="margin-top: 5px; width: 100%;">
+      <button type="submit" data-translate="btn_register" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;">Зареєструватися →</button>
+    </div>
+  </form>
+</div>
+          <!-- Скрипт отправки данных родителей в таблицу -->
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Останавливаем перезагрузку страницы
+    
+    const form = e.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    
+    // Блокируем кнопку на время отправки, чтобы избежать повторных кликов
+    submitButton.disabled = true;
+    const originalButtonText = submitButton.innerText;
+    submitButton.innerText = "Надсилання...";
+
+    // Собираем данные формы
+    const formData = new FormData(form);
+    const urlEncodedData = new URLSearchParams(formData).toString();
+
+    // Логируем в консоль для контроля сборки данных (как мы делали при тесте)
+    console.log("=== ОТПРАВКА РЕГИСТРАЦИИ РОДИТЕЛЕЙ ===");
+    console.log("Данные для отправки:", urlEncodedData);
+
+    // Ссылка на ваше новое развертывание Google скрипта для родителей
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby2jReLJVnlXP32czhJ1AFWB5QRh0QlMAGAQ8Xti7X_Zkq1PjSJ4G7V9HmFMigRfu7v/exec';
+
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors', // Предотвращает проблемы CORS в браузере
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: urlEncodedData
+    })
+    .then(() => {
+      console.log("Данные успешно отправлены в Google Sheets!");
+      alert("Реєстрація успішна! Дякуємо.");
+      form.reset(); // Очищаем форму после отправки
+    })
+    .catch(error => {
+      console.error("Ошибка при отправке данных:", error);
+      alert("Виникла помилка при реєстрації. Спробуйте ще раз.");
+    })
+    .finally(() => {
+      // Возвращаем кнопку в исходное состояние
+      submitButton.disabled = false;
+      submitButton.innerText = originalButtonText;
+    });
+  });
+</script>
 
         </div>
       </div>
@@ -1136,7 +1189,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     button.textContent = 'Відправка...';
 
     // Ссылка на ваш рабочий веб-скрипт Google Sheets
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzDvltSrh8oMXY4I0RbWByQhmLGyx5sUhRWphhHSd-tFqRvd0eZ_PSHWYg6-uzXv4Ps/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby2jReLJVnlXP32czhJ1AFWB5QRh0QlMAGAQ8Xti7X_Zkq1PjSJ4G7V9HmFMigRfu7v/exec'; 
 
     const formData = new FormData(this);
 

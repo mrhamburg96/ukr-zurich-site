@@ -1139,18 +1139,157 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         </div>
       </div>
 
-      <div class="sidebar-actions-col" style="flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: 20px;">
-        
-        <div class="sidebar-card card-yellow" style="background: #fffdf5; border: 1px solid #fef3c7; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-          <div style="display: flex; gap: 16px; align-items: center;">
-            <img src="icon1-rodinkolö.webp" alt="Icon" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0;">
-            <div>
-              <h4 data-translate="side_vol_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 4px 0; font-weight: 700;">Стати волонтером</h4>
-              <p data-translate="side_vol_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваш час, навички та підтримка допомагають нам змінювати життя у Швейцарії.</p>
-            </div>
-          </div>
-          <a href="#" data-translate="side_vol_btn" style="background: #ecc94b; color: #333; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px;">Стати волонтером ➔</a>
-        </div>
+     <!-- Карточка волонтера (ваша оригинальная структура с поддержкой модального окна) -->
+<div class="sidebar-card card-yellow" style="background: #fffdf5; border: 1px solid #fef3c7; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+  <div style="display: flex; gap: 16px; align-items: center;">
+    <img src="icon1-rodinkolö.webp" alt="Icon" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0;">
+    <div>
+      <h4 data-translate="side_vol_title" style="font-size: 1.1rem; color: #0d233a; margin: 0 0 4px 0; font-weight: 700;">Стати волонтером</h4>
+      <p data-translate="side_vol_desc" style="color: #4a5568; font-size: 0.85rem; line-height: 1.5; margin: 0;">Ваш час, навички та підтримка допомагають нам змінювати життя у Швейцарії.</p>
+    </div>
+  </div>
+  
+  <!-- Заменили ссылку <a> на кнопку <button> с ID для открытия окна -->
+  <button id="openVolunteerModalBtn" data-translate="side_vol_btn" style="background: #ecc94b; color: #333; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 5px; width: 100%; font-family: inherit; transition: background 0.2s;">
+    Стати волонтером ➔
+  </button>
+</div>
+
+<!-- ========================================== -->
+<!-- МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ ВОЛОНТЕРА (Скрыто по умолчанию) -->
+<!-- ========================================== -->
+<div id="volunteerModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(13, 35, 58, 0.4); backdrop-filter: blur(3px); align-items: center; justify-content: center; padding: 15px; box-sizing: border-box;">
+  
+  <!-- Контейнер формы (карточка как на макете) -->
+  <div style="background: #ffffff; border-radius: 16px; width: 100%; max-width: 480px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; box-sizing: border-box; animation: modalFadeIn 0.3s ease-out; font-family: system-ui, -apple-system, sans-serif;">
+    
+    <!-- Кнопка закрытия (Крестик) -->
+    <button id="closeVolunteerModalBtn" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; color: #a0aec0; cursor: pointer; transition: color 0.2s; line-height: 1;">&times;</button>
+    
+    <!-- Заголовок -->
+    <div style="text-align: center; margin-bottom: 20px; padding: 0 10px;">
+      <h3 data-translate="vol_modal_title" style="font-size: 1.5rem; color: #0d233a; margin: 0 0 6px 0; font-weight: 800; font-family: inherit;">Реєстрація волонтера</h3>
+      <p data-translate="vol_modal_subtitle" style="color: #718096; font-size: 0.9rem; margin: 0; font-family: inherit;">Ми зв'яжемося з вами найближчим часом!</p>
+    </div>
+
+    <!-- Форма волонтера -->
+    <form id="volunteerForm" style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+      
+      <!-- Поле: Имя -->
+      <div style="display: flex; flex-direction: column; width: 100%;">
+        <label data-translate="lbl_vol_name" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600; font-family: inherit;">Ім'я</label>
+        <input type="text" name="volunteerName" data-translate-placeholder="vol_name_placeholder" placeholder="Ваше ім'я" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e0; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box; outline: none; transition: border-color 0.2s; font-family: inherit;">
+      </div>
+
+      <!-- Поле: Емейл -->
+      <div style="display: flex; flex-direction: column; width: 100%;">
+        <label data-translate="lbl_vol_email" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600; font-family: inherit;">Емейл</label>
+        <input type="email" name="volunteerEmail" placeholder="example@email.com" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e0; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box; outline: none; transition: border-color 0.2s; font-family: inherit;">
+      </div>
+
+      <!-- Поле: Телефон -->
+      <div style="display: flex; flex-direction: column; width: 100%;">
+        <label data-translate="lbl_vol_phone" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600; font-family: inherit;">Телефон</label>
+        <input type="tel" name="volunteerPhone" placeholder="+41 76 000 00 00" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e0; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box; outline: none; transition: border-color 0.2s; font-family: inherit;">
+      </div>
+
+      <!-- Поле: Чем помочь -->
+      <div style="display: flex; flex-direction: column; width: 100%;">
+        <label data-translate="lbl_vol_help" style="display: block; font-size: 0.85rem; color: #4a5568; margin-bottom: 6px; font-weight: 600; font-family: inherit;">Чим ви хочете допомогти?</label>
+        <textarea name="volunteerHelp" data-translate-placeholder="vol_help_placeholder" placeholder="Наприклад: допомога з дітьми, переклад, організація заходів..." required style="width: 100%; height: 100px; padding: 10px 12px; border: 1px solid #cbd5e0; border-radius: 8px; font-size: 0.9rem; box-sizing: border-box; resize: none; outline: none; transition: border-color 0.2s; font-family: inherit;"></textarea>
+      </div>
+
+      <!-- Кнопка Надіслати -->
+      <button type="submit" data-translate="btn_send_vol" style="width: 100%; background: #1a56db; color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; margin-top: 5px; font-family: inherit;">
+        Надіслати
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  #volunteerForm input:focus, #volunteerForm textarea:focus {
+    border-color: #1a56db;
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+  }
+  #closeVolunteerModalBtn:hover {
+    color: #4a5568;
+  }
+</style>
+
+<script>
+  (function() {
+    const modal = document.getElementById('volunteerModal');
+    const openBtn = document.getElementById('openVolunteerModalBtn');
+    const closeBtn = document.getElementById('closeVolunteerModalBtn');
+    const form = document.getElementById('volunteerForm');
+
+    // Ссылка на ваш скрипт (замените на вашу ссылку из Google Apps Script)
+    const scriptURL = 'УКАЖИТЕ_ТУТ_ВАШУ_НОВУЮ_ССЫЛКУ_ИЗ_APPS_SCRIPT';
+
+    // Открыть модальное окно
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы под окном
+    });
+
+    // Закрыть при нажатии на крестик
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+
+    // Закрыть при клике на полупрозрачный фон
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Обработка отправки формы волонтера
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      const originalText = submitButton.innerText;
+      submitButton.innerText = "Надсилання...";
+
+      const formData = new FormData(form);
+      const urlEncodedData = new URLSearchParams(formData).toString();
+
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: urlEncodedData
+      })
+      .then(() => {
+        console.log("Данные волонтера успешно отправлены!");
+        alert("Дякуємо! Ваша заявка волонтера успішно надіслана.");
+        form.reset();
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      })
+      .catch(error => {
+        console.error("Ошибка при отправке:", error);
+        alert("Виникла помилка. Спробуйте ще раз.");
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.innerText = originalText;
+      });
+    });
+  })();
+</script>
 
         <div class="sidebar-card card-blue" style="background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
           <div style="display: flex; gap: 16px; align-items: center;">

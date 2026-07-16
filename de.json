@@ -206,25 +206,85 @@
   "volonter_dir_c4_title": "Individuelle Begleitung",
   "volonter_dir_c4_desc": "Wir bieten persönliche Begleitung und Unterstützung bei der Integration in der Schweiz.",
 
-  "volonter_cta_title": "Gemeinsam sind wir stärker",
-  "volonter_cta_desc": "Schließen Sie sich unserer Freiwilligengemeinschaft an! Gemeinsam können wir mehr Gutes tun und diejenigen unterstützen, die es brauchen.",
+ {
+  "volonter_cta_title": "Zusammen sind wir stärker",
+  "volonter_cta_desc": "Werden Sie Teil unserer Freiwilligengemeinschaft! Gemeinsam können wir mehr bewirken und diejenigen unterstützen, die es am nötigsten haben.",
   "volonter_cta_btn": "Kontaktieren Sie uns",
-  "integration_banner_src": "integration-bannerDE.webp",
+  "integration_banner_src": "integration-banner.webp",
   "brand_desc": "Ukrainisches Integrations- und Gemeindezentrum Zürich",
-
+  
+  "navigation": {
+    "sub_logo": "Ukrainisches Integrations- und Gemeindezentrum Zürich",
+    "home": "Startseite",
+    "events": "Veranstaltungen",
+    "knowledge": "Wissenszentrum",
+    "volunteering": "Freiwilligenarbeit",
+    "donate": "❤️ Spenden",
+    "contacts": "Kontakte",
+    "back_to_knowledge": "← Zurück zum Wissenszentrum"
+  },
+  "articles": {
+    "last_updated": "16.07.2026",
+    "article_family_doctor": {
+      "title": "Hausarzt in Zürich: Wie man einen Arzt auswählt und Kontakte für Patienten",
+      "p1": "Das Schweizer Gesundheitssystem basiert auf den Prinzipien einer strengen Organisation und der Primärversorgung durch Hausärzte. Die Suche nach einem Hausarzt in Zürich ist einer der ersten und wichtigsten Schritte für jeden Neuzuzüger. Von der richtigen Arztwahl hängt nicht nur Ihre Gesundheit, sondern auch die korrekte Abwicklung mit der obligatorischen Krankenkasse ab.",
+      "h_role": "Die Rolle des Hausarztes im Schweizer Gesundheitssystem",
+      "role_intro": "In der Schweizer Medizin fungiert der Hausarzt als zentraler Koordinator. Bei den meisten Versicherungsmodellen (ausser dem Standard-Modell) können Sie sich nicht direkt an einen Spezialisten wenden.",
+      "role_li1": "<strong>Erstuntersuchung:</strong> Der Hausarzt führt die meisten Routineuntersuchungen durch, stellt Erstdiagnosen, verordnet Labortests und stellt Rezepte aus.",
+      "role_li2": "<strong>Überweisung:</strong> Erfordert Ihre Erkrankung die Behandlung durch einen Spezialisten, stellt der Hausarzt eine Überweisung aus. Ohne diese kann die Krankenkasse die Kostenübernahme verweigern.",
+      "role_li3": "<strong>Patientenakte:</strong> Der Arzt führt Ihre vollständige Krankengeschichte, was besonders bei chronischen Erkrankungen entscheidend ist.",
+      "h_language": "Warum ist ein Arzt, der Ihre Sprache spricht, von Vorteil?",
+      "language_intro": "Für Einwanderer ist die Sprachbarriere oft ein Stressfaktor, besonders bei medizinischen Fachbegriffen und der Beschreibung von Symptomen. Ein Arzt, der Ihre Sprache versteht, bietet erhebliche Vorteile:",
+      "lang_li1": "<strong>Präzise Diagnose:</strong> Die Möglichkeit, Schmerzen und Befinden detailliert zu beschreiben, minimiert das Risiko von Missverständnissen.",
+      "lang_li2": "<strong>Psychologischer Komfort:</strong> Eine vertraute Kommunikation baut Ängste während des Arztbesuchs ab.",
+      "lang_li3": "<strong>Verständnis der Bürokratie:</strong> In der Schweiz praktizierende Ärzte kennen die lokalen Versicherungsabläufe genau und können Sie beim Ausfüllen von Formularen unterstützen.",
+      "h_practices": "Praxen und Allgemeinmediziner in Zürich und Region",
+      "p_nadja": "<strong>Dr. med. Nadja Krawtchenko</strong><br>• Spezialisierung: Allgemeine Innere Medizin.<br>• Adresse: Goethestrasse 14, 8001 Zürich.<br>• Besonderheiten: Lage im Zentrum von Zürich, Online-Terminbuchung möglich.",
+      "p_alina": "<strong>Dr. med. Alina Khmelyova</strong><br>• Spezialisierung: Allgemeinmedizin, Innere Medizin.<br>• Adresse: Hohlstrasse 532, 8048 Zürich.<br>• Besonderheiten: Moderne Praxis im Stadtgebiet, sehr gute Verkehrsanbindung.",
+      "p_au": "<strong>Hausarztpraxis Au-Wädenswil (Region Zürichsee)</strong><br>• Spezialisierung: Allgemeinmedizin, Hausarztmedizin.<br>• Adresse: General-Werdmüllerstrasse 49, 8804 Au.<br>• Telefon: +41 44 781 15 55<br>• E-Mail: hausarztpraxis.au-waedenswil@hin.ch",
+      "p_gyn": "<strong>Zusätzliche fachärztliche Hilfe (Gynäkologie):</strong><br>Falls Sie eine Gynäkologin suchen, praktiziert in Zürich <strong>Dr. med. (I) Armin Först</strong> (Gynäkologische Praxis mit ganzheitlichem Ansatz).<br>• Adresse: Badenerstrasse 342, 8004 Zürich.<br>• Telefon: 044 400 48 52",
+      "h_steps": "Wie man einen Hausarzt findet: Schritt-für-Schritt",
+      "step1": "<strong>Versicherung prüfen:</strong> Stellen Sie sicher, dass der gewählte Arzt auf der Liste der zugelassenen Leistungserbringer Ihrer Krankenkasse steht (wichtig bei Hausarzt- oder Telmed-Modellen).",
+      "step2": "<strong>Praxis kontaktieren:</strong> Rufen Sie an oder nutzen Sie das Online-Formular, um zu klären, ob die Praxis derzeit neue Patienten aufnimmt.",
+      "h_bring": "Was Sie zum Termin mitbringen sollten:",
+      "bring_li1": "Ein gültiges Ausweisdokument.",
+      "bring_li2": "Ihre Krankenversicherungskarte.",
+      "bring_li3": "Eine Liste Ihrer Medikamente und eventuelle Vorbefunde.",
+      "summary": "<strong>Fazit:</strong> Warten Sie mit der Hausarztsuche nicht, bis Sie krank werden. Eine frühzeitige Anmeldung spart Zeit, Geld und sorgt für eine sichere medizinische Betreuung."
+    },
+    "article_health_system": {
+      "title": "Das Schweizer Gesundheitssystem: Ein Leitfaden für Neuzuzüger",
+      "p1": "Das Schweizer Gesundheitssystem gehört dank hoher Behandlungsqualität und moderner Infrastruktur zu den besten weltweit. Dennoch kann die Struktur für Neuzuzüger komplex wirken. Dieser Leitfaden erklärt die Funktionsweise der obligatorischen Krankenversicherung, die Hausarztsuche und das Verhalten im Notfall.",
+      "h_part1": "Teil 1. Wie funktioniert die obligatorische Krankenversicherung (Krankenkasse)",
+      "part1_intro": "Der Abschluss einer Grundversicherung ist für alle Personen, die länger als drei Monate in der Schweiz wohnen, obligatorisch. Die Deckung gilt rückwirkend ab dem ersten Tag der Anmeldung.",
+      "part1_li1": "<strong>Grundversicherung (Grundversicherung):</strong> Die Leistungen sind gesetzlich vorgeschrieben und bei allen Kassen identisch. Sie decken Behandlungen bei Krankheit, Unfall (sofern nicht über den Arbeitgeber versichert) und Mutterschaft ab.",
+      "part1_li2": "<strong>Franchise (Franchise):</strong> Der jährliche feste Betrag, den Sie selbst an die Behandlungskosten beisteuern müssen, bevor die Kasse zahlt (wählbar zwischen 300 und 2500 CHF).",
+      "part1_li3": "<strong>Selbstbehalt (Selbstbehalt):</strong> Sobald die Franchise erreicht ist, übernehmen Sie 10% der darüber hinausgehenden Behandlungskosten (bis maximal 700 CHF pro Jahr).",
+      "part1_models": "<strong>Versicherungsmodelle:</strong><br>• <strong>Standard:</strong> Freie Arztwahl, jedoch mit den höchsten monatlichen Prämien verbunden.<br>• <strong>Hausarzt-Modell:</strong> Sie verpflichten sich, immer zuerst Ihren Hausarzt zu konsultieren (gewährt Prämienrabatt).<br>• <strong>Telmed-Modell:</strong> Verpflichtende telefonische Erstberatung vor jedem physischen Arztbesuch.",
+      "h_part2": "Teil 2. So finden Sie einen Hausarzt (Hausarzt)",
+      "part2_steps": "1. Prüfen Sie die Zulassungsliste Ihrer Krankenkasse.<br>2. Nutzen Sie Suchportale wie <em>comparis.ch</em> oder <em>local.ch</em>.<br>3. Fragen Sie nach Empfehlungen in der lokalen Community.<br>4. Kontaktieren Sie die Wunschpraxis direkt, um freie Plätze für Neupatienten anzufragen.",
+      "h_part3": "Teil 3. Verhalten im Notfall",
+      "part3_numbers": "<strong>Notrufnummern (gebührenfrei & rund um die Uhr):</strong><br>• <strong>144</strong> — Sanität / Ambulanz (bei akuter Lebensgefahr).<br>• <strong>117</strong> — Polizei.<br>• <strong>118</strong> — Feuerwehr.<br>• <strong>1414</strong> — Rega (Schweizerische Rettungsflugwacht).<br>• <strong>145</strong> — Tox Info Suisse (bei Vergiftungen).",
+      "part3_hotlines": "<strong>Kantonale Notfalldienste:</strong> Jeder Kanton betreibt eine medizinische Hotline für nicht-lebensbedrohliche Fälle. Bitte speichern Sie die Nummer Ihres Kantons ab.",
+      "part3_pharmacies": "<strong>Apotheken (Apotheke):</strong> Apotheker in der Schweiz sind hervorragend ausgebildet. Sie können Erstabklärungen bei leichten Beschwerden (Erkältung, leichte Verbrennungen) durchführen und Medikamente abgeben.",
+      "part3_hospitals": "<strong>Notfallstationen (Notfallstation):</strong> Falls Ihr Hausarzt nicht erreichbar ist, können Sie direkt die Notfallstation des nächstgelegenen Spitals aufsuchen.",
+      "conclusion": "<strong>Fazit:</strong> Wer die Spielregeln des Schweizer Gesundheitssystems kennt, ist im Ernstfall bestens geschützt. Wählen Sie rechtzeitig Ihre Franchise, suchen Sie einen Hausarzt und speichern Sie die Notrufnummern ab!"
+    }
+  },
   "modal": {
-    "title": "Registrierung als Freiwilliger",
+    "title": "Freiwilligenregistrierung",
     "subtitle": "Wir werden uns in Kürze mit Ihnen in Verbindung setzen!",
     "name_label": "Name",
     "name_placeholder": "Ihr Name",
     "email_label": "E-Mail",
     "email_placeholder": "example@email.com",
-    "phone_label": "Telefon",
+    "phone_label": "Telefonnummer",
     "phone_placeholder": "+41 76 000 00 00",
     "help_label": "Wie möchten Sie helfen?",
-    "help_placeholder": "Zum Beispiel: Hilfe mit Kindern, Übersetzung, Organisation von Veranstaltungen...",
+    "help_placeholder": "Zum Beispiel: Kinderbetreuung, Übersetzung, Eventorganisation...",
     "submit": "Absenden"
-  },
+  }
+}
 
   "services": {
     "title": "Wie wir helfen",

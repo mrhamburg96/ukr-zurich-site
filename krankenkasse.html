@@ -4,119 +4,167 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krankenkasse - UAGZ</title>
-  <!-- Подключите ваш основной файл стилей (замените style.css на ваше название, если оно другое) -->
+  <!-- Подключение вашего основного файла стилей -->
   <link rel="stylesheet" href="style.css"> 
   
   <style>
     /* 
-      Базовые стили для шапки, чтобы выстроить всё в один ряд.
-      Если эти стили уже есть в вашем основном CSS, этот блок <style> можно будет удалить.
+      Стили для выстраивания элементов шапки в один ряд.
+      Если в вашем основном CSS эти классы уже описаны, вы можете скорректировать их там.
     */
     .header-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 15px 30px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-sizing: border-box;
+      width: 100%;
     }
+    
+    /* Логотип */
     .nav-logo {
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #0d233a;
+      gap: 12px;
     }
     .flags-logo {
       display: flex;
-      margin-right: 10px;
+      align-items: center;
+      gap: 6px;
     }
+    .flags-logo img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+    .brand {
+      font-size: 1.4rem;
+      font-weight: 800; /* Жирный шрифт */
+      color: #1A56C4;   /* Заданный цвет */
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand small {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #4a5568;
+      margin-top: 3px;
+    }
+
+    /* Навигационное меню */
     .nav-links {
       display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
-      gap: 20px;
+      gap: 24px;
       align-items: center;
     }
-    .nav-links a {
+    .nav-links a, 
+    .btn-donate-nav {
       text-decoration: none;
-      color: #333;
-      font-weight: 500;
+      color: #1A56C4;   /* Заданный цвет */
+      font-weight: 700; /* Жирный шрифт */
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover,
+    .btn-donate-nav:hover {
+      opacity: 0.8;
     }
     .nav-links a.active {
-      color: #1a56db; /* Цвет активного пункта (Центр знань) */
-      font-weight: bold;
+      border-bottom: 2px solid #1A56C4;
+      padding-bottom: 4px;
     }
     .btn-donate-nav {
-      background-color: #ff4757;
-      color: white;
+      background: none;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      padding: 0;
       cursor: pointer;
-      font-weight: bold;
+      font-family: inherit;
     }
+
+    /* Языковой переключатель */
     .nav-r {
       display: flex;
+      align-items: center;
     }
-    .lang-sw button {
+    .lang-sw {
+      display: flex;
+      gap: 5px;
+    }
+    .lang-sw .lb {
       background: none;
-      border: 1px solid #ccc;
-      padding: 5px 10px;
+      border: 1px solid #cbd5e0;
+      padding: 6px 12px;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4a5568;
+      transition: all 0.2s;
     }
-    .lang-sw button.on {
-      background-color: #1a56db;
-      color: white;
-      border-color: #1a56db;
+    .lang-sw .lb.on {
+      background-color: #1A56C4;
+      color: #ffffff;
+      border-color: #1A56C4;
     }
-    
-    /* Стили для кнопки "Назад" */
+
+    /* Кнопка "Назад" */
     .back-link-container {
       max-width: 1200px;
-      margin: 20px auto 0; /* Центрируем по ширине контента */
+      margin: 25px auto 0;
       padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .back-link {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      color: #4a5568;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
+      color: #1A56C4;   /* Заданный цвет */
+      font-weight: 700; /* Жирный шрифт */
+      font-size: 1rem;
+      transition: opacity 0.2s;
     }
     .back-link:hover {
-      color: #1a56db;
+      opacity: 0.8;
     }
 
     /* Контейнер для будущих статей */
     .content-container {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 30px auto 60px;
       padding: 0 20px;
-      min-height: 50vh; /* Чтобы блок не схлопывался, пока он пустой */
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 400px; /* Оставляем пустым под будущие статьи */
     }
   </style>
 </head>
 <body>
 
-  <!-- ШАПКА В ОДИН РЯД -->
+  <!-- ШАПКА САЙТА (Все элементы в один ряд) -->
   <header class="header-nav">
-    <!-- Левый угол: Логотип -->
+    <!-- Левый угол: Логотип с флагами из интернета и пробелом перед текстом -->
     <a class="nav-logo" href="./index.html">
       <div class="flags-logo">
-        <div class="flag-ua"></div>
-        <div class="flag-ch"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg" alt="CH Flag">
       </div>
-      <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+      <span class="brand">
+        UAGZ&nbsp;<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small>
+      </span>
     </a>
 
-    <!-- Центр: Навигация -->
+    <!-- Центр: Навигационные ссылки (Все жирные, цвет #1A56C4) -->
     <ul class="nav-links">
       <li><a href="index.html" id="m-home" data-translate="m-home">Головна</a></li>
       <li><a href="events.html" id="m-events" data-translate="m-events">Заходи</a></li>
-      <!-- Активный пункт: Центр знань -->
       <li><a href="knowledge.html" class="active" id="m-knowledge" data-translate="m-knowledge">Центр знань</a></li>
       <li><a href="volunteering.html" id="m-volunteering" data-translate="m-volunteering">Волонтерство</a></li>
       <li><button class="btn-donate-nav" id="m-donate" data-translate="m-donate">❤️ Донат</button></li>
@@ -132,26 +180,30 @@
     </div>
   </header>
 
-  <!-- КНОПКА "НАЗАД" -->
+  <!-- КНОПКА "НАЗАД" (Жирная, цвет #1A56C4, выровнена по левому краю) -->
   <div class="back-link-container">
     <a href="knowledge.html" class="back-link" data-translate="back_to_knowledge">
       &larr; Назад до Центр знань
     </a>
   </div>
 
-  <!-- ПУСТОЕ ПРОСТРАНСТВО ДЛЯ КОНТЕНТА -->
+  <!-- ПУСТОЙ КОНТЕЙНЕР ДЛЯ БУДУЩИХ СТАТЕЙ И ФОТО -->
   <main class="content-container" id="article-content">
-    <!-- Сюда будем добавлять статьи и фото -->
+    <!-- Сюда будем добавлять контент в следующих шагах -->
   </main>
 
-  <!-- Скрипт перевода (заглушка, если он у вас в отдельном файле - подключите его) -->
+  <!-- Логика смены активного класса языковых кнопок -->
   <script>
-    // Пример функции переключения языков (убедитесь, что она соответствует вашей логике)
     function setLang(lang) {
       document.querySelectorAll('.lang-sw button').forEach(btn => btn.classList.remove('on'));
-      document.querySelector(`.lang-sw button[data-lang="${lang}"]`).classList.add('on');
-      // Здесь должна быть логика замены текста по атрибутам data-translate
-      console.log('Language switched to:', lang);
+      const activeBtn = document.querySelector(`.lang-sw button[data-lang="${lang}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('on');
+      }
+      // Сюда при необходимости интегрируется ваша общая функция перевода переводчика
+      if (typeof window.translatePage === 'function') {
+        window.translatePage(lang);
+      }
     }
   </script>
 

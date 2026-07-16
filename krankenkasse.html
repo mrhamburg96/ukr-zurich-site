@@ -169,7 +169,7 @@
       gap: 15px;
     }
 
-    /* Элемент аккордеона */
+     /* Элемент аккордеона */
     .accordion-item {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
@@ -178,9 +178,17 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.02);
       transition: border-color 0.2s;
     }
+	/* Снимаем ограничение по высоте для открытых статей */
+.accordion-item.active .accordion-content,
+.accordion-item [style*="display: block"] {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+}
     .accordion-item:hover {
       border-color: #1A56C4;
     }
+
 
     /* Шапка аккордеона (кнопка) */
     .accordion-trigger {
@@ -492,24 +500,29 @@
   <script>
     // Функция переключения аккордеона
     function toggleAccordion(trigger) {
-      const content = trigger.nextElementSibling;
+      const item = trigger.parentElement; // Находим сам элемент аккордеона (.accordion-item)
+      const content = trigger.nextElementSibling; // Находим блок с контентом (.accordion-content)
       const icon = trigger.querySelector('.accordion-icon');
       
       // Проверяем, открыт ли текущий элемент
-      const isOpen = content.classList.contains('open');
+      const isOpen = item.classList.contains('active');
       
-      // Закрываем все открытые аккордеоны (если нужно, чтобы одновременно был открыт только один)
-      document.querySelectorAll('.accordion-content').forEach(item => {
-        item.classList.remove('open');
+      // Сначала закрываем абсолютно все открытые вкладки
+      document.querySelectorAll('.accordion-item').forEach(el => {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.accordion-content').forEach(el => {
+        el.classList.remove('open');
       });
       document.querySelectorAll('.accordion-icon').forEach(ico => {
-        ico.innerHTML = '&#43;'; // Меняем на плюс
+        ico.innerHTML = '&#43;'; // Сбрасываем иконки на плюс (+)
       });
 
-      // Если кликнутый был закрыт — открываем его
+      // Если кликнутый элемент до этого был закрыт — открываем его
       if (!isOpen) {
-        content.classList.add('open');
-        icon.innerHTML = '&#8722;'; // Меняем на минус (&minus;)
+        item.classList.add('active'); // Добавляем класс 'active' родителю (для снятия ограничений высоты)
+        content.classList.add('open'); // Добавляем класс 'open' контенту (для анимации)
+        icon.innerHTML = '&#8722;'; // Меняем иконку на минус (-)
       }
     }
 

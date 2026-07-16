@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krankenkasse - UAGZ</title>
+  <!-- Подключите ваш основной файл стилей (замените style.css на ваше название, если оно другое) -->
+  <link rel="stylesheet" href="style.css"> 
+  
+  <style>
+    /* 
+      Базовые стили для шапки, чтобы выстроить всё в один ряд.
+      Если эти стили уже есть в вашем основном CSS, этот блок <style> можно будет удалить.
+    */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #0d233a;
+    }
+    .flags-logo {
+      display: flex;
+      margin-right: 10px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .nav-links a.active {
+      color: #1a56db; /* Цвет активного пункта (Центр знань) */
+      font-weight: bold;
+    }
+    .btn-donate-nav {
+      background-color: #ff4757;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .nav-r {
+      display: flex;
+    }
+    .lang-sw button {
+      background: none;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .lang-sw button.on {
+      background-color: #1a56db;
+      color: white;
+      border-color: #1a56db;
+    }
+    
+    /* Стили для кнопки "Назад" */
+    .back-link-container {
+      max-width: 1200px;
+      margin: 20px auto 0; /* Центрируем по ширине контента */
+      padding: 0 20px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #4a5568;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #1a56db;
+    }
+
+    /* Контейнер для будущих статей */
+    .content-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      min-height: 50vh; /* Чтобы блок не схлопывался, пока он пустой */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ШАПКА В ОДИН РЯД -->
+  <header class="header-nav">
+    <!-- Левый угол: Логотип -->
+    <a class="nav-logo" href="./index.html">
+      <div class="flags-logo">
+        <div class="flag-ua"></div>
+        <div class="flag-ch"></div>
+      </div>
+      <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    </a>
+
+    <!-- Центр: Навигация -->
+    <ul class="nav-links">
+      <li><a href="index.html" id="m-home" data-translate="m-home">Головна</a></li>
+      <li><a href="events.html" id="m-events" data-translate="m-events">Заходи</a></li>
+      <!-- Активный пункт: Центр знань -->
+      <li><a href="knowledge.html" class="active" id="m-knowledge" data-translate="m-knowledge">Центр знань</a></li>
+      <li><a href="volunteering.html" id="m-volunteering" data-translate="m-volunteering">Волонтерство</a></li>
+      <li><button class="btn-donate-nav" id="m-donate" data-translate="m-donate">❤️ Донат</button></li>
+      <li><a href="contacts.html" id="m-contacts" data-translate="m-contacts">Контакти</a></li>
+    </ul>
+
+    <!-- Правый угол: Переключатель языков -->
+    <div class="nav-r">
+      <div class="lang-sw">
+        <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+        <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- КНОПКА "НАЗАД" -->
+  <div class="back-link-container">
+    <a href="knowledge.html" class="back-link" data-translate="back_to_knowledge">
+      &larr; Назад до Центр знань
+    </a>
+  </div>
+
+  <!-- ПУСТОЕ ПРОСТРАНСТВО ДЛЯ КОНТЕНТА -->
+  <main class="content-container" id="article-content">
+    <!-- Сюда будем добавлять статьи и фото -->
+  </main>
+
+  <!-- Скрипт перевода (заглушка, если он у вас в отдельном файле - подключите его) -->
+  <script>
+    // Пример функции переключения языков (убедитесь, что она соответствует вашей логике)
+    function setLang(lang) {
+      document.querySelectorAll('.lang-sw button').forEach(btn => btn.classList.remove('on'));
+      document.querySelector(`.lang-sw button[data-lang="${lang}"]`).classList.add('on');
+      // Здесь должна быть логика замены текста по атрибутам data-translate
+      console.log('Language switched to:', lang);
+    }
+  </script>
+
+</body>
+</html>

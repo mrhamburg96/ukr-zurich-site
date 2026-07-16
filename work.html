@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UAGZ - Робота</title>
     <style>
-        /* Общие стили */
+        /* Общие стили для аккуратной верстки */
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
             background-color: #f9f9f9;
+            line-height: 1.5;
         }
 
         a {
@@ -49,6 +50,7 @@
             display: block;
         }
 
+        /* Название центра полностью покрашено в #1A56C4 */
         .brand-text {
             font-size: 16px;
             font-weight: normal;
@@ -59,6 +61,7 @@
             font-weight: bold;
         }
 
+        /* Навигационное меню */
         .header-nav {
             display: flex;
             align-items: center;
@@ -75,11 +78,21 @@
             opacity: 0.8;
         }
 
+        /* Разделенный переключатель языков UA DE (без черты) */
         .lang-switch {
             display: inline-flex;
             gap: 8px;
             font-weight: bold;
             color: #1A56C4;
+        }
+
+        .lang-item {
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .lang-item:hover {
+            opacity: 0.8;
         }
 
         /* Контентная область */
@@ -112,17 +125,14 @@
             align-items: start;
         }
 
-        /* Левая колонка: Оформление фото */
+        /* Левая колонка: Оформление фото (строго 450x675) */
         .image-wrapper {
             width: 450px;
             height: 675px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            background-color: #eaeaea; /* Серый фон, пока нет картинки */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #eaeaea;
         }
 
         .article-image {
@@ -152,12 +162,12 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        /* Шапка аккордеона (Заголовок) */
+        /* Шапка аккордеона */
         .accordion-header {
             padding: 22px 24px;
             font-size: 18px;
             font-weight: bold;
-            color: #1A56C4; /* Фирменный синий цвет заголовков */
+            color: #1A56C4; /* Цвет заголовков статей */
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -171,9 +181,8 @@
             background-color: #fafbfc;
         }
 
-        /* Иконка-стрелочка */
         .accordion-icon {
-            font-size: 16px;
+            font-size: 14px;
             transition: transform 0.3s ease;
             color: #1A56C4;
         }
@@ -182,15 +191,16 @@
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); /* Плавное открытие без рывков */
-            background-color: #fcfdfe;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            background-color: #ffffff;
         }
 
         .accordion-body {
-            padding: 24px;
+            padding: 0 24px 24px 24px;
             line-height: 1.6;
             color: #4a4a4a;
-            border-top: 1px solid #f0f2f5;
+            border-top: 1px solid #f5f5f5;
+            font-size: 15px;
         }
 
         /* Состояние открытой статьи */
@@ -199,21 +209,64 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 2000px; /* Достаточная высота для длинных текстов */
-            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            max-height: 3000px; /* Достаточный запас для длинного текста */
+            transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+        }
+
+        /* Стилизация текста внутри статьи */
+        .article-intro {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .article-section {
+            margin-top: 24px;
+        }
+
+        .article-section-title {
+            font-size: 17px;
+            font-weight: bold;
+            color: #1A56C4;
+            margin-bottom: 12px;
+        }
+
+        .article-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .article-list li {
+            margin-bottom: 10px;
+        }
+
+        .article-list strong {
+            color: #1A56C4;
+        }
+
+        /* Ссылки внутри текста */
+        .article-link {
+            color: #1A56C4;
+            font-weight: bold;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+
+        .article-link:hover {
+            opacity: 0.8;
         }
 
         /* Адаптивность для планшетов и мобильных */
         @media (max-width: 992px) {
             .page-grid {
-                grid-template-columns: 1fr; /* Колонки выстраиваются в одну линию */
+                grid-template-columns: 1fr;
                 gap: 30px;
             }
 
             .image-wrapper {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 450 / 675; /* Сохраняем пропорции фото на любых экранах */
+                aspect-ratio: 450 / 675;
             }
         }
     </style>
@@ -223,15 +276,18 @@
     <!-- Шапка сайта -->
     <header class="site-header">
         <div class="header-brand">
+            <!-- Иконки флагов одинакового размера -->
             <div class="flags-container">
                 <img src="https://flagcdn.com/ua.svg" alt="UA Flag" class="flag-icon">
                 <img src="https://flagcdn.com/ch.svg" alt="CH Flag" class="flag-icon">
             </div>
+            <!-- Название полностью покрашено в #1A56C4 -->
             <div class="brand-text">
                 <span class="brand-highlight">UAGZ</span> Український інтеграційний та громадський центр Цюриха
             </div>
         </div>
 
+        <!-- Навигация в один ряд -->
         <nav class="header-nav">
             <a href="index.html" class="nav-link">Головна</a>
             <a href="events.html" class="nav-link">Заходи</a>
@@ -259,40 +315,109 @@
             
             <!-- ЛЕВАЯ КОЛОНКА: Изображение (размер 450x675) -->
             <div class="image-wrapper">
-                <!-- Как только появится фото, просто вставьте путь к нему в src="..." ниже -->
-                <img src="https://via.placeholder.com/450x675?text=UAGZ+Photo" alt="Робота в Швейцарії" class="article-image">
+                <img src="work-foto1.webp" alt="Робота в Швейцарії" class="article-image">
             </div>
 
             <!-- ПРАВАЯ КОЛОНКА: Аккордеон со статьями -->
             <div class="accordion-container">
                 
-                <!-- НОВЫЕ СТАТЬИ ДОБАВЛЯЙТЕ СЮДА (НАВЕРХ) -->
-                
-                <!-- Пример статьи 1 (активная по умолчанию) -->
+                <!-- НОВАЯ СТАТЬЯ (В САМОМ ВЕРХУ, АКТИВНА ПО УМОЛЧАНИЮ) -->
                 <div class="accordion-item active">
                     <div class="accordion-header">
-                        Як скласти резюме (CV) за швейцарскими стандартами?
+                        Як знайти роботу в Цюриху: практичний посібник для власників статусу S
                         <span class="accordion-icon">▼</span>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p>Тут буде детальний текст про структуру резюме. Швейцарські роботодавці дуже цінують лаконічність, чітку хронологію без прогалин та наявність рекомендаційних листів від попередніх роботодавців.</p>
+                            <p class="article-intro">
+                                Цюрих є економічним серцем Швейцарії та одним із найдинамічніших міст Європи з високим рівнем життя і розвиненим ринком праці. Для громадян України, які перебувають у Швейцарії під тимчасовим захистом, вихід на ринок праці супроводжується низкою законодавчих нюансів та практичних кроків. У цій статті ми детально розглянемо, як влаштований процес працевлаштування для власників статусу S, які існують правила та де шукати вакансії.
+                            </p>
+
+                            <!-- Раздел 1 -->
+                            <div class="article-section">
+                                <div class="article-section-title">1. Законодавчі нюанси: що дозволяє статус S</div>
+                                <p>Отримання статусу S дає офіційне право на працевлаштування в Швейцарії без необхідності проходити тривалі процедури перевірки на пріоритет місцевих жителів чи громадян ЄС.</p>
+                                <ul class="article-list">
+                                    <li><strong>Дозвіл на роботу:</strong> Право на роботу виникає одразу після отримання статусу. Проте сам факт наявності статусу не означає автоматичного працевлаштування — дозвіл оформлюється роботодавцем через кантональні органи.</li>
+                                    <li><strong>Зміна формату зайнятості:</strong> Власники статусу S можуть працювати як за наймом (повна або часткова зайнятість), так і займатися підприємницькою діяльністю (самозайнятість).</li>
+                                    <li><strong>Повідомлюваний порядок (Meldeverfahren):</strong> Процедура оформлення працевлаштування для роботодавців максимально спрощена. Замість складного ліцензування діє дозвільно-повідомлювальний порядок: компанія просто подає повідомлення до відповідного відомства (Kantonales Arbeitsamt) перед початком вашої роботи.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Раздел 2 -->
+                            <div class="article-section">
+                                <div class="article-section-title">2. Вимоги ринку: мови та кваліфікація</div>
+                                <p>Цюрих — міжнародний фінансовий і технологічний центр, проте локальний ринок праці має свої чіткі стандарти.</p>
+                                <ul class="article-list">
+                                    <li><strong>Мовне питання:</strong> Знання німецької мови є ключовою перевагою. У багатьох сферах (особливо у роботі з клієнтами, медицині, адміністрації) вимагається володіння німецькою на рівні від B1–B2. Водночас у великих міжнародних корпораціях, IT-секторі, фінансах та наукових інститутах робочою мовою часто є англійська.</li>
+                                    <li><strong>Підтвердження дипломів:</strong> Швейцарія суворо ставиться до професійних кваліфікацій. Якщо ваша професія є регламентованою (медицина, викладання, певні технічні спеціальності), необхідно зайнятися процедурою визнання диплома через державні органи (наприклад, Staatssekretariat für Bildung, Forschung und Innovation — SBFI). Для нерегламентованих професій (маркетинг, IT, творчі спеціальності) достатньо якісно перекладеного резюме з описом ваших навичок.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Раздел 3 -->
+                            <div class="article-section">
+                                <div class="article-section-title">3. Де шукати роботу в Цюриху: ефективні канали</div>
+                                <p>Пошук роботи у Швейцарії базується на використанні як загальнонаціональних платформ, так і спеціалізованих ресурсів для біженців.</p>
+                                <ul class="article-list">
+                                    <li><strong>Офіційні державні біржі праці:</strong>
+                                        <ul>
+                                            <li><a href="https://www.arbeit.swiss" target="_blank" class="article-link">Arbeit.swiss</a> (JobID Ukraine) — офіційні державні платформи та ініціативи, які допомагають українцям знаходити вакансії та пропонують підтримку через регіональні центри зайнятості (RAV).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Популярні швейцарські пошукові сайти:</strong>
+                                        <ul>
+                                            <li><a href="https://www.jobs.ch" target="_blank" class="article-link">Jobs.ch</a> та <a href="https://ch.indeed.com" target="_blank" class="article-link">Indeed.ch</a> — найбільші агрегатори вакансій у країні, де можна налаштувати фільтри за містом (Zürich) та відсотком зайнятості.</li>
+                                            <li><a href="https://www.linkedin.com" target="_blank" class="article-link">LinkedIn</a> — незамінний інструмент для професіоналів у Цюриху. Багато рекрутерів шукають кандидатів саме тут. Обов'язково оновіть профіль англійською або німецькою мовою та вкажіть статус S і готовність до роботи.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Спеціалізовані платформи для підтримки України:</strong>
+                                        <ul>
+                                            <li>Існують волонтерські та комерційні ініціативи (наприклад, Jobs for Ukraine), які об'єднують роботодавців, готових працевлаштовувати українців.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Прямі звернення до компаній (Uninitiierte Bewerbungen):</strong>
+                                        <ul>
+                                            <li>Метод холодних резюме та прямих звернень до компаній, де ви хотіли б працювати, добре працює у швейцарській культурі. Надішліть якісне мотиваційний лист та резюме у форматі PDF.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Раздел 4 -->
+                            <div class="article-section">
+                                <div class="article-section-title">4. Особливості швейцарського резюме (CV) та співбесіди</div>
+                                <p>Документи для працевлаштування у Швейцарії мають відповідати чітким європейським стандартам (у стилі Europass або сучасних європейських шаблонів).</p>
+                                <ul class="article-list">
+                                    <li><strong>Структура резюме:</strong>
+                                        <ul>
+                                            <li>Обсяг — зазвичай не більше 2 сторінок.</li>
+                                            <li>Обов'язково додайте якісну професійну фотографію у верхньому правому кутку.</li>
+                                            <li>Структура: особисті дані, досвід роботи (у зворотному хронологічному порядку), освіта, мовні навички, комп'ютерні навички.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Мотиваційний лист (Motivationsschreiben):</strong> Це критично важливий документ. Швейцарські роботодавці ретельно читають його, щоб зрозуміти вашу мотивацію працювати саме в їхній компанії. Лист має бути коротким (до однієї сторінки) і чітко показувати, яку користь ви принесете бізнесу.</li>
+                                    <li><strong>Рекомендації:</strong> Наявність рекомендаційних листів із попередніх місць роботи (особливо перекладених англійською чи німецькою) суттєво підвищує ваші шанси.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Раздел 5 -->
+                            <div class="article-section">
+                                <div class="article-section-title">5. Підтримка та державна допомога</div>
+                                <p>Якщо ви перебуваєте на соціальному забезпеченні у кантоні Цюрих, вашим головним провідником у пошуку роботи стає Social Service або регіональний центр зайнятості (RAV).</p>
+                                <ul class="article-list">
+                                    <li>Вони можуть фінансувати інтенсивні курси німецької мови.</li>
+                                    <li>Надаватимуть консультації щодо складання резюме під швейцарські стандарти.</li>
+                                    <li>Пропонують профорієнтаційні програми, спрямовані на швидку інтеграцію в економічне середовище.</li>
+                                </ul>
+                                <p style="margin-top: 20px; font-style: italic;">
+                                    Пошук роботи в Цюриху зі статусом S вимагає терпіння, активності та адаптації до місцевих стандартів. Використання офіційних платформ, вивчення мови та чітко складені документи стануть вашими головними інструментами на шляху до успішного працевлаштування.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Пример статьи 2 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Де шукати роботу в Цюриху: корисні ресурси
-                        <span class="accordion-icon">▼</span>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p>Тут ми опублікуємо перелік найкращих швейцарських сайтів для пошуку вакансій, таких як Jobs.ch, LinkedIn та спеціалізовані інтеграційні платформи.</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- ЗДЕСЬ БУДУТ СЛЕДУЮЩИЕ СТАТЬИ (Они автоматически будут сдвигаться вниз) -->
 
             </div>
 

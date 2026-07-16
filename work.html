@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UAGZ - Робота</title>
-    <!-- Подключаем библиотеку флагов Flagpack для одинаковых иконок -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flagpack@1.0.5/dist/flagpack.css">
     <style>
         /* Общие стили для аккуратной верстки */
         body {
@@ -37,30 +35,31 @@
             gap: 12px;
         }
 
-        /* Стилизация флагов из библиотеки */
+        /* Стилизация флагов из интернета (гарантированный одинаковый размер) */
         .flags-container {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .flag-icon {
             width: 24px;
-            height: 18px;
+            height: 16px;
+            object-fit: cover;
             border-radius: 2px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            display: block;
         }
 
-        /* Текст бренда */
+        /* Текст бренда - теперь ПОЛНОСТЬЮ в цвете #1A56C4 */
         .brand-text {
             font-size: 16px;
             font-weight: normal;
-            color: #333333;
+            color: #1A56C4;
         }
 
         .brand-highlight {
             font-weight: bold;
-            color: #1A56C4;
         }
 
         /* Правая часть: Навигационное меню */
@@ -80,11 +79,21 @@
             opacity: 0.8;
         }
 
-        /* Переключатель языков */
+        /* Разделенный переключатель языков UA DE (без черты) */
         .lang-switch {
+            display: inline-flex;
+            gap: 8px;
             font-weight: bold;
             color: #1A56C4;
+        }
+
+        .lang-item {
             cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .lang-item:hover {
+            opacity: 0.8;
         }
 
         /* Контентная область */
@@ -109,7 +118,7 @@
             transform: translateX(-4px);
         }
 
-        /* Временная заглушка для контента страницы */
+        /* Контентная плашка */
         .content-placeholder {
             background-color: #ffffff;
             border-radius: 8px;
@@ -129,18 +138,18 @@
     <!-- Шапка сайта -->
     <header class="site-header">
         <div class="header-brand">
-            <!-- Иконки флагов одинакового размера -->
+            <!-- Прямые SVG-иконки флагов из интернета, которые точно отобразятся -->
             <div class="flags-container">
-                <span class="fp flag-icon fp-ua"></span>
-                <span class="fp flag-icon fp-ch"></span>
+                <img src="https://flagcdn.com/ua.svg" alt="UA Flag" class="flag-icon">
+                <img src="https://flagcdn.com/ch.svg" alt="CH Flag" class="flag-icon">
             </div>
-            <!-- Название центра с пробелом после жирного UAGZ -->
+            <!-- Название центра полностью покрашено в #1A56C4 -->
             <div class="brand-text">
                 <span class="brand-highlight">UAGZ</span> Український інтеграційний та громадський центр Цюриха
             </div>
         </div>
 
-        <!-- Меню в один ряд, жирным шрифтом и цветом #1A56C4 -->
+        <!-- Меню в один ряд -->
         <nav class="header-nav">
             <a href="index.html" class="nav-link">Головна</a>
             <a href="events.html" class="nav-link">Заходи</a>
@@ -148,7 +157,11 @@
             <a href="volunteering.html" class="nav-link">Волонтерство</a>
             <a href="donate.html" class="nav-link">❤️ Донат</a>
             <a href="contacts.html" class="nav-link">Контакти</a>
-            <span class="lang-switch">UA/DE</span>
+            <!-- Разделенные UA и DE без косой черты -->
+            <div class="lang-switch">
+                <span class="lang-item">UA</span>
+                <span class="lang-item">DE</span>
+            </div>
         </nav>
     </header>
 
@@ -160,7 +173,7 @@
             ← Назад до Центр знань
         </a>
 
-        <!-- Сюда можно добавлять контент страницы work.html -->
+        <!-- Контент страницы work.html -->
         <section class="content-placeholder">
             <h1>Працевлаштування та робота в Швейцарії</h1>
             <p>Ця сторінка зараз знаходиться в процесі наповнення корисною інформацією про пошук роботи, складання резюме та інтеграцію в швейцарський ринок праці.</p>

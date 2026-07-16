@@ -30,7 +30,7 @@
       text-decoration: none;
       gap: 12px;
     }
-    .flags-logo {
+   .flags-logo {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -38,7 +38,9 @@
     .flags-logo img {
       width: 24px;
       height: 24px;
-      object-fit: contain;
+      object-fit: cover; /* Это свойство аккуратно впишет прямоугольный флаг Украины в квадрат */
+      border-radius: 2px; /* Легкое скругление углов для современного вида */
+      flex-shrink: 0;
     }
     .brand {
       font-size: 1.4rem;

@@ -1549,6 +1549,46 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         }
     });
     </script>
+<style>
+@media (max-width: 768px) {
+    /* Жесткий точечный удар по инлайновому гриду через теги и классы */
+    section.programs-section div.container div.programs-grid, 
+    section.team-section div.container div.team-grid { 
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-template-columns: none !important;
+        grid-template-rows: none !important;
+        grid-auto-flow: unset !important;
+    }
 
+    /* Силой выстраиваем карточки по две в ряд */
+    section.programs-section div.program-card,
+    section.team-section div.program-card { 
+        display: inline-block !important;
+        float: left !important;
+        width: calc(50% - 6px) !important;
+        max-width: calc(50% - 6px) !important;
+        min-width: calc(50% - 6px) !important;
+        margin-right: 12px !important;
+        margin-bottom: 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Убираем отступ у каждой второй карточки */
+    section.programs-section div.program-card:nth-of-type(2n), 
+    section.team-section div.program-card:nth-of-type(2n) {
+        margin-right: 0 !important;
+    }
+
+    /* Сброс картинок */
+    img.program-img {
+        width: 100% !important;
+        height: 120px !important; 
+        object-fit: cover !important;
+        display: block !important;
+    }
+}
+</style>
 </body>
 </html>

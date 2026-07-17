@@ -861,6 +861,11 @@
                 object-fit: cover !important;
                 display: block !important;
             }
+        /* Сбрасываем обтекание для каждого нечетного элемента (1-й, 3-й, 5-й и т.д.) */
+            section.programs-section div.program-card:nth-of-type(2n+1), 
+            section.team-section div.program-card:nth-of-type(2n+1) { 
+                clear: both !important;
+            }
     </style>
 </head>
 <body>

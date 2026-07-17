@@ -775,8 +775,19 @@
             }
             /* ---------------------------------------------------------------- */
 
-            .programs-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-            .team-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+            .programs-grid { 
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; 
+    grid-auto-flow: row !important; /* Насильно заставляем переносить элементы на новые строки */
+    gap: 12px !important; 
+}
+
+.team-grid { 
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; 
+    grid-auto-flow: row !important; /* Насильно заставляем переносить элементы на новые строки */
+    gap: 12px !important; 
+}
             .footer-grid { grid-template-columns: 1fr; gap: 24px; }
             .cta-banner { flex-direction: column; padding: 24px; text-align: center; }
             .cta-left h2 { text-align: center; }

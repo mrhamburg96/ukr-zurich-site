@@ -775,8 +775,9 @@
             }
             /* ---------------------------------------------------------------- */
 
-    /* --- КАРДИНАЛЬНОЕ ИЗМЕНЕНИЕ: ПЕРЕВОД В БЛОЧНЫЙ РЕЖИМ --- */
-           /* --- НАСТРОЙКА СЕТКИ ДЛЯ ПРОГРАММ И КОМАНДЫ ПО 2 В РЯД --- */
+/* --- НАСТРОЙКА СЕТКИ ДЛЯ ПРОГРАММ И КОМАНДЫ ПО 2 В РЯД --- */
+            /* Селектор [style] находит инлайновые стили и жестко перезаписывает их */
+            .programs-grid[style], .team-grid[style],
             .programs-grid, .team-grid { 
                 display: grid !important;
                 grid-template-columns: repeat(2, 1fr) !important; 
@@ -785,19 +786,22 @@
                 width: 100% !important;
             }
 
-            /* Сбрасываем жесткие ограничения ширины самих карточек, чтобы они заняли ячейки сетки */
+            /* Сбрасываем жесткие ограничения ширины самих карточек */
+            .programs-grid .program-card[style], .team-grid .program-card[style],
             .programs-grid .program-card, .team-grid .program-card,
             .programs-grid > div, .team-grid > div { 
+                display: flex !important;
+                flex-direction: column !important; /* Картинка сверху, текст снизу */
                 width: 100% !important;
                 max-width: 100% !important;
-                min-width: 0 !important; /* Позволяет карточке сжиматься под размер колонки */
+                min-width: 0 !important; 
                 box-sizing: border-box !important;
             }
 
             /* Корректируем картинки внутри, чтобы они не вытягивались в соломку */
             .program-img {
                 width: 100% !important;
-                height: 120px !important; /* Уменьшаем высоту для мобильных, чтобы пропорции были красивыми */
+                height: 120px !important; 
                 object-fit: cover !important;
             }
             /* ---------------------------------------------------------------- */

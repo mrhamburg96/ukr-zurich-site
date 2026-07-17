@@ -775,20 +775,23 @@
             }
             /* ---------------------------------------------------------------- */
 
-            /* СЮДА ВСТАВЛЯЕМ НОВЫЙ КОД ФЛЕКСОВ ДЛЯ ПРОГРАММ И КОМАНДЫ: */
+         /* --- ПОЛНЫЙ СБРОС СТИЛЕЙ ДЛЯ КАРТОЧЕК НА МОБИЛЬНЫХ --- */
             .programs-grid, .team-grid { 
                 display: flex !important;
-                flex-wrap: wrap !important; 
-                flex-direction: row !important;
+                flex-flow: row wrap !important; /* Принудительно: только горизонтальный ряд с ПЕРЕНОСОМ */
+                flex-wrap: wrap !important;     /* Дублируем для надежности против nowrap */
                 gap: 12px !important;
                 justify-content: space-between !important;
+                overflow: visible !important;   /* Отключаем скрытие выпадающих элементов, если оно было */
+                width: 100% !important;
             }
 
-            /* Задаем карточкам ширину ровно по 50% (минус зазор) */
+            /* Задаем ширину каждой карточки ровно в 50% с учетом зазора */
             .programs-grid > *, .team-grid > * { 
                 flex: 0 0 calc(50% - 6px) !important;
                 width: calc(50% - 6px) !important;
                 max-width: calc(50% - 6px) !important;
+                min-width: calc(50% - 6px) !important; /* Запрещаем им сжиматься меньше 50% */
                 box-sizing: border-box !important;
             }
             /* ---------------------------------------------------------------- */

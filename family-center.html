@@ -776,33 +776,38 @@
             /* ---------------------------------------------------------------- */
 
 /* --- НАСТРОЙКА СЕТКИ ДЛЯ ПРОГРАММ И КОМАНДЫ ПО 2 В РЯД --- */
-            /* Селектор [style] находит инлайновые стили и жестко перезаписывает их */
-            .programs-grid[style], .team-grid[style],
-            .programs-grid, .team-grid { 
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important; 
-                grid-auto-flow: row !important;
-                gap: 12px !important;
-                width: 100% !important;
-            }
-
-            /* Сбрасываем жесткие ограничения ширины самих карточек */
-            .programs-grid .program-card[style], .team-grid .program-card[style],
-            .programs-grid .program-card, .team-grid .program-card,
-            .programs-grid > div, .team-grid > div { 
-                display: flex !important;
-                flex-direction: column !important; /* Картинка сверху, текст снизу */
+            div.programs-grid, div.team-grid { 
+                display: block !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                min-width: 0 !important; 
+                grid-template-columns: none !important; /* Отменяем десктопные колонки */
+                clear: both !important;
+            }
+
+            /* Настройка самих карточек внутри */
+            div.programs-grid > div.program-card, div.team-grid > div.program-card,
+            div.programs-grid > div, div.team-grid > div { 
+                display: inline-block !important;
+                float: left !important;
+                width: calc(50% - 6px) !important;
+                max-width: calc(50% - 6px) !important;
+                min-width: calc(50% - 6px) !important;
+                margin-right: 12px !important;
+                margin-bottom: 16px !important;
                 box-sizing: border-box !important;
             }
 
+            /* Убираем правый отступ у каждой второй карточки */
+            div.programs-grid > div:nth-child(2n), div.team-grid > div:nth-child(2n) {
+                margin-right: 0 !important;
+            }
+
             /* Корректируем картинки внутри, чтобы они не вытягивались в соломку */
-            .program-img {
+            img.program-img {
                 width: 100% !important;
                 height: 120px !important; 
                 object-fit: cover !important;
+                display: block !important;
             }
             /* ---------------------------------------------------------------- */
 

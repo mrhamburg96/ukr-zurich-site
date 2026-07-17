@@ -1590,5 +1590,43 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     }
 }
 </style>
+    <script>
+function fixMobileGrids() {
+    if (window.innerWidth <= 768) {
+        // 1. Находим контейнеры сеток
+        var grids = document.querySelectorAll('.programs-grid, .team-grid');
+        grids.forEach(function(grid) {
+            grid.style.setProperty('display', 'block', 'important');
+            grid.style.setProperty('width', '100%', 'important');
+            grid.style.setProperty('max-width', '100%', 'important');
+        });
+
+        // 2. Находим все карточки внутри этих сеток
+        var cards = document.querySelectorAll('.programs-grid .program-card, .team-grid .program-card, .programs-grid > div, .team-grid > div');
+        cards.forEach(function(card, index) {
+            card.style.setProperty('display', 'inline-block', 'important');
+            card.style.setProperty('float', 'left', 'important');
+            card.style.setProperty('width', 'calc(50% - 6px)', 'important');
+            card.style.setProperty('max-width', 'calc(50% - 6px)', 'important');
+            card.style.setProperty('min-width', 'calc(50% - 6px)', 'important');
+            card.style.setProperty('box-sizing', 'border-box', 'important');
+            card.style.setProperty('margin-bottom', '16px', 'important');
+            
+            // Каждой второй карточке убираем правый отступ, остальным — ставим 12px
+            if ((index + 1) % 2 === 0) {
+                card.style.setProperty('margin-right', '0px', 'important');
+            } else {
+                card.style.setProperty('margin-right', '12px', 'important');
+            }
+        });
+    }
+}
+
+// Запускаем при загрузке страницы и при изменении размера экрана
+window.addEventListener('DOMContentLoaded', fixMobileGrids);
+window.addEventListener('resize', fixMobileGrids);
+// Дополнительный пинок на случай ленивой загрузки тем
+setTimeout(fixMobileGrids, 500);
+</script>
 </body>
 </html>

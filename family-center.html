@@ -775,23 +775,27 @@
             }
             /* ---------------------------------------------------------------- */
 
-         /* --- ПОЛНЫЙ СБРОС СТИЛЕЙ ДЛЯ КАРТОЧЕК НА МОБИЛЬНЫХ --- */
-            .programs-grid, .team-grid { 
+       /* --- ЖЕСТКИЙ СБРОС ДЛЯ ЛЮБЫХ ПРОМЕЖУТОЧНЫХ КОНТЕЙНЕРОВ --- */
+            .programs-grid, .team-grid, 
+            .programs-grid > div, .team-grid > div { 
                 display: flex !important;
-                flex-flow: row wrap !important; /* Принудительно: только горизонтальный ряд с ПЕРЕНОСОМ */
-                flex-wrap: wrap !important;     /* Дублируем для надежности против nowrap */
+                flex-flow: row wrap !important;
+                flex-wrap: wrap !important;
                 gap: 12px !important;
                 justify-content: space-between !important;
-                overflow: visible !important;   /* Отключаем скрытие выпадающих элементов, если оно было */
+                overflow: visible !important;
                 width: 100% !important;
             }
 
-            /* Задаем ширину каждой карточки ровно в 50% с учетом зазора */
-            .programs-grid > *, .team-grid > * { 
+            /* Принудительно выстраиваем сами карточки (внутренние элементы) по 2 в ряд */
+            .programs-grid div div, 
+            .team-grid div div,
+            .programs-grid > *, 
+            .team-grid > * { 
                 flex: 0 0 calc(50% - 6px) !important;
                 width: calc(50% - 6px) !important;
                 max-width: calc(50% - 6px) !important;
-                min-width: calc(50% - 6px) !important; /* Запрещаем им сжиматься меньше 50% */
+                min-width: calc(50% - 6px) !important;
                 box-sizing: border-box !important;
             }
             /* ---------------------------------------------------------------- */

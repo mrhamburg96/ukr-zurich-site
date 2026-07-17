@@ -755,23 +755,23 @@
           /* ==========================================
            МОБИЛЬНАЯ ВЕРСИЯ (ЭКРАНЫ ДО 768px)
            ========================================== */
-        @media (max-width: 768px) {
+       @media (max-width: 768px) {
             /* 1. Элементы шапки */
             .main-nav, .header-actions { display: none !important; }
             
-            /* 2. Жесткий сброс сеток для Программ и Команды */
-            div.programs-section div.programs-grid, 
-            div.team-section div.team-grid { 
+            /* ==========================================
+               2. СЕКЦИЯ ПРОГРАММ (Оставляем на float)
+               ========================================== */
+            div.programs-section div.programs-grid { 
                 display: block !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 clear: both !important;
             }
 
-            /* 3. Принудительное выстраивание карточек по 2 в ряд */
+            /* Выстраивание карточек программ по 2 в ряд */
             div.programs-section div.programs-grid > div.program-card,
-            div.team-section div.team-grid > div.program-card,
-            div.programs-grid > div, div.team-grid > div { 
+            div.programs-grid > div { 
                 display: inline-block !important;
                 float: left !important;
                 width: calc(50% - 6px) !important;
@@ -782,25 +782,73 @@
                 box-sizing: border-box !important;
             }
 
-            /* Убираем отступ у каждого второго элемента */
-            div.programs-grid > div:nth-child(2n), 
-            div.team-grid > div:nth-child(2n) {
+            /* Убираем отступ у каждой второй программы */
+            div.programs-grid > div:nth-child(2n) {
                 margin-right: 0 !important;
             }
 
-            /* Очистка обтекания флоатов */
-            div.programs-grid::after, div.team-grid::after {
-                content: "" !important;
-                display: table !important;
+            /* Жесткий сброс строки для каждой третьей программы */
+            div.programs-section div.program-card:nth-of-type(2n+1), 
+            div.programs-grid > div:nth-child(2n+1) { 
                 clear: both !important;
             }
 
-            /* 4. Корректировка изображений внутри карточек */
+            /* 4. Корректировка изображений внутри карточек программ */
             img.program-img {
                 width: 100% !important;
                 height: 120px !important; 
                 object-fit: cover !important;
                 display: block !important;
+            }
+
+
+            /* ==========================================
+               3. СЕКЦИЯ КОМАНДЫ (Переводим на надежный Flexbox)
+               ========================================== */
+            div.team-section div.team-grid { 
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                float: none !important;
+                clear: both !important;
+            }
+
+            /* Карточки команды во флексе (сбрасываем конфликтующие флоаты и отступы) */
+            div.team-section div.team-grid > div.team-card,
+            div.team-grid > div { 
+                display: block !important;
+                flex: 0 0 calc(50% - 6px) !important;
+                width: calc(50% - 6px) !important;
+                max-width: calc(50% - 6px) !important;
+                min-width: calc(50% - 6px) !important;
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                margin-bottom: 16px !important;
+                float: none !important;
+                clear: none !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Корректируем фотографии команды на мобильных */
+            img.team-avatar, .team-card img {
+                width: 100% !important;
+                min-width: 100% !important;
+                height: 120px !important; 
+                object-fit: cover !important;
+                display: block !important;
+            }
+
+
+            /* ==========================================
+               4. ОСТАЛЬНЫЕ БЛОКИ (Features, Hero, Footer)
+               ========================================== */
+            /* Очистка обтекания флоатов */
+            div.programs-grid::after, div.team-grid::after {
+                content: "" !important;
+                display: table !important;
+                clear: both !important;
             }
 
             /* 5. Обновленная сетка преимуществ (Features) */
@@ -852,20 +900,6 @@
             .hero-buttons { display: flex !important; flex-direction: column !important; gap: 4px !important; align-items: flex-start !important; margin-top: 6px !important; }
             .btn-yellow, .btn-white { padding: 3px 6px !important; border-radius: 4px !important; font-size: 8.5px !important; line-height: 1.1 !important; width: auto !important; max-width: 120px !important; text-align: center !important; white-space: nowrap !important; }
         }
-       
-        /* Корректируем фотографии команды на мобильных */
-            img.team-avatar, .team-card img {
-                width: 100% !important;
-                min-width: 100% !important;
-                height: 120px !important; /* Делаем такую же аккуратную высоту, как у программ */
-                object-fit: cover !important;
-                display: block !important;
-            }
-       /* Сбрасываем обтекание для каждого нечетного элемента (1-й, 3-й, 5-й и т.д.) */
-            section.programs-section div.program-card:nth-of-type(2n+1), 
-            section.team-section div.program-card:nth-of-type(2n+1) { 
-                clear: both !important;
-            }
     </style>
 </head>
 <body>

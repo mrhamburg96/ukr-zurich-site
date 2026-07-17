@@ -776,34 +776,29 @@
             /* ---------------------------------------------------------------- */
 
     /* --- КАРДИНАЛЬНОЕ ИЗМЕНЕНИЕ: ПЕРЕВОД В БЛОЧНЫЙ РЕЖИМ --- */
+           /* --- НАСТРОЙКА СЕТКИ ДЛЯ ПРОГРАММ И КОМАНДЫ ПО 2 В РЯД --- */
             .programs-grid, .team-grid { 
-                display: block !important; /* Полностью отменяем Grid и Flexbox */
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important; 
+                grid-auto-flow: row !important;
+                gap: 12px !important;
                 width: 100% !important;
-                clear: both !important;
             }
 
-            /* Заставляем карточки вести себя как блоки, обтекающие друг друга по парам */
-            .programs-grid > *, .team-grid > * { 
-                display: block !important;
-                float: left !important; /* Выстраиваем их друг за другом */
-                width: calc(50% - 6px) !important; /* Ровно половина ширины за вычетом зазора */
-                max-width: calc(50% - 6px) !important;
-                min-width: calc(50% - 6px) !important;
-                margin-right: 12px !important; /* Зазор между колонками */
-                margin-bottom: 14px !important; /* Зазор между рядами */
+            /* Сбрасываем жесткие ограничения ширины самих карточек, чтобы они заняли ячейки сетки */
+            .programs-grid .program-card, .team-grid .program-card,
+            .programs-grid > div, .team-grid > div { 
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important; /* Позволяет карточке сжиматься под размер колонки */
                 box-sizing: border-box !important;
             }
 
-            /* Убираем правый отступ у каждой второй карточки, чтобы они идеально вставали по краям */
-            .programs-grid > :nth-child(2n), .team-grid > :nth-child(2n) {
-                margin-right: 0 !important;
-            }
-
-            /* Сброс обтекания в конце контейнера */
-            .programs-grid::after, .team-grid::after {
-                content: "" !important;
-                display: table !important;
-                clear: both !important;
+            /* Корректируем картинки внутри, чтобы они не вытягивались в соломку */
+            .program-img {
+                width: 100% !important;
+                height: 120px !important; /* Уменьшаем высоту для мобильных, чтобы пропорции были красивыми */
+                object-fit: cover !important;
             }
             /* ---------------------------------------------------------------- */
 

@@ -47,13 +47,32 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .article-list{margin-bottom:1.5rem; padding-left:20px; list-style-type: disc;}
 .article-list li{margin-bottom:10px; color:var(--text2); font-size:1.05rem}
 
-/* Стили Аккордеона (Статей) */
-.status-articles {
+/* Двухколоночный макет */
+.page-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
   margin-top: 2rem;
+}
+.page-sidebar {
+  flex-shrink: 0;
+  width: 450px;
+}
+.page-sidebar img {
+  width: 450px;
+  height: 633px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.status-articles {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
+/* Стили Аккордеона (Статей) */
 .accordion-item {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -149,10 +168,21 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     text-align: center !important;
   }
   
-  .page-content img {
+  /* Адаптация макета */
+  .page-layout {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .page-sidebar {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .page-sidebar img {
     max-width: 100% !important;
     height: auto !important;
   }
+  
   table {
     display: block !important;
     width: 100% !important;
@@ -169,6 +199,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   }
 
   .status-articles {
+    width: 100% !important;
     padding: 0 0.5rem !important;
     gap: 0.75rem !important;
   }
@@ -241,138 +272,149 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <h1 class="page-title" id="nr-title" style="color: #1A56C4;">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</h1>
   <p id="nr-sub" style="color:var(--text2); font-size:1.1rem; text-align: center; margin-bottom: 2rem;">Свіжі матеріали, офіційні заяви та корисна інформація для української громади.</p>
   
-  <div class="status-articles">
-  
-  <!-- Статья 1 (Полный текст реформы 2026) -->
-  <div class="accordion-item">
-    <button class="accordion-trigger" onclick="toggleArticle(this)">
-      <span id="nr-h1">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</span>
-      <span class="arrow">▼</span>
-    </button>
-    <div class="accordion-content">
-      <div class="accordion-inner">
-        
-        <p id="nr-p1" class="article-p"></p>
-        <p id="nr-p2" class="article-p"></p>
-        <p id="nr-p3" class="article-p"></p>
-
-        <h3 id="nr-sub1"></h3>
-        <p id="nr-p4" class="article-p"></p>
-        <p id="nr-p5" class="article-p"></p>
-        <ul class="article-list">
-          <li id="nr-li1"></li>
-          <li id="nr-li2"></li>
-          <li id="nr-li3"></li>
-        </ul>
-
-        <h3 id="nr-sub2"></h3>
-        <p id="nr-p6" class="article-p"></p>
-        <p id="nr-p7" class="article-p"></p>
-        <p id="nr-p8" class="article-p"></p>
-
-        <h3 id="nr-sub3"></h3>
-        <p id="nr-p9" class="article-p"></p>
-        <p id="nr-p10" class="article-p"></p>
-
-        <h3 id="nr-sub4"></h3>
-        <p id="nr-p11" class="article-p"></p>
-        <ul class="article-list">
-          <li id="nr-li4"></li>
-          <li id="nr-li5"></li>
-        </ul>
-        <p id="nr-p12" class="article-p"></p>
-
-        <h3 id="nr-sub5"></h3>
-        <p id="nr-p13" class="article-p"></p>
-        <p id="nr-p14" class="article-p"></p>
-        <ul class="article-list">
-          <li id="nr-li6"></li>
-          <li id="nr-li7"></li>
-        </ul>
-
-        <!-- Адаптивная таблица изменений -->
-        <h3 id="nr-table-title" style="margin-top:2rem; margin-bottom:1rem; color:var(--blue);"></h3>
-        <div style="overflow-x: auto; width: 100%; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 2rem;">
-          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
-            <thead>
-              <tr style="background: var(--surface); border-bottom: 2px solid var(--border);">
-                <th id="th-param" style="padding: 12px; font-weight: 700;"></th>
-                <th id="th-was" style="padding: 12px; font-weight: 700;"></th>
-                <th id="th-now" style="padding: 12px; font-weight: 700;"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td id="td-p1-c1" style="padding: 12px; font-weight: 600;"></td>
-                <td id="td-p1-c2" style="padding: 12px; color: var(--text2);"></td>
-                <td id="td-p1-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td id="td-p2-c1" style="padding: 12px; font-weight: 600;"></td>
-                <td id="td-p2-c2" style="padding: 12px; color: var(--text2);"></td>
-                <td id="td-p2-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td id="td-p3-c1" style="padding: 12px; font-weight: 600;"></td>
-                <td id="td-p3-c2" style="padding: 12px; color: var(--text2);"></td>
-                <td id="td-p3-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
-              </tr>
-              <tr>
-                <td id="td-p4-c1" style="padding: 12px; font-weight: 600;"></td>
-                <td id="td-p4-c2" style="padding: 12px; color: var(--text2);"></td>
-                <td id="td-p4-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p id="nr-p15" class="article-p" style="font-weight: 500;"></p>
-        <p id="nr-p16" class="article-p"></p>
-
-      </div>
-    </div>
-  </div>
-   <!-- Стаття 2 (Актуальний стан та перспективи 2026) -->
-  <div class="accordion-item">
-    <button class="accordion-trigger" onclick="toggleArticle(this)">
-      <span id="nr2-h1">Актуальний стан та перспективи захисного статусу S у Швейцарії: що змінюється у 2026 році</span>
-      <span class="arrow">▼</span>
-    </button>
-    <div class="accordion-content">
-      <div class="accordion-inner">
-        
-        <p id="nr2-p1" class="article-p"></p>
-        <p id="nr2-p2" class="article-p"></p>
-
-        <h3 id="nr2-sub1"></h3>
-        <p id="nr2-p3" class="article-p"></p>
-        <p id="nr2-p4" class="article-p"></p>
-        <p id="nr2-p5" class="article-p"></p>
-        <p id="nr2-p6" class="article-p"></p>
-
-        <h3 id="nr2-sub2"></h3>
-        <p id="nr2-p7" class="article-p"></p>
-        <p id="nr2-p8" class="article-p"></p>
-
-        <h3 id="nr2-sub3"></h3>
-        <p id="nr2-p9" class="article-p"></p>
-        <p id="nr2-p10" class="article-p"></p>
-
-        <h3 id="nr2-sub4"></h3>
-        <p id="nr2-p11" class="article-p"></p>
-        <ul class="article-list">
-          <li id="nr2-li1"></li>
-          <li id="nr2-li2"></li>
-        </ul>
-
-        <h3 id="nr2-sub5"></h3>
-        <p id="nr2-p12" class="article-p"></p>
-
-      </div>
-    </div>
-  </div>
+  <!-- Двухколоночный контейнер макета -->
+  <div class="page-layout">
     
-</div>
+    <!-- Левая колонка: Изображение -->
+    <aside class="page-sidebar">
+      <img src="new-real-foto1.webp" alt="Нові реалії статусу S у Швейцарії" width="450" height="633">
+    </aside>
+
+    <!-- Правая колонка: Список аккордеонов (статей) -->
+    <div class="status-articles">
+    
+      <!-- Стаття 1 (Полний текст реформи 2026) -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="nr-h1">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            
+            <p id="nr-p1" class="article-p"></p>
+            <p id="nr-p2" class="article-p"></p>
+            <p id="nr-p3" class="article-p"></p>
+
+            <h3 id="nr-sub1"></h3>
+            <p id="nr-p4" class="article-p"></p>
+            <p id="nr-p5" class="article-p"></p>
+            <ul class="article-list">
+              <li id="nr-li1"></li>
+              <li id="nr-li2"></li>
+              <li id="nr-li3"></li>
+            </ul>
+
+            <h3 id="nr-sub2"></h3>
+            <p id="nr-p6" class="article-p"></p>
+            <p id="nr-p7" class="article-p"></p>
+            <p id="nr-p8" class="article-p"></p>
+
+            <h3 id="nr-sub3"></h3>
+            <p id="nr-p9" class="article-p"></p>
+            <p id="nr-p10" class="article-p"></p>
+
+            <h3 id="nr-sub4"></h3>
+            <p id="nr-p11" class="article-p"></p>
+            <ul class="article-list">
+              <li id="nr-li4"></li>
+              <li id="nr-li5"></li>
+            </ul>
+            <p id="nr-p12" class="article-p"></p>
+
+            <h3 id="nr-sub5"></h3>
+            <p id="nr-p13" class="article-p"></p>
+            <p id="nr-p14" class="article-p"></p>
+            <ul class="article-list">
+              <li id="nr-li6"></li>
+              <li id="nr-li7"></li>
+            </ul>
+
+            <!-- Адаптивная таблица изменений -->
+            <h3 id="nr-table-title" style="margin-top:2rem; margin-bottom:1rem; color:var(--blue);"></h3>
+            <div style="overflow-x: auto; width: 100%; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 2rem;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+                <thead>
+                  <tr style="background: var(--surface); border-bottom: 2px solid var(--border);">
+                    <th id="th-param" style="padding: 12px; font-weight: 700;"></th>
+                    <th id="th-was" style="padding: 12px; font-weight: 700;"></th>
+                    <th id="th-now" style="padding: 12px; font-weight: 700;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--border);">
+                    <td id="td-p1-c1" style="padding: 12px; font-weight: 600;"></td>
+                    <td id="td-p1-c2" style="padding: 12px; color: var(--text2);"></td>
+                    <td id="td-p1-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border);">
+                    <td id="td-p2-c1" style="padding: 12px; font-weight: 600;"></td>
+                    <td id="td-p2-c2" style="padding: 12px; color: var(--text2);"></td>
+                    <td id="td-p2-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border);">
+                    <td id="td-p3-c1" style="padding: 12px; font-weight: 600;"></td>
+                    <td id="td-p3-c2" style="padding: 12px; color: var(--text2);"></td>
+                    <td id="td-p3-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+                  </tr>
+                  <tr>
+                    <td id="td-p4-c1" style="padding: 12px; font-weight: 600;"></td>
+                    <td id="td-p4-c2" style="padding: 12px; color: var(--text2);"></td>
+                    <td id="td-p4-c3" style="padding: 12px; color: var(--blue); font-weight: 600;"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p id="nr-p15" class="article-p" style="font-weight: 500;"></p>
+            <p id="nr-p16" class="article-p"></p>
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- Стаття 2 (Актуальний стан та перспективи 2026) -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="nr2-h1">Актуальний стан та перспективи захисного статусу S у Швейцарії: що змінюється у 2026 році</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            
+            <p id="nr2-p1" class="article-p"></p>
+            <p id="nr2-p2" class="article-p"></p>
+
+            <h3 id="nr2-sub1"></h3>
+            <p id="nr2-p3" class="article-p"></p>
+            <p id="nr2-p4" class="article-p"></p>
+            <p id="nr2-p5" class="article-p"></p>
+            <p id="nr2-p6" class="article-p"></p>
+
+            <h3 id="nr2-sub2"></h3>
+            <p id="nr2-p7" class="article-p"></p>
+            <p id="nr2-p8" class="article-p"></p>
+
+            <h3 id="nr2-sub3"></h3>
+            <p id="nr2-p9" class="article-p"></p>
+            <p id="nr2-p10" class="article-p"></p>
+
+            <h3 id="nr2-sub4"></h3>
+            <p id="nr2-p11" class="article-p"></p>
+            <ul class="article-list">
+              <li id="nr2-li1"></li>
+              <li id="nr2-li2"></li>
+            </ul>
+
+            <h3 id="nr2-sub5"></h3>
+            <p id="nr2-p12" class="article-p"></p>
+
+          </div>
+        </div>
+      </div>
+        
+    </div>
+  </div>
 </main>
 
 <footer id="contacts">
@@ -404,7 +446,7 @@ const T = {
     "nr-p3": "Що саме змінилося в швейцарських законах та підзаконних актах, до чого готуватися новоприбулим і які нові обов’язки з’явилися у тих, хто вже має заповітну картку S? Розбираємося детально.",
     "nr-sub1": "1. Продовження до 2027 року: стабільність для тих, хто вже адаптувався",
     "nr-p4": "Головна і найважливіша новина, яка принесла полегшення бачатьом українським родинам — Федеральна рада ухвалила офіційне рішення не скасовувати статус захисту S щонайменше до 4 березня 2027 року. Це рішення уряд обґрунтував тим, що попри тривалість конфлікту, загальна безпекова ситуация в Україні залишається нестабільною, а повернення мільйонів людей у зону бойових дій є неможливим.",
-    "nr-p5": "Разом із самим статусом уряд продовжив фінансування так званої «Програми S» — комплексу інтеграційних заходів. Конфедерація продовжує виділяти кантонам по 3000 швейцарських франків (CHF) на рік на кожну особу. Ці кошти спрямовуються на:",
+    "nr-p5": "Разом із самим статусом уряд продовжив фінансування так званої «Програми S» — комплексу інтеграційних заходів. Конфедерація продовжує виділяти кантонам по 3000 швейцарських франків (CHF) на рік на кожну osobu. Ці кошти спрямовуються на:",
     "nr-li1": "Інтенсивне вивчення державних мов Швейцарії (німецької, французької або італійської — залежно від регіону);",
     "nr-li2": "Професійне навчання та програми перекваліфікації;",
     "nr-li3": "Роботу регіональних центрів зайнятості (RAV) для прискореного працевлаштування.",
@@ -414,7 +456,7 @@ const T = {
     "nr-p8": "<strong>Важливе уточнення:</strong> Це правило застосовується виключно до тих українців, які подали або подають заяви після вказаної дати реформи. Ті, хто отримав статус раніше, захищені законом — їхні дозволи на проживання анулювати через регіон походження ніхто не буде. Швейцарська влада аргументує це тим, що зазначені області розташовані далеко від лінії фронту, і повернення туди вважається «прийнятним та обґрунтованим».",
     "nr-sub3": "3. Ринок праці: планка піднята до 40%",
     "nr-p9": "Швейцарське суспільство все частіше ставить питання щодо економічної самостійності біженців. У зв’язку з цим Федеральна рада встановила чіткий орієнтир: рівень зайнятості серед працездатних українців зі статусом S має досягти 40%.",
-    "nr-p10": "Щоб стимулювати цей процес, підзаконні акти кантонів зазнали трансформацій. Хоча статус S за своєю природою надає право на роботу та самозайнятість, процедура отримання дозволів від кантональних служб праці стала більш регламентованою. Держава вимагає від біженців активного пошуку роботи через RAV та мовної інтеграції.",
+    "nr-p10": "Щоб стимулювати цей процес, подзаконні акти кантонів зазнали трансформацій. Хоча статус S за своєю природою надає право на роботу та самозайнятість, процедура отримання дозволів від кантональних служб праці стала більш регламентованою. Держава вимагає від біженців активного пошуку роботи через RAV та мовної інтеграції.",
     "nr-sub4": "4. Нові правила подорожей: ліміти на візити додому",
     "nr-p11": "Згідно з оновленими інструкціями SEM, правила контролю за перетином кордонів стали значно жорсткішими:",
     "nr-li4": "<strong>Короткострокові візити до України:</strong> домашні візити обмежені лімітом у 15 днів на півріччя (6 місяців).",
@@ -493,9 +535,9 @@ const T = {
     "nr2-p2": "Der Schweizer Bundesrat hat offiziell ein umfassendes Konsultationsverfahren zur Zukunft des Status S für die Zeit nach März 2027 eingeleitet. Die endgültigen Entscheidungen über mögliche Verlängerungen und regulatorische Änderungen werden voraussichtlich Ende Sommer 2026 getroffen. Dieser Überblick beleuchtet die wichtigsten Herausforderungen, Szenarien und Änderungen, die auf staatlicher Ebene diskutiert werden.",
     "nr2-sub1": "Die wichtigsten Szenarien und Pläne des Bundesrates",
     "nr2-p3": "Das vom Justiz- und Polizeidepartement vorgelegte Konzept «Zukunft des Schutzstatus S» umfasst drei mögliche strategische Szenarien:",
-    "nr2-p4": "<strong>Verlängerung des Status S:</strong> Da die Sicherheitslage in der Ukraine kritisch bleibt, ist die Verlängerung des temporären Schutzes über den März 2027 hinaus der wahrscheinlichste Schritt, um den Geflüchteten rechtliche und existenzielle Stabilität zu garantieren.",
+    "nr2-p4": "<strong>Verlängerung des Status S:</strong> Das die Sicherheitslage in der Ukraine kritisch bleibt, ist die Verlängerung des temporären Schutzes über den März 2027 hinaus der wahrscheinlichste Schritt, um den Geflüchteten rechtliche und existenzielle Stabilität zu garantieren.",
     "nr2-p5": "<strong>Schrittweiser Ausstieg (Phasing-out):</strong> Entwicklung von Ausstiegsmechanismen im Falle eines langwierigen, lokal begrenzten Konflikts, mit schrittweiser Überführung in andere Bewilligungsarten oder Vorbereitung der Rückkehr.",
-    "nr2-p6": "<strong>Vollständige Aufhebung:</strong> Dieses Szenario wird nur bei einem dauerhaften und garantierten Frieden in Betracht gezogen. Humanitäre Organisationen betonen, dass eine Rückkehr erst nach dem Wiederaufbau der kritischen Infrastruktur (Spitäler, Strassen, Schulen) möglich ist. Die Schweiz koordiniert sich weiterhin eng mit der EU, um Sekundärmigration zu verhindern.",
+    "nr2-p6": "<strong>Vollständige Aufhebung:</strong> Dieses Szenario wird nur bei einem dauerhaften und garantierten Frieden in Betracht gezogen. Humanitäre Organisationen betonen, dass eine Rückkehr erst nach dem Wiederaufbau der kritischen Infrastruktur (Spitäler, Strassen, Schulen) möglich ist. Die Schweiz koordininiert sich weiterhin eng mit der EU, um Sekundärmigration zu verhindern.",
     "nr2-sub2": "Übergang zu B-Ausweisen und Fragen der Sozialhilfe",
     "nr2-p7": "Ein wichtiger Meilenstein steht bevor: Im Frühjahr 2027 ist es fünf Jahre her, dass die erste Flüchtlingswelle Anfang 2022 in der Schweiz eintraf. Nach dem Schweizer Asylgesetz haben Personen, die sich seit fünf Jahren ununterbrochen mit dem Status S im Land aufhalten, Anspruch auf einen Aufenthaltstitel des Typs B (B-Ausweis), der an den vorübergehenden Schutz gekoppelt bleibt.",
     "nr2-p8": "Gleichzeitig sieht das vom Parlament verabschiedete Finanzsparpaket für 2027 eine Änderung der Bundesfinanzierung vor. Ab März 2027 zahlt der Bund den Kantonen keine Pauschalen mehr für Personen, die sich länger als fünf Jahre im Schutzstatus befinden. Der Bundesrat schlägt daher vor, den Kantonen und Gemeinden mehr Ermessensspielraum zu geben, damit sie die Höhe und Standards der Sozialhilfe für diese Kategorie selbst festlegen können. Die Schweizerische Flüchtlingshilfe äußert sich besorgt und warnt vor ungleichen Unterstützungsbedingungen in den verschiedenen Regionen.",
@@ -507,7 +549,7 @@ const T = {
     "nr2-li1": "<strong>Erwerbstätigkeit:</strong> Das Bewilligungsverfahren für den Arbeitsmarkt wurde vereinfacht – das alte Verfahren wurde durch eine einfache Meldepflicht beim Stellenantritt oder bei der Beendigung einer Erwerbstätigkeit (auch selbstständigen Arbeit) ersetzt. Dies fördert die wirtschaftliche Teilhabe der Ukrainer.",
     "nr2-li2": "<strong>Reisen in die Ukraine:</strong> Heimatreisen sind klar reglementiert. Die erlaubte Aufenthaltsdauer in der Ukraine beträgt maximal 15 Tage pro Halbjahr. Der Gesamtaufenthalt außerhalb der Schweiz ohne Risiko des Statusverlusts ist auf zwei Monate begrenzt. Verstöße können zum sofortigen Widerruf des Schutzstatus führen.",
     "nr2-sub5": "Fazit",
-    "nr2-p12": "Der Status S in der Schweiz geht im Jahr 2026 in eine Phase der langfristigen Planung über. Trotz bevorstehender Änderungen bei der Sozialfinanzierung, den Debatten über Wehrpflichtige und den Herausforderungen des langfristigen Integrationsprozesses bleibt die Hauptpriorität des Staates unverändert: Gewährleistung von Sicherheit, Vorhersehbarkeit und stabilen Bedingungen für diejenigen, die auf Schweizer Boden Schutz vor dem Krieg gefunden haben."
+    "nr2-p12": "Der Status S in der Schweiz geht im Jahr 2026 in eine Phase der langfristigen Planung über. Trotz bevorstehender Änderungen bei der Sozialfinanzierung, den Debatten über Wehrpflichtige und den Herausforderungen des langfristigen Integrationsproзesses bleibt die Hauptpriorität des Staates unverändert: Gewährleistung von Sicherheit, Vorhersehbarkeit und stabilen Bedingungen für diejenigen, die auf Schweizer Boden Schutz vor dem Krieg gefunden haben."
   }
 };
 

@@ -444,7 +444,7 @@
     </div>
 
     <main class="banner-container">
-      <img src="volonter01.webp" data-i18n="volonter_img_src" alt="Волонтерський центр UAGZ" class="banner-img">
+      <img src="volonter01.webp" data-i18n="volonter_img_src" id="mainBannerImage" alt="Волонтерський центр UAGZ" class="banner-img">
       <a href="#need-help" class="banner-link" style="top: 29.3%; left: 3.3%; width: 17.1%; height: 4.8%;"></a>
       <a href="#give-help" class="banner-link" style="top: 29.3%; left: 22.1%; width: 13.9%; height: 4.8%;"></a>
       <a href="#contact-us" class="banner-link" style="top: 94.7%; left: 59.9%; width: 28.0%; height: 4.3%;"></a>
@@ -477,7 +477,7 @@
         <div class="service-card">
           <img src="5icon-volont.webp" alt="" class="service-icon">
           <h3 data-i18n="services.card5_title">Інформування</h3>
-          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагают громаді бути поінформованою та захищеною.</p>
+          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагают громаді бути поинформованою та захищеною.</p>
         </div>
       </div>
     </section>
@@ -577,9 +577,6 @@
   </div>
 </div>
 
-<!-- ... Здесь заканчивается верстка вашего футера или модального окна ... -->
-
-    <!-- ВСТАВЛЯЙТЕ СЮДА: -->
     <script>
     async function loadTranslations(lang) {
         try {
@@ -600,11 +597,9 @@
               if (element.tagName === 'IMG') {
                 element.src = text;
               } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                // Для полей ввода переводить дефолтное значение напрямую НЕЛЬЗЯ, 
-                // иначе сотрется то, что ввел пользователь.
-                if (!element.value) {
-                  element.value = text;
-                }
+                // Корректный пропуск полей ввода формы, чтобы не затирать текст пользователя, 
+                // так как для них ниже работает перевод через data-i18n-placeholder.
+                return;
               } else {
                 element.textContent = text;
               }
@@ -625,6 +620,16 @@
               element.setAttribute('placeholder', text);
             }
           });
+
+          // Специфичное переключение баннера согласно условию задачи
+          const bannerImg = document.getElementById('mainBannerImage');
+          if (bannerImg) {
+            if (lang === 'de') {
+              bannerImg.src = 'volonter01DE.webp';
+            } else {
+              bannerImg.src = 'volonter01.webp';
+            }
+          }
 
         } catch (error) {
           console.error('Ошибка перевода:', error);
@@ -725,14 +730,13 @@
             body: urlEncodedData 
           })
           .then(response => {
-             // ... код обработки успешной отправки (остается без изменений) ...
               // Возвращаем кнопку в рабочее состояние
               submitButton.disabled = false;
               submitButton.textContent = originalButtonText;
               
               // Выводим сообщение на языке интерфейса
               if (currentLang === 'de') {
-                alert('Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze mit Ihnen in Verbindung setzen!');
+                alert('Vielen Dank! Ihre Anfrage wurde успешно отправлена. Мы свяжемся с вами в ближайшее время!');
               } else {
                 alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
               }

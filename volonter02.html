@@ -472,12 +472,12 @@
         <div class="service-card">
           <img src="4icon-volont.webp" alt="" class="service-icon">
           <h3 data-i18n="services.card4_title">Партнерство</h3>
-          <p data-i18n="services.card4_text">Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.</p>
+          <p data-i18n="services.card4_text">Співпрацюємо з організаціями та бізнесом для реалізації спільних社會ініціатив.</p>
         </div>
         <div class="service-card">
           <img src="5icon-volont.webp" alt="" class="service-icon">
           <h3 data-i18n="services.card5_title">Інформування</h3>
-          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагают громаді бути поинформованою та захищеною.</p>
+          <p data-i18n="services.card5_text">Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною.</p>
         </div>
       </div>
     </section>
@@ -534,7 +534,7 @@
           <img src="Logo01.png" alt="Heart" class="cta-heart-icon">
           <div class="cta-text">
             <h3 data-i18n="cta.title">Разом ми сильніші</h3>
-            <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом мы можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
+            <p data-i18n="cta.text">Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує.</p>
           </div>
         </div>
         <a href="#volunteerModal" id="openVolunteerModal" class="cta-button" data-i18n="cta_button">Зв’язатися з нами</a>
@@ -578,127 +578,249 @@
 </div>
 
     <script>
-    async function loadTranslations(lang) {
-        try {
-          const response = await fetch(`${lang}.json`);
-          if (!response.ok) throw new Error(`Не удалось загрузить файл перевода: ${lang}.json`);
-          const translations = await response.json();
-
-          document.querySelectorAll('[data-i18n]').forEach(element => {
-            const keyPath = element.getAttribute('data-i18n');
-            const keys = keyPath.split('.');
-            
-            let text = translations;
-            keys.forEach(key => {
-              if (text) text = text[key];
-            });
-
-            if (text) {
-              if (element.tagName === 'IMG') {
-                element.src = text;
-              } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                // Корректный пропуск полей ввода формы, чтобы не затирать текст пользователя, 
-                // так как для них ниже работает перевод через data-i18n-placeholder.
-                return;
-              } else {
-                element.textContent = text;
-              }
-            }
-          });
-
-          // Автоматический перевод плейсхолдеров (placeholder) в полях формы
-          document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-            const keyPath = element.getAttribute('data-i18n-placeholder');
-            const keys = keyPath.split('.');
-            
-            let text = translations;
-            keys.forEach(key => {
-              if (text) text = text[key];
-            });
-
-            if (text) {
-              element.setAttribute('placeholder', text);
-            }
-          });
-
-          // Специфичное переключение баннера согласно условию задачи
-          const bannerImg = document.getElementById('mainBannerImage');
-          if (bannerImg) {
-            if (lang === 'de') {
-              bannerImg.src = 'volonter01DE.webp';
-            } else {
-              bannerImg.src = 'volonter01.webp';
-            }
-          }
-
-        } catch (error) {
-          console.error('Ошибка перевода:', error);
+    // ВСТРОЕННЫЙ СЛОВАРЬ ПЕРЕВОДОВ (Чтобы избежать ошибок CORS и необходимости в отдельных файлах)
+    const translationsData = {
+      ua: {
+        brand_desc: "Український інтеграційний та громадський центр Цюриха",
+        nav_home: "Головна",
+        nav_about: "Про центр",
+        nav_help: "Допомога",
+        nav_events: "Події",
+        nav_knowledge: "Центр знань",
+        nav_announcements: "Оголошення",
+        nav_volunteers: "Волонтерство",
+        nav_contacts: "Контакти",
+        btn_donate: "Donate",
+        breadcrumbs: {
+          main: "Головна",
+          centers: "Наші центри",
+          current: "Волонтерський центр UAGZ"
+        },
+        services: {
+          title: "Чим ми допомагаємо",
+          card1_title: "Соціальна підтримка",
+          card1_text: "Допомагаємо людям у складних життєвих ситуаціях: поради, супровід та необхідна підтримка.",
+          card2_title: "Гуманітарна допомога",
+          card2_text: "Збір та розподіл пожертв: продуктів, одягу, засобів гігієни та інших необхідних речей.",
+          card3_title: "Організація подій",
+          card3_text: "Проводимо заходи, майстер-класи та зустрічі для зміцнення громади та підтримки взаємозв’язків.",
+          card4_title: "Партнерство",
+          card4_text: "Співпрацюємо з організаціями та бізнесом для реалізації спільних соціальних ініціатив.",
+          card5_title: "Інформування",
+          card5_text: "Поширюємо важливу інформацію та ресурси, які допомагають громаді бути поінформованою та захищеною."
+        },
+        directions: {
+          title: "Наші напрямки та можливості",
+          dir1_title: "Збір та розподіл речей",
+          dir1_text: "Організовуємо збори та розподіл речей першої необхідності для тих, хто потребує.",
+          dir2_title: "Волонтерські ініціативи",
+          dir2_text: "Залучаємо волонтерів до різних проєктів та ініціатив у громаді.",
+          dir3_title: "Навчання та розвиток",
+          dir3_text: "Пропонуємо навчальні програми та тренінги для волонтерів.",
+          dir4_title: "Індивідуальний супровід",
+          dir4_text: "Надаємо персональний супровід та допомогу в інтеграції у Швейцарії."
+        },
+        cta: {
+          title: "Разом ми сильніші",
+          text: "Приєднуйтесь до нашої волонтерської спільноти! Разом ми можемо зробити більше добра та підтримати тих, хто цього потребує."
+        },
+        cta_button: "Зв’язатися з нами",
+        modal: {
+          title: "Реєстрація волонтера",
+          subtitle: "Ми зв'яжемося з вами найближчим часом!",
+          name_label: "Ім'я",
+          name_placeholder: "Ваше ім'я",
+          email_label: "Емейл",
+          email_placeholder: "example@email.com",
+          phone_label: "Телефон",
+          phone_placeholder: "+41 76 000 00 00",
+          help_label: "Чим ви хочете допомогти?",
+          help_placeholder: "Наприклад: допомога з дітьми...",
+          submit: "Надіслати"
+        }
+      },
+      de: {
+        brand_desc: "Ukrainisches Integrations- und Kulturzentrum Zürich",
+        nav_home: "Startseite",
+        nav_about: "Über uns",
+        nav_help: "Hilfe",
+        nav_events: "Veranstaltungen",
+        nav_knowledge: "Wissenszentrum",
+        nav_announcements: "Ankündigungen",
+        nav_volunteers: "Freiwilligenarbeit",
+        nav_contacts: "Kontakte",
+        btn_donate: "Spenden",
+        breadcrumbs: {
+          main: "Startseite",
+          centers: "Unsere Zentren",
+          current: "Freiwilligenzentrum UAGZ"
+        },
+        services: {
+          title: "Wie wir helfen",
+          card1_title: "Soziale Unterstützung",
+          card1_text: "Wir helfen Menschen in schwierigen Lebenslagen: Beratung, Begleitung und notwendige Unterstützung.",
+          card2_title: "Humanitäre Hilfe",
+          card2_text: "Sammlung und Verteilung von Spenden: Lebensmitteln, Kleidung, Hygieneartikeln und anderen Notwendigkeiten.",
+          card3_title: "Organisation von Events",
+          card3_text: "Wir führen Veranstaltungen, Workshops und Treffen durch, um die Gemeinschaft zu stärken.",
+          card4_title: "Partnerschaft",
+          card4_text: "Wir kooperieren mit Organisationen und Unternehmen zur Umsetzung gemeinsamer sozialer Initiativen.",
+          card5_title: "Information",
+          card5_text: "Wir verbreiten wichtige Informationen und Ressourcen, damit die Gemeinschaft gut informiert und geschützt bleibt."
+        },
+        directions: {
+          title: "Unsere Bereiche & Möglichkeiten",
+          dir1_title: "Sachspenden & Verteilung",
+          dir1_text: "Wir organisieren die Sammlung und Verteilung von lebensnotwendigen Gütern für Bedürftige.",
+          dir2_title: "Freiwilligeninitiativen",
+          dir2_text: "Wir binden Freiwillige in verschiedene Projekte und Initiativen der Gemeinschaft ein.",
+          dir3_title: "Ausbildung & Entwicklung",
+          dir3_text: "Wir bieten Schulungsprogramme und Trainings für freiwillige Helfer an.",
+          dir4_title: "Individuelle Begleitung",
+          dir4_text: "Wir bieten persönliche Begleitung und Unterstützung bei der Integration in der Schweiz."
+        },
+        cta: {
+          title: "Gemeinsam sind wir stärker",
+          text: "Werden Sie Teil unserer Freiwilligengemeinschaft! Zusammen können wir mehr Gutes tun und Bedürftige unterstützen."
+        },
+        cta_button: "Kontaktieren Sie uns",
+        modal: {
+          title: "Registrierung als Freiwilliger",
+          subtitle: "Wir werden uns in Kürze mit Ihnen in Verbindung setzen!",
+          name_label: "Name",
+          name_placeholder: "Ihr Name",
+          email_label: "E-Mail",
+          email_placeholder: "example@email.com",
+          phone_label: "Telefon",
+          phone_placeholder: "+41 76 000 00 00",
+          help_label: "Wie möchten Sie helfen?",
+          help_placeholder: "Zum Beispiel: Hilfe mit Kindern...",
+          submit: "Absenden"
         }
       }
+    };
 
-      function changeLanguage(event, lang) {
-        event.preventDefault();
-        document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
-        const selectedLangButton = document.getElementById('lang-' + lang);
-        if (selectedLangButton) selectedLangButton.classList.add('active');
-        
-        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
-        window.history.pushState({ path: newUrl }, '', newUrl);
-        loadTranslations(lang);
-      }
+    function loadTranslations(lang) {
+      try {
+        const translations = translationsData[lang];
+        if (!translations) throw new Error(`Перевод для языка ${lang} не найден в базе данных.`);
 
-      document.addEventListener("DOMContentLoaded", function() {
-        // 1. Инициализация языков
-        const urlParams = new URLSearchParams(window.location.search);
-        const currentLang = urlParams.get('lang') || 'ua';
-        
-        document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
-        const activeBtn = document.getElementById('lang-' + currentLang);
-        if (activeBtn) activeBtn.classList.add('active');
-        
-        loadTranslations(currentLang);
-
-        // 2. Управление модальным окном
-        const openBtn = document.getElementById('openVolunteerModal');
-        const overlay = document.getElementById('volunteerModalOverlay');
-        const closeBtn = document.getElementById('closeVolunteerModal');
-        const form = document.getElementById('volunteerForm');
-
-        if (openBtn && overlay && closeBtn) {
-          // Открытие модального окна
-          openBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            overlay.classList.add('is-active');
-            document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы сзади
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const keyPath = element.getAttribute('data-i18n');
+          const keys = keyPath.split('.');
+          
+          let text = translations;
+          keys.forEach(key => {
+            if (text) text = text[key];
           });
 
-          // Закрытие по клику на крестик
-          closeBtn.addEventListener('click', closeModal);
-
-          // Закрытие по клику на область вокруг модального окна
-          overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) {
-              closeModal();
+          if (text) {
+            if (element.tagName === 'IMG') {
+              element.src = text;
+            } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+              return;
+            } else {
+              element.textContent = text;
             }
+          }
+        });
+
+        // Автоматический перевод плейсхолдеров (placeholder) в полях формы
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const keyPath = element.getAttribute('data-i18n-placeholder');
+          const keys = keyPath.split('.');
+          
+          let text = translations;
+          keys.forEach(key => {
+            if (text) text = text[key];
           });
 
-          function closeModal() {
-            overlay.classList.remove('is-active');
-            document.body.style.overflow = ''; // Возвращаем прокрутку
+          if (text) {
+            element.setAttribute('placeholder', text);
           }
+        });
 
-          // Интеграция с Google Sheets с обходом CORS
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = form.querySelector('.v-modal-submit');
-            const originalButtonText = submitButton.textContent;
+        // Специфичное переключение баннера согласно условию задачи
+        const bannerImg = document.getElementById('mainBannerImage');
+        if (bannerImg) {
+          if (lang === 'de') {
+            bannerImg.src = 'volonter01DE.webp';
+          } else {
+            bannerImg.src = 'volonter01.webp';
+          }
+        }
 
-            // Блокируем кнопку на время отправки
-            submitButton.disabled = true;
-            submitButton.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
+      } catch (error) {
+        console.error('Ошибка перевода:', error);
+      }
+    }
 
-           // Собираем данные формы
+    function changeLanguage(event, lang) {
+      event.preventDefault();
+      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+      const selectedLangButton = document.getElementById('lang-' + lang);
+      if (selectedLangButton) selectedLangButton.classList.add('active');
+      
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+      loadTranslations(lang);
+      
+      // Обновляем текущий язык в глобальной области видимости для корректной работы формы
+      window.currentLang = lang;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Инициализация языков
+      const urlParams = new URLSearchParams(window.location.search);
+      window.currentLang = urlParams.get('lang') || 'ua';
+      
+      document.querySelectorAll('.lang-item').forEach(el => el.classList.remove('active'));
+      const activeBtn = document.getElementById('lang-' + window.currentLang);
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      loadTranslations(window.currentLang);
+
+      // 2. Управление модальным окном
+      const openBtn = document.getElementById('openVolunteerModal');
+      const overlay = document.getElementById('volunteerModalOverlay');
+      const closeBtn = document.getElementById('closeVolunteerModal');
+      const form = document.getElementById('volunteerForm');
+
+      if (openBtn && overlay && closeBtn) {
+        // Открытие модального окна
+        openBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          overlay.classList.add('is-active');
+          document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы сзади
+        });
+
+        // Закрытие по клику на крестик
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закрытие по клику на область вокруг модального окна
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeModal();
+          }
+        });
+
+        function closeModal() {
+          overlay.classList.remove('is-active');
+          document.body.style.overflow = ''; // Возвращаем прокрутку
+        }
+
+        // Интеграция с Google Sheets с обходом CORS
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const submitButton = form.querySelector('.v-modal-submit');
+          const originalButtonText = submitButton.textContent;
+
+          // Блокируем кнопку на время отправки
+          submitButton.disabled = true;
+          submitButton.textContent = window.currentLang === 'de' ? 'Wird gesendet...' : 'Надсилання...';
+
+          // Собираем данные формы
           const formData = new FormData(form);
           
           // Проверяем, существует ли элемент вообще, и берем его значение
@@ -735,8 +857,8 @@
               submitButton.textContent = originalButtonText;
               
               // Выводим сообщение на языке интерфейса
-              if (currentLang === 'de') {
-                alert('Vielen Dank! Ihre Anfrage wurde успешно отправлена. Мы свяжемся с вами в ближайшее время!');
+              if (window.currentLang === 'de') {
+                alert('Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns in Kürze mit Ihnen in Verbindung setzen!');
               } else {
                 alert('Дякуємо! Ваша заявка успішно надіслана. Ми зв’яжемося з вами найближчим часом!');
               }
@@ -750,14 +872,14 @@
               submitButton.disabled = false;
               submitButton.textContent = originalButtonText;
               
-              const errorMsg = currentLang === 'de' 
+              const errorMsg = window.currentLang === 'de' 
                 ? 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.' 
                 : 'Сталася помилка. Будь ласка, спробуйте ще раз.';
               alert(errorMsg);
             });
-          });
-        }
-      });
+        });
+      }
+    });
     </script>
   </body>
 </html>

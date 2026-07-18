@@ -900,29 +900,52 @@
             .hero-buttons { display: flex !important; flex-direction: column !important; gap: 4px !important; align-items: flex-start !important; margin-top: 6px !important; }
             .btn-yellow, .btn-white { padding: 3px 6px !important; border-radius: 4px !important; font-size: 8.5px !important; line-height: 1.1 !important; width: auto !important; max-width: 120px !important; text-align: center !important; white-space: nowrap !important; }
         }
-       /* АЛЬТЕРНАТИВНЫЙ ПУТЬ: Исправление текущей сетки браузера */
+      /* АЛЬТЕРНАТИВНЫЙ ПУТЬ: Принудительное выравнивание через сверхспецифичный inline-block */
 @media screen and (max-width: 768px) {
-    /* 1. Возвращаем фотографиям исходные пропорции БЕЗ обрезки */
-    img.team-avatar, .team-card img {
-        width: 100% !important;
-        min-width: 100% !important;
-        height: auto !important; /* Картинка сама подстроится по высоте без искажений */
-        object-fit: contain !important; /* Никакой обрезки краев */
+    
+    /* 1. Контейнер сетки команды */
+    html body section.team-section div.team-grid {
         display: block !important;
-    }
-
-    /* 2. Лечим застревание карточек: выравниваем их по верхней границе, а не по нижней */
-    html body div.team-section div.team-grid > div.team-card {
-        vertical-align: top !important; /* Убираем эффект разной высоты */
-        float: none !important; /* Отменяем флоат, чтобы inline-block работал правильно */
-        display: inline-block !important;
-        margin-right: 8px !important;
-        margin-left: 0 !important;
-    }
-
-    /* 3. Принудительный сброс строки для каждого нечетного элемента (1, 3, 5...) */
-    html body div.team-section div.team-grid > div.team-card:nth-of-type(2n+1) {
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
         clear: both !important;
+    }
+
+    /* 2. Жестко перебиваем инлайновые стили карточек через супер-селектор */
+    html[lang] body section.team-section div.team-grid > div.team-card {
+        display: inline-block !important;
+        float: left !important;
+        vertical-align: top !important;
+        width: calc(50% - 6px) !important;
+        max-width: calc(50% - 6px) !important;
+        min-width: calc(50% - 6px) !important;
+        margin-left: 0 !important;
+        margin-right: 12px !important; /* Базовый отступ для нечетных */
+        margin-bottom: 16px !important;
+        clear: none !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. УБИРАЕМ ОТСТУП У КАЖДОЙ ВТОРОЙ КАРТОЧКИ (чтобы они поместились в ряд) */
+    html[lang] body section.team-section div.team-grid > div.team-card:nth-of-type(2n) {
+        margin-right: 0 !important;
+    }
+
+    /* 4. Принудительный сброс строки для каждого нечетного элемента */
+    html[lang] body section.team-section div.team-grid > div.team-card:nth-of-type(2n+1) {
+        clear: both !important;
+    }
+
+    /* 5. Картинки (аккуратный размер без искажения лиц) */
+    html body section.team-section .team-card img.team-avatar,
+    html body section.team-section .team-card img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 140px !important; /* Фиксированная аккуратная высота */
+        object-fit: cover !important; /* Фото заполняет область без растягивания */
+        object-position: top center !important; /* Центрируем по голове, чтобы не обрезало лица */
+        display: block !important;
     }
 }
     </style>

@@ -322,29 +322,22 @@
     </header>
 
     <!-- Основной контент страницы -->
-    <main class="main-container">
+   <main class="main-container">
         
-      <!-- Контейнер-обертка для идеального выравнивания двух элементов на одной линии -->
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px; width: 100%;">
-    
-    <!-- Ваша существующая кнопка возврата (остается без изменений) -->
-    <a href="knowledge.html" class="back-button" id="back-link" data-translate="back-btn">
-        ← Назад до Центр знань
-    </a>
+        <!-- Полностью изолированная строка навигации -->
+        <div class="navigation-header-row" style="position: relative; width: 100%; min-height: 35px; margin-bottom: 30px; display: block; clear: both;">
+            
+            <!-- Кнопка возврата (строго слева) -->
+            <a href="knowledge.html" class="back-button" id="back-link" data-translate="back-btn" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); margin: 0; white-space: nowrap;">
+                ← Назад до Центр знань
+            </a>
 
-    <!-- Новая красная ссылка со стрелочкой перехода -->
-    <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" data-translate="cv-link" style="color: #dc3545; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: color 0.2s ease-in-out;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
-        <span class="cv-text">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen</span> →
-    </a>
+            <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) -->
+            <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
+                Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →
+            </a>
 
-</div>
-
-    <!-- Новая ссылка на конструктор резюме -->
-    <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" class="cv-promo-link" data-translate="cv-link" style="text-decoration: none; color: #0056b3; font-weight: 500;">
-        Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen
-    </a>
-
-</div>
+        </div>
 
         <!-- Основная сетка страницы -->
         <div class="page-grid">

@@ -59,14 +59,15 @@
         .flags-stack {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 3px;
         }
         .logo-flag {
             width: 24px;
-            height: 15px;
+            height: 16px;
             border-radius: 1px;
             object-fit: cover;
             border: 1px solid rgba(0,0,0,0.1);
+            display: block;
         }
         .logo-text-block {
             display: flex;
@@ -199,6 +200,10 @@
             padding: 30px;
             border-radius: var(--radius);
             transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
         .card:hover {
             transform: translateY(-4px);
@@ -210,11 +215,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
         }
         .card-icon-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            display: block;
         }
         .card h3 {
             font-size: 1.2rem;
@@ -226,7 +234,7 @@
             font-size: 0.95rem;
         }
 
-        /* Модель роботи: Карточки с реальными фото на 1/2 блока с высотой на всю карточку */
+        /* Модель роботи */
         .workflow-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -285,7 +293,7 @@
             line-height: 1.4;
         }
 
-        /* Команда: Увеличенные круги и отцентрированные фото */
+        /* Команда */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -433,7 +441,7 @@
 </head>
 <body>
 
-    <!-- Шапка сайта с флагами UA и CH -->
+    <!-- Шапка сайта с одинаковыми флагами UA и CH -->
     <header>
         <div class="container header-content">
             <a href="#" class="logo-area">
@@ -480,7 +488,7 @@
         <a href="#" class="btn-help" style="display: inline-block;">Долучитися до нас</a>
     </section>
 
-    <!-- Миссия и ценности с иконками -->
+    <!-- Миссия и ценности с отцентрированными иконками -->
     <section class="container">
         <h2>Наша місія та цінності</h2>
         <div class="mission-grid">
@@ -508,7 +516,7 @@
         </div>
     </section>
 
-    <!-- Модель роботи: Карточки с фотографиями about-foto01/02/03 -->
+    <!-- Модель роботи -->
     <section class="container">
         <h2>Модель роботи</h2>
         <div class="workflow-steps">

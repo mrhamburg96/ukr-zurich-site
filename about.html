@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0056b3;
+            --primary: #1A56C4;
             --primary-light: #eef4fc;
             --text-dark: #1f2937;
             --text-muted: #4b5563;
@@ -30,17 +30,16 @@
             line-height: 1.6;
         }
 
-        /* Container */
         .container {
             max-width: 1140px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* 1. Header */
+        /* 2. Header (по скриншоту 1) */
         header {
             border-bottom: 1px solid var(--border-color);
-            padding: 16px 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             background: var(--white);
@@ -51,51 +50,79 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+        }
+        .logo-flag {
+            width: 28px;
+            height: 18px;
+            border-radius: 2px;
+            object-fit: cover;
+            border: 1px solid #e5e7eb;
+        }
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1A56C4;
         }
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             list-style: none;
+            align-items: center;
         }
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
         }
         .nav-links a:hover {
-            color: var(--primary);
+            color: #1A56C4;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .lang-switch {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
         }
         .btn-primary {
-            background-color: var(--primary);
+            background-color: #1A56C4;
             color: var(--white);
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 8px 16px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: background 0.2s;
         }
         .btn-primary:hover {
-            background-color: #004085;
+            background-color: #14439c;
         }
 
-        /* 2. Hero Section */
+        /* Hero Section */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
         }
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: #1A56C4;
             margin-bottom: 20px;
+            line-height: 1.3;
         }
         .hero p {
             font-size: 1.15rem;
@@ -111,6 +138,7 @@
         section h2 {
             font-size: 1.8rem;
             font-weight: 700;
+            color: #1A56C4;
             margin-bottom: 30px;
             text-align: center;
         }
@@ -138,6 +166,7 @@
         .card h3 {
             font-size: 1.2rem;
             margin-bottom: 10px;
+            color: #1A56C4;
         }
         .card p {
             color: var(--text-muted);
@@ -160,18 +189,27 @@
         .step-number {
             font-size: 0.85rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #1A56C4;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 8px;
             display: block;
         }
+        .step-item h3 {
+            color: #1A56C4;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .step-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
 
-        /* ✨ 5. Team Section */
+        /* ✨ 5. Team Section (7 карточек) */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
         }
         .team-member {
             text-align: center;
@@ -179,28 +217,30 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
             padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .team-photo {
             width: 110px;
             height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 16px;
-            background-color: #cbd5e1; /* заглушка, если нет фото */
+            margin-bottom: 16px;
+            background-color: #cbd5e1;
+            border: 3px solid var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
         .team-member h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 4px;
+            color: var(--text-dark);
         }
         .team-role {
-            font-size: 0.9rem;
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-        .team-member p {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: #1A56C4;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         /* 6. Strategic Goals */
@@ -228,30 +268,52 @@
         }
         .goals-list li::before {
             content: "✓";
-            color: var(--primary);
+            color: #1A56C4;
             font-weight: 700;
         }
 
-        /* 7. Status Gemeinnützigkeit (Infobox) */
-        .infobox {
+        /* 7. Status Gemeinnützigkeit (Аккордеон) */
+        .accordion-box {
+            max-width: 800px;
+            margin: 0 auto;
             background-color: #fefce8;
             border: 1px solid #fef08a;
             border-radius: var(--radius);
-            padding: 30px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            overflow: hidden;
         }
-        .infobox h3 {
+        .accordion-header {
+            padding: 24px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .accordion-header h3 {
             color: #854d0e;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin: 0;
         }
-        .infobox p {
+        .accordion-icon {
+            font-weight: bold;
+            color: #854d0e;
+            transition: transform 0.3s;
+        }
+        .accordion-content {
+            padding: 0 30px 24px;
             color: #713f12;
             font-size: 0.95rem;
+            display: none;
+        }
+        /* Открытое состояние аккордеона по умолчанию или через JS */
+        .accordion-box.active .accordion-content {
+            display: block;
+        }
+        .accordion-box.active .accordion-icon {
+            transform: rotate(180deg);
         }
 
-        /* 8. Footer */
+        /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
             padding: 30px 0;
@@ -267,7 +329,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 1.8rem; }
             .nav-links { display: none; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
@@ -275,28 +337,36 @@
 </head>
 <body>
 
-    <!-- 1. Header -->
+    <!-- 2. Шапка в соответствии со скриншотом 1 -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">UAGZ Цюрих</a>
+            <a href="#" class="logo-area">
+                <!-- Флаг Украины (или логотип) как на скриншоте шапки -->
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><rect width='3' height='2' fill='%23005BBB'/><rect y='1' width='3' height='1' fill='%23FFD500'/></svg>" alt="UA Flag" class="logo-flag">
+                <span class="logo-text">UAGZ</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#">Хто ми</a></li>
-                <li><a href="#">Наша місія</a></li>
+                <li><a href="#">Про нас</a></li>
+                <li><a href="#">Новини</a></li>
+                <li><a href="#">Контакти</a></li>
+                <li><a href="#">Діяльність</a></li>
                 <li><a href="#">Команда</a></li>
-                <li><a href="#">Цілі</a></li>
             </ul>
-            <a href="#" class="btn-primary">Підтримати</a>
+            <div class="header-right">
+                <span class="lang-switch">DE / UA</span>
+                <a href="#" class="btn-primary">Підтримати</a>
+            </div>
         </div>
     </header>
 
-    <!-- 2. Hero Section -->
+    <!-- 1. Главный экран с точным цветом #1A56C4 для заголовка -->
     <section class="hero container">
         <h1>Хто ми: Проєкт Український Інтеграційний та громадський центр Цюриха</h1>
         <p>Створюємо простір для ефективної адаптації, підтримки та розвитку української громади у Швейцарії.</p>
         <a href="#" class="btn-primary">Долучитися до нас</a>
     </section>
 
-    <!-- 3. Mission & Values -->
+    <!-- Миссия и ценности -->
     <section class="container">
         <h2>Наша місія та цінності</h2>
         <div class="mission-grid">
@@ -318,7 +388,7 @@
         </div>
     </section>
 
-    <!-- 4. Workflow -->
+    <!-- Модель работы -->
     <section class="container">
         <h2>Модель роботи</h2>
         <div class="workflow-steps">
@@ -340,32 +410,49 @@
         </div>
     </section>
 
-    <!-- ✨ 5. NEW BLOCK: Our Team -->
+    <!-- ✨ 5. Блок «Наша команда» (7 карточек) -->
     <section class="container">
         <h2>Наша команда</h2>
         <div class="team-grid">
             <div class="team-member">
-                <img src="" alt="Фото учасника" class="team-photo">
-                <h3>Ім'я Прізвище</h3>
-                <div class="team-role">Керівник проєкту</div>
-                <p>Координація діяльності центру та стратегічний розвиток.</p>
+                <img src="sadich-foto01.webp" alt="Олександр Садич" class="team-photo">
+                <h3>Олександр Садич</h3>
+                <div class="team-role">Керівник організації</div>
             </div>
             <div class="team-member">
-                <img src="" alt="Фото учасника" class="team-photo">
-                <h3>Ім'я Прізвище</h3>
-                <div class="team-role">Координатор інтеграції</div>
-                <p>Робота з партнерами та підтримка нових учасників спільноти.</p>
+                <img src="koval-foto02.webp" alt="Юліана Куранд-Коваль" class="team-photo">
+                <h3>Юліана Куранд-Коваль</h3>
+                <div class="team-role">Керівник розвитку та партнерств</div>
             </div>
             <div class="team-member">
-                <img src="" alt="Фото учасника" class="team-photo">
-                <h3>Ім'я Прізвище</h3>
-                <div class="team-role">Комунікації та PR</div>
-                <p>Зв'язки з громадськістю, ведення соцмереж та новин.</p>
+                <img src="samorodova-foto03.webp" alt="Олена Самородова" class="team-photo">
+                <h3>Олена Самородова</h3>
+                <div class="team-role">Координатор програми «Дитячо-молодіжний театр»</div>
+            </div>
+            <div class="team-member">
+                <img src="matyunin-foto04.webp" alt="Олексій Матюнін" class="team-photo">
+                <h3>Олексій Матюнін</h3>
+                <div class="team-role">Координатор цифрових систем та технічної підтримки</div>
+            </div>
+            <div class="team-member">
+                <img src="lepskii-foto05.webp" alt="Вадим Лепський" class="team-photo">
+                <h3>Вадим Лепський</h3>
+                <div class="team-role">Координатор спортивних програм, тренер з плавання</div>
+            </div>
+            <div class="team-member">
+                <img src="vorontsova-foto06.webp" alt="Олена Воронцова" class="team-photo">
+                <h3>Олена Воронцова</h3>
+                <div class="team-role">Координатор сімейного центру</div>
+            </div>
+            <div class="team-member">
+                <img src="kravtsov-foto07.webp" alt="Микола Кравцов" class="team-photo">
+                <h3>Микола Кравцов</h3>
+                <div class="team-role">Координатор заходів та активностей громади</div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Strategic Goals -->
+    <!-- Стратегические цели -->
     <section class="container">
         <div class="goals-container">
             <h2>Стратегічні цілі: Куди ми рухаємося?</h2>
@@ -378,15 +465,20 @@
         </div>
     </section>
 
-    <!-- 7. Status Gemeinnützigkeit -->
+    <!-- Статус Gemeinnützigkeit с аккордеоном -->
     <section class="container">
-        <div class="infobox">
-            <h3>Новий рівень: Status Gemeinnützigkeit</h3>
-            <p>Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств та зміцнення довіри на швейцарському рівні.</p>
+        <div class="accordion-box active" id="gemeinnuetzigkeitAccordion">
+            <div class="accordion-header" onclick="toggleAccordion()">
+                <h3>Новий рівень: Status Gemeinnützigkeit</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+                Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств, отримання податкових пільг для донорів та зміцнення довіри на швейцарському рівні. Це дозволяє нам масштабувати допомогу та ефективніше реалізовувати соціальні ініціативи.
+            </div>
         </div>
     </section>
 
-    <!-- 8. Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container footer-content">
             <p>© 2026 UAGZ Zürich. Усі права захищені.</p>
@@ -394,5 +486,11 @@
         </div>
     </footer>
 
+    <script>
+        function toggleAccordion() {
+            const acc = document.getElementById('gemeinnuetzigkeitAccordion');
+            acc.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

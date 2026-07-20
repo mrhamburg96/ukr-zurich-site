@@ -365,7 +365,7 @@
             font-weight: 700;
         }
 
-        /* Status Gemeinnützigkeit Accordion (Исправлено) */
+        /* Status Gemeinnützigkeit Accordion */
         .accordion-box {
             max-width: 800px;
             margin: 0 auto;
@@ -396,11 +396,10 @@
             padding: 0 24px 20px;
             color: #713f12;
             font-size: 0.95rem;
-            display: none; /* По умолчанию скрыто */
+            display: none;
             flex-direction: column;
             gap: 12px;
         }
-        /* Когда класс active добавлен, контент отображается */
         .accordion-box.active .accordion-content {
             display: flex;
         }
@@ -454,83 +453,83 @@
                 </div>
                 <div class="logo-text-block">
                     <span class="logo-title">UAGZ</span>
-                    <span class="logo-subtitle">Український інтеграційний та громадський центр Цюриха</span>
+                    <span class="logo-subtitle" data-i18n="logo_subtitle">Український інтеграційний та громадський центр Цюриха</span>
                 </div>
             </a>
             
             <div class="nav-menu">
                 <ul class="nav-row">
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="#">Про нас</a></li>
-                    <li><a href="#">Допомога</a></li>
-                    <li><a href="#">Заходи</a></li>
-                    <li><a href="knowledge.html">Центр знань</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
+                    <li><a href="#" data-i18n="nav_about">Про нас</a></li>
+                    <li><a href="#" data-i18n="nav_help">Допомога</a></li>
+                    <li><a href="#" data-i18n="nav_events">Заходи</a></li>
+                    <li><a href="knowledge.html" data-i18n="nav_knowledge">Центр знань</a></li>
                 </ul>
                 <ul class="nav-row">
-                    <li><a href="#" class="highlight-blue">Оголошення</a></li>
-                    <li><a href="volonter02.html">Волонтерство</a></li>
-                    <li><a href="#" class="highlight-red">❤️ Донат</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
+                    <li><a href="#" class="highlight-blue" data-i18n="nav_announcements">Оголошення</a></li>
+                    <li><a href="volonter02.html" data-i18n="nav_volunteer">Волонтерство</a></li>
+                    <li><a href="#" class="highlight-red" data-i18n="nav_donate">❤️ Донат</a></li>
+                    <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
                 </ul>
             </div>
 
             <div class="header-right">
                 <div class="lang-switcher">
-                    <button class="lang-btn active">UA</button>
-                    <button class="lang-btn">DE</button>
+                    <button class="lang-btn active" onclick="switchLanguage('ua')">UA</button>
+                    <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
                 </div>
-                <a href="#" class="btn-help">Отримати допомогу</a>
+                <a href="#" class="btn-help" data-i18n="btn_get_help">Отримати допомогу</a>
             </div>
         </div>
     </header>
 
     <!-- Главный экран -->
     <section class="hero container">
-        <h1>Хто ми: Проєкт Український Інтеграційний та громадський центр Цюриха</h1>
-        <p>Створюємо простір для ефективної адаптації, підтримки та розвитку української громади у Швейцарії.</p>
-        <a href="#" class="btn-help" style="display: inline-block;">Долучитися до нас</a>
+        <h1 data-i18n="hero_title">Хто ми: Проєкт Український Інтеграційний та громадський центр Цюриха</h1>
+        <p data-i18n="hero_desc">Створюємо простір для ефективної адаптації, підтримки та розвитку української громади у Швейцарії.</p>
+        <a href="#" class="btn-help" style="display: inline-block;" data-i18n="hero_btn">Долучитися до нас</a>
     </section>
 
     <!-- Миссия и ценности -->
     <section class="container">
-        <h2>Наша місія та цінності</h2>
+        <h2 data-i18n="mission_title">Наша місія та цінності</h2>
         <div class="mission-grid">
             <div class="card">
                 <div class="card-icon-box">
                     <img src="about-icon1.webp" alt="Інтеграція та підтримка" class="card-icon-img">
                 </div>
-                <h3>Інтеграція та підтримка</h3>
-                <p>Допомагаємо українцям швидко освоїтися у швейцарському правовому та культурному полі.</p>
+                <h3 data-i18n="card1_title">Інтеграція та підтримка</h3>
+                <p data-i18n="card1_desc">Допомагаємо українцям швидко освоїтися у швейцарському правовому та культурному полі.</p>
             </div>
             <div class="card">
                 <div class="card-icon-box">
                     <img src="about-icon2.webp" alt="Розвиток і можливості" class="card-icon-img">
                 </div>
-                <h3>Розвиток і можливості</h3>
-                <p>Надаємо доступ до інформаційних ресурсів, мовних ініціатив та професійного нетворкінгу.</p>
+                <h3 data-i18n="card2_title">Розвиток і можливості</h3>
+                <p data-i18n="card2_desc">Надаємо доступ до інформаційних ресурсів, мовних ініціатив та професійного нетворкінгу.</p>
             </div>
             <div class="card">
                 <div class="card-icon-box">
                     <img src="about-icon3.webp" alt="Спільнота та довіра" class="card-icon-img">
                 </div>
-                <h3>Спільнота та довіра</h3>
-                <p>Формуємо безпечне середовище для взаємодопомоги, збереження традицій та єдності.</p>
+                <h3 data-i18n="card3_title">Спільнота та довіра</h3>
+                <p data-i18n="card3_desc">Формуємо безпечне середовище для взаємодопомоги, збереження традицій та єдності.</p>
             </div>
         </div>
     </section>
 
     <!-- Модель роботи -->
     <section class="container">
-        <h2>Модель роботи</h2>
+        <h2 data-i18n="workflow_title">Модель роботи</h2>
         <div class="workflow-steps">
             <div class="step-item">
                 <div class="step-image-box">
                     <img src="about-foto01.webp" alt="Крок 01" class="step-image">
                 </div>
                 <div class="step-content">
-                    <span class="step-number">Крок 01</span>
-                    <h3>Зустріч та орієнтація</h3>
-                    <p>Первинна консультація новоприбулих з базових питань життя та побуту в Цюриху.</p>
+                    <span class="step-number" data-i18n="step1_num">Крок 01</span>
+                    <h3 data-i18n="step1_title">Зустріч та орієнтація</h3>
+                    <p data-i18n="step1_desc">Первинна консультація новоприбулих з базових питань життя та побуту в Цюриху.</p>
                 </div>
             </div>
             <div class="step-item">
@@ -538,9 +537,9 @@
                     <img src="about-foto02.webp" alt="Крок 02" class="step-image">
                 </div>
                 <div class="step-content">
-                    <span class="step-number">Крок 02</span>
-                    <h3>Інтеграційні програми</h3>
-                    <p>Залучення до освітніх проєктів, допомога в оформленні документів та пошуку роботи.</p>
+                    <span class="step-number" data-i18n="step2_num">Крок 02</span>
+                    <h3 data-i18n="step2_title">Інтеграційні програми</h3>
+                    <p data-i18n="step2_desc">Залучення до освітніх проєктів, допомога в оформленні документів та пошуку роботи.</p>
                 </div>
             </div>
             <div class="step-item">
@@ -548,9 +547,9 @@
                     <img src="about-foto03.webp" alt="Крок 03" class="step-image">
                 </div>
                 <div class="step-content">
-                    <span class="step-number">Крок 03</span>
-                    <h3>Стала спільнота</h3>
-                    <p>Постійна підтримка, культурні заходи та розвиток проєктів усередині української громади.</p>
+                    <span class="step-number" data-i18n="step3_num">Крок 03</span>
+                    <h3 data-i18n="step3_title">Стала спільнота</h3>
+                    <p data-i18n="step3_desc">Постійна підтримка, культурні заходи та розвиток проєктів усередині української громади.</p>
                 </div>
             </div>
         </div>
@@ -558,42 +557,42 @@
 
     <!-- Команда -->
     <section class="container">
-        <h2>Наша команда</h2>
+        <h2 data-i18n="team_title">Наша команда</h2>
         <div class="team-grid">
             <div class="team-member">
                 <img src="sadich-foto01.webp" alt="Олександр Садич" class="team-photo">
-                <h3>Олександр Садич</h3>
-                <div class="team-role">Керівник організації</div>
+                <h3 data-i18n="team1_name">Олександр Садич</h3>
+                <div class="team-role" data-i18n="team1_role">Керівник організації</div>
             </div>
             <div class="team-member">
                 <img src="koval-foto02.webp" alt="Юліана Куранд-Коваль" class="team-photo">
-                <h3>Юліана Куранд-Коваль</h3>
-                <div class="team-role">Керівник розвитку та партнерств</div>
+                <h3 data-i18n="team2_name">Юліана Куранд-Коваль</h3>
+                <div class="team-role" data-i18n="team2_role">Керівник розвитку та партнерств</div>
             </div>
             <div class="team-member">
                 <img src="samorodova-foto03.webp" alt="Олена Самородова" class="team-photo">
-                <h3>Олена Самородова</h3>
-                <div class="team-role">Координатор програми «Дитячо-молодіжний театр»</div>
+                <h3 data-i18n="team3_name">Олена Самородова</h3>
+                <div class="team-role" data-i18n="team3_role">Координатор програми «Дитячо-молодіжний театр»</div>
             </div>
             <div class="team-member">
                 <img src="matyunin-foto04.webp" alt="Олексій Матюнін" class="team-photo">
-                <h3>Олексій Матюнін</h3>
-                <div class="team-role">Координатор цифрових систем та технічної підтримки</div>
+                <h3 data-i18n="team4_name">Олексій Матюнін</h3>
+                <div class="team-role" data-i18n="team4_role">Координатор цифрових систем та технічної підтримки</div>
             </div>
             <div class="team-member">
                 <img src="lepskii-foto05.webp" alt="Вадим Лепський" class="team-photo">
-                <h3>Вадим Лепський</h3>
-                <div class="team-role">Координатор спортивних програм, тренер з плавання</div>
+                <h3 data-i18n="team5_name">Вадим Лепський</h3>
+                <div class="team-role" data-i18n="team5_role">Координатор спортивних програм, тренер з плавання</div>
             </div>
             <div class="team-member">
                 <img src="vorontsova-foto06.webp" alt="Олена Воронцова" class="team-photo">
-                <h3>Олена Воронцова</h3>
-                <div class="team-role">Координатор сімейного центру</div>
+                <h3 data-i18n="team6_name">Олена Воронцова</h3>
+                <div class="team-role" data-i18n="team6_role">Координатор сімейного центру</div>
             </div>
             <div class="team-member centered-last">
                 <img src="kravtsov-foto07.webp" alt="Микола Кравцов" class="team-photo">
-                <h3>Микола Кравцов</h3>
-                <div class="team-role">Координатор заходів та активностей громади</div>
+                <h3 data-i18n="team7_name">Микола Кравцов</h3>
+                <div class="team-role" data-i18n="team7_role">Координатор заходів та активностей громади</div>
             </div>
         </div>
     </section>
@@ -601,27 +600,27 @@
     <!-- Стратегические цели -->
     <section class="container">
         <div class="goals-container">
-            <h2>Стратегічні цілі: Куди ми рухаємося?</h2>
+            <h2 data-i18n="goals_title">Стратегічні цілі: Куди ми рухаємося?</h2>
             <ul class="goals-list">
-                <li>Зміцнення української спільноти в Zürich-окрузі</li>
-                <li>Розвиток ефективних програм інтеграції</li>
-                <li>Створення нових можливостей для молоді</li>
-                <li>Прозорість та масштабування діяльності центру</li>
+                <li data-i18n="goal1">Зміцнення української спільноти в Zürich-окрузі</li>
+                <li data-i18n="goal2">Розвиток ефективних програм інтеграції</li>
+                <li data-i18n="goal3">Створення нових можливостей для молоді</li>
+                <li data-i18n="goal4">Прозорість та масштабування діяльності центру</li>
             </ul>
         </div>
     </section>
 
-    <!-- Status Gemeinnützigkeit с работающим аккордеоном -->
+    <!-- Status Gemeinnützigkeit с аккордеоном -->
     <section class="container">
         <div class="accordion-box active" id="gemeinnuetzigkeitAccordion">
             <div class="accordion-header" onclick="toggleAccordion()">
-                <h3>Новий рівень: Status Gemeinnützigkeit</h3>
+                <h3 data-i18n="acc_title">Новий рівень: Status Gemeinnützigkeit</h3>
                 <span class="accordion-icon">▼</span>
             </div>
             <div class="accordion-content">
-                <p>Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств, отримання податкових пільг для донорів та зміцнення довіри на швейцарському рівні. Це дозволяє нам масштабувати допомогу та ефективніше реалізовувати соціальні ініціативи.</p>
-                <p>Символічним стартом та точкою відліку для нашої концепції став день 24 травня 2026 года (Божа Неділя). Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру.</p>
-                <p>Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.</p>
+                <p data-i18n="acc_text1">Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств, отримання податкових пільг для донорів та зміцнення довіри на швейцарському рівні. Це дозволяє нам масштабувати допомогу та ефективніше реалізовувати соціальні ініціативи.</p>
+                <p data-i18n="acc_text2">Символічним стартом та точкою відліку для нашої концепції став день 24 травня 2026 года (Божа Неділя). Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру.</p>
+                <p data-i18n="acc_text3">Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.</p>
             </div>
         </div>
     </section>
@@ -629,12 +628,154 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <p>© 2026 UAGZ Zürich. Усі права захищені.</p>
-            <p>Контакти: info@uagz.ch</p>
+            <p data-i18n="footer_copy">© 2026 UAGZ Zürich. Усі права захищені.</p>
+            <p data-i18n="footer_contacts">Контакти: info@uagz.ch</p>
         </div>
     </footer>
 
+    <!-- Библиотека переводов и скрипты управления -->
     <script>
+        const translations = {
+            ua: {
+                logo_subtitle: "Український інтеграційний та громадський центр Цюриха",
+                nav_home: "Головна",
+                nav_about: "Про нас",
+                nav_help: "Допомога",
+                nav_events: "Заходи",
+                nav_knowledge: "Центр знань",
+                nav_announcements: "Оголошення",
+                nav_volunteer: "Волонтерство",
+                nav_donate: "❤️ Донат",
+                nav_contacts: "Контакти",
+                btn_get_help: "Отримати допомогу",
+                hero_title: "Хто ми: Проєкт Український Інтеграційний та громадський центр Цюриха",
+                hero_desc: "Створюємо простір для ефективної адаптації, підтримки та розвитку української громади у Швейцарії.",
+                hero_btn: "Долучитися до нас",
+                mission_title: "Наша місія та цінності",
+                card1_title: "Інтеграція та підтримка",
+                card1_desc: "Допомагаємо українцям швидко освоїтися у швейцарському правовому та культурному полі.",
+                card2_title: "Розвиток і можливості",
+                card2_desc: "Надаємо доступ до інформаційних ресурсів, мовних ініціатив та професійного нетворкінгу.",
+                card3_title: "Спільнота та довіра",
+                card3_desc: "Формуємо безпечне середовище для взаємодопомоги, збереження традицій та єдності.",
+                workflow_title: "Модель роботи",
+                step1_num: "Крок 01",
+                step1_title: "Зустріч та орієнтація",
+                step1_desc: "Первинна консультація новоприбулих з базових питань життя та побуту в Цюриху.",
+                step2_num: "Крок 02",
+                step2_title: "Інтеграційні програми",
+                step2_desc: "Залучення до освітніх проєктів, допомога в оформленні документів та пошуку роботи.",
+                step3_num: "Крок 03",
+                step3_title: "Стала спільнота",
+                step3_desc: "Постійна підтримка, культурні заходи та розвиток проєктів усередині української громади.",
+                team_title: "Наша команда",
+                team1_name: "Олександр Садич",
+                team1_role: "Керівник організації",
+                team2_name: "Юліана Куранд-Коваль",
+                team2_role: "Керівник розвитку та партнерств",
+                team3_name: "Олена Самородова",
+                team3_role: "Координатор програми «Дитячо-молодіжний театр»",
+                team4_name: "Олексій Матюнін",
+                team4_role: "Координатор цифрових систем та технічної підтримки",
+                team5_name: "Вадим Лепський",
+                team5_role: "Координатор спортивних програм, тренер з плавання",
+                team6_name: "Олена Воронцова",
+                team6_role: "Координатор сімейного центру",
+                team7_name: "Микола Кравцов",
+                team7_role: "Координатор заходів та активностей громади",
+                goals_title: "Стратегічні цілі: Куди ми рухаємося?",
+                goal1: "Зміцнення української спільноти в Zürich-окрузі",
+                goal2: "Розвиток ефективних програм інтеграції",
+                goal3: "Створення нових можливостей для молоді",
+                goal4: "Прозорість та масштабування діяльності центру",
+                acc_title: "Новий рівень: Status Gemeinnützigkeit",
+                acc_text1: "Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств, отримання податкових пільг для донорів та зміцнення довіри на швейцарському рівні. Це дозволяє нам масштабувати допомогу та ефективніше реалізовувати соціальні ініціативи.",
+                acc_text2: "Символічним стартом та точкою відліку для нашої концепції став день 24 травня 2026 года (Божа Неділя). Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру.",
+                acc_text3: "Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.",
+                footer_copy: "© 2026 UAGZ Zürich. Усі права захищені.",
+                footer_contacts: "Контакти: info@uagz.ch"
+            },
+            de: {
+                logo_subtitle: "Ukrainisches Integrations- und Gemeindezentrum Zürich",
+                nav_home: "Startseite",
+                nav_about: "Über uns",
+                nav_help: "Hilfe",
+                nav_events: "Veranstaltungen",
+                nav_knowledge: "Wissenszentrum",
+                nav_announcements: "Ankündigungen",
+                nav_volunteer: "Freiwilligenarbeit",
+                nav_donate: "❤️ Spenden",
+                nav_contacts: "Kontakte",
+                btn_get_help: "Hilfe erhalten",
+                hero_title: "Wer wir sind: Projekt Ukrainisches Integrations- und Gemeindezentrum Zürich",
+                hero_desc: "Wir schaffen einen Raum für effektive Anpassung, Unterstützung und Entwicklung der ukrainischen Gemeinschaft in der Schweiz.",
+                hero_btn: "Mitmachen",
+                mission_title: "Unsere Mission und Werte",
+                card1_title: "Integration & Unterstützung",
+                card1_desc: "Wir helfen Ukrainern, sich schnell im Schweizer Rechts- und Kulturraum zurechtzufinden.",
+                card2_title: "Entwicklung & Chancen",
+                card2_desc: "Wir bieten Zugang zu Informationsressourcen, Sprachinitiativen und beruflichem Networking.",
+                card3_title: "Gemeinschaft & Vertrauen",
+                card3_desc: "Wir schaffen ein sicheres Umfeld für gegenseitige Hilfe, Traditionspflege und Einheit.",
+                workflow_title: "Arbeitsmodell",
+                step1_num: "Schritt 01",
+                step1_title: "Treffen & Orientierung",
+                step1_desc: "Erste Beratung von Neuankömmlingen zu Grundfragen des Lebens und Alltags in Zürich.",
+                step2_num: "Schritt 02",
+                step2_title: "Integrationsprogramme",
+                step2_desc: "Einbindung in Bildungsprojekte, Hilfe bei Dokumenten und Arbeitssuche.",
+                step3_num: "Schritt 03",
+                step3_title: "Stabile Gemeinschaft",
+                step3_desc: "Kontinuierliche Unterstützung, Kulturveranstaltungen und Projektentwicklung in der Gemeinschaft.",
+                team_title: "Unser Team",
+                team1_name: "Oleksandr Sadych",
+                team1_role: "Leiter der Organisation",
+                team2_name: "Iuliana Kurand-Koval",
+                team2_role: "Leiterin für Entwicklung und Partnerschaften",
+                team3_name: "Olena Samorodova",
+                team3_role: "Koordinatorin des Programms „Kinder- und Jugendtheater“",
+                team4_name: "Oleksii Matiunin",
+                team4_role: "Koordinator für digitale Systeme und technischen Support",
+                team5_name: "Vadym lepskyi",
+                team5_role: "Koordinator Sportprogramme, Schwimmtrainer",
+                team6_name: "Olena Vorontsova",
+                team6_role: "Koordinatorin des Familienzentrums",
+                team7_name: "Mykola Kravtsov",
+                team7_role: "Koordinator für Veranstaltungen und Gemeinschaftsaktivitäten",
+                goals_title: "Strategische Ziele: Wohin bewegen wir uns?",
+                goal1: "Stärkung der ukrainischen Gemeinschaft im Kreis Zürich",
+                goal2: "Entwicklung effektiver Integrationsprogramme",
+                goal3: "Schaffung neuer Möglichkeiten für die Jugend",
+                goal4: "Transparenz und Skalierung der Zentrumsaktivitäten",
+                acc_title: "Neues Level: Status Gemeinnützigkeit",
+                acc_text1: "Der vom Zentrum erhaltene offizielle Status der Gemeinnützigkeit eröffnet neue Möglichkeiten zur Gewinnung von Partnerschaften, steuerlichen Vergünstigungen für Spender und zur Stärkung des Vertrauens auf Schweizer Ebene. Dies ermöglicht es uns, die Hilfe zu skalieren und soziale Initiativen effektiver umzusetzen.",
+                acc_text2: "Ein symbolischer Start und Ausgangspunkt für unser Konzept war der 24. Mai 2026 (Sonntag). An diesem Tag wurden die Vision, die Mission und der langfristige Entwicklungsplan unseres Zentrums endgültig festgelegt.",
+                acc_text3: "Wir glauben, dass dieses Anliegen gesegnet ist und jeder Beitrag hilft, die Zukunft unserer Gemeinschaft aufzubauen.",
+                footer_copy: "© 2026 UAGZ Zürich. Alle Rechte vorbehalten.",
+                footer_contacts: "Kontakte: info@uagz.ch"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Переключаем активные кнопки языков
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Применяем переводы по атрибуту data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.documentElement.setAttribute('lang', lang);
+        }
+
         function toggleAccordion() {
             const acc = document.getElementById('gemeinnuetzigkeitAccordion');
             acc.classList.toggle('active');

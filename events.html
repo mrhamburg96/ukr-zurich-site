@@ -33,22 +33,22 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .flag-ch::before, .flag-ch::after{content:'';background:#fff;position:absolute}
 .flag-ch::before{width:4px;height:12px}
 .flag-ch::after{width:12px;height:4px}
-.brand{font-weight:700;color:var(--blue);font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
+.brand{font-weight:700;color:#1A56C4;font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
 .brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;white-space:normal;margin-top:2px}
 .nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
 .nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
-.nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
+.nav-links a:hover, .nav-links a.active{color:#1A56C4;font-weight:600}
 .btn-donate-nav{background:none;border:none;color:var(--red);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
 .nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
 .lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
 .lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
-.lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.lb.on{background:#fff;color:#1A56C4;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.btn-solid{background:#1A56C4;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0}
 
 /* Контент и сетка карточек */
 .page-content{padding:3.5rem 0 5rem 0}
 .page-header-box{margin-bottom:2.5rem;text-align:center;max-width:700px;margin-left:auto;margin-right:auto}
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:0.75rem;color:var(--text)}
+.page-title{font-size:2.5rem;font-weight:800;margin-bottom:0.75rem;color:#1A56C4}
 
 /* Сетка карточек событий (2 колонки для красоты) */
 .events-grid {
@@ -86,7 +86,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 }
 .event-date-badge {
   background: var(--blue-light);
-  color: var(--blue);
+  color: #1A56C4;
   padding: 8px 12px;
   border-radius: 10px;
   font-weight: 700;
@@ -106,14 +106,14 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 /* Цветовые стили категорий */
 .cat-kids { background: var(--purple-bg); color: var(--purple); }
 .cat-sport { background: var(--green-bg); color: var(--green); }
-.cat-edu { background: var(--blue-light); color: var(--blue); }
+.cat-edu { background: var(--blue-light); color: #1A56C4; }
 .cat-creative { background: var(--orange-bg); color: var(--orange); }
 
 .event-body h3 {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--text);
+  color: #1A56C4;
   line-height: 1.4;
 }
 .event-body p {
@@ -132,7 +132,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 }
 .event-btn {
   background: var(--surface);
-  color: var(--blue);
+  color: #1A56C4;
   border: 1px solid var(--border);
   padding: 8px 16px;
   border-radius: 8px;
@@ -144,9 +144,9 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   gap: 6px;
 }
 .event-btn:hover {
-  background: var(--blue);
+  background: #1A56C4;
   color: #fff;
-  border-color: var(--blue);
+  border-color: #1A56C4;
 }
 
 /* Подвал */
@@ -251,7 +251,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       </div>
     </div>
 
-    <!-- 3. Театральна студія (НОВЕ) -->
+    <!-- 3. Театральна студія -->
     <div class="event-card" style="border-color: #DDD6FE;">
       <div>
         <div class="event-card-top">
@@ -269,11 +269,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       </div>
     </div>
 
-    <!-- 4. Секція плавання (НОВЕ) -->
+    <!-- 4. Секція плавання -->
     <div class="event-card" style="border-color: #BBF7D0;">
       <div>
         <div class="event-card-top">
-          <div class="event-date-badge" style="background: var(--green-bg); color: var(--green);" id="ev-date-4">НАБІР<<br><span style="font-size:11px;font-weight:400">Групи</span></div>
+          <div class="event-date-badge" style="background: var(--green-bg); color: var(--green);" id="ev-date-4">НАБІР<br><span style="font-size:11px;font-weight:400">Групи</span></div>
           <span class="event-category cat-sport" id="cat-4">Спорт</span>
         </div>
         <div class="event-body">
@@ -293,11 +293,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 <footer>
   <div class="container footer-grid">
     <div>
-      <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)">UAGZ Цюрих</h3>
+      <h3 id="f-title" style="margin-bottom:1rem;color:#1A56C4">UAGZ Цюрих</h3>
       <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
     </div>
     <div>
-      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)">Контакти</h3>
+      <h3 id="fc1h" style="margin-bottom:1rem;color:#1A56C4">Контакти</h3>
       <p style="color:var(--text2)">Email: info@ukr-zurich.ch</p>
     </div>
   </div>

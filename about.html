@@ -396,10 +396,12 @@
             padding: 0 24px 20px;
             color: #713f12;
             font-size: 0.95rem;
-            display: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         .accordion-box.active .accordion-content {
-            display: block;
+            display: flex;
         }
         .accordion-box.active .accordion-icon {
             transform: rotate(180deg);
@@ -441,10 +443,10 @@
 </head>
 <body>
 
-    <!-- Шапка сайта с рабочей стабильной ссылкой на флаг CH -->
+    <!-- Шапка сайта -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo-area">
+            <a href="index.html" class="logo-area">
                 <div class="flags-stack">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag" class="logo-flag">
                     <img src="https://flagcdn.com/w80/ch.png" alt="CH Flag" class="logo-flag">
@@ -488,7 +490,7 @@
         <a href="#" class="btn-help" style="display: inline-block;">Долучитися до нас</a>
     </section>
 
-    <!-- Миссия и ценности с отцентрированными иконками -->
+    <!-- Миссия и ценности -->
     <section class="container">
         <h2>Наша місія та цінності</h2>
         <div class="mission-grid">
@@ -608,7 +610,7 @@
         </div>
     </section>
 
-    <!-- Status Gemeinnützigkeit с аккордеоном -->
+    <!-- Status Gemeinnützigkeit с аккордеоном и новым текстом -->
     <section class="container">
         <div class="accordion-box active" id="gemeinnuetzigkeitAccordion">
             <div class="accordion-header" onclick="toggleAccordion()">
@@ -616,7 +618,9 @@
                 <span class="accordion-icon">▼</span>
             </div>
             <div class="accordion-content">
-                Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств, отримання податкових пільг для донорів та зміцнення довіри на швейцарському рівні. Це дозволяє нам масштабувати допомогу та ефективніше реалізовувати соціальні ініціативи.
+                <p>Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств, отримання податкових пільг для донорів та зміцнення довіри на швейцарському рівні. Це дозволяє нам масштабувати допомогу та ефективніше реалізовувати соціальні ініціативи.</p>
+                <p>Символічним стартом та точкою відліку для нашої концепції став день 24 травня 2026 года (Божа Неділя). Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру.</p>
+                <p>Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.</p>
             </div>
         </div>
     </section>

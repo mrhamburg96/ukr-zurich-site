@@ -36,7 +36,7 @@
             padding: 0 20px;
         }
 
-        /* 1. Точная шапка по Screenshot_1_2.png */
+        /* Шапка сайта */
         header {
             border-bottom: 1px solid var(--border-color);
             padding: 12px 0;
@@ -217,7 +217,7 @@
             font-size: 0.95rem;
         }
 
-        /* 4. Модель роботи: Карточки с фото слева и текстом справа */
+        /* Модель роботи: Карточки с фото на 50% и уменьшенным текстом */
         .workflow-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -226,16 +226,16 @@
         .step-item {
             background: var(--white);
             border: 1px solid var(--border-color);
-            padding: 24px;
+            padding: 16px;
             border-radius: var(--radius);
             display: flex;
-            gap: 20px;
+            gap: 16px;
             align-items: center;
         }
         .step-image-box {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
+            width: 50%;
+            height: 110px;
+            border-radius: 8px;
             background: var(--primary-light);
             flex-shrink: 0;
             display: flex;
@@ -244,34 +244,35 @@
             border: 1px solid #dbeafe;
             overflow: hidden;
         }
-        .step-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .step-image-box span {
+            font-size: 2rem;
         }
         .step-content {
+            width: 50%;
             display: flex;
             flex-direction: column;
         }
         .step-number {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: #1A56C4;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .step-item h3 {
             color: #1A56C4;
-            margin-bottom: 6px;
-            font-size: 1.05rem;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+            line-height: 1.25;
         }
         .step-item p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
         }
 
-        /* 3. Команда: 7 карточек, увеличенная окружность фото, Микола Кравцов по центру */
+        /* Команда: Увеличенные фото и калибровка object-position */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -289,15 +290,15 @@
             flex-direction: column;
             align-items: center;
         }
-        /* 7-я карточка по центру под Вадимом Лепським */
         .team-member.centered-last {
             grid-column: 2 / 3;
         }
         .team-photo {
-            width: 140px; /* Увеличенная окружность по требованию */
+            width: 140px;
             height: 140px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center 20%; /* Исправление обрезки лиц для Юлианы, Вадима и Миколы */
             margin-bottom: 16px;
             background-color: #cbd5e1;
             border: 4px solid var(--white);
@@ -417,14 +418,12 @@
 </head>
 <body>
 
-    <!-- 1. Точная шапка по скриншоту -->
+    <!-- Шапка сайта -->
     <header>
         <div class="container header-content">
             <a href="#" class="logo-area">
                 <div class="flags-stack">
-                    <!-- Флаг Украины (найден в интернете) -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag" class="logo-flag">
-                    <!-- Флаг Швейцарии (найден в интернете) -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland_%28Pantone%29.svg" alt="CH Flag" class="logo-flag">
                 </div>
                 <div class="logo-text-block">
@@ -488,14 +487,13 @@
         </div>
     </section>
 
-    <!-- 4. Модель роботи: Карточки с местом под фото слева и текстом справа -->
+    <!-- Модель роботи: Карточки с местом под фото 50% и уменьшенным адаптивным шрифтом -->
     <section class="container">
         <h2>Модель роботи</h2>
         <div class="workflow-steps">
             <div class="step-item">
                 <div class="step-image-box">
-                    <!-- Место под картинку слева -->
-                    <span style="font-size: 1.5rem;">🎯</span>
+                    <span>🎯</span>
                 </div>
                 <div class="step-content">
                     <span class="step-number">Крок 01</span>
@@ -505,7 +503,7 @@
             </div>
             <div class="step-item">
                 <div class="step-image-box">
-                    <span style="font-size: 1.5rem;">📚</span>
+                    <span>📚</span>
                 </div>
                 <div class="step-content">
                     <span class="step-number">Крок 02</span>
@@ -515,7 +513,7 @@
             </div>
             <div class="step-item">
                 <div class="step-image-box">
-                    <span style="font-size: 1.5rem;">🌍</span>
+                    <span>🌍</span>
                 </div>
                 <div class="step-content">
                     <span class="step-number">Крок 03</span>
@@ -526,7 +524,7 @@
         </div>
     </section>
 
-    <!-- 3. Команда: 7 карточек, увеличенные фото, Микола Кравцов по центру под Вадимом -->
+    <!-- Команда: Исправлено кадрирование лиц через object-position -->
     <section class="container">
         <h2>Наша команда</h2>
         <div class="team-grid">
@@ -560,7 +558,6 @@
                 <h3>Олена Воронцова</h3>
                 <div class="team-role">Координатор сімейного центру</div>
             </div>
-            <!-- Микола Кравцов по центру под Вадимом Лепським -->
             <div class="team-member centered-last">
                 <img src="kravtsov-foto07.webp" alt="Микола Кравцов" class="team-photo">
                 <h3>Микола Кравцов</h3>

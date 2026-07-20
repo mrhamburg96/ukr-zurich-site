@@ -203,9 +203,18 @@
         .card:hover {
             transform: translateY(-4px);
         }
-        .card-icon {
-            font-size: 2rem;
+        .card-icon-box {
+            width: 64px;
+            height: 64px;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-icon-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .card h3 {
             font-size: 1.2rem;
@@ -217,7 +226,7 @@
             font-size: 0.95rem;
         }
 
-        /* Модель роботи: Карточки с фото строго на 1/2 (50%) блока и высотой во весь блок */
+        /* Модель роботи: Карточки с реальными фото на 1/2 блока с высотой на всю карточку */
         .workflow-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -242,8 +251,11 @@
             border-right: 1px solid #dbeafe;
             overflow: hidden;
         }
-        .step-image-box span {
-            font-size: 2rem;
+        .step-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         .step-content {
             flex: 0 0 50%;
@@ -273,7 +285,7 @@
             line-height: 1.4;
         }
 
-        /* Команда: Увеличенные круги фото и точное центрирование */
+        /* Команда: Увеличенные круги и отцентрированные фото */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -295,11 +307,11 @@
             grid-column: 2 / 3;
         }
         .team-photo {
-            width: 155px; /* Увеличенный диаметр круга */
+            width: 155px;
             height: 155px;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 25%; /* Отцентровано для предотвращения обрезки лиц */
+            object-position: center 25%;
             margin-bottom: 16px;
             background-color: #cbd5e1;
             border: 4px solid var(--white);
@@ -468,35 +480,41 @@
         <a href="#" class="btn-help" style="display: inline-block;">Долучитися до нас</a>
     </section>
 
-    <!-- Миссия и ценности -->
+    <!-- Миссия и ценности с иконками -->
     <section class="container">
         <h2>Наша місія та цінності</h2>
         <div class="mission-grid">
             <div class="card">
-                <div class="card-icon">🤝</div>
+                <div class="card-icon-box">
+                    <img src="about-icon1.webp" alt="Інтеграція та підтримка" class="card-icon-img">
+                </div>
                 <h3>Інтеграція та підтримка</h3>
                 <p>Допомагаємо українцям швидко освоїтися у швейцарському правовому та культурному полі.</p>
             </div>
             <div class="card">
-                <div class="card-icon">💡</div>
+                <div class="card-icon-box">
+                    <img src="about-icon2.webp" alt="Розвиток і можливості" class="card-icon-img">
+                </div>
                 <h3>Розвиток і можливості</h3>
                 <p>Надаємо доступ до інформаційних ресурсів, мовних ініціатив та професійного нетворкінгу.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🛡️</div>
+                <div class="card-icon-box">
+                    <img src="about-icon3.webp" alt="Спільнота та довіра" class="card-icon-img">
+                </div>
                 <h3>Спільнота та довіра</h3>
                 <p>Формуємо безпечне середовище для взаємодопомоги, збереження традицій та єдності.</p>
             </div>
         </div>
     </section>
 
-    <!-- Модель роботи: Карточки с фото на 1/2 блока с высотой на всю карточку -->
+    <!-- Модель роботи: Карточки с фотографиями about-foto01/02/03 -->
     <section class="container">
         <h2>Модель роботи</h2>
         <div class="workflow-steps">
             <div class="step-item">
                 <div class="step-image-box">
-                    <span>🎯</span>
+                    <img src="about-foto01.webp" alt="Крок 01" class="step-image">
                 </div>
                 <div class="step-content">
                     <span class="step-number">Крок 01</span>
@@ -506,7 +524,7 @@
             </div>
             <div class="step-item">
                 <div class="step-image-box">
-                    <span>📚</span>
+                    <img src="about-foto02.webp" alt="Крок 02" class="step-image">
                 </div>
                 <div class="step-content">
                     <span class="step-number">Крок 02</span>
@@ -516,7 +534,7 @@
             </div>
             <div class="step-item">
                 <div class="step-image-box">
-                    <span>🌍</span>
+                    <img src="about-foto03.webp" alt="Крок 03" class="step-image">
                 </div>
                 <div class="step-content">
                     <span class="step-number">Крок 03</span>
@@ -527,7 +545,7 @@
         </div>
     </section>
 
-    <!-- Команда: Увеличенные круги и отцентрированные фото -->
+    <!-- Команда -->
     <section class="container">
         <h2>Наша команда</h2>
         <div class="team-grid">

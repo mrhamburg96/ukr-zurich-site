@@ -1,705 +1,398 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Про центр — UAGZ</title>
-<link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#1A56C4;--blue-dark:#0F3A8A;--blue-light:#E8F1FD;
-  --text:#111827;--text2:#4B5563;--text3:#9CA3AF;
-  --border:#E5E7EB;--surface:#F9FAFB;
-}
-body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про проєкт UAGZ — Український Інтеграційний та громадський центр Цюриха</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-light: #eef4fc;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --radius: 12px;
+        }
 
-/* Шапка сайта */
-header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* ЛОГОТИП С ФЛАГАМИ */
-.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:360px}
-.flags-logo{display:flex;flex-direction:column;gap:2px;width:24px;flex-shrink:0}
-.flag-ua{width:24px;height:14px;background:linear-gradient(to bottom, #0057B7 50%, #FFDD00 50%);border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
-.flag-ch{width:24px;height:14px;background:#D52B1E;position:relative;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
-.flag-ch::before, .flag-ch::after{content:"";background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.flag-ch::before{width:8px;height:2.5px}
-.flag-ch::after{width:2.5px;height:8px}
+        body {
+            font-family: 'Inter', sans-serif, system-ui;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
 
-.brand{font-weight:700;color:var(--blue);font-size:1.4rem;display:flex;flex-direction:column;line-height:1.1}
-.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;margin-top:2px}
+        /* Container */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.nav-links{display:flex;align-items:center;column-gap:1.2rem;row-gap:0.4rem;list-style:none;flex-wrap:wrap;max-width:600px}
-.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
-.nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
-.btn-donate-nav{background:none;border:none;color:#D52B1E;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
-.nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
-.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
-.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
-.lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
+        /* 1. Header */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #004085;
+        }
 
-/* Контент */
-/* Контент */
-.page-content{padding:4rem 0; max-width:850px; margin:0 auto;}
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--blue)} /* Изменили цвет на #1A56C4 */
-/* Стили для изображений и статьи */
-.about-p{color:var(--text2); font-size:1.1rem; margin-bottom:1.5rem;}
-.about-h2{font-size:1.7rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; color:var(--blue-dark)}
+        /* 2. Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
 
-.img-wrap{margin:2rem 0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08); background:#f4f4f4;}
-.img-wrap img{width:100%; height:450px; display:block; object-fit:cover;}
+        /* Sections General */
+        section {
+            padding: 50px 0;
+        }
+        section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-/* Фикс: выравнивание по верхнему краю (top) для команды и логистики */
-.img-wrap img.img-team, .img-wrap img {object-position: center top;}
+        /* 3. Mission & Values (Cards) */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: var(--radius);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
 
-.img-caption{background:var(--surface); padding:12px; font-size:13px; color:var(--text2); text-align:center; border-top:1px solid var(--border)}
-.about-list{margin-bottom:1.5rem; padding-left:20px}
-.about-list li{margin-bottom:8px; color:var(--text2); font-size:1.05rem}
-.goals-box{background:var(--blue-light); padding:20px; border-radius:8px; margin-bottom:2rem}
-.goals-list{list-style:none}
-.goals-list li{margin-bottom:10px; color:var(--text); font-weight:500; font-size:1.05rem}
-.goals-list li::before{content:"➔"; color:var(--blue); font-weight:bold; margin-right:10px}
-.goals-list li:last-child{margin-bottom:0}
-.about-quote{border-left:4px solid #F5C518; background:#FFFBEA; padding:15px; margin:2rem 0; border-radius:0 8px 8px 0; font-style:italic; font-size:1.05rem}
+        /* 4. Workflow (Steps) */
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .step-item {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: var(--radius);
+            position: relative;
+        }
+        .step-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
 
-/* Подвал */
-footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+        /* ✨ 5. Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .team-member {
+            text-align: center;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+        .team-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 16px;
+            background-color: #cbd5e1; /* заглушка, если нет фото */
+        }
+        .team-member h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .team-member p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
 
-/* ================= КОРЕГУВАННЯ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (768px) ================= */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 14px !important;
-    padding: 10px 1rem !important;
-  }
-  .nav-logo {
-    max-width: 100% !important;
-    justify-content: center !important;
-  }
-  .nav-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 10px 15px !important;
-    padding: 0 !important;
-  }
-  .nav-links a {
-    font-size: 13.5px !important;
-  }
-  .nav-r {
-    width: 100% !important;
-    justify-content: center !important;
-    margin-top: 5px !important;
-    gap: 15px !important;
-  }
-  .btn-solid {
-    padding: 8px 14px !important;
-    font-size: 13px !important;
-  }
-  .page-content {
-    padding: 2rem 0 !important;
-  }
-  .page-title {
-    font-size: 1.85rem !important;
-    margin-bottom: 1rem !important;
-    padding: 0 0.5rem !important;
-  }
-  .about-p, .about-h2, .about-list, .goals-box {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-  .about-p {
-    font-size: 1rem !important;
-    margin-bottom: 1rem !important;
-  }
-  .about-h2 {
-    font-size: 1.4rem !important;
-    margin-top: 1.8rem !important;
-  }
-  .img-wrap {
-    margin: 1.5rem 0 !important;
-    border-radius: 8px !important;
-  }
-  .img-wrap img {
-    height: 240px !important; /* Зменшуємо висоту банерів на телефонах */
-  }
-  .img-caption {
-    font-size: 12px !important;
-    padding: 10px !important;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    text-align: center !important;
-  }
-}
-/* ===================================================================== */
-</style>
+        /* 6. Strategic Goals */
+        .goals-container {
+            background: var(--primary-light);
+            border-radius: var(--radius);
+            padding: 40px;
+        }
+        .goals-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .goals-list li {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #dbeafe;
+        }
+        .goals-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* 7. Status Gemeinnützigkeit (Infobox) */
+        .infobox {
+            background-color: #fefce8;
+            border: 1px solid #fef08a;
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .infobox h3 {
+            color: #854d0e;
+            margin-bottom: 10px;
+        }
+        .infobox p {
+            color: #713f12;
+            font-size: 0.95rem;
+        }
+
+        /* 8. Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            margin-top: 40px;
+            background: var(--bg-light);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
- <nav>
-  <a class="nav-logo" href="./index.html">
-    <div class="flags-logo">
-      <div class="flag-ua"></div>
-      <div class="flag-ch"></div>
-    </div>
-    <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
-  </a>
-  
-  <ul class="nav-links">
-  <li><a href="index.html" id="m-home">Головна</a></li>
-  <li><a href="about.html" id="m-about">Про нас</a></li>
-  <li><a href="help.html" id="m-help">Допомога</a></li>
-  <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" id="m-knowledge">Центр знань</a></li>
-  <li><a href="announcements.html" id="m-announcements">Оговорення</a></li>
-  <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
-  <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
-  <li><a href="#contacts" id="m-contacts">Контакти</a></li>
-</ul>
-  
-  <div class="nav-r">
-    <div class="lang-sw">
-      <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
-      <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
-    </div>
-    <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
-  </div>
-</nav>
-</header>
+    <!-- 1. Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">UAGZ Цюрих</a>
+            <ul class="nav-links">
+                <li><a href="#">Хто ми</a></li>
+                <li><a href="#">Наша місія</a></li>
+                <li><a href="#">Команда</a></li>
+                <li><a href="#">Цілі</a></li>
+            </ul>
+            <a href="#" class="btn-primary">Підтримати</a>
+        </div>
+    </header>
 
-<main class="container page-content">
-  <h1 id="ab-title" class="page-title">Про наш centre</h1>
-  <p id="ab-p1" class="about-p"></p>
-  <p id="ab-p2" class="about-p"></p>
+    <!-- 2. Hero Section -->
+    <section class="hero container">
+        <h1>Хто ми: Проєкт Український Інтеграційний та громадський центр Цюриха</h1>
+        <p>Створюємо простір для ефективної адаптації, підтримки та розвитку української громади у Швейцарії.</p>
+        <a href="#" class="btn-primary">Долучитися до нас</a>
+    </section>
 
-  <div class="img-wrap">
-    <img class="img-team" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" alt="UAGZ Team">
-    <div id="ab-cap1" class="img-caption"></div>
-  </div>
+    <!-- 3. Mission & Values -->
+    <section class="container">
+        <h2>Наша місія та цінності</h2>
+        <div class="mission-grid">
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Інтеграція та підтримка</h3>
+                <p>Допомагаємо українцям швидко освоїтися у швейцарському правовому та культурному полі.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Розвиток і можливості</h3>
+                <p>Надаємо доступ до інформаційних ресурсів, мовних ініціатив та професійного нетворкінгу.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Спільнота та довіра</h3>
+                <p>Формуємо безпечне середовище для взаємодопомоги, збереження традицій та єдності.</p>
+            </div>
+        </div>
+    </section>
 
-  <h2 id="ab-h2-1" class="about-h2"></h2>
-  <p id="ab-p3" class="about-p"></p>
+    <!-- 4. Workflow -->
+    <section class="container">
+        <h2>Модель роботи</h2>
+        <div class="workflow-steps">
+            <div class="step-item">
+                <span class="step-number">Крок 01</span>
+                <h3>Зустріч та орієнтація</h3>
+                <p>Первинна консультація новоприбулих з базових питань життя та побуту в Цюриху.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">Крок 02</span>
+                <h3>Інтеграційні програми</h3>
+                <p>Залучення до освітніх проєктів, допомога в оформленні документів та пошуку роботи.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">Крок 03</span>
+                <h3>Стала спільнота</h3>
+                <p>Постійна підтримка, культурні заходи та розвиток проєктів усередині української громади.</p>
+            </div>
+        </div>
+    </section>
 
-  <h2 id="ab-h2-2" class="about-h2"></h2>
-  <p id="ab-p4" class="about-p"></p>
-  
-  <ul class="about-list">
-    <li id="ab-li1"></li>
-    <li id="ab-li2"></li>
-    <li id="ab-li3"></li>
-  </ul>
-  
-  <p id="ab-p5" class="about-p"></p>
+    <!-- ✨ 5. NEW BLOCK: Our Team -->
+    <section class="container">
+        <h2>Наша команда</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="" alt="Фото учасника" class="team-photo">
+                <h3>Ім'я Прізвище</h3>
+                <div class="team-role">Керівник проєкту</div>
+                <p>Координація діяльності центру та стратегічний розвиток.</p>
+            </div>
+            <div class="team-member">
+                <img src="" alt="Фото учасника" class="team-photo">
+                <h3>Ім'я Прізвище</h3>
+                <div class="team-role">Координатор інтеграції</div>
+                <p>Робота з партнерами та підтримка нових учасників спільноти.</p>
+            </div>
+            <div class="team-member">
+                <img src="" alt="Фото учасника" class="team-photo">
+                <h3>Ім'я Прізвище</h3>
+                <div class="team-role">Комунікації та PR</div>
+                <p>Зв'язки з громадськістю, ведення соцмереж та новин.</p>
+            </div>
+        </div>
+    </section>
 
-  <div class="img-wrap">
-    <img src="food-logistic.jpg" alt="Food Rescue Logistics">
-    <div id="ab-cap2" class="img-caption"></div>
-  </div>
+    <!-- 6. Strategic Goals -->
+    <section class="container">
+        <div class="goals-container">
+            <h2>Стратегічні цілі: Куди ми рухаємося?</h2>
+            <ul class="goals-list">
+                <li>Зміцнення української спільноти в Zürich-окрузі</li>
+                <li>Розвиток ефективних програм інтеграції</li>
+                <li>Створення нових можливостей для молоді</li>
+                <li>Прозорість та масштабування діяльності центру</li>
+            </ul>
+        </div>
+    </section>
 
-  <h2 id="ab-h2-3" class="about-h2"></h2>
-  <p id="ab-p6" class="about-p"></p>
-  
-  <div class="goals-box">
-    <ul class="goals-list">
-      <li id="ab-g1"></li>
-      <li id="ab-g2"></li>
-      <li id="ab-g3"></li>
-      <li id="ab-g4"></li>
-    </ul>
-  </div>
+    <!-- 7. Status Gemeinnützigkeit -->
+    <section class="container">
+        <div class="infobox">
+            <h3>Новий рівень: Status Gemeinnützigkeit</h3>
+            <p>Офіційний статус суспільної корисності (Gemeinnützigkeit), отриманий центром, відкриває нові можливості для залучення партнерств та зміцнення довіри на швейцарському рівні.</p>
+        </div>
+    </section>
 
-  <div class="img-wrap">
-    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" alt="Integration Support & Learning">
-    <div id="ab-cap3" class="img-caption"></div>
-  </div>
-
-  <h2 id="ab-h2-4" class="about-h2"></h2>
-  <p id="ab-p7" class="about-p"></p>
-
-  <div id="ab-quote" class="about-quote"></div>
-  
-  <p id="ab-p8" style="font-size: 1.1rem; font-weight: 600; text-align: center; margin-top: 2rem; color: var(--blue);"></p>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <h3 style="margin-bottom:1rem;color:var(--text)">UAGZ Цюрих</h3>
-      <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
-    </div>
-    <div>
-      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)">Контакти</h3>
-      <p style="color:var(--text2)">Email: info@ukr-zurich.ch</p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const T = {
-  ua: {
-    "m-home": "Головна",
-    "m-about": "Про нас",
-    "m-help": "Допомога",
-    "m-events": "Заходи",
-    "m-knowledge": "Центр знань",
-    "m-announcements": "Оголошення",
-    "m-volunteering": "Волонтерство",
-    "m-donate": "❤️ Донат",
-    "m-contacts": "Контакти",
-    "nav-sub": "Український інтеграційний та громадський центр Цюриха",
-    "nl-1": "Головна",
-    "nl-2": "Про центр",
-    "nl-3": "Допомога",
-    "nl-4": "Події",
-    "nl-5": "Оголошення",
-    "nl-6": "Волонтерство",
-    "nl-8": "Контакти",
-    "nav-cta": "Отримати допомогу",
-    "mh-t": "Приєднуйтесь до спільноти",
-    "mh-s": "Реєстрація безкоштовна · Для українців у Швейцарії",
-    "t-reg": "Реєстрація",
-    "t-log": "Вхід",
-    "l-fn": "Ім'я",
-    "l-ln": "Прізвище",
-    "l-ph": "Телефон (опційно)",
-    "l-pw": "Пароль",
-    "l-pw2": "Пароль",
-    "l-cat": "Я — (оберіть категорію)",
-    "l-or": "або зареєструватися через",
-    "l-or2": "або увійти через",
-    "l-sub": "Зареєструватися безкоштовно",
-    "l-sub2": "Увійти",
-    "l-fp": "Забули пароль?",
-    "l-terms": "Реєструючись, ви погоджуєтесь з умовами використання та політикою конфіденційності.",
-    "c1": "Новоприбул(-а)",
-    "c2": "Мама з дітьми",
-    "c3": "Волонтер",
-    "c4": "Шукаю роботу",
-    "c5": "Студент",
-    "c6": "Інше",
-    "s-t": "Ласкаво просимо до спільноти!",
-    "s-s": "Перевірте вашу електронну пошту для підтвердження реєстрації.",
-    "h-badge": "Офіційна NGO · Zürich",
-    "h-t": "Український інтеграційний та громадський центр Цюриха",
-    "h-s": "Допомога, події, спільнота, гуманітарна підтримка та нові можливості для українців у Швейцарії.",
-    "h-b1": "Отримати допомогу",
-    "h-b2t": "Долучитися до громади",
-    "tg-t": "Приєднуйся до нашої спільноти!",
-    "tg-btn": "Приєднатися",
-    "tg-note": "Telegram · новини та оголошення",
-    "sv-h": "Чим мы допомагаємо",
-    "sv-a": "Дивитися всі послуги →",
-    "s1": "Гуманітарна допомога",
-    "s2": "Продукти",
-    "s3": "Інтеграція та консультації",
-    "s4": "Курси нім. мови",
-    "s5": "Допомога з документами",
-    "s6": "Пошук роботи",
-    "s7": "Events для детей",
-    "s8": "Волонтерство",
-    "s9": "Community support",
-    "how-tag": "Як це працює",
-    "how-h1": "Просто. Швидко. Людяно.",
-    "how-sub": "Ми зробили процес отримання допомоги максимально простом і зрозумілим.",
-    "st1-h": "Подайте заявку",
-    "st1-p": "Заповніть просту форму на сайті — це займе лише кілька хвилин.",
-    "st2-h": "Ми зв'яжемося з вами",
-    "st2-p": "Наш координатор зв'яжеться з вами та допоможе визначити ваш запит.",
-    "st3-h": "Отримай допомогу або консультацію",
-    "st3-p": "Ви отримаєте необхідну підтримку, інформацію або консультацію.",
-    "team-h": "Ми поруч з вами",
-    "team-p": "Наша команда говорить вашою мовою та розуміє ваші потреби.",
-    "team-l": "Дізнатися більше про команду →",
-    "stat-1": "людей отримали підтримку",
-    "stat-2": "волонтерів щодня допомагають громаді",
-    "qc-h": "Швидкий зв'язок",
-    "q-t": "\"Я отримала відповіді на всі свої питання та відчула підтримку з першого дня. Дякую команді UAGZ!\"",
-    "q-n": "Олена",
-    "tc1": "Актуально зараз",
-    "tc1l": "Переглянути все →",
-    "b1": "Терміново",
-    "n1t": "Гуманітарна видача продуктів",
-    "n1m": "18 травня, 10:00–14:00 · Albisriederplatz 1",
-    "b2": "Новина",
-    "n2t": "Нові курси німецької мови для початківців",
-    "n2m": "Реєстрація відкрита",
-    "b3": "Подія",
-    "n3m": "24 травня, 18:00 · Gemeinschaftszentrum",
-    "tc2": "Події найближчим часом",
-    "tc2l": "Всі події →",
-    "mo1": "ТРАВ",
-    "e1t": "Дитячий театр-студія \"Чомучки\"",
-    "e1d": "Сб, 12:00–14:00",
-    "mo2": "ТРАВ",
-    "e2t": "Мовний клуб (нім.) Рівень A1–A2",
-    "e2d": "Вт, 18:30–20:00",
-    "mo3": "ТРАВ",
-    "e3t": "Community Evening · Знайомства",
-    "e3d": "Пт, 18:00–21:00",
-    "tc3": "Нові оголошення",
-    "tc3l": "Всі оголошення →",
-    "ab1": "Житло",
-    "a1t": "Здається кімната в Цюриху · 800 CHF/міс.",
-    "a1m": "Сьогодні, 10:15",
-    "ab2": "Робота",
-    "a2t": "Потрібна няня для дитини 4 роки · Teilzeit",
-    "a2m": "Сьогодні, 09:40",
-    "ab3": "Послуги",
-    "a3t": "Переклади документов (укр/нім)",
-    "a3m": "Сьогодні, 08:30",
-    "fw-h": "Для кого наш centre?",
-    "fw-l": "Переглянути всі можливості →",
-    "w1": "Новоприбулі",
-    "w2": "Мами з дітьми",
-    "w3": "Люди зі статусом S",
-    "w4": "Волонтери",
-    "w5": "Бізнес",
-    "w6": "Студенти",
-    "w7": "Люди в пошуку роботи",
-    "w8": "Пенсіонери",
-    "dir-h1": "Чим ми допомагаємо",
-    "dir-sub": "Ми поруч у важливих питаннях <u>щодня</u>.",
-    "ds1": "Людей отримали допомогу",
-    "ds2": "Волонтерів у спільноті",
-    "ds3": "Заходів щомісяця",
-    "ds4": "for Ukrainians in Zürich",
-    "d1": "Гуманітарна допомога",
-    "d1d": "Продукти, одяг, засоби гігієни та інша підтримка.",
-    "d2": "Консультації та документи",
-    "d2d": "Допомога з формами, заявами та офіційними листами.",
-    "d3": "Інтеграція та адаптація",
-    "d3d": "Підтримка новоприбулих на кожному етапі.",
-    "d4": "Курси німецької мови",
-    "d4d": "Безкоштовні та доступні курси для всіх рівнів.",
-    "d5": "Пошук роботи та кар'єра",
-    "d5d": "Консультації, резюме, вакансії та контакти.",
-    "d6": "Житло та побутові питання",
-    "d6d": "Пошук житла, реєстрація, страхування, рахунки.",
-    "d7": "Здоров'я та лікарі",
-    "d7d": "Медичне страхування, лікарі та невідкладна допомога.",
-    "d8": "Події для дітей",
-    "d8d": "Творчі заняття, табори, свята та дитячі групи.",
-    "d9": "Волонтерство та участь",
-    "d9d": "Долучайтеся та допомагайте разом із нами.",
-    "d10": "Community підтримка",
-    "d10d": "Моральна підтримка, зустрічі, клуби та дружнє середовище.",
-    "cta-row-h": "Не знаєте, з чего почати?",
-    "cta-row-p": "Напишіть нам — ми підкажемо, як можем допомогти саме вам.",
-    "cta-row-btn": "Отримати допомогу",
-    "cta1h": "Долучайтеся до спільноти!",
-    "cta1p": "Станьте частиною української громади у Цюриху.",
-    "cta1b": "Приєднатися в Telegram",
-    "cta2h": "Станьте волонтером",
-    "cta2p": "Ваш час і знання можуть змінити чиєсь життя.",
-    "cta2b": "Заповнити форму",
-    "cta3h": "Підтримайте центр",
-    "cta3p": "Ваша підтримка допомагає нам допомагати іншим.",
-    "cta3b": "Підтримати",
-    "cta4h": "Підпишіться на новини",
-    "cta4p": "Отримуйте важливу інформацію та анонси подій.",
-    "email-inp": "Ваш email",
-    "tr1": "Офіційна NGO у Цюриху",
-    "tr2": "Прозорість та звітність",
-    "tr3": "Понад 50 партнерів",
-    "tr4": "Реальні люди та реальні історії",
-    "fc1h": "Контакти",
-    "fc2h": "Ми в соцмережах",
-    "fc3h": "Години роботи",
-    "fc4h": "Корисні посилання",
-    "fc1-addr": "Albisriederplatz 1, 8003 Zürich",
-    "fc1-tel": "+41 76 123 45 67",
-    "hd1": "Пн–Пт",
-    "hd2": "Субота",
-    "hd3": "Неділя",
-    "hd3v": "Зачинено",
-    "f-stat": "Статути (PDF)",
-    "f-impressum": "Impressum",
-    "f-privacy": "Datenschutz",
-    "f-terms": "Terms of Use",
-    "f-location": "Цюрих, Швейцарія",
-    "f-copy": "Зроблено з ❤️ для українців у Швейцарії · © 2026 UAGZ. All rights reserved.",
-    
-    /* Новые добавленные тексты */
-    "ab-title": "Хто ми: Про проєкт Український інтеграційний та громадський центр Цюриха (UAGZ)",
-    "ab-p1": "У самому серці Цюриха, об'єднуючи зусилля української громади та релігійних мереж, створюється нова сторінка підтримки — Ukrainisches Integrations- und Kulturzentrum Zürich (скорочено UAGZ або Ukrainisches Zentrum Zürich).",
-    "ab-p2": "Ми є незалежною неприбутковою організацією, що створюється у юридичній формі gemeinnütziger Verein (благодійна асоціація за швейцарським законодавством). Наша мета — побудувати стабільний, прозорий та ефективний місток між швейцарським суспільством та українцями, які знайшли тут тимчасовий притулок або потребують допомоги.",
-    "ab-cap1": "UAGZ — простір довіри, розвитку та взаємодії в Цюриху",
-    "ab-h2-1": "Наша місія та цінності",
-    "ab-p3": "Швейцарія тепло прийняла тисячі українських родин, але шлях інтеграції, вивчення мови та адаптації до нових юридичних і соціальних реалій вимагає постійної підтримки. UAGZ — це не просто офіс чи пункт видачі допомоги. Це простір, де швейцарський досвід соціальної роботи поєднується з українською незламністю, взаємодопомогою та культурою.",
-    "ab-h2-2": "Модель роботи: Найкращий швейцарський досвід",
-    "ab-p4": "Ми не вигадуємо велосипед — ми беремо найкращі, перевірені десятиліттями швейцарські практики соціальної допомоги та адаптуємо their під потреби нашої громади. У своїй діяльності мы надихаємося та орієнтуємося на стандарти таких відомих інституцій, як:",
-    "ab-li1": "<strong>Buchegg Social Works</strong> (системна соціальна робота та підтримка особистості);",
-    "ab-li2": "<strong>Caritas</strong> (глибока гуманітарна та юридична експертиза);",
-    "ab-li3": "<strong>Schweizer Tafel</strong> та <strong>Tischlein deck dich</strong> (професійний порятунок продуктів та логістика продовольчої допомоги).",
-    "ab-p5": "Одним із ключових напрямків UAGZ є запуск масштабної системи Food Distribution (рятування та дистрибуція продуктів). Це екологічна та соціальна місія. Ланцюжок постачання працює злагоджено: непродані якісні продукти з великих супермаркетів (Migros / Coop / Lidl / Aldi) потрапляють до наших Food Rescue партнерів, сортуються волонтерами в нашому центрі та оперативно видаються українській громаді та людям у потребі. Це дозволяє зменшувати кількість харчових відходів у кантоні та забезпечувати родини якісним харчуванням.",
-    "ab-cap2": "Прозорий ланцюжок логістики: від порятунку якісних продуктів до підтримки родин",
-    "ab-h2-3": "Стратегічні цілі: Куди ми рухаємося?",
-    "ab-p6": "Організація створюється із чітким баченням майбутнього. Наша мета — вже через 1 рік стати:",
-    "ab-g1": "Центром української community in Zürich №1 — головним місцем зустрічі та сили.",
-    "ab-g2": "Головною платформою інтеграції та адаптації.",
-    "ab-g3": "Осередком взаємодопомоги та солідарності.",
-    "ab-g4": "Гуманітарням та соціальним хабом (Hub) у місті Zürich.",
-    "ab-cap3": "Integration починається зі спілкування, вивчення мови та спільної роботи",
-    "ab-h2-4": "Новий рівень: Status Gemeinnützigkeit",
-    "ab-p7": "Сьогодні мы активно працюємо над отриманням офіційного швейцарського статусу Gemeinnützigkeit (суспільна корисність / благодійність). Це відкриє для нашої організації принципово нові можливості: офіційно приймати донати (donations), вести некомерційний прозорий облік (NGO accounting), отримувати податкові пільги для партнерів, діяти як повністю визнана організація (recognized NGO), подаватися на великі міські гранти, розширювати мережі безкоштовних курсів та ефективно співпрацювати з містом Zürich, локальними NGO та релігійними мережами (church networks).",
-    "ab-quote": "Символічним стартом та точкою відліку для нашої концепції став день <strong>24 травня 2026 года (Божа Неділя)</strong>. Саме в цей день було остаточно зафіксовано візію, місію та план довгострокового розвитку нашого центру. Ми віримо, що ця справа благословенна, а кожен внесок допомагає побудувати майбутнє нашої громади.",
-    "ab-p8": "Запрошуємо до співпраці волонтерів, представників бізнесу та партнерських організацій! Разом ми сильніші."
-  },
-  de: {
-    "m-home": "Startseite",
-    "m-about": "Über uns",
-    "m-help": "Hilfe",
-    "m-events": "Veranstaltungen",
-    "m-knowledge": "Wissenszentrum",
-    "m-announcements": "Ankündigungen",
-    "m-volunteering": "Freiwilligenarbeit",
-    "m-donate": "❤️ Donate",
-    "m-contacts": "Kontakte",
-    "nav-sub": "Unterstützungs- und Integrationszentrum",
-    "nl-1": "Startseite",
-    "nl-2": "Über uns",
-    "nl-3": "Hilfe",
-    "nl-4": "Veranstaltungen",
-    "nl-5": "Ankündigungen",
-    "nl-6": "Ehrenamt",
-    "nl-8": "Kontakt",
-    "nav-cta": "Hilfe erhalten",
-    "mh-t": "Der Community beitreten",
-    "mh-s": "Kostenlose Registrierung · Nur für Ukrainer in der Schweiz",
-    "t-reg": "Registrierung",
-    "t-log": "Anmelden",
-    "l-fn": "Vorname",
-    "l-ln": "Nachname",
-    "l-ph": "Telefon (optional)",
-    "l-pw": "Passwort",
-    "l-pw2": "Passwort",
-    "l-cat": "Ich bin — (Kategorie wählen)",
-    "l-or": "oder registrieren mit",
-    "l-or2": "oder anmelden mit",
-    "l-sub": "Kostenlos registrieren",
-    "l-sub2": "Anmelden",
-    "l-fp": "Passwort vergessen?",
-    "l-terms": "Mit der Registrierung stimmen Sie den Nutzungsbedingungen zu.",
-    "c1": "Neuankömmling",
-    "c2": "Mutter mit Kindern",
-    "c3": "Ehrenamtlich",
-    "c4": "Jobsuchend",
-    "c5": "Student",
-    "c6": "Sonstiges",
-    "s-t": "Willkommen in der Community!",
-    "s-s": "Überprüfen Sie Ihre E-Mail zur Bestätigung.",
-    "h-badge": "Offizielle NGO · Zürich",
-    "h-t": "Willkommen bei UAGZ",
-    "h-s": "Wir unterstützen Ukrainerinnen und Ukrainer in der Schweiz. Unser Zentrum bietet Hilfe bei der sozialen Anpassung, dem Erlernen der Sprache, rechtlichen Fragen sowie der Organisation von Bildungs- und Kulturveranstaltungen im Kanton Zürich.",
-    "h-b1": "Hilfe erhalten",
-    "h-b2t": "Der Gemeinschaft beitreten",
-    "tg-t": "Tritt unserer Community bei!",
-    "tg-btn": "Beitreten",
-    "tg-note": "Telegram · Nachrichten und Ankündigungen",
-    "sv-h": "Wie wir helfen",
-    "sv-a": "Alle Leistungen →",
-    "s1": "Humanitäre Hilfe",
-    "s2": "Lebensmittel",
-    "s3": "Integration & Beratung",
-    "s4": "Deutschkurse",
-    "s5": "Dokumentenhilfe",
-    "s6": "Jobsuche",
-    "s7": "Kinderangebote",
-    "s8": "Ehrenamt",
-    "s9": "Community",
-    "how-tag": "So funktioniert es",
-    "how-h1": "Einfach. Schnell. Menschlich.",
-    "how-sub": "Wir haben den Hilfeprozess so einfach und verständlich wie möglich gestaltet.",
-    "st1-h": "Antrag stellen",
-    "st1-p": "Füllen Sie das einfache Formular aus — es dauert nur wenige Minuten.",
-    "st2-h": "Wir melden uns bei Ihnen",
-    "st2-p": "Unser Koordinator kontaktiert Sie und hilft, Ihren Bedarf zu ermitteln.",
-    "st3-h": "Hilfe oder Beratung erhalten",
-    "st3-p": "Sie erhalten die erforderliche Unterstützung, Informationen oder Beratung.",
-    "team-h": "Wir sind für Sie da",
-    "team-p": "Unser Team spricht Ihre Sprache und versteht Ihre Bedürfnisse.",
-    "team-l": "Mehr über das Team →",
-    "stat-1": "Personen erhielten Unterstützung",
-    "stat-2": "Ehrenamtliche helfen täglich der Gemeinde",
-    "qc-h": "Schnellkontakt",
-    "q-t": "\"Ich erhielt Antworten auf alle meine Fragen und fühlte Unterstützung vom ersten Tag an. Danke UAGZ!\"",
-    "q-n": "Auszeit",
-    "tc1": "Aktuell",
-    "tc1l": "Alle anzeigen →",
-    "b1": "Dringend",
-    "n1t": "Humanitäre Lebensmittelausgabe",
-    "n1m": "18. Mai, 10:00–14:00 · Albisriederplatz 1",
-    "b2": "Neuigkeit",
-    "n2t": "Neue Deutschkurse für Anfänger",
-    "n2m": "Anmeldung offen",
-    "b3": "Veranstaltung",
-    "n3m": "24. Mai, 18:00 · Gemeinschaftszentrum",
-    "tc2": "Bevorstehende Veranstaltungen",
-    "tc2l": "Alle Veranstaltungen →",
-    "mo1": "MAI",
-    "e1t": "Kinder-Workshop «Ukrainische Stickerei»",
-    "e1d": "Sa., 12:00–14:00",
-    "mo2": "MAI",
-    "e2t": "Sprachclub (Deutsch) Niveau A1–A2",
-    "e2d": "Di., 18:30–20:00",
-    "mo3": "MAI",
-    "e3t": "Community Evening · Kennenlernen",
-    "e3d": "Fr., 18:00–21:00",
-    "tc3": "Bevorstehende Veranstaltungen",
-    "tc3l": "Alle Veranstaltungen →",
-    "ab1": "Wohnung",
-    "a1t": "Zimmer in Zürich · 800 CHF/Monat",
-    "a1m": "Heute, 10:15",
-    "ab2": "Arbeit",
-    "a2t": "Babysitter gesucht · Teilzeit",
-    "a2m": "Heute, 09:40",
-    "ab3": "Dienste",
-    "a3t": "Dokumentenübersetzung (ukr/de)",
-    "a3m": "Heute, 08:30",
-    "fw-h": "Für wen ist unser Zentrum?",
-    "fw-l": "Alle Möglichkeiten →",
-    "w1": "Neuankömmlinge",
-    "w2": "Mütter mit Kindern",
-    "w3": "Personen mit Status S",
-    "w4": "Ehrenamtliche",
-    "w5": "Unternehmen",
-    "w6": "Studierende",
-    "w7": "Arbeitssuchende",
-    "w8": "Rentner",
-    "dir-h1": "Unsere Angebote",
-    "dir-sub": "Wir sind täglich bei wichtigen Fragen für Sie <u>da</u>.",
-    "ds1": "Personen erhielten Hilfe",
-    "ds2": "Ehrenamtliche in der Community",
-    "ds3": "Veranstaltungen monatlich",
-    "ds4": "for Ukrainians in Zürich",
-    "d1": "Humanitäre Hilfe",
-    "d1d": "Lebensmittel, Kleidung, Hygieneartikel.",
-    "d2": "Beratung & Dokumente",
-    "d2d": "Hilfe mit Formularen und offiziellen Schreiben.",
-    "d3": "Integration & Adaptation",
-    "d3d": "Unterstützung von Neuankömmlingen.",
-    "d4": "Deutschkurse",
-    "d4d": "Kostenlose Kurse für alle Niveaus.",
-    "d5": "Jobsuche & Karriere",
-    "d5d": "Beratung, Lebenslauf, Stellenangebote.",
-    "d6": "Wohnen & Alltag",
-    "d6d": "Wohnungssuche, Anmeldung, Versicherung.",
-    "d7": "Gesundheit & Ärzte",
-    "d7d": "Krankenversicherung, Ärzte, Notfall.",
-    "d8": "Kinderangebote",
-    "d8d": "Kreativkurse, Lager, Feste, Kindergruppen.",
-    "d9": "Ehrenamt & Teilnahme",
-    "d9d": "Machen Sie mit und helfen Sie.",
-    "d10": "Community-Unterstützung",
-    "d10d": "Treffen, Clubs und freundliche Atmosphäre.",
-    "cta-row-h": "Wissen Sie nicht, wo Sie anfangen sollen?",
-    "cta-row-p": "Schreiben Sie uns — wir helfen Ihnen weiter.",
-    "cta-row-btn": "Hilfe erhalten",
-    "cta1h": "Der Community beitreten!",
-    "cta1p": "Werden Sie Teil der ukrainischen Gemeinschaft in Zürich.",
-    "cta1b": "Telegram beitreten",
-    "cta2h": "Werden Sie Ehrenamtlicher",
-    "cta2p": "Ihre Zeit und Ihr Wissen können das Leben verändern.",
-    "cta2b": "Formular ausfüllen",
-    "cta3h": "Unterstützen Sie das Zentrum",
-    "cta3p": "Ihre Unterstützung hilft uns, anderen zu helfen.",
-    "cta3b": "Unterstützen",
-    "cta4h": "Newsletter abonnieren",
-    "cta4p": "Erhalten Sie wichtige Informationen.",
-    "email-inp": "Ihre E-Mail",
-    "tr1": "Offizielle NGO in Zürich",
-    "tr2": "Transparenz und Rechenschaft",
-    "tr3": "Über 50 Partner",
-    "tr4": "Echte Menschen und echte Geschichten",
-    "fc1h": "Kontakt",
-    "fc2h": "Social Media",
-    "fc3h": "Öffnungszeiten",
-    "fc4h": "Nützliche Links",
-    "fc1-addr": "Albisriederplatz 1, 8003 Zürich",
-    "fc1-tel": "+41 76 123 45 67",
-    "hd1": "Mo–Fr",
-    "hd2": "Samstag",
-    "hd3": "Sonntag",
-    "hd3v": "Geschlossen",
-    "f-stat": "Satzung (PDF)",
-    "f-impressum": "Impressum",
-    "f-privacy": "Datenschutz",
-    "f-terms": "Nutzungsbedingungen",
-    "f-location": "Zürich, Schweiz",
-    "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "f-copy": "Mit ❤️ hergestellt für Ukrainer in der Schweiz · © 2026 UAGZ. All rights reserved.",
-
-    /* Новые добавленные немецкие тексты */
-    "ab-title": "Über uns: Das Projekt Ukrainisches Integrations- und Kulturzentrum Zürich (UAGZ)",
-    "ab-p1": "Im Herzen von Zürich entsteht durch die Bündelung der Kräfte der ukrainischen Gemeinschaft und kirchlicher Netzwerke ein neues Kapitel der Unterstützung — das Ukrainische Integrations- und Sozialzentrum Zürich (kurz UAGZ oder Ukrainisches Integrations- und Kulturzentrum Zürich).",
-    "ab-p2": "Wir sind eine unabhängige gemeinnützige Organisation, die in der Rechtsform eines gemeinnützigen Vereins (nach schweizerischem Recht) gegründet wird. Unser Ziel ist es, eine stabile, transparente und effiziente Brücke zwischen der Schweizer Gesellschaft und den Ukrainern zu schlagen, die hier Zuflucht gefunden haben oder Unterstützung benötigen.",
-    "ab-cap1": "UAGZ — Ein Raum des Vertrauens, der Entwicklung und der Zusammenarbeit in Zürich",
-    "ab-h2-1": "Unsere Mission und Werte",
-    "ab-p3": "Die Schweiz hat Tausende von ukrainischen Familien herzlich aufgenommen, aber der Weg der Integration, des Spracherwerbs und der Anpassung an neue rechtliche und soziale Realitäten erfordert kontinuierliche Unterstützung. Das UAGZ ist nicht nur ein Büro oder eine Ausgabestelle für Hilfe. Es ist ein Raum, in dem Schweizer Erfahrung in der Sozialarbeit mit ukrainischer Resilienz, gegenseitiger Hilfe und Kultur verbunden wird.",
-    "ab-h2-2": "Arbeitsmodell: Beste Schweizer Praktiken",
-    "ab-p4": "Wir erfinden das Rad nicht neu — wir übernehmen die besten, jahrzehntelang bewährten Schweizer Praktiken der sozialen Unterstützung und passen sie an die Bedürfnisse unserer Gemeinschaft an. In unserer Arbeit orientieren wir uns an den Standards bekannter Institutionen wie:",
-    "ab-li1": "<strong>Buchegg Social Works</strong> (systematische Sozialarbeit und persönliche Unterstützung);",
-    "ab-li2": "<strong>Caritas</strong> (tiefe humanitäre und rechtliche Expertise);",
-    "ab-li3": "<strong>Schweizer Tafel</strong> und <strong>Tischlein deck dich</strong> (professionelle Lebensmittelrettung und Logistik).",
-    "ab-p5": "Einer der Kernbereiche des UAGZ ist der Aufbau eines umfassenden Food Distribution Systems (Lebensmittelrettung und -verteilung). Dies ist eine ökologische und soziale Mission. Die Lieferkette funktioniert reibungslos: Unverkaufte, qualitativ hochwertige Lebensmittel aus grossen Supermärkten (Migros / Coop / Lidl / Aldi) gehen an unsere Food Rescue Partner, werden von Freiwilligen in unserem Zentrum sortiert und zeitnah an die ukrainische Gemeinschaft und Bedürftige verteilt. Dies reduziert Food Waste im Kanton und sichert Familien hochwertige Nahrungsmittel.",
-    "ab-cap2": "Transparente Logistikkette: Von der Rettung hochwertiger Lebensmittel bis zur Unterstützung von Familien",
-    "ab-h2-3": "Strategische Ziele: Wohin gehen wir?",
-    "ab-p6": "Die Organisation wird mit einer klaren Vision für die Zukunft gegründet. Unser Ziel ist es, bereits nach einem Jahr Folgendes zu werden:",
-    "ab-g1": "Das ukrainische Gemeinschaftszentrum in Zürich Nr. 1 — der Hauptort für Begegnung und Kraft.",
-    "ab-g2": "Die wichtigste Plattform für Integration und Anpassung.",
-    "ab-g3": "Ein Zentrum der gegenseitigen Hilfe und Solidarität.",
-    "ab-g4": "Ein humanitärer und sozialer Hub in der Stadt Zürich.",
-    "ab-cap3": "Integration beginnt mit Kommunikation, Spracherwerb und gemeinsamer Arbeit",
-    "ab-h2-4": "Nächste Stufe: Status der Gemeinnützigkeit",
-    "ab-p7": "Heute arbeiten wir aktiv an der Erlangung des offiziellen Schweizer Status der Gemeinnützigkeit. Dies wird unserer Organisation völlig neue Möglichkeiten eröffnen: offizielle Spenden (donations) entgegenzunehmen, eine transparente NGO-Buchhaltung zu führen, Steuervergünstigungen für Partner zu erhalten, als anerkannte NGO (recognized NGO) zu agieren, städtische Fördergelder zu beantragen, kostenlose Kurse auszubauen und effektiv mit der Stadt Zürich, lokalen NGOs und kirchlichen Netzwerken (church networks) zusammenzuarbeiten.",
-    "ab-quote": "Der symbolische Start und Bezugspunkt für unser concept war der <strong>24. Mai 2026 (Zionssonntag)</strong>. An diesem Tag wurden die Vision, die Mission und der langfristige Entwicklungsplan unseres Zentrums endgültig festgelegt. Wir glauben, dass diese Arbeit gesegnet ist, und jeder Beitrag einen Baustein in die Zukunft unserer Gemeinschaft legt.",
-    "ab-p8": "Wir laden Freiwillige, Wirtschaftsvertreter und Partnerorganisationen zur Zusammenarbeit ein! Gemeinsam sind wir stärker."
-  }
-};
-
-function setLang(lang) {
-  // 1. Переключаем класс подсветки кнопок
-  document.querySelectorAll('.lb').forEach(b => {
-    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
-  });
-
-  // 2. Проверяем наличие словаря перевода
-  if (typeof T === 'undefined' || !T[lang]) return;
-  const dict = T[lang];
-
-  // 3. Заменяем тексты по ID
-  for (const [id, val] of Object.entries(dict)) {
-    const el = document.getElementById(id);
-    if (!el) continue;
-
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else {
-      el.innerHTML = val;
-    }
-  }
-
-  // 4. Меняем язык документа и сохраняем выбор
-  document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
-  localStorage.setItem('selectedLang', lang);
-}
-
-// Автозапуск при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('selectedLang') || 'ua';
-  setLang(savedLang);
-});
-</script>
+    <!-- 8. Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 UAGZ Zürich. Усі права захищені.</p>
+            <p>Контакти: info@uagz.ch</p>
+        </div>
+    </footer>
 
 </body>
 </html>

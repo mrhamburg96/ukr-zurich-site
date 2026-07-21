@@ -144,6 +144,18 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   align-items: center;
   justify-content: space-between;
 }
+.event-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text3);
+}
+.event-loc img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
 .event-btn {
   background: var(--surface);
   color: #1A56C4;
@@ -245,7 +257,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </div>
       </div>
       <div class="event-footer">
-        <span style="font-size: 13px; color: var(--text3);" id="ev-loc-1">📍 Центр UAGZ</span>
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-1">Центр UAGZ</span></span>
         <a href="#register" class="event-btn" id="btn-reg-1">Записатися ➔</a>
       </div>
     </div>
@@ -266,7 +278,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </div>
       </div>
       <div class="event-footer">
-        <span style="font-size: 13px; color: var(--text3);" id="ev-loc-2">📍 Центр UAGZ</span>
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-2">Центр UAGZ</span></span>
         <a href="#register" class="event-btn" id="btn-reg-2">Записатися ➔</a>
       </div>
     </div>
@@ -287,7 +299,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </div>
       </div>
       <div class="event-footer">
-        <span style="font-size: 13px; color: var(--text3);" id="ev-loc-3">📍 Зал центру</span>
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-3">Зал центру</span></span>
         <a href="#register" class="event-btn" style="color: var(--purple); border-color: #DDD6FE;" id="btn-reg-3">Подати заявку ➔</a>
       </div>
     </div>
@@ -308,7 +320,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </div>
       </div>
       <div class="event-footer">
-        <span style="font-size: 13px; color: var(--text3);" id="ev-loc-4">📍 Басейн у Цюриху</span>
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-4">Басейн у Цюриху</span></span>
         <a href="#register" class="event-btn" style="color: var(--green); border-color: #BBF7D0;" id="btn-reg-4">Записатися ➔</a>
       </div>
     </div>
@@ -351,28 +363,28 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "ev-date-1": "30 ТРА<br><span style='font-size:11px;font-weight:400'>18:00</span>",
     "ev-title-1": "Розмовний клуб (Німецька мова)",
     "ev-desc-1": "Практика спілкування для рівнів A2-B1. Зустріч у затишній атмосфері за кавою.",
-    "ev-loc-1": "📍 Центр UAGZ",
+    "ev-loc-1": "Центр UAGZ",
     "btn-reg-1": "Записатися ➔",
     
     "cat-2": "Діти",
     "ev-date-2": "03 ЧЕР<br><span style='font-size:11px;font-weight:400'>15:00</span>",
     "ev-title-2": "Творча майстерня для дітей",
     "ev-desc-2": "Малювання та ліпка для дітей віком 6-12 років. Всі матеріали надаються центром.",
-    "ev-loc-2": "📍 Центр UAGZ",
+    "ev-loc-2": "Центр UAGZ",
     "btn-reg-2": "Записатися ➔",
 
     "cat-3": "Студія",
     "ev-date-3": "СТАРТ<br><span style='font-size:11px;font-weight:400'>З червня</span>",
     "ev-title-3": "Дитяча театральна студія",
     "ev-desc-3": "Триває набір дітей віком 7-14 років. Акторська майстерність, сценічна мова та виступи на сцені у Цюриху!",
-    "ev-loc-3": "📍 Зал центру",
+    "ev-loc-3": "Зал центру",
     "btn-reg-3": "Подати заявку ➔",
 
     "cat-4": "Спорт",
     "ev-date-4": "НАБІР<br><span style='font-size:11px;font-weight:400'>Групи</span>",
     "ev-title-4": "Секція плавання для дітей",
     "ev-desc-4": "Навчання плаванню та вдосконалення навичок для дітей різного віку під керівництвом досвідченого тренера.",
-    "ev-loc-4": "📍 Басейн у Цюриху",
+    "ev-loc-4": "Басейн у Цюриху",
     "btn-reg-4": "Записатися ➔",
     
     "f-title": "UAGZ Цюрих",
@@ -399,28 +411,28 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "ev-date-1": "30. MAI<br><span style='font-size:11px;font-weight:400'>18:00</span>",
     "ev-title-1": "Sprachcafé (Deutsch)",
     "ev-desc-1": "Kommunikationspraxis für die Niveaustufen A2-B1. Treffen in gemütlicher Atmosphäre bei Kaffee.",
-    "ev-loc-1": "📍 Zentrum UAGZ",
+    "ev-loc-1": "Zentrum UAGZ",
     "btn-reg-1": "Anmelden ➔",
     
     "cat-2": "Kinder",
     "ev-date-2": "03. JUNI<br><span style='font-size:11px;font-weight:400'>15:00</span>",
     "ev-title-2": "Kreativ-Workshop für Kinder",
     "ev-desc-2": "Malen und Kneten für Kinder von 6 bis 12 Jahren. Alle Materialien werden vom Zentrum bereitgestellt.",
-    "ev-loc-2": "📍 Zentrum UAGZ",
+    "ev-loc-2": "Zentrum UAGZ",
     "btn-reg-2": "Anmelden ➔",
 
     "cat-3": "Studio",
     "ev-date-3": "START<br><span style='font-size:11px;font-weight:400'>Ab Juni</span>",
     "ev-title-3": "Kinder-Theaterstudio",
     "ev-desc-3": "Anmeldung für Kinder von 7 bis 14 Jahren läuft. Schauspiel, Bühnensprache und Auftritte in Zürich!",
-    "ev-loc-3": "📍 Zentrumsaal",
+    "ev-loc-3": "Zentrumsaal",
     "btn-reg-3": "Anfragen ➔",
 
     "cat-4": "Sport",
     "ev-date-4": "KURSE<br><span style='font-size:11px;font-weight:400'>Offen</span>",
     "ev-title-4": "Schwimmkurs für Kinder",
     "ev-desc-4": "Schwimmunterricht und Training für Kinder verschiedenen Alters unter Anleitung erfahrener Trainer.",
-    "ev-loc-4": "📍 Hallenbad Zürich",
+    "ev-loc-4": "Hallenbad Zürich",
     "btn-reg-4": "Anmelden ➔",
     
     "f-title": "UAGZ Zürich",

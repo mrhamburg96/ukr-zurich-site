@@ -230,7 +230,7 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 4000px; /* Увеличили запас для двух объемных статей */
+            max-height: 4000px; /* Увеличили запас для объемных статей */
             transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
         }
 
@@ -350,8 +350,64 @@
             <!-- ПРАВАЯ КОЛОНКА: Аккордеон со статьями -->
             <div class="accordion-container">
                 
-                <!-- ВТОРАЯ СТАТЬЯ (НОВАЯ - ВЕРХНЯЯ - ОТКРЫТА ПО УМОЛЧАНИЮ) -->
-                <div class="accordion-item active" id="article-cv">
+                <!-- НОВАЯ СТАТЬЯ (ПЕРВАЯ - ОТКРЫТА ПО УМОЛЧАНИЮ) -->
+                <div class="accordion-item active" id="article-online-services">
+                    <div class="accordion-header">
+                        <div class="accordion-title-container">
+                            <span data-translate="art3-title">Онлайн-сервіси пошуку роботи в Цюриху: топ платформ для працевлаштування</span>
+                            <span class="article-date">17.07.2026</span>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body" data-translate="art3-body">
+                            <p class="article-intro">
+                                Пошук роботи у фінансовій столиці Швейцарії вимагає чіткого розуміння локального ринку праці. Ефективність працевлаштування багато в чому залежить від правильного вибору онлайн-платформ. Нижче наведено ключові інтернет-ресурси та сервіси, які допоможуть знайти вакансії у Цюриху без зайвої води.
+                            </p>
+
+                            <div class="article-section">
+                                <div class="article-section-title">1. Провідні загальні платформи та агрегатори</div>
+                                <ul class="article-list">
+                                    <li><strong>Jobs.ch</strong> — головний і найбільший портал працевлаштування у Швейцарії. Тут зібрані пропозиції від тисяч компаній у кантоні Цюрих у найрізноманітніших сферах — від фінансів до IT. Сервіс дозволяє налаштувати персональні сповіщення про нові вакансії та оцінити рівень зарплат.</li>
+                                    <li><strong>JobScout24.ch</strong> — ще одна потужна швейцарська платформа з величезною базою вакансій. Сайт зручний для фільтрації за регіонами (Цюрих та околиці), рівнем зайнятості та галузями.</li>
+                                    <li><strong>Indeed.ch</strong> — міжнародний агрегатор, який збирає оголошення з корпоративних сайтів та кадрових агентств Швейцарії. Підходить для масштабного моніторингу ринку, проте вимагає ретельного відбору якісних пропозицій через великий обсяг заявок.</li>
+                                </ul>
+                            </div>
+
+                            <div class="article-section">
+                                <div class="article-section-title">2. Регіональні та спеціалізовані ресурси</div>
+                                <ul class="article-list">
+                                    <li><strong>Jobzüri.ch (Jobzueri.ch)</strong> — локальний портал, орієнтований виключно на ринок праці Цюриха. На сайті регулярно публікуються актуальні пропозиції від місцевих роботодавців малого та середнього бізнесу.</li>
+                                    <li><strong>LinkedIn</strong> — незамінний інструмент для професіоналів у Цюриху, особливо у сферах фінансів, технологій, консалтингу та менеджменту. Більшість рекрутерів міжнародних компаній шукають кандидатів саме через цей професійний масив.</li>
+                                </ul>
+                            </div>
+
+                            <div class="article-section">
+                                <div class="article-section-title">3. Державні служби зайнятості</div>
+                                <ul class="article-list">
+                                    <li><strong>Job-Room.ch</strong> — офіційний портал швейцарських державних служб зайнятості (SECO). Платформа пов'язана з регіональними центрами зайнятості (RAV). Хоча інтерфейс може здатися менш глянцевим, ніж на комерційних сайтах, тут розміщені перевірені вакансії від офіційних швейцарських підприємств.</li>
+                                </ul>
+                            </div>
+
+                            <div class="article-section">
+                                <div class="article-section-title">4. Кадрові агентства та тимчасова зайнятість</div>
+                                <p>У Швейцарії значну частину вакансій закривають агентства з підбору персоналу. Реєстрація на їхніх сайтах часто пришвидшує процес пошуку роботи або тимчасових контрактів:</p>
+                                <ul class="article-list">
+                                    <li>Adecco.ch</li>
+                                    <li>Randstad.ch</li>
+                                    <li>Manpower.ch</li>
+                                    <li>Michael Page</li>
+                                </ul>
+                                <p style="margin-top: 20px; font-style: italic;">
+                                    Використання комбінації загальних швейцарських порталів (Jobs.ch), локальних платформ (Jobzüri) та професійних мереж (LinkedIn) забезпечить максимальне охоплення ринку праці та прискорить успішне працевлаштування в Цюриху.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ВТОРАЯ СТАТЬЯ (CV) -->
+                <div class="accordion-item" id="article-cv">
                     <div class="accordion-header">
                         <div class="accordion-title-container">
                             <span data-translate="art2-title">Складання резюме (CV) за швейцарськими стандартами: особливості для власників статусу S</span>
@@ -424,7 +480,7 @@
                     </div>
                 </div>
 
-                <!-- ПЕРВАЯ СТАТЬЯ (ПЕРЕЕХАЛА ВНИЗ И ЗАКРЫТА ПО УМОЛЧАНИЮ) -->
+                <!-- ТРЕТЬЯ СТАТЬЯ (ПОИСК РАБОТЫ) -->
                 <div class="accordion-item" id="article-find-work">
                     <div class="accordion-header">
                         <div class="accordion-title-container">
@@ -554,8 +610,47 @@
                 "nav-donate": "❤️ Донат",
                 "nav-contacts": "Контакти",
                 "back-btn": "← Назад до Центр знань",
-                "cv-link": "Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen",
                 "cv-link": "Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →",
+                "art3-title": "Онлайн-сервіси пошуку роботи в Цюриху: топ платформ для працевлаштування",
+                "art3-body": `
+                    <p class="article-intro">
+                        Пошук роботи у фінансовій столиці Швейцарії вимагає чіткого розуміння локального ринку праці. Ефективність працевлаштування багато в чому залежить від правильного вибору онлайн-платформ. Нижче наведено ключові інтернет-ресурси та сервіси, які допоможуть знайти вакансії у Цюриху без зайвої води.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">1. Провідні загальні платформи та агрегатори</div>
+                        <ul class="article-list">
+                            <li><strong>Jobs.ch</strong> — головний і найбільший портал працевлаштування у Швейцарії. Тут зібрані пропозиції від тисяч компаній у кантоні Цюрих у найрізноманітніших сферах — від фінансів до IT. Сервіс дозволяє налаштувати персональні сповіщення про нові вакансії та оцінити рівень зарплат.</li>
+                            <li><strong>JobScout24.ch</strong> — ще одна потужна швейцарська платформа з величезною базою вакансій. Сайт зручний для фільтрації за регіонами (Цюрих та околиці), рівнем зайнятості та галузями.</li>
+                            <li><strong>Indeed.ch</strong> — міжнародний агрегатор, який збирає оголошення з корпоративних сайтів та кадрових агентств Швейцарії. Підходить для масштабного моніторингу ринку, проте вимагає ретельного відбору якісних пропозицій через великий обсяг заявок.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">2. Регіональні та спеціалізовані ресурси</div>
+                        <ul class="article-list">
+                            <li><strong>Jobzüri.ch (Jobzueri.ch)</strong> — локальний портал, орієнтований виключно на ринок праці Цюриха. На сайті регулярно публікуються актуальні пропозиції від місцевих роботодавців малого та середнього бізнесу.</li>
+                            <li><strong>LinkedIn</strong> — незамінний інструмент для професіоналів у Цюриху, особливо у сферах фінансів, технологій, консалтингу та менеджменту. Більшість рекрутерів міжнародних компаній шукають кандидатів саме через цей професійний масив.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">3. Державні служби зайнятості</div>
+                        <ul class="article-list">
+                            <li><strong>Job-Room.ch</strong> — офіційний портал швейцарських державних служб зайнятості (SECO). Платформа пов'язана з регіональними центрами зайнятості (RAV). Хоча інтерфейс може здатися менш глянцевим, ніж на комерційних сайтах, тут розміщені перевірені вакансії від офіційних швейцарських підприємств.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">4. Кадрові агентства та тимчасова зайнятість</div>
+                        <p>У Швейцарії значну частину вакансій закривають агентства з підбору персоналу. Реєстрація на їхніх сайтах часто пришвидшує процес пошуку роботи або тимчасових контрактів:</p>
+                        <ul class="article-list">
+                            <li>Adecco.ch</li>
+                            <li>Randstad.ch</li>
+                            <li>Manpower.ch</li>
+                            <li>Michael Page</li>
+                        </ul>
+                        <p style="margin-top: 20px; font-style: italic;">
+                            Використання комбінації загальних швейцарських порталів (Jobs.ch), локальних платформ (Jobzüri) та професійних мереж (LinkedIn) забезпечить максимальне охоплення ринку праці та прискорить успішне працевлаштування в Цюриху.
+                        </p>
+                    </div>
+                `,
                 "art2-title": "Складання резюме (CV) за швейцарськими стандартами: особливості для власників статусу S",
                 "art2-body": `
                     <p class="article-intro">
@@ -585,7 +680,7 @@
                         <p>Головне завдання кандидата зі статусом S — показати роботодавцю свою надійність, професійну цінність та легальність перебування в країні.</p>
                         <ul class="article-list">
                             <li><strong>Легальність працевлаштування:</strong> У розділі контактних даних або у короткому профілі варто чітко зазначити свій статус: «Schutzstatus S (дозволено працювати в Швейцарії)». Це відразу зніме питання у рекрутерів щодо необхідності оформлення складних робочих віз.</li>
-                            <li><strong>Адаптація досвіду з України:</strong> Якщо вы працювали в українських компаніях, які не відомі на міжнародному рівні, додайте короткий опис сфери діяльності підприємства (наприклад, «Largest IT service provider in Ukraine with 500+ employees»).</li>
+                            <li><strong>Адаптація досвіду з України:</strong> Якщо ви працювали в українських компаніях, які не відомі на міжнародному рівні, додайте короткий опис сфери діяльності підприємства (наприклад, «Largest IT service provider in Ukraine with 500+ employees»).</li>
                             <li><strong>Пояснення перерв у стажі:</strong> Через війну у багатьох виникла пауза в роботі. Якщо ви займалися волонтерством, вивчали мову або проходили курси адаптації у Швейцарії, обов'язково відобразіть це у розділі досвіду чи освіти. Швейцарці дуже цінують активну життєву позицію та прагнення до розвитку.</li>
                         </ul>
                     </div>
@@ -616,7 +711,7 @@
                 "art1-title": "Як знайти роботу в Цюриху: практичний посібник для власників статусу S",
                 "art1-body": `
                     <p class="article-intro">
-                        Цюрих є економічним серцем Швейцарії та одним із найдинамічніших міст Європи з високим рівнем життя і розвиненим ринком праці. Для громадян України, які перебувають у Швейцарії під тимчасовим захистом, вихід на ринок праці супроводжується низкою законодавчих нюансів та практичних кроків. У цій статті ми детально розглянемо, як влаштований процес працевлаштування для власников статусу S, які існують правила та де шукати вакансії.
+                        Цюрих є економічним серцем Швейцарії та одним із найдинамічніших міст Європи з високим рівнем життя і розвиненим ринком праці. Для громадян України, які перебувають у Швейцарії під тимчасовим захистом, вихід на ринок праці супроводжується низкою законодавчих нюансів та практичних кроків. У цій статті ми детально розберемо, як влаштований процес працевлаштування для власників статусу S, які існують правила та де шукати вакансії.
                     </p>
                     <div class="article-section">
                         <div class="article-section-title">1. Законодавчі нюанси: що дозволяє статус S</div>
@@ -701,8 +796,47 @@
                 "nav-donate": "❤️ Spenden",
                 "nav-contacts": "Kontakte",
                 "back-btn": "← Zurück zum Wissenszentrum",
-                "cv-link": "Lebenslauf und Motivationsschreiben für die Schweiz — Lebenslauf erstellen",
                 "cv-link": "Lebenslauf und Motivationsschreiben für die Schweiz — Lebenslauf erstellen →",
+                "art3-title": "Online-Jobportale in Zürich: Top-Plattformen für die Arbeitssuche",
+                "art3-body": `
+                    <p class="article-intro">
+                        Die Jobsuche in der Finanzmetropole der Schweiz erfordert ein klares Verständnis des lokalen Arbeitsmarktes. Der Erfolg hängt stark von der richtigen Wahl der Online-Plattformen ab. Nachfolgend sind die wichtigsten Internet-Ressourcen und Dienste aufgeführt, die Ihnen helfen, offene Stellen in Zürich ohne Umschweife zu finden.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">1. Führende allgemeine Plattformen und Aggregatoren</div>
+                        <ul class="article-list">
+                            <li><strong>Jobs.ch</strong> — Das Haupt- und grösste Jobportal der Schweiz. Hier finden sich Angebote Tausender Unternehmen im Kanton Zürich in den unterschiedlichsten Bereichen – vom Finanzwesen bis zur IT. Der Service ermöglicht personalisierte Jobbenachrichtigungen und Gehaltseinschätzungen.</li>
+                            <li><strong>JobScout24.ch</strong> — Eine weitere leistungsstarke Schweizer Plattform mit einer riesigen Stellenbasis. Die Website ist praktisch für Filterungen nach Regionen (Zürich und Umgebung), Pensum und Branchen.</li>
+                            <li><strong>Indeed.ch</strong> — Ein internationaler Aggregator, der Inserate von Unternehmenswebsites und Personalvermittlungen in der Schweiz sammelt. Eignet sich gut für die Marktüberwachung, erfordert jedoch aufgrund hoher Bewerberzahlen eine sorgfältige Selektion.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">2. Regionale und spezialisierte Ressourcen</div>
+                        <ul class="article-list">
+                            <li><strong>Jobzüri.ch (Jobzueri.ch)</strong> — Ein lokales Portal, das sich ausschliesslich auf den Zürcher Arbeitsmarkt konzentriert. Hier werden regelmässig aktuelle Angebote von lokalen KMU-Arbeitgebern veröffentlicht.</li>
+                            <li><strong>LinkedIn</strong> — Ein unverzichtbares Tool für Fachkräfte in Zürich, insbesondere in den Bereichen Finanzen, Technologie, Beratung und Management. Die Mehrheit der Recruiter internationaler Unternehmen sucht Kandidaten über dieses Netzwerk.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">3. Öffentliche Arbeitsämter</div>
+                        <ul class="article-list">
+                            <li><strong>Job-Room.ch</strong> — Das offizielle Portal der Schweizer Arbeitsmarktbehörden (SECO), verbunden mit den Regionalen Arbeitsvermittlungszentren (RAV). Auch wenn die Benutzeroberfläche weniger glänzend wirkt als bei kommerziellen Seiten, finden sich hier verifizierte Stellen von offiziellen Schweizer Unternehmen.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">4. Personalvermittlungen und Temporärarbeit</div>
+                        <p>In der Schweiz wird ein grosser Teil der Stellen über Personalagenturen besetzt. Eine Registrierung auf deren Websites beschleunigt oft die Jobsuche oder den Einstieg in temporäre Einsätze:</p>
+                        <ul class="article-list">
+                            <li>Adecco.ch</li>
+                            <li>Randstad.ch</li>
+                            <li>Manpower.ch</li>
+                            <li>Michael Page</li>
+                        </ul>
+                        <p style="margin-top: 20px; font-style: italic;">
+                            Die Kombination aus allgemeinen Schweizer Portalen (Jobs.ch), lokalen Plattformen (Jobzüri) und professionellen Netzwerken (LinkedIn) gewährleistet eine maximale Marktabdeckung und beschleunigt die erfolgreiche Arbeitsaufnahme in Zürich.
+                        </p>
+                    </div>
+                `,
                 "art2-title": "Erstellung eines Lebenslaufs (CV) nach Schweizer Standards: Besonderheiten für Inhaber des Schutzstatus S",
                 "art2-body": `
                     <p class="article-intro">
@@ -753,7 +887,7 @@
                         <p>Die Wahl der Sprache hängt von der Region und der spezifischen Stelle ab:</p>
                         <ul class="article-list">
                             <li>Im deutschsprachigen Zürich erwarten die meisten Unternehmen einen Lebenslauf auf Deutsch. Für internationale IT-Unternehmen, Finanzkonzerne oder Start-ups ist Englisch jedoch der Standard.</li>
-                            <li><strong>Motivationsschreiben:</strong> Dieses Dokument wird in der Schweiz sehr ernst genommen. Es sollte maximal eine Seite lang sein und folgende Fragen klar beantworten: Warum wollen Sie genau für dieses Unternehmen arbeiten und warum sind Sie die perfekte Besetzung für diese Rolle?</li>
+                            <li><strong>Motivationsschreiben:</strong> Dieses Dokument wird in der Schweiz sehr ernst genommen. Es sollte maximal eine Seite lang sein und präzise aufzeigen, warum Sie für diese Rolle und dieses Unternehmen brennen.</li>
                         </ul>
                         <p style="margin-top: 20px; font-style: italic;">
                             Die Erstellung eines Lebenslaufs nach Schweizer Standards ist eine Investition in Ihre erfolgreiche Integration. Klarheit, Ehrlichkeit, Anpassung an lokale Anforderungen und ein transparenter Umgang mit dem Status S helfen Ihnen, sich von der Konkurrenz abzuheben.
@@ -776,7 +910,7 @@
                     </div>
                     <div class="article-section">
                         <div class="article-section-title">2. Marktanforderungen: Sprachen und Qualifikationen</div>
-                        <p>Zürich ist ein internationales Finanz- und Technologiezentrum, dennoch hat der lokale Arbeitsmarkt strenge Standards.</p>
+                        <p>Zürich ist das internationale Finanz- und Technologiezentrum, dennoch hat der lokale Arbeitsmarkt strenge Standards.</p>
                         <ul class="article-list">
                             <li><strong>Sprachkenntnisse:</strong> Deutschkenntnisse sind ein entscheidender Vorteil. In vielen Bereichen (insbesondere Kundenservice, Medizin, Verwaltung) wird Deutsch auf dem Niveau B1–B2 verlangt. In multinationalen Konzernen, im IT-Sektor, im Finanzwesen und in Forschungsinstituten ist Englisch jedoch oft die primäre Arbeitssprache.</li>
                             <li><strong>Anerkennung von Diplomen:</strong> Die Schweiz legt grossen Wert auf Qualifikationen. Wenn Ihr Beruf reglementiert ist (z. B. Medizin, Lehramt, bestimmte technische Berufe), müssen Sie die Anerkennung beim Staatssekretariat für Bildung, Forschung und Innovation (SBFI) beantragen. Für nicht reglementierte Berufe (Marketing, IT, kreative Berufe) reicht ein gut übersetzter Lebenslauf aus.</li>

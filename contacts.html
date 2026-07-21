@@ -3,186 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакти UAGZ</title>
-    <!-- Подключение ваших общих стилей (измените пути, если стили лежат в папке) -->
-    <link rel="stylesheet" href="style.css"> 
+    <title>Контакти — UAGZ</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* СТИЛИ ДЛЯ ШАПКИ САЙТА */
-.site-header {
-    width: 100%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #eef2f6;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1A56C4;--blue-dark:#0F3A8A;--blue-light:#E8F1FD;
+  --yellow:#F5C518;--yellow-bg:#FFFBEA;
+  --green:#25A244;--green-bg:#E6F5EC;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;
+  --orange:#EA580C;--orange-bg:#FFF7ED;
+  --red:#D52B1E;
+  --text:#111827;--text2:#4B5563;--text3:#9CA3AF;
+  --border:#E5E7EB;--surface:#F9FAFB;--white:#fff;
+  --radius:16px;
 }
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
 
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-}
+/* Шапка 1:1 со скриншотом */
+header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
+nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
+.nav-logo-flags{display:flex;gap:4px;flex-shrink:0}
+.flag-ua{background:linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);width:26px;height:18px;flex-shrink:0}
+.flag-ch{background:#D52B1E;width:18px;height:18px;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flag-ch::before, .flag-ch::after{content:'';background:#fff;position:absolute}
+.flag-ch::before{width:4px;height:12px}
+.flag-ch::after{width:12px;height:4px}
+.brand{font-weight:700;color:#1A56C4;font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
+.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;white-space:normal;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
+.nav-links a:hover, .nav-links a.active{color:#1A56C4;font-weight:600}
+.btn-donate-nav{background:none;border:none;color:var(--red);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
+.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
+.lb.on{background:#fff;color:#1A56C4;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.btn-solid{background:#1A56C4;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0}
 
-/* Блок логотипа */
-.header-logo-block {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
-
-.header-logo-img {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
-}
-
-.header-logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-
-/* 1. ЦВЕТ ДЛЯ ТЕКСТА ЛОГОТИПА */
-.logo-title {
-    font-size: 26px;
-    font-weight: 800;
-    color: #1A56C4; /* Синий цвет UAGZ */
-    letter-spacing: -0.5px;
-}
-
-.logo-subtitle {
-    font-size: 11px;
-    font-weight: 600;
-    color: #1A56C4; /* Синий цвет подписи */
-}
-
-/* Меню навигации */
-.header-nav {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-/* 2. ЦВЕТ ДЛЯ ВСЕХ ПУНКТОВ МЕНЮ НАВИГАЦИИ */
-.nav-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: #1A56C4; /* Все ссылки меню теперь этого цвета */
-    text-decoration: none;
-    padding: 8px 0;
-    position: relative;
-    transition: opacity 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-/* Эффект легкого отклика при наведении */
-.nav-link:hover {
-    color: #1A56C4;
-    opacity: 0.8;
-}
-
-/* Активный пункт меню («Контакти») */
-.nav-link.active {
-    color: #1A56C4;
-    opacity: 1;
-}
-
-/* Линия под активным пунктом тоже красится в цвет текста */
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #1A56C4;
-    border-radius: 2px;
-}
-/* Правые действия */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Желтая кнопка */
-.header-btn {
-    background-color: #ffc837;
-    color: #0d1b3e;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-.header-btn:hover {
-    background-color: #f1bc31;
-}
-
-/* Выбор языка */
-.lang-switcher {
-    position: relative;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 700;
-    color: #0d1b3e;
-    padding: 5px 0;
-}
-
-.lang-current {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    min-width: 60px;
-    overflow: hidden;
-}
-
-.lang-switcher:hover .lang-dropdown {
-    display: flex;
-    flex-direction: column;
-}
-
-.lang-item {
-    padding: 8px 12px;
-    text-decoration: none;
-    color: #4a5568;
-    transition: background 0.2s;
-}
-
-.lang-item:hover {
-    background: #f4f7fc;
-    color: #004bd1;
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 992px) {
-    .header-nav { display: none; } /* Скрываем меню на планшетах/смартфонах */
-}
-    /* HERO-БАННЕР С РАСШИРЕННОЙ ПРАВОЙ ЧАСТЬЮ */
+    /* HERO-БАННЕР */
     .contacts-hero {
         position: relative;
         background-color: #f4f7fc;
@@ -192,10 +55,9 @@
         align-items: center;
     }
     
-    /* Чёткая посадка по ширине нижнего блока */
     .hero-container {
         width: 100%;
-        max-width: 1200px; /* Совпадает с вашим основным контейнером сайта */
+        max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
         box-sizing: border-box;
@@ -206,18 +68,16 @@
         z-index: 2;
     }
 
-   /* Текстовая область слева (сужена, чтобы освободить место под широкую картинку) */
-.hero-info {
-    max-width: 420px; 
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    height: 100%;
-    position: relative;
-}
+    .hero-info {
+        max-width: 420px; 
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        height: 100%;
+        position: relative;
+    }
 
-    /* Бейдж поднят под обрез */
     .hero-badge {
         position: absolute;
         top: 20px; 
@@ -233,7 +93,6 @@
         font-weight: 500;
     }
 
-    /* Заголовок цвета #1A56C4 */
     .hero-title {
         font-size: 48px;
         font-weight: 800;
@@ -254,43 +113,40 @@
         background-color: #ffc837;
         border-radius: 2px;
     }
-   /* ПРАВАЯ ЧАСТЬ: ШИРИНА УВЕЛИЧЕНА ДО 62%, ЛЕВЫЙ КРАЙ ЗАКРУГЛЕН */
-/* РОДИТЕЛЬСКИЙ БЛОК */
-.hero-image-wrapper {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 62%; /* Ваша текущая рабочая ширина */
-    z-index: 1;
-    overflow: hidden;
-}
 
-/* НАЛОЖЕНИЕ: Создает дымку цвета фона, перекрывающую левый бок фото */
-.hero-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    /* Переход от плотного цвета фона фона баннера к полной прозрачности */
-    background: linear-gradient(to right, 
-        #f4f6f9 0%, 
-        rgba(244, 246, 249, 0.6) 12%, 
-        rgba(244, 246, 249, 0) 30%
-    );
-    pointer-events: none;
-}
+    .hero-image-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 62%;
+        z-index: 1;
+        overflow: hidden;
+    }
 
-/* КАРТИНКА (Четкая, под слоем дымки) */
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center right;
-}
+    .hero-image-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: linear-gradient(to right, 
+            #f4f6f9 0%, 
+            rgba(244, 246, 249, 0.6) 12%, 
+            rgba(244, 246, 249, 0) 30%
+        );
+        pointer-events: none;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center right;
+    }
+
     /* Основной контент: Сетка */
     .contacts-main {
         padding: 60px 0;
@@ -309,6 +165,18 @@
         .hero-info { max-width: 100%; }
         .hero-badge { position: relative; top: 0; margin-bottom: 20px; }
         .hero-title { margin-top: 0; }
+        nav {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 15px !important;
+            padding: 10px 1rem !important;
+        }
+        .nav-logo { max-width: 100% !important; justify-content: center !important; }
+        .brand { align-items: center !important; }
+        .brand small { text-align: center !important; }
+        .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 10px 15px !important; padding: 0 !important; }
+        .nav-links a { font-size: 14px !important; }
+        .nav-r { width: 100% !important; justify-content: center !important; margin-top: 5px !important; gap: 15px !important; }
     }
 
     /* Левая колонка: Карточки */
@@ -343,7 +211,7 @@
     .card-title {
         font-size: 16px;
         font-weight: 700;
-        color: #0d1b3e;
+        color: #1A56C4;
         margin: 0;
     }
     .card-content {
@@ -363,7 +231,6 @@
         margin-top: auto;
     }
 
-    /* Социальные сети внутри карточки */
     .card-socials {
         display: flex;
         gap: 12px;
@@ -387,7 +254,7 @@
     .form-title {
         font-size: 24px;
         font-weight: 700;
-        color: #0d1b3e;
+        color: #1A56C4;
         margin: 0 0 8px 0;
     }
     .form-subtitle {
@@ -413,7 +280,7 @@
     .form-label {
         font-size: 13px;
         font-weight: 600;
-        color: #2d3748;
+        color: #1A56C4;
     }
     .form-label span { color: #e53e3e; }
     .form-input, .form-select, .form-textarea {
@@ -452,91 +319,87 @@
         color: #004bd1;
         text-decoration: none;
     }
+    .btn-blue-action {
+        background: #1A56C4;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .btn-blue-action:hover {
+        background: #0F3A8A;
+    }
 </style>
 </head>
 <body>
 
-    <!-- ВЕРХНЕЕ МЕНЮ (ШАПКА САЙТА) -->
-    <!-- Интегрируйте сюда вашу стандартную шапку, обязательно добавив класс активности кнопке "Контакти" -->
-<!-- ШАПКА САЙТА (HEADER) -->
-<header class="site-header">
-    <div class="header-container">
-        <!-- Левая часть: Логотип и описание -->
-        <a href="/" class="header-logo-block">
-            <img src="Logo01.png" alt="UAGZ Logo" class="header-logo-img">
-            <div class="header-logo-text">
-                <span class="logo-title">UAGZ</span>
-                <span class="logo-subtitle" data-i18n="header_subtitle">Сімейний центр<br>у Цюриху</span>
-            </div>
-        </a>
-
-       <!-- ОБНОВЛЕННАЯ НАВИГАЦИЯ С ПЕРЕХОДОМ НА ГЛАВНУЮ -->
-<nav class="header-nav">
-    <a href="index.html" class="nav-link" data-i18n="nav_home">Головна</a>
-    <div class="nav-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-i18n="nav_programs">Програми <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<header>
+  <nav>
+    <a class="nav-logo" href="./index.html">
+      <div class="nav-logo-flags">
+        <div class="flag-ua"></div>
+        <div class="flag-ch"></div>
+      </div>
+      <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="index.html" id="m-home">Головна</a></li>
+      <li><a href="about.html" id="m-about">Про нас</a></li>
+      <li><a href="help.html" id="m-help">Допомога</a></li>
+      <li><a href="events.html" id="m-events">Заходи</a></li>
+      <li><a href="knowledge.html" id="m-knowledge">Центр знань</a></li>
+      <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
+      <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
+      <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
+      <li><a href="contacts.html" class="active" id="m-contacts">Контакти</a></li>
+    </ul>
+    
+    <div class="nav-r">
+      <div class="lang-sw">
+        <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+        <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+      </div>
+      <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
     </div>
-    <a href="#" class="nav-link" data-i18n="nav_schedule">Розклад</a>
-    <a href="#" class="nav-link" data-i18n="nav_events">Події</a>
-    <a href="#" class="nav-link" data-i18n="nav_team">Команда</a>
-    <a href="#" class="nav-link" data-i18n="nav_faq">FAQ</a>
-    <a href="#" class="nav-link active" data-i18n="nav_contacts">Контакти</a>
-</nav>
-        <!-- Правая часть: Кнопка и языки -->
-        <div class="header-actions">
-            <!-- Желтая кнопка записи -->
-            <a href="#" class="header-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                <span data-i18n="btn_register">Записати дитину</span>
-            </a>
-            
-            <!-- Переключатель языков UA / DE -->
-            <div class="lang-switcher">
-                <span class="lang-current">UA <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div class="lang-dropdown">
-                    <a href="?lang=ua" class="lang-item">UA</a>
-                    <a href="?lang=de" class="lang-item">DE</a>
-                </div>
-            </div>
-        </div>
-    </div>
+  </nav>
 </header>
- <!-- ИСПРАВЛЕННАЯ РАЗМЕТКА БАННЕРА С КАРТИНКОЙ -->
+
 <section class="contacts-hero">
     <div class="hero-container">
         <div class="hero-info">
-            <!-- Бейдж поднят наверх -->
             <div class="hero-badge">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 <span data-i18n="hero_badge">Ми завжди на зв'язку</span>
             </div>
-            <!-- Заголовок и описание -->
             <h1 class="hero-title" data-i18n="hero_title">Контакти UAGZ</h1>
             <p class="hero-desc" data-i18n="hero_desc">Маєте питання або хочете дізнатися більше про наші програми? Ми з радістю допоможемо вам та вашій родині!</p>
             <div class="hero-decor-line"></div>
         </div>
     </div>
     
-    <!-- ВОТ СЮДА МЫ ПОСТАВИЛИ ФОТО (в самый конец секции баннера) -->
     <div class="hero-image-wrapper">
-        <img src="banner-contact.webp" alt="UAGZ Программы" class="hero-img">
+        <img src="banner-contact.webp" alt="UAGZ Програми" class="hero-img">
     </div>
 </section>
 
-    <!-- ОСНОВНОЙ БЛОК: СЕТКА КАРТОЧЕК И ФОРМА -->
-    <main class="contacts-main">
-        <div class="container contacts-grid">
-            
-       <!-- Левая часть: 6 карточек контактов -->
+<main class="contacts-main">
+    <div class="container contacts-grid">
+        
 <div class="cards-list">
     
-    <!-- 1. Адрес -->
     <div class="contact-card">
         <div class="card-icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
         </div>
-        <!-- Цвет заголовка изменен на #1A56C4 -->
-        <h4 class="card-title" data-i18n="card_addr_title" style="color: #1A56C4;">Адреса</h4>
+        <h4 class="card-title" data-i18n="card_addr_title">Адреса</h4>
         <p class="card-content">
             UAGZ Zentrum, Zürich<br>
             Shulhausstrasse 50<br>
@@ -547,39 +410,33 @@
         </a>
     </div>
 
-    <!-- 2. Email -->
     <div class="contact-card">
         <div class="card-icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </div>
-        <!-- Цвет заголовка изменен на #1A56C4 -->
-        <h4 class="card-title" data-i18n="card_email_title" style="color: #1A56C4;">Email</h4>
+        <h4 class="card-title" data-i18n="card_email_title">Email</h4>
         <p class="card-content">
             <strong>info@ukr-zurich.ch</strong><br>
             <span style="color:#718096; font-size:13px;" data-i18n="card_email_hint">Ми відповідаємо протягом 24 годин</span>
         </p>
     </div>
 
-    <!-- 3. Телефон / WhatsApp -->
     <div class="contact-card">
         <div class="card-icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         </div>
-        <!-- Цвет заголовка изменен на #1A56C4 -->
-        <h4 class="card-title" data-i18n="card_phone_title" style="color: #1A56C4;">Телефон / WhatsApp</h4>
+        <h4 class="card-title" data-i18n="card_phone_title">Телефон / WhatsApp</h4>
         <p class="card-content">
             <strong>+41 78 349 1555</strong><br>
             <span style="color:#718096; font-size:13px;">Пн – Пт: 09:00 – 18:00</span>
         </p>
     </div>
 
-    <!-- 4. Години роботи -->
     <div class="contact-card">
         <div class="card-icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         </div>
-        <!-- Цвет заголовка изменен на #1A56C4 -->
-        <h4 class="card-title" data-i18n="card_hours_title" style="color: #1A56C4;">Години роботи</h4>
+        <h4 class="card-title" data-i18n="card_hours_title">Години роботи</h4>
         <p class="card-content">
             Пн – Пт: 09:00 – 18:00<br>
             Сб: 10:00 – 16:00<br>
@@ -587,51 +444,40 @@
         </p>
     </div>
 
-    <!-- 5. Як до нас дістатися -->
     <div class="contact-card">
         <div class="card-icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="2" ry="2"></rect><line x1="9" y1="18" x2="15" y2="18"></line><line x1="12" y1="4" x2="12" y2="8"></line></svg>
         </div>
-        <!-- Цвет заголовка изменен на #1A56C4 -->
-        <h4 class="card-title" data-i18n="card_route_title" style="color: #1A56C4;">Як до нас дістатися</h4>
+        <h4 class="card-title" data-i18n="card_route_title">Як до нас дістатися</h4>
         <p class="card-content" data-i18n="card_route_desc">
             5 хвилин пішки від Bahnhof Altstetten<br>
             Tram 2, 3, 17 до зупинки «Hohlstrasse»
         </p>
     </div>
 
-   <!-- 6. Ми в соцмережах -->
     <div class="contact-card">
         <div class="card-icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
-        <h4 class="card-title" data-i18n="card_social_title" style="color: #1A56C4;">Ми в соцмережах</h4>
+        <h4 class="card-title" data-i18n="card_social_title">Ми в соцмережах</h4>
         <p class="card-content" data-i18n="card_social_desc">Підписуйтесь та будьте в курсі новин та подій центру!</p>
         <div class="card-socials">
-            <!-- Facebook -->
             <a href="#" class="social-icon">
                 <img src="facebook-logo.svg" alt="Facebook" width="24" height="24">
             </a>
-            <!-- Instagram -->
             <a href="#" class="social-icon">
                 <img src="instagram-sign-logo.svg" alt="Instagram" width="24" height="24">
             </a>
-            <!-- Telegram -->
             <a href="#" class="social-icon">
                 <img src="telegram-logo.svg" alt="Telegram" width="24" height="24">
             </a>
         </div>
-    </div> <!-- ВОТ ЗДЕСЬ закончилась 6-я карточка -->
+    </div>
 		
-    <!-- И ТОЛЬКО ТЕПЕРЬ СТАРТУЕТ НАША НОВАЯ ПЛАШКА -->
     <div class="community-banner" style="grid-column: span 2; width: 100%; margin-top: auto; display: flex; align-items: center; background-color: #FFFDF5; border: 1px solid #FFEFC2; border-radius: 12px; padding: 20px; box-sizing: border-box;">
-        
-        <!-- Левая часть: Иконка из репозитория -->
         <div class="banner-icon-box" style="flex-shrink: 0; margin-right: 20px; width: 60px; height: 60px; background-color: #FFF3CD; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
             <img src="contact-icon-1.webp" alt="Community Icon" style="width: 34px; height: 34px; object-fit: contain;">
         </div>
-        
-        <!-- Правая часть: Текст -->
         <div class="banner-text-box" style="flex-grow: 1;">
             <h4 class="banner-title" data-i18n="banner_community_title" style="margin: 0 0 6px 0; color: #1A56C4; font-size: 18px; font-weight: 700; line-height: 1.3;">
                 Давайте створимо найкраще майбутнє для наших дітей разом!
@@ -640,34 +486,33 @@
                 Станьте частиною спільноти UAGZ та відкрийте нові можливості для вашої родини.
             </p>
         </div>
-        
     </div>
 
-</div> <!-- Конец блока левой части <div class="cards-list"> -->
-<!-- Правая часть: Форма обратной связи -->
+</div>
+
 <div class="form-box" style="display: flex; flex-direction: column;">
-    <h3 class="form-title" data-i18n="form_title" style="color: #1A56C4;">Напишіть нам</h3>
+    <h3 class="form-title" data-i18n="form_title">Напишіть нам</h3>
     <p class="form-subtitle" data-i18n="form_subtitle">Заповніть форму, і ми зв'яжемося з вами найближчим часом.</p>
     
     <form action="#" method="POST" style="display: flex; flex-direction: column; flex-grow: 1; margin: 0;">
         <div class="form-group-row">
             <div class="form-group">
-                <label class="form-label" style="color: #1A56C4;"><span data-i18n="form_label_name">Ваше ім'я</span> <span>*</span></label>
+                <label class="form-label"><span data-i18n="form_label_name">Ваше ім'я</span> <span>*</span></label>
                 <input type="text" class="form-input" placeholder="Наприклад: Олена" required>
             </div>
             <div class="form-group">
-                <label class="form-label" style="color: #1A56C4;"><span data-i18n="form_label_email">Email</span> <span>*</span></label>
+                <label class="form-label"><span data-i18n="form_label_email">Email</span> <span>*</span></label>
                 <input type="email" class="form-input" placeholder="Наприклад: olena@email.com" required>
             </div>
         </div>
 
         <div class="form-group-row">
             <div class="form-group">
-                <label class="form-label" data-i18n="form_label_phone" style="color: #1A56C4;">Телефон</label>
+                <label class="form-label" data-i18n="form_label_phone">Телефон</label>
                 <input type="text" class="form-input" placeholder="Наприклад: +41 76 123 45 67">
             </div>
             <div class="form-group">
-                <label class="form-label" data-i18n="form_label_subject" style="color: #1A56C4;">Тема повідомлення</label>
+                <label class="form-label" data-i18n="form_label_subject">Тема повідомлення</label>
                 <select class="form-select">
                     <option value="" data-i18n="form_opt_default">Оберіть тему</option>
                     <option value="1">Програми розвитку</option>
@@ -678,21 +523,20 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" style="color: #1A56C4;"><span data-i18n="form_label_msg">Ваше повідомлення</span> <span>*</span></label>
+            <label class="form-label"><span data-i18n="form_label_msg">Ваше повідомлення</span> <span>*</span></label>
             <textarea class="form-textarea" placeholder="Напишіть ваше питання або повідомлення..." required></textarea>
         </div>
 
         <label class="form-checkbox-label">
             <input type="checkbox" required>
-            <span data-i18n="form_privacy_text">Я погоджуюся на обробку персональних данных відповідно до <a href="#">політики конфіденційності</a>.</span>
+            <span data-i18n="form_privacy_text">Я погоджуюся на обробку персональних даних відповідно до <a href="#">політики конфіденційності</a>.</span>
         </label>
 
-        <button type="submit" class="btn-blue-action" style="width: 100%; justify-content: center; padding: 14px; color: #1A56C4; margin-bottom: 0;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A56C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <button type="submit" class="btn-blue-action" style="width: 100%; margin-bottom: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             <span data-i18n="form_btn_send">Надіслати повідомлення</span>
         </button>
 
-        <!-- Блок с вашим фото впритык к кнопке -->
         <div class="form-photo-container" style="width: 100%; margin-top: 0; flex-grow: 1; display: flex; overflow: hidden; border-radius: 0 0 4px 4px;">
             <img src="contacts-podval.webp" alt="UAGZ" style="width: 100%; height: 100%; object-fit: cover; display: block; margin-bottom: 0;">
         </div>
@@ -702,146 +546,46 @@
 </div>
 </main>
 
-    <!-- НИЖНИЙ ПРЕД-ФУТЕР БАННЕР -->
-    <!-- Здесь располагается ваш стандартный желтый баннер "Давайте створимо найкраще майбутнє..." -->
-
-    <!-- ФУТЕР САЙТА -->
-    <!-- Здесь располагается ваш стандартный темный футер -->
-
-    <!-- СЛОВАРЬ ПЕРЕВОДОВ СТРАНИЦЫ -->
-    <script>
-        const T = {
-            uk: {
-                "hero_badge": "Ми завжди на зв'язку",
-                "hero_title": "Контакти UAGZ",
-                "hero_desc": "Маєте питання або хочете дізнатися більше про наші програми? Ми з радістю допоможемо вам та вашій родині!",
-                "card_addr_title": "Адреса",
-                "card_addr_link": "Показати на карті",
-                "card_email_title": "Email",
-                "card_email_hint": "Ми відповідаємо протягом 24 годин",
-                "card_phone_title": "Телефон / WhatsApp",
-                "card_hours_title": "Години роботи",
-                "card_hours_closed": "Нд: вихідний",
-                "card_route_title": "Як до нас дістатися",
-                "card_route_desc": "5 хвилин пішки від Bahnhof Altstetten<br>Tram 2, 3, 17 до зупинки «Hohlstrasse»",
-                "card_social_title": "Ми в соцмережах",
-                "card_social_desc": "Підписуйтесь та будьте в курсі новин та подій центру!",
-                "form_title": "Напишіть нам",
-                "form_subtitle": "Заповніть форму, і ми зв'яжемося з вами найближчим часом.",
-                "form_label_name": "Ваше ім'я",
-                "form_label_email": "Email",
-                "form_label_phone": "Телефон",
-                "form_label_subject": "Тема повідомлення",
-                "form_opt_default": "Оберіть тему",
-                "form_label_msg": "Ваше повідомлення",
-                "form_privacy_text": "Я погоджуюся на обробку персональних даних відповідно до <a href='#'>політики конфіденційності</a>.",
-                "form_btn_send": "Надіслати повідомлення"
-            },
-            de: {
-                "hero_badge": "Wir sind immer erreichbar",
-                "hero_title": "UAGZ Kontakte",
-                "hero_desc": "Haben Sie Fragen oder möchten Sie mehr über unsere Programme erfahren? Wir helfen Ihnen und Ihrer Familie gerne weiter!",
-                "card_addr_title": "Adresse",
-                "card_addr_link": "Auf der Karte zeigen",
-                "card_email_title": "E-Mail",
-                "card_email_hint": "Wir antworten innerhalb von 24 Stunden",
-                "card_phone_title": "Telefon / WhatsApp",
-                "card_hours_title": "Öffnungszeiten",
-                "card_hours_closed": "So: geschlossen",
-                "card_route_title": "Anfahrt",
-                "card_route_desc": "5 Gehminuten vom Bahnhof Altstetten<br>Tram 2, 3, 17 bis Haltestelle «Hohlstrasse»",
-                "card_social_title": "Soziale Netzwerke",
-                "card_social_desc": "Folgen Sie uns und bleiben Sie über Neuigkeiten und Veranstaltungen auf dem Laufenden!",
-                "form_title": "Schreiben Sie uns",
-                "form_subtitle": "Füllen Sie das Formular aus und wir werden uns in Kürze mit Ihnen in Verbindung setzen.",
-                "form_label_name": "Ihr Name",
-                "form_label_email": "E-Mail",
-                "form_label_phone": "Telefon",
-                "form_label_subject": "Betreff",
-                "form_opt_default": "Thema wählen",
-                "form_label_msg": "Ihre Nachricht",
-                "form_privacy_text": "Ich stimme der Verarbeitung personenbezogener Daten gemäß der <a href='#'>Datenschutzerklärung</a> zu.",
-                "form_btn_send": "Nachricht senden"
-            }
-        };
-
-        // Логика переключения языков (интегрируйте в вашу общую систему i18n)
-        function applyTranslations(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(elem => {
-                const key = elem.getAttribute('data-i18n');
-                if (T[lang] && T[lang][key]) {
-                    if (elem.tagName === 'INPUT' || elem.tagName === 'TEXTAREA') {
-                        elem.placeholder = T[lang][key];
-                    } else {
-                        elem.innerHTML = T[lang][key];
-                    }
-                }
-            });
-        }
-    </script>
-<!-- КОМПАКТНЫЙ ФУТЕР ВПРИТЫК К ИЛЛЮСТРАЦИИ -->
 <footer style="background-color: #031530; color: #ffffff; font-family: system-ui, -apple-system, sans-serif; width: 100%; box-sizing: border-box; margin: 0; padding: 0; display: block; position: relative; top: -1px; z-index: 10;">
-    
-    <!-- Основной контент подвала с уменьшенными вертикальными отступами (25px сверху, 20px снизу) -->
     <div style="max-width: 1440px; margin: 0 auto; padding: 25px 40px 20px 40px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
         
-        <!-- 1. Блок Логотипа -->
         <div style="flex: 1; min-width: 200px; margin-bottom: 15px;">
             <div style="display: flex; align-items: center; margin-bottom: 8px;">
                 <img src="Logo01.png" alt="UAGZ Logo" style="width: 38px; height: 38px; object-fit: contain; margin-right: 10px;">
                 <span style="font-size: 28px; font-weight: 700; letter-spacing: 0.5px;">UAGZ</span>
             </div>
-            <p style="margin: 0; color: #A0AEC0; font-size: 13px; line-height: 1.4; padding-left: 2px;">
+            <p style="margin: 0; color: #A0AEC0; font-size: 13px; line-height: 1.4; padding-left: 2px;" id="f-sub-desc">
                 Сімейний центр<br>у Цюриху
             </p>
         </div>
 
-        <!-- Укороченный вертикальный разделитель -->
         <div style="width: 1px; background-color: rgba(255,255,255,0.1); height: 95px; margin: 0 15px; align-self: center;"></div>
 
-        <!-- 2. Блок Навигации -->
         <div style="flex: 1.2; min-width: 180px; margin-bottom: 15px;">
-            <h4 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 600; color: #ffffff;">Навігація</h4>
+            <h4 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 600; color: #ffffff;" id="f-nav-h">Навігація</h4>
             <div style="display: flex; justify-content: space-between;">
                 <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.9;">
-                    <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Головна</a></li>
-                    <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Програми</a></li>
-                    <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Розклад</a></li>
+                    <li><a href="index.html" style="color: #E2E8F0; text-decoration: none; font-size: 13px;" id="f-m-home">Головна</a></li>
+                    <li><a href="about.html" style="color: #E2E8F0; text-decoration: none; font-size: 13px;" id="f-m-about">Про нас</a></li>
+                    <li><a href="help.html" style="color: #E2E8F0; text-decoration: none; font-size: 13px;" id="f-m-help">Допомога</a></li>
                 </ul>
                 <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.9; padding-right: 15px;">
-                    <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Події</a></li>
-                    <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Команда</a></li>
-                    <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">FAQ</a></li>
+                    <li><a href="events.html" style="color: #E2E8F0; text-decoration: none; font-size: 13px;" id="f-m-events">Заходи</a></li>
+                    <li><a href="knowledge.html" style="color: #E2E8F0; text-decoration: none; font-size: 13px;" id="f-m-knowledge">Центр знань</a></li>
+                    <li><a href="contacts.html" style="color: #E2E8F0; text-decoration: none; font-size: 13px;" id="f-m-contacts">Контакти</a></li>
                 </ul>
             </div>
         </div>
 
-        <!-- Укороченный вертикальный разделитель -->
         <div style="width: 1px; background-color: rgba(255,255,255,0.1); height: 95px; margin: 0 15px; align-self: center;"></div>
 
-        <!-- 3. Блок Программ -->
-        <div style="flex: 1; min-width: 150px; margin-bottom: 15px;">
-            <h4 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 600; color: #ffffff;">Програми</h4>
-            <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.9;">
-                <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Для дітей</a></li>
-                <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Для батьків</a></li>
-                <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Для молоді</a></li>
-                <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Освітні заходи</a></li>
-                <li><a href="#" style="color: #E2E8F0; text-decoration: none; font-size: 13px;">Майстер-класи</a></li>
-            </ul>
-        </div>
-
-        <!-- Укороченный вертикальный разделитель -->
-        <div style="width: 1px; background-color: rgba(255,255,255,0.1); height: 95px; margin: 0 15px; align-self: center;"></div>
-
-        <!-- 4. Блок Контактов и Соцсетей -->
         <div style="flex: 1.8; min-width: 250px; margin-bottom: 15px; display: flex; flex-direction: column; justify-content: space-between; min-height: 110px;">
             <div>
-                <h4 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 600; color: #ffffff;">Контакты</h4>
+                <h4 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 600; color: #ffffff;" id="f-contacts-h">Контакти</h4>
                 <p style="margin: 0 0 4px 0; color: #E2E8F0; font-size: 13px; line-height: 1.4;">UAGZ Zentrum, Zürich</p>
                 <p style="margin: 0 0 4px 0; color: #E2E8F0; font-size: 13px; line-height: 1.4;">Shulhausstrasse 50, 8002 Zürich, Switzerland</p>
                 <p style="margin: 0 0 4px 0; color: #E2E8F0; font-size: 13px; line-height: 1.4;">info@ukr-zurich.ch</p>
-                <p style="margin: 0; color: #E2E8F0; font-size: 13px; line-height: 1.4;">+41 76 123 45 67</p>
+                <p style="margin: 0; color: #E2E8F0; font-size: 13px; line-height: 1.4;">+41 78 349 1555</p>
             </div>
             
             <div style="display: flex; gap: 10px; margin-top: 10px;">
@@ -857,17 +601,15 @@
             </div>
         </div>
 
-        <!-- Укороченный вертикальный разделитель -->
         <div style="width: 1px; background-color: rgba(255,255,255,0.1); height: 95px; margin: 0 15px; align-self: center;"></div>
 
-        <!-- 5. Блок Подписки -->
         <div style="flex: 2; min-width: 280px; margin-bottom: 15px;">
-            <h4 style="margin: 0 0 6px 0; font-size: 15px; font-weight: 600; color: #ffffff;">Підпишіться на новини</h4>
-            <p style="margin: 0 0 12px 0; color: #A0AEC0; font-size: 13px;">Будьте в курсі наших подій та новин</p>
+            <h4 style="margin: 0 0 6px 0; font-size: 15px; font-weight: 600; color: #ffffff;" id="f-sub-title">Підпишіться на новини</h4>
+            <p style="margin: 0 0 12px 0; color: #A0AEC0; font-size: 13px;" id="f-sub-desc2">Будьте в курсі наших подій та новин</p>
             
             <form action="#" method="POST" style="display: flex; background-color: #ffffff; border-radius: 6px; padding: 3px; width: 100%; max-width: 340px; box-sizing: border-box;">
-                <input type="email" placeholder="Ваш email" required style="flex: 1; border: none; padding: 8px 10px; font-size: 13px; outline: none; border-radius: 4px 0 0 4px; color: #4A5568;">
-                <button type="submit" style="background-color: #1A56C4; color: #ffffff; border: none; padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap;">
+                <input type="email" placeholder="Ваш email" id="f-input-placeholder" required style="flex: 1; border: none; padding: 8px 10px; font-size: 13px; outline: none; border-radius: 4px 0 0 4px; color: #4A5568;">
+                <button type="submit" style="background-color: #1A56C4; color: #ffffff; border: none; padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap;" id="f-btn-sub">
                     Підписатися
                 </button>
             </form>
@@ -875,22 +617,184 @@
 
     </div>
 
-    <!-- Тонкая разделительная черта -->
     <div style="width: 100%; height: 1px; background-color: rgba(255,255,255,0.06);"></div>
 
-    <!-- Копирайт и ссылки (компактный padding 12px) -->
     <div style="max-width: 1440px; margin: 0 auto; padding: 12px 40px; display: flex; gap: 35px; align-items: center; flex-wrap: wrap; font-size: 12px; color: #A0AEC0;">
-        <div style="margin-right: auto;">
+        <div style="margin-right: auto;" id="f-copy">
             &copy; 2026 UAGZ Zentrum. Усі права захищено.
         </div>
         <div>
-            <a href="#" style="color: #A0AEC0; text-decoration: none;">Політика конфіденційності</a>
+            <a href="#" style="color: #A0AEC0; text-decoration: none;" id="f-privacy">Політика конфіденційності</a>
         </div>
         <div>
-            <a href="#" style="color: #A0AEC0; text-decoration: none;">Умови використання</a>
+            <a href="#" style="color: #A0AEC0; text-decoration: none;" id="f-terms">Умови використання</a>
         </div>
     </div>
-
 </footer>
+
+<script>
+    const T = {
+        ua: {
+            "m-home": "Головна",
+            "m-about": "Про нас",
+            "m-help": "Допомога",
+            "m-events": "Заходи",
+            "m-knowledge": "Центр знань",
+            "m-announcements": "Оголошення",
+            "m-volunteering": "Волонтерство",
+            "m-donate": "❤️ Донат",
+            "m-contacts": "Контакти",
+            "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+            "nav-cta": "Отримати допомогу",
+
+            "hero_badge": "Ми завжди на зв'язку",
+            "hero_title": "Контакти UAGZ",
+            "hero_desc": "Маєте питання або хочете дізнатися більше про наші програми? Ми з радістю допоможемо вам та вашій родині!",
+            
+            "card_addr_title": "Адреса",
+            "card_addr_link": "Показати на карті",
+            "card_email_title": "Email",
+            "card_email_hint": "Ми відповідаємо протягом 24 годин",
+            "card_phone_title": "Телефон / WhatsApp",
+            "card_hours_title": "Години роботи",
+            "card_hours_closed": "Нд: вихідний",
+            "card_route_title": "Як до нас дістатися",
+            "card_route_desc": "5 хвилин пішки від Bahnhof Altstetten<br>Tram 2, 3, 17 до зупинки «Hohlstrasse»",
+            "card_social_title": "Ми в соцмережах",
+            "card_social_desc": "Підписуйтесь та будьте в курсі новин та подій центру!",
+            
+            "banner_community_title": "Давайте створимо найкраще майбутнє для наших дітей разом!",
+            "banner_community_subtitle": "Станьте частиною спільноти UAGZ та відкрийте нові можливості для вашої родини.",
+
+            "form_title": "Напишіть нам",
+            "form_subtitle": "Заповніть форму, і ми зв'яжемося з вами найближчим часом.",
+            "form_label_name": "Ваше ім'я",
+            "form_label_email": "Email",
+            "form_label_phone": "Телефон",
+            "form_label_subject": "Тема повідомлення",
+            "form_opt_default": "Оберіть тему",
+            "form_label_msg": "Ваше повідомлення",
+            "form_privacy_text": "Я погоджуюся на обробку персональних даних відповідно до <a href='#'>політики конфіденційності</a>.",
+            "form_btn_send": "Надіслати повідомлення",
+
+            "f-sub-desc": "Сімейний центр<br>у Цюриху",
+            "f-nav-h": "Навігація",
+            "f-m-home": "Головна",
+            "f-m-about": "Про нас",
+            "f-m-help": "Допомога",
+            "f-m-events": "Заходи",
+            "f-m-knowledge": "Центр знань",
+            "f-m-contacts": "Контакти",
+            "f-contacts-h": "Контакти",
+            "f-sub-title": "Підпишіться на новини",
+            "f-sub-desc2": "Будьте в курсі наших подій та новин",
+            "f-input-placeholder": "Ваш email",
+            "f-btn-sub": "Підписатися",
+            "f-copy": "&copy; 2026 UAGZ Zentrum. Усі права захищено.",
+            "f-privacy": "Політика конфіденційності",
+            "f-terms": "Умови використання"
+        },
+        de: {
+            "m-home": "Startseite",
+            "m-about": "Über uns",
+            "m-help": "Hilfe",
+            "m-events": "Veranstaltungen",
+            "m-knowledge": "Wissenszentrum",
+            "m-announcements": "Ankündigungen",
+            "m-volunteering": "Freiwilligenarbeit",
+            "m-donate": "❤️ Donate",
+            "m-contacts": "Kontakte",
+            "nav-sub": "Unterstützungs- und Integrationszentrum",
+            "nav-cta": "Hilfe erhalten",
+
+            "hero_badge": "Wir sind immer erreichbar",
+            "hero_title": "UAGZ Kontakte",
+            "hero_desc": "Haben Sie Fragen oder möchten Sie mehr über unsere Programme erfahren? Wir helfen Ihnen und Ihrer Familie gerne weiter!",
+            
+            "card_addr_title": "Adresse",
+            "card_addr_link": "Auf der Karte zeigen",
+            "card_email_title": "E-Mail",
+            "card_email_hint": "Wir antworten innerhalb von 24 Stunden",
+            "card_phone_title": "Telefon / WhatsApp",
+            "card_hours_title": "Öffnungszeiten",
+            "card_hours_closed": "So: geschlossen",
+            "card_route_title": "Anfahrt",
+            "card_route_desc": "5 Gehminuten vom Bahnhof Altstetten<br>Tram 2, 3, 17 bis Haltestelle «Hohlstrasse»",
+            "card_social_title": "Soziale Netzwerke",
+            "card_social_desc": "Folgen Sie uns und bleiben Sie über Neuigkeiten und Veranstaltungen auf dem Laufenden!",
+            
+            "banner_community_title": "Lassen Sie uns gemeinsam eine bessere Zukunft für unsere Kinder gestalten!",
+            "banner_community_subtitle": "Werden Sie Teil der UAGZ-Gemeinschaft und entdecken Sie neue Möglichkeiten für Ihre Familie.",
+
+            "form_title": "Schreiben Sie uns",
+            "form_subtitle": "Füllen Sie das Formular aus und wir werden uns in Kürze mit Ihnen in Verbindung setzen.",
+            "form_label_name": "Ihr Name",
+            "form_label_email": "E-Mail",
+            "form_label_phone": "Telefon",
+            "form_label_subject": "Betreff",
+            "form_opt_default": "Thema wählen",
+            "form_label_msg": "Ihre Nachricht",
+            "form_privacy_text": "Ich stimme der Verarbeitung personenbezogener Daten gemäß der <a href='#'>Datenschutzerklärung</a> zu.",
+            "form_btn_send": "Nachricht senden",
+
+            "f-sub-desc": "Familienzentrum<br>in Zürich",
+            "f-nav-h": "Navigation",
+            "f-m-home": "Startseite",
+            "f-m-about": "Über uns",
+            "f-m-help": "Hilfe",
+            "f-m-events": "Veranstaltungen",
+            "f-m-knowledge": "Wissenszentrum",
+            "f-m-contacts": "Kontakte",
+            "f-contacts-h": "Kontakt",
+            "f-sub-title": "Newsletter abonnieren",
+            "f-sub-desc2": "Bleiben Sie über unsere Neuigkeiten und Veranstaltungen auf dem Laufenden",
+            "f-input-placeholder": "Ihre E-Mail",
+            "f-btn-sub": "Abonnieren",
+            "f-copy": "&copy; 2026 UAGZ Zentrum. Alle Rechte vorbehalten.",
+            "f-privacy": "Datenschutzerklärung",
+            "f-terms": "Nutzungsbedingungen"
+        }
+    };
+
+    function setLang(lang) {
+        document.querySelectorAll('.lb').forEach(b => {
+            b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+        });
+
+        if (typeof T === 'undefined' || !T[lang]) return;
+        const dict = T[lang];
+
+        for (const [id, val] of Object.entries(dict)) {
+            const el = document.getElementById(id);
+            if (!el) continue;
+
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = val;
+            } else {
+                el.innerHTML = val;
+            }
+        }
+
+        document.querySelectorAll('[data-i18n]').forEach(elem => {
+            const key = elem.getAttribute('data-i18n');
+            if (dict[key]) {
+                if (elem.tagName === 'INPUT' || elem.tagName === 'TEXTAREA') {
+                    elem.placeholder = dict[key];
+                } else {
+                    elem.innerHTML = dict[key];
+                }
+            }
+        });
+
+        document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+        localStorage.setItem('selectedLang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('selectedLang') || 'ua';
+        setLang(savedLang);
+    });
+</script>
+
 </body>
 </html>

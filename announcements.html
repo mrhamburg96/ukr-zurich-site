@@ -1,230 +1,271 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Оголошення — UAGZ</title>
-<link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#1A56C4;--blue-dark:#0F3A8A;--blue-light:#E8F1FD;
-  --text:#111827;--text2:#4B5563;--text3:#9CA3AF;
-  --border:#E5E7EB;--surface:#F9FAFB;--radius:12px;
-}
-body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
-
-/* Шапка */
-header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
-.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
-.flags-logo{display:flex;flex-direction:column;gap:2px;width:24px;flex-shrink:0}
-.flag-ua{width:24px;height:14px;background:linear-gradient(to bottom, #0057B7 50%, #FFDD00 50%);border-radius:2px}
-.flag-ch{width:24px;height:14px;background:#D52B1E;position:relative;border-radius:2px}
-.flag-ch::before, .flag-ch::after{content:"";background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.flag-ch::before{width:8px;height:2.5px}
-.flag-ch::after{width:2.5px;height:8px}
-.brand{font-weight:700;color:var(--blue);font-size:1.4rem;display:flex;flex-direction:column;line-height:1.1}
-.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
-.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
-.nav-links a:hover, .nav-links a.active{color:var(--blue);font-weight:600}
-.btn-donate-nav{background:none;border:none;color:#D52B1E;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
-.nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
-.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px}
-.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
-.lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;white-space:nowrap}
-
-/* Контент */
-.page-content{padding:4rem 0}
-.page-title{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
-.anc-list{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
-.anc-item{border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;background:#fff;display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
-.anc-tag{background:var(--blue-light);color:var(--blue);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase}
-.anc-meta{font-size:13px;color:var(--text3);margin-top:0.5rem}
-
-/* Подвал */
-footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
-
-/* ================= АДАПТИВНИЙ БЛОК ДЛЯ СТРАНИЦЫ ОБЪЯВЛЕНИЙ ================= */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 15px !important;
-    padding: 10px 1rem !important;
-  }
-  .nav-logo {
-    max-width: 100% !important;
-    justify-content: center !important;
-  }
-  .brand {
-    align-items: center !important;
-  }
-  .brand small {
-    text-align: center !important;
-  }
-  .nav-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 10px 15px !important;
-    padding: 0 !important;
-  }
-  .nav-links a {
-    font-size: 14px !important;
-  }
-  .nav-r {
-    width: 100% !important;
-    justify-content: center !important;
-    margin-top: 5px !important;
-    gap: 15px !important;
-  }
-  .btn-solid {
-    padding: 8px 14px !important;
-    font-size: 13px !important;
-  }
-  .page-content {
-    padding: 2rem 0 !important;
-  }
-  .page-title {
-    font-size: 1.85rem !important;
-    margin-bottom: 1rem !important;
-    padding: 0 0.5rem !important;
-    text-align: center !important;
-  }
-  #anc-sub {
-    padding: 0 1rem !important;
-    text-align: center !important;
-    font-size: 1rem !important;
-    margin: 0 auto !important;
-  }
-  /* Адаптация сетки или списка объявлений */
-  .anc-list {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 0 0.5rem !important;
-    gap: 1.25rem !important;
-  }
-  /* Сами карточки объявлений */
-  .anc-item {
-    padding: 1.25rem !important;
-    width: 100% !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    text-align: center !important;
-  }
-}
-/* ========================================================================== */
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оголошення — UAGZ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #F7FAFC;
+            color: #2D3748;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1A365D;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+        .announcements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        .announcement-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .announcement-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        }
+        .card-date {
+            font-size: 13px;
+            color: #1A56C4;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: 14px;
+            color: #4A5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .card-link {
+            text-decoration: none;
+            color: #1A56C4;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .card-link:hover {
+            text-decoration: underline;
+        }
+        /* Футер */
+        footer {
+            background-color: #1A202C;
+            color: #FFFFFF;
+            padding: 50px 20px 20px 20px;
+            margin-top: auto;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            border-bottom: 1px solid #2D3748;
+            padding-bottom: 40px;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+        }
+        .footer-col p, .footer-col ul {
+            font-size: 14px;
+            color: #A0AEC0;
+            line-height: 1.6;
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #A0AEC0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #FFFFFF;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+    </style>
 </head>
 <body>
 
-<header>
- <nav>
-  <a class="nav-logo" href="./index.html">
-    <div class="flags-logo">
-      <div class="flag-ua"></div>
-      <div class="flag-ch"></div>
-    </div>
-    <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
-  </a>
-  <ul class="nav-links">
-  <li><a href="index.html" id="m-home">Головна</a></li>
-  <li><a href="about.html" id="m-about">Про нас</a></li>
-  <li><a href="help.html" id="m-help">Допомога</a></li>
-  <li><a href="events.html" id="m-events">Заходи</a></li>
-  <li><a href="knowledge.html" id="m-knowledge">Центр знань</a></li>
-  <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
-  <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
-  <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
-  <li><a href="#contacts" id="m-contacts">Контакти</a></li>
-</ul>
-  <div class="nav-r">
-    <div class="lang-sw">
-      <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
-      <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
-    </div>
-    <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
-  </div>
- </nav>
-</header>
+    <!-- Шапка в одну строку -->
+    <header style="background: #ffffff; border-bottom: 1px solid #E2E8F0; padding: 12px 24px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <div style="max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            
+            <!-- Логотип и подпись -->
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 12px; flex-shrink: 0;">
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                    <div style="display: flex; width: 32px; height: 12px; border-radius: 2px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 50%; background-color: #005BBB;"></div>
+                        <div style="width: 100%; height: 50%; background-color: #FFD500;"></div>
+                    </div>
+                    <div style="display: flex; width: 32px; height: 12px; border-radius: 2px; overflow: hidden; background: #DA291C; justify-content: center; align-items: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+                        <span style="color: white; font-size: 10px; font-weight: bold; line-height: 1;">+</span>
+                    </div>
+                </div>
+                <div>
+                    <span style="font-size: 22px; font-weight: 800; color: #1A56C4; letter-spacing: -0.5px; display: block; line-height: 1.1;">UAGZ</span>
+                    <span style="font-size: 11px; color: #718096; white-space: nowrap;">Український інтеграційний та громадський центр Цюриха</span>
+                </div>
+            </a>
 
-<main class="container page-content">
-  <h1 class="page-title" id="anc-title">Оголошення спільноти</h1>
-  <p id="anc-sub" style="color:var(--text2); font-size:1.1rem;">Актуальні пропозиції житла, роботи та допомоги від членів нашої громади в Цюриху.</p>
-  
-  <div class="anc-list">
-    <div class="anc-item">
-      <div>
-        <span class="anc-tag" id="anc-tag1">Житло</span>
-        <h3 id="anc-h1" style="margin-top:0.5rem; font-size:1.3rem;">Здається кімната в Цюриху (Kreis 3)</h3>
-        <p id="anc-p1" style="color:var(--text2); margin-top:0.25rem;">Шукаємо сусіда в 3-кімнатну квартиру. Зручне розташування, 800 CHF/міс вкл. рахунки.</p>
-        <div class="anc-meta" id="anc-meta1">Опубліковано: Сьогодні, 10:15</div>
-      </div>
-    </div>
-    <div class="anc-item">
-      <div>
-        <span class="anc-tag" id="anc-tag2">Робота</span>
-        <h3 id="anc-h2" style="margin-top:0.5rem; font-size:1.3rem;">Потрібна няня для дитини (Часткова зайнятість)</h3>
-        <p id="anc-p2" style="color:var(--text2); margin-top:0.25rem;">Потрібно забирати дитину 4 років з дитячого садка двічі на тиждень та проводити час до вечора.</p>
-        <div class="anc-meta" id="anc-meta2">Опубліковано: Сьогодні, 09:40</div>
-      </div>
-    </div>
-  </div>
-</main>
+            <!-- Меню в одну строку -->
+            <nav style="display: flex; align-items: center; gap: 16px; flex-wrap: nowrap;">
+                <a href="index.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Головна</a>
+                <a href="about.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Про нас</a>
+                <a href="help.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Допомога</a>
+                <a href="events.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Заходи</a>
+                <a href="knowledge.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Центр знань</a>
+                <a href="announcements.html" style="text-decoration: none; color: #1A56C4; font-size: 14px; font-weight: 700;">Оголошення</a>
+                <a href="volunteering.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Волонтерство</a>
+                <a href="donate.html" style="text-decoration: none; color: #DA291C; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 4px;">❤️ Донат</a>
+                <a href="contacts.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Контакти</a>
+            </nav>
 
-<footer id="contacts">
-  <div class="container footer-grid">
-    <div>
-      <h3 id="f-title" style="margin-bottom:1rem;color:var(--text)">UAGZ Цюрих</h3>
-      <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
-    </div>
-    <div>
-      <h3 id="fc1h" style="margin-bottom:1rem;color:var(--text)">Контакти</h3>
-      <p id="f-contact-info" style="color:var(--text2)">Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz</p>
-    </div>
-  </div>
-</footer>
+            <!-- Переключатель языков и кнопка -->
+            <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+                <div style="display: flex; background: #EDF2F7; border-radius: 6px; padding: 2px;">
+                    <button style="background: #ffffff; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 700; color: #1A56C4; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">UA</button>
+                    <button style="background: transparent; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 500; color: #718096; cursor: pointer;">DE</button>
+                </div>
+                <a href="help.html" style="background-color: #1A56C4; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(26, 86, 196, 0.25);" onmouseover="this.style.backgroundColor='#14439c'" onmouseout="this.style.backgroundColor='#1A56C4'">
+                    Отримати допомогу
+                </a>
+            </div>
 
-<script>
-const T = {
-  ua: {
-    "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Центр знань", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
-    "anc-title": "Оголошення спільноти",
-    "anc-sub": "Актуальні пропозиції житла, роботи та допомоги від членів нашої громади в Цюриху.",
-    "anc-tag1": "Житло", "anc-h1": "Здається кімната в Цюриху (Kreis 3)", "anc-p1": "Шукаємо сусіда в 3-кімнатну квартиру. Зручне розташування, 800 CHF/міс вкл. рахунки.", "anc-meta1": "Опубліковано: Сьогодні, 10:15",
-    "anc-tag2": "Робота", "anc-h2": "Потрібна няня для дитини (Часткова зайнятість)", "anc-p2": "Потрібно забирати дитину 4 років з дитячого садка двічі на тиждень та проводити час до вечора.", "anc-meta2": "Опубліковано: Сьогодні, 09:40",
-    "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz"
-  },
-  de: {
-    "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Wissenszentrum", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Unterstützungs- und Integrationszentrum", "nav-cta": "Hilfe erhalten",
-    "anc-title": "Kleinanzeigen der Community",
-    "anc-sub": "Aktuelle Angebote für Wohnraum, Arbeit und Hilfe von Mitgliedern unserer Community in Zürich.",
-    "anc-tag1": "Wohnung", "anc-h1": "Zimmer zu vermieten in Zürich (Kreis 3)", "anc-p1": "Wir suchen einen Mitbewohner für eine 3-Zimmer-Wohnung. Gute Lage, 800 CHF/Monat inkl. Nebenkosten.", "anc-meta1": "Veröffentlicht: Heute, 10:15",
-    "anc-tag2": "Arbeit", "anc-h2": "Babysitter gesucht (Teilzeit)", "anc-p2": "Wir suchen jemanden, der ein 4-jähriges Kind zweimal pro Woche vom Kindergarten abholt und bis zum Abend betreut.", "anc-meta2": "Veröffentlicht: Heute, 09:40",
-    "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz"
-  }
-};
-function setLang(lang){
-  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===lang));
-  if(!T[lang])return;
-  for(const[id,val]of Object.entries(T[lang])){
-    const el=document.getElementById(id); if(el) el.innerHTML=val;
-  }
-  document.documentElement.lang=lang==='ua'?'uk':'de';
-  localStorage.setItem('selectedLang',lang);
-}
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('selectedLang')||'ua'));
-</script>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <main>
+        <h1>Актуальні оголошення</h1>
+        <p class="subtitle">Слідкуйте за найважливішими новинами, подіями та можливостями нашого центру.</p>
+
+        <div class="announcements-grid">
+            <!-- Карточка 1 -->
+            <div class="announcement-card">
+                <div>
+                    <div class="card-date">21 липня 2026</div>
+                    <h3 class="card-title">Відкриття реєстрації на курси німецької мови (А1-В2)</h3>
+                    <p class="card-desc">Розпочинається набір у нові групи з вивчення німецької мови для дорослих. Заняття проходять у центрі Цюриха досвідченими викладачами.</p>
+                </div>
+                <a href="#" class="card-link">Детальніше &rarr;</a>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="announcement-card">
+                <div>
+                    <div class="card-date">18 липня 2026</div>
+                    <h3 class="card-title">Юридичні консультації для новоприбывших</h3>
+                    <p class="card-desc">У середу відбудеться безкоштовна консультація з питань оформлення статусів та інтеграційного законодавства у Швейцарії.</p>
+                </div>
+                <a href="#" class="card-link">Детальніше &rarr;</a>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="announcement-card">
+                <div>
+                    <div class="card-date">15 липня 2026</div>
+                    <h3 class="card-title">Дитячий клуб вихідного дня: творчі майстер-класи</h3>
+                    <p class="card-desc">Запрошуємо дітей на захоплюючі розвиваючі заняття та майстер-класи цього тижня. Кількість місць обмежена.</p>
+                </div>
+                <a href="#" class="card-link">Детальніше &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер с подключенной формой подписки Formspree -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col" style="flex: 1.5;">
+                <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 12px;">UAGZ</h4>
+                <p>Український інтеграційний та громадський центр у Цюриху. Допомагаємо адаптуватися, розвиватися та бути разом.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Швидкі посилання</h4>
+                <ul>
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="help.html">Допомога</a></li>
+                    <li><a href="events.html">Заходи</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок подписки на новости с интеграцией Formspree -->
+            <div style="flex: 2; min-width: 280px; margin-bottom: 15px;">
+                <h4 style="margin: 0 0 6px 0; font-size: 15px; font-weight: 600; color: #ffffff;" id="f-sub-title">Підпишіться на новини</h4>
+                <p style="margin: 0 0 12px 0; color: #A0AEC0; font-size: 13px;" id="f-sub-desc2">Будьте в курсі наших подій та новин</p>
+                
+                <form action="https://formspree.io/f/maqrbboy" method="POST" style="display: flex; background-color: #ffffff; border-radius: 6px; padding: 3px; width: 100%; max-width: 340px; box-sizing: border-box;">
+                    <input type="email" name="email" placeholder="Ваш email" required style="flex: 1; border: none; padding: 8px 10px; font-size: 13px; outline: none; border-radius: 4px 0 0 4px; color: #4A5568;">
+                    <button type="submit" style="background-color: #1A56C4; color: #ffffff; border: none; padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap;">
+                        Підписатися
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2026 UAGZ Zurich. Всі права захищені.
+        </div>
+    </footer>
+
 </body>
 </html>

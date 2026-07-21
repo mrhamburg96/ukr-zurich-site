@@ -47,6 +47,15 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 .article-list{margin-bottom:1.5rem; padding-left:20px; list-style-type: disc;}
 .article-list li{margin-bottom:10px; color:var(--text2); font-size:1.05rem}
 
+/* Дата статті */
+.article-date {
+  font-size: 0.85rem;
+  color: var(--text3);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 /* Двухколоночный макет */
 .page-layout {
   display: flex;
@@ -269,7 +278,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </header>
 
 <main class="container page-content">
-  <h1 class="page-title" id="nr-title" style="color: #1A56C4;">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</h1>
+  <h1 class="page-title" id="nr-title" style="color: #1A56C4;">Міфи та реальність: Що відбувається зі статусом S у Швейцарії</h1>
   <p id="nr-sub" style="color:var(--text2); font-size:1.1rem; text-align: center; margin-bottom: 2rem;">Свіжі матеріали, офіційні заяви та корисна інформація для української громади.</p>
   
   <!-- Двухколоночный контейнер макета -->
@@ -277,13 +286,55 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     
     <!-- Левая колонка: Изображение -->
     <aside class="page-sidebar">
-      <img src="new-real-foto1.webp" alt="Нові реалії статусу S у Швейцарії" width="450" height="633">
+      <img src="new-real-foto1.webp" alt="Міфи та реальність: Що відбувається зі статусом S у Швейцарії" width="450" height="633">
     </aside>
 
     <!-- Правая колонка: Список аккордеонов (статей) -->
     <div class="status-articles">
     
-      <!-- Стаття 1 (Полний текст реформи 2026) -->
+      <!-- Стаття 1 (Нова: Міфи та реальність) -->
+      <div class="accordion-item active">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="nr0-h1">Міфи та реальність: Що відбувається зі статусом S у Швейцарії</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content" style="max-height: 2500px;">
+          <div class="accordion-inner">
+            <span class="article-date">21.07.2026</span>
+            <p id="nr0-p1" class="article-p">З моменту введення захисного статусу S для українських біженців минуло вже кілька років. За цей час швейцарське суспільство, кантональні владні структури та самі власники статусу пройшли величезний шлях адаптації. Не дивно, що навколо майбутнього цієї правової норми постійно циркулює безліч чуток, які викликають тривогу та запитання.</p>
+            
+            <h3 id="nr0-sub1">Чутка 1. «Статус S скоро повністю скасують, і всіх відправлять назад»</h3>
+            <p id="nr0-p2" class="article-p"><strong>Звідки ростуть ноги:</strong> Періодичні дискусії у Федеральній раді Швейцарії (Bundesrat) про те, що статус S спочатку замислювався як тимчасовий інструмент екстреного захисту, породжують паніку в соцмережах. Люди бояться різкого припинення дії програми.</p>
+            <p id="nr0-p3" class="article-p"><strong>Що насправді:</strong> Федеральна рада офіційно продовжила дію статусу S до 4 березня 2027 року, закріпивши його стабільність. Водночас уряд відкрито обговорює довгострокові сценарії на майбутнє після цього терміну, розуміючи, що ситуація в Україні далека від стабільної.</p>
+            <ul class="article-list">
+              <li id="nr0-li1">Влада не планує масових депортацій чи примусового повернення людей у небезпечні регіони.</li>
+              <li id="nr0-li2">Обговорюються цивілізовані альтернативи на випадок довгострокового перебування. Наприклад, розглядається можливість трансформації статусу S у звичайний перміт B (дозвіл типу B) для тих українців, які повністю інтегрувалися, знайшли постійну роботу, фінансово незалежні від соціальної допомоги та вільно володіють місцевою мовою.</li>
+            </ul>
+
+            <h3 id="nr0-sub2">Чутка 2. «Посилення правил торкнеться абсолютно всіх без винятку»</h3>
+            <p id="nr0-p4" class="article-p"><strong>Звідки ростуть ноги:</strong> Новини про введення нових географічних обмежень і вимог до працевлаштування лякають новоприбулих і тих, хто вже влаштувався на новому місці.</p>
+            <p id="nr0-p5" class="article-p"><strong>Що насправді:</strong> Швейцарія дійсно переглядає міграційну політику точечно, вводячи більш суворі критерії для нових прохачів і певні рамки для тих, хто вже перебуває в країні:</p>
+            <ul class="article-list">
+              <li id="nr0-li3"><strong>Географічні обмеження:</strong> Громадяни, які проживали в семи західних областях України, більше не отримують статус S автоматично.</li>
+              <li id="nr0-li4"><strong>Рівень зайнятості:</strong> Для працюючих українців встановлено цільовий рівень зайнятості на рівні 40%.</li>
+              <li id="nr0-li5"><strong>Поїздки додому:</strong> Поїздки додому обмежені 15 днями на півріччя.</li>
+            </ul>
+
+            <h3 id="nr0-sub3">Чутка 3. «Чоловіків призовного-мобілізаційного віку масово депортують за запитом»</h3>
+            <p id="nr0-p6" class="article-p"><strong>Звідки ростуть ноги:</strong> Один із найболючіших і найобговорюваніших слухів у чатах Швейцарії стосується можливої видачі чоловіків мобілізаційного віку.</p>
+            <p id="nr0-p7" class="article-p"><strong>Що насправді:</strong> Швейцарія — правова держава, що діє суворо в рамках міжнародного права. На поточний момент статус S продовжує гарантувати захист від висилки, хоча наразі обговорюються потенційні обмеження для чоловіків призовного віку.</p>
+
+            <h3 id="nr0-sub4">Чутка 4. «Кантони переглянуть фінансування і жити стане ні на що»</h3>
+            <p id="nr0-p8" class="article-p"><strong>Звідки ростуть ноги:</strong> Інформація про перегляд фінансування кантонів для довгострокових власників статусу S сприймається як сигнал повного припинення виплат.</p>
+            <p id="nr0-p9" class="article-p"><strong>Що насправді:</strong> Федеральний центр планує переглянути фінансування кантонів для тих, хто володіє статусом S тривалий час, оптимізуючи витрати та фокусуючись на довгостроковій інтеграції.</p>
+
+            <h3 id="nr0-sub5">Висновок</h3>
+            <p id="nr0-p10" class="article-p">Ситуація зі статусом S у Швейцарії залишається під контролем, попри безліч домислів та обговорення майбутніх сценаріїв після березня 2027 року. Головний тренд швейцарської політики сьогодні — це прагматизм: держава адаптує правила, вводячи суворіші критерії для географічного розподілу, поїздок і рівня зайнятості, водночас розглядаючи шляхи легалізації інтегрованих осіб через стандартний перміт B.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Стаття 2 (Колишня Стаття 1: Нові реалії статусу S) -->
       <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
           <span id="nr-h1">Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження</span>
@@ -291,7 +342,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </button>
         <div class="accordion-content">
           <div class="accordion-inner">
-            
+            <span class="article-date">15.06.2026</span>
             <p id="nr-p1" class="article-p"></p>
             <p id="nr-p2" class="article-p"></p>
             <p id="nr-p3" class="article-p"></p>
@@ -373,7 +424,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </div>
       </div>
       
-      <!-- Стаття 2 (Актуальний стан та перспективи 2026) -->
+      <!-- Стаття 3 (Колишня Стаття 2: Актуальний стан та перспективи 2026) -->
       <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
           <span id="nr2-h1">Актуальний стан та перспективи захисного статусу S у Швейцарії: що змінюється у 2026 році</span>
@@ -381,7 +432,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
         </button>
         <div class="accordion-content">
           <div class="accordion-inner">
-            
+            <span class="article-date">01.05.2026</span>
             <p id="nr2-p1" class="article-p"></p>
             <p id="nr2-p2" class="article-p"></p>
 
@@ -436,8 +487,31 @@ const T = {
     "m-home": "Головна", "m-about": "Про нас", "m-help": "Допомога", "m-events": "Заходи", "m-knowledge": "Центр знань", "m-announcements": "Оголошення", "m-volunteering": "Волонтерство", "m-donate": "❤️ Донат", "m-contacts": "Контакти", "nav-sub": "Український інтеграційний та громадський центр Цюриха", "nav-cta": "Отримати допомогу",
     "f-title": "UAGZ Цюрих", "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Контакти", "f-contact-info": "Email: info@ukr-zurich.ch<br>Адреса: Zürich, Schweiz",
     
-    "nr-title": "Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження",
+    "nr-title": "Міфи та реальність: Що відбувається зі статусом S у Швейцарії",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
+
+    /* СЛОВАРЬ ДЛЯ НОВОЙ СТАТЬИ 0 (UA) */
+    "nr0-h1": "Міфи та реальність: Що відбувається зі статусом S у Швейцарії",
+    "nr0-p1": "З моменту введення захисного статусу S для українських біженців минуло вже кілька років. За цей час швейцарське суспільство, кантональні владні структури та самі власники статусу пройшли величезний шлях адаптації. Не дивно, що навколо майбутнього цієї правової норми постійно циркулює безліч чуток, які викликають тривогу та запитання.",
+    "nr0-sub1": "Чутка 1. «Статус S скоро повністю скасують, і всіх відправлять назад»",
+    "nr0-p2": "<strong>Звідки ростуть ноги:</strong> Періодичні дискусії у Федеральній раді Швейцарії (Bundesrat) про те, що статус S спочатку замислювався як тимчасовий інструмент екстреного захисту, породжують паніку в соцмережах. Люди бояться різкого припинення дії програми.",
+    "nr0-p3": "<strong>Що насправді:</strong> Федеральна рада офіційно продовжила дію статусу S до 4 березня 2027 року, закріпивши його стабільність. Водночас уряд відкрито обговорює довгострокові сценарії на майбутнє після цього терміну, розуміючи, що ситуація в Україні далека від стабільної.",
+    "nr0-li1": "Влада не планує масових депортацій чи примусового повернення людей у небезпечні регіони.",
+    "nr0-li2": "Обговорюються цивілізовані альтернативи на випадок довгострокового перебування. Наприклад, розглядається можливість трансформації статусу S у звичайний перміт B (дозвіл типу B) для тих українців, які повністю інтегрувалися, знайшли постійну роботу, фінансово незалежні від соціальної допомоги та вільно володіють місцевою мовою.",
+    "nr0-sub2": "Чутка 2. «Посилення правил торкнеться абсолютно всіх без винятку»",
+    "nr0-p4": "<strong>Звідки ростуть ноги:</strong> Новини про введення нових географічних обмежень і вимог до працевлаштування лякають новоприбулих і тих, хто вже влаштувався на новому місці.",
+    "nr0-p5": "<strong>Що насправді:</strong> Швейцарія дійсно переглядає міграційну політику точечно, вводячи більш суворі критерії для нових прохачів і певні рамки для тих, хто вже перебуває в країні:",
+    "nr0-li3": "<strong>Географічні обмеження:</strong> Громадяни, які проживали в семи західних областях України, більше не отримують статус S автоматично.",
+    "nr0-li4": "<strong>Рівень зайнятості:</strong> Для працюючих українців встановлено цільовий рівень зайнятості на рівні 40%.",
+    "nr0-li5": "<strong>Поїздки додому:</strong> Поїздки додому обмежені 15 днями на півріччя.",
+    "nr0-sub3": "Чутка 3. «Чоловіків призовного-мобілізаційного віку масово депортують за запитом»",
+    "nr0-p6": "<strong>Звідки ростуть ноги:</strong> Один із найболючіших і найобговорюваніших слухів у чатах Швейцарії стосується можливої видачі чоловіків мобілізаційного віку.",
+    "nr0-p7": "<strong>Що насправді:</strong> Швейцарія — правова держава, що діє суворо в рамках міжнародного права. На поточний момент статус S продовжує гарантувати захист від висилки, хоча наразі обговорюються потенційні обмеження для чоловіків призовного віку.",
+    "nr0-sub4": "Чутка 4. «Кантони переглянуть фінансування і жити стане ні на що»",
+    "nr0-p8": "<strong>Звідки ростуть ноги:</strong> Інформація про перегляд фінансування кантонів для довгострокових власників статусу S сприймається як сигнал повного припинення виплат.",
+    "nr0-p9": "<strong>Що насправді:</strong> Федеральний центр планує переглянути фінансування кантонів для тих, хто володіє статусом S тривалий час, оптимізуючи витрати та фокусуючись на довгостроковій інтеграції.",
+    "nr0-sub5": "Висновок",
+    "nr0-p10": "Ситуація зі статусом S у Швейцарії залишається під контролем, попри безліч домислів та обговорення майбутніх сценаріїв після березня 2027 року. Головний тренд швейцарської політики сьогодні — це прагматизм: держава адаптує правила, вводячи суворіші критерії для географічного розподілу, поїздок і рівня зайнятості, водночас розглядаючи шляхи легалізації інтегрованих осіб через стандартний перміт B.",
     
     /* СЛОВАРЬ ДЛЯ СТАТЬИ 1 */
     "nr-h1": "Нові реалії статусу S у Швейцарії: курс на інтеграцію та географічні обмеження",
@@ -449,7 +523,7 @@ const T = {
     "nr-p5": "Разом із самим статусом уряд продовжив фінансування так званої «Програми S» — комплексу інтеграційних заходів. Конфедерація продовжує виділяти кантонам по 3000 швейцарських франків (CHF) на рік на кожну osobu. Ці кошти спрямовуються на:",
     "nr-li1": "Інтенсивне вивчення державних мов Швейцарії (німецької, французької або італійської — залежно від регіону);",
     "nr-li2": "Професійне навчання та програми перекваліфікації;",
-    "nr-li3": "Роботу регіональних центрів зайнятості (RAV) для прискореного працевлаштування.",
+    "nr-li3": "Робота регіональних центрів зайнятості (RAV) для прискореного працевлаштування.",
     "nr-sub2": "2. Географічний рубіж: концепція «безпечних регіонів»",
     "nr-p6": "Найбільш резонансним та обговорюваним кроком швейцарської влади стало впровадження жорсткого географічного цензу, яке офіційно набуло чинності наприкінці минулого року. Виконуючи чітку вимогу парламенту щодо розмежування регіонів України за рівнем небезпеки, SEM кардинально змінив правила прийому нових біженців.",
     "nr-p7": "Відтепер автоматичний статус захисту S більше не надається особам, чиїм останнім місцем проживання в Україні були сім західних областей: Волинська, Рівненська, Львівська, Тернопільська, Закарпатська, Івано-Франківська, Чернівецька.",
@@ -476,7 +550,7 @@ const T = {
     "nr-p15": "Швейцарія залишається гуманною та солідарною з Україною, проте період «автоматичної та беззастережної» підтримки трансформувався в епоху прагматизму.",
     "nr-p16": "Для українців у Швейцарії це означає лише одне — час для невизначеності минув. Вивчення мови, офіційне працевлаштування та суворе дотримання міграційних правил є єдиним ключем до безпечного перебування в Альпійській республіці.",
 
-    /* НОВЫЙ СЛОВАРЬ ДЛЯ СТАТЬИ 2 (UA) */
+    /* СЛОВАРЬ ДЛЯ СТАТЬИ 2 (UA) */
     "nr2-h1": "Актуальний стан та перспективи захисного статусу S у Швейцарії: що змінюється у 2026 році",
     "nr2-p1": "Захисний статус S, запроваджений у березні 2022 року у відповідь на повномасштабне вторгнення Росії в Україну, став безпрецедентним кроком для швейцарської міграційної системи. Він дозволив десяткам тисяч українців отримати швидкий прихисток без проходження стандартної тривалої процедури надання притулку. Станом на середину 2026 року в країні перебуває близько 72 000 осіб із цим статусом. Оскільки війна триває і наразі немає перспектив для сталого чи довготривалого припинення вогню, швейцарський уряд активно готується до наступного етапу функціонування міграційного режиму.",
     "nr2-p2": "Федеральна рада Швейцарії офіційно запустила масштабний процес консультацій щодо майбутнього статусу S у період після березня 2027 року. Очікується, що остаточні рішення стосовно можливих продовжень та регуляторних змін уряд ухвалить наприкінці літа 2026 року. У цьому огляді розглядаються ключові виклики, сценарії та зміни, які обговорюються на державному рівні.",
@@ -486,7 +560,7 @@ const T = {
     "nr2-p5": "<strong>Поетапне згортання (фазування):</strong> Розробка механізмів виходу зі статусу S у разі затяжного та локалізованого конфлікту з поступовим переведенням категорій осіб на інші типи дозволів або підготовкою до повернення.",
     "nr2-p6": "<strong>Повна скасування:</strong> Цей сценарій розглядається виключно за умови настання сталого та гарантованого миру. Як наголошують гуманітарні організації, повернення буде можливим лише після відновлення критичної інфраструктури — лікарень, доріг та шкіл. Швейцарія продовжує тісно координувати свої кроки з Європейським Союзом, щоб запобігти вторинній міграції та забезпечити єдиний європейський підхід до тимчасового захисту.",
     "nr2-sub2": "Перехід до посвідчень типу B та питання соціальної допомоги",
-    "nr2-p7": "Наближається важливий рубіж: навесні 2027 року виповнюється п'ять років відтоді, як перша хвиля біженців прибула до Швейцарії на початку 2022 року. Згідно зі швейцарським Законом про азиль, особи, які безперервно перебувають у країні зі статусом S протягом п'яти років, мають право на отримання посвідчення на проживання типу B, яке залишається прив'язаним до тимчасового захисту.",
+    "nr2-p7": "Наближається важливий рубіж: навесні 2027 року виповнюється п'ять років відтоді, як перша хвиля біженців прибула до Швейцарії на початку 2022 року. Згідно зі швейцарським Законом про азиль, особи, які безперервно перебувають у країні зі статусом S протягом п'яти років, мають право на отримання посвідчення на проживання типу B, яке залишається приєднаним до тимчасового захисту.",
     "nr2-p8": "Водночас ухвалений парламентом пакет фінансової економії на 2027 рік передбачає зміну правил федерального фінансування. Починаючи з березня 2027 року, Конфедерація більше не виплачуватиме кантонам субсидії на тих осіб, які перебувають під захистом понад п'ять років. У зв'язку з цим Федеральна рада пропонує надати кантонам і громадам більшу свободу розсуду та повноваження самостійно визначати розмір і стандарти виплат соціальної допомоги для цієї категорії. Швейцарська організація допомоги біженцям висловлює занепокоєння з цього приводу, попереджаючи про ризик виникнення нерівномірних умов підтримки в різних регіонах країни.",
     "nr2-sub3": "Обговорення обмежень для чоловіків призовного віку",
     "nr2-p9": "Одним із найбільш дискусійних питань у рамках поточних консультацій є можливе запровадження обмежень щодо захисного статусу для українських чоловіків, які підлягають військовій службі. Це питання обговорюється як на рівні ЄС, так і всередині Швейцарії.",
@@ -502,8 +576,31 @@ const T = {
     "m-home": "Startseite", "m-about": "Über uns", "m-help": "Hilfe", "m-events": "Veranstaltungen", "m-knowledge": "Wissenszentrum", "m-announcements": "Ankündigungen", "m-volunteering": "Freiwilligenarbeit", "m-donate": "❤️ Donate", "m-contacts": "Kontakte", "nav-sub": "Ukrainisches Integrations- und Kulturzentrum Zürich", "nav-cta": "Hilfe erhalten",
     "f-title": "UAGZ Zürich", "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ", "fc1h": "Kontakt", "f-contact-info": "E-Mail: info@ukr-zurich.ch<br>Adresse: Zürich, Schweiz",
     
-    "nr-title": "Neue Realitäten des Status S in der Schweiz: Kurs auf Integration und geografische Einschränkungen",
+    "nr-title": "Mythen und Realität: Was passiert mit dem Status S in der Schweiz",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    /* DE TRANSLATION FOR NEW ARTICLE 0 */
+    "nr0-h1": "Mythen und Realität: Was passiert mit dem Status S in der Schweiz",
+    "nr0-p1": "Seit der Einführung des Schutzstatus S für ukrainische Flüchtlinge sind bereits einige Jahre vergangen. In dieser Zeit haben die Schweizer Gesellschaft, die kantonalen Behördenstrukturen und die Statusinhaber selbst einen enormen Anpassungsprozess durchlaufen. Kein Wunder, dass sich um die Zukunft dieser Rechtsnorm ständig zahlreiche Gerüchte ranken, die Ängste und Fragen aufwerfen.",
+    "nr0-sub1": "Gerücht 1. «Der Status S wird bald komplett abgeschafft und alle werden zurückgeschickt»",
+    "nr0-p2": "<strong>Woher das kommt:</strong> Periodische Diskussionen im Schweizer Bundesrat darüber, dass der Status S ursprünglich als temporäres Instrument des Notesschutzes gedacht war, schüren Panik in den sozialen Medien. Die Leute befürchten eine abrupte Beendigung des Programms.",
+    "nr0-p3": "<strong>Was tatsächlich ist:</strong> Der Bundesrat hat die Geltung des Status S offiziell bis zum 4. März 2027 verlängert und damit seine Stabilität untermauert. Gleichzeitig diskutiert die Regierung offen über langfristige Szenarien für die Zeit nach diesem Termin, da sie erkennt, dass die Lage in der Ukraine weit von stabil entfernt ist.",
+    "nr0-li1": "Die Behörden planen keine Massendeportationen oder Zwangsrückführungen von Menschen in gefährliche Regionen.",
+    "nr0-li2": "Es werden zivile Alternativen für einen langfristigen Aufenthalt diskutiert. Beispielsweise wird die Möglichkeit erwogen, den Status S für diejenigen Ukrainer in eine reguläre Aufenthaltsbewilligung B (Permit B) umzuwandeln, die sich vollständig integriert haben, eine feste Arbeit gefunden haben, finanziell unabhängig von der Sozialhilfe sind und die Landessprache fliessend beherrschen.",
+    "nr0-sub2": "Gerücht 2. «Die Verschärfung der Regeln betrifft absolut jeden ausnahmslos»",
+    "nr0-p4": "<strong>Woher das kommt:</strong> Nachrichten über die Einführung neuer geografischer Einschränkungen und Beschäftigungsanforderungen versetzen Neuankömmlinge und bereits etablierte Personen in Schrecken.",
+    "nr0-p5": "<strong>Was tatsächlich ist:</strong> Die Schweiz überprüft ihre Migrationspolitik in der Tat punktuell, indem sie strengere Kriterien für neue Antragsteller und bestimmte Rahmenbedingungen für Personen einführt, die sich bereits im Land befinden:",
+    "nr0-li3": "<strong>Geografische Einschränkungen:</strong> Personen, die ihren letzten Wohnsitz in sieben westlichen Regionen der Ukraine hatten, erhalten den Status S nicht mehr automatisch.",
+    "nr0-li4": "<strong>Beschäftigungsquote:</strong> Für erwerbstätige Ukrainer wurde ein Zielwert für die Beschäftigung von 40% festgelegt.",
+    "nr0-li5": "<strong>Heimatreisen:</strong> Besuche in der Heimat sind auf 15 Tage pro Halbjahr beschränkt.",
+    "nr0-sub3": "Gerücht 3. «Männer im wehrfähigen und mobilisierungsfähigen Alter werden auf Anfrage massenhaft deportiert»",
+    "nr0-p6": "<strong>Woher das kommt:</strong> Eines der schmerzhaftesten und am meisten diskutierten Gerüchte in den Schweizer Chats betrifft die mögliche Auslieferung von Männern im Mobilisierungsalter.",
+    "nr0-p7": "<strong>Was tatsächlich is:</strong> Die Schweiz ist ein Rechtsstaat, der strikt im Rahmen des Völkerrechts handelt. Derzeit garantiert der Status S weiterhin Schutz vor Ausweisung, obwohl derzeit mögliche Einschränkungen für wehrpflichtige Männer diskutiert werden.",
+    "nr0-sub4": "Gerücht 4. «Die Kantone werden die Finanzierung kürzen und es wird unmöglich sein zu leben»",
+    "nr0-p8": "<strong>Woher das kommt:</strong> Informationen über die Überprüfung der Kantonsfinanzierung für langfristige Inhaber des Status S werden als Signal für eine vollständige Einstellung der Zahlungen aufgefasst.",
+    "nr0-p9": "<strong>Was tatsächlich ist:</strong> Der Bund plant, die Finanzierung der Kantone für Personen mit langjährigem Status S zu überprüfen, um die Ausgaben zu optimieren und sich auf die langfristige Integration zu konzentrieren.",
+    "nr0-sub5": "Fazit",
+    "nr0-p10": "Die Situation um den Status S in der Schweiz bleibt unter Kontrolle, ungeachtet vieler Spekulationen und Diskussionen über Zukunftsszenarien nach März 2027. Der Haupttrend der Schweizer Politik ist heute Pragmatismus: Der Staat passt die Regeln an, indem er strengere Kriterien für die geografische Verteilung, Reisen und Beschäftigung einführt, während er gleichzeitig Wege zur Legitalisierung integrierter Personen über die reguläre Aufenthaltsbewilligung B prüft.",
     
     /* СЛОВАРЬ ДЛЯ СТАТЬИ 1 (ПОЛНЫЙ ПЕРЕВОД) */
     "nr-h1": "Neue Realitäten des Status S in der Schweiz: Kurs auf Integration und geografische Einschränkungen",
@@ -542,7 +639,7 @@ const T = {
     "nr-p15": "Die Schweiz bleibt humanitär und solidarisch mit der Ukraine, doch die Phase der «automatischen und bedingungslosen» Unterstützung hat sich in eine Ära des Pragmatismus gewandelt.",
     "nr-p16": "Für Ukrainer in der Schweiz bedeutet dies nur eines — die Zeit der Ungewissheit ist vorbei. Spracherwerb, offizielle Beschäftigung und die strikte Einhaltung der Migrationsregeln sind der einzige Schlüssel für einen sicheren Aufenthalt in der Eidgenossenschaft.",
 
-    /* НОВЫЙ СЛОВАРЬ ДЛЯ СТАТЬИ 2 (DE ТРAНСЛЯЦИЯ) */
+    /* НОВЫЙ СЛОВАРЬ ДЛЯ СТАТЬИ 2 (DE ТРАНСЛЯЦИЯ) */
     "nr2-h1": "Aktueller Stand und Perspektiven des Schutzstatus S in der Schweiz: Was ändert sich 2026",
     "nr2-p1": "Der im März 2022 als Reaktion auf die russische Invasion in der Ukraine eingeführte Schutzstatus S war ein beispielloser Schritt für das Schweizer Migrationssystem. Er ermöglichte Zehntausenden Ukrainern schnellen Schutz ohne langes Asylverfahren. Mitte 2026 befinden sich rund 72'000 Personen mit diesem Status im Land. Da der Krieg anhält und keine Aussichten auf einen dauerhaften Waffenstillstand bestehen, bereitet sich der Bundesrat aktiv auf die nächste Phase des Migrationsregimes vor.",
     "nr2-p2": "Der Schweizer Bundesrat hat offiziell ein umfassendes Konsultationsverfahren zur Zukunft des Status S für die Zeit nach März 2027 eingeleitet. Die endgültigen Entscheidungen über mögliche Verlängerungen und regulatorische Änderungen werden voraussichtlich Ende Sommer 2026 getroffen. Dieser Überblick beleuchtet die wichtigsten Herausforderungen, Szenarien und Änderungen, die auf staatlicher Ebene diskutiert werden.",
@@ -553,16 +650,16 @@ const T = {
     "nr2-p6": "<strong>Vollständige Aufhebung:</strong> Dieses Szenario wird nur bei einem dauerhaften und garantierten Frieden in Betracht gezogen. Humanitäre Organisationen betonen, dass eine Rückkehr erst nach dem Wiederaufbau der kritischen Infrastruktur (Spitäler, Strassen, Schulen) möglich ist. Die Schweiz koordiniert sich weiterhin eng mit der EU, um Sekundärmigration zu verhindern.",
     "nr2-sub2": "Übergang zu B-Ausweisen und Fragen der Sozialhilfe",
     "nr2-p7": "Ein wichtiger Meilenstein steht bevor: Im Frühjahr 2027 ist es fünf Jahre her, dass die erste Flüchtlingswelle Anfang 2022 in der Schweiz eintraf. Nach dem Schweizer Asylgesetz haben Personen, die sich seit fünf Jahren ununterbrochen mit dem Status S im Land aufhalten, Anspruch auf einen Aufenthaltstitel des Typs B (B-Ausweis), der an den vorübergehenden Schutz gekoppelt bleibt.",
-    "nr2-p8": "Gleichzeitig sieht das vom Parlament verabschiedete Finanzsparpaket für 2027 eine Änderung der Bundesfinanzierung vor. Ab März 2027 zahlt der Bund den Kantonen keine Pauschalen mehr für Personen, die sich länger als uns Jahre im Schutzstatus befinden. Der Bundesrat schlägt daher vor, den Kantonen und Gemeinden mehr Ermessensspielraum zu geben, damit sie die Höhe und Standards der Sozialhilfe für diese Kategorie selbst festlegen können. Die Schweizerische Flüchtlingshilfe äußert sich besorgt und warnt vor ungleichen Unterstützungsbedingungen in den verschiedenen Regionen.",
+    "nr2-p8": "Gleichzeitig sieht das vom Parlament verabschiedete Finanzsparpaket für 2027 eine Änderung der Bundesfinanzierung vor. Ab März 2027 zahlt der Bund den Kantonen keine Pauschalen mehr für Personen, die sich länger als fünf Jahre im Schutzstatus befinden. Der Bundesrat schlägt daher vor, den Kantonen und Gemeinden mehr Ermessensspielraum zu geben, damit sie die Höhe und Standards der Sozialhilfe für diese Kategorie selbst festlegen können. Die Schweizerische Flüchtlingshilfe äußert sich besorgt und warnt vor ungleichen Unterstützungsbedingungen in den verschiedenen Regionen.",
     "nr2-sub3": "Diskussion über Einschränkungen für wehrpflichtige Männer",
     "nr2-p9": "Eines der umstrittensten Themen der laufenden Konsultationen ist die mögliche Einführung von Einschränkungen des Schutzstatus für ukrainische Männer im wehrfähigen Alter. Diese Frage wird sowohl auf EU-Ebene als auch in der Schweiz diskutiert.",
     "nr2-p10": "Ein offizieller Beschluss zur Änderung der Allgemeinverfügung über den vorübergehenden Schutz steht noch aus und hängt von den Ergebnissen des langwierigen Konsultationsprozesses ab. Menschenrechtsaktivisten und die Schweizerische Flüchtlingshilfe lehnen solche Einschränkungen vehement ab. Sie betonen, dass Schutz nach humanitären Kriterien unabhängig von Geschlecht und Alter gewährt werden muss und der Ausschluss von Wehrpflichtigen zu einer künstlichen Trennung von Familien führen könnte.",
     "nr2-sub4": "Arbeitsmarktintegration und Reiseregeln",
     "nr2-p11": "Im vergangenen Jahr wurden die Migrationsregeln für Inhaber des Status S angepasst:",
-    "nr2-li1": "<strong>Erwerbstätigkeit:</strong> Das Bewilligungsverfahren für den Arbeitsmarkt wurde vereinfacht – das alte Verfahren wurde durch eine einfache Meldepflicht beim Stellenantritt oder bei der Beendigung einer Erwerbstätigkeit (auch selbstständigen Arbeit) ersetzt. Dies fördert die wirtschaftliche Teilhabe der Ukrainer.",
+    "nr2-li1": "<strong>Erwerbstätigkeit:</strong> Das Bewilligungsverfahren für den Arbeitsmarkt wurde vereinfacht – das alte Verfahren durch eine einfache Meldepflicht beim Stellenantritt oder bei der Beendigung einer Erwerbstätigkeit ersetzt. Dies fördert die wirtschaftliche Teilhabe der Ukrainer.",
     "nr2-li2": "<strong>Reisen in die Ukraine:</strong> Heimatreisen sind klar reglementiert. Die erlaubte Aufenthaltsdauer in der Ukraine beträgt maximal 15 Tage pro Halbjahr. Der Gesamtaufenthalt außerhalb der Schweiz ohne Risiko des Statusverlusts ist auf zwei Monate begrenzt. Verstöße können zum sofortigen Widerruf des Schutzstatus führen.",
     "nr2-sub5": "Fazit",
-    "nr2-p12": "Der Status S in der Schweiz geht im Jahr 2026 in eine phase der langfristigen Planung über. Trotz bevorstehender Änderungen bei der Sozialfinanzierung, den Debatten über Wehrpflichtige und den Herausforderungen des langfristigen Integrationsprozesses bleibt die Hauptpriorität des Staates unverändert: Gewährleistung von Sicherheit, Vorhersehbarkeit und stabilen Bedingungen für diejenigen, die auf Schweizer Boden Schutz vor dem Krieg gefunden haben."
+    "nr2-p12": "Der Status S in der Schweiz geht im Jahr 2026 in eine Phase der langfristigen Planung über. Trotz bevorstehender Änderungen bei der Sozialfinanzierung, den Debatten über Wehrpflichtige und den Herausforderungen des langfristigen Integrationsprozesses bleibt die Hauptpriorität des Staates unverändert: Gewährleistung von Sicherheit, Vorhersehbarkeit und stabilen Bedingungen für diejenigen, die auf Schweizer Boden Schutz vor dem Krieg gefunden haben."
   }
 };
 

@@ -144,11 +144,11 @@
 </head>
 <body>
 
-    <!-- Шапка в одну строку -->
-    <header style="background: #ffffff; border-bottom: 1px solid #E2E8F0; padding: 12px 24px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-        <div style="max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+    <!-- Шапка в два ряда точь-в-точь как на скриншоте -->
+    <header style="background: #ffffff; border-bottom: 1px solid #E2E8F0; padding: 14px 24px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <div style="max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px;">
             
-            <!-- Логотип и подпись -->
+            <!-- Логотип и подпись слева -->
             <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 12px; flex-shrink: 0;">
                 <div style="display: flex; flex-direction: column; gap: 2px;">
                     <div style="display: flex; width: 32px; height: 12px; border-radius: 2px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
@@ -161,30 +161,38 @@
                 </div>
                 <div>
                     <span style="font-size: 22px; font-weight: 800; color: #1A56C4; letter-spacing: -0.5px; display: block; line-height: 1.1;">UAGZ</span>
-                    <span style="font-size: 11px; color: #718096; white-space: nowrap;">Український інтеграційний та громадський центр Цюриха</span>
+                    <span style="font-size: 11px; color: #718096; white-space: nowrap;" data-i18n="logo_sub">Український інтеграційний та громадський центр Цюриха</span>
                 </div>
             </a>
 
-            <!-- Меню в одну строку -->
-            <nav style="display: flex; align-items: center; gap: 16px; flex-wrap: nowrap;">
-                <a href="index.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Головна</a>
-                <a href="about.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Про нас</a>
-                <a href="help.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Допомога</a>
-                <a href="events.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Заходи</a>
-                <a href="knowledge.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Центр знань</a>
-                <a href="announcements.html" style="text-decoration: none; color: #1A56C4; font-size: 14px; font-weight: 700;">Оголошення</a>
-                <a href="volunteering.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Волонтерство</a>
-                <a href="donate.html" style="text-decoration: none; color: #DA291C; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 4px;">❤️ Донат</a>
-                <a href="contacts.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" onmouseover="this.style.color='#1A56C4'" onmouseout="this.style.color='#4A5568'">Контакти</a>
+            <!-- Двухэтажное меню по центру -->
+            <nav style="display: flex; flex-direction: column; gap: 6px; flex-grow: 1; max-width: 650px;">
+                <!-- Первый ряд ссылок -->
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <a href="index.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_home">Головна</a>
+                    <a href="about.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_about">Про нас</a>
+                    <a href="help.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_help">Допомога</a>
+                    <a href="events.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_events">Заходи</a>
+                    <a href="knowledge.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_knowledge">Центр знань</a>
+                </div>
+                <!-- Второй ряд ссылок -->
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <a href="announcements.html" style="text-decoration: none; color: #1A56C4; font-size: 14px; font-weight: 700;" data-i18n="menu_announcements">Оголошення</a>
+                    <a href="volunteering.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_volunteering">Волонтерство</a>
+                    <a href="donate.html" style="text-decoration: none; color: #DA291C; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 4px;" data-i18n="menu_donate">❤️ Донат</a>
+                    <a href="contacts.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_contacts">Контакти</a>
+                </div>
             </nav>
 
-            <!-- Переключатель языков и кнопка -->
+            <!-- Переключатель языков и кнопка справа -->
             <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+                <!-- Капсула языков UA / DE -->
                 <div style="display: flex; background: #EDF2F7; border-radius: 6px; padding: 2px;">
-                    <button style="background: #ffffff; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 700; color: #1A56C4; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">UA</button>
-                    <button style="background: transparent; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 500; color: #718096; cursor: pointer;">DE</button>
+                    <button id="btn-ua" onclick="setLanguage('ua')" style="background: #ffffff; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 700; color: #1A56C4; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">UA</button>
+                    <button id="btn-de" onclick="setLanguage('de')" style="background: transparent; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 500; color: #718096; cursor: pointer;">DE</button>
                 </div>
-                <a href="help.html" style="background-color: #1A56C4; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(26, 86, 196, 0.25);" onmouseover="this.style.backgroundColor='#14439c'" onmouseout="this.style.backgroundColor='#1A56C4'">
+                <!-- Кнопка действия -->
+                <a href="help.html" style="background-color: #1A56C4; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(26, 86, 196, 0.25);" data-i18n="btn_get_help">
                     Отримати допомогу
                 </a>
             </div>
@@ -194,78 +202,178 @@
 
     <!-- Основное содержимое страницы -->
     <main>
-        <h1>Актуальні оголошення</h1>
-        <p class="subtitle">Слідкуйте за найважливішими новинами, подіями та можливостями нашого центру.</p>
+        <h1 data-i18n="page_title">Актуальні оголошення</h1>
+        <p class="subtitle" data-i18n="page_subtitle">Слідкуйте за найважливішими новинами, подіями та можливостями нашого центру.</p>
 
         <div class="announcements-grid">
-            <!-- Карточка 1 -->
             <div class="announcement-card">
                 <div>
                     <div class="card-date">21 липня 2026</div>
-                    <h3 class="card-title">Відкриття реєстрації на курси німецької мови (А1-В2)</h3>
-                    <p class="card-desc">Розпочинається набір у нові групи з вивчення німецької мови для дорослих. Заняття проходять у центрі Цюриха досвідченими викладачами.</p>
+                    <h3 class="card-title" data-i18n="card_1_title">Відкриття реєстрації на курси німецької мови (А1-В2)</h3>
+                    <p class="card-desc" data-i18n="card_1_desc">Розпочинається набір у нові групи з вивчення німецької мови для дорослих. Заняття проходять у центрі Цюриха досвідченими викладачами.</p>
                 </div>
-                <a href="#" class="card-link">Детальніше &rarr;</a>
+                <a href="#" class="card-link" data-i18n="card_link">Детальніше &rarr;</a>
             </div>
 
-            <!-- Карточка 2 -->
             <div class="announcement-card">
                 <div>
                     <div class="card-date">18 липня 2026</div>
-                    <h3 class="card-title">Юридичні консультації для новоприбывших</h3>
-                    <p class="card-desc">У середу відбудеться безкоштовна консультація з питань оформлення статусів та інтеграційного законодавства у Швейцарії.</p>
+                    <h3 class="card-title" data-i18n="card_2_title">Юридичні консультації для новоприбывших</h3>
+                    <p class="card-desc" data-i18n="card_2_desc">У середу відбудеться безкоштовна консультація з питань оформлення статусів та інтеграційного законодавства у Швейцарії.</p>
                 </div>
-                <a href="#" class="card-link">Детальніше &rarr;</a>
+                <a href="#" class="card-link" data-i18n="card_link">Детальніше &rarr;</a>
             </div>
 
-            <!-- Карточка 3 -->
             <div class="announcement-card">
                 <div>
                     <div class="card-date">15 липня 2026</div>
-                    <h3 class="card-title">Дитячий клуб вихідного дня: творчі майстер-класи</h3>
-                    <p class="card-desc">Запрошуємо дітей на захоплюючі розвиваючі заняття та майстер-класи цього тижня. Кількість місць обмежена.</p>
+                    <h3 class="card-title" data-i18n="card_3_title">Дитячий клуб вихідного дня: творчі майстер-класи</h3>
+                    <p class="card-desc" data-i18n="card_3_desc">Запрошуємо дітей на захоплюючі розвиваючі заняття та майстер-класи цього тижня. Кількість місць обмежена.</p>
                 </div>
-                <a href="#" class="card-link">Детальніше &rarr;</a>
+                <a href="#" class="card-link" data-i18n="card_link">Детальніше &rarr;</a>
             </div>
         </div>
     </main>
 
-    <!-- Футер с подключенной формой подписки Formspree -->
+    <!-- Футер -->
     <footer>
         <div class="footer-container">
             <div class="footer-col" style="flex: 1.5;">
                 <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 12px;">UAGZ</h4>
-                <p>Український інтеграційний та громадський центр у Цюриху. Допомагаємо адаптуватися, розвиватися та бути разом.</p>
+                <p data-i18n="footer_about">Український інтеграційний та громадський центр у Цюриху. Допомагаємо адаптуватися, розвиватися та бути разом.</p>
             </div>
             
             <div class="footer-col">
-                <h4>Швидкі посилання</h4>
+                <h4 data-i18n="footer_links_title">Швидкі посилання</h4>
                 <ul>
-                    <li><a href="about.html">Про нас</a></li>
-                    <li><a href="help.html">Допомога</a></li>
-                    <li><a href="events.html">Заходи</a></li>
-                    <li><a href="contacts.html">Контакти</a></li>
+                    <li><a href="about.html" data-i18n="menu_about">Про нас</a></li>
+                    <li><a href="help.html" data-i18n="menu_help">Допомога</a></li>
+                    <li><a href="events.html" data-i18n="menu_events">Заходи</a></li>
+                    <li><a href="contacts.html" data-i18n="menu_contacts">Контакти</a></li>
                 </ul>
             </div>
 
-            <!-- Блок подписки на новости с интеграцией Formspree -->
+            <!-- Блок подписки Formspree -->
             <div style="flex: 2; min-width: 280px; margin-bottom: 15px;">
-                <h4 style="margin: 0 0 6px 0; font-size: 15px; font-weight: 600; color: #ffffff;" id="f-sub-title">Підпишіться на новини</h4>
-                <p style="margin: 0 0 12px 0; color: #A0AEC0; font-size: 13px;" id="f-sub-desc2">Будьте в курсі наших подій та новин</p>
+                <h4 style="margin: 0 0 6px 0; font-size: 15px; font-weight: 600; color: #ffffff;" data-i18n="footer_sub_title">Підпишіться на новини</h4>
+                <p style="margin: 0 0 12px 0; color: #A0AEC0; font-size: 13px;" data-i18n="footer_sub_desc">Будьте в курсі наших подій та новин</p>
                 
                 <form action="https://formspree.io/f/maqrbboy" method="POST" style="display: flex; background-color: #ffffff; border-radius: 6px; padding: 3px; width: 100%; max-width: 340px; box-sizing: border-box;">
-                    <input type="email" name="email" placeholder="Ваш email" required style="flex: 1; border: none; padding: 8px 10px; font-size: 13px; outline: none; border-radius: 4px 0 0 4px; color: #4A5568;">
-                    <button type="submit" style="background-color: #1A56C4; color: #ffffff; border: none; padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap;">
+                    <input type="email" name="email" placeholder="Ваш email" id="footer-input" required style="flex: 1; border: none; padding: 8px 10px; font-size: 13px; outline: none; border-radius: 4px 0 0 4px; color: #4A5568;">
+                    <button type="submit" style="background-color: #1A56C4; color: #ffffff; border: none; padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap;" data-i18n="footer_btn_sub">
                         Підписатися
                     </button>
                 </form>
             </div>
         </div>
         
-        <div class="footer-bottom">
+        <div class="footer-bottom" data-i18n="footer_rights">
             &copy; 2026 UAGZ Zurich. Всі права захищені.
         </div>
     </footer>
 
+    <!-- Скрипт переключения языков (UA / DE) -->
+    <script>
+        const translations = {
+            ua: {
+                logo_sub: "Український інтеграційний та громадський центр Цюриха",
+                menu_home: "Головна",
+                menu_about: "Про нас",
+                menu_help: "Допомога",
+                menu_events: "Заходи",
+                menu_knowledge: "Центр знань",
+                menu_announcements: "Оголошення",
+                menu_volunteering: "Волонтерство",
+                menu_donate: "❤️ Донат",
+                menu_contacts: "Контакти",
+                btn_get_help: "Отримати допомогу",
+                page_title: "Актуальні оголошення",
+                page_subtitle: "Слідкуйте за найважливішими новинами, подіями та можливостями нашого центру.",
+                card_1_title: "Відкриття реєстрації на курси німецької мови (А1-В2)",
+                card_1_desc: "Розпочинається набір у нові групи з вивчення німецької мови для дорослих. Заняття проходять у центрі Цюриха досвідченими викладачами.",
+                card_2_title: "Юридичні консультації для новоприбывших",
+                card_2_desc: "У середу відбудеться безкоштовна консультація з питань оформлення статусів та інтеграційного законодавства у Швейцарії.",
+                card_3_title: "Дитячий клуб вихідного дня: творчі майстер-класи",
+                card_3_desc: "Запрошуємо дітей на захоплюючі розвиваючі заняття та майстер-класи цього тижня. Кількість місць обмежена.",
+                card_link: "Детальніше →",
+                footer_about: "Український інтеграційний та громадський центр у Цюриху. Допомагаємо адаптуватися, розвиватися та бути разом.",
+                footer_links_title: "Швидкі посилання",
+                footer_sub_title: "Підпишіться на новини",
+                footer_sub_desc: "Будьте в курсі наших подій та новин",
+                footer_btn_sub: "Підписатися",
+                footer_rights: "© 2026 UAGZ Zurich. Всі права захищені."
+            },
+            de: {
+                logo_sub: "Ukrainisches Integrations- und Gemeinschaftszentrum Zürich",
+                menu_home: "Startseite",
+                menu_about: "Über uns",
+                menu_help: "Hilfe",
+                menu_events: "Veranstaltungen",
+                menu_knowledge: "Wissenszentrum",
+                menu_announcements: "Ankündigungen",
+                menu_volunteering: "Freiwilligenarbeit",
+                menu_donate: "❤️ Spenden",
+                menu_contacts: "Kontakt",
+                btn_get_help: "Hilfe erhalten",
+                page_title: "Aktuelle Ankündigungen",
+                page_subtitle: "Verfolgen Sie die wichtigsten Nachrichten, Veranstaltungen und Angebote unseres Zentrums.",
+                card_1_title: "Anmeldung für Deutschkurse geöffnet (A1-B2)",
+                card_1_desc: "Die Anmeldung für neue Deutschkurse für Erwachsene hat begonnen. Der Unterricht findet im Zentrum von Zürich statt.",
+                card_2_title: "Rechtsberatung für Neuankömmlinge",
+                card_2_desc: "Am Mittwoch findet eine kostenlose Beratung zu Statusfragen und Integrationsrecht in der Schweiz statt.",
+                card_3_title: "Kinder-Wochenendclub: Kreative Workshops",
+                card_3_desc: "Wir laden Kinder zu spannenden Entwicklungsaktivitäten und Workshops in dieser Woche ein. Die Plätze sind begrenzt.",
+                card_link: "Mehr erfahren →",
+                footer_about: "Ukrainisches Integrations- und Gemeinschaftszentrum in Zürich. Wir helfen bei der Anpassung und Weiterentwicklung.",
+                footer_links_title: "Schnellinks",
+                footer_sub_title: "Für Newsletter anmelden",
+                footer_sub_desc: "Bleiben Sie über unsere Veranstaltungen informiert",
+                footer_btn_sub: "Abonnieren",
+                footer_rights: "© 2026 UAGZ Zurich. Alle Rechte vorbehalten."
+            }
+        };
+
+        function setLanguage(lang) {
+            // Переключение стилей кнопок языка
+            const btnUa = document.getElementById('btn-ua');
+            const btnDe = document.getElementById('btn-de');
+            
+            if (lang === 'de') {
+                btnDe.style.background = '#ffffff';
+                btnDe.style.fontWeight = '700';
+                btnDe.style.color = '#1A56C4';
+                btnDe.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
+                
+                btnUa.style.background = 'transparent';
+                btnUa.style.fontWeight = '500';
+                btnUa.style.color = '#718096';
+                btnUa.style.boxShadow = 'none';
+            } else {
+                btnUa.style.background = '#ffffff';
+                btnUa.style.fontWeight = '700';
+                btnUa.style.color = '#1A56C4';
+                btnUa.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
+                
+                btnDe.style.background = 'transparent';
+                btnDe.style.fontWeight = '500';
+                btnDe.style.color = '#718096';
+                btnDe.style.boxShadow = 'none';
+            }
+
+            // Замена текста по атрибуту data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Замена плейсхолдера для поля email
+            const inputField = document.getElementById('footer-input');
+            if (inputField) {
+                inputField.placeholder = lang === 'de' ? 'Ihre E-Mail' : 'Ваш email';
+            }
+        }
+    </script>
 </body>
 </html>

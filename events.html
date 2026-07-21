@@ -103,6 +103,18 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   letter-spacing: 0.5px;
 }
 
+/* Блок иконки по центру сверху */
+.event-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.event-icon-container img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
 /* Цветовые стили категорий */
 .cat-kids { background: var(--purple-bg); color: var(--purple); }
 .cat-sport { background: var(--green-bg); color: var(--green); }
@@ -115,11 +127,13 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   margin-bottom: 10px;
   color: #1A56C4;
   line-height: 1.4;
+  text-align: center;
 }
 .event-body p {
   color: var(--text2);
   font-size: 14px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Кнопка действия внутри карточки */
@@ -222,8 +236,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
           <div class="event-date-badge" id="ev-date-1">30 ТРА<br><span style="font-size:11px;font-weight:400">18:00</span></div>
           <span class="event-category cat-edu" id="cat-1">Освіта</span>
         </div>
+        <div class="event-icon-container">
+          <img src="events-icon1.webp" alt="Розмовний клуб">
+        </div>
         <div class="event-body">
-          <h3 id="ev-title-1">☕ Розмовний клуб (Німецька мова)</h3>
+          <h3 id="ev-title-1">Розмовний клуб (Німецька мова)</h3>
           <p id="ev-desc-1">Практика спілкування для рівнів A2-B1. Зустріч у затишній атмосфері за кавою.</p>
         </div>
       </div>
@@ -240,8 +257,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
           <div class="event-date-badge" id="ev-date-2">03 ЧЕР<br><span style="font-size:11px;font-weight:400">15:00</span></div>
           <span class="event-category cat-creative" id="cat-2">Діти</span>
         </div>
+        <div class="event-icon-container">
+          <img src="events-icon2.webp" alt="Творча майстерня">
+        </div>
         <div class="event-body">
-          <h3 id="ev-title-2">🎨 Творча майстерня для дітей</h3>
+          <h3 id="ev-title-2">Творча майстерня для дітей</h3>
           <p id="ev-desc-2">Малювання та ліпка для дітей віком 6-12 років. Всі матеріали надаються центром.</p>
         </div>
       </div>
@@ -258,8 +278,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
           <div class="event-date-badge" style="background: var(--purple-bg); color: var(--purple);" id="ev-date-3">СТАРТ<br><span style="font-size:11px;font-weight:400">З червня</span></div>
           <span class="event-category cat-kids" id="cat-3">Студія</span>
         </div>
+        <div class="event-icon-container">
+          <img src="events-icon3.webp" alt="Театральна студія">
+        </div>
         <div class="event-body">
-          <h3 id="ev-title-3">🎭 Дитяча театральна студія</h3>
+          <h3 id="ev-title-3">Дитяча театральна студія</h3>
           <p id="ev-desc-3">Триває набір дітей віком 7-14 років. Акторська майстерність, сценічна мова та виступи на сцені у Цюриху!</p>
         </div>
       </div>
@@ -276,8 +299,11 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
           <div class="event-date-badge" style="background: var(--green-bg); color: var(--green);" id="ev-date-4">НАБІР<br><span style="font-size:11px;font-weight:400">Групи</span></div>
           <span class="event-category cat-sport" id="cat-4">Спорт</span>
         </div>
+        <div class="event-icon-container">
+          <img src="events-icon4.webp" alt="Секція плавання">
+        </div>
         <div class="event-body">
-          <h3 id="ev-title-4">🏊‍♂️ Секція плавання для дітей</h3>
+          <h3 id="ev-title-4">Секція плавання для дітей</h3>
           <p id="ev-desc-4">Навчання плаванню та вдосконалення навичок для дітей різного віку під керівництвом досвідченого тренера.</p>
         </div>
       </div>
@@ -323,28 +349,28 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     
     "cat-1": "Освіта",
     "ev-date-1": "30 ТРА<br><span style='font-size:11px;font-weight:400'>18:00</span>",
-    "ev-title-1": "☕ Розмовний клуб (Німецька мова)",
+    "ev-title-1": "Розмовний клуб (Німецька мова)",
     "ev-desc-1": "Практика спілкування для рівнів A2-B1. Зустріч у затишній атмосфері за кавою.",
     "ev-loc-1": "📍 Центр UAGZ",
     "btn-reg-1": "Записатися ➔",
     
     "cat-2": "Діти",
     "ev-date-2": "03 ЧЕР<br><span style='font-size:11px;font-weight:400'>15:00</span>",
-    "ev-title-2": "🎨 Творча майстерня для дітей",
+    "ev-title-2": "Творча майстерня для дітей",
     "ev-desc-2": "Малювання та ліпка для дітей віком 6-12 років. Всі матеріали надаються центром.",
     "ev-loc-2": "📍 Центр UAGZ",
     "btn-reg-2": "Записатися ➔",
 
     "cat-3": "Студія",
     "ev-date-3": "СТАРТ<br><span style='font-size:11px;font-weight:400'>З червня</span>",
-    "ev-title-3": "🎭 Дитяча театральна студія",
+    "ev-title-3": "Дитяча театральна студія",
     "ev-desc-3": "Триває набір дітей віком 7-14 років. Акторська майстерність, сценічна мова та виступи на сцені у Цюриху!",
     "ev-loc-3": "📍 Зал центру",
     "btn-reg-3": "Подати заявку ➔",
 
     "cat-4": "Спорт",
     "ev-date-4": "НАБІР<br><span style='font-size:11px;font-weight:400'>Групи</span>",
-    "ev-title-4": "🏊‍♂️ Секція плавання для дітей",
+    "ev-title-4": "Секція плавання для дітей",
     "ev-desc-4": "Навчання плаванню та вдосконалення навичок для дітей різного віку під керівництвом досвідченого тренера.",
     "ev-loc-4": "📍 Басейн у Цюриху",
     "btn-reg-4": "Записатися ➔",
@@ -371,28 +397,28 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     
     "cat-1": "Bildung",
     "ev-date-1": "30. MAI<br><span style='font-size:11px;font-weight:400'>18:00</span>",
-    "ev-title-1": "☕ Sprachcafé (Deutsch)",
+    "ev-title-1": "Sprachcafé (Deutsch)",
     "ev-desc-1": "Kommunikationspraxis für die Niveaustufen A2-B1. Treffen in gemütlicher Atmosphäre bei Kaffee.",
     "ev-loc-1": "📍 Zentrum UAGZ",
     "btn-reg-1": "Anmelden ➔",
     
     "cat-2": "Kinder",
     "ev-date-2": "03. JUNI<br><span style='font-size:11px;font-weight:400'>15:00</span>",
-    "ev-title-2": "🎨 Kreativ-Workshop für Kinder",
+    "ev-title-2": "Kreativ-Workshop für Kinder",
     "ev-desc-2": "Malen und Kneten für Kinder von 6 bis 12 Jahren. Alle Materialien werden vom Zentrum bereitgestellt.",
     "ev-loc-2": "📍 Zentrum UAGZ",
     "btn-reg-2": "Anmelden ➔",
 
     "cat-3": "Studio",
     "ev-date-3": "START<br><span style='font-size:11px;font-weight:400'>Ab Juni</span>",
-    "ev-title-3": "🎭 Kinder-Theaterstudio",
+    "ev-title-3": "Kinder-Theaterstudio",
     "ev-desc-3": "Anmeldung für Kinder von 7 bis 14 Jahren läuft. Schauspiel, Bühnensprache und Auftritte in Zürich!",
     "ev-loc-3": "📍 Zentrumsaal",
     "btn-reg-3": "Anfragen ➔",
 
     "cat-4": "Sport",
     "ev-date-4": "KURSE<br><span style='font-size:11px;font-weight:400'>Offen</span>",
-    "ev-title-4": "🏊‍♂️ Schwimmkurs für Kinder",
+    "ev-title-4": "Schwimmkurs für Kinder",
     "ev-desc-4": "Schwimmunterricht und Training für Kinder verschiedenen Alters unter Anleitung erfahrener Trainer.",
     "ev-loc-4": "📍 Hallenbad Zürich",
     "btn-reg-4": "Anmelden ➔",

@@ -15,6 +15,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+<style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 html, body {
@@ -36,6 +37,27 @@ body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:
 a{text-decoration:none;color:inherit}
 img{display:block;width:100%;height:100%;object-fit:cover}
 button{font-family:'Inter',sans-serif;cursor:pointer}
+
+@keyframes softPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(26, 86, 196, 0.4);
+  }
+  70% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 6px rgba(26, 86, 196, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(26, 86, 196, 0);
+  }
+}
+
+.pulse-knowledge {
+  animation: softPulse 2.5s infinite ease-in-out;
+  background-color: var(--blue-light);
+  border-radius: 6px;
+}
 
 /* ─── НАШИ НОВЫЕ СТИЛИ ДЛЯ ВЫПАДАЮЩИХ ОКОН ─── */
 .svc {
@@ -722,7 +744,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a></li>
     <li><a href="help.html" id="nl-3" data-translate="nl-3">Допомога</a></li>
     <li><a href="events.html" id="nl-4" data-translate="nl-4">Події</a></li>
-    <li><a href="knowledge.html" id="nav-knowledge" data-translate="nav-knowledge">Центр знань</a></li>
+    <li><a href="knowledge.html" class="pulse-knowledge" id="nav-knowledge" data-translate="nav-knowledge">Центр знань</a></li>
     <li><a href="announcements.html" id="nav-announcements" data-translate="nav-announcements">Оголошення</a></li>
     <li><a href="volunteering.html" id="nav-volunteering" data-translate="nav-volunteering">Волонтерство</a></li>
     <li><button class="btn-donate-nav" id="btn-donate-nav" data-translate="nav-donate">Donate</button></li>

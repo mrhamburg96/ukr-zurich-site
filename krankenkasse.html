@@ -635,7 +635,7 @@
 
   <!-- СКРИПТЫ -->
   <script>
-    // Встроенный словарь переводов (БЕЗ использования внешних JSON файлов)
+  // Встроенный словарь переводов (БЕЗ использования внешних JSON файлов)
     const translations = {
       ua: {
         nav_sub: "Український інтеграційний та громадський центр Цюриха",
@@ -702,6 +702,27 @@
         art1_mod_li1: "<strong>Стандартна модель (Standard):</strong> Дозволяє звертатися напряму до будь-якого лікаря загальної практики чи профільних спеціалістів, проте коштує найдорожче.",
         art1_mod_li2: "<strong>Модель сімейного лікаря (Hausarzt-Modell):</strong> Ви зобов'язані спочатку звертатися до обраного сімейного лікаря (Hausarzt), який за необхідності спрямовує вас до профільних клінік. Це забезпечує знижку на премію.",
         art1_mod_li3: "<strong>Модель телемедицини (Telmed):</strong> Перед будь-яким візитом до лікаря ви зобов'язані зателефонувати на спеціальну медичну гарячу лінію своєї страхової компанії для консультації.",
+        
+        // Новая статья: Спеціальний перелік SL у Швейцарії
+        art3_date: "16.07.2026",
+        art3_title: "Спеціальний перелік SL у Швейцарії: що покриває кранкенкасса",
+        art3_p1: "Обов'язкове медичне страхування (Grundversicherung) у Швейцарії покриває витрати лише на медикаменти, включені до офіційного державного переліку — Spezialitätenliste (SL).",
+        art3_h4_1: "Що таке список SL та як він працює?",
+        art3_li1: "<strong>Критерії включення:</strong> Федеральний офіс громадського здоров'я (BAG) додає препарати до цього реєстру виключно за умови їхньої ефективності, доцільності та економічності.",
+        art3_li2: "<strong>Покриття витрат:</strong> Ліки з переліку SL оплачуються страховою компанією за вирахуванням вашої франшизи та франко (особистої участі), яка зазвичай становить 10% (або 20% для оригінальних препаратів за наявності дешевших дженериків).",
+        art3_li3: "<strong>Обмеження (Limitatio):</strong> Деякі позиції зі списку покриваються касою лише у разі чітко визначених діагнозів або після попереднього погодження з довіреним лікарем страхової.",
+        art3_h4_2: "Основні групи препаратів у списку SL:",
+        art3_g_li1: "<strong>Рецептурні медикаменти:</strong> Засоби для лікування гострих та хронічних захворювань (кардіологічні, гіпертонічні, протидіабетичні препарати, антибіотики тощо), схвалені регулятором Swissmedic.",
+        art3_g_li2: "<strong>Дженерики:</strong> Економічні аналоги оригінальних ліків з тим самим активним компонентом, які активно підтримуються швейцарською системою охорони здоров'я для економії коштів пацієнтів.",
+        art3_g_li3: "<strong>Онкологічні та спеціалізовані препарати:</strong> Дорогі ліки для складної та спеціалізованої терапії, що пройшли сувору перевірку рентабельності.",
+        art3_g_li4: "<strong>Препарати для редких захворювань (Orphan Drugs):</strong> Медикаменти для лікування рідкісних хвороб, які часто мають високу вартість, але після спеціальної оцінки BAG також включаються в SL для забезпечення пацієнтів життєво важливим лікуванням.",
+        art3_g_li5: "<strong>Комбіновані та багатокомпонентні препарати:</strong> Засоби, що містять кілька активних речовин, схвалені для лікування складних або сочетанних патологій.",
+        art3_g_li6: "<strong>Педиатричні форми лекарств:</strong> Спеціальні дозування, сиропи або суспензії, адаптовані спеціально для дітей, якщо їх застосування обґрунтоване медичними протоколами.",
+        art3_g_li7: "<strong>Фітотерапія та альтернативні засоби:</strong> Окремі рослинні препарати, чия клінічна ефективність доведена та внесена до офіційних каталогів BAG.",
+        art3_g_li8: "<strong>Витратні матеріали та засоби в комплекте з терапією:</strong> Деякі супутні медичні вироби або витратні матеріали, безпосередньо прив'язані до введення певних лікарських препаратів зі списку SL (наприклад, спеціалізовані розчини чи компоненти для інфузійної терапії).",
+        art3_h4_3: "Порада для пацієнтів",
+        art3_summary: "Перед купівлею призначених ліків завжди корисно переконатися у їх наявності в актуальному списку Spezialitätenliste, звернувшись до свого сімейного лікаря (Hausarzt) або безпосередньо до вашої кранкенкаси.",
+
         art1_h4_2: "Частина 2. Як знайти сімейного лікаря (Hausarzt)",
         art1_p3: "Пошук сімейного лікаря — це один із перших кроків, який варто зробити після облаштування на новому місці. У швейцарській системі охорони здоров'я сімейний лікар виконує роль головного провідника та координатора вашого лікування.",
         art1_steps_title: "Кроки для пошуку лікаря:",
@@ -791,6 +812,27 @@
         art1_mod_li1: "<strong>Standard-Modell (Freie Arztwahl):</strong> Sie können sich direkt an jeden Allgemeinarzt oder Spezialisten wenden, dieses Modell hat jedoch die höchsten Prämien.",
         art1_mod_li2: "<strong>Hausarzt-Modell:</strong> Sie verpflichten sich, immer zuerst Ihren gewählten Hausarzt aufzusuchen. Dieser überweist Sie bei Bedarf weiter. Dieses Modell bietet einen Rabatt auf die Prämie.",
         art1_mod_li3: "<strong>Telemedizin-Modell (Telmed):</strong> Vor jedem Arztbesuch müssen Sie eine medizinische Hotline Ihrer Krankenkasse zur Beratung anrufen.",
+        
+        // Neuer Artikel: Spezialitätenliste SL in der Schweiz
+        art3_date: "16.07.2026",
+        art3_title: "Die Spezialitätenliste (SL) in der Schweiz: Was die Krankenkasse übernimmt",
+        art3_p1: "Die obligatorische Krankenpflegeversicherung (Grundversicherung) in der Schweiz übernimmt die Kosten nur für Medikamente, die in der offiziellen Liste – der Spezialitätenliste (SL) – aufgeführt sind.",
+        art3_h4_1: "Was ist die SL und wie funktioniert sie?",
+        art3_li1: "<strong>Aufnahmekriterien:</strong> Das Bundesamt für Gesundheit (BAG) nimmt Medikamente nur dann in dieses Verzeichnis auf, wenn sie wirksam, zweckmässig und wirtschaftlich sind.",
+        art3_li2: "<strong>Kostenübernahme:</strong> Medikamente aus der SL werden von der Krankenkasse abzüglich Ihrer Franchise und Ihres Selbstbehalts (in der Regel 10%, bzw. 20% bei Originalpräparaten mit günstigeren Generika) vergütet.",
+        art3_li3: "<strong>Einschränkungen (Limitatio):</strong> Bestimmte Positionen der Liste werden von der Kasse nur bei klar definierten Diagnosen oder nach vorheriger Genehmigung durch den Vertrauensarzt der Versicherung übernommen.",
+        art3_h4_2: "Hauptgruppen von Medikamenten auf der SL:",
+        art3_g_li1: "<strong>Rezeptpflichtige Medikamente:</strong> Mittel zur Behandlung von akuten und chronischen Erkrankungen (Herz-Kreislauf-, Bluthochdruck-, Diabetesmedikamente, Antibiotika usw.), die von der Swissmedic zugelassen sind.",
+        art3_g_li2: "<strong>Generika:</strong> Günstigere Nachahmerprodukte von Originalmedikamenten mit demselben Wirkstoff, die vom Schweizer Gesundheitssystem aktiv zur Kosteneinsparung für Patienten unterstützt werden.",
+        art3_g_li3: "<strong>Onkologische und spezialisierte Medikamente:</strong> Teure Medikamente für komplexe Therapien, die eine strenge Wirtschaftlichkeitsprüfung durchlaufen haben.",
+        art3_g_li4: "<strong>Orphan Drugs (Medikamente für seltene Krankheiten):</strong> Arzneien zur Behandlung seltener Leiden, die oft sehr teuer sind, nach einer speziellen BAG-Bewertung jedoch ebenfalls in die SL aufgenommen werden, um die lebenswichtige Versorgung der Patienten zu sichern.",
+        art3_g_li5: "<strong>Kombinationspräparate:</strong> Mittel mit mehreren Wirkstoffen, die für die Behandlung komplexer oder kombinierter Erkrankungen zugelassen sind.",
+        art3_g_li6: "<strong>Pädiatrische Darreichungsformen:</strong> Spezielle Dosierungen, Sirupe oder Suspensionen, die speziell für Kinder angepasst sind, sofern ihre Anwendung medizinisch begründet ist.",
+        art3_g_li7: "<strong>Phytotherapie und alternative Mittel:</strong> Ausgewählte pflanzliche Arzneimittel, deren klinische Wirksamkeit nachgewiesen und in den offiziellen BAG-Katalogen aufgeführt ist.",
+        art3_g_li8: "<strong>Verbrauchsmaterialien im Therapiezusammenhang:</strong> Bestimmte medizinische Güter oder Verbrauchsmaterialien, die direkt mit der Verabreichung bestimmter SL-Medikamente verknüpft sind (z. B. spezielle Infusionslösungen).",
+        art3_h4_3: "Tipp für Patienten",
+        art3_summary: "Vor dem Kauf verordneter Medikamente lohnt es sich immer, sich bei Ihrem Hausarzt oder direkt bei Ihrer Krankenkasse zu vergewissern, ob das Produkt in der aktuellen Spezialitätenliste aufgeführt ist.",
+
         art1_h4_2: "Teil 2. Wie man einen Hausarzt findet",
         art1_p3: "Die Suche nach einem Hausarzt ist einer der ersten Schritte nach dem Einzug. Im Schweizer Gesundheitssystem fungiert der Hausarzt als Hauptansprechpartner und Koordinator Ihrer medizinischen Versorgung.",
         art1_steps_title: "Schritte zur Arztsuche:",

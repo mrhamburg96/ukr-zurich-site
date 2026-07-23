@@ -167,7 +167,15 @@
         .accordion-item:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
+         @keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
 
+.blinking-text {
+  animation: blink 1.5s infinite ease-in-out;
+}
         /* Шапка аккордеона */
         .accordion-header {
             padding: 22px 24px;
@@ -332,10 +340,10 @@
                 ← Назад до Центр знань
             </a>
 
-            <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) -->
-            <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
-                Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →
-            </a>
+          <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) + мерцание -->
+<a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
+    Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →
+</a>
 
         </div>
 

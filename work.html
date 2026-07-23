@@ -167,21 +167,23 @@
         .accordion-item:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-         @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.2; }
-  100% { opacity: 1; }
-}
 
-.blinking-text {
-  animation: blink 1.5s infinite ease-in-out;
-}
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        .blinking-text {
+            animation: blink 1.5s infinite ease-in-out;
+        }
+
         /* Шапка аккордеона */
         .accordion-header {
             padding: 22px 24px;
             font-size: 18px;
             font-weight: bold;
-            color: #1A56C4; /* Заголовки статей */
+            color: #1A56C4;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -238,7 +240,7 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 5000px; /* Увеличили запас для объемных статей */
+            max-height: 5000px;
             transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
         }
 
@@ -272,17 +274,6 @@
 
         .article-list strong {
             color: #1A56C4;
-        }
-
-        .article-link {
-            color: #1A56C4;
-            font-weight: bold;
-            text-decoration: underline;
-            transition: opacity 0.2s;
-        }
-
-        .article-link:hover {
-            opacity: 0.8;
         }
 
         /* Адаптивность для планшетов и мобильных */
@@ -330,7 +321,7 @@
     </header>
 
     <!-- Основной контент страницы -->
-   <main class="main-container">
+    <main class="main-container">
         
         <!-- Полностью изолированная строка навигации -->
         <div class="navigation-header-row" style="position: relative; width: 100%; min-height: 35px; margin-bottom: 30px; display: block; clear: both;">
@@ -358,7 +349,7 @@
             <!-- ПРАВАЯ КОЛОНКА: Аккордеон со статьями -->
             <div class="accordion-container">
                 
-                <!-- НОВАЯ СТАТЬЯ (ПЕРВАЯ - ОТКРЫТА ПО УМОЛЧАНИЮ) -->
+                <!-- СТАТЬЯ 1 (ОТКРЫТА ПО УМОЛЧАНИЮ) -->
                 <div class="accordion-item active" id="article-popular-jobs">
                     <div class="accordion-header">
                         <div class="accordion-title-container">
@@ -506,7 +497,7 @@
                     </div>
                 </div>
 
-                <!-- ВТОРАЯ СТАТЬЯ (ОНЛАЙН-СЕРВИСЫ) -->
+                <!-- СТАТЬЯ 2 (ОНЛАЙН-СЕРВИСЫ) -->
                 <div class="accordion-item" id="article-online-services">
                     <div class="accordion-header">
                         <div class="accordion-title-container">
@@ -517,12 +508,33 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body" data-translate="art3-body">
-                            <!-- Текст статті про онлайн сервіси -->
+                            <p class="article-intro">
+                                Пошук роботи в Швейцарії починається з цифрових платформ. У Цюриху використовується кілька ключових порталів, де публікується переважна більшість вакансій — від локального малого бізнесу до міжнародних корпорацій.
+                            </p>
+                            <div class="article-section">
+                                <div class="article-section-title">Основні загальношвейцарські платформи</div>
+                                <ul class="article-list">
+                                    <li><strong>Jobs.ch:</strong> Найбільший і найпопулярніший портал працевлаштування в країні. Тут зосереджена величезна кількість вакансій у всіх секторах.</li>
+                                    <li><strong>JobScout24.ch:</strong> Ще один загальнонаціональний лідер із зручними фільтрами за регіонами та галузями.</li>
+                                    <li><strong>Indeed.ch:</strong> Міжнародний агрегатор вакансій, який збирає оголошення з корпоративних сайтов та інших джерел.</li>
+                                </ul>
+                            </div>
+                            <div class="article-section">
+                                <div class="article-section-title">Державні та регіональні ресурси</div>
+                                <ul class="article-list">
+                                    <li><strong>Job-Room.ch:</strong> Офіційний портал державного центру зайнятості (RAV / SECO). Рекомендований для офіційної реєстрації та пошуку захищених вакансій.</li>
+                                    <li><strong>Jobzüri.ch:</strong> Локальний портал вакансій, орієнтований спеціально на місто та кантон Цюрих.</li>
+                                </ul>
+                            </div>
+                            <div class="article-section">
+                                <div class="article-section-title">Професійні мережі та кадрові агенції</div>
+                                <p>Для кваліфікованих спеціалістів та менеджменту незамінним інструментом є <strong>LinkedIn</strong>, де рекрутери напряму шукають кандидатів. Також варто напряму надсилати резюме до великих кадрових агенцій, таких як <strong>Adecco</strong>, <strong>Randstad</strong> чи <strong>Manpower</strong>.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ТРЕТЬЯ СТАТЬЯ (CV) -->
+                <!-- СТАТЬЯ 3 (CV) -->
                 <div class="accordion-item" id="article-cv">
                     <div class="accordion-header">
                         <div class="accordion-title-container">
@@ -533,12 +545,30 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body" data-translate="art2-body">
-                            <!-- Текст статті про CV -->
+                            <p class="article-intro">
+                                Швейцарський ринок праці має свої чіткі стандарти оформлення документів. Правильно складене резюме (CV) та супровідний лист — ключ до того, щоб ваша кандидатура пройшла первинний відбір (screening).
+                            </p>
+                            <div class="article-section">
+                                <div class="article-section-title">Головні правила швейцарського CV</div>
+                                <ul class="article-list">
+                                    <li><strong>Структура та обсяг:</strong> Зазвичай резюме вміщується на 1–2 сторінки максимум. Використовуйте зворотний хронологічний порядок (починаючи з останнього місця роботи).</li>
+                                    <li><strong>Фотографія:</strong> У Швейцарії прийнято додавати якісне, професійне ділове фото у верхній правій частині резюме.</li>
+                                    <li><strong>Особисті дані:</strong> Вказуйте повне ім'я, адресу в Цюриху, телефон, email, громадянство та обов'язково — ваш міграційний статус (наприклад, <strong>Schutzstatus S</strong>), що підтверджує легальне право на роботу без додаткових дозволів.</li>
+                                </ul>
+                            </div>
+                            <div class="article-section">
+                                <div class="article-section-title">Супровідний лист (Motivationsschreiben)</div>
+                                <p>Швейцарські роботодавці дуже уважно ставляться до супровідних листів. Лист має бути лаконічним (на 1 сторінку), чітко пояснювати, чому саме ви підходите на цю позицію і яку користь принесете компанії.</p>
+                            </div>
+                            <div class="article-section">
+                                <div class="article-section-title">Вибір мови</div>
+                                <p>Якщо вакансія міжнародна або в сфері IT / фінансів — достатньо англійської. Для більшості інших сфер у Цюриху життєво необхідно мати резюме німецькою мовою.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ЧЕТВЕРТАЯ СТАТЬЯ (ПОИСК РАБОТЫ) -->
+                <!-- СТАТЬЯ 4 (ПОИСК РАБОТЫ) -->
                 <div class="accordion-item" id="article-find-work">
                     <div class="accordion-header">
                         <div class="accordion-title-container">
@@ -549,7 +579,21 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body" data-translate="art1-body">
-                            <!-- Текст статті про пошук роботи -->
+                            <p class="article-intro">
+                                Отримання тимчасового захисту (статусу S) дає право на легальне працевлаштування в Швейцарії. Цей практичний посібник допоможе вам зорієнтуватися на ринку праці Цюриха та зробити перші кроки до успішного працевлаштування.
+                            </p>
+                            <div class="article-section">
+                                <div class="article-section-title">1. Перевірка та оформлення дозволів</div>
+                                <p>Ваш статус S передбачає вільний доступ до ринку праці. Роботодавцю не потрібно оформлювати складні квоти — достатньо повідомити державні органи про початок вашої роботи (це робиться через кантональні служби).</p>
+                            </div>
+                            <div class="article-section">
+                                <div class="article-section-title5">2. Мовне питання</div>
+                                <p>У Цюриху офіційною мовою є німецька (швейцарський діалект у побуті, літературна німецька — Schriftdeutsch на роботі). Проте в багатьох великих компаніях та IT-секторі робочою мовою є англійська. Відвідування інтеграційних мовних курсів значно підвищить ваші шанси.</p>
+                            </div>
+                            <div class="article-section">
+                                <div class="article-section-title">3. Підтримка та консультації</div>
+                                <p>Ви можете звертатися до місцевих інтеграційних центрів (таких як UAGZ), центрів зайнятості RAV за консультаціями, а також користуватися державними програмами перекваліфікації та профорієнтації.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -591,6 +635,7 @@
                 "nav-contacts": "Контакти",
                 "back-btn": "← Назад до Центр знань",
                 "cv-link": "Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →",
+                
                 "art4-title": "Популярні професії в Цюриху: де найбільше вакансій зараз",
                 "art4-body": `
                     <p class="article-intro">
@@ -717,6 +762,74 @@
                             Ринок праці Цюриха залишається одним із найсильніших у Європі. Найбільше вакансій зараз у сферах IT, фінансів, медицини, логістики, готельно‑ресторанного бізнесу та технічних професій. Для новоприбулих доступні як висококваліфіковані позиції, так і робота без досвіду. Знання німецької підвищує шанси, але у багатьох міжнародних компаніях достатньо англійської.
                         </p>
                     </div>
+                `,
+
+                "art3-title": "Онлайн-сервіси пошуку роботи в Цюриху: топ платформ для працевлаштування",
+                "art3-body": `
+                    <p class="article-intro">
+                        Пошук роботи в Швейцарії починається з цифрових платформ. У Цюриху використовується кілька ключових порталів, де публікується переважна більшість вакансій — від локального малого бізнесу до міжнародних корпорацій.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">Основні загальношвейцарські платформи</div>
+                        <ul class="article-list">
+                            <li><strong>Jobs.ch:</strong> Найбільший і найпопулярніший портал працевлаштування в країні. Тут зосереджена величезна кількість вакансій у всіх секторах.</li>
+                            <li><strong>JobScout24.ch:</strong> Ще один загальнонаціональний лідер із зручними фільтрами за регіонами та галузями.</li>
+                            <li><strong>Indeed.ch:</strong> Міжнародний агрегатор вакансій, який збирає оголошення з корпоративних сайтов та інших джерел.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Державні та регіональні ресурси</div>
+                        <ul class="article-list">
+                            <li><strong>Job-Room.ch:</strong> Офіційний портал державного центру зайнятості (RAV / SECO). Рекомендований для офіційної реєстрації та пошуку захищених вакансій.</li>
+                            <li><strong>Jobzüri.ch:</strong> Локальний портал вакансій, орієнтований спеціально на місто та кантон Цюрих.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Професійні мережі та кадрові агенції</div>
+                        <p>Для кваліфікованих спеціалістів та менеджменту незамінним інструментом є <strong>LinkedIn</strong>, де рекрутери напряму шукають кандидатів. Також варто напряму надсилати резюме до великих кадрових агенцій, таких як <strong>Adecco</strong>, <strong>Randstad</strong> чи <strong>Manpower</strong>.</p>
+                    </div>
+                `,
+
+                "art2-title": "Складання резюме (CV) за швейцарськими стандартами: особливості для власників статусу S",
+                "art2-body": `
+                    <p class="article-intro">
+                        Швейцарський ринок праці має свої чіткі стандарти оформлення документів. Правильно складене резюме (CV) та супровідний лист — ключ до того, щоб ваша кандидатура пройшла первинний відбір (screening).
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">Головні правила швейцарського CV</div>
+                        <ul class="article-list">
+                            <li><strong>Структура та обсяг:</strong> Зазвичай резюме вміщується на 1–2 сторінки максимум. Використовуйте зворотний хронологічний порядок (починаючи з останнього місця роботи).</li>
+                            <li><strong>Фотографія:</strong> У Швейцарії прийнято додавати якісне, професійне ділове фото у верхній правій частині резюме.</li>
+                            <li><strong>Особисті дані:</strong> Вказуйте повне ім'я, адресу в Цюриху, телефон, email, громадянство та обов'язково — ваш міграційний статус (наприклад, <strong>Schutzstatus S</strong>), що підтверджує легальне право на роботу без додаткових дозволів.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Супровідний лист (Motivationsschreiben)</div>
+                        <p>Швейцарські роботодавці дуже уважно ставляться до супровідних листів. Лист має бути лаконічним (на 1 сторінку), чітко пояснювати, чому саме ви підходите на цю позицію і яку користь принесете компанії.</p>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Вибір мови</div>
+                        <p>Якщо вакансія міжнародна або в сфері IT / фінансів — достатньо англійської. Для більшості інших сфер у Цюриху життєво необхідно мати резюме німецькою мовою.</p>
+                    </div>
+                `,
+
+                "art1-title": "Як знайти роботу в Цюриху: практичний посібник для власників статусу S",
+                "art1-body": `
+                    <p class="article-intro">
+                        Отримання тимчасового захисту (статусу S) дає право на легальне працевлаштування в Швейцарії. Цей практичний посібник допоможе вам зорієнтуватися на ринку праці Цюриха та зробити перші кроки до успішного працевлаштування.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">1. Перевірка та оформлення дозволів</div>
+                        <p>Ваш статус S передбачає вільний доступ до ринку праці. Роботодавцю не потрібно оформлювати складні квоти — достатньо повідомити державні органи про початок вашої роботи (це робиться через кантональні служби).</p>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">2. Мовне питання</div>
+                        <p>У Цюриху офіційною мовою є німецька (швейцарський діалект у побуті, літературна німецька — Schriftdeutsch на роботі). Проте в багатьох великих компаніях та IT-секторі робочою мовою є англійська. Відвідування інтеграційних мовних курсів значно підвищить ваші шанси.</p>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">3. Підтримка та консультації</div>
+                        <p>Ви можете звертатися до місцевих інтеграційних центрів (таких як UAGZ), центрів зайнятості RAV за консультаціями, а також користуватися державними програмами перекваліфікації та профорієнтації.</p>
+                    </div>
                 `
             },
             de: {
@@ -730,6 +843,7 @@
                 "nav-contacts": "Kontakte",
                 "back-btn": "← Zurück zum Wissenszentrum",
                 "cv-link": "Lebenslauf und Motivationsschreiben für die Schweiz — Lebenslauf erstellen →",
+                
                 "art4-title": "Gefragte Berufe in Zürich: Wo es aktuell die meisten Stellen gibt",
                 "art4-body": `
                     <p class="article-intro">
@@ -856,21 +970,86 @@
                             Der Zürcher Arbeitsmarkt bleibt einer der stärksten in Europa. Die meisten Vakanzen gibt es derzeit in den Bereichen IT, Finanzen, Medizin, Logistik, Gastgewerbe und technischen Berufen. Für Neuankömmlinge stehen sowohl hochqualifizierte Positionen als auch Einstiegsjobs ohne Vorkenntnisse zur Verfügung. Deutschkenntnisse erhöhen die Chancen, aber in vielen internationalen Unternehmen reicht Englisch aus.
                         </p>
                     </div>
+                `,
+
+                "art3-title": "Online-Stellenportale in Zürich: Top-Plattformen für die Arbeitssuche",
+                "art3-body": `
+                    <p class="article-intro">
+                        Die Jobsuche in der Schweiz beginnt auf digitalen Plattformen. In Zürich werden mehrere Hauptportale genutzt, auf denen die überwiegende Mehrheit der Stellenangebote veröffentlicht wird — vom lokalen Kleinbetrieb bis zum internationalen Konzern.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">Die wichtigsten Schweizer Plattformen</div>
+                        <ul class="article-list">
+                            <li><strong>Jobs.ch:</strong> Das grösste und beliebteste Jobportal des Landes. Hier ist eine Vielzahl von Stellen in allen Branchen konzentriert.</li>
+                            <li><strong>JobScout24.ch:</strong> Ein weiterer nationaler Marktführer mit praktischen Filtern nach Regionen und Branchen.</li>
+                            <li><strong>Indeed.ch:</strong> Ein internationaler Job-Aggregator, der Inserate von Unternehmenswebsites und anderen Quellen bündelt.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Staatliche und regionale Ressourcen</div>
+                        <ul class="article-list">
+                            <li><strong>Job-Room.ch:</strong> Das offizielle Portal des Staatssekretariats für Wirtschaft (SECO) und der Arbeitsvermittlung (RAV). Empfohlen für die offizielle Registrierung und Suche.</li>
+                            <li><strong>Jobzüri.ch:</strong> Ein lokales Stellenportal, das speziell auf die Stadt und den Kanton Zürich ausgerichtet ist.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Professionelle Netzwerke und Personalvermittler</div>
+                        <p>Für qualifizierte Fachkräfte und Führungskräfte ist <strong>LinkedIn</strong> ein unverzichtbares Werkzeug, auf dem Recruiter direkt nach Kandidaten suchen. Es lohnt sich auch, Lebensläufe direkt an grosse Personalagenturen wie <strong>Adecco</strong>, <strong>Randstad</strong> oder <strong>Manpower</strong> zu senden.</p>
+                    </div>
+                `,
+
+                "art2-title": "Lebenslauf (CV) nach Schweizer Standards: Besonderheiten für Inhaber des Status S",
+                "art2-body": `
+                    <p class="article-intro">
+                        Der Schweizer Arbeitsmarkt hat klare Standards für die Dokumentengestaltung. Ein korrekt erstellter Lebenslauf (CV) und ein überzeugendes Motivationsschreiben sind der Schlüssel, um das Screening erfolgreich zu bestehen.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">Hauptregeln für den Schweizer Lebenslauf</div>
+                        <ul class="article-list">
+                            <li><strong>Struktur und Umfang:</strong> Der Lebenslauf umfasst in der Regel maximal 1–2 Seiten. Verwenden Sie eine umgekehrte chronologische Reihenfolge (beginnend mit der aktuellsten Position).</li>
+                            <li><strong>Foto:</strong> In der Schweiz ist es üblich, ein qualitativ hochwertiges, professionelles Business-Foto oben rechts im Lebenslauf zu platzieren.</li>
+                            <li><strong>Persönliche Daten:</strong> Geben Sie den vollständigen Namen, die Adresse in Zürich, Telefon, E-Mail, Nationalität und unbedingt Ihren Aufenthaltsstatus an (z. B. <strong>Schutzstatus S</strong>), der das legale Recht auf Arbeit ohne zusätzliche Bewilligungen bestätigt.</li>
+                        </ul>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Motivationsschreiben</div>
+                        <p>Schweizer Arbeitgeber legen grossen Wert auf das Motivationsschreiben. Es sollte prägnant sein (1 Seite), klar erklären, warum Sie für diese Position geeignet sind und welchen Nutzen Sie dem Unternehmen bringen.</p>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">Sprachwahl</div>
+                        <p>Wenn es sich um eine internationale Stelle oder den IT-/Finanzsektor handelt, reicht Englisch aus. Für die meisten anderen Bereiche in Zürich ist es unerlässlich, einen Lebenslauf auf Deutsch zu haben.</p>
+                    </div>
+                `,
+
+                "art1-title": "Wie man in Zürich Arbeit findet: Ein praktischer Leitfaden für Inhaber des Status S",
+                "art1-body": `
+                    <p class="article-intro">
+                        Der Erhalt des vorübergehenden Schutzes (Status S) gewährt das Recht auf legale Erwerbstätigkeit in der Schweiz. Dieser praktische Leitfaden hilft Ihnen, sich auf dem Zürcher Arbeitsmarkt zu orientieren und die ersten Schritte zu gehen.
+                    </p>
+                    <div class="article-section">
+                        <div class="article-section-title">1. Prüfung und Bewilligungsverfahren</div>
+                        <p>Ihr Status S beinhaltet einen freien Zugang zum Arbeitsmarkt. Der Arbeitgeber muss keine komplizierten Kontingente beantragen — es reicht aus, die Behörden über die Aufnahme der Arbeit zu informieren (dies geschieht über kantonale Stellen).</p>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">2. Die Sprachfrage</div>
+                        <p>In Zürich ist Deutsch die Amtssprache (Schweizerdeutsch im Alltag, Schriftdeutsch im Beruf). In vielen Grossunternehmen und im IT-Sektor ist Englisch jedoch Arbeitssprache. Der Besuch von Integrationssprachkursen erhöht Ihre Chancen erheblich.</p>
+                    </div>
+                    <div class="article-section">
+                        <div class="article-section-title">3. Unterstützung und Beratung</div>
+                        <p>Sie können sich an lokale Integrationszentren (wie UAGZ), RAV-Arbeitsämter für Beratungen wenden und staatliche Weiterbildungs- sowie Umschulungsprogramme nutzen.</p>
+                    </div>
                 `
             }
         };
 
         function changeLanguage(lang) {
-            // Переключаем активный класс на кнопках языков
             document.querySelectorAll('.lang-item').forEach(btn => {
                 btn.classList.remove('active-lang');
             });
             event.target.classList.add('active-lang');
 
-            // Обновляем HTML lang
             document.documentElement.lang = lang;
 
-            // Обновляем перевод для всех элементов с атрибутом data-translate
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
@@ -878,7 +1057,6 @@
                 }
             });
 
-            // Обновляем тайтл вкладки браузера отдельно
             document.getElementById('page-title').innerText = translations[lang]['page-title'];
         }
     </script>

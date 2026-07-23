@@ -324,20 +324,20 @@
       <img src="kranken-foto1.webp" alt="Медичне обслуговування в Швейцарії">
     </aside>
 
-    <!-- ПРАВАЯ КОЛОНКА (АККОРДЕОН СО СТАТЬЯМИ) -->
+  <!-- ПРАВАЯ КОЛОНКА (АККОРДЕОН СО СТАТЬЯМИ) -->
     <section class="accordion-container" id="articles-accordion">
-    <div class="accordion-item">
-    <!-- Шапка аккордеона (дата и заголовок) -->
-    <button class="accordion-header" style="width: 100%; text-align: left; padding: 16px; background: none; border: none; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+      <div class="accordion-item">
+    <!-- Шапка аккордеона с вызовом функции toggleAccordion(this) -->
+    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; text-align: left; padding: 16px; background: none; border: none; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
         <div style="display: flex; flex-direction: column; text-align: left;">
             <span style="font-size: 12px; color: #888; margin-bottom: 4px; font-weight: normal;">22.07.2026</span>
             <span style="color: #1A56C4;">Спеціальний перелік SL у Швейцарії: що покриває кранкенкасса</span>
         </div>
-        <span class="accordion-icon">+</span>
+        <span class="accordion-icon">&#43;</span>
     </button>
     
     <!-- Содержимое аккордеона (статья) -->
-    <div class="accordion-content" style="padding: 0 16px 16px 16px; display: none;">
+    <div class="accordion-content" style="padding: 0 16px 16px 16px;">
         <p>Обов'язкове медичне страхування (<strong>Grundversicherung</strong>) у Швейцарії покриває витрати лише на медикаменти, включені до офіційного державного переліку — <strong>Spezialitätenliste (SL)</strong>.</p>
         
         <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 15px 0;">

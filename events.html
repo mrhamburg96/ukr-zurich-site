@@ -283,76 +283,40 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Лента событий (новые статьи добавляются на первое место) -->
   <div class="events-feed">
-   <!-- Событие 2 (07.06.2026 — День народження отця Івана) -->
-<div class="event-card" id="event-new-2">
-  
-  <!-- ПРЕВЬЮ КАРТОЧКИ -->
-  <div class="event-preview">
-    <div class="event-meta">
-      <div class="event-date" id="ev2-date">07.06.2026 · Цюрих</div>
-      
-      <!-- Украинский заголовок и анонс -->
-      <h3 class="event-title lang-uk" id="ev2-title-uk">Привітання отця Івана з Днем народження</h3>
-      <p class="event-excerpt lang-uk" id="ev2-excerpt-uk">З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche...</p>
-      
-      <!-- Немецкий заголовок и анонс -->
-      <h3 class="event-title lang-de" id="ev2-title-de" style="display: none;">Glückwünsche zum Geburtstag von Vater Ivan</h3>
-      <p class="event-excerpt lang-de" id="ev2-excerpt-de" style="display: none;">Anlässlich des Geburtstags von Vater Ivan, dem Seelsorger der UGKC, schloss sich das Team der Organisation UAGZ den Glückwünschen und Feierlichkeiten in der Liebfrauenkirche an...</p>
-    </div>
     
-    <!-- Фото для тизера -->
-    <img src="events-foto2.webp" alt="Святкування Дня народження отця Івана" class="event-thumb">
-  </div>
-
-  <!-- КНОПКА РАЗВОРАЧИВАНИЯ -->
-  <button class="event-toggle-btn" onclick="toggleEvent('event-new-2', this)" id="ev2-btn">
-    <span class="lang-uk">Читати далі ➔</span>
-    <span class="lang-de" style="display: none;">Mehr lesen ➔</span>
-  </button>
-
-  <!-- РАЗВЕРНУТЫЙ БЛОК -->
-  <div class="event-details">
-    <div class="event-expanded-layout">
-      
-      <!-- Левый блок с главным фото статьи -->
-      <div>
-        <img src="events-foto2.1.webp" alt="Святкування Дня народження отця Івана" class="event-expanded-img">
+    <!-- Событие 2 (07.06.2026 — День народження отця Івана) -->
+    <div class="event-card" id="event-new-2">
+      <div class="event-preview">
+        <div class="event-meta">
+          <div class="event-date" id="ev2-date">07.06.2026 · Цюрих</div>
+          <h3 class="event-title" id="ev2-title">Привітання отця Івана з Днем народження</h3>
+          <p class="event-excerpt" id="ev2-excerpt">З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche...</p>
+        </div>
+        <img src="events-foto2.webp" alt="Святкування Дня народження отця Івана" class="event-thumb">
       </div>
 
-      <!-- Правый блок с текстом и дополнительным фото -->
-      <div class="event-expanded-text">
-        
-        <!-- Украинская версия -->
-        <div class="lang-uk">
-          <p id="ev2-p1-uk">З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche.</p>
-          <p id="ev2-p2-uk">У цей особливий день представники організації висловили щирі слова вдячності за духовне служіння, підтримку української громади, людяність, мудрість і щоденну працю на благо людей.</p>
-          <p id="ev2-p3-uk">Бажаємо отцю Івану міцного здоров’я, Божого благословення, внутрішньої сили, радості, миру та натхнення для подальшого служіння й реалізації добрих справ.</p>
-          
-          <!-- Вставленное фото events-foto2.3.webp внутри статьи -->
-          <img src="events-foto2.3.webp" alt="Святкування Дня народження отця Івана" class="event-expanded-img" style="margin: 15px 0;">
+      <button class="event-toggle-btn" onclick="toggleEvent('event-new-2', this)" id="ev2-btn">Читати далі ➔</button>
 
-          <p id="ev2-p4-uk">Нехай кожен день буде наповнений світлом, підтримкою громади, теплом людських сердець та новими можливостями для розвитку й єднання.</p>
-          <p id="ev2-p5-uk">З повагою та найкращими побажаннями — колектив UAGZ.</p>
+      <div class="event-details">
+        <div class="event-expanded-layout">
+          <div>
+            <img src="events-foto2.1.webp" alt="Святкування Дня народження отця Івана" class="event-expanded-img">
+          </div>
+          <div class="event-expanded-text">
+            <p id="ev2-p1">З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche.</p>
+            <p id="ev2-p2">У цей особливий день представники організації висловили щирі слова вдячності за духовне служіння, підтримку української громади, людяність, мудрість і щоденну працю на благо людей.</p>
+            <p id="ev2-p3">Бажаємо отцю Івану міцного здоров’я, Божого благословення, внутрішньої сили, радості, миру та натхнення для подальшого служіння й реалізації добрих справ.</p>
+            
+            <img src="events-foto2.3.webp" alt="Святкування Дня народження отця Івана" class="event-expanded-img" style="margin: 15px 0;">
+
+            <p id="ev2-p4">Нехай кожен день буде наповнений світлом, підтримкою громади, теплом людських сердець та новими можливостями для розвитку й єднання.</p>
+            <p id="ev2-p5">З повагою та найкращими побажаннями — колектив UAGZ.</p>
+          </div>
         </div>
-
-        <!-- Немецкая версия -->
-        <div class="lang-de" style="display: none;">
-          <p id="ev2-p1-de">Anlässlich des Geburtstags von Vater Ivan, dem Seelsorger der UGKC, schloss sich das Team der Organisation UAGZ den Glückwünschen und Feierlichkeiten in der Liebfrauenkirche an.</p>
-          <p id="ev2-p2-de">An diesem besonderen Tag sprachen die Vertreter der Organisation ihren aufrichtigen Dank für den geistlichen Dienst, die Unterstützung der ukrainischen Gemeinschaft, die Menschlichkeit, die Weisheit und die tägliche Arbeit zum Wohle der Menschen aus.</p>
-          <p id="ev2-p3-de">Wir wünschen Vater Ivan gute Gesundheit, Gottes Segen, innere Kraft, Freude, Frieden und Inspiration für den weiteren Dienst und die Umsetzung guter Taten.</p>
-          
-          <!-- Вставленное фото events-foto2.3.webp внутри статьи (DE) -->
-          <img src="events-foto2.3.webp" alt="Glückwünsche zum Geburtstag von Vater Ivan" class="event-expanded-img" style="margin: 15px 0;">
-
-          <p id="ev2-p4-de">Möge jeder Tag mit Licht, der Unterstützung der Gemeinschaft, der Wärme menschlicher Herzen und neuen Möglichkeiten für Entwicklung und Einheit erfüllt sein.</p>
-          <p id="ev2-p5-de">Mit freundlichen Grüßen und den besten Wünschen — das Team von UAGZ.</p>
-        </div>
-
       </div>
     </div>
-  </div>
-</div>
-    <!-- Событие 1 (Новая статья с events-foto1.webp, без эмодзи) -->
+
+    <!-- Событие 1 (04.06.2026 — Робоча нарада UAGZ) -->
     <div class="event-card" id="event-new-1">
       <div class="event-preview">
         <div class="event-meta">
@@ -399,7 +363,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </footer>
 
 <script>
-  const T = {
+const T = {
   ua: {
     "m-home": "Головна",
     "m-about": "Про нас",
@@ -425,6 +389,18 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
     "sec-events-title": "Наші події",
     
+    /* Переводы для события 2 (07.06.2026) */
+    "ev2-date": "07.06.2026 · Цюрих",
+    "ev2-title": "Привітання отця Івана з Днем народження",
+    "ev2-excerpt": "З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche...",
+    "ev2-btn": "Читати далі ➔",
+    "ev2-p1": "З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche.",
+    "ev2-p2": "У цей особливий день представники організації висловили щирі слова вдячності за духовне служіння, підтримку української громади, людяність, мудрість і щоденну працю на благо людей.",
+    "ev2-p3": "Бажаємо отцю Івану міцного здоров’я, Божого благословення, внутрішньої сили, радості, миру та натхнення для подальшого служіння й реалізації добрих справ.",
+    "ev2-p4": "Нехай кожен день буде наповнений світлом, підтримкою громади, теплом людських сердець та новими можливостями для розвитку й єднання.",
+    "ev2-p5": "З повагою та найкращими побажаннями — колектив UAGZ.",
+
+    /* Переводы для события 1 (04.06.2026) */
     "ev1-date": "04.06.2026 · Цюрих",
     "ev1-title": "Робоча нарада керівників структурних підрозділів UAGZ",
     "ev1-excerpt": "4 червня відбулася робоча нарада за участю керівників структурних підрозділів UAGZ, під час якої обговорено перспективні напрямки діяльності організації...",
@@ -465,6 +441,18 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
     "sec-events-title": "Unsere Ereignisse",
 
+    /* Немецкий перевод для события 2 (07.06.2026) */
+    "ev2-date": "07.06.2026 · Zürich",
+    "ev2-title": "Glückwünsche zum Geburtstag von Vater Ivan",
+    "ev2-excerpt": "Anlässlich des Geburtstags von Vater Ivan, dem Seelsorger der UGKC, schloss sich das Team der Organisation UAGZ den Glückwünschen und Feierlichkeiten in der Liebfrauenkirche an...",
+    "ev2-btn": "Mehr erfahren ➔",
+    "ev2-p1": "Anlässlich des Geburtstags von Vater Ivan, dem Seelsorger der UGKC, schloss sich das Team der Organisation UAGZ den Glückwünschen und Feierlichkeiten in der Liebfrauenkirche an.",
+    "ev2-p2": "An diesem besonderen Tag sprachen die Vertreter der Organisation ihren aufrichtigen Dank für den geistlichen Dienst, die Unterstützung der ukrainischen Gemeinschaft, die Menschlichkeit, die Weisheit und die tägliche Arbeit zum Wohle der Menschen aus.",
+    "ev2-p3": "Wir wünschen Vater Ivan gute Gesundheit, Gottes Segen, innere Kraft, Freude, Frieden und Inspiration für den weiteren Dienst und die Umsetzung guter Taten.",
+    "ev2-p4": "Möge jeder Tag mit Licht, der Unterstützung der Gemeinschaft, der Wärme menschlicher Herzen und neuen Möglichkeiten für Entwicklung und Einheit erfüllt sein.",
+    "ev2-p5": "Mit freundlichen Grüßen und den besten Wünschen — das Team von UAGZ.",
+
+    /* Немецкий перевод для события 1 (04.06.2026) */
     "ev1-date": "04.06.2026 · Zürich",
     "ev1-title": "Arbeitsberatung der Leiter der UAGZ-Struktureinheiten",
     "ev1-excerpt": "Am 4. Juni fand unter Beteiligung der Leiter der UAGZ-Struktureinheiten eine Arbeitsberatung statt, bei der zukunftsweisende Tätigkeitsbereiche...",
@@ -500,6 +488,19 @@ function setLang(lang) {
       el.innerHTML = val;
     }
   }
+
+  /* Динамическая корректировка надписи на кнопках при переключении языка */
+  document.querySelectorAll('.event-card').forEach(card => {
+    const isExpanded = card.classList.contains('expanded');
+    const btn = card.querySelector('.event-toggle-btn');
+    if (btn) {
+      if (lang === 'de') {
+        btn.textContent = isExpanded ? 'Schließen ⬆' : 'Mehr erfahren ➔';
+      } else {
+        btn.textContent = isExpanded ? 'Згорнути ⬆' : 'Читати далі ➔';
+      }
+    }
+  });
 
   document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
   localStorage.setItem('selectedLang', lang);

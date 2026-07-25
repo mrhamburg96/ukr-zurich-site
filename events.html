@@ -283,7 +283,78 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Лента событий (новые статьи добавляются на первое место) -->
   <div class="events-feed">
+    <!-- Событие 2 (Новое событие — 07.06.2026, без эмодзи) -->
+<div class="event-card" id="event-new-2">
+  
+  <!-- ПРЕВЬЮ КАРТОЧКИ (Видно сразу) -->
+  <div class="event-preview">
+    <div class="event-meta">
+      <div class="event-date" id="ev2-date">07.06.2026 · Цюрих</div>
+      
+      <!-- Украинский заголовок и анонс -->
+      <h3 class="event-title lang-uk" id="ev2-title-uk">Привітання отця Івана з Днем народження</h3>
+      <p class="event-excerpt lang-uk" id="ev2-excerpt-uk">З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche...</p>
+      
+      <!-- Немецкий заголовок и анонс -->
+      <h3 class="event-title lang-de" id="ev2-title-de" style="display: none;">Glückwünsche zum Geburtstag von Vater Ivan</h3>
+      <p class="event-excerpt lang-de" id="ev2-excerpt-de" style="display: none;">Anlässlich des Geburtstags von Vater Ivan, dem Seelsorger der UGKC, schloss sich das Team der Organisation UAGZ den Glückwünschen und Feierlichkeiten in der Liebfrauenkirche an...</p>
+    </div>
     
+    <!-- Фото для тизера -->
+    <img src="events-foto2.webp" alt="Святкування Дня народження отця Івана" class="event-thumb">
+  </div>
+
+  <!-- КНОПКА РАЗВОРАЧИВАНИЯ -->
+  <button class="event-toggle-btn" onclick="toggleEvent('event-new-2', this)" id="ev2-btn">
+    <span class="lang-uk">Читати далі ➔</span>
+    <span class="lang-de" style="display: none;">Mehr lesen ➔</span>
+  </button>
+
+  <!-- РАЗВЕРНУТЫЙ БЛОК (Скрыт до клика) -->
+  <div class="event-details">
+    <div class="event-expanded-layout">
+      
+      <!-- Украинская версия статьи -->
+      <div class="event-expanded-text lang-uk">
+        <p id="ev2-p1-uk">З нагоди святкування Дня народження отця Івана — пастиря УГКЦ — колектив організації UAGZ долучився до привітання та святкових заходів у Liebfrauenkirche.</p>
+        
+        <img src="events-foto2.1.webp" alt="Святкові заходи у Liebfrauenkirche" class="event-expanded-img">
+        
+        <p id="ev2-p2-uk">У цей особливий день представники організації висловили щирі слова вдячності за духовне служіння, підтримку української громади, людяність, мудрість і щоденну працю на благо людей.</p>
+        
+        <img src="events-foto2.2.webp" alt="Вітання колективу UAGZ" class="event-expanded-img">
+        
+        <p id="ev2-p3-uk">Бажаємо отцю Івану міцного здоров’я, Божого благословення, внутрішньої сили, радості, миру та натхнення для подальшого служіння й реалізації добрих справ.</p>
+        
+        <img src="events-foto2.3.webp" alt="Духовне служіння та підтримка громади" class="event-expanded-img">
+        
+        <p id="ev2-p4-uk">Нехай кожен день буде наповнений світлом, підтримкою громади, теплом людських сердець та новими можливостями для розвитку й єднання.</p>
+        
+        <p id="ev2-p5-uk"><strong>З повагою та найкращими побажаннями — колектив UAGZ.</strong></p>
+      </div>
+
+      <!-- Немецкая версия статьи -->
+      <div class="event-expanded-text lang-de" style="display: none;">
+        <p id="ev2-p1-de">Anlässlich des Geburtstags von Vater Ivan, dem Seelsorger der UGKC, schloss sich das Team der Organisation UAGZ den Glückwünschen und Feierlichkeiten in der Liebfrauenkirche an.</p>
+        
+        <img src="events-foto2.1.webp" alt="Feierlichkeiten in der Liebfrauenkirche" class="event-expanded-img">
+        
+        <p id="ev2-p2-de">An diesem besonderen Tag sprachen die Vertreter der Organisation ihren aufrichtigen Dank für den geistlichen Dienst, die Unterstützung der ukrainischen Gemeinschaft, die Menschlichkeit, die Weisheit und die tägliche Arbeit zum Wohle der Menschen aus.</p>
+        
+        <img src="events-foto2.2.webp" alt="Glückwünsche des UAGZ-Teams" class="event-expanded-img">
+        
+        <p id="ev2-p3-de">Wir wünschen Vater Ivan gute Gesundheit, Gottes Segen, innere Kraft, Freude, Frieden und Inspiration für den weiteren Dienst und die Umsetzung guter Taten.</p>
+        
+        <img src="events-foto2.3.webp" alt="Geistlicher Dienst und Gemeinschaft" class="event-expanded-img">
+        
+        <p id="ev2-p4-de">Möge jeder Tag mit Licht, der Unterstützung der Gemeinschaft, der Wärme menschlicher Herzen und neuen Möglichkeiten für Entwicklung und Einheit erfüllt sein.</p>
+        
+        <p id="ev2-p5-de"><strong>Mit freundlichen Grüßen und den besten Wünschen — das Team von UAGZ.</strong></p>
+      </div>
+
+    </div>
+  </div>
+</div>
     <!-- Событие 1 (Новая статья с events-foto1.webp, без эмодзи) -->
     <div class="event-card" id="event-new-1">
       <div class="event-preview">

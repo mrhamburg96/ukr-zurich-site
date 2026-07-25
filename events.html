@@ -74,6 +74,115 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   line-height: 1.7;
 }
 
+/* Секция событий */
+.events-section-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1A56C4;
+  margin: 4rem 0 2.5rem 0;
+}
+.events-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Увеличенные карточки событий (в два раза больше) */
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.2);
+  padding: 36px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s ease;
+}
+.event-card:hover {
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+.event-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.event-meta {
+  flex: 1;
+}
+.event-date {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.event-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1A56C4;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.event-excerpt {
+  color: var(--text2);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.event-thumb {
+  width: 240px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.event-toggle-btn {
+  background: var(--blue-light);
+  color: var(--blue);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.2s;
+}
+.event-toggle-btn:hover {
+  background: #d4e4fd;
+}
+
+/* Разворачивающийся блок */
+.event-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.event-card.expanded .event-details {
+  max-height: 4000px;
+  transition: max-height 0.8s ease-in;
+}
+.event-expanded-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 32px;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.event-expanded-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.event-expanded-text p {
+  color: var(--text2);
+  font-size: 15px;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
 /* Подвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
@@ -86,6 +195,17 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   .article-sidebar img {
     height: auto;
     max-height: 400px;
+  }
+  .event-preview {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .event-thumb {
+    width: 100%;
+    height: 220px;
+  }
+  .event-expanded-layout {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 768px) {
@@ -139,24 +259,61 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </header>
 
 <main class="container page-content">
+  <!-- Основной блок статьи с баннером -->
   <div class="article-layout">
-    <!-- Левая колонка: Фото -->
     <aside class="article-sidebar">
       <img src="event-baner.webp" alt="UAGZ Event Banner">
     </aside>
 
-    <!-- Правая колонка: Текст статьи -->
     <div class="article-body">
       <h1 id="art-title">Нова громадська організація UAGZ у Цюриху</h1>
       <p id="art-p1">У Цюриху розпочала свою діяльність нова громадська організація UAGZ — Український інтеграційний та громадський центр Цюриха.</p>
       <p id="art-p2">Мета організації — об’єднувати людей, надавати можливості для працевлаштування та спільно реалізовувати проекти у сфері освіти, сімейного розвитку, культури, спорту та суспільних ініціатив.</p>
-      <p id="art-p3">Першими напрямками роботи Організації станут програми підтримки сімей з дітьми, дитячі, освітні та розвивальні програми, зокрема спортивні гуртки, групи з танців, творчі заняття з малювання та акторської майстерності.</p>
+      <p id="art-p3">Першими напрямками роботи Організації стануть програми підтримки сімей з дітьми, дитячі, освітні та розвивальні програми, зокрема спортивні гуртки, групи з танців, творчі заняття з малювання та акторської майстерності.</p>
       <p id="art-p4">Також планується проведення активних заходів, культурних подій та створення можливостей для спілкування й інтеграції в спільноти Цюриха.</p>
-      <p id="art-p5">Окремим напрямком роботи Організації є волонтерська діяльність — реалізація суспільно корисних ініціатив, екологічних проектів, організація заходів та розвиток співпраці з громадськими організаціями й державними установами Цюриха.</p>
+      <p id="art-p5">Окремим напрямком роботи Організації є волонтерська діяльність — реалізація суспільних ініціатив, екологічних проектів, організація заходів та розвиток співпраці з громадськими організаціями й державними установами Цюриха.</p>
       <p id="art-p6">Ми вдячні всім, хто підтримав створення організації, та запрошуємо всіх активних людей і сім’ї з дітьми долучатися до програм UAGZ.</p>
       <p id="art-p7">Приходьте до нас, беріть участь у реалізації спільних ініціатив, долучайтеся до активу Організації та приносьте свої ідеї.</p>
       <p id="art-p8">Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у розвиток спільноти Цюриха.</p>
     </div>
+  </div>
+
+  <!-- Заголовок секции событий -->
+  <h2 class="events-section-title" id="sec-events-title">Наші події</h2>
+
+  <!-- Лента событий (новые статьи добавляются на первое место) -->
+  <div class="events-feed">
+    
+    <!-- Событие 1 (Новая статья с events-foto1.webp, без эмодзи) -->
+    <div class="event-card" id="event-new-1">
+      <div class="event-preview">
+        <div class="event-meta">
+          <div class="event-date" id="ev1-date">04.06.2026 · Цюрих</div>
+          <h3 class="event-title" id="ev1-title">Робоча нарада керівників структурних підрозділів UAGZ</h3>
+          <p class="event-excerpt" id="ev1-excerpt">4 червня відбулася робоча нарада за участю керівників структурних підрозділів UAGZ, під час якої обговорено перспективні напрямки діяльності організації...</p>
+        </div>
+        <img src="events-foto1.webp" alt="Робоча нарада UAGZ" class="event-thumb">
+      </div>
+
+      <button class="event-toggle-btn" onclick="toggleEvent('event-new-1', this)" id="ev1-btn">Читати далі ➔</button>
+
+      <div class="event-details">
+        <div class="event-expanded-layout">
+          <div>
+            <img src="events-foto1.webp" alt="Робоча нарада UAGZ" class="event-expanded-img">
+          </div>
+          <div class="event-expanded-text">
+            <p id="ev1-p1">4 червня відбулася робоча нарада за участю керівників структурних підрозділів UAGZ, під час якої обговорено перспективні напрямки діяльності організації та нові програмні ініціативи.</p>
+            <p id="ev1-p2">Однією з ключових тем стала презентація проєкту створення Familien-, Kinder- und Jugendzentrum UAGZ — Сімейного, дитячо-молодіжного центру UAGZ — простору розвитку, підтримки та нових можливостей для дітей, молоді та сімей.</p>
+            <p id="ev1-p3">Особливу увагу учасники приділили спортивному напряму, зокрема ідеї запуску дитячої програми з плавання, спрямованої на фізичний розвиток, формування здорових звичок і активного способу життя.</p>
+            <p id="ev1-p4">Також було презентовано напрям акторської майстерності, який передбачає розвиток творчих здібностей, комунікації, впевненості у собі та навичок командної взаємодії.</p>
+            <p id="ev1-p5">За результатами зустрічі проєкт передано на подальше опрацювання та підготовку до реалізації в межах діяльності UAGZ.</p>
+            <p id="ev1-p6">Разом створюємо сильну, активну та єдину спільноту.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </main>
 
@@ -193,10 +350,23 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "art-p2": "Мета організації — об’єднувати людей, надавати можливості для працевлаштування та спільно реалізовувати проекти у сфері освіти, сімейного розвитку, культури, спорту та суспільних ініціатив.",
     "art-p3": "Першими напрямками роботи Організації стануть програми підтримки сімей з дітьми, дитячі, освітні та розвивальні програми, зокрема спортивні гуртки, групи з танців, творчі заняття з малювання та акторської майстерності.",
     "art-p4": "Також планується проведення активних заходів, культурних подій та створення можливостей для спілкування й інтеграції в спільноти Цюриха.",
-    "art-p5": "Окремим напрямком роботи Організації є волонтерська діяльність — реалізація суспільно корисних ініціатив, екологічних проектів, організація заходів та розвиток співпраці з громадськими організаціями й державними установами Цюриха.",
+    "art-p5": "Окремим напрямком роботи Організації є волонтерська діяльність — реалізація суспільних ініціатив, екологічних проектів, організація заходів та розвиток співпраці з громадськими організаціями й державними установами Цюриха.",
     "art-p6": "Ми вдячні всім, хто підтримав створення організації, та запрошуємо всіх активних людей і сім’ї з дітьми долучатися до програм UAGZ.",
     "art-p7": "Приходьте до нас, беріть участь у реалізації спільних ініціатив, долучайтеся до активу Організації та приносьте свої ідеї.",
     "art-p8": "Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у розвиток спільноти Цюриха.",
+
+    "sec-events-title": "Наші події",
+    
+    "ev1-date": "04.06.2026 · Цюрих",
+    "ev1-title": "Робоча нарада керівників структурних підрозділів UAGZ",
+    "ev1-excerpt": "4 червня відбулася робоча нарада за участю керівників структурних підрозділів UAGZ, під час якої обговорено перспективні напрямки діяльності організації...",
+    "ev1-btn": "Читати далі ➔",
+    "ev1-p1": "4 червня відбулася робоча нарада за участю керівників структурних підрозділів UAGZ, під час якої обговорено перспективні напрямки діяльності організації та нові програмні ініціативи.",
+    "ev1-p2": "Однією з ключових тем стала презентація проєкту створення Familien-, Kinder- und Jugendzentrum UAGZ — Сімейного, дитячо-молодіжного центру UAGZ — простору розвитку, підтримки та нових можливостей для дітей, молоді та сімей.",
+    "ev1-p3": "Особливу увагу учасники приділили спортивному напряму, зокрема ідеї запуску дитячої програми з плавання, спрямованої на фізичний розвиток, формування здорових звичок і активного способу життя.",
+    "ev1-p4": "Також було презентовано напрям акторської майстерності, який передбачає розвиток творчих здібностей, комунікації, впевненості у собі та навичок командної взаємодії.",
+    "ev1-p5": "За результатами зустрічі проєкт передано на подальше опрацювання та підготовку до реалізації в межах діяльності UAGZ.",
+    "ev1-p6": "Разом створюємо сильну, активну та єдину спільноту.",
 
     "f-title": "UAGZ Цюрих",
     "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
@@ -225,6 +395,19 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     "art-p7": "Kommen Sie zu uns, beteiligen Sie sich an der Umsetzung gemeinsamer Initiativen, werden Sie Teil des Aktivs der Organisation und bringen Sie Ihre Ideen ein.",
     "art-p8": "Gemeinsam können wir mehr Möglichkeiten für Ukrainer schaffen und einen bedeutenden Beitrag zur Entwicklung der Gemeinschaft in Zürich leisten.",
 
+    "sec-events-title": "Unsere Ereignisse",
+
+    "ev1-date": "04.06.2026 · Zürich",
+    "ev1-title": "Arbeitsberatung der Leiter der UAGZ-Struktureinheiten",
+    "ev1-excerpt": "Am 4. Juni fand unter Beteiligung der Leiter der UAGZ-Struktureinheiten eine Arbeitsberatung statt, bei der zukunftsweisende Tätigkeitsbereiche...",
+    "ev1-btn": "Mehr erfahren ➔",
+    "ev1-p1": "Am 4. Juni fand eine Arbeitssitzung unter Beteiligung der Leiter der UAGZ-Struktureinheiten statt, bei der zukunftsweisende Tätigkeitsbereiche der Organisation und neue Programminitiativen besprochen wurden.",
+    "ev1-p2": "Ein zentrales Thema war die Präsentation des Projekts zur Schaffung des Familien-, Kinder- und Jugendzentrums UAGZ — ein Raum für Entwicklung, Unterstützung und neue Möglichkeiten für Kinder, Jugendliche und Familien.",
+    "ev1-p3": "Besonderes Augenmerk widmeten die Teilnehmer dem Bereich Sport, insbesondere der Idee des Starts eines Kinderschwimmprogramms zur Förderung der körperlichen Entwicklung, gesunder Gewohnheiten und eines aktiven Lebensstils.",
+    "ev1-p4": "Ebenfalls vorgestellt wurde der Bereich Schauspielkunst, der die Entwicklung kreativer Fähigkeiten, Kommunikation, Selbstvertrauen und Teamfähigkeit fördert.",
+    "ev1-p5": "Als Ergebnis des Treffens wurde das Projekt zur weiteren Ausarbeitung und Vorbereitung der Umsetzung im Rahmen der UAGZ-Aktivitäten übergeben.",
+    "ev1-p6": "Gemeinsam schaffen wir eine starke, aktive und geeinte Gemeinschaft.",
+
     "f-title": "UAGZ Zürich",
     "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
     "fc1h": "Kontakt"
@@ -252,6 +435,20 @@ function setLang(lang) {
 
   document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
   localStorage.setItem('selectedLang', lang);
+}
+
+function toggleEvent(eventId, buttonElement) {
+  const card = document.getElementById(eventId);
+  card.classList.toggle('expanded');
+  
+  const isExpanded = card.classList.contains('expanded');
+  const currentLang = localStorage.getItem('selectedLang') || 'ua';
+  
+  if (currentLang === 'de') {
+    buttonElement.textContent = isExpanded ? 'Schließen ⬆' : 'Mehr erfahren ➔';
+  } else {
+    buttonElement.textContent = isExpanded ? 'Згорнути ⬆' : 'Читати далі ➔';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

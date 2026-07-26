@@ -283,6 +283,51 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Лента событий (новые статьи добавляются на первое место) -->
   <div class="events-feed">
+    <!-- Событие 4 (05.07.2026 — Родинне Коло II) -->
+<div class="event-card" id="event-new-4">
+  <div class="event-preview">
+    <div class="event-meta">
+      <div class="event-date" id="ev4-date">05.07.2026 · Цюрих</div>
+      <h3 class="event-title" id="ev4-title">Родинна зустріч української спільноти в Цюриху — «Родинне Коло II»</h3>
+      <p class="event-excerpt" id="ev4-excerpt">5 липня 2026 року в Цюриху відбулася тепла зустріч українських родин, організована для підтримки спільноти та створення простору для взаємодії, знайомств і сімейного дозвілля...</p>
+    </div>
+    <img src="events-foto4.webp" alt="Родинне Коло II" class="event-thumb">
+  </div>
+
+  <button class="event-toggle-btn" onclick="toggleEvent('event-new-4', this)" id="ev4-btn">Читати далі ➔</button>
+
+  <div class="event-details">
+    <div class="event-expanded-layout">
+      <div>
+        <img src="events-foto4.1.webp" alt="Родинне Коло II" class="event-expanded-img">
+      </div>
+      <div class="event-expanded-text">
+        <p id="ev4-p1">5 липня 2026 року в Цюриху відбулася тепла зустріч українських родин, організована для підтримки спільноти та створення простору для взаємодії, знайомств і сімейного дозвілля. Подія пройшла за адресою Weinbergstrasse 32, 8006 Zürich і об’єднала дітей, підлітків та дорослих.</p>
+        
+        <p id="ev4-p2">Програма заходу:</p>
+        <p id="ev4-p3">Учасники мали можливість долучитися до різноманітних активностей:</p>
+        <p id="ev4-p4">— творча майстерня для дітей;</p>
+        <p id="ev4-p5">— танцювальні заняття та рухові активності;</p>
+        <p id="ev4-p6">— окремий простір для підлітків;</p>
+        <p id="ev4-p7">— сімейний навігатор для знайомств та спілкування;</p>
+        <p id="ev4-p8">— родинна фотозона UAGZ;</p>
+        <p id="ev4-p9">— затишна зона відпочинку з чаєм та дружньою атмосферою.</p>
+
+        <img src="events-foto4.2.webp" alt="Родинне Коло II - Майстерні" class="event-expanded-img" style="margin: 15px 0;">
+
+        <p id="ev4-p10">Перед початком основної програми відбулася Служба Божа о 14:00, після чого о 15:30 розпочалося «Родинне Коло II».</p>
+
+        <p id="ev4-p11">Мета зустрічі:</p>
+        <p id="ev4-p12">Подія була спрямована на зміцнення української спільноти в Цюриху. Учасники знайомилися, ділилися досвідом, підтримували одне одного та створювали нові зв’язки. Зустріч стала майданчиком для інтеграції, взаємної допомоги та розвитку сімейних ініціатив.</p>
+
+        <img src="events-foto4.3.webp" alt="Родинне Коло II - Спільнота" class="event-expanded-img" style="margin: 15px 0;">
+
+        <p id="ev4-p13">Адреса: Weinbergstrasse 32, 8006 Zürich</p>
+        <p id="ev4-p14">Захід пройшов у теплій атмосфері та зібрав багато українських родин, які прагнуть залишатися об’єднаними та активними у житті громади. «Родинне Коло II» стало важливою подією для тих, хто шукає підтримку, спілкування та можливість долучитися до життя української спільноти в Цюриху.</p>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Событие 3 (21.06.2026 — РОДИННЕ КОЛО І) -->
 <div class="event-card" id="event-new-3">
   <div class="event-preview">
@@ -424,6 +469,25 @@ const T = {
     "art-p8": "Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у розвиток спільноти Цюриха.",
 
     "sec-events-title": "Наші події",
+    /* Переводы для события 4 (05.07.2026) */
+    "ev4-date": "05.07.2026 · Цюрих",
+    "ev4-title": "Родинна зустріч української спільноти в Цюриху — «Родинне Коло II»",
+    "ev4-excerpt": "5 липня 2026 року в Цюриху відбулася тепла зустріч українських родин, організована для підтримки спільноти та створення простору для взаємодії, знайомств і сімейного дозвілля...",
+    "ev4-btn": "Читати далі ➔",
+    "ev4-p1": "5 липня 2026 року в Цюриху відбулася тепла зустріч українських родин, організована для підтримки спільноти та створення простору для взаємодії, знайомств і сімейного дозвілля. Подія пройшла за адресою Weinbergstrasse 32, 8006 Zürich і об’єднала дітей, підлітків та дорослих.",
+    "ev4-p2": "Програма заходу:",
+    "ev4-p3": "Учасники мали можливість долучитися до різноманітних активностей:",
+    "ev4-p4": "— творча майстерня для дітей;",
+    "ev4-p5": "— танцювальні заняття та рухові активності;",
+    "ev4-p6": "— окремий простір для підлітків;",
+    "ev4-p7": "— сімейний навігатор для знайомств та спілкування;",
+    "ev4-p8": "— родинна фотозона UAGZ;",
+    "ev4-p9": "— затишна зона відпочинку з чаєм та дружньою атмосферою.",
+    "ev4-p10": "Перед початком основної програми відбулася Служба Божа о 14:00, після чого о 15:30 розпочалося «Родинне Коло II».",
+    "ev4-p11": "Мета зустрічі:",
+    "ev4-p12": "Подія була спрямована на зміцнення української спільноти в Цюриху. Учасники знайомилися, ділилися досвідом, підтримували одне одного та створювали нові зв’язки. Зустріч стала майданчиком для інтеграції, взаємної допомоги та розвитку сімейних ініціатив.",
+    "ev4-p13": "Адреса: Weinbergstrasse 32, 8006 Zürich",
+    "ev4-p14": "Захід пройшов у теплій атмосфері та зібрав багато українських родин, які прагнуть залишатися об’єднаними та активними у житті громади. «Родинне Коло II» стало важливою подією для тих, хто шукає підтримку, спілкування та можливість долучитися до життя української спільноти в Цюриху.",
     /* Переводы для события 3 (21.06.2026) */
     "ev3-date": "21.06.2026 · Цюрих",
     "ev3-title": "Перша родинна зустріч — «РОДИННЕ КОЛО І»",
@@ -490,6 +554,25 @@ const T = {
     "art-p8": "Gemeinsam können wir mehr Möglichkeiten für Ukrainer schaffen und einen bedeutenden Beitrag zur Entwicklung der Gemeinschaft in Zürich leisten.",
 
     "sec-events-title": "Unsere Ereignisse",
+    /* Немецкий перевод для события 4 (05.07.2026) */
+    "ev4-date": "05.07.2026 · Zürich",
+    "ev4-title": "Familientreffen der ukrainischen Gemeinschaft in Zürich — «Familienkreis II»",
+    "ev4-excerpt": "Am 5. Juli 2026 fand in Zürich ein herzliches Treffen ukrainischer Familien statt, das organisiert wurde, um die Gemeinschaft zu unterstützen und einen Raum für Austausch...",
+    "ev4-btn": "Mehr erfahren ➔",
+    "ev4-p1": "Am 5. Juli 2026 fand in Zürich ein herzliches Treffen ukrainischer Familien statt, das organisiert wurde, um die Gemeinschaft zu unterstützen und einen Raum für Austausch, Kennenlernen und Familienfreizeit zu schaffen. Die Veranstaltung fand in der Weinbergstrasse 32, 8006 Zürich statt und brachte Kinder, Jugendliche und Erwachsene zusammen.",
+    "ev4-p2": "Programm der Veranstaltung:",
+    "ev4-p3": "Die Teilnehmer hatten die Möglichkeit, sich an verschiedenen Aktivitäten zu beteiligen:",
+    "ev4-p4": "— Kreativwerkstatt für Kinder;",
+    "ev4-p5": "— Tanzkurse und Bewegungsaktivitäten;",
+    "ev4-p6": "— Ein eigener Bereich für Jugendliche;",
+    "ev4-p7": "— Familien-Navigator für Kennenlernen und Austausch;",
+    "ev4-p8": "— UAGZ-Familienfotozone;",
+    "ev4-p9": "— Gemütliche Ruhezone mit Tee und freundlicher Atmosphäre.",
+    "ev4-p10": "Vor Beginn des Hauptprogramms fand um 14:00 Uhr ein Gottesdienst statt, woraufhin um 15:30 Uhr der «Familienkreis II» begann.",
+    "ev4-p11": "Ziel des Treffens:",
+    "ev4-p12": "Die Veranstaltung zielte darauf ab, die ukrainische Gemeinschaft in Zürich zu stärken. Die Teilnehmer lernten sich kennen, tauschten Erfahrungen aus, unterstützten einander und knüpften neue Kontakte. Das Treffen wurde zu einer Plattform für Integration, gegenseitige Hilfe und die Entwicklung von Familieninitiativen.",
+    "ev4-p13": "Adresse: Weinbergstrasse 32, 8006 Zürich",
+    "ev4-p14": "Die Veranstaltung fand in einer warmen Atmosphäre statt und brachte viele ukrainische Familien zusammen, die vereint und aktiv im Gemeindeleben bleiben möchten. «Familienkreis II» war ein wichtiges Ereignis für alle, die Unterstützung, Austausch und die Möglichkeit suchen, sich am Leben der ukrainischen Gemeinschaft in Zürich zu beteiligen.",
      /* Немецкий перевод для события 3 (21.06.2026) */
     "ev3-date": "21.06.2026 · Zürich",
     "ev3-title": "Erstes Familientreffen — «FAMILIENKREIS I»",

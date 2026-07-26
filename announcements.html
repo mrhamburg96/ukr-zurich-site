@@ -1,375 +1,474 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оголошення — UAGZ</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-        body {
-            background-color: #F7FAFC;
-            color: #2D3748;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex: 1;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1A365D;
-            margin-bottom: 12px;
-        }
-        .subtitle {
-            font-size: 16px;
-            color: #718096;
-            margin-bottom: 30px;
-        }
-        .announcements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
-        }
-        .announcement-card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
-            border: 1px solid #E2E8F0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .announcement-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-        }
-        .card-date {
-            font-size: 13px;
-            color: #1A56C4;
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #2D3748;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        .card-desc {
-            font-size: 14px;
-            color: #4A5568;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .card-link {
-            text-decoration: none;
-            color: #1A56C4;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .card-link:hover {
-            text-decoration: underline;
-        }
-        /* Футер */
-        footer {
-            background-color: #1A202C;
-            color: #FFFFFF;
-            padding: 50px 20px 20px 20px;
-            margin-top: auto;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            border-bottom: 1px solid #2D3748;
-            padding-bottom: 40px;
-        }
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-        .footer-col h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #FFFFFF;
-        }
-        .footer-col p, .footer-col ul {
-            font-size: 14px;
-            color: #A0AEC0;
-            line-height: 1.6;
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
-        .footer-col ul li a {
-            color: #A0AEC0;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover {
-            color: #FFFFFF;
-        }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 20px auto 0 auto;
-            text-align: center;
-            font-size: 13px;
-            color: #718096;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Події — UAGZ</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1A56C4;--blue-dark:#0F3A8A;--blue-light:#E8F1FD;
+  --yellow:#F5C518;--yellow-bg:#FFFBEA;
+  --green:#25A244;--green-bg:#E6F5EC;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;
+  --orange:#EA580C;--orange-bg:#FFF7ED;
+  --red:#D52B1E;
+  --text:#111827;--text2:#4B5563;--text3:#9CA3AF;
+  --border:#E5E7EB;--surface:#F9FAFB;--white:#fff;
+  --radius:16px;
+}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+
+/* Шапка */
+header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
+nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
+.nav-logo-flags{display:flex;gap:4px;flex-shrink:0}
+.flag-ua{background:linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);width:26px;height:18px;flex-shrink:0}
+.flag-ch{background:#D52B1E;width:18px;height:18px;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flag-ch::before, .flag-ch::after{content:'';background:#fff;position:absolute}
+.flag-ch::before{width:4px;height:12px}
+.flag-ch::after{width:12px;height:4px}
+.brand{font-weight:700;color:#1A56C4;font-size:1.2rem;display:flex;flex-direction:column;line-height:1.2}
+.brand small{font-size:10px;color:var(--text3);font-weight:400;line-height:1.2;white-space:normal;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-weight:500;color:var(--text2);transition:color 0.2s;white-space:nowrap}
+.nav-links a:hover, .nav-links a.active{color:#1A56C4;font-weight:600}
+.btn-donate-nav{background:none;border:none;color:var(--red);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.nav-r{display:flex;align-items:center;gap:15px;flex-shrink:0}
+.lang-sw{display:flex;gap:4px;background:var(--surface);padding:2px;border-radius:6px;flex-shrink:0}
+.lb{background:none;border:none;padding:4px 8px;font-size:12px;font-weight:600;color:var(--text2);border-radius:4px;cursor:pointer}
+.lb.on{background:#fff;color:#1A56C4;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.btn-solid{background:#1A56C4;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0}
+
+/* Контент и сетка карточек */
+.page-content{padding:3.5rem 0 5rem 0}
+.page-header-box{margin-bottom:2.5rem;text-align:center;max-width:700px;margin-left:auto;margin-right:auto}
+.page-title{font-size:2.5rem;font-weight:800;margin-bottom:0.75rem;color:#1A56C4}
+
+/* Сетка карточек событий (2 колонки для красоты) */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+/* Карточка события */
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* Верхняя строка карточки: Дата и Бейдж категории */
+.event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.event-date-badge {
+  background: var(--blue-light);
+  color: #1A56C4;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.event-category {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Блок иконки по центру сверху */
+.event-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.event-icon-container img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+/* Цветовые стили категорий */
+.cat-kids { background: var(--purple-bg); color: var(--purple); }
+.cat-sport { background: var(--green-bg); color: var(--green); }
+.cat-edu { background: var(--blue-light); color: #1A56C4; }
+.cat-creative { background: var(--orange-bg); color: var(--orange); }
+
+.event-body h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1A56C4;
+  line-height: 1.4;
+  text-align: center;
+}
+.event-body p {
+  color: var(--text2);
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Кнопка действия внутри карточки */
+.event-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.event-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text3);
+}
+.event-loc img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+.event-btn {
+  background: var(--surface);
+  color: #1A56C4;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.event-btn:hover {
+  background: #1A56C4;
+  color: #fff;
+  border-color: #1A56C4;
+}
+
+/* Подвал */
+footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 10px 1rem !important;
+  }
+  .nav-logo { max-width: 100% !important; justify-content: center !important; }
+  .brand { align-items: center !important; }
+  .brand small { text-align: center !important; }
+  .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 10px 15px !important; padding: 0 !important; }
+  .nav-links a { font-size: 14px !important; }
+  .nav-r { width: 100% !important; justify-content: center !important; margin-top: 5px !important; gap: 15px !important; }
+  .events-grid { grid-template-columns: 1fr; }
+  .page-title { font-size: 2rem !important; }
+}
+</style>
 </head>
 <body>
 
-    <!-- Шапка -->
-    <header style="background: #ffffff; border-bottom: 1px solid #E2E8F0; padding: 14px 24px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-        <div style="max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px;">
-            
-            <!-- Логотип (оба флага имеют строго квадратную пропорцию и одинаковые размеры) -->
-            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 12px; flex-shrink: 0;">
-                <div style="display: flex; gap: 6px; align-items: center;">
-                    <!-- Украинский флаг (вертикальный прямоугольник 18x18px) -->
-                    <div style="display: flex; flex-direction: column; width: 18px; height: 18px; border-radius: 3px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
-                        <div style="width: 100%; height: 50%; background-color: #005BBB;"></div>
-                        <div style="width: 100%; height: 50%; background-color: #FFD500;"></div>
-                    </div>
-                    <!-- Швейцарский флаг (квадрат 18x18px с белым крестом) -->
-                    <div style="position: relative; width: 18px; height: 18px; background: #DA291C; border-radius: 3px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
-                        <div style="position: absolute; top: 50%; left: 3px; right: 3px; height: 4px; background: white; transform: translateY(-50%); border-radius: 0.5px;"></div>
-                        <div style="position: absolute; top: 3px; bottom: 3px; left: 50%; width: 4px; background: white; transform: translateX(-50%); border-radius: 0.5px;"></div>
-                    </div>
-                </div>
-                <div>
-                    <span style="font-size: 22px; font-weight: 800; color: #1A56C4; letter-spacing: -0.5px; display: block; line-height: 1.1;">UAGZ</span>
-                    <span style="font-size: 11px; color: #718096; white-space: nowrap;" data-i18n="logo_sub">Український інтеграційний та громадський центр Цюриха</span>
-                </div>
-            </a>
+<header>
+  <nav>
+    <a class="nav-logo" href="./index.html">
+      <div class="nav-logo-flags">
+        <div class="flag-ua"></div>
+        <div class="flag-ch"></div>
+      </div>
+      <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="index.html" id="m-home">Головна</a></li>
+      <li><a href="about.html" id="m-about">Про нас</a></li>
+      <li><a href="help.html" id="m-help">Допомога</a></li>
+      <li><a href="events.html" class="active" id="m-events">Події</a></li>
+      <li><a href="knowledge.html" id="m-knowledge">Центр знань</a></li>
+      <li><a href="announcements.html" id="m-announcements">Оголошення</a></li>
+      <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
+      <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
+      <li><a href="contacts.html" id="m-contacts">Контакти</a></li>
+    </ul>
+    
+    <div class="nav-r">
+      <div class="lang-sw">
+        <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+        <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+      </div>
+      <button class="btn-solid" id="nav-cta">Отримати допомогу</button>
+    </div>
+  </nav>
+</header>
 
-            <!-- Меню -->
-            <nav style="display: flex; flex-direction: column; gap: 6px; flex-grow: 1; max-width: 650px;">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <a href="index.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_home">Головна</a>
-                    <a href="about.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_about">Про нас</a>
-                    <a href="help.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_help">Допомога</a>
-                    <a href="events.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_events">Заходи</a>
-                    <a href="knowledge.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_knowledge">Центр знань</a>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <a href="announcements.html" style="text-decoration: none; color: #1A56C4; font-size: 14px; font-weight: 700;" data-i18n="menu_announcements">Оголошення</a>
-                    <a href="volunteering.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_volunteering">Волонтерство</a>
-                    <a href="donate.html" style="text-decoration: none; color: #DA291C; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 4px;" data-i18n="menu_donate">❤️ Донат</a>
-                    <a href="contacts.html" style="text-decoration: none; color: #4A5568; font-size: 14px; font-weight: 500;" data-i18n="menu_contacts">Контакти</a>
-                </div>
-            </nav>
-
-            <!-- Переключатель языков и кнопка -->
-            <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
-                <div style="display: flex; background: #EDF2F7; border-radius: 6px; padding: 2px;">
-                    <button id="btn-ua" onclick="setLanguage('ua')" style="background: #ffffff; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 700; color: #1A56C4; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">UA</button>
-                    <button id="btn-de" onclick="setLanguage('de')" style="background: transparent; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 500; color: #718096; cursor: pointer;">DE</button>
-                </div>
-                <a href="help.html" style="background-color: #1A56C4; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(26, 86, 196, 0.25);" data-i18n="btn_get_help">
-                    Отримати допомогу
-                </a>
-            </div>
-
+<main class="container page-content">
+  <div class="page-header-box">
+    <h1 class="page-title" id="page-events-title">Найближчі події та набори</h1>
+    <p id="page-events-sub" style="color:var(--text2); font-size:1.1rem;">Приєднуйтесь до наших зустрічей, секцій, театральної студії та культурних заходів у Цюриху.</p>
+  </div>
+  
+  <!-- Сетка карточек -->
+  <div class="events-grid">
+    
+    <!-- 1. Розмовний клуб -->
+    <div class="event-card">
+      <div>
+        <div class="event-card-top">
+          <div class="event-date-badge" id="ev-date-1">30 ТРА<br><span style="font-size:11px;font-weight:400">18:00</span></div>
+          <span class="event-category cat-edu" id="cat-1">Освіта</span>
         </div>
-    </header>
-
-    <!-- Основное содержимое -->
-    <main>
-        <h1 data-i18n="page_title">Актуальні оголошення</h1>
-        <p class="subtitle" data-i18n="page_subtitle">Слідкуйте за найважливішими новинами, подіями та можливостями нашого центру.</p>
-
-        <div class="announcements-grid">
-            <div class="announcement-card">
-                <div>
-                    <div class="card-date">21 липня 2026</div>
-                    <h3 class="card-title" data-i18n="card_1_title">Відкриття реєстрації на курси німецької мови (А1-В2)</h3>
-                    <p class="card-desc" data-i18n="card_1_desc">Розпочинається набір у нові групи з вивчення німецької мови для дорослих. Заняття проходять у центрі Цюриха досвідченими викладачами.</p>
-                </div>
-                <a href="#" class="card-link" data-i18n="card_link">Детальніше &rarr;</a>
-            </div>
-
-            <div class="announcement-card">
-                <div>
-                    <div class="card-date">18 липня 2026</div>
-                    <h3 class="card-title" data-i18n="card_2_title">Юридичні консультації для новоприбывших</h3>
-                    <p class="card-desc" data-i18n="card_2_desc">У середу відбудеться безкоштовна консультація з питань оформлення статусів та інтеграційного законодавства у Швейцарії.</p>
-                </div>
-                <a href="#" class="card-link" data-i18n="card_link">Детальніше &rarr;</a>
-            </div>
-
-            <div class="announcement-card">
-                <div>
-                    <div class="card-date">15 липня 2026</div>
-                    <h3 class="card-title" data-i18n="card_3_title">Дитячий клуб вихідного дня: творчі майстер-класи</h3>
-                    <p class="card-desc" data-i18n="card_3_desc">Запрошуємо дітей на захоплюючі розвиваючі заняття та майстер-класи цього тижня. Кількість місць обмежена.</p>
-                </div>
-                <a href="#" class="card-link" data-i18n="card_link">Детальніше &rarr;</a>
-            </div>
+        <div class="event-icon-container">
+          <img src="events-icon1.webp" alt="Розмовний клуб">
         </div>
-    </main>
-
-    <!-- Футер -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col" style="flex: 1.5;">
-                <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 12px;">UAGZ</h4>
-                <p data-i18n="footer_about">Український інтеграційний та громадський центр у Цюриху. Допомагаємо адаптуватися, розвиватися та бути разом.</p>
-            </div>
-            
-            <div class="footer-col">
-                <h4 data-i18n="footer_links_title">Швидкі посилання</h4>
-                <ul>
-                    <li><a href="about.html" data-i18n="menu_about">Про нас</a></li>
-                    <li><a href="help.html" data-i18n="menu_help">Допомога</a></li>
-                    <li><a href="events.html" data-i18n="menu_events">Заходи</a></li>
-                    <li><a href="contacts.html" data-i18n="menu_contacts">Контакти</a></li>
-                </ul>
-            </div>
-
-            <!-- Блок подписки Formspree -->
-            <div style="flex: 2; min-width: 280px; margin-bottom: 15px;">
-                <h4 style="margin: 0 0 6px 0; font-size: 15px; font-weight: 600; color: #ffffff;" data-i18n="footer_sub_title">Підпишіться на новини</h4>
-                <p style="margin: 0 0 12px 0; color: #A0AEC0; font-size: 13px;" data-i18n="footer_sub_desc">Будьте в курсі наших подій та новин</p>
-                
-                <form action="https://formspree.io/f/maqrbboy" method="POST" style="display: flex; background-color: #ffffff; border-radius: 6px; padding: 3px; width: 100%; max-width: 340px; box-sizing: border-box;">
-                    <input type="email" name="email" placeholder="Ваш email" id="footer-input" required style="flex: 1; border: none; padding: 8px 10px; font-size: 13px; outline: none; border-radius: 4px 0 0 4px; color: #4A5568;">
-                    <button type="submit" style="background-color: #1A56C4; color: #ffffff; border: none; padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap;" data-i18n="footer_btn_sub">
-                        Підписатися
-                    </button>
-                </form>
-            </div>
+        <div class="event-body">
+          <h3 id="ev-title-1">Розмовний клуб (Німецька мова)</h3>
+          <p id="ev-desc-1">Практика спілкування для рівнів A2-B1. Зустріч у затишній атмосфері за кавою.</p>
         </div>
-        
-        <div class="footer-bottom" data-i18n="footer_rights">
-            &copy; 2026 UAGZ Zurich. Всі права захищені.
+      </div>
+      <div class="event-footer">
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-1">Центр UAGZ</span></span>
+        <a href="#register" class="event-btn" id="btn-reg-1">Записатися ➔</a>
+      </div>
+    </div>
+    
+    <!-- 2. Творча майстерня -->
+    <div class="event-card">
+      <div>
+        <div class="event-card-top">
+          <div class="event-date-badge" id="ev-date-2">03 ЧЕР<br><span style="font-size:11px;font-weight:400">15:00</span></div>
+          <span class="event-category cat-creative" id="cat-2">Діти</span>
         </div>
-    </footer>
+        <div class="event-icon-container">
+          <img src="events-icon2.webp" alt="Творча майстерня">
+        </div>
+        <div class="event-body">
+          <h3 id="ev-title-2">Творча майстерня для дітей</h3>
+          <p id="ev-desc-2">Малювання та ліпка для дітей віком 6-12 років. Всі матеріали надаються центром.</p>
+        </div>
+      </div>
+      <div class="event-footer">
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-2">Центр UAGZ</span></span>
+        <a href="#register" class="event-btn" id="btn-reg-2">Записатися ➔</a>
+      </div>
+    </div>
 
-    <!-- Скрипт переключения языков -->
-    <script>
-        const translations = {
-            ua: {
-                logo_sub: "Український інтеграційний та громадський центр Цюриха",
-                menu_home: "Головна",
-                menu_about: "Про нас",
-                menu_help: "Допомога",
-                menu_events: "Заходи",
-                menu_knowledge: "Центр знань",
-                menu_announcements: "Оголошення",
-                menu_volunteering: "Волонтерство",
-                menu_donate: "❤️ Донат",
-                menu_contacts: "Контакти",
-                btn_get_help: "Отримати допомогу",
-                page_title: "Актуальні оголошення",
-                page_subtitle: "Слідкуйте за найважливішими новинами, подіями та можливостями нашого центру.",
-                card_1_title: "Відкриття реєстрації на курси німецької мови (А1-В2)",
-                card_1_desc: "Розпочинається набір у нові групи з вивчення німецької мови для дорослих. Заняття проходять у центрі Цюриха досвідченими викладачами.",
-                card_2_title: "Юридичні консультації для новоприбывших",
-                card_2_desc: "У середу відбудеться безкоштовна консультація з питань оформлення статусів та інтеграційного законодавства у Швейцарії.",
-                card_3_title: "Дитячий клуб вихідного дня: творчі майстер-класи",
-                card_3_desc: "Запрошуємо дітей на захоплюючі розвиваючі заняття та майстер-класи цього тижня. Кількість місць обмежена.",
-                card_link: "Детальніше →",
-                footer_about: "Український інтеграційний та громадський центр у Цюриху. Допомагаємо адаптуватися, розвиватися та бути разом.",
-                footer_links_title: "Швидкі посилання",
-                footer_sub_title: "Підпишіться на новини",
-                footer_sub_desc: "Будьте в курсі наших подій та новин",
-                footer_btn_sub: "Підписатися",
-                footer_rights: "© 2026 UAGZ Zurich. Всі права захищені."
-            },
-            de: {
-                logo_sub: "Ukrainisches Integrations- und Gemeinschaftszentrum Zürich",
-                menu_home: "Startseite",
-                menu_about: "Über uns",
-                menu_help: "Hilfe",
-                menu_events: "Veranstaltungen",
-                menu_knowledge: "Wissenszentrum",
-                menu_announcements: "Ankündigungen",
-                menu_volunteering: "Freiwilligenarbeit",
-                menu_donate: "❤️ Spenden",
-                menu_contacts: "Kontakt",
-                btn_get_help: "Hilfe erhalten",
-                page_title: "Aktuelle Ankündigungen",
-                page_subtitle: "Verfolgen Sie die wichtigsten Nachrichten, Veranstaltungen und Angebote unseres Zentrums.",
-                card_1_title: "Anmeldung für Deutschkurse geöffnet (A1-B2)",
-                card_1_desc: "Die Anmeldung für neue Deutschkurse für Erwachsene hat begonnen. Der Unterricht findet im Zentrum von Zürich statt.",
-                card_2_title: "Rechtsberatung für Neuankömmlinge",
-                card_2_desc: "Am Mittwoch findet eine kostenlose Beratung zu Statusfragen und Integrationsrecht in der Schweiz statt.",
-                card_3_title: "Kinder-Wochenendclub: Kreative Workshops",
-                card_3_desc: "Wir laden Kinder zu spannenden Entwicklungsaktivitäten und Workshops in dieser Woche ein. Die Plätze sind begrenzt.",
-                card_link: "Mehr erfahren →",
-                footer_about: "Ukrainisches Integrations- und Gemeinschaftszentrum in Zürich. Wir helfen bei der Anpassung und Weiterentwicklung.",
-                footer_links_title: "Schnellinks",
-                footer_sub_title: "Für Newsletter anmelden",
-                footer_sub_desc: "Bleiben Sie über unsere Veranstaltungen informiert",
-                footer_btn_sub: "Abonnieren",
-                footer_rights: "© 2026 UAGZ Zurich. Alle Rechte vorbehalten."
-            }
-        };
+    <!-- 3. Театральна студія -->
+    <div class="event-card" style="border-color: #DDD6FE;">
+      <div>
+        <div class="event-card-top">
+          <div class="event-date-badge" style="background: var(--purple-bg); color: var(--purple);" id="ev-date-3">СТАРТ<br><span style="font-size:11px;font-weight:400">З червня</span></div>
+          <span class="event-category cat-kids" id="cat-3">Студія</span>
+        </div>
+        <div class="event-icon-container">
+          <img src="events-icon3.webp" alt="Театральна студія">
+        </div>
+        <div class="event-body">
+          <h3 id="ev-title-3">Дитяча театральна студія</h3>
+          <p id="ev-desc-3">Триває набір дітей віком 7-14 років. Акторська майстерність, сценічна мова та виступи на сцені у Цюриху!</p>
+        </div>
+      </div>
+      <div class="event-footer">
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-3">Зал центру</span></span>
+        <a href="#register" class="event-btn" style="color: var(--purple); border-color: #DDD6FE;" id="btn-reg-3">Подати заявку ➔</a>
+      </div>
+    </div>
 
-        function setLanguage(lang) {
-            const btnUa = document.getElementById('btn-ua');
-            const btnDe = document.getElementById('btn-de');
-            
-            if (lang === 'de') {
-                btnDe.style.background = '#ffffff';
-                btnDe.style.fontWeight = '700';
-                btnDe.style.color = '#1A56C4';
-                btnDe.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
-                
-                btnUa.style.background = 'transparent';
-                btnUa.style.fontWeight = '500';
-                btnUa.style.color = '#718096';
-                btnUa.style.boxShadow = 'none';
-            } else {
-                btnUa.style.background = '#ffffff';
-                btnUa.style.fontWeight = '700';
-                btnUa.style.color = '#1A56C4';
-                btnUa.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
-                
-                btnDe.style.background = 'transparent';
-                btnDe.style.fontWeight = '500';
-                btnDe.style.color = '#718096';
-                btnDe.style.boxShadow = 'none';
-            }
+    <!-- 4. Секція плавання -->
+    <div class="event-card" style="border-color: #BBF7D0;">
+      <div>
+        <div class="event-card-top">
+          <div class="event-date-badge" style="background: var(--green-bg); color: var(--green);" id="ev-date-4">НАБІР<br><span style="font-size:11px;font-weight:400">Групи</span></div>
+          <span class="event-category cat-sport" id="cat-4">Спорт</span>
+        </div>
+        <div class="event-icon-container">
+          <img src="events-icon4.webp" alt="Секція плавання">
+        </div>
+        <div class="event-body">
+          <h3 id="ev-title-4">Секція плавання для дітей</h3>
+          <p id="ev-desc-4">Навчання плаванню та вдосконалення навичок для дітей різного віку під керівництвом досвідченого тренера.</p>
+        </div>
+      </div>
+      <div class="event-footer">
+        <span class="event-loc"><img src="events-attention.webp" alt=""><span id="ev-loc-4">Басейн у Цюриху</span></span>
+        <a href="#register" class="event-btn" style="color: var(--green); border-color: #BBF7D0;" id="btn-reg-4">Записатися ➔</a>
+      </div>
+    </div>
 
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    element.innerHTML = translations[lang][key];
-                }
-            });
+  </div>
+</main>
 
-            const inputField = document.getElementById('footer-input');
-            if (inputField) {
-                inputField.placeholder = lang === 'de' ? 'Ihre E-Mail' : 'Ваш email';
-            }
-        }
-    </script>
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3 id="f-title" style="margin-bottom:1rem;color:#1A56C4">UAGZ Цюрих</h3>
+      <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
+    </div>
+    <div>
+      <h3 id="fc1h" style="margin-bottom:1rem;color:#1A56C4">Контакти</h3>
+      <p style="color:var(--text2)">Email: info@ukr-zurich.ch</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const T = {
+  ua: {
+    "m-home": "Головна",
+    "m-about": "Про нас",
+    "m-help": "Допомога",
+    "m-events": "Події",
+    "m-knowledge": "Центр знань",
+    "m-announcements": "Оголошення",
+    "m-volunteering": "Волонтерство",
+    "m-donate": "❤️ Донат",
+    "m-contacts": "Контакти",
+    "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+    "nav-cta": "Отримати допомогу",
+    
+    "page-events-title": "Найближчі події та набори",
+    "page-events-sub": "Приєднуйтесь до наших зустрічей, секцій, театральної студії та культурних заходів у Цюриху.",
+    
+    "cat-1": "Освіта",
+    "ev-date-1": "30 ТРА<br><span style='font-size:11px;font-weight:400'>18:00</span>",
+    "ev-title-1": "Розмовний клуб (Німецька мова)",
+    "ev-desc-1": "Практика спілкування для рівнів A2-B1. Зустріч у затишній атмосфері за кавою.",
+    "ev-loc-1": "Центр UAGZ",
+    "btn-reg-1": "Записатися ➔",
+    
+    "cat-2": "Діти",
+    "ev-date-2": "03 ЧЕР<br><span style='font-size:11px;font-weight:400'>15:00</span>",
+    "ev-title-2": "Творча майстерня для дітей",
+    "ev-desc-2": "Малювання та ліпка для дітей віком 6-12 років. Всі матеріали надаються центром.",
+    "ev-loc-2": "Центр UAGZ",
+    "btn-reg-2": "Записатися ➔",
+
+    "cat-3": "Студія",
+    "ev-date-3": "СТАРТ<br><span style='font-size:11px;font-weight:400'>З червня</span>",
+    "ev-title-3": "Дитяча театральна студія",
+    "ev-desc-3": "Триває набір дітей віком 7-14 років. Акторська майстерність, сценічна мова та виступи на сцені у Цюриху!",
+    "ev-loc-3": "Зал центру",
+    "btn-reg-3": "Подати заявку ➔",
+
+    "cat-4": "Спорт",
+    "ev-date-4": "НАБІР<br><span style='font-size:11px;font-weight:400'>Групи</span>",
+    "ev-title-4": "Секція плавання для дітей",
+    "ev-desc-4": "Навчання плаванню та вдосконалення навичок для дітей різного віку під керівництвом досвідченого тренера.",
+    "ev-loc-4": "Басейн у Цюриху",
+    "btn-reg-4": "Записатися ➔",
+    
+    "f-title": "UAGZ Цюрих",
+    "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
+    "fc1h": "Контакти"
+  },
+  de: {
+    "m-home": "Startseite",
+    "m-about": "Über uns",
+    "m-help": "Hilfe",
+    "m-events": "Ereignisse",
+    "m-knowledge": "Wissenszentrum",
+    "m-announcements": "Ankündigungen",
+    "m-volunteering": "Freiwilligenarbeit",
+    "m-donate": "❤️ Donate",
+    "m-contacts": "Kontakte",
+    "nav-sub": "Unterstützungs- und Integrationszentrum",
+    "nav-cta": "Hilfe erhalten",
+    
+    "page-events-title": "Veranstaltungen & Kurse",
+    "page-events-sub": "Nehmen Sie an unseren Treffen, Sportkursen, der Theaterschule und kulturellen Events in Zürich teil.",
+    
+    "cat-1": "Bildung",
+    "ev-date-1": "30. MAI<br><span style='font-size:11px;font-weight:400'>18:00</span>",
+    "ev-title-1": "Sprachcafé (Deutsch)",
+    "ev-desc-1": "Kommunikationspraxis für die Niveaustufen A2-B1. Treffen in gemütlicher Atmosphäre bei Kaffee.",
+    "ev-loc-1": "Zentrum UAGZ",
+    "btn-reg-1": "Anmelden ➔",
+    
+    "cat-2": "Kinder",
+    "ev-date-2": "03. JUNI<br><span style='font-size:11px;font-weight:400'>15:00</span>",
+    "ev-title-2": "Kreativ-Workshop für Kinder",
+    "ev-desc-2": "Malen und Kneten für Kinder von 6 bis 12 Jahren. Alle Materialien werden vom Zentrum bereitgestellt.",
+    "ev-loc-2": "Zentrum UAGZ",
+    "btn-reg-2": "Anmelden ➔",
+
+    "cat-3": "Studio",
+    "ev-date-3": "START<br><span style='font-size:11px;font-weight:400'>Ab Juni</span>",
+    "ev-title-3": "Kinder-Theaterstudio",
+    "ev-desc-3": "Anmeldung für Kinder von 7 bis 14 Jahren läuft. Schauspiel, Bühnensprache und Auftritte in Zürich!",
+    "ev-loc-3": "Zentrumsaal",
+    "btn-reg-3": "Anfragen ➔",
+
+    "cat-4": "Sport",
+    "ev-date-4": "KURSE<br><span style='font-size:11px;font-weight:400'>Offen</span>",
+    "ev-title-4": "Schwimmkurs für Kinder",
+    "ev-desc-4": "Schwimmunterricht und Training für Kinder verschiedenen Alters unter Anleitung erfahrener Trainer.",
+    "ev-loc-4": "Hallenbad Zürich",
+    "btn-reg-4": "Anmelden ➔",
+    
+    "f-title": "UAGZ Zürich",
+    "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
+    "fc1h": "Kontakt"
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lb').forEach(b => {
+    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+  });
+
+  if (typeof T === 'undefined' || !T[lang]) return;
+  const dict = T[lang];
+
+  for (const [id, val] of Object.entries(dict)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else {
+      el.innerHTML = val;
+    }
+  }
+
+  document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+  localStorage.setItem('selectedLang', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'ua';
+  setLang(savedLang);
+});
+</script>
+
 </body>
 </html>

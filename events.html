@@ -283,7 +283,43 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Лента событий (новые статьи добавляются на первое место) -->
   <div class="events-feed">
-    
+    <!-- Событие 3 (21.06.2026 — РОДИННЕ КОЛО І) -->
+<div class="event-card" id="event-new-3">
+  <div class="event-preview">
+    <div class="event-meta">
+      <div class="event-date" id="ev3-date">21.06.2026 · Цюрих</div>
+      <h3 class="event-title" id="ev3-title">Перша родинна зустріч — «РОДИННЕ КОЛО І»</h3>
+      <p class="event-excerpt" id="ev3-excerpt">21 червня у місті Цюрих відбулася наша перша тепла родинна зустріч — «РОДИННЕ КОЛО І». У затишній атмосфері ми об’єднали сім’ї, дітей та дорослих для живого спілкування...</p>
+    </div>
+    <img src="events-foto3.webp" alt="РОДИННЕ КОЛО І" class="event-thumb">
+  </div>
+
+  <button class="event-toggle-btn" onclick="toggleEvent('event-new-3', this)" id="ev3-btn">Читати далі ➔</button>
+
+  <div class="event-details">
+    <div class="event-expanded-layout">
+      <div>
+        <img src="events-foto3.1.webp" alt="РОДИННЕ КОЛО І" class="event-expanded-img">
+      </div>
+      <div class="event-expanded-text">
+        <p id="ev3-p1">21 червня у місті Цюрих відбулася наша перша тепла родинна зустріч — «РОДИННЕ КОЛО І».</p>
+        <p id="ev3-p2">У затишній атмосфері ми об’єднали сім’ї, дітей та дорослих для живого спілкування, знайомств і спільного часу разом.</p>
+        
+        <p id="ev3-p3">На учасників чекали:</p>
+        <p id="ev3-p4">— творчі активності для дітей;</p>
+        <p id="ev3-p5">— ігри та дружня атмосфера;</p>
+        <p id="ev3-p6">— тепле спілкування за чаєм і частуваннями;</p>
+        <p id="ev3-p7">— нові знайомства та сімейне коло підтримки.</p>
+        
+        <img src="events-foto3.2.webp" alt="РОДИННЕ КОЛО І - Заходи" class="event-expanded-img" style="margin: 15px 0;">
+
+        <p id="ev3-p8">Особливо цінно було бачити дитячі усмішки, щирі розмови та те, як народжується нова українська спільнота у Цюриху.</p>
+        <p id="ev3-p9">Адреса: Weinbergstrasse 32, 8006 Zürich</p>
+        <p id="ev3-p10">UAGZ — разом створюємо простір підтримки, дружби та розвитку для українських родин у Швейцарії.</p>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Событие 2 (07.06.2026 — День народження отця Івана) -->
     <div class="event-card" id="event-new-2">
       <div class="event-preview">
@@ -388,7 +424,21 @@ const T = {
     "art-p8": "Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у розвиток спільноти Цюриха.",
 
     "sec-events-title": "Наші події",
-    
+    /* Переводы для события 3 (21.06.2026) */
+    "ev3-date": "21.06.2026 · Цюрих",
+    "ev3-title": "Перша родинна зустріч — «РОДИННЕ КОЛО І»",
+    "ev3-excerpt": "21 червня у місті Цюрих відбулася наша перша тепла родинна зустріч — «РОДИННЕ КОЛО І». У затишній атмосфері ми об’єднали сім’ї, дітей та дорослих для живого спілкування...",
+    "ev3-btn": "Читати далі ➔",
+    "ev3-p1": "21 червня у місті Цюрих відбулася наша перша тепла родинна зустріч — «РОДИННЕ КОЛО І».",
+    "ev3-p2": "У затишній атмосфері ми об’єднали сім’ї, дітей та дорослих для живого спілкування, знайомств і спільного часу разом.",
+    "ev3-p3": "На учасників чекали:",
+    "ev3-p4": "— творчі активності для дітей;",
+    "ev3-p5": "— ігри та дружня атмосфера;",
+    "ev3-p6": "— тепле спілкування за чаєм і частуваннями;",
+    "ev3-p7": "— нові знайомства та сімейне коло підтримки.",
+    "ev3-p8": "Особливо цінно було бачити дитячі усмішки, щирі розмови та те, як народжується нова українська спільнота у Цюриху.",
+    "ev3-p9": "Адреса: Weinbergstrasse 32, 8006 Zürich",
+    "ev3-p10": "UAGZ — разом створюємо простір підтримки, дружби та розвитку для українських родин у Швейцарії.",
     /* Переводы для события 2 (07.06.2026) */
     "ev2-date": "07.06.2026 · Цюрих",
     "ev2-title": "Привітання отця Івана з Днем народження",
@@ -440,7 +490,21 @@ const T = {
     "art-p8": "Gemeinsam können wir mehr Möglichkeiten für Ukrainer schaffen und einen bedeutenden Beitrag zur Entwicklung der Gemeinschaft in Zürich leisten.",
 
     "sec-events-title": "Unsere Ereignisse",
-
+     /* Немецкий перевод для события 3 (21.06.2026) */
+    "ev3-date": "21.06.2026 · Zürich",
+    "ev3-title": "Erstes Familientreffen — «FAMILIENKREIS I»",
+    "ev3-excerpt": "Am 21. Juni fand in Zürich unser erstes warmes Familientreffen statt — «FAMILIENKREIS I». In gemütlicher Atmosphäre brachten wir Familien, Kinder und Erwachsene zusammen...",
+    "ev3-btn": "Mehr erfahren ➔",
+    "ev3-p1": "Am 21. Juni fand in Zürich unser erstes warmes Familientreffen statt — «FAMILIENKREIS I».",
+    "ev3-p2": "In gemütlicher Atmosphäre brachten wir Familien, Kinder und Erwachsene für lebendigen Austausch, Kennenlernen und gemeinsame Zeit zusammen.",
+    "ev3-p3": "Auf die Teilnehmer warteten:",
+    "ev3-p4": "— Kreative Aktivitäten für Kinder;",
+    "ev3-p5": "— Spiele und eine freundschaftliche Atmosphäre;",
+    "ev3-p6": "— Herzlicher Austausch bei Tee und Leckereien;",
+    "ev3-p7": "— Neue Bekanntschaften und ein familiärer Unterstützungskreis.",
+    "ev3-p8": "Besonders wertvoll war es, das Lächeln der Kinder, aufrichtige Gespräche und das Entstehen einer neuen ukrainischen Gemeinschaft in Zürich zu sehen.",
+    "ev3-p9": "Adresse: Weinbergstrasse 32, 8006 Zürich",
+    "ev3-p10": "UAGZ — Gemeinsam schaffen wir einen Raum der Unterstützung, Freundschaft und Entwicklung für ukrainische Familien in der Schweiz.",
     /* Немецкий перевод для события 2 (07.06.2026) */
     "ev2-date": "07.06.2026 · Zürich",
     "ev2-title": "Glückwünsche zum Geburtstag von Vater Ivan",

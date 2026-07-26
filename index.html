@@ -1691,10 +1691,18 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo"><div class="footer-logo-name">UAGZ</div></div>
+      <!-- Логотипы и флаги слева от названия UAGZ -->
+      <div class="footer-logo" style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+        <img src="flag-swiss.png" alt="Swiss Flag" style="height: 28px; width: auto; object-fit: contain;">
+        <img src="flag-ukraine.png" alt="Ukraine Flag" style="height: 28px; width: auto; object-fit: contain;">
+        <img src="Logo01.png" alt="UAGZ Logo" style="height: 28px; width: auto; object-fit: contain;">
+        <div class="footer-logo-name" style="font-weight: 700; font-size: 1.2rem; color: #fff; margin-left: 4px;">UAGZ</div>
+      </div>
+
       <p class="footer-desc" data-translate="f_desc">Український інтеграційний та громадський центр Цюриха — це простір підтримки та єднання для всіх українців у Швейцарії.</p>
       <p class="footer-addr" data-translate="f_addr">Zürich, Switzerland<br>Email: info@ukr-zurich.ch</p>
     </div>
+
     <div class="fc">
       <h4 data-translate="f_col1_title">Центр</h4>
       <a href="about.html" data-translate="f_link_about">Про нас</a>
@@ -1702,12 +1710,14 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       <a href="events.html" data-translate="f_link_events">Події</a>
       <a href="announcements.html" data-translate="f_link_news">Оголошення</a>
     </div>
+
     <div class="fc">
       <h4 data-translate="f_col2_title">Корисне</h4>
       <a href="knowledge.html" data-translate="f_link_knowledge">Центр знань</a>
       <a href="#" data-translate="f_link_faq">FAQ</a>
       <a href="#" class="green-link" data-translate="f_link_emergency">Термінова допомога</a>
     </div>
+
     <div class="fc">
       <h4 data-translate="f_col3_title">Години роботи</h4>
       <div class="hgrid">
@@ -1716,13 +1726,26 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
         <span class="hday" data-translate="f_day_sun">Нд:</span><span class="hclosed" data-translate="f_status_closed">Зачинено</span>
       </div>
     </div>
+
+    <!-- Новая колонка "Наші партнери" в правой стороне -->
+    <div class="fc">
+      <h4 data-translate="f_col_partners_title">Наші партнери</h4>
+      <div class="footer-partners-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: center; margin-top: 10px;">
+        <img src="logo-caritas.png" alt="Caritas" style="height: 28px; width: 100%; object-fit: contain;">
+        <img src="logo-gemeinden.png" alt="Gemeinden" style="height: 28px; width: 100%; object-fit: contain;">
+        <img src="logo-heks.png" alt="HEKS" style="height: 28px; width: 100%; object-fit: contain;">
+        <img src="logö-kulturlegi.png" alt="KulturLegi" style="height: 28px; width: 100%; object-fit: contain;">
+        <img src="logo-red_cross.png" alt="Red Cross" style="height: 28px; width: 100%; object-fit: contain;">
+        <img src="lögo-stadt.png" alt="Stadt Zürich" style="height: 28px; width: 100%; object-fit: contain;">
+      </div>
+    </div>
   </div>
+
   <div class="footer-bottom">
     <div data-translate="f_copyright">&copy; 2026 UAGZ. All rights reserved.</div>
     <div class="footer-flag-row"><span data-translate="f_slogan">Разом для майбутнього</span></div>
   </div>
 </footer>
-
 <script>
 (function() {
     // 1. ПОЛНЫЙ СЛОВАРЬ ПЕРЕВОДОВ (Синтаксис исправлен)

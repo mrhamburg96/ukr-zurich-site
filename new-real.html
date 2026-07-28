@@ -200,7 +200,51 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     </aside>
 
     <div class="status-articles">
-    
+    <!-- Стаття: Житло для статусу S (28.07.2026) -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="nr1-h1">Житло для статусу S: як знайти та що покриває кантон</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <span class="article-date">28.07.2026</span>
+            <p id="nr1-p1" class="article-p"></p>
+            <p id="nr1-p2" class="article-p"></p>
+
+            <h3 id="nr1-sub1"></h3>
+            <p id="nr1-p3" class="article-p"></p>
+            <ul class="article-list">
+              <li id="nr1-li1"></li>
+              <li id="nr1-li2"></li>
+            </ul>
+
+            <h3 id="nr1-sub2"></h3>
+            <p id="nr1-p4" class="article-p"></p>
+            <ul class="article-list">
+              <li id="nr1-li3"></li>
+              <li id="nr1-li4"></li>
+              <li id="nr1-li5"></li>
+            </ul>
+            <p id="nr1-p5" class="article-p"></p>
+
+            <h3 id="nr1-sub3"></h3>
+            <p id="nr1-p6" class="article-p"></p>
+            <ol class="article-list">
+              <li id="nr1-li6"></li>
+              <li id="nr1-li7"></li>
+              <li id="nr1-li8"></li>
+            </ol>
+
+            <h3 id="nr1-sub4"></h3>
+            <ul class="article-list">
+              <li id="nr1-li9"></li>
+              <li id="nr1-li10"></li>
+            </ul>
+            <p id="nr1-p7" class="article-p"></p>
+          </div>
+        </div>
+      </div>
       <!-- Статья 1: О праве на работу (23.07.2026) -->
       <div class="accordion-item active">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
@@ -491,6 +535,30 @@ const T = {
     
     "nr-title": "Статус S у Швейцарії. Актуальні новини",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
+    
+    /* ТЕКСТ СТАТЬИ О ЖИЛЬЕ (UA) */
+    "nr1-h1": "Житло для статусу S: як знайти та що покриває кантон",
+    "nr1-p1": "Пошук та оплата житла є одним із найважливіших питань для людей, які перебувають у Швейцарії під захисним статусом S. Оскільки правила та фінансова допомога регулюються на рівні кантонів та громад, умови можуть помітно відрізнятися залежно від регіону вашого проживання.",
+    "nr1-p2": "Цей практичний гід допоможе розібратися, як влаштована система забезпечення житлом, що саме покривають місцеві органы влади та якими є головні правила самостійного пошуку помешкання.",
+    "nr1-sub1": "Хто відповідає за ваше розміщення?",
+    "nr1-p3": "Після прибуття до Швейцарії та отримання статусу S Державним секретаріатом з міграції (SEM) вас розподіляють до конкретного кантону (наприклад, Цюрих).",
+    "nr1-li1": "<strong>Розподіл за громадами:</strong> Кантон передає вас під опіку конкретної комуни (громади), яка й відповідає за вашу інтеграцію, виплати та житлове забезпечення.",
+    "nr1-li2": "<strong>Обмеження на вільний переїзд:</strong> Якщо ви отримуєте соціальну допомогу та залежні від підтримки держави, ви не можете самостійно змінити кантон чи громаду без офіційного дозволу уповноважених органів.",
+    "nr1-sub2": "Що саме покриває кантон та соціальна допомога?",
+    "nr1-p4": "Якщо людина не має власних доходів для покриття витрат на життя та оренду, вона має право на отримання допомоги (у Цюриху цим займаються спеціалізовані організації на кшталт AOZ).",
+    "nr1-li3": "<strong>Витрати на оренду (Mietzins):</strong> Соціальна служба покриває вартість оренди житла, але суворо в межах встановлених кантоном норм. Для кожної громади діють ліміти на максимальну місячну вартість квартири залежно від кількості членів родини.",
+    "nr1-li4": "<strong>Комунальні послуги (Nebenkosten):</strong> Зазвичай базові витрати на опалення та воду включено в межі допустимих норм оренди, проте надмірне споживання або додаткові рахунки можуть регулюватися окремо.",
+    "nr1-li5": "<strong>Соціальний пакет:</strong> Окрім житла, виплати покривають базові потреби на харчування, одяг, медичне страхування та транспорт.",
+    "nr1-p5": "<strong>Важливо:</strong> Будь-які власні доходи (наприклад, зарплата від офіційної роботи) чи наявні кошти на банківських рахунках ретельно перевіряються. Якщо ви маєте власні фінанси, ви зобов'язані самостійно сплачувати за житло, а допомога буде зменшена або скасована.",
+    "nr1-sub3": "Як знайти житло самостійно: покрокова стратегія",
+    "nr1-p6": "Якщо ви прагнете фінансової незалежності, знайшли роботу та хочете орендувати квартиру самостійно, процес вимагає дотримання швейцарських стандартів:",
+    "nr1-li6": "<strong>Використовуйте популярні пошукові портали:</strong> Homegate.ch, Immoscout24.ch, Newhome.ch та Flatfox.ch — провідні платформи для пошуку нерухомості з фільтрами за ціною та регіоном.",
+    "nr1-li7": "<strong>Підготуйте пакет документів (Dossier):</strong> Потрібні документ статусу S, витяг про відсутність заборгованостей (Betreibungsauszug) та трудовий договір із довідками про зарплату за останні місяці.",
+    "nr1-li8": "<strong>Дотримуйтеся лімітів бюджету:</strong> Місячна оренда (з комунальними) не повинна перевищувати 30% від вашого брутто-доходу. Якщо житло оплачує соцслужба, квартира обов'язково має бути попередньо схвалена вашим куратором.",
+    "nr1-sub4": "Особливості та альтернативні варіанти розміщення",
+    "nr1-li9": "<strong>Приватне розміщення (Privatunterbringung):</strong> Якщо ви мешкаєте у швейцарських родинах чи волонтерів, важливо вчасно оновлювати інформацію в міграційних органах та мати підписані угоди.",
+    "nr1-li10": "<strong>Колективні центри:</strong> На початкових етапах органи влади розміщують новоприбулих у тимчасових колективних центрах, звідки згодом допомагають переїхати у постійне житло.",
+    "nr1-p7": "Знання місцевих правил, тісна співпраця з соціальними радниками вашої громади та активність у пошуку роботи допоможуть вам успішно вирішити житлове питання та забезпечити стабільні умови для життя в Швейцарії.",
 
     /* 1. ПОЛНЫЙ ТЕКСТ СТАТЬИ О РАБОТЕ (UA) */
     "job-h1": "Робота зі статусом S в Швейцарії: правила, дозволи, нюанси 2026 року",
@@ -650,6 +718,30 @@ const T = {
     
     "nr-title": "Status S in der Schweiz. Aktuelle Nachrichten",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    /* TEXT ARTIKEL WOHNUNG (DE) */
+    "nr1-h1": "Wohnen mit Schutzstatus S: Wie man eine Unterkunft findet und was der Kanton übernimmt",
+    "nr1-p1": "Die Suche und Bezahlung einer Unterkunft ist eine der wichtigsten Fragen für Menschen, die sich mit dem Schutzstatus S in der Schweiz aufhalten. Da die Regeln und die finanzielle Unterstützung auf Kantons- und Gemeindeebene geregelt werden, können die Bedingungen je nach Wohnregion spürbar variieren.",
+    "nr1-p2": "Dieser praktische Leitfaden hilft Ihnen zu verstehen, wie das Unterbringungssystem aufgebaut ist, was die örtlichen Behörden genau übernehmen und welche Hauptregeln bei der selbstständigen Wohnungssuche gelten.",
+    "nr1-sub1": "Wer ist für Ihre Unterbringung zuständig?",
+    "nr1-p3": "Nach der Ankunft in der Schweiz und der Erteilung des Status S durch das Staatssekretariat für Migration (SEM) werden Sie einem bestimmten Kanton zugewiesen (z. B. Zürich).",
+    "nr1-li1": "<strong>Zuweisung an Gemeinden:</strong> Der Kanton übergibt Sie in die Betreuung einer bestimmten Gemeinde, die für Ihre Integration, Auszahlungen und Unterbringung zuständig ist.",
+    "nr1-li2": "<strong>Einschränkung der Freizügigkeit:</strong> Wenn Sie Sozialhilfe beziehen und auf staatliche Unterstützung angewiesen sind, können Sie den Kanton oder die Gemeinde nicht ohne offizielle Genehmigung der zuständigen Behörden wechseln.",
+    "nr1-sub2": "Was genau übernehmen Kanton und Sozialhilfe?",
+    "nr1-p4": "Wenn eine Person kein eigenes Einkommen hat, um die Lebens- und Mietkosten zu decken, hat sie Anspruch auf Unterstützung (in Zürich übernehmen dies spezialisierte Organisationen wie die AOZ).",
+    "nr1-li3": "<strong>Mietkosten (Mietzins):</strong> Die Sozialhilfe übernimmt die Mietkosten, jedoch strikt im Rahmen der vom Kanton festgelegten Normen. Für jede Gemeinde gelten Höchstgrenzen für die monatliche Miete je nach Familiengrösse.",
+    "nr1-li4": "<strong>Nebenkosten:</strong> In der Regel sind die Grundkosten für Heizung und Wasser in den zulässigen Mietnormen enthalten. Übermässiger Verbrauch oder Zusatzrechnungen können jedoch gesondert geregelt werden.",
+    "nr1-li5": "<strong>Sozialpaket:</strong> Neben dem Wohnen decken die Leistungen Grundbedürfnisse wie Verpflegung, Kleidung, Krankenversicherung und Transport ab.",
+    "nr1-p5": "<strong>Wichtig:</strong> Jegliches eigene Einkommen (z. B. Lohn aus offizieller Arbeit) oder vorhandenes Bankguthaben wird sorgfältig geprüft. Wenn Sie über eigene Mittel verfügen, sind Sie verpflichtet, die Miete selbst zu zahlen, und die Sozialhilfe wird gekürzt oder eingestellt.",
+    "nr1-sub3": "Selbstständige Wohnungssuche: Schritt-für-Schritt-Strategie",
+    "nr1-p6": "Wenn Sie finanzielle Unabhängigkeit anstreben, eine Stelle gefunden haben und eine Wohnung selbst mieten möchten, erfordert der Prozess die Einhaltung Schweizer Standards:",
+    "nr1-li6": "<strong>Nutzen Sie beliebte Suchportale:</strong> Homegate.ch, Immoscout24.ch, Newhome.ch und Flatfox.ch sind die führenden Immobilienplattformen mit Filtern nach Preis und Region.",
+    "nr1-li7": "<strong>Bereiten Sie ein Dossier vor:</strong> Benötigt werden ein Nachweis des Status S, ein Betreibungsauszug sowie ein Arbeitsvertrag mit Lohnabrechnungen der letzten Monate.",
+    "nr1-li8": "<strong>Budgetgrenzen einhalten:</strong> Die Monatsmiete (inkl. Nebenkosten) sollte 30% Ihres Bruttoeinkommens nicht übersteigen. Wird die Miete von der Sozialhilfe übernommen, muss die Wohnung zwingend vorab von Ihrem Betreuer genehmigt werden.",
+    "nr1-sub4": "Besonderheiten und alternative Unterbringungsmöglichkeiten",
+    "nr1-li9": "<strong>Privatunterbringung:</strong> Wenn Sie bei Schweizer Familien oder Freiwilligen wohnen, ist es wichtig, die Informationen bei den Migrationsbehörden rechtzeitig zu aktualisieren und unterzeichnete Vereinbarungen zu haben.",
+    "nr1-li10": "<strong>Kollektivunterkünfte:</strong> In der Anfangsphase bringen die Behörden Neueingetroffene in temporären Kollektivunterkünften unter, von wo aus sie später beim Umzug in eine dauerhafte Wohnung unterstützen.",
+    "nr1-p7": "Die Kenntnis der lokalen Regeln, die enge Zusammenarbeit mit den Sozialberatern Ihrer Gemeinde und eine aktive Arbeitssuche helfen Ihnen, die Wohnungsfrage erfolgreich zu lösen und stabile Lebensbedingungen in der Schweiz zu sichern.",
 
     /* 1. VOLLSTÄNDIGER TEXT ARBEIT (DE) */
     "job-h1": "Arbeiten mit dem S-Status in der Schweiz: Regeln, Genehmigungen, Nuancen des Jahres 2026",

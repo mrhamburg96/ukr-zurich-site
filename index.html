@@ -201,41 +201,44 @@ nav {
 
 /* ── ТОЛЬКО ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (<= 768px) ──────────────── */
 @media (max-width: 768px) {
-    /* Скрываем широкое горизонтальное ПК-меню */
+    /* Скрываем широкое ПК-меню */
     .nav-links {
         display: none !important;
     }
 
-    /* Показываем кнопку-гамбургер */
+    /* Явная и видимая кнопка-гамбургер */
     .mobile-burger-btn {
         display: flex !important;
         flex-direction: column;
         justify-content: space-between;
-        width: 26px;
-        height: 18px;
+        width: 30px;
+        height: 22px;
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 0;
         z-index: 201;
+        margin-left: 8px;
     }
 
+    /* Сами 3 полоски (гарантированно видимые) */
     .mobile-burger-btn span {
         display: block;
-        height: 3px;
+        height: 3.5px;
         width: 100%;
-        background-color: var(--blue, #111827); /* Берет цвет вашей темы */
+        background-color: #111827 !important; /* Четкий темный цвет */
         border-radius: 2px;
     }
 
-    /* Настраиваем позицию выпадающего мобильного меню */
+    /* Выпадающее меню под шапкой */
     .mobile-dropdown-menu {
+        display: none; /* Скрыто по умолчанию */
         position: absolute;
-        top: 60px; /* Выпадает ровно под шапкой (высота 60px) */
+        top: 60px;
         right: 1rem;
         width: 220px;
         background: #ffffff;
-        border: 1px solid var(--border, #e5e7eb);
+        border: 1px solid #e5e7eb;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
         padding: 8px 0;
@@ -243,7 +246,7 @@ nav {
         z-index: 200;
     }
 
-    /* Этот класс включает показ меню при клике */
+    /* Класс, который добавляет JavaScript при клике */
     .mobile-dropdown-menu.is-active {
         display: block !important;
     }
@@ -251,11 +254,11 @@ nav {
     .mobile-dropdown-menu li a {
         display: block;
         padding: 10px 16px;
-        color: var(--text2, #374151);
+        color: #374151;
         font-size: 13px;
         font-weight: 600;
         text-decoration: none;
-        border-bottom: 1px solid var(--border, #f3f4f6);
+        border-bottom: 1px solid #f3f4f6;
     }
 
     .mobile-dropdown-menu li:last-child a {

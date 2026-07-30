@@ -201,64 +201,83 @@ nav {
 
 /* ── ТОЛЬКО ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (<= 768px) ──────────────── */
 @media (max-width: 768px) {
-    /* Скрываем широкое ПК-меню */
+    /* Фиксируем саму шапку (плашку), чтобы она всегда была белой с четкой границей */
+    nav.main-navbar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        height: 60px !important;
+        padding: 0 1rem !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        position: relative !important;
+    }
+
+    /* Скрываем горизонтальное ПК-меню */
     .nav-links {
         display: none !important;
     }
 
-    /* Явная и видимая кнопка-гамбургер */
+    /* Яркая и четкая кнопка-гамбургер */
     .mobile-burger-btn {
         display: flex !important;
         flex-direction: column;
         justify-content: space-between;
-        width: 30px;
-        height: 22px;
+        width: 28px;
+        height: 20px;
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 0;
         z-index: 201;
-        margin-left: 8px;
+        margin-left: 10px;
     }
 
-    /* Сами 3 полоски (гарантированно видимые) */
     .mobile-burger-btn span {
         display: block;
-        height: 3.5px;
+        height: 3px;
         width: 100%;
-        background-color: #111827 !important; /* Четкий темный цвет */
+        background-color: var(--blue, #1d4ed8) !important; /* Синие полоски в цвет бренда */
         border-radius: 2px;
     }
 
-    /* Выпадающее меню под шапкой */
+    /* Синее выпадающее меню в стиле сайта */
     .mobile-dropdown-menu {
-        display: none; /* Скрыто по умолчанию */
+        display: none;
         position: absolute;
-        top: 60px;
-        right: 1rem;
-        width: 220px;
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
+        top: 60px; /* Появляется ровно под шапкой */
+        right: 0.5rem;
+        left: 0.5rem; /* Растягиваем почти на всю ширину для удобства */
+        background: var(--blue, #1d4ed8) !important; /* Фирменный синий фон */
+        border-radius: 12px;
         padding: 8px 0;
         list-style: none;
-        z-index: 200;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        z-index: 999;
+        overflow: hidden;
     }
 
-    /* Класс, который добавляет JavaScript при клике */
+    /* Класс открытия при клике */
     .mobile-dropdown-menu.is-active {
         display: block !important;
     }
 
+    /* Белый текст и ссылки */
     .mobile-dropdown-menu li a {
         display: block;
-        padding: 10px 16px;
-        color: #374151;
-        font-size: 13px;
+        padding: 12px 20px;
+        color: #ffffff !important; /* Белый цвет букв */
+        font-size: 14px;
         font-weight: 600;
         text-decoration: none;
-        border-bottom: 1px solid #f3f4f6;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Нежная белая полоса-разделитель */
+        transition: background 0.2s;
+    }
+
+    /* Подсветка пункта при нажатии пальцем */
+    .mobile-dropdown-menu li a:active,
+    .mobile-dropdown-menu li a:hover {
+        background: rgba(255, 255, 255, 0.15);
     }
 
     .mobile-dropdown-menu li:last-child a {

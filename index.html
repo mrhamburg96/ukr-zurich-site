@@ -2474,6 +2474,29 @@ window.changeLanguage = function(lang) {
 </script>
 <style>
 @media (max-width: 768px) {
+  /* 1. Заголовок: уменьшаем и ограничиваем ширину слева от переключателя UA/DE */
+        #h-t { 
+            display: block !important; 
+            font-size: 11px !important;        /* Уменьшили шрифт */
+            line-height: 1.2 !important; 
+            margin: 0 0 4px 0 !important; 
+            font-weight: 800 !important; 
+            color: #ffffff !important; 
+            max-width: 65% !important;         /* Ограничиваем ширину, чтобы не наезжал на UA/DE */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important; 
+        }
+        
+        /* 2. Подзаголовок: делает подпись компактной над головами */
+        #h-s { 
+            display: block !important; 
+            font-size: 8px !important;         /* Компактный аккуратный шрифт */
+            line-height: 1.15 !important;      /* Плотный межстрочный интервал */
+            margin: 0 0 6px 0 !important; 
+            color: #ffffff !important; 
+            font-weight: 600 !important; 
+            max-width: 70% !important;         /* Не дает тексту растягиваться во весь экран */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important;
+        }
     /* На смартфонах разрешаем шапке разделяться на две строчки */
     nav {
         display: flex !important;

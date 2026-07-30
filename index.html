@@ -778,23 +778,22 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
   .mobile-menu-btn {
     position: fixed !important;
-    top: 60px !important;            /* Опустили ниже шапки, чтобы не закрывать UA/DE */
-    right: 10px !important;          /* Прижали к правому краю */
-    z-index: 99999 !important;       /* Поверх элементов */
+    top: 55px !important;            /* Чуть ниже переключателя UA/DE */
+    right: 12px !important;
+    z-index: 99999 !important;
     
     display: inline-flex !important;
     align-items: center !important;
     gap: 4px !important;
     
-    padding: 5px 10px !important;     /* Уменьшили размер */
+    padding: 6px 12px !important;
     background-color: #0057b7 !important;
     color: #ffffff !important;
     
-    font-size: 11px !important;       /* Компактный шрифт */
+    font-size: 11px !important;
     font-weight: 600 !important;
-    text-decoration: none !important;
-    
-    border-radius: 12px !important;   /* Компактное скругление */
+    border: none !important;
+    border-radius: 14px !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
     cursor: pointer !important;
   }
@@ -2840,29 +2839,35 @@ window.changeLanguage = function(lang) {
     }
   })();
 </script>
-<button type="button" class="mobile-menu-btn" onclick="openSiteMenu()">
+<!-- КНОПКА МЕНЮ С ПРЯМЫМ УПРАВЛЕНИЕМ -->
+<button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()">
   Меню <span>➔</span>
 </button>
 
 <script>
-function openSiteMenu() {
-  // 1. Ищем иконку-гамбургер Elementor на сайте
-  var elementorToggle = document.querySelector('.elementor-menu-toggle, .elementor-button-wrapper a, [class*="elementor-nav-menu"] .e-font-icon-svg');
+function toggleMobileMenu() {
+  // 1. Пробуем найти стандартный гамбургер Bootstrap / темы
+  var btn = document.querySelector('.navbar-toggler, .menu-toggle, [data-bs-toggle="collapse"], .hamburger');
   
-  if (elementorToggle) {
-    elementorToggle.click();
+  if (btn) {
+    btn.click();
     return;
   }
 
-  // 2. Ищем любые другие кнопки меню на странице
-  var generalToggle = document.querySelector('.menu-toggle, .navbar-toggler, [aria-label*="Menu"]');
-  if (generalToggle) {
-    generalToggle.click();
-    return;
+  // 2. Если гамбургера нет в HTML — открываем сам блок меню напрямую по его классу/ID
+  var navMenu = document.querySelector('.navbar-collapse, #main-nav, nav, .main-menu');
+  if (navMenu) {
+    if (navMenu.style.display === 'block' || navMenu.classList.contains('show')) {
+      navMenu.style.display = 'none';
+      navMenu.classList.remove('show');
+    } else {
+      navMenu.style.display = 'block';
+      navMenu.classList.add('show');
+    }
+  } else {
+    // 3. Если меню не найдено — плавно скроллим к шапке
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  // 3. Запасной вариант — скролл наверх к шапке
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>

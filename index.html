@@ -773,44 +773,37 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     .left-steps-column {
         left: 0 !important;
     }
-/* 📱 КНОПКА «МЕНЮ ➔» ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ */
+/* 📱 МИНИ-КНОПКА МЕНЮ ДЛЯ МОБИЛЬНЫХ */
 @media screen and (max-width: 768px) {
 
   .mobile-menu-btn {
     position: fixed !important;
-    top: 15px !important;            /* Отступ сверху */
-    right: 15px !important;          /* Закрепляем в правом верхнем углу */
-    z-index: 9999 !important;        /* Кнопка всегда поверх всего */
+    top: 60px !important;            /* Опустили ниже шапки, чтобы не закрывать UA/DE */
+    right: 10px !important;          /* Прижали к правому краю */
+    z-index: 99999 !important;       /* Поверх элементов */
     
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 4px !important;
     
-    padding: 8px 14px !important;
-    background-color: #0057b7 !important; /* Синий фирменный цвет */
+    padding: 5px 10px !important;     /* Уменьшили размер */
+    background-color: #0057b7 !important;
     color: #ffffff !important;
     
-    font-size: 13px !important;
+    font-size: 11px !important;       /* Компактный шрифт */
     font-weight: 600 !important;
     text-decoration: none !important;
     
-    border-radius: 20px !important;   /* Аккуратные круглые края */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-    transition: background-color 0.2s ease !important;
+    border-radius: 12px !important;   /* Компактное скругление */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
+    cursor: pointer !important;
   }
 
-  /* Анимация стрелочки при нажатии/наведении */
   .mobile-menu-btn span {
-    font-size: 14px !important;
-    transition: transform 0.2s ease !important;
-  }
-
-  .mobile-menu-btn:active span {
-    transform: translateX(3px) !important;
+    font-size: 11px !important;
   }
 }
 
-/* На компьютерах эту кнопку автоматически скрываем */
 @media screen and (min-width: 769px) {
   .mobile-menu-btn {
     display: none !important;
@@ -2847,14 +2840,24 @@ window.changeLanguage = function(lang) {
     }
   })();
 </script>
-  <script>
-function toggleMenu() {
-    var menu = document.getElementById('mobileDropdown');
-    menu.classList.toggle('is-active');
+ <!-- Кнопка с вызовом клика по оригинальному меню -->
+<button type="button" class="mobile-menu-btn" onclick="openSiteMenu()">
+  Меню <span>➔</span>
+</button>
+
+<script>
+function openSiteMenu() {
+  // Находим оригинальную кнопку меню на сайте и имитируем нажатие
+  var originalMenuBtn = document.querySelector('.elementor-menu-toggle, .menu-toggle, .navbar-toggler, [class*="burger"], [class*="toggle"]');
+  
+  if (originalMenuBtn) {
+    originalMenuBtn.click();
+  } else {
+    // Если меню не открывается, плавно прокручиваем к шапке
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 </script>
-  <a href="#menu" class="mobile-menu-btn">
-  Меню <span>➔</span>
 </a>
 </body>
 </html>

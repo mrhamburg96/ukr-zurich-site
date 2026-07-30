@@ -822,89 +822,92 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 <section class="hero-section" id="responsive-hero-section" style="background: url('main.webp') no-repeat center center/cover; padding: 40px 0 120px 0; position: relative; min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box;">
     
     <style>
-        @media (max-width: 768px) {
-            /* 1. Настройки главного баннера для мобильных */
-            #responsive-hero-section { 
-                min-height: 230px !important; 
-                height: 230px !important; 
-                padding: 0 !important; 
-                overflow: hidden !important; 
-                display: block !important;
-            }
-            
-            /* Создаем внутренний контейнер со сдвигом всей группы вниз под обрез фото */
-            #responsive-hero-section .container {
-                position: absolute !important;
-                bottom: 12px !important; /* Опускаем всю группу надписей и кнопок вниз */
-                left: 0 !important;
-                width: 100% !important;
-                padding: 0 16px !important;
-                box-sizing: border-box !important;
-            }
-
-            /* 2. Плашка с флагами: уменьшаем размер и сдвигаем влево, чтобы не наползала на скролл/край */
-            #h-badge-wrapper { 
-                margin-top: 0 !important;
-                margin-bottom: 2px !important; 
-                transform: scale(0.7) !important; 
-                transform-origin: left center !important; 
-                display: inline-flex !important;
-            }
-            #h-badge { font-size: 10px !important; }
-            
-            /* 3. Текстовый блок: заставляем описание быть строго по ширине заголовка */
-            #h-text-block { 
-                display: table !important; 
-                width: auto !important; 
-                max-width: 180px !important; 
-            }
-            
-            #h-t { 
-                display: table-cell !important; 
-                font-size: 12px !important; 
-                line-height: 1.2 !important; 
-                margin: 0 !important; 
-                padding-bottom: 2px !important; 
-                max-width: 180px !important; 
-                color: #111827 !important;
-            }
-            
-            /* Описание: Белый цвет + ограничение ширины по границам заголовка */
-            #h-s { 
-                display: table-caption !important; 
-                caption-side: bottom !important; 
-                color: #ffffff !important; /* Сделать текст белым */
-                font-size: 8.5px !important; 
-                line-height: 1.2 !important; 
-                margin: 0 !important; 
-                max-width: 180px !important; 
-                font-weight: 600 !important; 
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important; /* Тень для читаемости на фото */
-            }
-            
-            /* 4. Кнопки: компактное размещение внизу группы */
-            #h-btn-container { 
-                display: flex !important; 
-                flex-direction: column !important; 
-                gap: 3px !important; 
-                align-items: flex-start !important; 
-                margin-top: 4px !important; 
-            }
-            #h-b1, #h-b2 { 
-                padding: 2px 5px !important; 
-                border-radius: 4px !important; 
-                font-size: 8px !important; 
-                line-height: 1.1 !important; 
-                width: auto !important; 
-                max-width: 110px !important; 
-                text-align: center !important; 
-                white-space: nowrap !important; 
-            }
-            
-            /* Скрытие блока контактов */
-            #hero-contacts-wrapper { display: none !important; }
+    @media (max-width: 768px) {
+        /* 1. Настройки главного баннера */
+        #responsive-hero-section { 
+            min-height: 230px !important; 
+            height: 230px !important; 
+            padding: 0 !important; 
+            overflow: hidden !important; 
+            display: block !important;
+            position: relative !important;
         }
-    </style>
+        
+        /* 2. Поднимаем весь блок НА МАКСИМУМ ВВЕРХ */
+        #responsive-hero-section .container {
+            position: absolute !important;
+            top: 8px !important;        /* Выравнивание по самому верхнему краю */
+            bottom: auto !important;     /* Отменяем привязку к низу */
+            left: 0 !important;
+            width: 100% !important;
+            padding: 0 12px !important;
+            box-sizing: border-box !important;
+        }
+
+        /* 3. Плашка с флагами */
+        #h-badge-wrapper { 
+            margin-top: 0 !important;
+            margin-bottom: 4px !important; 
+            transform: scale(0.75) !important; 
+            transform-origin: left top !important; 
+            display: inline-flex !important;
+        }
+        #h-badge { font-size: 10px !important; }
+        
+        /* 4. Текстовый блок (перевели на нормальный block вместо table) */
+        #h-text-block { 
+            display: block !important; 
+            width: 100% !important; 
+            max-width: 85% !important;   /* Даем тексту больше места по ширине */
+        }
+        
+        /* Заголовок: белый, крупный, с мощной тенью */
+        #h-t { 
+            display: block !important; 
+            font-size: 13px !important; 
+            line-height: 1.25 !important; 
+            margin: 0 0 3px 0 !important; 
+            padding: 0 !important; 
+            font-weight: 800 !important; 
+            color: #ffffff !important; 
+            /* Тень создает четкий контраст на любом фоновом фото */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.7) !important; 
+        }
+        
+        /* Описание: читаемое, без искусственных ограничений по ширине */
+        #h-s { 
+            display: block !important; 
+            color: #ffffff !important; 
+            font-size: 10px !important; 
+            line-height: 1.25 !important; 
+            margin: 0 0 6px 0 !important; 
+            font-weight: 600 !important; 
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.7) !important;
+        }
+        
+        /* 5. Кнопки под текстом */
+        #h-btn-container { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            gap: 4px !important; 
+            align-items: flex-start !important; 
+            margin-top: 4px !important; 
+        }
+        #h-b1, #h-b2 { 
+            padding: 4px 8px !important; 
+            border-radius: 4px !important; 
+            font-size: 9px !important; 
+            line-height: 1.1 !important; 
+            width: auto !important; 
+            max-width: 130px !important; 
+            text-align: center !important; 
+            white-space: nowrap !important; 
+        }
+        
+        /* Скрытие блока контактов */
+        #hero-contacts-wrapper { display: none !important; }
+    }
+</style>
     
     <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; box-sizing: border-box; position: relative; z-index: 2;">
         <div style="max-width: 520px; text-align: left;">

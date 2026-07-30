@@ -691,30 +691,29 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 /* ===================================================================== */
 /* ===================================================================== */
-/* 📱 УЛЬТРА-КОМПАКТНЫЙ ВАРИАНТ С МИНИАТЮРОЙ ДЛЯ СМАРТФОНОВ (ЖЕСТКИЙ СБРОС) */
+/* 📱 АДАПТИВНЫЙ И ПОЛНОСТЬЮ ВИДИМЫЙ БАННЕР ДЛЯ СМАРТФОНОВ */
 @media screen and (max-width: 768px) {
 
-  /* 1. НАХОДИМ САМУЮ ПЕРВУЮ СЕКЦИЮ И ЖЕСТКО ДЕЛАЕМ ИЗ НЕЕ МИНИАТЮРУ */
+  /* 1. РАЗРЕШАЕМ ПЛАШКЕ РАСТЯГИВАТЬСЯ ПО ВЫСОТЕ (УБИРАЕМ ОБРЕЗАНИЕ) */
   body section:first-of-type, 
   header + section, 
   div[class*="hero"], 
   section[class*="hero"], 
   .hero {
-    height: 190px !important;
-    min-height: 190px !important;
-    max-height: 190px !important;
-    padding: 10px 0 0 12px !important;
-    overflow: hidden !important;
+    height: auto !important;          /* Раньше было 190px (из-за этого обрезалось) */
+    min-height: 200px !important;     /* Минимальная высота для красивого вида */
+    max-height: none !important;      /* Снимаем жесткий потолок высоты */
+    padding: 16px 12px !important;    /* Добавляем аккуратные отступы */
+    overflow: visible !important;     /* Раньше было hidden (из-за этого контент был невидимым) */
     position: relative !important;
   }
 
-  /* 2. ПРИНУДИТЕЛЬНО СЖИМАЕМ ЛЮБОЙ ФОН ИЛИ КАРТИНКУ ВНУТРИ БАННЕРА */
+  /* 2. НАСТРОЙКА ФОНА И ИЗОБРАЖЕНИЙ */
   body section:first-of-type, div[class*="hero"], section[class*="hero"], .hero {
     background-size: cover !important;
     background-position: center center !important;
   }
   
-  /* Если фото добавлено внутри как тег img */
   body section:first-of-type img, [class*="hero"] img, .hero img {
     width: 100% !important;
     height: 100% !important;
@@ -722,64 +721,54 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     object-position: center center !important;
   }
 
-  /* 3. УМЕНЬШАЕМ ШРИФТЫ ВСЕХ ЗАГОЛОВКОВ И ТЕКСТОВ В ПЕРВОЙ СЕКЦИИ */
+  /* 3. НАСТРОЙКА ТЕКСТА (РАЗРЕШАЕМ ЗАНЯТЬ ВСЮ ШИРИНУ) */
   body section:first-of-type h1, [class*="hero"] h1, #h-t {
-    font-size: 14px !important;
-    line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 6px 0 !important;
     font-weight: 700 !important;
-    max-width: 65% !important;
+    max-width: 100% !important;       /* Раньше было 65% (текст сжимался) */
   }
 
   body section:first-of-type p, [class*="hero"] p, #h-s {
-    font-size: 10px !important;
-    line-height: 1.2 !important;
-    margin: 0 0 8px 0 !important;
-    max-width: 65% !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 10px 0 !important;
+    max-width: 100% !important;       /* Раньше было 65% */
   }
 
-  /* Логотипы или мелкие плашки над заголовком */
   .hero-logo-row, [class*="logo-row"] {
-    transform: scale(0.75) !important;
+    transform: scale(0.85) !important;
     transform-origin: left center !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 4px !important;
   }
 
-  /* 4. ПЕРЕСТРАИВАЕМ КНОПКИ В ОДНУ КОЛОНКУ И УМЕНЬШАЕМ ПЛАШКИ */
-  body section:first-of-type a, 
-  body section:first-of-type button,
-  .btn-hero-main, 
-  .btn-hero-sec, 
-  [class*="btn"] {
-    /* Применяем только к элементам внутри первого баннера */
-  }
-  
-  /* Чтобы не сломать все кнопки сайта, найдем контейнер кнопок в первой секции */
+  /* 4. КНОПКИ (УДОБНОЕ ОТОБРАЖЕНИЕ) */
   body section:first-of-type div:has(a), 
   .hero-btns, 
   [class*="btns"] {
     display: flex !important;
-    flex-direction: column !important; /* Выстраиваем плашки друг под друга */
-    gap: 4px !important;
-    align-items: flex-start !important;
+    flex-direction: row !important;   /* Кнопки встают в ряд */
+    flex-wrap: wrap !important;       /* Переносятся на новую строку, если не влезают */
+    gap: 6px !important;
+    align-items: center !important;
   }
 
-  /* Делаем сами плашки кнопок ультра-компактными */
   body section:first-of-type div:has(a) a,
   body section:first-of-type div:has(button) button,
   .btn-hero-main, .btn-hero-sec,
   [class*="hero"] a[class*="btn"] {
-    padding: 4px 8px !important;         /* Тонкие отступы */
-    font-size: 9px !important;           /* Маленький шрифт на плашке */
-    line-height: 1.1 !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
     border-radius: 4px !important;
     width: auto !important;
-    max-width: 120px !important;
+    max-width: none !important;       /* Убираем ограничение в 120px */
     text-align: center !important;
-    white-space: nowrap !important;      /* Текст плашки строго в один ряд */
+    white-space: nowrap !important;
   }
 
-  /* Скрываем блоки контактов, которые ломают компактность */
+  /* Скрытие контактных блоков, если они мешают */
   #hero-contacts-wrapper, .hero-contacts, [class*="contacts-wrapper"] {
     display: none !important;
   }

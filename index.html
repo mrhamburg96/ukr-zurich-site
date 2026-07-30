@@ -691,24 +691,26 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 /* ===================================================================== */
 /* ===================================================================== */
-/* 📱 БЕЗОПАСНАЯ АДАПТАЦИЯ ТОЛЬКО ДЛЯ ПЛАШКИ (БЕЗ ЗАТРАГИВАНИЯ МЕНЮ) */
+/* 📱 ФИНАЛЬНЫЙ АДАПТИВ ДЛЯ ПЛАШКИ И МЕНЮ */
 @media screen and (max-width: 768px) {
 
-  /* Указываем стили СТРОГО для плашки (по классу или id) */
+  /* 1. Настройки самой плашки */
   .hero, 
   section.hero, 
-  div.hero,
-  [class*="hero"] {
+  div[class*="hero"], 
+  section[class*="hero"] {
+    display: block !important;
+    visibility: visible !important;
     height: auto !important;
     min-height: 220px !important;
     max-height: none !important;
     padding: 15px 10px !important;
     overflow: visible !important;
     position: relative !important;
-    z-index: 1 !important; /* Низкий приоритет, чтобы меню перекрывало плашку, а не наоборот */
+    z-index: 1 !important; /* Низкий слой, чтобы не перекрывать меню */
   }
 
-  /* Исправление текста внутри плашки */
+  /* 2. Настройки текста плашки */
   [class*="hero"] h1, #h-t {
     font-size: 15px !important;
     line-height: 1.3 !important;
@@ -723,18 +725,17 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     max-width: 100% !important;
   }
 
-  /* Кнопки внутри плашки */
+  /* 3. Кнопки плашки */
   .hero-btns, [class*="btns"] {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
     gap: 6px !important;
-    z-index: 2 !important;
   }
 
-  /* Чтобы выпавшее меню было СВЕРХУ плашки и красиво его перекрывало при клике */
-  header, nav, .mobile-menu, [class*="menu"] {
-    z-index: 9999 !important;
+  /* 4. Принудительно убираем меню на задний план, пока пользователь на него не нажал */
+  nav, .mobile-menu, [class*="menu-dropdown"] {
+    z-index: 99999 !important; /* Меню перекрывает плашку ТОЛЬКО когда открыто */
   }
 }
 

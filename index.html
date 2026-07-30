@@ -2846,36 +2846,23 @@ window.changeLanguage = function(lang) {
 
 <script>
 function openSiteMenu() {
-  // Расширенный поиск мобильного меню для Elementor, WordPress и других шаблонов
-  var selectors = [
-    '.elementor-menu-toggle',
-    '.menu-toggle',
-    '.navbar-toggler',
-    '.mobile-menu-toggle',
-    '[aria-label*="Menu"]',
-    '[aria-label*="меню"]',
-    '.e-font-icon-svg',
-    'button[class*="toggle"]',
-    'div[class*="burger"]',
-    'a[href*="#menu"]'
-  ];
-
-  var found = false;
-
-  for (var i = 0; i < selectors.length; i++) {
-    var btn = document.querySelector(selectors[i]);
-    // Проверяем, что элемент существует и это НЕ наша собственная кнопка
-    if (btn && !btn.classList.contains('mobile-menu-btn')) {
-      btn.click();
-      found = true;
-      break;
-    }
+  // 1. Ищем иконку-гамбургер Elementor на сайте
+  var elementorToggle = document.querySelector('.elementor-menu-toggle, .elementor-button-wrapper a, [class*="elementor-nav-menu"] .e-font-icon-svg');
+  
+  if (elementorToggle) {
+    elementorToggle.click();
+    return;
   }
 
-  // Если всё же скрипт не смог найти кнопку гамбургера — просто плавно прокручиваем к самому верху
-  if (!found) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // 2. Ищем любые другие кнопки меню на странице
+  var generalToggle = document.querySelector('.menu-toggle, .navbar-toggler, [aria-label*="Menu"]');
+  if (generalToggle) {
+    generalToggle.click();
+    return;
   }
+
+  // 3. Запасной вариант — скролл наверх к шапке
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>

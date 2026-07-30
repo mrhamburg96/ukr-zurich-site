@@ -773,6 +773,48 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     .left-steps-column {
         left: 0 !important;
     }
+/* 📱 КНОПКА «МЕНЮ ➔» ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ */
+@media screen and (max-width: 768px) {
+
+  .mobile-menu-btn {
+    position: fixed !important;
+    top: 15px !important;            /* Отступ сверху */
+    right: 15px !important;          /* Закрепляем в правом верхнем углу */
+    z-index: 9999 !important;        /* Кнопка всегда поверх всего */
+    
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    
+    padding: 8px 14px !important;
+    background-color: #0057b7 !important; /* Синий фирменный цвет */
+    color: #ffffff !important;
+    
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    
+    border-radius: 20px !important;   /* Аккуратные круглые края */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: background-color 0.2s ease !important;
+  }
+
+  /* Анимация стрелочки при нажатии/наведении */
+  .mobile-menu-btn span {
+    font-size: 14px !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  .mobile-menu-btn:active span {
+    transform: translateX(3px) !important;
+  }
+}
+
+/* На компьютерах эту кнопку автоматически скрываем */
+@media screen and (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
 }
 /* ===================================================================== */
 </style>
@@ -2811,5 +2853,8 @@ function toggleMenu() {
     menu.classList.toggle('is-active');
 }
 </script>
+  <a href="#menu" class="mobile-menu-btn">
+  Меню <span>➔</span>
+</a>
 </body>
 </html>

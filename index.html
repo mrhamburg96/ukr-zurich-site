@@ -691,86 +691,50 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 
 /* ===================================================================== */
 /* ===================================================================== */
-/* 📱 АДАПТИВНЫЙ И ПОЛНОСТЬЮ ВИДИМЫЙ БАННЕР ДЛЯ СМАРТФОНОВ */
+/* 📱 БЕЗОПАСНАЯ АДАПТАЦИЯ ТОЛЬКО ДЛЯ ПЛАШКИ (БЕЗ ЗАТРАГИВАНИЯ МЕНЮ) */
 @media screen and (max-width: 768px) {
 
-  /* 1. РАЗРЕШАЕМ ПЛАШКЕ РАСТЯГИВАТЬСЯ ПО ВЫСОТЕ (УБИРАЕМ ОБРЕЗАНИЕ) */
-  body section:first-of-type, 
-  header + section, 
-  div[class*="hero"], 
-  section[class*="hero"], 
-  .hero {
-    height: auto !important;          /* Раньше было 190px (из-за этого обрезалось) */
-    min-height: 200px !important;     /* Минимальная высота для красивого вида */
-    max-height: none !important;      /* Снимаем жесткий потолок высоты */
-    padding: 16px 12px !important;    /* Добавляем аккуратные отступы */
-    overflow: visible !important;     /* Раньше было hidden (из-за этого контент был невидимым) */
+  /* Указываем стили СТРОГО для плашки (по классу или id) */
+  .hero, 
+  section.hero, 
+  div.hero,
+  [class*="hero"] {
+    height: auto !important;
+    min-height: 220px !important;
+    max-height: none !important;
+    padding: 15px 10px !important;
+    overflow: visible !important;
     position: relative !important;
+    z-index: 1 !important; /* Низкий приоритет, чтобы меню перекрывало плашку, а не наоборот */
   }
 
-  /* 2. НАСТРОЙКА ФОНА И ИЗОБРАЖЕНИЙ */
-  body section:first-of-type, div[class*="hero"], section[class*="hero"], .hero {
-    background-size: cover !important;
-    background-position: center center !important;
-  }
-  
-  body section:first-of-type img, [class*="hero"] img, .hero img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-  }
-
-  /* 3. НАСТРОЙКА ТЕКСТА (РАЗРЕШАЕМ ЗАНЯТЬ ВСЮ ШИРИНУ) */
-  body section:first-of-type h1, [class*="hero"] h1, #h-t {
-    font-size: 16px !important;
+  /* Исправление текста внутри плашки */
+  [class*="hero"] h1, #h-t {
+    font-size: 15px !important;
     line-height: 1.3 !important;
-    margin: 0 0 6px 0 !important;
-    font-weight: 700 !important;
-    max-width: 100% !important;       /* Раньше было 65% (текст сжимался) */
+    margin-bottom: 8px !important;
+    max-width: 100% !important;
   }
 
-  body section:first-of-type p, [class*="hero"] p, #h-s {
-    font-size: 12px !important;
-    line-height: 1.3 !important;
-    margin: 0 0 10px 0 !important;
-    max-width: 100% !important;       /* Раньше было 65% */
-  }
-
-  .hero-logo-row, [class*="logo-row"] {
-    transform: scale(0.85) !important;
-    transform-origin: left center !important;
-    margin-bottom: 4px !important;
-  }
-
-  /* 4. КНОПКИ (УДОБНОЕ ОТОБРАЖЕНИЕ) */
-  body section:first-of-type div:has(a), 
-  .hero-btns, 
-  [class*="btns"] {
-    display: flex !important;
-    flex-direction: row !important;   /* Кнопки встают в ряд */
-    flex-wrap: wrap !important;       /* Переносятся на новую строку, если не влезают */
-    gap: 6px !important;
-    align-items: center !important;
-  }
-
-  body section:first-of-type div:has(a) a,
-  body section:first-of-type div:has(button) button,
-  .btn-hero-main, .btn-hero-sec,
-  [class*="hero"] a[class*="btn"] {
-    padding: 6px 10px !important;
+  [class*="hero"] p, #h-s {
     font-size: 11px !important;
-    line-height: 1.2 !important;
-    border-radius: 4px !important;
-    width: auto !important;
-    max-width: none !important;       /* Убираем ограничение в 120px */
-    text-align: center !important;
-    white-space: nowrap !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+    max-width: 100% !important;
   }
 
-  /* Скрытие контактных блоков, если они мешают */
-  #hero-contacts-wrapper, .hero-contacts, [class*="contacts-wrapper"] {
-    display: none !important;
+  /* Кнопки внутри плашки */
+  .hero-btns, [class*="btns"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    z-index: 2 !important;
+  }
+
+  /* Чтобы выпавшее меню было СВЕРХУ плашки и красиво его перекрывало при клике */
+  header, nav, .mobile-menu, [class*="menu"] {
+    z-index: 9999 !important;
   }
 }
 

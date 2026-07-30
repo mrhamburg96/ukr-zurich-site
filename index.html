@@ -155,25 +155,113 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .success h3{font-size:1rem;font-weight:700;margin-bottom:.35rem}
 .success p{font-size:13px;color:var(--text2)}
 
-/* ── NAV ────────────────────────────── */
-nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px;gap:.75rem}
-.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
-.nav-logo-flags{display:flex;align-items:center;gap:4px}
-.logo-heart{color:var(--yellow);font-size:20px}
-.brand{font-size:14px;font-weight:700;color:var(--blue);line-height:1.1}
-.brand small{font-size:9px;color:var(--text3);font-weight:400;display:block}
-.nav-links{display:flex;gap:.1rem;list-style:none}
-.nav-links a{font-size:12px;font-weight:500;color:var(--text2);padding:4px 7px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-light)}
-.nav-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.lang-sw{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.lb{background:none;border:none;padding:4px 9px;font-size:11px;font-weight:700;color:var(--text3);cursor:pointer;transition:all .15s}
-.lb.on{background:var(--blue);color:#fff}
-.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700}
-.btn-outline:hover{background:var(--blue-light)}
-.btn-solid{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700}.btn-donate-nav{background:var(--yellow);color:#333;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-.btn-solid:hover{background:var(--blue-dark)}
+/* ── NAV (Основной CSS для ПК) ────────────────────────────── */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    height: 60px;
+    gap: .75rem;
+}
 
+.nav-logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+.nav-logo-flags { display: flex; align-items: center; gap: 4px; }
+.logo-heart { color: var(--yellow); font-size: 20px; }
+.brand { font-size: 14px; font-weight: 700; color: var(--blue); line-height: 1.1; }
+.brand small { font-size: 9px; color: var(--text3); font-weight: 400; display: block; }
+
+/* Обычное ПК-меню */
+.nav-links { display: flex; gap: .1rem; list-style: none; }
+.nav-links a { font-size: 12px; font-weight: 500; color: var(--text2); padding: 4px 7px; border-radius: 5px; transition: all .15s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+
+.nav-r { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.lang-sw { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.lb { background: none; border: none; padding: 4px 9px; font-size: 11px; font-weight: 700; color: var(--text3); cursor: pointer; transition: all .15s; }
+.lb.on { background: var(--blue); color: #fff; }
+
+.btn-outline { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); border-radius: 7px; padding: 7px 14px; font-size: 12px; font-weight: 700; }
+.btn-outline:hover { background: var(--blue-light); }
+.btn-solid { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 8px 16px; font-size: 12px; font-weight: 700; }
+.btn-solid:hover { background: var(--blue-dark); }
+.btn-donate-nav { background: var(--yellow); color: #333; border: none; border-radius: 7px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+
+/* По умолчанию прячем кнопку гамбургера и мобильное выпадающее меню на ПК */
+.mobile-burger-btn, 
+.mobile-dropdown-menu { 
+    display: none; 
+}
+
+
+/* ── ТОЛЬКО ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (<= 768px) ──────────────── */
+@media (max-width: 768px) {
+    /* Скрываем широкое горизонтальное ПК-меню */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* Показываем кнопку-гамбургер */
+    .mobile-burger-btn {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 201;
+    }
+
+    .mobile-burger-btn span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--blue, #111827); /* Берет цвет вашей темы */
+        border-radius: 2px;
+    }
+
+    /* Настраиваем позицию выпадающего мобильного меню */
+    .mobile-dropdown-menu {
+        position: absolute;
+        top: 60px; /* Выпадает ровно под шапкой (высота 60px) */
+        right: 1rem;
+        width: 220px;
+        background: #ffffff;
+        border: 1px solid var(--border, #e5e7eb);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 8px 0;
+        list-style: none;
+        z-index: 200;
+    }
+
+    /* Этот класс включает показ меню при клике */
+    .mobile-dropdown-menu.is-active {
+        display: block !important;
+    }
+
+    .mobile-dropdown-menu li a {
+        display: block;
+        padding: 10px 16px;
+        color: var(--text2, #374151);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid var(--border, #f3f4f6);
+    }
+
+    .mobile-dropdown-menu li:last-child a {
+        border-bottom: none;
+    }
+}
 /* ── HERO ───────────────────────────── */
 hero {
   position: relative;
@@ -795,6 +883,7 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     </div>
   </a>
 
+  <!-- 1. Основное меню для ПК (скрывается на смартфонах) -->
   <ul class="nav-links">
     <li><a href="./" class="active" id="nl-1" data-translate="nav-home">Головна</a></li>
     <li><a href="about.html" id="nl-2" data-translate="nl-2">Про центр</a></li>
@@ -807,13 +896,37 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     <li><a href="contacts.html" id="nav-contacts" data-translate="nav-contacts">Контакти</a></li>
   </ul>
 
-  <div class="lang-sw">
-    <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
-      <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
-        <button class="lang-btn" data-lang="ua">UA</button>
-        <button class="lang-btn" data-lang="de">DE</button>
+  <!-- 2. Правый блок: Языки + Мобильное меню -->
+  <div class="nav-r">
+    <!-- Ваш рабочий переключатель языков -->
+    <div class="lang-sw">
+      <div style="display: flex; background: #f1f5f9; padding: 2px; border-radius: 8px;">
+        <div style="position: relative; z-index: 9999; display: inline-flex; gap: 8px; align-items: center;">
+          <button class="lang-btn" data-lang="ua">UA</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
       </div>
     </div>
+
+    <!-- Кнопка-гамбургер (видна только на телефонах) -->
+    <button class="mobile-burger-btn" onclick="toggleMenu()" aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Выпадающее меню для телефонов с правильными ссылками -->
+    <ul class="mobile-dropdown-menu" id="mobileDropdown">
+      <li><a href="./" data-translate="nav-home">Головна</a></li>
+      <li><a href="about.html" data-translate="nl-2">Про центр</a></li>
+      <li><a href="help.html" data-translate="nl-3">Допомога</a></li>
+      <li><a href="events.html" data-translate="nl-4">Події</a></li>
+      <li><a href="knowledge.html" data-translate="nav-knowledge">Центр знань</a></li>
+      <li><a href="announcements.html" data-translate="nav-announcements">Оголошення</a></li>
+      <li><a href="volunteering.html" data-translate="nav-volunteering">Волонтерство</a></li>
+      <li><a href="#" data-translate="nav-donate">Donate</a></li>
+      <li><a href="contacts.html" data-translate="nav-contacts">Контакти</a></li>
+    </ul>
   </div>
 </nav>
 
@@ -2474,82 +2587,115 @@ window.changeLanguage = function(lang) {
 </script>
 <style>
 @media (max-width: 768px) {
-  /* 1. Заголовок: уменьшаем и ограничиваем ширину слева от переключателя UA/DE */
-        #h-t { 
-            display: block !important; 
-            font-size: 11px !important;        /* Уменьшили шрифт */
-            line-height: 1.2 !important; 
-            margin: 0 0 4px 0 !important; 
-            font-weight: 800 !important; 
-            color: #ffffff !important; 
-            max-width: 65% !important;         /* Ограничиваем ширину, чтобы не наезжал на UA/DE */
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important; 
-        }
-        
-        /* 2. Подзаголовок: делает подпись компактной над головами */
-        #h-s { 
-            display: block !important; 
-            font-size: 8px !important;         /* Компактный аккуратный шрифт */
-            line-height: 1.15 !important;      /* Плотный межстрочный интервал */
-            margin: 0 0 6px 0 !important; 
-            color: #ffffff !important; 
-            font-weight: 600 !important; 
-            max-width: 70% !important;         /* Не дает тексту растягиваться во весь экран */
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important;
-        }
-    /* На смартфонах разрешаем шапке разделяться на две строчки */
+    /* 1. Заголовок: уменьшаем и ограничиваем ширину слева от переключателя UA/DE */
+    #h-t { 
+        display: block !important; 
+        font-size: 11px !important; 
+        line-height: 1.2 !important; 
+        margin: 0 0 4px 0 !important; 
+        font-weight: 800 !important; 
+        color: #ffffff !important; 
+        max-width: 65% !important; 
+        text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important; 
+    }
+    
+    /* 2. Подзаголовок: делает подпись компактной над головами */
+    #h-s { 
+        display: block !important; 
+        font-size: 8px !important; 
+        line-height: 1.15 !important; 
+        margin: 0 0 6px 0 !important; 
+        color: #ffffff !important; 
+        font-weight: 600 !important; 
+        max-width: 70% !important; 
+        text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important;
+    }
+
+    /* На смартфонах настраиваем выравнивание логотипа и элементов */
     nav {
         display: flex !important;
-        flex-wrap: wrap !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 4px 12px 0px 12px !important; /* Минимальный отступ шапки сверху и снизу */
+        padding: 4px 12px !important;
+        position: relative !important; /* Нужно для правильного позиционирования выпадающего меню */
     }
 
-    /* Логотип занимает левую часть верха */
+    /* Логотип занимает левую часть */
     .nav-logo {
-        max-width: 70% !important;
+        max-width: 60% !important;
     }
 
-    /* Переключатель языков на смартфонах принудительно ставим в правый верхний угол */
+    /* Переключатель языков ставим рядом с гамбургером */
     .lang-sw {
         display: block !important;
         margin-left: auto !important;
+        margin-right: 12px !important; /* Небольшой зазор до кнопки-гамбургера */
     }
 
-    /* Превращаем блок ссылок в принудительную плавающую ленту ПОД логотипом */
+    /* 🛑 ИЗМЕНЕНИЕ: ПОЛНОСТЬЮ СКРЫВАЕМ ГОРИЗОНТАЛЬНУЮ ЛЕНТУ МЕНЮ */
     .nav-links {
+        display: none !important; /* Убираем длинную полосу ссылок с баннера */
+    }
+
+    /* 🟢 ДОБАВЛЕНИЕ: СТИЛИ ДЛЯ КНОПКИ-ГАМБУРГЕРА */
+    .mobile-burger-btn {
         display: flex !important;
-        flex-direction: row !important;      /* Строго в один ряд */
-        overflow-x: auto !important;         /* Включаем горизонтальный скролл */
-        overflow-y: hidden !important;
-        white-space: nowrap !important;      /* Запрещаем кнопкам переноситься вниз */
-        width: 100% !important;              /* Растягиваем на всю ширину экрана */
-        margin: 2px 0 0 0 !important;        /* Минимальный зазор под логотипом, чтобы поднять меню максимально вверх */
-        padding: 4px 4px !important;         /* Компактные внутренние отступы кнопок */
-        gap: 14px !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 26px !important;
+        height: 18px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        z-index: 1001 !important;
+    }
+
+    .mobile-burger-btn span {
+        display: block !important;
+        height: 3px !important;
+        width: 100% !important;
+        background-color: #ffffff !important; /* Белые полоски (поменяйте на #000000, если нужно темные) */
+        border-radius: 2px !important;
+    }
+
+    /* 🟢 ДОБАВЛЕНИЕ: ВЫПАДАЮЩИЙ БЛОК ДЛЯ МОБИЛЬНОГО МЕНЮ */
+    .mobile-dropdown-menu {
+        display: none; /* Скрыто по умолчанию */
+        position: absolute !important;
+        top: 100% !important;
+        right: 12px !important;
+        width: 210px !important;
+        background: #ffffff !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+        border-radius: 8px !important;
+        padding: 8px 0 !important;
+        z-index: 1000 !important;
         list-style: none !important;
-        -webkit-overflow-scrolling: touch !important; /* Активируем плавный скролл пальцем для iOS и Android */
     }
 
-    /* Прячем стандартную полосу прокрутки, чтобы меню выглядело красиво */
-    .nav-links::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
+    /* Класс, который JS будет добавлять при клике для показа меню */
+    .mobile-dropdown-menu.is-active {
+        display: block !important;
     }
 
-    /* Запрещаем каждому пункту меню сжиматься в размерах */
-    .nav-links li {
-        display: inline-block !important;
-        flex-shrink: 0 !important;           /* Ключевое свойство, чтобы текст не сжимался */
+    .mobile-dropdown-menu li {
         margin: 0 !important;
+        padding: 0 !important;
     }
 
-    .nav-links a, .btn-donate-nav {
-        display: inline-block !important;
-        white-space: nowrap !important;
-        padding: 2px 0 !important;          /* Уменьшили вертикальный размер самих ссылок */
+    .mobile-dropdown-menu a {
+        display: block !important;
+        padding: 10px 16px !important;
+        color: #111827 !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+
+    .mobile-dropdown-menu li:last-child a {
+        border-bottom: none !important;
     }
 }
 </style>
@@ -2689,6 +2835,12 @@ window.changeLanguage = function(lang) {
       });
     }
   })();
+</script>
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById('mobileDropdown');
+    menu.classList.toggle('is-active');
+}
 </script>
 </body>
 </html>

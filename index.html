@@ -2840,24 +2840,43 @@ window.changeLanguage = function(lang) {
     }
   })();
 </script>
- <!-- Кнопка с вызовом клика по оригинальному меню -->
 <button type="button" class="mobile-menu-btn" onclick="openSiteMenu()">
   Меню <span>➔</span>
 </button>
 
 <script>
 function openSiteMenu() {
-  // Находим оригинальную кнопку меню на сайте и имитируем нажатие
-  var originalMenuBtn = document.querySelector('.elementor-menu-toggle, .menu-toggle, .navbar-toggler, [class*="burger"], [class*="toggle"]');
-  
-  if (originalMenuBtn) {
-    originalMenuBtn.click();
-  } else {
-    // Если меню не открывается, плавно прокручиваем к шапке
+  // Расширенный поиск мобильного меню для Elementor, WordPress и других шаблонов
+  var selectors = [
+    '.elementor-menu-toggle',
+    '.menu-toggle',
+    '.navbar-toggler',
+    '.mobile-menu-toggle',
+    '[aria-label*="Menu"]',
+    '[aria-label*="меню"]',
+    '.e-font-icon-svg',
+    'button[class*="toggle"]',
+    'div[class*="burger"]',
+    'a[href*="#menu"]'
+  ];
+
+  var found = false;
+
+  for (var i = 0; i < selectors.length; i++) {
+    var btn = document.querySelector(selectors[i]);
+    // Проверяем, что элемент существует и это НЕ наша собственная кнопка
+    if (btn && !btn.classList.contains('mobile-menu-btn')) {
+      btn.click();
+      found = true;
+      break;
+    }
+  }
+
+  // Если всё же скрипт не смог найти кнопку гамбургера — просто плавно прокручиваем к самому верху
+  if (!found) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 </script>
-</a>
 </body>
 </html>

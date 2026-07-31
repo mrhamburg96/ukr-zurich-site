@@ -792,24 +792,40 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
   }
 }
 
-/* 📱 Адаптация карточек центров в одну колонку */
+/* ===== ВСЯ МОБИЛЬНАЯ АДАПТАЦИЯ (<= 768px) ===== */
 @media (max-width: 768px) {
+    /* 1. Сброс сдвига колонки на мобильных */
+    .left-steps-column {
+        left: 0 !important;
+    }
+
+    /* 2. Карточки центров в одну колонку */
     .centers-grid {
         grid-template-columns: 1fr !important; 
         gap: 20px !important;
     }
-}
 
-/* ===== СДВИГ ВСЕГО ЛЕВОГО БЛОКА ===== */
-.left-steps-column {
-    position: relative !important;
-    left: -40px !important;
-}
+    /* 3. Карточки "Чим ми допомагаємо" (текст ПОД картинкой) */
+    .services-grid .service-card,
+    .help-card,
+    .card {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
 
-/* мобильная версия */
-@media (max-width:768px) {
-    .left-steps-column {
-        left: 0 !important;
+    .services-grid .service-card img,
+    .help-card img,
+    .card img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 220px;
+        object-fit: cover;
+    }
+
+    .services-grid .service-card .card-content,
+    .help-card .card-content,
+    .card-content {
+        padding-top: 16px !important;
     }
 }
 /* ===================================================================== */

@@ -13,6 +13,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAGZ — Українській інтеграційний та громадський центр Цюриха</title>
+  <!-- ПОДКЛЮЧЕНИЕ ИКОНОК FLATICON -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -199,10 +201,10 @@ nav {
 }
 
 
-/* ── МОБИЛЬНАЯ НАВИГАЦИЯ (<= 768px) ── */
+/* ── МОБИЛЬНАЯ НАВИГАЦИЯ С ИКОНКОЙ FLATICON (<= 768px) ── */
 @media (max-width: 768px) {
-    /* Фиксируем позиционирование шапки для выпадающего меню */
-    nav.main-navbar {
+    /* Фиксируем контекст позиционирования шапки */
+    nav.main-navbar, header {
         position: relative !important;
     }
 
@@ -211,42 +213,45 @@ nav {
         display: none !important;
     }
 
-    /* Проявляем кнопку-гамбургер и делаем её видимой */
-    .mobile-burger-btn {
+    /* Показываем контейнер .nav-r с выравниванием по центру */
+    .nav-r {
         display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 26px;
-        height: 18px;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* Кнопка с иконкой гамбургера */
+    .mobile-burger-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
         background: transparent;
         border: none;
         cursor: pointer;
-        padding: 0;
-        margin-left: 8px; /* Отступ от кнопок UA/DE */
+        padding: 4px;
         z-index: 202;
-        flex-shrink: 0;
     }
 
-    .mobile-burger-btn span {
-        display: block;
-        height: 3px;
-        width: 100%;
-        background-color: var(--blue, #1A56C4);
-        border-radius: 2px;
+    /* Размер и цвет иконки Flaticon */
+    .mobile-burger-btn i {
+        font-size: 22px;
+        color: var(--blue, #1A56C4);
+        line-height: 1;
     }
 
-    /* Выпадающее меню: ровно ПОД шапкой во всю ширину */
+    /* Выпадающее меню во всю ширину строгой плашкой под шапкой */
     .mobile-dropdown-menu {
         position: absolute;
-        top: 60px; /* Высота вашей шапки */
+        top: 100%;
         left: 0;
         right: 0;
         width: 100%;
         background: #ffffff;
         border-bottom: 2px solid var(--border, #e5e7eb);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        padding: 4px 0;
+        padding: 8px 0;
         list-style: none;
+        margin: 0;
         z-index: 200;
     }
 
@@ -254,7 +259,7 @@ nav {
         display: block;
         padding: 12px 20px;
         color: var(--text, #111827);
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
         text-decoration: none;
         border-bottom: 1px solid var(--border, #f3f4f6);
@@ -910,12 +915,11 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
       </div>
     </div>
 
-    <!-- Кнопка-гамбургер (видна только на телефонах) -->
-    <button class="mobile-burger-btn" onclick="toggleMenu()" aria-label="Меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <!-- КНОПКА С ИКОНКОЙ FLATICON -->
+  <button class="mobile-burger-btn" onclick="toggleMenu()" aria-label="Меню">
+    <i class="fi fi-ss-menu-burger"></i>
+  </button>
+</div>
 
     <!-- Выпадающее меню для телефонов с правильными ссылками -->
     <ul class="mobile-dropdown-menu" id="mobileDropdown">

@@ -150,7 +150,7 @@
         .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; margin-top: 10px; }
         .btn-submit:hover { background-color: #14439c; }
 
-        /* АДАПТИВНІСТЬ */
+       /* АДАПТИВНІСТЬ */
         @media (max-width: 1200px) {
             .help-container-fluid, .programs-container-fluid { padding: 0 24px; }
             .hero-image-outer { padding: 0 24px; }
@@ -164,13 +164,36 @@
         @media (max-width: 768px) {
             .features-grid { flex-direction: column; gap: 20px; }
             .help-grid { grid-template-columns: repeat(2, 1fr); }
+
+            /* 💥 ВЫПРАВЛЕНИЯ ДЛЯ БАННЕРА И КАРТИНКИ 💥 */
+            .hero-image-outer,
+            .banner-box {
+                flex-direction: column-reverse !important; /* Текст знизу, картинка зверху */
+                display: flex !important;
+                height: auto !important;
+                padding: 16px !important;
+                position: relative !important;
+            }
+
+            .hero-image-outer img,
+            .banner-box img,
+            .hero-image img {
+                width: 100% !important;
+                height: auto !important;
+                max-height: 280px !important;
+                object-fit: cover !important; /* Зберігає пропорції та не обрізає обличчя */
+                border-radius: 16px !important;
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+            }
         }
         @media (max-width: 640px) {
             .programs-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             .help-grid { grid-template-columns: 1fr; }
-            .banner-box { flex-direction: column; text-align: center; padding: 30px; gap: 20px; }
+            .banner-box { flex-direction: column; text-align: center; padding: 20px; gap: 20px; }
             .banner-left { flex-direction: column; gap: 16px; }
             .nav-menu { display: none; }
         }

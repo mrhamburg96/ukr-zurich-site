@@ -199,67 +199,68 @@ nav {
 }
 
 
-/* ── ТОЛЬКО ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (<= 768px) ──────────────── */
+/* ── МОБИЛЬНАЯ НАВИГАЦИЯ (<= 768px) ── */
 @media (max-width: 768px) {
-    /* Скрываем широкое горизонтальное ПК-меню */
+    /* Скрываем десктопные ссылки */
     .nav-links {
         display: none !important;
     }
 
-    /* Показываем кнопку-гамбургер */
+    /* Делаем иконку гамбургера видимой и стильной */
     .mobile-burger-btn {
         display: flex !important;
         flex-direction: column;
         justify-content: space-between;
-        width: 26px;
-        height: 18px;
+        width: 28px;
+        height: 20px;
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 0;
-        z-index: 201;
+        z-index: 202;
     }
 
     .mobile-burger-btn span {
         display: block;
         height: 3px;
         width: 100%;
-        background-color: var(--blue, #111827); /* Берет цвет вашей темы */
+        background-color: var(--blue, #1A56C4);
         border-radius: 2px;
     }
 
-    /* Настраиваем позицию выпадающего мобильного меню */
+    /* Мобильное меню: выдвигается прямо под шапкой (top: 100%) во всю ширину */
     .mobile-dropdown-menu {
         position: absolute;
-        top: 60px; /* Выпадает ровно под шапкой (высота 60px) */
-        right: 1rem;
-        width: 220px;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
         background: #ffffff;
-        border: 1px solid var(--border, #e5e7eb);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        padding: 8px 0;
+        border-bottom: 2px solid var(--border, #e5e7eb);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        padding: 6px 0;
         list-style: none;
-        z-index: 200;
-    }
-
-    /* Этот класс включает показ меню при клике */
-    .mobile-dropdown-menu.is-active {
-        display: block !important;
+        z-index: 201;
     }
 
     .mobile-dropdown-menu li a {
         display: block;
-        padding: 10px 16px;
-        color: var(--text2, #374151);
-        font-size: 13px;
+        padding: 12px 20px;
+        color: var(--text, #111827);
+        font-size: 14px;
         font-weight: 600;
         text-decoration: none;
         border-bottom: 1px solid var(--border, #f3f4f6);
+        transition: background 0.15s ease;
     }
 
     .mobile-dropdown-menu li:last-child a {
         border-bottom: none;
+    }
+
+    .mobile-dropdown-menu li a:active {
+        background-color: var(--blue-light, #E8F1FD);
+        color: var(--blue, #1A56C4);
     }
 }
 /* ── HERO ───────────────────────────── */

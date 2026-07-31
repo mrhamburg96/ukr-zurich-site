@@ -829,7 +829,21 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
     .help-card .card-content,
     .card-content {
         padding-top: 16px !important;
-        text-align: center !important;   /* Выравнивает заголовок и текст по центру */
+        text-align: center !important;   /* Выравнивает описание по центру */
+    }
+
+    /* 4. Центрирование всех заголовков на мобильных */
+    .services-grid h2,
+    .services-grid h3,
+    .service-card h3,
+    .help-card h3,
+    .card h3,
+    .svc h3,
+    .svc-main-info,
+    h2, h3 {
+        text-align: center !important;
+        justify-content: center !important; /* Если заголовок с иконкой во флексе */
+        width: 100% !important;
     }
 }
 /* ===================================================================== */

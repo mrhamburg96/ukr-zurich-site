@@ -201,23 +201,30 @@ nav {
 
 /* ── МОБИЛЬНАЯ НАВИГАЦИЯ (<= 768px) ── */
 @media (max-width: 768px) {
+    /* Фиксируем позиционирование шапки для выпадающего меню */
+    nav.main-navbar {
+        position: relative !important;
+    }
+
     /* Скрываем десктопные ссылки */
     .nav-links {
         display: none !important;
     }
 
-    /* Делаем иконку гамбургера видимой и стильной */
+    /* Проявляем кнопку-гамбургер и делаем её видимой */
     .mobile-burger-btn {
         display: flex !important;
         flex-direction: column;
         justify-content: space-between;
-        width: 28px;
-        height: 20px;
+        width: 26px;
+        height: 18px;
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 0;
+        margin-left: 8px; /* Отступ от кнопок UA/DE */
         z-index: 202;
+        flex-shrink: 0;
     }
 
     .mobile-burger-btn span {
@@ -228,19 +235,19 @@ nav {
         border-radius: 2px;
     }
 
-    /* Мобильное меню: выдвигается прямо под шапкой (top: 100%) во всю ширину */
+    /* Выпадающее меню: ровно ПОД шапкой во всю ширину */
     .mobile-dropdown-menu {
         position: absolute;
-        top: 100%;
+        top: 60px; /* Высота вашей шапки */
         left: 0;
         right: 0;
         width: 100%;
         background: #ffffff;
         border-bottom: 2px solid var(--border, #e5e7eb);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-        padding: 6px 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        padding: 4px 0;
         list-style: none;
-        z-index: 201;
+        z-index: 200;
     }
 
     .mobile-dropdown-menu li a {
@@ -251,16 +258,10 @@ nav {
         font-weight: 600;
         text-decoration: none;
         border-bottom: 1px solid var(--border, #f3f4f6);
-        transition: background 0.15s ease;
     }
 
     .mobile-dropdown-menu li:last-child a {
         border-bottom: none;
-    }
-
-    .mobile-dropdown-menu li a:active {
-        background-color: var(--blue-light, #E8F1FD);
-        color: var(--blue, #1A56C4);
     }
 }
 /* ── HERO ───────────────────────────── */

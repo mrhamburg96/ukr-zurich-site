@@ -263,8 +263,15 @@
         line-height: 1 !important;
     }
     /* 3. ВЫПАДАЮЩЕЕ МЕНЮ С DONATE ВНУТРИ */
-    .mobile-accordion-menu, .nav-menu.mobile {
-        display: none;
+  /* 1. Прячем мобильное меню на ПК (вне медиазапросов) */
+.mobile-accordion-menu {
+    display: none;
+}
+
+/* 2. Стиль для мобильных устройств (внутри @media (max-width: 768px)) */
+@media (max-width: 768px) {
+    
+    .mobile-accordion-menu {
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
@@ -276,25 +283,33 @@
         padding: 15px 0 !important;
     }
 
+    /* ВСЕГДА показываем при клике */
     .mobile-accordion-menu.active {
         display: block !important;
     }
-    /* Прячем мобильное меню на ПК */
-.mobile-accordion-menu {
-    display: none;
-}
 
-    .mobile-accordion-menu ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-    .mobile-accordion-menu li a { display: block !important; padding: 12px 20px !important; font-size: 15px !important; text-decoration: none !important; border-bottom: 1px solid #f3f4f6 !important; }
+    .mobile-accordion-menu ul { 
+        list-style: none !important; 
+        padding: 0 !important; 
+        margin: 0 !important; 
+    }
+    
+    .mobile-accordion-menu li a { 
+        display: block !important; 
+        padding: 12px 20px !important; 
+        font-size: 15px !important; 
+        text-decoration: none !important; 
+        border-bottom: 1px solid #f3f4f6 !important; 
+    }
 
-    /* Donate отображается только внутри открытого бургера */
+    /* Donate внутри меню */
     .mobile-accordion-menu .btn-donate, 
     .mobile-accordion-menu .donate-btn {
         display: block !important;
         margin: 12px 20px !important;
         text-align: center !important;
     }
-
+}
     /* 4. БАННЕР И КАРТОЧКИ (ПРОШЛЫЕ ПРАВКИ) */
     .features-grid { flex-direction: column; gap: 20px; }
     .help-grid { grid-template-columns: repeat(2, 1fr); }

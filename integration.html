@@ -162,8 +162,14 @@
 
       /* ========================================================
   /* ========================================================
+  /* ========================================================
    АДАПТИВНОСТЬ И МОБИЛЬНАЯ ВЕРСИЯ
    ======================================================== */
+
+/* 1. БАЗОВОЕ ПРАВИЛО: Прячем мобильное меню на ПК (ВНЕ медиазапросов) */
+.mobile-accordion-menu {
+    display: none;
+}
 
 @media (max-width: 1200px) {
     .help-container-fluid, .programs-container-fluid { padding: 0 24px; }
@@ -203,7 +209,7 @@
     }
 
     .logo-title, .logo span, .logo-text {
-        font-size: 14px !important; /* Уменьшен на 50% */
+        font-size: 14px !important; 
         font-weight: 800 !important;
         line-height: 1.1 !important;
     }
@@ -262,15 +268,8 @@
         display: inline-block !important;
         line-height: 1 !important;
     }
-    /* 3. ВЫПАДАЮЩЕЕ МЕНЮ С DONATE ВНУТРИ */
-  /* 1. Прячем мобильное меню на ПК (вне медиазапросов) */
-.mobile-accordion-menu {
-    display: none;
-}
-
-/* 2. Стиль для мобильных устройств (внутри @media (max-width: 768px)) */
-@media (max-width: 768px) {
     
+    /* 3. ВЫПАДАЮЩЕЕ МЕНЮ С DONATE ВНУТРИ */
     .mobile-accordion-menu {
         position: absolute !important;
         top: 100% !important;
@@ -309,7 +308,7 @@
         margin: 12px 20px !important;
         text-align: center !important;
     }
-}
+
     /* 4. БАННЕР И КАРТОЧКИ (ПРОШЛЫЕ ПРАВКИ) */
     .features-grid { flex-direction: column; gap: 20px; }
     .help-grid { grid-template-columns: repeat(2, 1fr); }
@@ -354,7 +353,7 @@
         top: 0 !important;
         left: 0 !important;
     }
-}
+} /* КОНЕЦ БЛОКА 768px */
 
 @media (max-width: 640px) {
     .programs-grid { grid-template-columns: 1fr; }
@@ -365,7 +364,7 @@
     .banner-box { flex-direction: column; text-align: center; padding: 20px; gap: 20px; }
     .banner-left { flex-direction: column; gap: 16px; }
 }
-    </style>
+</style>
 </head>
 <body>
 

@@ -160,10 +160,10 @@
         .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; margin-top: 10px; }
         .btn-submit:hover { background-color: #14439c; }
 
-      /* ========================================================
-  /* ========================================================
-  /* ========================================================
- /* ========================================================
+ 
+        /* ========================================================
+        <style>
+/* ========================================================
    АДАПТИВНОСТЬ И МОБИЛЬНАЯ ВЕРСИЯ
    ======================================================== */
 
@@ -359,6 +359,8 @@
     .banner-box { flex-direction: column; text-align: center; padding: 20px; gap: 20px; }
     .banner-left { flex-direction: column; gap: 16px; }
 }
+</style>
+
 </head>
 <body>
 
@@ -789,7 +791,7 @@ langButtons.forEach(btn => {
 
     }); // <-- Всe слушатели событий находятся внутри DOMContentLoaded!
     </script>
-  <script>
+<script>
 function toggleMenu() {
     var menu = document.getElementById('mobileDropdown');
     if (menu) {

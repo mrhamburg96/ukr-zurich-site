@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="integration_title">Інтеграційний центр UAGZ</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -231,9 +232,9 @@
         display: none !important;
     }
 
-    /* Проявляем иконку бургера */
+    /* Проявляем и позиционируем кнопку бургера */
     .burger-btn, .burger, .mobile-menu-toggle, [class*="burger"] {
-        display: flex !important;
+        display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
         visibility: visible !important;
@@ -242,10 +243,16 @@
         border: none !important;
         cursor: pointer !important;
         padding: 4px !important;
-        font-size: 22px !important;
-        color: #1a56c4 !important;
+        margin: 0 !important;
     }
 
+    /* Явно задаем размер и цвет для Flaticon-иконки */
+    .burger-btn i, .fi-br-menu-burger {
+        font-size: 20px !important;
+        color: #1a56c4 !important;
+        display: inline-block !important;
+        line-height: 1 !important;
+    }
     /* 3. ВЫПАДАЮЩЕЕ МЕНЮ С DONATE ВНУТРИ */
     .mobile-accordion-menu, .nav-menu.mobile {
         display: none;

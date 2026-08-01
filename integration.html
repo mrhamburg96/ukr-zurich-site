@@ -151,45 +151,8 @@
         .btn-submit:hover { background-color: #14439c; }
 
       /* ========================================================
-   1. ПРИНУДИТЕЛЬНЫЕ СТИЛИ ДЛЯ МОБИЛЬНОЙ ШАПКИ
-   ======================================================== */
-
-/* Скрываем обычную десктопную навигацию */
-header ul, nav ul, .nav-menu, .nav-links, .desktop-menu {
-    display: none !important;
-}
-
-/* Показываем бургер-меню, только когда добавлен класс active */
-.mobile-accordion-menu.active {
-    display: block !important;
-}
-
-/* Фиксируем подпись СТРОГО под UAGZ */
-.logo-block {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    max-width: 220px !important;
-}
-
-.logo-title {
-    font-size: 15px !important; /* Уменьшен на 50% */
-    font-weight: 800 !important;
-    line-height: 1 !important;
-}
-
-.logo-subtext {
-    display: block !important;
-    font-size: 9px !important;
-    line-height: 1.15 !important;
-    color: #1a56c4 !important;
-    margin-top: 3px !important;
-    white-space: normal !important;
-}
-
-
-/* ========================================================
-   2. АДАПТИВНОСТЬ ПО ТОЧКАМ (MEDIA QUERIES)
+  /* ========================================================
+   АДАПТИВНОСТЬ И МОБИЛЬНАЯ ВЕРСИЯ
    ======================================================== */
 
 @media (max-width: 1200px) {
@@ -204,12 +167,118 @@ header ul, nav ul, .nav-menu, .nav-links, .desktop-menu {
     .feature-item { max-width: 100%; }
 }
 
-/* 📱 МОБИЛЬНАЯ ВЕРСИЯ (<= 768px) */
+/* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ (<= 768px) */
 @media (max-width: 768px) {
+
+    /* 1. ШАПКА И ЛОГОТИП */
+    .main-header, header {
+        padding: 8px 12px !important;
+        position: relative !important;
+    }
+
+    .header-container, .nav-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* Логотип (-50%) и подпись СТРОГО под ним */
+    .logo, .logo-block, header a.logo-link {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-decoration: none !important;
+        max-width: 55% !important;
+    }
+
+    .logo-title, .logo span, .logo-text {
+        font-size: 14px !important; /* Уменьшен на 50% */
+        font-weight: 800 !important;
+        line-height: 1.1 !important;
+    }
+
+    .logo-subtext, .logo-description, header .subtitle {
+        display: block !important;
+        font-size: 8px !important;
+        line-height: 1.15 !important;
+        color: #1a56c4 !important;
+        margin-top: 2px !important;
+        white-space: normal !important;
+    }
+
+    /* 2. СПРАВА: ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ И БУРГЕР */
+    .header-actions, .right-header-block {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* Переключатель UA/DE всегда виден */
+    .lang-sw, .lang-switcher, .language-select {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Кнопка Donate прячется из шапки */
+    header .btn-donate, header .donate-btn, .header-actions .donate-button {
+        display: none !important;
+    }
+
+    /* Десктопное меню скрываем */
+    .nav-links, .desktop-menu, header nav > ul {
+        display: none !important;
+    }
+
+    /* Проявляем иконку бургера */
+    .burger-btn, .burger, .mobile-menu-toggle, [class*="burger"] {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 4px !important;
+        font-size: 22px !important;
+        color: #1a56c4 !important;
+    }
+
+    /* 3. ВЫПАДАЮЩЕЕ МЕНЮ С DONATE ВНУТРИ */
+    .mobile-accordion-menu, .nav-menu.mobile {
+        display: none;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        z-index: 9999 !important;
+        padding: 15px 0 !important;
+    }
+
+    .mobile-accordion-menu.active {
+        display: block !important;
+    }
+
+    .mobile-accordion-menu ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+    .mobile-accordion-menu li a { display: block !important; padding: 12px 20px !important; font-size: 15px !important; text-decoration: none !important; border-bottom: 1px solid #f3f4f6 !important; }
+
+    /* Donate отображается только внутри открытого бургера */
+    .mobile-accordion-menu .btn-donate, 
+    .mobile-accordion-menu .donate-btn {
+        display: block !important;
+        margin: 12px 20px !important;
+        text-align: center !important;
+    }
+
+    /* 4. БАННЕР И КАРТОЧКИ (ПРОШЛЫЕ ПРАВКИ) */
     .features-grid { flex-direction: column; gap: 20px; }
     .help-grid { grid-template-columns: repeat(2, 1fr); }
 
-    /* 1. Сбросы для колонок и центрирование карточек */
     .left-steps-column { left: 0 !important; }
     .centers-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
 
@@ -232,7 +301,6 @@ header ul, nav ul, .nav-menu, .nav-links, .desktop-menu {
         width: 100% !important;
     }
 
-    /* 2. Баннер и картинка (не режется) */
     .hero-image-outer, .banner-box {
         flex-direction: column-reverse !important;
         display: flex !important;
@@ -251,31 +319,6 @@ header ul, nav ul, .nav-menu, .nav-links, .desktop-menu {
         top: 0 !important;
         left: 0 !important;
     }
-
-    /* 3. Шапка, Кнопка языков и Бургер */
-    .main-header { position: relative !important; padding: 10px 15px !important; }
-    .header-container { display: flex !important; align-items: center !important; justify-content: space-between !important; }
-
-    .header-actions { display: flex !important; align-items: center !important; gap: 8px !important; }
-    .lang-sw { display: inline-flex !important; background: #f1f5f9 !important; padding: 2px !important; border-radius: 6px !important; }
-    .burger-btn { background: transparent !important; border: none !important; cursor: pointer !important; padding: 4px !important; }
-    .burger-btn i { font-size: 20px !important; }
-
-    /* Выпадающий бургер-аккордеон на весь экран */
-    .mobile-accordion-menu {
-        display: none;
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        background: #ffffff !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
-        z-index: 9999 !important;
-    }
-    
-    .mobile-accordion-menu ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-    .mobile-accordion-menu li a { display: block !important; padding: 12px 20px !important; font-size: 15px !important; text-decoration: none !important; border-bottom: 1px solid #f3f4f6 !important; }
 }
 
 @media (max-width: 640px) {

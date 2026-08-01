@@ -157,40 +157,99 @@
             .help-grid { grid-template-columns: repeat(3, 1fr); }
             .programs-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
         @media (max-width: 1024px) {
             .features-bar .container { padding: 0 24px; }
             .feature-item { max-width: 100%; }
         }
+
+        /* 📱 МОБИЛЬНАЯ ВЕРСИЯ (<= 768px) */
         @media (max-width: 768px) {
             .features-grid { flex-direction: column; gap: 20px; }
             .help-grid { grid-template-columns: repeat(2, 1fr); }
 
-            /* 💥 ВЫПРАВЛЕНИЯ ДЛЯ БАННЕРА И КАРТИНКИ 💥 */
-            .hero-image-outer,
-            .banner-box {
-                flex-direction: column-reverse !important; /* Текст знизу, картинка зверху */
+            /* 1. Сбросы для колонок и центрирование карточек */
+            .left-steps-column { left: 0 !important; }
+            .centers-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+            .services-grid .service-card, .help-card, .card {
+                flex-direction: column !important;
+                align-items: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 90% !important;
+            }
+
+            .services-grid .service-card .card-content, .help-card .card-content, .card-content {
+                padding-top: 16px !important;
+                text-align: center !important;
+            }
+
+            .services-grid h2, .services-grid h3, .service-card h3, .help-card h3, .card h3, h2, h3 {
+                text-align: center !important;
+                justify-content: center !important;
+                width: 100% !important;
+            }
+
+            /* 2. Баннер и картинка (не режется) */
+            .hero-image-outer, .banner-box {
+                flex-direction: column-reverse !important;
                 display: flex !important;
                 height: auto !important;
                 padding: 16px !important;
                 position: relative !important;
             }
 
-            .hero-image-outer img,
-            .banner-box img,
-            .hero-image img {
+            .hero-image-outer img, .banner-box img, .hero-image img {
                 width: 100% !important;
                 height: auto !important;
                 max-height: 280px !important;
-                object-fit: cover !important; /* Зберігає пропорції та не обрізає обличчя */
+                object-fit: cover !important;
                 border-radius: 16px !important;
                 position: relative !important;
                 top: 0 !important;
                 left: 0 !important;
             }
+
+            /* 3. Шапка, Логотип (-50%), Подпись и Языки */
+            .main-header { position: relative !important; padding: 10px 15px !important; }
+            .header-container { display: flex !important; align-items: center !important; justify-content: space-between !important; }
+            
+            /* Скрываем десктопное меню */
+            .nav-links, .desktop-menu { display: none !important; }
+
+            /* Логотип + подпись строго ПОД ним */
+            .logo-block { display: flex !important; flex-direction: column !important; max-width: 55% !important; }
+            .logo-title { font-size: 15px !important; font-weight: 800 !important; line-height: 1 !important; } /* Уменьшен на 50% */
+            .logo-subtext { display: block !important; font-size: 9px !important; line-height: 1.15 !important; color: #1a56c4 !important; margin-top: 3px !important; }
+
+            /* Блок переключателя и бургера */
+            .header-actions { display: flex !important; align-items: center !important; gap: 8px !important; }
+            .lang-sw { display: inline-flex !important; background: #f1f5f9 !important; padding: 2px !important; border-radius: 6px !important; }
+            .burger-btn { background: transparent !important; border: none !important; cursor: pointer !important; padding: 4px !important; }
+            .burger-btn i { font-size: 20px !important; }
+
+            /* Выпадающий бургер-аккордеон */
+            .mobile-accordion-menu {
+                display: none;
+                position: absolute !important;
+                top: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                background: #ffffff !important;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+                z-index: 9999 !important;
+            }
+            .mobile-accordion-menu.active { display: block !important; }
+            .mobile-accordion-menu ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+            .mobile-accordion-menu li a { display: block !important; padding: 12px 20px !important; font-size: 15px !important; text-decoration: none !important; border-bottom: 1px solid #f3f4f6 !important; }
         }
+
         @media (max-width: 640px) {
             .programs-grid { grid-template-columns: 1fr; }
         }
+
         @media (max-width: 480px) {
             .help-grid { grid-template-columns: 1fr; }
             .banner-box { flex-direction: column; text-align: center; padding: 20px; gap: 20px; }

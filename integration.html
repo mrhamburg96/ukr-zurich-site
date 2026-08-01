@@ -261,6 +261,11 @@
         margin: 0 !important;
     }
 
+    /* Разрешаем клику "пролетать" сквозь иконку прямо на кнопку */
+    .burger-btn * {
+        pointer-events: none !important;
+    }
+
     /* Явно задаем размер и цвет для Flaticon-иконки */
     .burger-btn i, .fi-br-menu-burger {
         font-size: 20px !important;
@@ -268,7 +273,6 @@
         display: inline-block !important;
         line-height: 1 !important;
     }
-    
   /* 3. ВЫПАДАЮЩЕЕ МЕНЮ С DONATE ВНУТРИ */
     .mobile-accordion-menu {
         position: fixed !important;
@@ -795,16 +799,19 @@ langButtons.forEach(btn => {
 
     }); // <-- Всe слушатели событий находятся внутри DOMContentLoaded!
     </script>
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const burgerBtn = document.getElementById('burgerToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
+    // Делегирование клика: сработает ДАЖЕ если кликнуть точно по иконке внутри кнопки
+    document.addEventListener('click', function (e) {
+        const burgerBtn = e.target.closest('#burgerToggle') || e.target.closest('.burger-btn');
+        const mobileMenu = document.getElementById('mobileMenu') || document.querySelector('.mobile-accordion-menu');
 
-    if (burgerBtn && mobileMenu) {
-        burgerBtn.addEventListener('click', function () {
+        if (burgerBtn && mobileMenu) {
+            e.preventDefault();
             mobileMenu.classList.toggle('active');
-        });
-    }
+            console.log('Меню переключено! Текущие классы:', mobileMenu.className);
+        }
+    });
 });
 </script>
 </body>

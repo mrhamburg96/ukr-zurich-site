@@ -11,9 +11,9 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        /* На ПК скрываем мобильное меню и бургер НАМЕРТВО */
-.mobile-accordion-menu,
-.burger-btn {
+      /* На ПК скрываем новое мобильное меню и новую кнопку */
+.mobile-dropdown-menu,
+.mobile-burger-btn {
     display: none !important;
 }
         body { font-family: 'Manrope', sans-serif; color: #111827; background-color: #ffffff; line-height: 1.5; }
@@ -159,7 +159,63 @@
         .form-group input:focus { border-color: #1a56c4; }
         .btn-submit { width: 100%; background-color: #1a56c4; color: #ffffff; font-size: 15px; font-weight: 700; padding: 14px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; margin-top: 10px; }
         .btn-submit:hover { background-color: #14439c; }
+         /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ (<= 768px) */
+@media (max-width: 768px) {
 
+    /* Показываем кнопку бургера на мобильных */
+    .mobile-burger-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 6px !important;
+        cursor: pointer !important;
+    }
+
+    .mobile-burger-btn i {
+        font-size: 22px !important;
+        color: #1a56c4 !important;
+        pointer-events: none !important;
+    }
+
+    /* Выпадающее меню */
+    .mobile-dropdown-menu {
+        display: none;
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        z-index: 999999 !important;
+        padding: 8px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    /* Открытое меню */
+    .mobile-dropdown-menu.active {
+        display: block !important;
+    }
+
+    .mobile-dropdown-menu li a {
+        display: block !important;
+        padding: 12px 24px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        color: #333333 !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+
+    .mobile-dropdown-menu li a.menu-donate-link {
+        font-weight: 700 !important;
+        color: #1a56c4 !important;
+        background-color: #f0f5ff !important;
+    }
+}
  
         /* ========================================================
         <style>
@@ -389,10 +445,22 @@
                 <a href="donate.html" class="btn-donate"><span>Donate</span></a>
                 <div class="lang-switcher"><button class="lang-btn active">UA</button><button class="lang-btn">DE</button></div>
             </div>
-<!-- Кнопка гамбургер-меню для мобилок -->
-<button class="burger-btn" id="burgerToggle" aria-label="Menu">
-    <i class="fi fi-br-menu-burger"></i>
+<!-- Мобильная кнопка-бургер -->
+<button class="mobile-burger-btn" onclick="toggleMenu()" aria-label="Меню">
+  <i class="fi fi-br-menu-burger"></i>
 </button>
+
+<!-- Выпадающее мобильное меню -->
+<ul class="mobile-dropdown-menu" id="mobileDropdown">
+  <li><a href="./" data-translate="nav-home">Головна</a></li>
+  <li><a href="about.html" data-translate="nl-2">Про центр</a></li>
+  <li><a href="help.html" data-translate="nl-3">Допомога</a></li>
+  <li><a href="events.html" data-translate="nl-4">Події</a></li>
+  <li><a href="knowledge.html" data-translate="nav-knowledge">Центр знань</a></li>
+  <li><a href="announcements.html" data-translate="nav-announcements">Оголошення</a></li>
+  <li><a href="volunteering.html" data-translate="nav-volunteering">Волонтерство</a></li>
+  <li><a href="#" class="menu-donate-link" data-translate="nav-donate">Donate</a></li>
+</ul>
         </div>
     </header>
 

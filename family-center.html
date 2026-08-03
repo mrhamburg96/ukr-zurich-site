@@ -1902,9 +1902,15 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 /* ==========================================
  /* ==========================================
  /* ==========================================
+/* ==========================================
    МОБИЛЬНЫЙ МЕДИАЗАПРОС (СТРОГО ДО 768px)
    ========================================== */
 @media (max-width: 768px) {
+
+    /* Фиксируем контекст позиционирования для шапки */
+    header, .header, .header-grid {
+        position: relative !important;
+    }
 
     .burger-toggle {
         display: inline-flex !important;
@@ -1920,12 +1926,14 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         gap: 12px;
     }
 
-    /* Выпадающее меню: ширина по тексту и 60% прозрачности */
+    /* Выпадающее меню: выравнивание под шапкой и прозрачность */
     .main-nav {
         display: none !important;
-        position: absolute;
-        top: 100%;
-        right: 0;
+        position: absolute !important;
+        
+        /* Привязка строго под шапкой (регулируйте под высоту вашей шапки) */
+        top: 60px !important; 
+        right: 16px !important;
         left: auto !important;
         
         width: max-content !important;
@@ -1942,7 +1950,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         border-radius: 8px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.4);
-        z-index: 1000;
+        z-index: 9999 !important;
     }
 
     .main-nav.is-open {
@@ -1980,7 +1988,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         border-bottom: none !important;
         padding: 8px 0 !important;
     }
-
+}
     /* --- СЕТКА КАРТОЧЕК ПО 2 В РЯД (ТОЛЬКО ДЛЯ МОБИЛЬНЫХ) --- */
     section.programs-section div.container div.programs-grid, 
     section.team-section div.container div.team-grid { 

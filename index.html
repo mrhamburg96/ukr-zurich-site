@@ -870,6 +870,34 @@ footer{background:#0D1B35;color:rgba(255,255,255,.6);padding:2.5rem 1.5rem 1.25r
 }
 /* ===================================================================== */
 </style>
+  <style>
+@media (max-width: 768px) {
+    /* Жестко перебиваем фон контейнера */
+    .mobile-dropdown-menu {
+        background-color: rgba(255, 255, 255, 0.45) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* Жестко сбрасываем белые фоны у всех внутри */
+    nav .mobile-dropdown-menu,
+    nav .mobile-dropdown-menu *,
+    .mobile-dropdown-menu li,
+    .mobile-dropdown-menu a {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* Восстанавливаем жёлтый фон только для Donate */
+    .mobile-dropdown-menu li a[data-translate="nav-donate"],
+    .mobile-dropdown-menu li a[href*="donate"] {
+        background-color: rgba(245, 197, 24, 0.9) !important;
+    }
+}
+</style>
 </head>
 <body>
 

@@ -1900,6 +1900,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 }
 
 /* ==========================================
+ /* ==========================================
    2. ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (до 768px)
    ========================================== */
 @media (max-width: 768px) {
@@ -1923,18 +1924,31 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         gap: 12px;
     }
 
+    /* ИСПРАВЛЕННЫЙ БЛОК: Ширина по тексту и 60% прозрачности (0.4 непрозрачность) */
     .main-nav {
         display: none !important;
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
+        right: 0; /* Привязываем выпадающую плашку к правому краю */
+        left: auto !important; /* Отменяем растяжение на весь экран */
+        
+        width: max-content !important; /* Ширина строго по содержимому */
+        min-width: 200px;
+        max-width: calc(100vw - 32px); /* Защита от вылезания за пределы экрана */
+        
+        /* 40% непрозрачности белого фона = 60% прозрачности */
+        background-color: rgba(255, 255, 255, 0.40) !important;
+        
+        /* Размытие заднего фона для читаемости текста */
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+
         flex-direction: column !important;
         gap: 0 !important;
-        padding: 12px 0 !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        border-top: 1px solid #e5e7eb;
+        padding: 8px 0 !important;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.4);
         z-index: 1000;
     }
 
@@ -1948,26 +1962,32 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
     .main-nav a {
         display: block;
-        padding: 12px 20px;
+        padding: 10px 18px;
         font-size: 15px;
+        font-weight: 600;
         color: #001f54;
-        border-bottom: 1px solid #f3f4f6;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        white-space: nowrap; /* Запрет переноса текста на новую строку */
+        text-decoration: none;
     }
 
     .mobile-donate-item {
         display: block !important;
-        padding: 10px 20px 5px 20px;
+        padding: 10px 18px 4px 18px;
     }
 
     .btn-donate-nav {
+        display: block;
+        width: 100%;
         background-color: #ffb700;
         color: #111827 !important;
         font-weight: 700;
         text-align: center;
         border-radius: 6px;
         border-bottom: none !important;
+        padding: 8px 0 !important;
     }
-
+}
     /* --- ВАШИ СТИЛИ КАРТОЧЕК (ПО 2 В РЯД) --- */
     section.programs-section div.container div.programs-grid, 
     section.team-section div.container div.team-grid { 

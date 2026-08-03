@@ -238,21 +238,24 @@ nav {
         line-height: 1;
     }
 
-    /* 1. Сам контейнер выпадающего меню */
+   /* 1. Сам контейнер выпадающего меню */
     .mobile-dropdown-menu {
         position: absolute !important;
         top: 100% !important;
         left: 10px !important;
         width: 240px !important;
         max-width: 80vw !important;
-        /* Светлый прозрачный фон */
-        background-color: rgba(255, 255, 255, 0.35) !important;
-        /* Мягкое размытие сочной картинки */
-        backdrop-filter: blur(12px) saturate(160%) !important;
-        -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        
+        /* Делаем белый фон более плотным (75% белого вместо 35%) */
+        background-color: rgba(255, 255, 255, 0.75) !important;
+        
+        /* Размытие + принудительное осветление тёмных участков под меню */
+        backdrop-filter: blur(16px) brightness(1.15) !important;
+        -webkit-backdrop-filter: blur(16px) brightness(1.15) !important;
+        
+        border: 1px solid rgba(255, 255, 255, 0.8) !important;
         border-radius: 12px !important;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
         padding: 6px 0 !important;
         list-style: none !important;
         margin: 4px 0 0 0 !important;

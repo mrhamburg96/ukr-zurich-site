@@ -218,13 +218,13 @@
 }
  
         /* ========================================================
-        <style>
+      <style>
 /* ========================================================
    АДАПТИВНОСТЬ И МОБИЛЬНАЯ ВЕРСИЯ
    ======================================================== */
 
 /* 1. БАЗОВОЕ ПРАВИЛО: Прячем мобильное меню на ПК */
-.mobile-dropdown-menu {
+.mobile-dropdown-menu, .main-nav {
     display: none;
 }
 
@@ -326,38 +326,68 @@
         line-height: 1 !important;
     }
 
-    /* 3. ВЫПАДАЮЩЕЕ МЕНЮ */
-    .mobile-dropdown-menu {
-        display: none;
-        position: fixed !important;
-        top: 60px !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        background: #ffffff !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+    /* 3. ВЫПАДАЮЩЕЕ МЕНЮ (ПОЛУПРОЗРАЧНОЕ, ПО ШИРИНЕ ТЕКСТА) */
+    .mobile-dropdown-menu, .main-nav {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        right: 12px !important;
+        left: auto !important;
+        
+        /* Ширина ровно под текст меню */
+        width: max-content !important;
+        min-width: 180px !important;
+        max-width: calc(100vw - 24px) !important;
+        
+        /* Полупрозрачность 60% + эффект размытия (blur) */
+        background-color: rgba(255, 255, 255, 0.40) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        border-radius: 12px !important;
         z-index: 999999 !important;
-        padding: 10px 0 !important;
+        padding: 8px !important;
         list-style: none !important;
         margin: 0 !important;
     }
 
-    .mobile-dropdown-menu.active {
-        display: block !important;
+    .mobile-dropdown-menu.active, .mobile-dropdown-menu.is-open,
+    .main-nav.active, .main-nav.is-open {
+        display: flex !important;
+        flex-direction: column !important;
     }
 
-    .mobile-dropdown-menu li a {
+    .mobile-dropdown-menu li, .main-nav li {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .mobile-dropdown-menu li a, .main-nav a {
         display: block !important;
-        padding: 12px 20px !important;
+        padding: 10px 14px !important;
         font-size: 15px !important;
-        color: #333333 !important;
+        font-weight: 600 !important;
+        color: #001f54 !important;
         text-decoration: none !important;
-        border-bottom: 1px solid #f3f4f6 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        white-space: nowrap !important;
+        border-radius: 6px !important;
     }
 
-    .mobile-dropdown-menu li a[data-translate="nav-donate"] {
-        font-weight: bold;
-        color: #1a56c4 !important;
+    /* ЖЁЛТАЯ КНОПКА DONATE */
+    .mobile-dropdown-menu li a[data-translate="nav-donate"],
+    .mobile-dropdown-menu li a[href*="donate"],
+    .mobile-donate-item a,
+    .btn-donate-nav {
+        background-color: #ffb700 !important; /* Яркий жёлтый цвет */
+        color: #111827 !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        border-bottom: none !important;
+        margin-top: 4px !important;
+        padding: 10px 16px !important;
     }
 
     /* 4. БАННЕР И КАРТОЧКИ */

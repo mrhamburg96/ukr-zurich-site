@@ -1901,14 +1901,10 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
 /* ==========================================
  /* ==========================================
-   2. ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (до 768px)
+ /* ==========================================
+   МОБИЛЬНЫЙ МЕДИАЗАПРОС (СТРОГО ДО 768px)
    ========================================== */
 @media (max-width: 768px) {
-
-    /* --- АДАПТИВ ШАПКИ И БУРГЕР-МЕНЮ --- */
-    .header-grid {
-        position: relative;
-    }
 
     .burger-toggle {
         display: inline-flex !important;
@@ -1924,22 +1920,19 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         gap: 12px;
     }
 
-    /* ИСПРАВЛЕННЫЙ БЛОК: Ширина по тексту и 60% прозрачности (0.4 непрозрачность) */
+    /* Выпадающее меню: ширина по тексту и 60% прозрачности */
     .main-nav {
         display: none !important;
         position: absolute;
         top: 100%;
-        right: 0; /* Привязываем выпадающую плашку к правому краю */
-        left: auto !important; /* Отменяем растяжение на весь экран */
+        right: 0;
+        left: auto !important;
         
-        width: max-content !important; /* Ширина строго по содержимому */
+        width: max-content !important;
         min-width: 200px;
-        max-width: calc(100vw - 32px); /* Защита от вылезания за пределы экрана */
+        max-width: calc(100vw - 32px);
         
-        /* 40% непрозрачности белого фона = 60% прозрачности */
         background-color: rgba(255, 255, 255, 0.40) !important;
-        
-        /* Размытие заднего фона для читаемости текста */
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
 
@@ -1967,7 +1960,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         font-weight: 600;
         color: #001f54;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        white-space: nowrap; /* Запрет переноса текста на новую строку */
+        white-space: nowrap;
         text-decoration: none;
     }
 
@@ -1987,8 +1980,8 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         border-bottom: none !important;
         padding: 8px 0 !important;
     }
-}
-    /* --- ВАШИ СТИЛИ КАРТОЧЕК (ПО 2 В РЯД) --- */
+
+    /* --- СЕТКА КАРТОЧЕК ПО 2 В РЯД (ТОЛЬКО ДЛЯ МОБИЛЬНЫХ) --- */
     section.programs-section div.container div.programs-grid, 
     section.team-section div.container div.team-grid { 
         display: block !important;
@@ -1999,7 +1992,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         grid-auto-flow: unset !important;
     }
 
-    /* Clearfix, чтобы нижние секции не наезжали на float-карточки */
     section.programs-section div.container div.programs-grid::after, 
     section.team-section div.container div.team-grid::after {
         content: "";
@@ -2030,6 +2022,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         object-fit: cover !important;
         display: block !important;
     }
+
 }
 </style>
    <script>

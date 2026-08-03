@@ -1881,7 +1881,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     </script>
 <style>
 /* ==========================================
-   1. ОБЩИЕ СТИЛИ ШАПКИ ДЛЯ ПК И МОБИЛЬНЫХ
+   1. ОБЩИЕ СТИЛИ ШАПКИ
    ========================================== */
 .burger-toggle {
     display: none;
@@ -1900,10 +1900,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 }
 
 /* ==========================================
- /* ==========================================
- /* ==========================================
-/* ==========================================
-   МОБИЛЬНЫЙ МЕДИАЗАПРОС (СТРОГО ДО 768px)
+   2. ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (СТРОГО ДО 768px)
    ========================================== */
 @media (max-width: 768px) {
 
@@ -1931,7 +1928,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         display: none !important;
         position: absolute !important;
         
-        /* Привязка строго под шапкой (регулируйте под высоту вашей шапки) */
         top: 60px !important; 
         right: 16px !important;
         left: auto !important;
@@ -1988,7 +1984,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         border-bottom: none !important;
         padding: 8px 0 !important;
     }
-}
+
     /* --- СЕТКА КАРТОЧЕК ПО 2 В РЯД (ТОЛЬКО ДЛЯ МОБИЛЬНЫХ) --- */
     section.programs-section div.container div.programs-grid, 
     section.team-section div.container div.team-grid { 
@@ -2031,7 +2027,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         display: block !important;
     }
 
-}
+} /* Вот здесь теперь ОДНА единственная закрывающая скобка мобильного блока */
 </style>
    <script>
 function fixMobileGrids() {

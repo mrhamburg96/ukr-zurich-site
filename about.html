@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Про проєкт UAGZ — Український Інтеграційний та громадський центр Цюриха</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -439,49 +440,189 @@
             .step-item { flex-direction: column; }
             .step-image-box, .step-content { width: 100%; flex: 0 0 100%; }
         }
+        /* На ПК скрываем мобильную кнопку бургера и меню */
+.mobile-burger-btn,
+.mobile-dropdown-menu {
+    display: none !important;
+}
+
+/* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ (<= 768px) */
+@media (max-width: 768px) {
+
+    header, .header-content {
+        position: relative !important;
+    }
+
+    /* Скрываем громоздкое десктопное меню и лишнюю кнопку */
+    .nav-menu,
+    .desktop-only-btn {
+        display: none !important;
+    }
+
+    /* Настраиваем правый блок: UA/DE и Бургер встают в один ряд */
+    .header-right {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    /* Гарантируем видимость переключателя языков UA DE */
+    .lang-switcher {
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
+
+    /* Кнопка бургера */
+    .mobile-burger-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 4px !important;
+        cursor: pointer !important;
+        outline: none !important;
+    }
+
+    .mobile-burger-btn i {
+        font-size: 22px !important;
+        color: #1a56c4 !important;
+        line-height: 1 !important;
+    }
+
+    /* Выпадающее меню: ширина по тексту + 60% прозрачность */
+    .mobile-dropdown-menu {
+        display: none !important;
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        right: 12px !important;
+        left: auto !important;
+
+        /* Ширина подстраивается строго под длину текста */
+        width: max-content !important;
+        min-width: 180px !important;
+        max-width: calc(100vw - 24px) !important;
+
+        /* 60% прозрачности белого фона (rgba 0.40 видимости) + блюр */
+        background-color: rgba(255, 255, 255, 0.40) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        padding: 8px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        z-index: 999999 !important;
+    }
+
+    /* Отображение выпадающего меню при клике */
+    .mobile-dropdown-menu.active {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .mobile-dropdown-menu li {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .mobile-dropdown-menu li a {
+        display: block !important;
+        padding: 10px 16px !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: #001f54 !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    }
+
+    /* Жёлтая кнопка Donate перед Контактами */
+    .mobile-dropdown-menu li.mobile-donate-item {
+        padding: 6px 10px !important;
+    }
+
+    .mobile-dropdown-menu li a.btn-donate-nav {
+        background-color: #ffb700 !important; /* Яркий жёлтый */
+        color: #111827 !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        border-radius: 8px !important;
+        border-bottom: none !important;
+        padding: 10px 14px !important;
+    }
+}
     </style>
 </head>
 <body>
 
     <!-- Шапка сайта -->
     <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo-area">
-                <div class="flags-stack">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag" class="logo-flag">
-                    <img src="https://flagcdn.com/w80/ch.png" alt="CH Flag" class="logo-flag">
-                </div>
-                <div class="logo-text-block">
-                    <span class="logo-title">UAGZ</span>
-                    <span class="logo-subtitle" data-i18n="logo_subtitle">Український інтеграційний та громадський центр Цюриха</span>
-                </div>
-            </a>
-            
-            <div class="nav-menu">
-                <ul class="nav-row">
-                    <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
-                    <li><a href="about.html" data-i18n="nav_about">Про нас</a></li>
-                    <li><a href="help.html" data-i18n="nav_help">Допомога</a></li>
-                    <li><a href="events.html" data-i18n="nav_events">Події</a></li>
-                    <li><a href="knowledge.html" data-i18n="nav_knowledge">Центр знань</a></li>
-                </ul>
-                <ul class="nav-row">
-                    <li><a href="#" class="highlight-blue" data-i18n="nav_announcements">Оголошення</a></li>
-                    <li><a href="volonter02.html" data-i18n="nav_volunteer">Волонтерство</a></li>
-                    <li><a href="#" class="highlight-red" data-i18n="nav_donate">❤️ Донат</a></li>
-                    <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
-                </ul>
+    <div class="container header-content">
+        <!-- 1. Логотип -->
+        <a href="index.html" class="logo-area">
+            <div class="flags-stack">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag" class="logo-flag">
+                <img src="https://flagcdn.com/w80/ch.png" alt="CH Flag" class="logo-flag">
+            </div>
+            <div class="logo-text-block">
+                <span class="logo-title">UAGZ</span>
+                <span class="logo-subtitle" data-i18n="logo_subtitle">Український інтеграційний та громадський центр Цюриха</span>
+            </div>
+        </a>
+        
+        <!-- 2. Десктопное меню (скрывается на мобильных) -->
+        <div class="nav-menu">
+            <ul class="nav-row">
+                <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Про нас</a></li>
+                <li><a href="help.html" data-i18n="nav_help">Допомога</a></li>
+                <li><a href="events.html" data-i18n="nav_events">Події</a></li>
+                <li><a href="knowledge.html" data-i18n="nav_knowledge">Центр знань</a></li>
+            </ul>
+            <ul class="nav-row">
+                <li><a href="#" class="highlight-blue" data-i18n="nav_announcements">Оголошення</a></li>
+                <li><a href="volonter02.html" data-i18n="nav_volunteer">Волонтерство</a></li>
+                <li><a href="#" class="highlight-red" data-i18n="nav_donate">❤️ Донат</a></li>
+                <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Блок справа: Переключатель языков + Кнопка помощи + Бургер -->
+        <div class="header-right">
+            <!-- Переключатель языков UA DE (Остаётся виден всегда!) -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('ua')">UA</button>
+                <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
             </div>
 
-            <div class="header-right">
-                <div class="lang-switcher">
-                    <button class="lang-btn active" onclick="switchLanguage('ua')">UA</button>
-                    <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
-                </div>
-                <a href="#" class="btn-help" data-i18n="btn_get_help">Отримати допомогу</a>
-            </div>
+            <a href="#" class="btn-help desktop-only-btn" data-i18n="btn_get_help">Отримати допомогу</a>
+
+            <!-- 🍔 Кнопка бургера (иконка fi-br-menu-burger) -->
+            <button class="mobile-burger-btn" aria-label="Открыть меню" id="burgerBtn">
+                <i class="fi fi-br-menu-burger"></i>
+            </button>
+
+            <!-- 📋 Выпадающее меню (прозрачность 60%, ширина по тексту) -->
+            <ul class="mobile-dropdown-menu" id="mobileDropdown">
+                <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Про центр</a></li>
+                <li><a href="help.html" data-i18n="nav_help">Допомога</a></li>
+                <li><a href="events.html" data-i18n="nav_events">Події</a></li>
+                <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge Center</a></li>
+                <li><a href="#" data-i18n="nav_announcements">Оголошення</a></li>
+                <li><a href="volonter02.html" data-i18n="nav_volunteer">Волонтерство</a></li>
+                <li class="mobile-donate-item">
+                    <a href="#" class="btn-donate-nav" data-i18n="nav_donate">Donate</a>
+                </li>
+                <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Главный экран -->
     <section class="hero container">
@@ -781,5 +922,25 @@
             acc.classList.toggle('active');
         }
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileDropdown = document.getElementById('mobileDropdown');
+
+    if (burgerBtn && mobileDropdown) {
+        burgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileDropdown.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике за его пределами
+        document.addEventListener('click', function(e) {
+            if (!mobileDropdown.contains(e.target) && !burgerBtn.contains(e.target)) {
+                mobileDropdown.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>

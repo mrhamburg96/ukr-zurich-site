@@ -2715,44 +2715,65 @@ window.changeLanguage = function(lang) {
         border-radius: 2px !important;
     }
 
-    /* 🟢 ДОБАВЛЕНИЕ: ВЫПАДАЮЩИЙ БЛОК ДЛЯ МОБИЛЬНОГО МЕНЮ */
-    .mobile-dropdown-menu {
-        display: none; /* Скрыто по умолчанию */
-        position: absolute !important;
-        top: 100% !important;
-        right: 12px !important;
-        width: 210px !important;
-        background: #ffffff !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
-        border-radius: 8px !important;
-        padding: 8px 0 !important;
-        z-index: 1000 !important;
-        list-style: none !important;
-    }
+   /* 🟢 ОБНОВЛЕННОЕ МОБИЛЬНОЕ ВЫПАДАЮЩЕЕ МЕНЮ */
+.mobile-dropdown-menu {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important; /* На всю ширину экрана */
+    
+    /* 🧪 ПОЛУПРОЗРАЧНОСТЬИ РАЗМЫТИЕ (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.82) !important; /* 82% белого, 18% прозрачности */
+    backdrop-filter: blur(12px) !important;           /* Размытие фона под меню */
+    -webkit-backdrop-filter: blur(12px) !important;   /* Поддержка для iPhone / Safari */
+    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0 0 12px 12px !important;           /* Легкое скругление только снизу */
+    padding: 8px 0 !important;
+    z-index: 10000 !important;
+    list-style: none !important;
+    margin: 0 !important;
+}
 
-    /* Класс, который JS будет добавлять при клике для показа меню */
-    .mobile-dropdown-menu.is-active {
-        display: block !important;
-    }
+/* Классы показа для JS (поддерживаем и active, и is-active) */
+.mobile-dropdown-menu.active,
+.mobile-dropdown-menu.is-active {
+    display: block !important;
+}
 
-    .mobile-dropdown-menu li {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+.mobile-dropdown-menu li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
-    .mobile-dropdown-menu a {
-        display: block !important;
-        padding: 10px 16px !important;
-        color: #111827 !important;
-        font-size: 13px !important;
-        font-weight: 600 !important;
-        text-decoration: none !important;
-        border-bottom: 1px solid #f3f4f6 !important;
-    }
+.mobile-dropdown-menu a {
+    display: block !important;
+    padding: 12px 20px !important;
+    color: #111827 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(243, 244, 246, 0.6) !important;
+}
 
-    .mobile-dropdown-menu li:last-child a {
-        border-bottom: none !important;
-    }
+.mobile-dropdown-menu li:last-child a {
+    border-bottom: none !important;
+}
+
+/* 💙 ВЫДЕЛЕНИЕ КНОПКИ DONATE ГОЛУБЫМ ЦВЕТОМ */
+.mobile-dropdown-menu li a.menu-donate-link,
+.mobile-dropdown-menu li a[data-i18n="nav_donate"],
+.mobile-dropdown-menu li a[href*="donate"] {
+    color: #1a56c4 !important;             /* Синий/голубой текст */
+    background-color: #ebf3ff !important;   /* Голубая плашка */
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    margin: 8px 16px !important;            /* Отступы от краев меню */
+    padding: 10px 16px !important;
+    text-align: center !important;
+    border-bottom: none !important;
 }
 </style>
 <!-- ========================================== -->

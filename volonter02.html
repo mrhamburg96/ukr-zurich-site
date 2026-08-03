@@ -500,9 +500,10 @@
     border-bottom: none !important;
   }
  /* На ПК скрываем мобильную кнопку и меню */
+/* На ПК прячем бургер и выпадашку */
 .mobile-burger-btn,
 .mobile-dropdown-menu {
-  display: none;
+  display: none !important;
 }
 
 /* 📱 СТИЛИ ДЛЯ МОБИЛЬНЫХ (<= 768px) */
@@ -510,15 +511,24 @@
   
   .site-header {
     position: relative !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
 
-  /* Скрываем десктопное меню и отдельную кнопку Donate вне выпадашки */
+  /* Скрываем десктопную навигацию и отдельную кнопку Donate */
   .header-nav,
   .header-actions > .btn-donate {
     display: none !important;
   }
 
-  /* Показываем кнопку бургера */
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  /* Показываем и позиционируем кнопку бургера */
   .mobile-burger-btn {
     display: inline-flex !important;
     align-items: center !important;
@@ -527,14 +537,16 @@
     border: none !important;
     padding: 4px !important;
     cursor: pointer !important;
+    outline: none !important;
   }
 
-  .mobile-burger-btn i {
-    font-size: 22px !important;
-    color: #1a56c4 !important;
+  .mobile-burger-btn svg {
+    display: block !important;
+    width: 26px !important;
+    height: 26px !important;
   }
 
-  /* Выпадающее меню: ширина по тексту + 60% прозрачность (rgba 0.40) + блюр */
+  /* Выпадающее меню (60% прозрачность + max-content) */
   .mobile-dropdown-menu {
     display: none !important;
     position: absolute !important;
@@ -543,7 +555,7 @@
     left: auto !important;
 
     width: max-content !important;
-    min-width: 180px !important;
+    min-width: 190px !important;
     max-width: calc(100vw - 24px) !important;
 
     background-color: rgba(255, 255, 255, 0.40) !important;
@@ -552,14 +564,14 @@
 
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 12px !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
     padding: 8px 0 !important;
-    margin: 6px 0 0 0 !important;
+    margin-top: 6px !important;
     list-style: none !important;
     z-index: 999999 !important;
   }
 
-  /* Показ при клике */
+  /* Состояние открытия */
   .mobile-dropdown-menu.active {
     display: flex !important;
     flex-direction: column !important;
@@ -581,7 +593,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   }
 
-  /* Выделенная жёлтая кнопка Donate */
+  /* Жёлтая кнопка Donate */
   .mobile-dropdown-menu li.mobile-donate-item {
     padding: 8px 10px 4px 10px !important;
   }
@@ -595,12 +607,13 @@
     border-bottom: none !important;
   }
 
+
   </style>
 </head>
 <body>
   <div class="site-wrapper">
 
-    <header class="site-header">
+   <header class="site-header">
   <a href="index.html" class="header-brand">
     <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
     <div>
@@ -609,7 +622,6 @@
     </div>
   </a>
 
-  <!-- Меню для ПК (на мобильных мы его скроем через CSS) -->
   <nav class="header-nav">
     <a href="index.html" class="nav-link" data-i18n="nav_home">Головна</a>
     <a href="about.html" class="nav-link" data-i18n="nav_about">Про центр</a>
@@ -629,13 +641,15 @@
       <a href="?lang=de" class="lang-item" id="lang-de" onclick="changeLanguage(event, 'de')">DE</a>
     </div>
 
-    <!-- КНОПКА БУРГЕРА (ДЛЯ МОБИЛЬНЫХ) -->
-    <button class="mobile-burger-btn" aria-label="Открыть меню">
-      <i class="fi fi-br-menu-burger"></i>
+    <button class="mobile-burger-btn" aria-label="Открыть меню" onclick="toggleMobileMenu(event)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56c4" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
     </button>
 
-    <!-- ВЫПАДАЮЩЕЕ МОБИЛЬНОЕ МЕНЮ -->
-    <ul class="mobile-dropdown-menu">
+    <ul class="mobile-dropdown-menu" id="mobileMenu">
       <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
       <li><a href="about.html" data-i18n="nav_about">Про центр</a></li>
       <li><a href="help.html" data-i18n="nav_help">Допомога</a></li>
@@ -1096,23 +1110,21 @@
     });
     </script>
   <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const burgerBtn = document.querySelector('.mobile-burger-btn');
-    const mobileMenu = document.querySelector('.mobile-dropdown-menu');
+function toggleMobileMenu(event) {
+  event.stopPropagation();
+  const menu = document.getElementById('mobileMenu');
+  if (menu) {
+    menu.classList.toggle('active');
+  }
+}
 
-    if (burgerBtn && mobileMenu) {
-        burgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('active');
-        });
-
-        /* Закрытие меню при клике вне его области */
-        document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-    }
+// Закрываем меню при клике в любую другую точку экрана
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.mobile-burger-btn');
+  if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('active');
+  }
 });
 </script>
   </body>

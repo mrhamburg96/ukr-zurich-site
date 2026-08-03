@@ -245,13 +245,14 @@ nav {
         left: 10px !important;
         width: 240px !important;
         max-width: 80vw !important;
-        /* Устанавливаем матовый полупрозрачный белый фон */
-        background-color: rgba(255, 255, 255, 0.45) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
+        /* Светлый прозрачный фон */
+        background-color: rgba(255, 255, 255, 0.35) !important;
+        /* Мягкое размытие сочной картинки */
+        backdrop-filter: blur(12px) saturate(160%) !important;
+        -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
         border: 1px solid rgba(255, 255, 255, 0.6) !important;
         border-radius: 12px !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
         padding: 6px 0 !important;
         list-style: none !important;
         margin: 4px 0 0 0 !important;
@@ -276,7 +277,7 @@ nav {
         font-size: 15px !important;
         font-weight: 600 !important;
         text-decoration: none !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     }
 
     .mobile-dropdown-menu li:last-child a {
@@ -286,7 +287,7 @@ nav {
     /* 4. Пункт Donate — единственный, у кого есть свой фон */
     .mobile-dropdown-menu li a[data-translate="nav-donate"],
     .mobile-dropdown-menu li a[href*="donate"] {
-        background-color: rgba(245, 197, 24, 0.85) !important;
+        background-color: #F5C518 !important;
         color: #111827 !important;
         font-weight: 700 !important;
     }

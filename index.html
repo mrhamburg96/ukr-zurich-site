@@ -240,66 +240,77 @@ nav {
     }
 
   /* Выпадающее меню с эффектом полупрозрачного матового стекла */
-@media (max-width: 768px) {
+/* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ (<= 768px) */
+@media screen and (max-width: 768px) {
 
-    /* 📱 ВЫПАДАЮЩЕЕ МЕНЮ ПО ШИРИНЕ ТЕКСТА И С ПОВЫШЕННОЙ ПРОЗРАЧНОСТЬЮ */
+    /* 1. ВЫПАДАЮЩЕЕ ОКНО: Максимальная прозрачность + ширина строго по тексту */
+    ul.mobile-dropdown-menu,
     .mobile-dropdown-menu {
         display: none;
         position: absolute !important;
         top: 100% !important;
-        right: 16px !important;            /* Выравниваем аккуратно по правому краю */
+        right: 15px !important;               /* Аккуратная привязка к правому краю */
         left: auto !important;
         
-        width: max-content !important;      /* Ширина строго по содержимому (тексту) */
-        min-width: 180px !important;        /* Минимальная ширина для аккуратности */
-        max-width: calc(100vw - 32px) !important; /* Чтобы не вылезало за края экрана */
+        width: max-content !important;         /* Ширина подстраивается строго под текст */
+        min-width: 170px !important;           /* Минимальная ширина для коротких слов */
+        max-width: calc(100vw - 30px) !important;
         
-        /* 🧪 УВЕЛИЧЕННАЯ ПРОЗРАЧНОСТЬ (55% белого) + РАЗМЫТИЕ */
-        background: rgba(255, 255, 255, 0.55) !important; 
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
+        /* 🧪 Повышенная прозрачность (40% белого / 60% прозрачности) + сильное размытие */
+        background-color: rgba(255, 255, 255, 0.40) !important;
+        background: rgba(255, 255, 255, 0.40) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
         
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
-        border-radius: 12px !important;    /* Аккуратные скругленные уголки со всех сторон */
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        border-radius: 12px !important;        /* Скругление со всех сторон */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
         padding: 8px 0 !important;
         margin: 0 !important;
         list-style: none !important;
         z-index: 999999 !important;
     }
 
-    /* Состояние открытого меню */
+    /* Показ меню при клике */
+    ul.mobile-dropdown-menu.active,
+    ul.mobile-dropdown-menu.is-active,
     .mobile-dropdown-menu.active,
     .mobile-dropdown-menu.is-active {
         display: block !important;
     }
 
     /* Пункты меню */
+    ul.mobile-dropdown-menu li a,
     .mobile-dropdown-menu li a {
         display: block !important;
-        padding: 10px 20px !important;
+        padding: 10px 18px !important;
         font-size: 15px !important;
         font-weight: 600 !important;
         color: #111827 !important;
         text-decoration: none !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
-        white-space: nowrap !important;     /* Чтобы пункт не разрывался на две строки */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        white-space: nowrap !important;        /* Запрет переноса строк */
     }
 
+    ul.mobile-dropdown-menu li:last-child a,
     .mobile-dropdown-menu li:last-child a {
         border-bottom: none !important;
     }
 
-    /* 🟡 ПОКРАСКА DONATE В ЖЁЛТЫЙ ЦВЕТ */
+    /* 2. КНОПКА DONATE В ЯРКО-ЖЁЛТЫЙ ЦВЕТ */
+    ul.mobile-dropdown-menu li a.menu-donate-link,
+    ul.mobile-dropdown-menu li a[data-i18n="nav_donate"],
+    ul.mobile-dropdown-menu li a[href*="donate"],
     .mobile-dropdown-menu li a.menu-donate-link,
     .mobile-dropdown-menu li a[data-i18n="nav_donate"],
     .mobile-dropdown-menu li a[href*="donate"] {
-        background-color: #FFDD00 !important; /* Насыщенный жёлтый цвет */
-        color: #111827 !important;            /* Тёмный текст для максимальной контрастности */
-        font-weight: 700 !important;
+        background-color: #FFDD00 !important;  /* Ярко-жёлтый фон */
+        background: #FFDD00 !important;
+        color: #111827 !important;             /* Тёмный контрастный текст */
+        font-weight: 800 !important;
         border-radius: 8px !important;
-        margin: 6px 12px !important;           /* Аккуратная внутренняя плашка */
-        padding: 8px 16px !important;
+        margin: 6px 10px !important;            /* Плашка внутри блока */
+        padding: 8px 14px !important;
         text-align: center !important;
         border-bottom: none !important;
     }

@@ -238,40 +238,44 @@ nav {
         line-height: 1;
     }
 
-    /* Выпадающее меню-карточка с БОЛЬШОЙ прозрачностью */
+    /* Выпадающее меню-карточка с эффектом стекла */
     .mobile-dropdown-menu {
         position: absolute;
         top: 100%;
         left: 10px;
         width: 240px;
         max-width: 80vw;
-        /* Прозрачность 30% для высокой просвечиваемости */
-        background: rgba(255, 255, 255, 0.3) !important; 
-        backdrop-filter: blur(12px); /* Эффект матового стекла */
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-        padding: 6px 0;
-        list-style: none;
-        margin: 4px 0 0 0;
-        z-index: 200;
-        overflow: hidden;
+        background: rgba(255, 255, 255, 0.4) !important; /* Прозрачность 40% */
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+        padding: 6px 0 !important;
+        list-style: none !important;
+        margin: 4px 0 0 0 !important;
+        z-index: 200 !important;
+        overflow: hidden !important;
+    }
+
+    /* Сбрасываем непрозрачный фон у списков и ссылок */
+    .mobile-dropdown-menu li {
+        background: transparent !important;
     }
 
     .mobile-dropdown-menu li a {
-        display: block;
-        padding: 10px 16px;
-        color: #111827;
-        font-size: 15px;
-        font-weight: 600;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        background: rgba(255, 255, 255, 0.2); /* Полупрозрачные пункты */
+        display: block !important;
+        padding: 10px 16px !important;
+        color: #111827 !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        background: transparent !important; /* Гарантируем прозрачность ссылок */
     }
 
     .mobile-dropdown-menu li:last-child a {
-        border-bottom: none;
+        border-bottom: none !important;
     }
 
     /* Выделение пункта Donate жёлтым цветом */

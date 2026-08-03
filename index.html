@@ -240,52 +240,70 @@ nav {
     }
 
   /* Выпадающее меню с эффектом полупрозрачного матового стекла */
-.mobile-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    width: 100%;
-    
-    /* Полупрозрачный белый фон и размытие контента под ним */
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    border-bottom: 2px solid var(--border, #e5e7eb);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    padding: 8px 0;
-    list-style: none;
-    margin: 0;
-    z-index: 200;
-}
+@media (max-width: 768px) {
 
-/* Пункты меню */
-.mobile-dropdown-menu li a {
-    display: block;
-    padding: 12px 20px;
-    color: var(--text, #111827);
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(229, 231, 235, 0.6);
-}
+    /* 📱 ВЫПАДАЮЩЕЕ МЕНЮ ПО ШИРИНЕ ТЕКСТА И С ПОВЫШЕННОЙ ПРОЗРАЧНОСТЬЮ */
+    .mobile-dropdown-menu {
+        display: none;
+        position: absolute !important;
+        top: 100% !important;
+        right: 16px !important;            /* Выравниваем аккуратно по правому краю */
+        left: auto !important;
+        
+        width: max-content !important;      /* Ширина строго по содержимому (тексту) */
+        min-width: 180px !important;        /* Минимальная ширина для аккуратности */
+        max-width: calc(100vw - 32px) !important; /* Чтобы не вылезало за края экрана */
+        
+        /* 🧪 УВЕЛИЧЕННАЯ ПРОЗРАЧНОСТЬ (55% белого) + РАЗМЫТИЕ */
+        background: rgba(255, 255, 255, 0.55) !important; 
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 12px !important;    /* Аккуратные скругленные уголки со всех сторон */
+        padding: 8px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        z-index: 999999 !important;
+    }
 
-.mobile-dropdown-menu li:last-child a {
-    border-bottom: none;
-}
+    /* Состояние открытого меню */
+    .mobile-dropdown-menu.active,
+    .mobile-dropdown-menu.is-active {
+        display: block !important;
+    }
 
-/* Выделение кнопки Donate голубым цветом */
-.mobile-dropdown-menu li a.menu-donate-link {
-    color: #1a56c4;                  /* Синий/голубой текст */
-    background-color: #ebf3ff;          /* Светло-голубой фон плашки */
-    font-weight: 700;
-    border-radius: 8px;
-    margin: 8px 16px;                  /* Отступы по бокам */
-    padding: 10px 16px;
-    text-align: center;
-    border-bottom: none;
-}
+    /* Пункты меню */
+    .mobile-dropdown-menu li a {
+        display: block !important;
+        padding: 10px 20px !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: #111827 !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        white-space: nowrap !important;     /* Чтобы пункт не разрывался на две строки */
+    }
+
+    .mobile-dropdown-menu li:last-child a {
+        border-bottom: none !important;
+    }
+
+    /* 🟡 ПОКРАСКА DONATE В ЖЁЛТЫЙ ЦВЕТ */
+    .mobile-dropdown-menu li a.menu-donate-link,
+    .mobile-dropdown-menu li a[data-i18n="nav_donate"],
+    .mobile-dropdown-menu li a[href*="donate"] {
+        background-color: #FFDD00 !important; /* Насыщенный жёлтый цвет */
+        color: #111827 !important;            /* Тёмный текст для максимальной контрастности */
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        margin: 6px 12px !important;           /* Аккуратная внутренняя плашка */
+        padding: 8px 16px !important;
+        text-align: center !important;
+        border-bottom: none !important;
+    }
+
 }
 /* ── HERO ───────────────────────────── */
 hero {

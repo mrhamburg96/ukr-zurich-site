@@ -201,9 +201,9 @@ nav {
 }
 
 
-/* ── МОБИЛЬНАЯ НАВИГАЦИЯ С ИКОНКОЙ FLATICON (<= 768px) ── */
+/* ── МОБИЛЬНАЯ НАВИГАЦИЯ (<= 768px) ── */
 @media (max-width: 768px) {
-    /* Фиксируем контекст позиционирования шапки */
+    /* Контекст позиционирования для выпадающего блока */
     nav.main-navbar, header {
         position: relative !important;
     }
@@ -213,7 +213,7 @@ nav {
         display: none !important;
     }
 
-    /* Показываем контейнер .nav-r с выравниванием по центру */
+    /* Показываем контейнер .nav-r */
     .nav-r {
         display: flex !important;
         align-items: center;
@@ -232,41 +232,51 @@ nav {
         z-index: 202;
     }
 
-    /* Размер и цвет иконки Flaticon */
     .mobile-burger-btn i {
         font-size: 22px;
         color: var(--blue, #1A56C4);
         line-height: 1;
     }
 
-    /* Выпадающее меню во всю ширину строгой плашкой под шапкой */
+    /* Выпадающее меню-карточка (как на скриншоте) */
     .mobile-dropdown-menu {
         position: absolute;
         top: 100%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background: #ffffff;
-        border-bottom: 2px solid var(--border, #e5e7eb);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        padding: 8px 0;
+        left: 10px;
+        width: 240px;
+        max-width: 80vw;
+        background: rgba(255, 255, 255, 0.6) !important; /* Прозрачность 60% */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        padding: 6px 0;
         list-style: none;
-        margin: 0;
+        margin: 4px 0 0 0;
         z-index: 200;
+        overflow: hidden;
     }
 
     .mobile-dropdown-menu li a {
         display: block;
-        padding: 12px 20px;
+        padding: 10px 16px;
         color: var(--text, #111827);
         font-size: 15px;
         font-weight: 600;
         text-decoration: none;
-        border-bottom: 1px solid var(--border, #f3f4f6);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.4);
     }
 
     .mobile-dropdown-menu li:last-child a {
         border-bottom: none;
+    }
+
+    /* Выделение пункта Donate жёлтым цветом */
+    .mobile-dropdown-menu li a[data-translate="nav-donate"],
+    .mobile-dropdown-menu li a[href*="donate"] {
+        background-color: var(--yellow, #F5C518) !important;
+        color: #111827 !important;
+        font-weight: 700 !important;
     }
 }
 /* ── HERO ───────────────────────────── */

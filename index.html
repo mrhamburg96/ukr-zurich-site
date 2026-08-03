@@ -203,7 +203,7 @@ nav {
 
 /* ── МОБИЛЬНАЯ НАВИГАЦИЯ (<= 768px) ── */
 @media (max-width: 768px) {
-    /* Контекст позиционирования для выпадающего блока */
+    /* Контекст позиционирования */
     nav.main-navbar, header {
         position: relative !important;
     }
@@ -220,13 +220,13 @@ nav {
         gap: 12px;
     }
 
-    /* Кнопка с иконкой гамбургера */
+    /* Кнопка гамбургера */
     .mobile-burger-btn {
         display: inline-flex !important;
         align-items: center;
         justify-content: center;
-        background: transparent;
-        border: none;
+        background: transparent !important;
+        border: none !important;
         cursor: pointer;
         padding: 4px;
         z-index: 202;
@@ -238,17 +238,18 @@ nav {
         line-height: 1;
     }
 
-    /* Выпадающее меню-карточка с эффектом стекла */
+    /* 1. Сам контейнер выпадающего меню */
     .mobile-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 10px;
-        width: 240px;
-        max-width: 80vw;
-        background: rgba(255, 255, 255, 0.4) !important; /* Прозрачность 40% */
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 10px !important;
+        width: 240px !important;
+        max-width: 80vw !important;
+        /* Устанавливаем матовый полупрозрачный белый фон */
+        background-color: rgba(255, 255, 255, 0.45) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
         border-radius: 12px !important;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
         padding: 6px 0 !important;
@@ -258,11 +259,16 @@ nav {
         overflow: hidden !important;
     }
 
-    /* Сбрасываем непрозрачный фон у списков и ссылок */
-    .mobile-dropdown-menu li {
+    /* 2. ПРИНУДИТЕЛЬНО принуждаем все вложенные списки и пункты быть прозрачными */
+    .mobile-dropdown-menu,
+    .mobile-dropdown-menu ul,
+    .mobile-dropdown-menu li,
+    .mobile-dropdown-menu li a {
         background: transparent !important;
+        background-color: transparent !important;
     }
 
+    /* 3. Оформление самих ссылок */
     .mobile-dropdown-menu li a {
         display: block !important;
         padding: 10px 16px !important;
@@ -271,14 +277,13 @@ nav {
         font-weight: 600 !important;
         text-decoration: none !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-        background: transparent !important; /* Гарантируем прозрачность ссылок */
     }
 
     .mobile-dropdown-menu li:last-child a {
         border-bottom: none !important;
     }
 
-    /* Выделение пункта Donate жёлтым цветом */
+    /* 4. Пункт Donate — единственный, у кого есть свой фон */
     .mobile-dropdown-menu li a[data-translate="nav-donate"],
     .mobile-dropdown-menu li a[href*="donate"] {
         background-color: rgba(245, 197, 24, 0.85) !important;

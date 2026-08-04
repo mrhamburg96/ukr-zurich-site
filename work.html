@@ -276,19 +276,128 @@
             color: #1A56C4;
         }
 
-        /* Адаптивность для планшетов и мобильных */
-        @media (max-width: 992px) {
-            .page-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+        /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px) */
+@media (max-width: 768px) {
 
-            .image-wrapper {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 450 / 675;
-            }
-        }
+    /* 1. Настройка шапки под мобильные */
+    .site-header {
+        padding: 10px 15px !important;
+        position: relative !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+    }
+
+    /* 2. Подпись под UAGZ разбиваем в 2 колонки */
+    .brand-text {
+        display: block !important;
+        font-size: 11px !important;
+        line-height: 1.2 !important;
+    }
+
+    .brand-text .brand-subtext {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Ровно 2 колонки */
+        column-gap: 6px !important;
+        margin-top: 2px !important;
+    }
+
+    /* 3. Выводим языковой переключатель UA DE */
+    .lang-switch {
+        display: inline-flex !important;
+        gap: 8px !important;
+        font-size: 13px !important;
+        margin-left: auto !important;
+        margin-right: 10px !important;
+    }
+
+    /* 4. Кнопка бургер-меню */
+    .burger-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 24px !important;
+        height: 18px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        z-index: 1001 !important;
+    }
+
+    .burger-btn span {
+        width: 100% !important;
+        height: 2px !important;
+        background-color: #1A56C4 !important;
+        border-radius: 2px !important;
+    }
+
+    /* 5. Выпадающее бургер-меню (Прозрачность 60%, Непрозрачность 40%) */
+    .header-nav {
+        display: none !important; /* Скрыто по умолчанию */
+        position: absolute !important;
+        top: 100% !important;
+        right: 15px !important;
+        
+        /* Ширина строго по ширине текста внутри */
+        width: max-content !important; 
+        max-width: calc(100vw - 30px) !important;
+        
+        /* Прозрачность 60% (альфа-канал 0.4 = 40% непрозрачности) */
+        background-color: rgba(255, 255, 255, 0.4) !important;
+        backdrop-filter: blur(8px) !important; /* Размытие фона под меню для четкости текста */
+        
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 15px 20px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(26, 86, 196, 0.2) !important;
+        z-index: 1000 !important;
+    }
+
+    /* Отображение меню при клике (добавляется класс .open через JS) */
+    .header-nav.open {
+        display: flex !important;
+    }
+
+    /* 6. Выделение кнопки Donate жёлтым цветом */
+    .header-nav .nav-link[href*="donate"],
+    .header-nav .nav-link-donate {
+        color: #000000 !important;
+        background-color: #FFD700 !important; /* Ярко-жёлтый цвет */
+        padding: 4px 12px !important;
+        border-radius: 6px !important;
+        font-weight: bold !important;
+        display: inline-block !important;
+    }
+
+    /* 7. Сокращенный мерцающий заголовок для резюме */
+    .resume-ticker, 
+    .back-button-resume {
+        font-size: 13px !important;
+        animation: pulse-blink 1.5s infinite ease-in-out !important;
+    }
+}
+
+/* Анимация мерцания */
+@keyframes pulse-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+        /* Для десктопа кнопка бургера всегда скрыта */
+.burger-btn {
+    display: none;
+}
+
+/* На ПК подпись под UAGZ идет обычной строкой */
+@media (min-width: 769px) {
+    .brand-subtext span {
+        display: inline;
+        margin-right: 4px;
+    }
+}
     </style>
 </head>
 <body>
@@ -301,10 +410,17 @@
                 <img src="https://flagcdn.com/ch.svg" alt="CH Flag" class="flag-icon">
             </div>
             <div class="brand-text">
-                <span class="brand-highlight">UAGZ</span> <span data-translate="brand-name">Український інтеграційний та громадський центр Цюриха</span>
-            </div>
-        </div>
-
+    <span class="brand-highlight">UAGZ</span>
+    <div class="brand-subtext">
+        <span>Український інтеграційний</span>
+        <span>та громадський центр Цюриха</span>
+    </div>
+</div>
+<button class="burger-btn" onclick="document.querySelector('.header-nav').classList.toggle('open')">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
         <!-- Навигация -->
         <nav class="header-nav">
             <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
@@ -333,7 +449,7 @@
 
             <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) + мерцание -->
             <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
-                Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →
+                Створення резюме — Lebenslauf erstellen →
             </a>
 
         </div>

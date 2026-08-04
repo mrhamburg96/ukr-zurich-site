@@ -585,73 +585,67 @@
         border-radius: 8px !important;
         border-bottom: none !important;
     }
-       /* Контейнер карточек: строим в одну колонку с аккуратными отступами */
-    .steps-grid,
-    .workflow-grid,
-    .model-grid { /* Укажите ваш класс сетки карточек */
+    }
+      /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ (<= 768px): Блок "Модель роботи" */
+@media (max-width: 768px) {
+
+    /* Контейнер для карточек */
+    .model-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
-        padding: 0 12px !important;
+        padding: 0 16px !important;
     }
 
-    /* Сама карточка: переводим из строки в колонку (картинка сверху, текст снизу) */
-    .step-card,
-    .workflow-card,
-    .model-card { /* Укажите ваш класс карточки */
+    /* Сама карточка: вертикальная ориентация */
+    .model-card {
         display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        max-width: 340px !important; /* Уменьшаем максимальную ширину карточки */
-        margin: 0 auto !important; /* Центрируем карточку */
+        flex-direction: column !important; /* Картинка сверху, текст снизу */
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
         border-radius: 12px !important;
         overflow: hidden !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
-        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* Ограничиваем высоту картинки сверху */
-    .step-card img,
-    .workflow-card img,
-    .model-card img,
-    .step-card-image {
+    /* Компактная картинка сверху */
+    .model-card-img {
         width: 100% !important;
-        height: 140px !important; /* Компактная высота картинки */
+        height: 140px !important; /* Уменьшенная высота картинки */
         object-fit: cover !important;
         display: block !important;
     }
 
-    /* Блок с текстом под картинкой */
-    .step-card-content,
-    .workflow-card-content,
-    .model-card-text {
+    /* Текстовый блок под картинкой */
+    .model-card-body {
         padding: 12px 14px !important;
         text-align: left !important;
     }
 
-    /* КРОК 01 / КРОК 02 */
-    .step-number,
-    .step-card-step {
+    /* КРОК 01 / 02 / 03 */
+    .model-step-num {
+        display: block !important;
         font-size: 11px !important;
         font-weight: 700 !important;
-        letter-spacing: 0.5px !important;
+        color: #1a56c4 !important;
+        text-transform: uppercase !important;
         margin-bottom: 4px !important;
     }
 
-    /* Заголовок шага (Зустріч та орієнтація) */
-    .step-card-title,
-    .step-title {
+    /* Заголовок карточки */
+    .model-step-title {
         font-size: 15px !important;
-        line-height: 1.3 !important;
-        margin-bottom: 6px !important;
+        font-weight: 700 !important;
+        color: #001f54 !important;
+        margin: 0 0 6px 0 !important;
     }
 
-    /* Описание шага */
-    .step-card-description,
-    .step-desc {
+    /* Текст описания */
+    .model-step-text {
         font-size: 13px !important;
         line-height: 1.4 !important;
         color: #4a5568 !important;
+        margin: 0 !important;
     }
 }
     </style>
@@ -759,42 +753,38 @@
     </section>
 
     <!-- Модель роботи -->
-    <section class="container">
-        <h2 data-i18n="workflow_title">Модель роботи</h2>
-        <div class="workflow-steps">
-            <div class="step-item">
-                <div class="step-image-box">
-                    <img src="about-foto01.webp" alt="Крок 01" class="step-image">
-                </div>
-                <div class="step-content">
-                    <span class="step-number" data-i18n="step1_num">Крок 01</span>
-                    <h3 data-i18n="step1_title">Зустріч та орієнтація</h3>
-                    <p data-i18n="step1_desc">Первинна консультація новоприбулих з базових питань життя та побуту в Цюриху.</p>
-                </div>
-            </div>
-            <div class="step-item">
-                <div class="step-image-box">
-                    <img src="about-foto02.webp" alt="Крок 02" class="step-image">
-                </div>
-                <div class="step-content">
-                    <span class="step-number" data-i18n="step2_num">Крок 02</span>
-                    <h3 data-i18n="step2_title">Інтеграційні програми</h3>
-                    <p data-i18n="step2_desc">Залучення до освітніх проєктів, допомога в оформленні документів та пошуку роботи.</p>
-                </div>
-            </div>
-            <div class="step-item">
-                <div class="step-image-box">
-                    <img src="about-foto03.webp" alt="Крок 03" class="step-image">
-                </div>
-                <div class="step-content">
-                    <span class="step-number" data-i18n="step3_num">Крок 03</span>
-                    <h3 data-i18n="step3_title">Стала спільнота</h3>
-                    <p data-i18n="step3_desc">Постійна підтримка, культурні заходи та розвиток проєктів усередині української громади.</p>
-                </div>
+    <section class="model-section">
+    <h2 class="section-title">Модель роботи</h2>
+    
+    <div class="model-grid">
+        <div class="model-card">
+            <img src="path-to-image1.jpg" alt="Крок 01" class="model-card-img">
+            <div class="model-card-body">
+                <span class="model-step-num">КРОК 01</span>
+                <h3 class="model-step-title">Зустріч та орієнтація</h3>
+                <p class="model-step-text">Первинна консультація новоприбулих з базових питань життя та побуту в Цюриху.</p>
             </div>
         </div>
-    </section>
 
+        <div class="model-card">
+            <img src="path-to-image2.jpg" alt="Крок 02" class="model-card-img">
+            <div class="model-card-body">
+                <span class="model-step-num">КРОК 02</span>
+                <h3 class="model-step-title">Інтеграційні програми</h3>
+                <p class="model-step-text">Залучення до освітніх проєктів, допомога в оформленні документів та пошуку роботи.</p>
+            </div>
+        </div>
+
+        <div class="model-card">
+            <img src="path-to-image3.jpg" alt="Крок 03" class="model-card-img">
+            <div class="model-card-body">
+                <span class="model-step-num">КРОК 03</span>
+                <h3 class="model-step-title">Стала спільнота</h3>
+                <p class="model-step-text">Постійна підтримка, культурні заходи та розвиток проєктів усередині української громади.</p>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Команда -->
     <section class="container">
         <h2 data-i18n="team_title">Наша команда</h2>

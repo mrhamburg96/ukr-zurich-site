@@ -666,39 +666,65 @@
         line-height: 1.3 !important;
         color: #4a5568 !important;
     }
+/* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ (<= 768px) */
 @media (max-width: 768px) {
 
-    /* 1. Карточка уменьшается до 50% от ширины экрана и центрируется */
+    /* 1. Контейнер карточки: уменьшаем ширину, переводим в колонку (фото сверху, текст снизу) */
     .workflow-steps .step-item {
-        width: 50% !important;
-        max-width: 250px !important;   /* Жестко ограничиваем ширину в 170px */
-        margin: 0 auto 16px auto !important; /* Центрируем карточки */
-        box-sizing: border-box !important;
+        flex-direction: column !important; /* Перестраиваем горизонтальный ряд в колонку */
+        width: 100% !important;
+        max-width: 260px !important;       /* Уменьшенный аккуратный размер рамки */
+        margin: 0 auto 16px auto !important; /* Центрируем рамку по горизонтали */
+        border-radius: 12px !important;
+        overflow: hidden !important;       /* Чтобы фото аккуратно срезалось по углам рамки */
+        border: 1px solid #e2e8f0 !important;
+        background: #ffffff !important;
     }
 
-    /* 2. Ограничиваем высоту блока с картинкой и самого фото */
+    /* 2. Блок фото: занимает 100% ширины рамки без пустых полей */
     .workflow-steps .step-image-box {
+        flex: none !important;
         width: 100% !important;
-        height: 85px !important;       /* Фиксируем высоту обертки */
+        height: 140px !important;          /* Оптимальная высота для пропорции фото */
+        border-right: none !important;     /* Убираем правый разделитель, который был на ПК */
+        border-bottom: 1px solid #f1f5f9 !important;
+        background: transparent !important;
         overflow: hidden !important;
     }
 
+    /* 3. Фотография: полностью заполняет контейнер */
     .workflow-steps .step-image {
         width: 100% !important;
-        height: 85px !important;       /* Уменьшаем высоту картинки */
-        object-fit: cover !important;
+        height: 100% !important;
+        object-fit: cover !important;       /* Заполняет весь блок без искажения пропорций */
+        border-radius: 0 !important;        /* Сбрасываем лишние внутренние радиусы */
         display: block !important;
     }
 
-    /* 3. Компактизируем текстовый блок под картинкой */
+    /* 4. Текстовый блок строго ПОД фотографией */
     .workflow-steps .step-content {
-        padding: 8px 10px !important;
+        flex: none !important;
+        width: 100% !important;
+        padding: 12px 14px !important;      /* Компактные аккуратные отступы */
+        box-sizing: border-box !important;
+        text-align: left !important;
     }
 
-    /* 4. Уменьшаем размер текста, чтобы он помещался в мелкую карточку */
-    .workflow-steps .step-content * {
-        font-size: 11px !important;
-        line-height: 1.3 !important;
+    /* Размеры шрифтов под компактную карточку */
+    .workflow-steps .step-number {
+        font-size: 10px !important;
+        margin-bottom: 3px !important;
+    }
+
+    .workflow-steps .step-item h3 {
+        font-size: 14px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 4px !important;
+    }
+
+    .workflow-steps .step-item p {
+        font-size: 12px !important;
+        line-height: 1.35 !important;
     }
 }
     </style>

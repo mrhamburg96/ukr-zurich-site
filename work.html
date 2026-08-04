@@ -276,107 +276,87 @@
             color: #1A56C4;
         }
 
-        /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px) */
+       /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px) */
 @media (max-width: 768px) {
 
-    /* 1. Настройка шапки под мобильные */
+    /* 1. Позиционирование элементов в шапке */
     .site-header {
-        padding: 10px 15px !important;
+        padding: 10px 12px !important;
         position: relative !important;
-        flex-wrap: wrap !important;
+        display: flex !important;
         align-items: center !important;
+        justify-content: space-between !important;
     }
 
-    /* 2. Подпись под UAGZ разбиваем в 2 колонки */
+    /* 2. Подпись под UAGZ строго в 2 колонки */
     .brand-text {
-        display: block !important;
         font-size: 11px !important;
         line-height: 1.2 !important;
     }
 
     .brand-text .brand-subtext {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* Ровно 2 колонки */
-        column-gap: 6px !important;
+        grid-template-columns: auto auto !important;
+        column-gap: 8px !important;
         margin-top: 2px !important;
     }
 
-    /* 3. Выводим языковой переключатель UA DE */
+    /* 3. Выводим UA DE прямо в шапку (на экран) */
     .lang-switch {
         display: inline-flex !important;
-        gap: 8px !important;
-        font-size: 13px !important;
+        gap: 6px !important;
+        font-size: 12px !important;
         margin-left: auto !important;
-        margin-right: 10px !important;
+        margin-right: 12px !important;
     }
 
-    /* 4. Кнопка бургер-меню */
-    .burger-btn {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        width: 24px !important;
-        height: 18px !important;
-        background: transparent !important;
-        border: none !important;
-        cursor: pointer !important;
-        padding: 0 !important;
-        z-index: 1001 !important;
-    }
-
-    .burger-btn span {
-        width: 100% !important;
-        height: 2px !important;
-        background-color: #1A56C4 !important;
-        border-radius: 2px !important;
-    }
-
-    /* 5. Выпадающее бургер-меню (Прозрачность 60%, Непрозрачность 40%) */
+    /* 4. Настройка выпадающего меню (Бургера) */
     .header-nav {
-        display: none !important; /* Скрыто по умолчанию */
+        display: none !important;
         position: absolute !important;
         top: 100% !important;
-        right: 15px !important;
+        right: 10px !important;
+        width: max-content !important;
         
-        /* Ширина строго по ширине текста внутри */
-        width: max-content !important; 
-        max-width: calc(100vw - 30px) !important;
-        
-        /* Прозрачность 60% (альфа-канал 0.4 = 40% непрозрачности) */
+        /* Прозрачность 60% (непрозрачность 40%) */
         background-color: rgba(255, 255, 255, 0.4) !important;
-        backdrop-filter: blur(8px) !important; /* Размытие фона под меню для четкости текста */
+        backdrop-filter: blur(8px) !important;
         
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 12px !important;
-        padding: 15px 20px !important;
+        gap: 10px !important;
+        padding: 14px 18px !important;
         border-radius: 10px !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
         border: 1px solid rgba(26, 86, 196, 0.2) !important;
         z-index: 1000 !important;
     }
 
-    /* Отображение меню при клике (добавляется класс .open через JS) */
     .header-nav.open {
         display: flex !important;
     }
 
-    /* 6. Выделение кнопки Donate жёлтым цветом */
-    .header-nav .nav-link[href*="donate"],
-    .header-nav .nav-link-donate {
-        color: #000000 !important;
-        background-color: #FFD700 !important; /* Ярко-жёлтый цвет */
-        padding: 4px 12px !important;
-        border-radius: 6px !important;
-        font-weight: bold !important;
-        display: inline-block !important;
+    /* Скрываем переключатель языков внутри меню, так как он выведен на экран */
+    .header-nav .lang-switch {
+        display: none !important;
     }
 
-    /* 7. Сокращенный мерцающий заголовок для резюме */
-    .resume-ticker, 
-    .back-button-resume {
-        font-size: 13px !important;
-        animation: pulse-blink 1.5s infinite ease-in-out !important;
+    /* 5. Убираем наложение и поднимаем красную ссылку с резюме */
+    #cv-promo-link,
+    .blinking-text {
+        position: static !important;        /* Отменяем absolute, чтобы ссылка не накладывалась на текст */
+        transform: none !important;
+        display: block !important;
+        margin: 8px 0 12px 0 !important;    /* Чистые отступы сверху и снизу */
+        font-size: 12px !important;
+        white-space: normal !important;      /* Разрешаем аккуратный перенос, если экран узкий */
+        text-align: left !important;
+    }
+
+    /* Разделительный отступ для кнопки "Назад" */
+    .back-button {
+        margin-top: 5px !important;
+        margin-bottom: 15px !important;
     }
 }
 
@@ -423,17 +403,20 @@
 </button>
         <!-- Навигация -->
         <nav class="header-nav">
-            <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
-            <a href="events.html" class="nav-link" data-translate="nav-events">Заходи</a>
-            <a href="knowledge.html" class="nav-link" data-translate="nav-knowledge">Центр знань</a>
-            <a href="volunteering.html" class="nav-link" data-translate="nav-volunteering">Волонтерство</a>
-            <a href="donate.html" class="nav-link" data-translate="nav-donate">❤️ Донат</a>
-            <a href="contacts.html" class="nav-link" data-translate="nav-contacts">Контакти</a>
+    <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
+    <a href="about.html" class="nav-link" data-translate="nav-about">Про центр</a>
+    <a href="help.html" class="nav-link" data-translate="nav-help">Допомога</a>
+    <a href="events.html" class="nav-link" data-translate="nav-events">Події</a>
+    <a href="knowledge.html" class="nav-link" data-translate="nav-knowledge">Центр знань</a>
+    <a href="announcements.html" class="nav-link" data-translate="nav-announcements">Оголошення</a>
+    <a href="volunteering.html" class="nav-link" data-translate="nav-volunteering">Волонтерство</a>
+    <a href="donate.html" class="nav-link nav-link-donate" data-translate="nav-donate">Donate</a>
+    <a href="contacts.html" class="nav-link" data-translate="nav-contacts">Контакти</a>
+</nav>
             <div class="lang-switch">
-                <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
-                <span class="lang-item" onclick="changeLanguage('de')">DE</span>
-            </div>
-        </nav>
+    <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
+    <span class="lang-item" onclick="changeLanguage('de')">DE</span>
+</div>
     </header>
 
     <!-- Основной контент страницы -->

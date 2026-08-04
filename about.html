@@ -590,39 +590,41 @@
         border-radius: 8px !important;
         border-bottom: none !important;
     }
-}
-       /* Контейнер карточек: строим в одну колонку с аккуратными отступами */
+
+   
+
+    /* Контейнер карточек: строим в одну колонку */
     .steps-grid,
     .workflow-grid,
-    .model-grid { /* Укажите ваш класс сетки карточек */
+    .model-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 16px !important;
+        gap: 12px !important;
         padding: 0 12px !important;
     }
 
-    /* Сама карточка: переводим из строки в колонку (картинка сверху, текст снизу) */
+    /* Сама карточка: УМЕНЬШЕНА НА 50% (max-width: 170px) */
     .step-card,
     .workflow-card,
-    .model-card { /* Укажите ваш класс карточки */
+    .model-card {
         display: flex !important;
         flex-direction: column !important;
-        width: 100% !important;
-        max-width: 340px !important; /* Уменьшаем максимальную ширину карточки */
-        margin: 0 auto !important; /* Центрируем карточку */
-        border-radius: 12px !important;
+        width: 50% !important;           /* Занимает 50% от ширины экрана */
+        max-width: 170px !important;     /* Было 340px -> стало 170px (50%) */
+        margin: 0 auto !important;       /* Центрирование по горизонтали */
+        border-radius: 8px !important;   /* Чуть уменьшили радиус под мелкий размер */
         overflow: hidden !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
         border: 1px solid #e2e8f0 !important;
     }
 
-    /* Ограничиваем высоту картинки сверху */
+    /* Картинка: уменьшена по высоте под пропорцию 50% */
     .step-card img,
     .workflow-card img,
     .model-card img,
     .step-card-image {
         width: 100% !important;
-        height: 140px !important; /* Компактная высота картинки */
+        height: 85px !important;         /* Было 140px -> пропорционально уменьшено */
         object-fit: cover !important;
         display: block !important;
     }
@@ -631,32 +633,32 @@
     .step-card-content,
     .workflow-card-content,
     .model-card-text {
-        padding: 12px 14px !important;
+        padding: 8px 10px !important;    /* Уменьшены внутренние отступы */
         text-align: left !important;
     }
 
     /* КРОК 01 / КРОК 02 */
     .step-number,
     .step-card-step {
-        font-size: 11px !important;
+        font-size: 10px !important;
         font-weight: 700 !important;
         letter-spacing: 0.5px !important;
-        margin-bottom: 4px !important;
+        margin-bottom: 2px !important;
     }
 
-    /* Заголовок шага (Зустріч та орієнтація) */
+    /* Заголовок шага */
     .step-card-title,
     .step-title {
-        font-size: 15px !important;
-        line-height: 1.3 !important;
-        margin-bottom: 6px !important;
+        font-size: 13px !important;     /* Чуть уменьшен шрифт для компактности */
+        line-height: 1.2 !important;
+        margin-bottom: 4px !important;
     }
 
     /* Описание шага */
     .step-card-description,
     .step-desc {
-        font-size: 13px !important;
-        line-height: 1.4 !important;
+        font-size: 11px !important;     /* Уменьшен размер шрифта текста */
+        line-height: 1.3 !important;
         color: #4a5568 !important;
     }
 }

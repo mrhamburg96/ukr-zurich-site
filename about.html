@@ -450,8 +450,14 @@
 /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px) */
 @media (max-width: 768px) {
 
-    /* Фиксируем ширину шапки строго по экрану */
-    header, .header-content {
+    /* 1. УБИРАЕМ overflow: hidden, чтобы меню не обрезалось */
+    header {
+        position: relative !important;
+        overflow: visible !important; /* Меню теперь вылетает за границы шапки */
+        z-index: 1000 !important;
+    }
+
+    .header-content {
         position: relative !important;
         box-sizing: border-box !important;
         width: 100% !important;
@@ -460,7 +466,7 @@
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        overflow: hidden !important;
+        overflow: visible !important; /* Убираем обрезку и отсюда */
     }
 
     /* Скрываем всё десктопное */
@@ -475,7 +481,7 @@
         align-items: center !important;
         gap: 8px !important;
         text-decoration: none !important;
-        max-width: 65% !important; /* Ограничиваем ширину, чтобы дать место UA DE и Бургеру */
+        max-width: 65% !important;
     }
 
     .logo-text-block {
@@ -483,7 +489,6 @@
         flex-direction: column !important;
     }
 
-    /* 1. Текст описания центрируем/компактизируем в 2 строки */
     .logo-subtitle {
         display: block !important;
         font-size: 10px !important;
@@ -493,12 +498,12 @@
         margin-top: 1px !important;
     }
 
-    /* 2. Правый блок: гарантируем 100% видимость UA/DE и бургера в экране */
+    /* Правый блок */
     .header-right {
         display: flex !important;
         align-items: center !important;
         gap: 6px !important;
-        flex-shrink: 0 !important; /* Запрещаем сжатие и вылет за край */
+        flex-shrink: 0 !important;
     }
 
     .lang-switcher {
@@ -532,11 +537,11 @@
         color: #1a56c4 !important;
     }
 
-    /* Выпадающее меню с прозрачностью 60% и шириной по тексту */
+    /* Выпадающее меню */
     .mobile-dropdown-menu {
         display: none !important;
         position: absolute !important;
-        top: calc(100% + 4px) !important;
+        top: 100% !important;
         right: 12px !important;
         left: auto !important;
 
@@ -544,7 +549,7 @@
         min-width: 170px !important;
         max-width: calc(100vw - 24px) !important;
 
-        background-color: rgba(255, 255, 255, 0.40) !important;
+        background-color: rgba(255, 255, 255, 0.95) !important; /* Слегка увеличиваем плотность для читаемости */
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
 
@@ -552,7 +557,7 @@
         border-radius: 12px !important;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
         padding: 6px 0 !important;
-        margin: 0 !important;
+        margin: 4px 0 0 0 !important;
         list-style: none !important;
         z-index: 999999 !important;
     }
@@ -585,6 +590,7 @@
         border-radius: 8px !important;
         border-bottom: none !important;
     }
+}
        /* Контейнер карточек: строим в одну колонку с аккуратными отступами */
     .steps-grid,
     .workflow-grid,
@@ -1022,18 +1028,17 @@
         }
     </script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDropdown = document.getElementById('mobileDropdown');
 
     if (burgerBtn && mobileDropdown) {
-        burgerBtn.addEventListener('click', function(e) {
+        burgerBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             mobileDropdown.classList.toggle('active');
         });
 
-        // Закрытие меню при клике вне его области
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!mobileDropdown.contains(e.target) && !burgerBtn.contains(e.target)) {
                 mobileDropdown.classList.remove('active');
             }

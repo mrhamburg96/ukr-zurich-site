@@ -661,6 +661,40 @@
         line-height: 1.3 !important;
         color: #4a5568 !important;
     }
+@media (max-width: 768px) {
+
+    /* 1. Карточка уменьшается до 50% от ширины экрана и центрируется */
+    .workflow-steps .step-item {
+        width: 50% !important;
+        max-width: 170px !important;   /* Жестко ограничиваем ширину в 170px */
+        margin: 0 auto 16px auto !important; /* Центрируем карточки */
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Ограничиваем высоту блока с картинкой и самого фото */
+    .workflow-steps .step-image-box {
+        width: 100% !important;
+        height: 85px !important;       /* Фиксируем высоту обертки */
+        overflow: hidden !important;
+    }
+
+    .workflow-steps .step-image {
+        width: 100% !important;
+        height: 85px !important;       /* Уменьшаем высоту картинки */
+        object-fit: cover !important;
+        display: block !important;
+    }
+
+    /* 3. Компактизируем текстовый блок под картинкой */
+    .workflow-steps .step-content {
+        padding: 8px 10px !important;
+    }
+
+    /* 4. Уменьшаем размер текста, чтобы он помещался в мелкую карточку */
+    .workflow-steps .step-content * {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+    }
 }
     </style>
 </head>

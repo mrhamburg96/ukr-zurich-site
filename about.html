@@ -439,49 +439,385 @@
             .step-item { flex-direction: column; }
             .step-image-box, .step-content { width: 100%; flex: 0 0 100%; }
         }
+        /* ════════════════ СТИЛИ МОДАЛЬНОГО ОКНА ════════════════ */
+    .v-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(3, 21, 48, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .v-modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .v-modal-card {
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 480px;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(3, 21, 48, 0.15);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      box-sizing: border-box;
+    }
+    .v-modal-overlay.is-active .v-modal-card {
+      transform: translateY(0);
+    }
+    .v-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #A0AEC0;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 50%;
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .v-modal-close:hover {
+      color: #2D3748;
+      background-color: #EDF2F7;
+    }
+    .v-modal-title {
+      color: #031530;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      text-align: center;
+    }
+    .v-modal-subtitle {
+      color: #718096;
+      font-size: 14px;
+      margin: 0 0 24px 0;
+      text-align: center;
+    }
+    .v-modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .v-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .v-form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4A5568;
+      text-align: left;
+    }
+    .v-form-input, .v-form-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #CBD5E0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #2D3748;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .v-form-input:focus, .v-form-textarea:focus {
+      border-color: #1A56C4;
+      box-shadow: 0 0 0 3px rgba(26, 86, 196, 0.15);
+    }
+    .v-form-textarea {
+      resize: vertical;
+    }
+    .v-modal-submit {
+      background-color: #1A56C4; /* Фирменный синий цвет */
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .v-modal-submit:hover {
+      background-color: #14459F;
+    }
+    .v-modal-submit:active {
+      transform: scale(0.98);
+    }
+    /* На ПК скрываем мобильную кнопку и меню */
+.mobile-burger-btn,
+.mobile-dropdown-menu {
+  display: none;
+}
+
+/* 📱 СТИЛИ ДЛЯ МОБИЛЬНЫХ (<= 768px) */
+@media (max-width: 768px) {
+  
+  .site-header {
+    position: relative !important;
+  }
+
+  /* Скрываем десктопное меню и отдельную кнопку Donate вне выпадашки */
+  .header-nav,
+  .header-actions > .btn-donate {
+    display: none !important;
+  }
+
+  /* Показываем кнопку бургера */
+  .mobile-burger-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 4px !important;
+    cursor: pointer !important;
+  }
+
+  .mobile-burger-btn i {
+    font-size: 22px !important;
+    color: #1a56c4 !important;
+  }
+
+  /* Выпадающее меню: ширина по тексту + 60% прозрачность (rgba 0.40) + блюр */
+  .mobile-dropdown-menu {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 12px !important;
+    left: auto !important;
+
+    width: max-content !important;
+    min-width: 180px !important;
+    max-width: calc(100vw - 24px) !important;
+
+    background-color: rgba(255, 255, 255, 0.40) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    padding: 8px 0 !important;
+    margin: 6px 0 0 0 !important;
+    list-style: none !important;
+    z-index: 999999 !important;
+  }
+
+  /* Показ при клике */
+  .mobile-dropdown-menu.active {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mobile-dropdown-menu li {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .mobile-dropdown-menu li a {
+    display: block !important;
+    padding: 10px 16px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #001f54 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Выделенная жёлтая кнопка Donate */
+  .mobile-dropdown-menu li.mobile-donate-item {
+    padding: 8px 10px 4px 10px !important;
+  }
+
+  .mobile-dropdown-menu li a.btn-donate-nav {
+    background-color: #ffb700 !important;
+    color: #111827 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 8px !important;
+    border-bottom: none !important;
+  }
+ /* На ПК скрываем мобильную кнопку и меню */
+/* На ПК прячем бургер и выпадашку */
+.mobile-burger-btn,
+.mobile-dropdown-menu {
+  display: none !important;
+}
+
+/* 📱 СТИЛИ ДЛЯ МОБИЛЬНЫХ (<= 768px) */
+@media (max-width: 768px) {
+  
+  .site-header {
+    position: relative !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  /* Скрываем десктопную навигацию и отдельную кнопку Donate */
+  .header-nav,
+  .header-actions > .btn-donate {
+    display: none !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  /* Показываем и позиционируем кнопку бургера */
+  .mobile-burger-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 4px !important;
+    cursor: pointer !important;
+    outline: none !important;
+  }
+
+  .mobile-burger-btn svg {
+    display: block !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  /* Выпадающее меню (60% прозрачность + max-content) */
+  .mobile-dropdown-menu {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 12px !important;
+    left: auto !important;
+
+    width: max-content !important;
+    min-width: 190px !important;
+    max-width: calc(100vw - 24px) !important;
+
+    background-color: rgba(255, 255, 255, 0.40) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    padding: 8px 0 !important;
+    margin-top: 6px !important;
+    list-style: none !important;
+    z-index: 999999 !important;
+  }
+
+  /* Состояние открытия */
+  .mobile-dropdown-menu.active {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mobile-dropdown-menu li {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .mobile-dropdown-menu li a {
+    display: block !important;
+    padding: 10px 16px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #001f54 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Жёлтая кнопка Donate */
+  .mobile-dropdown-menu li.mobile-donate-item {
+    padding: 8px 10px 4px 10px !important;
+  }
+
+  .mobile-dropdown-menu li a.btn-donate-nav {
+    background-color: #ffb700 !important;
+    color: #111827 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 8px !important;
+    border-bottom: none !important;
+  }
+
     </style>
 </head>
 <body>
 
-    <!-- Шапка сайта -->
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo-area">
-                <div class="flags-stack">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag" class="logo-flag">
-                    <img src="https://flagcdn.com/w80/ch.png" alt="CH Flag" class="logo-flag">
-                </div>
-                <div class="logo-text-block">
-                    <span class="logo-title">UAGZ</span>
-                    <span class="logo-subtitle" data-i18n="logo_subtitle">Український інтеграційний та громадський центр Цюриха</span>
-                </div>
-            </a>
-            
-            <div class="nav-menu">
-                <ul class="nav-row">
-                    <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
-                    <li><a href="about.html" data-i18n="nav_about">Про нас</a></li>
-                    <li><a href="help.html" data-i18n="nav_help">Допомога</a></li>
-                    <li><a href="events.html" data-i18n="nav_events">Події</a></li>
-                    <li><a href="knowledge.html" data-i18n="nav_knowledge">Центр знань</a></li>
-                </ul>
-                <ul class="nav-row">
-                    <li><a href="#" class="highlight-blue" data-i18n="nav_announcements">Оголошення</a></li>
-                    <li><a href="volonter02.html" data-i18n="nav_volunteer">Волонтерство</a></li>
-                    <li><a href="#" class="highlight-red" data-i18n="nav_donate">❤️ Донат</a></li>
-                    <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
-                </ul>
-            </div>
+     <div class="site-wrapper">
 
-            <div class="header-right">
-                <div class="lang-switcher">
-                    <button class="lang-btn active" onclick="switchLanguage('ua')">UA</button>
-                    <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
-                </div>
-                <a href="#" class="btn-help" data-i18n="btn_get_help">Отримати допомогу</a>
-            </div>
-        </div>
-    </header>
+   <header class="site-header">
+  <a href="index.html" class="header-brand">
+    <img src="Logo01.png" alt="UAGZ Logo" class="brand-logo">
+    <div>
+      <div class="brand-text-title">UAGZ</div>
+      <div class="brand-text-desc" data-i18n="brand_desc">Український інтеграційний та громадський центр Цюриха</div>
+    </div>
+  </a>
+
+  <nav class="header-nav">
+    <a href="index.html" class="nav-link" data-i18n="nav_home">Головна</a>
+    <a href="about.html" class="nav-link" data-i18n="nav_about">Про центр</a>
+    <a href="help.html" class="nav-link" data-i18n="nav_help">Допомога</a>
+    <a href="events.html" class="nav-link" data-i18n="nav_events">Події</a>
+    <a href="knowledge.html" class="nav-link" data-i18n="nav_knowledge">Центр знань</a>
+    <a href="announcements.html" class="nav-link" data-i18n="nav_announcements">Оголошення</a>
+    <a href="volonter02.html" class="nav-link active" data-i18n="nav_volunteers">Волонтерство</a>
+    <a href="contacts.html" class="nav-link" data-i18n="nav_contacts">Контакти</a>
+  </nav>
+
+  <div class="header-actions">
+    <a href="#donate" class="btn-donate" data-i18n="btn_donate">Donate</a>
+    
+    <div class="lang-switcher">
+      <a href="?lang=ua" class="lang-item" id="lang-ua" onclick="changeLanguage(event, 'ua')">UA</a>
+      <a href="?lang=de" class="lang-item" id="lang-de" onclick="changeLanguage(event, 'de')">DE</a>
+    </div>
+
+    <button class="mobile-burger-btn" aria-label="Открыть меню" onclick="toggleMobileMenu(event)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56c4" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <ul class="mobile-dropdown-menu" id="mobileMenu">
+      <li><a href="index.html" data-i18n="nav_home">Головна</a></li>
+      <li><a href="about.html" data-i18n="nav_about">Про центр</a></li>
+      <li><a href="help.html" data-i18n="nav_help">Допомога</a></li>
+      <li><a href="events.html" data-i18n="nav_events">Події</a></li>
+      <li><a href="knowledge.html" data-i18n="nav_knowledge">Центр знань</a></li>
+      <li><a href="announcements.html" data-i18n="nav_announcements">Оголошення</a></li>
+      <li><a href="volonter02.html" data-i18n="nav_volunteers">Волонтерство</a></li>
+      <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
+      <li class="mobile-donate-item">
+        <a href="#donate" class="btn-donate-nav" data-i18n="btn_donate">Donate</a>
+      </li>
+    </ul>
+  </div>
+</header>
 
     <!-- Главный экран -->
     <section class="hero container">
@@ -781,5 +1117,24 @@
             acc.classList.toggle('active');
         }
     </script>
+    </script>
+  <script>
+function toggleMobileMenu(event) {
+  event.stopPropagation();
+  const menu = document.getElementById('mobileMenu');
+  if (menu) {
+    menu.classList.toggle('active');
+  }
+}
+
+// Закрываем меню при клике в любую другую точку экрана
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.mobile-burger-btn');
+  if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('active');
+  }
+});
+</script>
 </body>
 </html>

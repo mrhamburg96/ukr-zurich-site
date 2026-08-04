@@ -440,17 +440,13 @@
             .step-item { flex-direction: column; }
             .step-image-box, .step-content { width: 100%; flex: 0 0 100%; }
         }
-        /* На ПК скрываем мобильную кнопку бургера и меню */
-/* Прячем бургер и мобильную выпадашку на ПК */
-.mobile-burger-btn,
-.mobile-dropdown-menu {
-    display: none !important;
-}
-
-/* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px) */
+      /* =========================================================
+   📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px)
+   На экранах больше 768px (ПК) этот блок НЕ РАБОТАЕТ.
+   ========================================================= */
 @media (max-width: 768px) {
 
-    /* Фиксируем ширину шапки строго по экрану */
+    /* --- Шапка на мобильных --- */
     header, .header-content {
         position: relative !important;
         box-sizing: border-box !important;
@@ -463,13 +459,13 @@
         overflow: hidden !important;
     }
 
-    /* Скрываем всё десктопное */
+    /* Скрываем десктопную навигацию */
     .nav-menu,
     .desktop-only-btn {
         display: none !important;
     }
 
-    /* Логотип + Текст */
+    /* Логотип */
     .logo-area {
         display: flex !important;
         align-items: center !important;
@@ -483,7 +479,6 @@
         flex-direction: column !important;
     }
 
-    /* Текст описания */
     .logo-subtitle {
         display: block !important;
         font-size: 10px !important;
@@ -493,7 +488,7 @@
         margin-top: 1px !important;
     }
 
-    /* Правый блок: UA/DE и бургер */
+    /* Правая часть шапки */
     .header-right {
         display: flex !important;
         align-items: center !important;
@@ -532,23 +527,20 @@
         color: #1a56c4 !important;
     }
 
-    /* Выпадающее меню */
+    /* Выпадающее мобильное меню */
     .mobile-dropdown-menu {
         display: none !important;
         position: absolute !important;
         top: calc(100% + 4px) !important;
         right: 12px !important;
         left: auto !important;
-
         width: max-content !important;
         min-width: 170px !important;
         max-width: calc(100vw - 24px) !important;
-
-        background-color: rgba(255, 255, 255, 0.40) !important;
+        background-color: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
-
-        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
         border-radius: 12px !important;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
         padding: 6px 0 !important;
@@ -586,7 +578,7 @@
         border-bottom: none !important;
     }
 
-    /* Блок "Модель роботи" */
+    /* --- Блок "Модель роботи" НА МОБИЛЬНЫХ --- */
     .model-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -604,12 +596,12 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* ИСПРАВЛЕННЫЙ БЛОК ДЛЯ КАРТИНОК */
+    .model-card img.model-card-img,
     img.model-card-img {
         display: block !important;
-        width: 60px !important;
-        height: auto !important;
-        margin-bottom: 10px !important;
+        width: 100% !important;
+        height: 140px !important;
+        object-fit: cover !important;
     }
 
     .model-card-body {
@@ -1005,20 +997,23 @@
         }
     </script>
    <script>
-function toggleMobileMenu(event) {
-    if (event) event.stopPropagation();
-    const menu = document.getElementById('mobileMenu') || document.getElementById('mobileDropdown');
-    if (menu) {
-        menu.classList.toggle('active');
-    }
-}
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим кнопку бургера и выпадающее меню (учитываем возможные ID)
+    const burgerBtn = document.getElementById('burgerBtn') || document.querySelector('.mobile-burger-btn');
+    const mobileDropdown = document.getElementById('mobileDropdown') || document.getElementById('mobileMenu') || document.querySelector('.mobile-dropdown-menu');
 
-// Закрываем меню при клике в любую точку вне меню
-document.addEventListener('click', function(e) {
-    const menu = document.getElementById('mobileMenu') || document.getElementById('mobileDropdown');
-    const burger = document.getElementById('burgerBtn');
-    if (menu && burger && !menu.contains(e.target) && !burger.contains(e.target)) {
-        menu.classList.remove('active');
+    if (burgerBtn && mobileDropdown) {
+        burgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileDropdown.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике вне его области
+        document.addEventListener('click', function(e) {
+            if (!mobileDropdown.contains(e.target) && !burgerBtn.contains(e.target)) {
+                mobileDropdown.classList.remove('active');
+            }
+        });
     }
 });
 </script>

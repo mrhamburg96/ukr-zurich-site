@@ -343,7 +343,8 @@
 
 
 /* ==========================================
-   📱 2. СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
+ /* ==========================================
+   📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
    ========================================== */
 @media (max-width: 768px) {
 
@@ -358,7 +359,7 @@
         box-sizing: border-box !important;
     }
 
-    /* Направление элементов через CSS order */
+    /* Логотип и текст */
     .header-brand {
         order: 1 !important;
         display: flex !important;
@@ -366,49 +367,22 @@
         gap: 8px !important;
     }
 
-    .brand-text {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .brand-highlight {
-        font-size: 16px !important;
-        font-weight: bold !important;
-        color: #1A56C4 !important;
-        line-height: 1 !important;
-    }
-
-    .brand-subtext {
-        display: flex !important;
-        flex-direction: column !important;
-        margin-top: 3px !important;
-        font-size: 9px !important;
-        line-height: 1.1 !important;
-        color: #1A56C4 !important;
-        max-width: none !important;
-    }
-
-    .brand-subtext span {
-        display: block !important;
-        white-space: nowrap !important;
-    }
-
-    /* 1. Вывод UA DE на экран шапки (рядом с бургером) */
+    /* Языковой переключатель (UA DE) */
     .lang-switch {
         order: 2 !important;
         display: inline-flex !important;
         gap: 6px !important;
         font-size: 13px !important;
         margin-left: auto !important;
-        margin-right: 10px !important;
+        margin-right: 12px !important;
         font-weight: bold !important;
         color: #1A56C4 !important;
     }
 
-    /* 2. Иконка бургера */
+    /* 1. Иконка бургера (ВИДИМАЯ) */
     .burger-btn {
         order: 3 !important;
-        display: flex !important; /* Гарантируем видимость кнопки на мобильном */
+        display: inline-flex !important; /* Включаем отображение кнопки */
         align-items: center !important;
         justify-content: center !important;
         background: transparent !important;
@@ -420,19 +394,25 @@
         z-index: 1001 !important;
     }
 
-    /* 3. Выпадающее бургер-меню */
+    /* Если иконка внутри кнопки не задана шрифтом, задаем базовый вид 3 полосок (CSS-бургер) */
+    .burger-btn::before {
+        content: "☰" !important; /* Выводит классический символ меню, если иконка не загрузилась */
+        font-size: 24px !important;
+        line-height: 1 !important;
+    }
+
+   /* Выпадающее бургер-меню (40% непрозрачности / 60% прозрачности) */
     .header-nav {
-        display: none !important; /* По умолчанию скрыто */
+        display: none !important;
         position: absolute !important;
         top: 100% !important;
         right: 12px !important;
         
-        /* Ширина строго по длиннейшему тексту */
         width: max-content !important;
         max-width: calc(100vw - 24px) !important;
         
-        /* Прозрачность + размытие */
-        background-color: rgba(255, 255, 255, 0.95) !important; /* Повышена читаемость */
+        /* 40% альфа-канала (0.4) = 60% прозрачности */
+        background-color: rgba(255, 255, 255, 0.4) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
         
@@ -442,11 +422,10 @@
         padding: 16px 20px !important;
         border-radius: 12px !important;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
         z-index: 1000 !important;
     }
-
-    /* Показ меню при клике (при наличии класса .open) */
+    /* Показ меню при открытии */
     .header-nav.open {
         display: flex !important;
     }
@@ -456,15 +435,15 @@
         color: #1A56C4 !important;
         text-decoration: none !important;
         font-size: 14px !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         white-space: nowrap !important;
     }
 
-    /* 4. Выделение Donate жёлтым цветом */
+    /* Кнопка Donate */
     .header-nav .nav-link-donate {
         background-color: #FFD700 !important;
         color: #000000 !important;
-        padding: 5px 12px !important;
+        padding: 6px 14px !important;
         border-radius: 6px !important;
         font-weight: bold !important;
         display: inline-block !important;

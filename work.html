@@ -288,37 +288,175 @@
                 height: auto;
                 aspect-ratio: 450 / 675;
             }
-        }
+      /* ==========================================
+   📱 МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
+   ========================================== */
+@media (max-width: 768px) {
+
+    /* Шапка сайта */
+    .site-header {
+        padding: 10px 12px !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .header-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .brand-text {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .brand-highlight {
+        font-size: 16px !important;
+        font-weight: bold !important;
+        color: #1A56C4 !important;
+        line-height: 1 !important;
+    }
+
+    .brand-subtext {
+        display: flex !important;
+        flex-direction: column !important;
+        margin-top: 3px !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        color: #1A56C4 !important;
+    }
+
+    .brand-subtext span {
+        display: block !important;
+        white-space: nowrap !important;
+    }
+
+    /* 1. Вывод UA DE на экран шапки */
+    .lang-switch {
+        display: inline-flex !important;
+        gap: 6px !important;
+        font-size: 13px !important;
+        margin-left: auto !important;
+        margin-right: 10px !important;
+        font-weight: bold !important;
+        color: #1A56C4 !important;
+    }
+
+    /* 2. Кнопка с иконкой <i class="fi fi-br-menu-burger"></i> */
+    .burger-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 4px !important;
+        font-size: 20px !important; /* Размер иконки */
+        color: #1A56C4 !important;  /* Цвет иконки */
+        z-index: 1001 !important;
+    }
+
+    /* 3. Выпадающее бургер-меню */
+    .header-nav {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        right: 12px !important;
+        
+        /* Ширина строго по длиннейшему тексту */
+        width: max-content !important;
+        max-width: calc(100vw - 24px) !important;
+        
+        /* Непрозрачность 40% (Прозрачность 60%) + размытие */
+        background-color: rgba(255, 255, 255, 0.4) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 16px 20px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        z-index: 1000 !important;
+    }
+
+    /* Показ меню при клике */
+    .header-nav.open {
+        display: flex !important;
+    }
+
+    /* Ссылки внутри меню */
+    .header-nav .nav-link {
+        color: #1A56C4 !important;
+        text-decoration: none !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+    }
+
+    /* 4. Выделение Donate жёлтым цветом */
+    .header-nav .nav-link-donate {
+        background-color: #FFD700 !important;
+        color: #000000 !important;
+        padding: 5px 12px !important;
+        border-radius: 6px !important;
+        font-weight: bold !important;
+        display: inline-block !important;
+    }
+}
     </style>
 </head>
 <body>
 
     <!-- Шапка сайта -->
     <header class="site-header">
-        <div class="header-brand">
-            <div class="flags-container">
-                <img src="https://flagcdn.com/ua.svg" alt="UA Flag" class="flag-icon">
-                <img src="https://flagcdn.com/ch.svg" alt="CH Flag" class="flag-icon">
-            </div>
-            <div class="brand-text">
-                <span class="brand-highlight">UAGZ</span> <span data-translate="brand-name">Український інтеграційний та громадський центр Цюриха</span>
+    <!-- Логотип и название -->
+    <div class="header-brand">
+        <div class="flags-container">
+            <img src="https://flagcdn.com/ua.svg" alt="UA" class="flag-icon">
+            <img src="https://flagcdn.com/ch.svg" alt="CH" class="flag-icon">
+        </div>
+        <div class="brand-text">
+            <span class="brand-highlight">UAGZ</span>
+            <div class="brand-subtext">
+                <span>Український інтеграційний</span>
+                <span>та громадський центр Цюриха</span>
             </div>
         </div>
+    </div>
 
-        <!-- Навигация -->
-        <nav class="header-nav">
-            <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
-            <a href="events.html" class="nav-link" data-translate="nav-events">Заходи</a>
-            <a href="knowledge.html" class="nav-link" data-translate="nav-knowledge">Центр знань</a>
-            <a href="volunteering.html" class="nav-link" data-translate="nav-volunteering">Волонтерство</a>
-            <a href="donate.html" class="nav-link" data-translate="nav-donate">❤️ Донат</a>
-            <a href="contacts.html" class="nav-link" data-translate="nav-contacts">Контакти</a>
-            <div class="lang-switch">
-                <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
-                <span class="lang-item" onclick="changeLanguage('de')">DE</span>
-            </div>
-        </nav>
-    </header>
+    <!-- 1. Переключатель языков UA DE прямо на экране -->
+    <div class="lang-switch">
+        <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
+        <span class="lang-item" onclick="changeLanguage('de')">DE</span>
+    </div>
+
+    <!-- 2. Иконка бургера через класс fi fi-br-menu-burger -->
+    <button class="burger-btn" aria-label="Меню" onclick="document.querySelector('.header-nav').classList.toggle('open')">
+        <i class="fi fi-br-menu-burger"></i>
+    </button>
+
+    <!-- Выпадающее меню (все 9 пунктов) -->
+    <nav class="header-nav">
+        <a href="index.html" class="nav-link">Головна</a>
+        <a href="about.html" class="nav-link">Про центр</a>
+        <a href="help.html" class="nav-link">Допомога</a>
+        <a href="events.html" class="nav-link">Події</a>
+        <a href="knowledge.html" class="nav-link">Центр знань</a>
+        <a href="announcements.html" class="nav-link">Оголошення</a>
+        <a href="volunteering.html" class="nav-link">Волонтерство</a>
+        <!-- Donate выделен специальным классом -->
+        <a href="donate.html" class="nav-link nav-link-donate">Donate</a>
+        <a href="contacts.html" class="nav-link">Контакти</a>
+    </nav>
+</header>
 
     <!-- Основной контент страницы -->
     <main class="main-container">

@@ -276,7 +276,9 @@
             color: #1A56C4;
         }
 
-       /* 📱 СТРОГО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (<= 768px) */
+    /* ==========================================
+   📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
+   ========================================== */
 @media (max-width: 768px) {
 
     /* 1. Позиционирование элементов в шапке */
@@ -288,35 +290,70 @@
         justify-content: space-between !important;
     }
 
-    /* 2. Подпись под UAGZ строго в 2 колонки */
+    /* 2. UAGZ и подпись строго под ним в 2 колонки */
     .brand-text {
+        display: flex !important;
+        flex-direction: column !important;
         font-size: 11px !important;
         line-height: 1.2 !important;
     }
 
+    .brand-highlight {
+        font-size: 16px !important;
+        font-weight: bold !important;
+        color: #1A56C4 !important;
+    }
+
     .brand-text .brand-subtext {
         display: grid !important;
-        grid-template-columns: auto auto !important;
-        column-gap: 8px !important;
+        grid-template-columns: auto auto !important; /* Ровно 2 колонки */
+        column-gap: 6px !important;
         margin-top: 2px !important;
+        color: #1A56C4 !important;
     }
 
-    /* 3. Выводим UA DE прямо в шапку (на экран) */
+    /* 3. Переключатель языков UA DE выведен на экран рядом с бургером */
     .lang-switch {
         display: inline-flex !important;
-        gap: 6px !important;
-        font-size: 12px !important;
+        gap: 8px !important;
+        font-size: 13px !important;
         margin-left: auto !important;
         margin-right: 12px !important;
+        font-weight: bold !important;
+        color: #1A56C4 !important;
     }
 
-    /* 4. Настройка выпадающего меню (Бургера) */
+    /* 4. КНОПКА БУРГЕРА (ВОЗВРАЩАЕМ НА ЭКРАН) */
+    .burger-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 24px !important;
+        height: 18px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        z-index: 1001 !important;
+    }
+
+    .burger-btn span {
+        width: 100% !important;
+        height: 2px !important;
+        background-color: #1A56C4 !important;
+        border-radius: 2px !important;
+    }
+
+    /* 5. Выпадающее бургер-меню */
     .header-nav {
         display: none !important;
         position: absolute !important;
         top: 100% !important;
         right: 10px !important;
+        
+        /* Ширина строго по ширине текста */
         width: max-content !important;
+        max-width: calc(100vw - 20px) !important;
         
         /* Прозрачность 60% (непрозрачность 40%) */
         background-color: rgba(255, 255, 255, 0.4) !important;
@@ -336,27 +373,38 @@
         display: flex !important;
     }
 
-    /* Скрываем переключатель языков внутри меню, так как он выведен на экран */
+    /* Скрываем переключатель языков внутри меню */
     .header-nav .lang-switch {
         display: none !important;
     }
 
-    /* 5. Убираем наложение и поднимаем красную ссылку с резюме */
+    /* Выделение Donate жёлтым цветом */
+    .header-nav .nav-link-donate {
+        background-color: #FFD700 !important;
+        color: #000000 !important;
+        padding: 4px 10px !important;
+        border-radius: 6px !important;
+        font-weight: bold !important;
+    }
+
+    /* 6. Красная ссылка «Створення резюме...» (ПОДНЯТА ВЫШЕ) */
     #cv-promo-link,
     .blinking-text {
-        position: static !important;        /* Отменяем absolute, чтобы ссылка не накладывалась на текст */
+        position: static !important;
         transform: none !important;
         display: block !important;
-        margin: 8px 0 12px 0 !important;    /* Чистые отступы сверху и снизу */
-        font-size: 12px !important;
-        white-space: normal !important;      /* Разрешаем аккуратный перенос, если экран узкий */
+        margin: 10px 0 15px 0 !important; /* Отступ сверху и снизу, чтобы не сливалось */
+        font-size: 13px !important;
+        white-space: normal !important;
         text-align: left !important;
     }
 
-    /* Разделительный отступ для кнопки "Назад" */
+    /* Кнопка "Назад" идет ниже под ссылкой */
     .back-button {
-        margin-top: 5px !important;
-        margin-bottom: 15px !important;
+        position: static !important;
+        transform: none !important;
+        display: inline-block !important;
+        margin-bottom: 20px !important;
     }
 }
 
@@ -366,19 +414,21 @@
     50% { opacity: 0.3; }
     100% { opacity: 1; }
 }
-        /* Для десктопа кнопка бургера всегда скрыта */
+
+/* ==========================================
+   💻 ДЕКТОРНАЯ ВЕРСИЯ (ПК НЕ ТРОГАЕМ)
+   ========================================== */
 .burger-btn {
-    display: none;
+    display: none; /* На ПК бургер всегда скрыт */
 }
 
-/* На ПК подпись под UAGZ идет обычной строкой */
 @media (min-width: 769px) {
     .brand-subtext span {
         display: inline;
         margin-right: 4px;
     }
 }
-    </style>
+</style>
 </head>
 <body>
 
@@ -422,21 +472,18 @@
     <!-- Основной контент страницы -->
     <main class="main-container">
         
-        <!-- Полностью изолированная строка навигации -->
-        <div class="navigation-header-row" style="position: relative; width: 100%; min-height: 35px; margin-bottom: 30px; display: block; clear: both;">
-            
-            <!-- Кнопка возврата (строго слева) -->
-            <a href="knowledge.html" class="back-button" id="back-link" data-translate="back-btn" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); margin: 0; white-space: nowrap;">
-                ← Назад до Центр знань
-            </a>
+       <!-- Безопасный блок навигации -->
+<div class="navigation-header-row">
+    <!-- 1. Красная ссылка (на мобильном встанет выше) -->
+    <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link">
+        Створення резюме — Lebenslauf erstellen →
+    </a>
 
-            <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) + мерцание -->
-            <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
-                Створення резюме — Lebenslauf erstellen →
-            </a>
-
-        </div>
-
+    <!-- 2. Кнопка возврата (встанет ниже под красной ссылкой) -->
+    <a href="knowledge.html" class="back-button" id="back-link" data-translate="back-btn">
+        ← Назад до Центр знань
+    </a>
+</div>
         <!-- Основная сетка страницы -->
         <div class="page-grid">
             

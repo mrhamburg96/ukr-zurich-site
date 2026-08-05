@@ -276,12 +276,52 @@
             color: #1A56C4;
         }
 
-    /* ==========================================
-   📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
+
+/* ==========================================
+   1. ОБЩИЕ СТИЛИ И ПК-ВЕРСИЯ (DEKSTOP)
+   ========================================== */
+
+/* Кнопка бургера на ПК всегда скрыта */
+.burger-btn {
+    display: none;
+}
+
+/* Строка навигации на ПК: кнопка "Назад" СЛЕВА, красная ссылка СПРАВА */
+.navigation-header-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+}
+
+/* Ярко-красный цвет для ссылки с резюме */
+#cv-promo-link, 
+.blinking-text {
+    color: #dc3545 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+#cv-promo-link:hover {
+    color: #a71d2a !important;
+}
+
+/* На ПК подпись под UAGZ в одну строку */
+@media (min-width: 769px) {
+    .brand-subtext span {
+        display: inline;
+        margin-right: 4px;
+    }
+}
+
+/* ==========================================
+   2. 📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
    ========================================== */
 @media (max-width: 768px) {
 
-    /* 1. Позиционирование элементов в шапке */
+    /* Шапка сайта */
     .site-header {
         padding: 10px 12px !important;
         position: relative !important;
@@ -290,29 +330,39 @@
         justify-content: space-between !important;
     }
 
-    /* 2. UAGZ и подпись строго под ним в 2 колонки */
+    .header-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* UAGZ и подпись строго под ним в 2 строки */
     .brand-text {
         display: flex !important;
         flex-direction: column !important;
-        font-size: 11px !important;
-        line-height: 1.2 !important;
     }
 
     .brand-highlight {
         font-size: 16px !important;
         font-weight: bold !important;
         color: #1A56C4 !important;
+        line-height: 1 !important;
     }
 
-    .brand-text .brand-subtext {
-        display: grid !important;
-        grid-template-columns: auto auto !important; /* Ровно 2 колонки */
-        column-gap: 6px !important;
-        margin-top: 2px !important;
+    .brand-subtext {
+        display: flex !important;
+        flex-direction: column !important; /* Строго 2 строки друг под другом */
+        margin-top: 3px !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
         color: #1A56C4 !important;
     }
 
-    /* 3. Переключатель языков UA DE выведен на экран рядом с бургером */
+    .brand-subtext span {
+        display: block !important;
+    }
+
+    /* Переключатель языков UA DE */
     .lang-switch {
         display: inline-flex !important;
         gap: 8px !important;
@@ -323,7 +373,7 @@
         color: #1A56C4 !important;
     }
 
-    /* 4. КНОПКА БУРГЕРА (ВОЗВРАЩАЕМ НА ЭКРАН) */
+    /* Кнопка бургера */
     .burger-btn {
         display: flex !important;
         flex-direction: column !important;
@@ -344,21 +394,16 @@
         border-radius: 2px !important;
     }
 
-    /* 5. Выпадающее бургер-меню */
+    /* Выпадающее бургер-меню */
     .header-nav {
         display: none !important;
         position: absolute !important;
         top: 100% !important;
         right: 10px !important;
-        
-        /* Ширина строго по ширине текста */
         width: max-content !important;
         max-width: calc(100vw - 20px) !important;
-        
-        /* Прозрачность 60% (непрозрачность 40%) */
-        background-color: rgba(255, 255, 255, 0.4) !important;
+        background-color: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(8px) !important;
-        
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 10px !important;
@@ -373,12 +418,11 @@
         display: flex !important;
     }
 
-    /* Скрываем переключатель языков внутри меню */
     .header-nav .lang-switch {
         display: none !important;
     }
 
-    /* Выделение Donate жёлтым цветом */
+    /* Выделение кнопки Donate в меню */
     .header-nav .nav-link-donate {
         background-color: #FFD700 !important;
         color: #000000 !important;
@@ -387,24 +431,27 @@
         font-weight: bold !important;
     }
 
-    /* 6. Красная ссылка «Створення резюме...» (ПОДНЯТА ВЫШЕ) */
-    #cv-promo-link,
-    .blinking-text {
-        position: static !important;
-        transform: none !important;
-        display: block !important;
-        margin: 10px 0 15px 0 !important; /* Отступ сверху и снизу, чтобы не сливалось */
-        font-size: 13px !important;
-        white-space: normal !important;
-        text-align: left !important;
+    /* Навигация на мобильном: Красная ссылка ВЫШЕ, Назад НИЖЕ */
+    .navigation-header-row {
+        flex-direction: column-reverse !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin-top: 10px !important;
+        margin-bottom: 15px !important;
     }
 
-    /* Кнопка "Назад" идет ниже под ссылкой */
+    #cv-promo-link {
+        font-size: 13px !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
     .back-button {
-        position: static !important;
-        transform: none !important;
+        font-size: 13px !important;
         display: inline-block !important;
-        margin-bottom: 20px !important;
+        margin: 0 !important;
     }
 }
 
@@ -414,84 +461,61 @@
     50% { opacity: 0.3; }
     100% { opacity: 1; }
 }
-
-/* ==========================================
-   💻 ДЕКТОРНАЯ ВЕРСИЯ (ПК НЕ ТРОГАЕМ)
-   ========================================== */
-.burger-btn {
-    display: none; /* На ПК бургер всегда скрыт */
-}
-
-@media (min-width: 769px) {
-    .brand-subtext span {
-        display: inline;
-        margin-right: 4px;
-    }
-}
+</style>
 </style>
 </head>
 <body>
 
     <!-- Шапка сайта -->
-    <header class="site-header">
-        <div class="header-brand">
-            <div class="flags-container">
-                <img src="https://flagcdn.com/ua.svg" alt="UA Flag" class="flag-icon">
-                <img src="https://flagcdn.com/ch.svg" alt="CH Flag" class="flag-icon">
-            </div>
-            <div class="brand-text">
-    <span class="brand-highlight">UAGZ</span>
-    <div class="brand-subtext">
-        <span>Український інтеграційний</span>
-        <span>та громадський центр Цюриха</span>
-    </div>
-</div>
-<button class="burger-btn" onclick="document.querySelector('.header-nav').classList.toggle('open')">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-        <!-- Навигация -->
-        <nav class="header-nav">
-    <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
-    <a href="about.html" class="nav-link" data-translate="nav-about">Про центр</a>
-    <a href="help.html" class="nav-link" data-translate="nav-help">Допомога</a>
-    <a href="events.html" class="nav-link" data-translate="nav-events">Події</a>
-    <a href="knowledge.html" class="nav-link" data-translate="nav-knowledge">Центр знань</a>
-    <a href="announcements.html" class="nav-link" data-translate="nav-announcements">Оголошення</a>
-    <a href="volunteering.html" class="nav-link" data-translate="nav-volunteering">Волонтерство</a>
-    <a href="donate.html" class="nav-link nav-link-donate" data-translate="nav-donate">Donate</a>
-    <a href="contacts.html" class="nav-link" data-translate="nav-contacts">Контакти</a>
-</nav>
-            <div class="lang-switch">
-    <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
-    <span class="lang-item" onclick="changeLanguage('de')">DE</span>
-</div>
-    </header>
-
-    <!-- Основной контент страницы -->
-    <main class="main-container">
+   <header class="site-header">
+    <div class="header-brand">
+        <div class="flags-container">
+            <img src="https://flagcdn.com/ua.svg" alt="UA" class="flag-icon">
+            <img src="https://flagcdn.com/ch.svg" alt="CH" class="flag-icon">
+        </div>
         
-       <!-- Безопасный блок навигации -->
-<div class="navigation-header-row">
-    <!-- 1. Красная ссылка (на мобильном встанет выше) -->
-    <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link">
-        Створення резюме — Lebenslauf erstellen →
-    </a>
+        <div class="brand-text">
+            <span class="brand-highlight">UAGZ</span>
+            <div class="brand-subtext">
+                <span>Український інтеграційний</span>
+                <span>та громадський центр Цюриха</span>
+            </div>
+        </div>
+    </div>
 
-    <!-- 2. Кнопка возврата (встанет ниже под красной ссылкой) -->
+    <div class="lang-switch">
+        <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
+        <span class="lang-item" onclick="changeLanguage('de')">DE</span>
+    </div>
+
+    <button class="burger-btn" aria-label="Меню" onclick="document.querySelector('.header-nav').classList.toggle('open')">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="header-nav">
+        <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
+        <a href="about.html" class="nav-link" data-translate="nav-about">Про центр</a>
+        <a href="help.html" class="nav-link" data-translate="nav-help">Допомога</a>
+        <a href="events.html" class="nav-link" data-translate="nav-events">Події</a>
+        <a href="knowledge.html" class="nav-link" data-translate="nav-knowledge">Центр знань</a>
+        <a href="announcements.html" class="nav-link" data-translate="nav-announcements">Оголошення</a>
+        <a href="volunteering.html" class="nav-link" data-translate="nav-volunteering">Волонтерство</a>
+        <a href="donate.html" class="nav-link nav-link-donate" data-translate="nav-donate">Donate</a>
+        <a href="contacts.html" class="nav-link" data-translate="nav-contacts">Контакти</a>
+    </nav>
+</header>
+
+<div class="navigation-header-row">
     <a href="knowledge.html" class="back-button" id="back-link" data-translate="back-btn">
         ← Назад до Центр знань
     </a>
-</div>
-        <!-- Основная сетка страницы -->
-        <div class="page-grid">
-            
-            <!-- ЛЕВАЯ КОЛОНКА: Изображение -->
-            <div class="image-wrapper">
-                <img src="work-foto1.webp" alt="Робота в Швейцарії" class="article-image">
-            </div>
 
+    <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link">
+        Створення резюме — Lebenslauf erstellen →
+    </a>
+</div>
             <!-- ПРАВАЯ КОЛОНКА: Аккордеон со статьями -->
             <div class="accordion-container">
                 

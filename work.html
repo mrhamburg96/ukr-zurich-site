@@ -448,6 +448,41 @@
         font-weight: bold !important;
         display: inline-block !important;
     }
+      /* 1. Настройка слоя, цвета и позиционирования ссылки */
+  .resume-link { /* замените .resume-link на ваш класс этой ссылки */
+    position: relative !important;
+    z-index: 10 !important; /* Поднимаем элемент выше синего текста */
+    color: #e60000 !important; /* Насыщенный красный цвет */
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    display: block !important;
+    margin-bottom: 8px !important; /* Отступ, чтобы не накладывался на синюю кнопку */
+    
+    /* Подключение анимации мерцания */
+    animation: blink-red 1.5s infinite alternate ease-in-out !important;
+  }
+
+}
+
+/* 2. Анимация красного мерцания */
+@keyframes blink-red {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(230, 0, 0, 0.4);
+  }
+  100% {
+    opacity: 0.35;
+    text-shadow: 0 0 8px rgba(230, 0, 0, 0.8);
+  }
+@media (max-width: 768px) {
+  .resume-link .desktop-text { display: none !important; }
+  .resume-link .mobile-text { display: inline !important; }
+}
+@media (min-width: 769px) {
+  .resume-link .mobile-text { display: none !important; }
+  .resume-link .desktop-text { display: inline !important; }
+}
 }
 </style>
 </head>
@@ -507,9 +542,10 @@
             </a>
 
             <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) + мерцание -->
-            <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
-                Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →
-            </a>
+          <a href="#" class="resume-link">
+  <span class="desktop-text">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →</span>
+  <span class="mobile-text">Створення резюме — Lebenslauf erstellen →</span>
+</a>
 
         </div>
 

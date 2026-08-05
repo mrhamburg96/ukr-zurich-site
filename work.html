@@ -278,7 +278,8 @@
 
        
 /* ==========================================
-   💻 1. ОБЩИЕ СТИЛИ И ПК-ВЕРСИЯ (DEKSTOP)
+ /* ==========================================
+   💻 1. ОБЩИЕ СТИЛИ И ПК-ВЕРСИЯ (DESKTOP)
    ========================================== */
 
 /* Шапка сайта на ПК */
@@ -287,6 +288,10 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 1200px; /* Ограничиваем максимальную ширину шапки */
+    margin: 0 auto;
+    padding: 10px 20px;
+    box-sizing: border-box; /* Гарантирует, что padding не расширяет шапку за пределы экрана */
 }
 
 /* На ПК бургер всегда скрыт */
@@ -294,9 +299,32 @@
     display: none;
 }
 
-/* Переключатель языков на ПК в самом правом краю */
-.lang-switch {
+/* Меню навигации на ПК */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Уменьшаем отступ между ссылками, чтобы все влезало */
     margin-left: auto;
+}
+
+/* Ссылки меню на ПК */
+.header-nav .nav-link {
+    font-size: 13px; /* Слегка уменьшаем размер шрифта для компактности */
+    white-space: nowrap;
+}
+
+/* Подзаголовок логотипа на ПК (уменьшаем размер) */
+.brand-subtext {
+    font-size: 10px; /* Уменьшенный размер для текста центра */
+    line-height: 1.2;
+    max-width: 210px; /* Ограничиваем ширину для аккуратного переноса */
+}
+
+/* Переключатель языков на ПК */
+.lang-switch {
+    margin-left: 15px;
+    white-space: nowrap; /* Не дает переключателю ломаться или выпадать */
+    flex-shrink: 0; /* Запрещает сжатие и вытеснение за края */
 }
 
 /* Адаптивность для планшетов и мобильных (общие сетки) */
@@ -354,9 +382,10 @@
         display: flex !important;
         flex-direction: column !important;
         margin-top: 3px !important;
-        font-size: 10px !important;
-        line-height: 1.2 !important;
+        font-size: 9px !important;
+        line-height: 1.1 !important;
         color: #1A56C4 !important;
+        max-width: none !important;
     }
 
     .brand-subtext span {
@@ -376,24 +405,24 @@
         color: #1A56C4 !important;
     }
 
-    /* 2. Иконка бургера <i class="fi fi-br-menu-burger"></i> */
+    /* 2. Иконка бургера */
     .burger-btn {
         order: 3 !important;
-        display: inline-flex !important;
+        display: flex !important; /* Гарантируем видимость кнопки на мобильном */
         align-items: center !important;
         justify-content: center !important;
         background: transparent !important;
         border: none !important;
         cursor: pointer !important;
         padding: 4px !important;
-        font-size: 20px !important;
+        font-size: 22px !important;
         color: #1A56C4 !important;
         z-index: 1001 !important;
     }
 
     /* 3. Выпадающее бургер-меню */
     .header-nav {
-        display: none !important;
+        display: none !important; /* По умолчанию скрыто */
         position: absolute !important;
         top: 100% !important;
         right: 12px !important;
@@ -402,8 +431,8 @@
         width: max-content !important;
         max-width: calc(100vw - 24px) !important;
         
-        /* Непрозрачность 40% (Прозрачность 60%) + размытие */
-        background-color: rgba(255, 255, 255, 0.4) !important;
+        /* Прозрачность + размытие */
+        background-color: rgba(255, 255, 255, 0.95) !important; /* Повышена читаемость */
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
         
@@ -413,11 +442,11 @@
         padding: 16px 20px !important;
         border-radius: 12px !important;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
         z-index: 1000 !important;
     }
 
-    /* Показ меню при клике */
+    /* Показ меню при клике (при наличии класса .open) */
     .header-nav.open {
         display: flex !important;
     }

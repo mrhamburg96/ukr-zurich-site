@@ -276,20 +276,46 @@
             color: #1A56C4;
         }
 
-        /* Адаптивность для планшетов и мобильных */
-        @media (max-width: 992px) {
-            .page-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+       
+/* ==========================================
+   💻 1. ОБЩИЕ СТИЛИ И ПК-ВЕРСИЯ (DEKSTOP)
+   ========================================== */
 
-            .image-wrapper {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 450 / 675;
-            }
-      /* ==========================================
-   📱 МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
+/* Шапка сайта на ПК */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* На ПК бургер всегда скрыт */
+.burger-btn {
+    display: none;
+}
+
+/* Переключатель языков на ПК в самом правом краю */
+.lang-switch {
+    margin-left: auto;
+}
+
+/* Адаптивность для планшетов и мобильных (общие сетки) */
+@media (max-width: 992px) {
+    .page-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 450 / 675;
+    }
+}
+
+
+/* ==========================================
+   📱 2. СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
    ========================================== */
 @media (max-width: 768px) {
 
@@ -304,7 +330,9 @@
         box-sizing: border-box !important;
     }
 
+    /* Направление элементов через CSS order */
     .header-brand {
+        order: 1 !important;
         display: flex !important;
         align-items: center !important;
         gap: 8px !important;
@@ -336,8 +364,9 @@
         white-space: nowrap !important;
     }
 
-    /* 1. Вывод UA DE на экран шапки */
+    /* 1. Вывод UA DE на экран шапки (рядом с бургером) */
     .lang-switch {
+        order: 2 !important;
         display: inline-flex !important;
         gap: 6px !important;
         font-size: 13px !important;
@@ -347,8 +376,9 @@
         color: #1A56C4 !important;
     }
 
-    /* 2. Кнопка с иконкой <i class="fi fi-br-menu-burger"></i> */
+    /* 2. Иконка бургера <i class="fi fi-br-menu-burger"></i> */
     .burger-btn {
+        order: 3 !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -356,8 +386,8 @@
         border: none !important;
         cursor: pointer !important;
         padding: 4px !important;
-        font-size: 20px !important; /* Размер иконки */
-        color: #1A56C4 !important;  /* Цвет иконки */
+        font-size: 20px !important;
+        color: #1A56C4 !important;
         z-index: 1001 !important;
     }
 
@@ -411,13 +441,13 @@
         display: inline-block !important;
     }
 }
-    </style>
+</style>
 </head>
 <body>
 
     <!-- Шапка сайта -->
-    <header class="site-header">
-    <!-- Логотип и название -->
+   <header class="site-header">
+    <!-- 1. Логотип -->
     <div class="header-brand">
         <div class="flags-container">
             <img src="https://flagcdn.com/ua.svg" alt="UA" class="flag-icon">
@@ -432,18 +462,7 @@
         </div>
     </div>
 
-    <!-- 1. Переключатель языков UA DE прямо на экране -->
-    <div class="lang-switch">
-        <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
-        <span class="lang-item" onclick="changeLanguage('de')">DE</span>
-    </div>
-
-    <!-- 2. Иконка бургера через класс fi fi-br-menu-burger -->
-    <button class="burger-btn" aria-label="Меню" onclick="document.querySelector('.header-nav').classList.toggle('open')">
-        <i class="fi fi-br-menu-burger"></i>
-    </button>
-
-    <!-- Выпадающее меню (все 9 пунктов) -->
+    <!-- 2. Главное меню (на ПК идет по центру) -->
     <nav class="header-nav">
         <a href="index.html" class="nav-link">Головна</a>
         <a href="about.html" class="nav-link">Про центр</a>
@@ -452,10 +471,20 @@
         <a href="knowledge.html" class="nav-link">Центр знань</a>
         <a href="announcements.html" class="nav-link">Оголошення</a>
         <a href="volunteering.html" class="nav-link">Волонтерство</a>
-        <!-- Donate выделен специальным классом -->
         <a href="donate.html" class="nav-link nav-link-donate">Donate</a>
         <a href="contacts.html" class="nav-link">Контакти</a>
     </nav>
+
+    <!-- 3. Бургер-кнопка для мобильного (на ПК автоматически скрыта) -->
+    <button class="burger-btn" aria-label="Меню" onclick="document.querySelector('.header-nav').classList.toggle('open')">
+        <i class="fi fi-br-menu-burger"></i>
+    </button>
+
+    <!-- 4. Переключатель языков (Теперь строго СПРАВА на ПК) -->
+    <div class="lang-switch">
+        <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
+        <span class="lang-item" onclick="changeLanguage('de')">DE</span>
+    </div>
 </header>
 
     <!-- Основной контент страницы -->

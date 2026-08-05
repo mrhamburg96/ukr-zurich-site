@@ -344,6 +344,7 @@
 
 /* ==========================================
  /* ==========================================
+/* ==========================================
    📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
    ========================================== */
 @media (max-width: 768px) {
@@ -382,7 +383,7 @@
     /* 1. Иконка бургера (ВИДИМАЯ) */
     .burger-btn {
         order: 3 !important;
-        display: inline-flex !important; /* Включаем отображение кнопки */
+        display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
         background: transparent !important;
@@ -394,28 +395,23 @@
         z-index: 1001 !important;
     }
 
-    /* Если иконка внутри кнопки не задана шрифтом, задаем базовый вид 3 полосок (CSS-бургер) */
     .burger-btn::before {
-        content: "☰" !important; /* Выводит классический символ меню, если иконка не загрузилась */
+        content: "☰" !important;
         font-size: 24px !important;
         line-height: 1 !important;
     }
 
-   /* Выпадающее бургер-меню (40% непрозрачности / 60% прозрачности) */
+    /* Выпадающее бургер-меню (40% непрозрачности / 60% прозрачности) */
     .header-nav {
         display: none !important;
         position: absolute !important;
         top: 100% !important;
         right: 12px !important;
-        
         width: max-content !important;
         max-width: calc(100vw - 24px) !important;
-        
-        /* 40% альфа-канала (0.4) = 60% прозрачности */
         background-color: rgba(255, 255, 255, 0.4) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
-        
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 12px !important;
@@ -425,7 +421,7 @@
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
         z-index: 1000 !important;
     }
-    /* Показ меню при открытии */
+
     .header-nav.open {
         display: flex !important;
     }
@@ -448,41 +444,52 @@
         font-weight: bold !important;
         display: inline-block !important;
     }
-      /* 1. Настройка слоя, цвета и позиционирования ссылки */
-  .resume-link { /* замените .resume-link на ваш класс этой ссылки */
-    position: relative !important;
-    z-index: 10 !important; /* Поднимаем элемент выше синего текста */
-    color: #e60000 !important; /* Насыщенный красный цвет */
-    font-weight: 600 !important;
-    font-size: 13px !important;
-    text-decoration: none !important;
-    display: block !important;
-    margin-bottom: 8px !important; /* Отступ, чтобы не накладывался на синюю кнопку */
-    
-    /* Подключение анимации мерцания */
-    animation: blink-red 1.5s infinite alternate ease-in-out !important;
-  }
 
+    /* МОБИЛЬНАЯ ССЫЛКА НА РЕЗЮМЕ */
+    .resume-link {
+        display: block !important;
+        margin-bottom: 12px !important; /* Отступ вниз, чтобы не перекрывать синюю кнопку */
+        clear: both !important;
+    }
+
+    .resume-link .desktop-text { 
+        display: none !important; 
+    }
+
+    .resume-link .mobile-text { 
+        display: inline-block !important;
+        color: #e60000 !important;
+        font-weight: bold !important;
+        font-size: 13px !important;
+        text-decoration: none !important;
+        animation: blink-red 1.5s infinite alternate ease-in-out !important;
+    }
 }
 
-/* 2. Анимация красного мерцания */
-@keyframes blink-red {
-  0% {
-    opacity: 1;
-    text-shadow: 0 0 2px rgba(230, 0, 0, 0.4);
-  }
-  100% {
-    opacity: 0.35;
-    text-shadow: 0 0 8px rgba(230, 0, 0, 0.8);
-  }
-@media (max-width: 768px) {
-  .resume-link .desktop-text { display: none !important; }
-  .resume-link .mobile-text { display: inline !important; }
-}
+/* ==========================================
+   💻 ПК-ВЕРСИЯ (от 769px)
+   ========================================== */
 @media (min-width: 769px) {
-  .resume-link .mobile-text { display: none !important; }
-  .resume-link .desktop-text { display: inline !important; }
+    .resume-link .mobile-text { 
+        display: none !important; 
+    }
+    .resume-link .desktop-text { 
+        display: inline !important; 
+    }
 }
+
+/* ==========================================
+   ✨ АНИМАЦИЯ МЕРЦАНИЯ
+   ========================================== */
+@keyframes blink-red {
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 2px rgba(230, 0, 0, 0.4);
+    }
+    100% {
+        opacity: 0.35;
+        text-shadow: 0 0 8px rgba(230, 0, 0, 0.8);
+    }
 }
 </style>
 </head>

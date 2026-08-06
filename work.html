@@ -467,29 +467,78 @@
 }
 
 /* ==========================================
-   💻 ПК-ВЕРСИЯ (от 769px)
+/* ==========================================
+   💻 ПК-ВЕРСИЯ (ОТ 769px) — ВОЗВРАЩАЕМ ИСХОДНЫЙ ВИД
    ========================================== */
 @media (min-width: 769px) {
-    .resume-link .mobile-text { 
-        display: none !important; 
-    }
-    .resume-link .desktop-text { 
-        display: inline !important; 
-    }
+  /* Сбрасываем все мобильные эффекты для ссылки на ПК */
+  .resume-link,
+  a[href*="Lebenslauf"] {
+    position: static !important;
+    display: inline-block !important;
+    color: #e60000 !important; /* если исходный цвет был розоватым/красным, либо сбросьте на ваш стандартный */
+    animation: none !important;
+    margin: 0 !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+  }
 }
 
 /* ==========================================
-   ✨ АНИМАЦИЯ МЕРЦАНИЯ
+   📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
    ========================================== */
-@keyframes blink-red {
-    0% {
-        opacity: 1;
-        text-shadow: 0 0 2px rgba(230, 0, 0, 0.4);
-    }
-    100% {
-        opacity: 0.35;
-        text-shadow: 0 0 8px rgba(230, 0, 0, 0.8);
-    }
+@media (max-width: 768px) {
+
+  /* Контейнер, где лежат обе ссылки */
+  .navigation-top-container { /* Замените на родительский класс, если есть */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* 1. Красная мерцающая надпись на мобильном */
+  .resume-link,
+  a[href*="Lebenslauf"] {
+    order: 1 !important; /* Гарантированно ставим ПЕРВОЙ (выше) */
+    display: block !important;
+    position: relative !important;
+    z-index: 5 !important;
+    
+    color: #FF0000 !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    
+    margin-top: 10px !important;
+    margin-bottom: 15px !important; /* Разделяем с синей кнопкой, чтобы не накладывались */
+    
+    /* Анимация мерцания */
+    animation: blink-red-mobile 1.2s infinite alternate ease-in-out !important;
+  }
+
+  /* 2. Синяя ссылка "Назад до Центр знань" */
+  .back-link,
+  a[href*="znan"] {
+    order: 2 !important; /* Ставим ВТОРОЙ (ниже) */
+    display: block !important;
+    position: relative !important;
+    clear: both !important;
+    margin-top: 5px !important;
+  }
+}
+
+/* ==========================================
+   ✨ АНИМАЦИЯ МЕРЦАНИЯ (ТОЛЬКО ДЛЯ МОБИЛЬНОГО)
+   ========================================== */
+@keyframes blink-red-mobile {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 3px rgba(255, 0, 0, 0.6);
+  }
+  100% {
+    opacity: 0.25;
+    text-shadow: none;
+  }
 }
 </style>
 </head>

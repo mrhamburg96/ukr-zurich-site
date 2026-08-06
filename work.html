@@ -485,59 +485,91 @@
 }
 
 /* ==========================================
-   📱 СТРОГО МОБИЛЬНАЯ ВЕРСИЯ (<= 768px)
+ /* ==========================================
+   ✨ 1. ЕДИНАЯ АНИМАЦИЯ МЕРЦАНИЯ
    ========================================== */
-@media (max-width: 768px) {
-
-  /* Контейнер, где лежат обе ссылки */
-  .navigation-top-container { /* Замените на родительский класс, если есть */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
+@keyframes blink-red {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 3px rgba(230, 0, 0, 0.6);
   }
-
-  /* 1. Красная мерцающая надпись на мобильном */
-  .resume-link,
-  a[href*="Lebenslauf"] {
-    order: 1 !important; /* Гарантированно ставим ПЕРВОЙ (выше) */
-    display: block !important;
-    position: relative !important;
-    z-index: 5 !important;
-    
-    color: #FF0000 !important;
-    font-size: 13px !important;
-    font-weight: bold !important;
-    text-decoration: none !important;
-    
-    margin-top: 10px !important;
-    margin-bottom: 15px !important; /* Разделяем с синей кнопкой, чтобы не накладывались */
-    
-    /* Анимация мерцания */
-    animation: blink-red-mobile 1.2s infinite alternate ease-in-out !important;
-  }
-
-  /* 2. Синяя ссылка "Назад до Центр знань" */
-  .back-link,
-  a[href*="znan"] {
-    order: 2 !important; /* Ставим ВТОРОЙ (ниже) */
-    display: block !important;
-    position: relative !important;
-    clear: both !important;
-    margin-top: 5px !important;
+  100% {
+    opacity: 0.3;
+    text-shadow: none;
   }
 }
 
 /* ==========================================
-   ✨ АНИМАЦИЯ МЕРЦАНИЯ (ТОЛЬКО ДЛЯ МОБИЛЬНОГО)
+   💻 2. ВЕРСИЯ ДЛЯ ПК (ОТ 769px)
    ========================================== */
-@keyframes blink-red-mobile {
-  0% {
-    opacity: 1;
-    text-shadow: 0 0 3px rgba(255, 0, 0, 0.6);
+@media (min-width: 769px) {
+
+  /* Контейнер: синий текст слева, красный — в крайнем правом краю */
+  .navigation-top-container,
+  .top-bar-navigation { 
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
   }
-  100% {
-    opacity: 0.25;
-    text-shadow: none;
+
+  /* Красная ссылка на ПК: в самый правый край, жирная, мерцает */
+  .resume-link,
+  a[href*="Lebenslauf"] {
+    margin-left: auto !important; /* Угоняет надпись в крайний правый угол */
+    color: #e60000 !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    animation: blink-red 1.2s infinite alternate ease-in-out !important;
+  }
+
+  /* Синяя ссылка "Назад..." остается слева */
+  .back-link,
+  a[href*="znan"] {
+    color: #1A56C4 !important;
+    position: static !important;
+    text-decoration: none !important;
+  }
+}
+
+/* ==========================================
+   📱 3. МОБИЛЬНАЯ ВЕРСИЯ (ДО 768px)
+   ========================================== */
+@media (max-width: 768px) {
+
+  /* Контейнер на мобильном выстраивает элементы в колонку */
+  .navigation-top-container,
+  .top-bar-navigation {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important; /* Отступ, чтобы надписи не накладывались */
+    width: 100% !important;
+  }
+
+  /* Красный мерцающий текст: СТРОГО НАВЕРХУ */
+  .resume-link,
+  a[href*="Lebenslauf"] {
+    order: 1 !important; /* Первое место в колонке */
+    display: block !important;
+    color: #e60000 !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    animation: blink-red 1.2s infinite alternate ease-in-out !important;
+    margin: 0 !important;
+  }
+
+  /* Синяя ссылка "Назад...": СТРОГО ВНИЗУ */
+  .back-link,
+  a[href*="znan"] {
+    order: 2 !important; /* Второе место в колонке */
+    display: block !important;
+    color: #1A56C4 !important;
+    position: relative !important;
+    margin: 0 !important;
   }
 }
 </style>
@@ -589,22 +621,21 @@
     <!-- Основной контент страницы -->
     <main class="main-container">
         
-        <!-- Полностью изолированная строка навигации -->
-        <div class="navigation-header-row" style="position: relative; width: 100%; min-height: 35px; margin-bottom: 30px; display: block; clear: both;">
-            
-            <!-- Кнопка возврата (строго слева) -->
-            <a href="knowledge.html" class="back-button" id="back-link" data-translate="back-btn" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); margin: 0; white-space: nowrap;">
-                ← Назад до Центр знань
-            </a>
+        <!-- Полностью обновленная строка навигации -->
+<div class="navigation-header-row">
 
-            <!-- Новая красная ссылка со стрелочкой (строго справа на той же оси) + мерцание -->
-          <a href="#" class="resume-link">
-  <span class="desktop-text">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →</span>
-  <span class="mobile-text">Створення резюме — Lebenslauf erstellen →</span>
-</a>
+  <!-- Синяя ссылка "Назад..." (слева) -->
+  <a href="knowledge.html" class="back-link" id="back-link" data-translate="back-btn">
+    ← Назад до Центр знань
+  </a>
 
-        </div>
+  <!-- Красная мерцающая ссылка (справа на ПК / сверху на мобильном) -->
+  <a href="#" class="resume-link">
+    <span class="desktop-text">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →</span>
+    <span class="mobile-text">Створення резюме — Lebenslauf erstellen →</span>
+  </a>
 
+</div>
         <!-- Основная сетка страницы -->
         <div class="page-grid">
             

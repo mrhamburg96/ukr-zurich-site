@@ -486,7 +486,8 @@
 
 /* ==========================================
  /* ==========================================
-   ✨ 1. ЕДИНАЯ АНИМАЦИЯ МЕРЦАНИЯ
+/* ==========================================
+   1. АНИМАЦИЯ МЕРЦАНИЯ
    ========================================== */
 @keyframes blink-red {
   0% {
@@ -500,24 +501,30 @@
 }
 
 /* ==========================================
-   💻 2. ВЕРСИЯ ДЛЯ ПК (ОТ 769px)
+   2. ПК-ВЕРСИЯ (ОТ 769px)
    ========================================== */
 @media (min-width: 769px) {
 
-  /* Контейнер: синий текст слева, красный — в крайнем правом краю */
-  .navigation-top-container,
-  .top-bar-navigation { 
+  .navigation-header-row {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     width: 100% !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 25px !important;
+    position: relative !important;
   }
 
-  /* Красная ссылка на ПК: в самый правый край, жирная, мерцает */
-  .resume-link,
-  a[href*="Lebenslauf"] {
-    margin-left: auto !important; /* Угоняет надпись в крайний правый угол */
+  /* Показываем только длинный ПК-текст */
+  .navigation-header-row .desktop-text {
+    display: inline !important;
+  }
+  .navigation-header-row .mobile-text {
+    display: none !important;
+  }
+
+  /* Ссылка на резюме: прижата вправо, красная, жирная, мерцает */
+  .navigation-header-row .resume-link {
+    margin-left: auto !important;
     color: #e60000 !important;
     font-weight: bold !important;
     font-size: 14px !important;
@@ -525,34 +532,41 @@
     animation: blink-red 1.2s infinite alternate ease-in-out !important;
   }
 
-  /* Синяя ссылка "Назад..." остается слева */
-  .back-link,
-  a[href*="znan"] {
+  /* Синяя ссылка слева */
+  .navigation-header-row .back-link {
     color: #1A56C4 !important;
-    position: static !important;
+    font-weight: 600 !important;
     text-decoration: none !important;
+    position: static !important;
+    transform: none !important;
   }
 }
 
 /* ==========================================
-   📱 3. МОБИЛЬНАЯ ВЕРСИЯ (ДО 768px)
+   3. МОБИЛЬНАЯ ВЕРСИЯ (ДО 768px)
    ========================================== */
 @media (max-width: 768px) {
 
-  /* Контейнер на мобильном выстраивает элементы в колонку */
-  .navigation-top-container,
-  .top-bar-navigation {
+  .navigation-header-row {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 12px !important; /* Отступ, чтобы надписи не накладывались */
+    gap: 12px !important;
     width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Показываем только короткий мобильный текст */
+  .navigation-header-row .desktop-text {
+    display: none !important;
+  }
+  .navigation-header-row .mobile-text {
+    display: inline !important;
   }
 
   /* Красный мерцающий текст: СТРОГО НАВЕРХУ */
-  .resume-link,
-  a[href*="Lebenslauf"] {
-    order: 1 !important; /* Первое место в колонке */
+  .navigation-header-row .resume-link {
+    order: 1 !important;
     display: block !important;
     color: #e60000 !important;
     font-weight: bold !important;
@@ -563,12 +577,14 @@
   }
 
   /* Синяя ссылка "Назад...": СТРОГО ВНИЗУ */
-  .back-link,
-  a[href*="znan"] {
-    order: 2 !important; /* Второе место в колонке */
+  .navigation-header-row .back-link {
+    order: 2 !important;
     display: block !important;
     color: #1A56C4 !important;
-    position: relative !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    position: static !important;
+    transform: none !important;
     margin: 0 !important;
   }
 }
@@ -623,19 +639,16 @@
         
         <!-- Полностью обновленная строка навигации -->
 <div class="navigation-header-row">
-
-  <!-- Синяя ссылка "Назад..." (слева) -->
+  <!-- Синяя ссылка "Назад..." -->
   <a href="knowledge.html" class="back-link" id="back-link" data-translate="back-btn">
     ← Назад до Центр знань
   </a>
 
-  <!-- Красная мерцающая ссылка (справа на ПК / сверху на мобильном) -->
-  <a href="#" class="resume-link">
-      <a href="https://mrhamburg96.github.io/cv-pro/" target="_blank" id="cv-promo-link" class="blinking-text" data-translate="cv-link" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: #dc3545; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin: 0; white-space: nowrap;" onmouseover="this.style.color='#a71d2a'" onmouseout="this.style.color='#dc3545'">
+  <!-- Красная мерцающая ссылка с переходом на cv-pro -->
+  <a href="https://mrhamburg96.github.io/cv-pro/" class="resume-link" target="_blank">
     <span class="desktop-text">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →</span>
     <span class="mobile-text">Створення резюме — Lebenslauf erstellen →</span>
   </a>
-
 </div>
         <!-- Основная сетка страницы -->
         <div class="page-grid">

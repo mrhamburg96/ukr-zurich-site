@@ -461,6 +461,53 @@
     width: auto !important;
     display: inline-block !important;
   }
+/* ==========================================
+   ФИНАЛЬНЫЙ СБРОС ДЛЯ ПК (ШИРИНА ОТ 769px)
+   ========================================== */
+@media (min-width: 769px) {
+
+  /* Жестко уничтожаем бургер и серо-белые рамки вокруг него на ПК */
+  button.burger-btn,
+  #burgerToggle,
+  .burger-btn span {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  /* Правильное позиционирование меню строго справа */
+  .header-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 0 0 auto !important; /* Отталкивает меню к правому краю */
+    gap: 20px !important;
+  }
+
+  .nav-links li {
+    width: auto !important;
+    display: inline-block !important;
+  }
 }
   </style>
 </head>

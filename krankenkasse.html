@@ -275,7 +275,101 @@
       .image-sidebar img {
         height: 350px;
       }
-    }
+    /* ==========================================
+   МОБИЛЬНАЯ ВЕРСИЯ (ПК НЕ ЗАТРАГИВАЕТ)
+   ========================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Уменьшаем флаги */
+  .header-flags, 
+  .logo-flags img,
+  .flags-container img {
+    height: 20px !important;
+    width: auto !important;
+  }
+
+  /* 2. Уменьшаем шрифт UAGZ */
+  .logo-title, 
+  .brand-name,
+  .header-logo h1 {
+    font-size: 20px !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 3. Текст под UAGZ в 2 колонки */
+  .logo-subtitle,
+  .brand-description {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px 8px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  /* 4. Бургер-меню */
+  
+  /* Кнопка гамбургера */
+  .burger-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /* Выпадающий блок меню */
+  .nav-menu,
+  .mobile-dropdown {
+    display: none; /* Открывается по клику/классу */
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    
+    /* Прозрачность: 60% прозрачности, 40% непрозрачности */
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(8px); /* легкое размытие фонового контента */
+    
+    /* Ширина ровно по тексту внутри */
+    width: max-content !important;
+    min-width: 160px;
+    
+    padding: 12px 16px !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+
+  /* Когда меню открыто */
+  .nav-menu.active,
+  .mobile-dropdown.open {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  /* Пункты меню */
+  .nav-menu a,
+  .mobile-dropdown a {
+    font-size: 14px !important;
+    text-decoration: none;
+    color: #1a1a1a;
+    white-space: nowrap;
+  }
+
+  /* Выделение кнопки Донат жёлтым цветом */
+  .nav-menu a[href*="donate"],
+  .nav-menu a:contains("Донат"),
+  .donate-link {
+    background-color: #ffd700 !important; /* Насыщенный жёлтый */
+    color: #000000 !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    display: inline-block;
+  }
+}
   </style>
 </head>
 <body>

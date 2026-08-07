@@ -319,14 +319,87 @@
     width: auto !important;
   }
 
-  /* ЖЕСТКО СКРЫВАЕМ БУРГЕР НА ПК */
-  .burger-btn {
+  /* ==========================================
+   1. ПРАВИЛА ДЛЯ ПК (ОТ 769px) — БЕЗ БУРГЕРА И ДУБЛЕЙ
+   ========================================== */
+@media (min-width: 769px) {
+
+  /* Жестко скрываем кнопку бургера на компьютерах */
+  .burger-btn,
+  #burgerToggle {
     display: none !important;
+  }
+
+  /* Шапка сайта на ПК */
+  .header-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+
+  /* На ПК восстанавливаем стандартное меню в один ряд */
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 20px !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .nav-links li {
+    width: auto !important;
   }
 }
 
 /* ==========================================
-   2. ПРАВИЛА ДЛЯ МОБИЛЬНЫХ (ШИРИНА ДО 768px)
+/* ==========================================
+   1. ПРАВИЛА ДЛЯ ПК (ОТ 769px) — БЕЗ БУРГЕРА И ДУБЛЕЙ
+   ========================================== */
+@media (min-width: 769px) {
+
+  /* Жестко скрываем кнопку бургера на компьютерах */
+  .burger-btn,
+  #burgerToggle {
+    display: none !important;
+  }
+
+  /* Шапка сайта на ПК */
+  .header-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+
+  /* На ПК восстанавливаем стандартное меню в один ряд */
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 20px !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .nav-links li {
+    width: auto !important;
+  }
+}
+
+/* ==========================================
+   2. ПРАВИЛА ДЛЯ МОБИЛЬНЫХ (ДО 768px)
    ========================================== */
 @media (max-width: 768px) {
   .header-nav {
@@ -374,7 +447,7 @@
     color: #0d47a1 !important;
   }
 
-  /* Переключатель языков по центру/справа */
+  /* Переключатель языков */
   .lang-sw {
     display: flex !important;
     gap: 2px !important;
@@ -391,7 +464,7 @@
     border-radius: 4px !important;
   }
 
-  /* Кнопка бургера в самом правом углу */
+  /* Кнопка бургера в правом углу */
   .burger-btn {
     display: flex !important;
     flex-direction: column !important;
@@ -413,9 +486,9 @@
     border-radius: 2px !important;
   }
 
-  /* Выпадающее мобильное меню */
+  /* Выпадающее мобильное меню (скрыто, пока не добавлен .active) */
   .nav-links {
-    display: none;
+    display: none !important;
     position: absolute !important;
     top: 100% !important;
     right: 12px !important;
@@ -431,6 +504,7 @@
     z-index: 1000 !important;
   }
 
+  /* Отображение меню ТОЛЬКО при нажатии на бургер */
   .nav-links.active {
     display: flex !important;
     flex-direction: column !important;
@@ -468,7 +542,7 @@
 
   <!-- ШАПКА САЙТА -->
 <header class="header-nav">
-  <!-- Левый блок: Флаги + Название -->
+  <!-- 1. Логотип -->
   <a class="nav-logo" href="./index.html">
     <div class="flags-logo">
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="UA Flag">
@@ -480,13 +554,13 @@
     </div>
   </a>
 
-  <!-- Центральный/Правый блок: Переключатель языков -->
+  <!-- 2. Переключатель языков -->
   <div class="lang-sw">
     <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
     <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
   </div>
 
-  <!-- Главное меню (на ПК идет в ряд, на мобильных скрывается под бургер) -->
+  <!-- 3. Единственное меню для ПК и Мобильных -->
   <ul class="nav-links" id="navMenu">
     <li><a href="index.html" id="m-home" data-i18n="m_home">Головна</a></li>
     <li><a href="events.html" id="m-events" data-i18n="m_events">Про нас</a></li>
@@ -496,14 +570,13 @@
     <li><a href="contacts.html" id="m-contacts" data-i18n="m_contacts">Контакти</a></li>
   </ul>
 
-  <!-- Кнопка бургера (вынесена в самый конец) -->
+  <!-- 4. Кнопка бургера (скрывается на ПК через CSS) -->
   <button class="burger-btn" id="burgerToggle" aria-label="Toggle navigation">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </header>
-
   <!-- Выпадающее меню -->
   <ul class="nav-links" id="navMenu">
     <li><a href="index.html" id="m-home" data-i18n="m_home">Головна</a></li>

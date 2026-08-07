@@ -508,6 +508,31 @@
     width: auto !important;
     display: inline-block !important;
   }
+@media (min-width: 769px) {
+  /* Полностью скрываем бургер на ПК */
+  #burgerToggle,
+  .burger-btn {
+    display: none !important;
+  }
+
+  /* Шапка в один ряд */
+  .header-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* Меню строго справа */
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    margin-left: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    gap: 20px !important;
+  }
 }
   </style>
 </head>
@@ -527,13 +552,13 @@
     </div>
   </a>
 
-  <!-- Центральный/Правый блок: Переключатель языков -->
+  <!-- Переключатель языков -->
   <div class="lang-sw">
     <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
     <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
   </div>
 
-  <!-- Главное меню (на ПК идет в ряд, на мобильных скрывается под бургер) -->
+  <!-- Главное меню (ЕДИНСТВЕННЫЙ экземпляр) -->
   <ul class="nav-links" id="navMenu">
     <li><a href="index.html" id="m-home" data-i18n="m_home">Головна</a></li>
     <li><a href="events.html" id="m-events" data-i18n="m_events">Про нас</a></li>
@@ -543,7 +568,7 @@
     <li><a href="contacts.html" id="m-contacts" data-i18n="m_contacts">Контакти</a></li>
   </ul>
 
-  <!-- Кнопка бургера (вынесена в самый конец) -->
+  <!-- Кнопка бургера для мобильных -->
   <button class="burger-btn" id="burgerToggle" aria-label="Toggle navigation">
     <span></span>
     <span></span>
@@ -551,24 +576,12 @@
   </button>
 </header>
 
-  <!-- Выпадающее меню -->
-  <ul class="nav-links" id="navMenu">
-    <li><a href="index.html" id="m-home" data-i18n="m_home">Головна</a></li>
-    <li><a href="events.html" id="m-events" data-i18n="m_events">Про нас</a></li>
-    <li><a href="knowledge.html" class="active" id="m-knowledge" data-i18n="m_knowledge">Центр знань</a></li>
-    <li><a href="volunteering.html" id="m-volunteering" data-i18n="m_volunteering">Волонтерство</a></li>
-    <li><button class="btn-donate-nav" id="m-donate" data-i18n="m_donate">❤️ Донат</button></li>
-    <li><a href="contacts.html" id="m-contacts" data-i18n="m_contacts">Контакти</a></li>
-  </ul>
-</header>
-
-  <!-- КНОПКА "НАЗАД" -->
-  <div class="back-link-container">
-    <a href="knowledge.html" class="back-link" id="back-to-knowledge" data-i18n="back_link">
-      &larr; Назад до Центр знань
-    </a>
-  </div>
-
+<!-- КНОПКА "НАЗАД" -->
+<div class="back-link-container">
+  <a href="knowledge.html" class="back-link" id="back-to-knowledge" data-i18n="back_link">
+    &larr; Назад до Центр знань
+  </a>
+</div>
   <!-- ДВУХКОЛОНОЧНЫЙ БЛОК: ФОТО + СТАТЬИ -->
   <main class="content-container">
     

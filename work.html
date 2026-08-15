@@ -131,22 +131,24 @@
             align-items: start;
         }
 
-        /* Левая колонка: Оформление фото (строго 450x675) */
-        .image-wrapper {
-            width: 450px;
-            height: 675px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            background-color: #eaeaea;
-        }
+      /* Левая колонка: Контейнер для изображений */
+.image-wrapper {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Отступ между двумя фото */
+}
 
-        .article-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+/* Оформление каждого фото в левой колонке */
+.article-image {
+    width: 100%;
+    height: 675px; /* Сохраняем фиксированную высоту для каждого фото */
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background-color: #eaeaea;
+}
 
         /* Правая колонка: Аккордеон */
         .accordion-container {
@@ -335,6 +337,11 @@
     }
 
     .image-wrapper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 450 / 675;
+    }
+    .article-image {
         width: 100%;
         height: auto;
         aspect-ratio: 450 / 675;
@@ -654,9 +661,11 @@
         <div class="page-grid">
             
             <!-- ЛЕВАЯ КОЛОНКА: Изображение -->
-            <div class="image-wrapper">
-                <img src="work-foto1.webp" alt="Робота в Швейцарії" class="article-image">
-            </div>
+           <!-- ЛЕВАЯ КОЛОНКА: Изображения -->
+<div class="image-wrapper">
+    <img src="work-foto1.webp" alt="Робота в Швейцарії 1" class="article-image">
+    <img src="work-foto2.webp" alt="Робота в Швейцарії 2" class="article-image">
+</div>
 
             <!-- ПРАВАЯ КОЛОНКА: Аккордеон со статьями -->
             <div class="accordion-container">

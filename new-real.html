@@ -218,8 +218,59 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </aside>
 
     <div class="status-articles">
-      <!-- Стаття: Освіта та дитячі садки (05.08.2026) -->
+
+      <!-- Стаття: Міграційні зміни 2026 року (15.08.2026) -->
       <div class="accordion-item active">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="mig26-h1">Міграційні зміни 2026 року: що важливо знати власникам статусу S у Швейцарії</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content" style="max-height: 4000px;">
+          <div class="accordion-inner">
+            <span class="article-date">15.08.2026</span>
+            <p id="mig26-p1" class="article-p"></p>
+
+            <h3 id="mig26-sub1"></h3>
+            <p id="mig26-p2" class="article-p"></p>
+
+            <h3 id="mig26-sub2"></h3>
+            <p id="mig26-p3" class="article-p"></p>
+            <ul class="article-list">
+              <li id="mig26-li1"></li>
+              <li id="mig26-li2"></li>
+              <li id="mig26-li3"></li>
+            </ul>
+
+            <h3 id="mig26-sub3"></h3>
+            <p id="mig26-p4" class="article-p"></p>
+            <ul class="article-list">
+              <li id="mig26-li4"></li>
+              <li id="mig26-li5"></li>
+            </ul>
+
+            <h3 id="mig26-sub4"></h3>
+            <p id="mig26-p5" class="article-p"></p>
+            <ul class="article-list">
+              <li id="mig26-li6"></li>
+              <li id="mig26-li7"></li>
+            </ul>
+
+            <h3 id="mig26-sub5"></h3>
+            <ul class="article-list">
+              <li id="mig26-li8"></li>
+              <li id="mig26-li9"></li>
+              <li id="mig26-li10"></li>
+            </ul>
+
+            <h3 id="mig26-sub6"></h3>
+            <p id="mig26-p6" class="article-p"></p>
+            <p id="mig26-p7" class="article-p" style="margin-top:1rem; font-weight:500;"></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Стаття: Освіта та дитячі садки (05.08.2026) -->
+      <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
           <span id="edu-h1">Освіта та дитячі садки для статусу S: що зміниться у 2026–2027 роках</span>
           <span class="arrow">▼</span>
@@ -598,6 +649,33 @@ const T = {
     "nr-title": "Статус S у Швейцарії. Актуальні новини",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
 
+    /* ТЕКСТ СТАТЬИ О МИГРАЦИОННЫХ ИЗМЕНЕНИЯХ (UA) */
+    "mig26-h1": "Міграційні зміни 2026 року: що важливо знати власникам статусу S у Швейцарії",
+    "mig26-p1": "Станом на серпень 2026 року міграційна політика Швейцарії щодо українців, які перебувають під спеціальним захистом, зазнала суттєвих трансформацій. Для власників статусу S цей період є визначальним: уряд країни продовжує курс на посилення інтеграційних вимог та перегляд умов перебування. Розуміння цих змін є необхідним для кожного, хто планує своє майбутнє в Конфедерації.",
+    "mig26-sub1": "Актуальний статус захисту: чи очікувати скасування?",
+    "mig26-p2": "У 2026 році ключовим питанням залишається термін дії статусу S. Уряд Швейцарії неодноразово наголошував, що статус залишається чинним доти, доки безпекова ситуація в Україні не дозволить забезпечити стале повернення. Однак, з огляду на тенденції 2026 року, федеральні органи влади зміщують фокус з «тимчасового притулку» на «активну інтеграцію».",
+    "mig26-sub2": "Що змінилося в інтеграційній политиці?",
+    "mig26-p3": "Якщо на початку війни вимоги до біженців були мінімальними, то сьогодні швейцарська система вимагає значно вищого рівня автономності. Це стосується:",
+    "mig26-li1": "<strong>Ринку праці:</strong> Посилено контроль за працевлаштуванням осіб зі статусом S. Багато кантонів запровадили обов’язкові курси професійної орієнтації, які мають на меті скоротити час на пошук роботи.",
+    "mig26-li2": "<strong>Мовних компетенцій:</strong> Володіння мовою кантону перебування (німецькою, французькою або італійською) стало критичним фактором для збереження соціальних виплат.",
+    "mig26-li3": "<strong>Податкової дисципліни:</strong> Власники статусу S, які мають дохід, потрапляють під суворий моніторинг податкових органів, оскільки їхній заробіток безпосередньо впливає на суму отриманої соціальної допомоги.",
+    "mig26-sub3": "Соціальна допомога та фінансова автономність",
+    "mig26-p4": "Міграційні зміни 2026 року принесли нові правила щодо фінансової підтримки. Кантональні соціальні служби (Sozialamt) активно впроваджують моделі, які стимулюють вихід на ринок праці.",
+    "mig26-li4": "<strong>Диференційовані виплати:</strong> У багатьох кантонах сума виплат тепер жорстко прив’язана до успіхів у вивченні мови та відвідування курсів підвищення кваліфікації.",
+    "mig26-li5": "<strong>Витрати на медицину:</strong> Доступ до стоматології та інших вузькопрофільних медичних послуг став більш регульованим. Соціальні служби частіше відмовляють у фінансуванні планових процедур, залишаючи лише покриття невідкладних станів.",
+    "mig26-sub4": "Статус S чи дозвіл на проживання типу B: коли змінювати статус?",
+    "mig26-p5": "Для багатьох українців 2026 рік став часом прийняття рішення щодо переходу зі статусу S на звичайний дозвіл на проживання (статус B). Це крокова зміна, яка має свої «за» та «проти».",
+    "mig26-li6": "<strong>Переваги статусу B:</strong> Повна незалежність від міграційних рішень щодо захисту, можливість вільного вибору роботодавця без погоджень, стабільний юридичний статус.",
+    "mig26-li7": "<strong>Ризики:</strong> Втрата права на кантональну фінансову допомогу, необхідність самостійної оплати приватного медичного страхування (Grundversicherung) у повному обсязі, без пільгових умов.",
+    "mig26-sub5": "Поради для власників статусу S на 2026 рік",
+    "mig26-p6": "Щоб уникнути юридичних складнощів та зберегти стабільність, експерти рекомендують:",
+    "mig26-li8": "<strong>Слідкуйте за офіційними комунікаціями:</strong> Інформація на порталах SEM (State Secretariat for Migration) оновлюється динамічно. Регулярно перевіряйте вимоги свого кантону.",
+    "mig26-li9": "<strong>Інвестуйте в освіту:</strong> Навіть якщо ви вже працюєте, здобуття швейцарського сертифіката про професійну кваліфікацію значно підвищує ваші шанси на успішну інтеграцію та кар'єрне зростання.",
+    "mig26-li10": "<strong>Консультуйтеся з юристами:</strong> При зміні життєвих обставин (наприклад, при зміні місця роботи чи плануванні довгострокового проживання) важливо знати, як це вплине на ваш міграційний статус.",
+    "mig26-sub6": "Висновок",
+    "mig26-p6": "Міграційні зміни 2026 року свідчать про те, що Швейцарія розглядає власників статусу S не як тимчасових гостей, а як частину свого економічного простору. Хоча захист залишається гарантованим, умови перебування стають більш вимогливими. Готовність до змін, вивчення мови та активна професійна позиція — це фундамент, який дозволить вам почуватися впевнено у будь-яких міграційних умовах.",
+    "mig26-p7": "Пам'ятайте, що найкраща стратегія в умовах невизначеності — це прагнення до максимальної особистої та фінансової автономності. Незалежно від того, яким буде майбутнє статусу S, отримані вами навички та досвід роботи у швейцарській системі стануть вашим головним капіталом.",
+    
     /* ТЕКСТ СТАТЬИ ОБ ОБРАЗОВАНИИ (UA) */
     "edu-h1": "Освіта та дитячі садки для статусу S: що зміниться у 2026–2027 роках",
     "edu-p1": "Оновлення міграційного законодавства Швейцарії та підготовка до нового етапу функціонування захисного статусу S безпосередньо впливають на систему освіти, інтеграції та соціальну підтримку сімей з України.",
@@ -802,6 +880,33 @@ const T = {
     
     "nr-title": "Status S in der Schweiz. Aktuelle Nachrichten",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    /* TEXT ARTIKEL MIGRATIONSÄNDERUNGEN (DE) */
+    "mig26-h1": "Migrationsänderungen 2026: Was Inhaber des Schutzstatus S in der Schweiz wissen müssen",
+    "mig26-p1": "Per August 2026 hat die Schweizer Migrationspolitik gegenüber Ukrainern unter Sonderprotection wesentliche Transformationen erfahren. Für Inhaber des Status S ist diese Periode entscheidend: Die Regierung setzt ihren Kurs zur Verschärfung der Integrationsanforderungen und Überprüfung der Aufenthaltsbedingungen fort. Das Verständnis dieser Änderungen ist für jeden unerlässlich, der seine Zukunft in der Eidgenossenschaft plant.",
+    "mig26-sub1": "Aktueller Schutzstatus: Ist mit einer Aufhebung zu rechnen?",
+    "mig26-p2": "Im Jahr 2026 bleibt die Gültigkeitsdauer des Status S die Schlüsselfrage. Die Schweizer Regierung hat wiederholt betont, dass der Status so lange in Kraft bleibt, bis die Sicherheitslage in der Ukraine eine nachhaltige Rückkehr ermöglicht. Angesichts der Trends von 2026 verlagern die Bundesbehörden den Fokus jedoch von «vorübergehendem Zufluchtsort» auf «aktive Integration».",
+    "mig26-sub2": "Was hat sich in der Integrationspolitik geändert?",
+    "mig26-p3": "Waren die Anforderungen an Geflüchtete zu Beginn des Krieges minimal, verlangt das Schweizer System heute ein deutlich höheres Mass an Autonomie. Dies betrifft:",
+    "mig26-li1": "<strong>Arbeitsmarkt:</strong> Die Kontrolle über die Beschäftigung von Personen mit Status S wurde verstärkt. Viele Kantone haben obligatorische Berufsberatungskurse eingeführt, um die Zeit der Stellensuche zu verkürzen.",
+    "mig26-li2": "<strong>Sprachkompetenzen:</strong> Die Beherrschung der Sprache des Wohnkantons (Deutsch, Französisch oder Italienisch) ist zu einem kritischen Faktor für den Erhalt von Sozialleistungen geworden.",
+    "mig26-li3": "<strong>Steuerdisziplin:</strong> Erwerbstätige Status-S-Inhaber unterliegen einer strengen Überwachung durch die Steuerbehörden, da ihr Einkommen die Höhe der erhaltenen Sozialhilfe direkt beeinflusst.",
+    "mig26-sub3": "Sozialhilfe und finanzielle Autonomie",
+    "mig26-p4": "Die Migrationsänderungen von 2026 brachten neue Regeln für die finanzielle Unterstützung. Die kantonalen Sozialämter führen aktiv Modelle ein, die den Eintritt in den Arbeitsmarkt anregen.",
+    "mig26-li4": "<strong>Differenzierte Zahlungen:</strong> In vielen Kantonen ist die Höhe der Auszahlungen nun strikt an den Erfolg beim Spracherwerb und den Besuch von Weiterbildungskursen gekoppelt.",
+    "mig26-li5": "<strong>Medizinkosten:</strong> Der Zugang zu Zahnmedizin und anderen spezialisierten medizinischen Leistungen wurde stärker reguliert. Sozialämter lehnen die Finanzierung geplanter Eingriffe häufiger ab und decken nur noch Notfälle ab.",
+    "mig26-sub4": "Status S oder Aufenthaltsbewilligung B: Wann wechseln?",
+    "mig26-p5": "Für viele Ukrainer wurde 2026 zum Zeitpunkt der Entscheidung über den Wechsel vom Status S zur regulären Aufenthaltsbewilligung (Status B). Dies ist ein schrittweiser Wechsel mit Vor- und Nachteilen.",
+    "mig26-li6": "<strong>Vorteile von Status B:</strong> Vollständige Unabhängigkeit von schutzbezogenen Migrationsentscheidungen, freie Wahl des Arbeitgebers ohne Bewilligungen, stabiler Rechtsstatus.",
+    "mig26-li7": "<strong>Risiken:</strong> Verlust des Anspruchs auf kantonale Finanzhilfe, Notwendigkeit der vollständigen Eigenfinanzierung der privaten Krankenversicherung (Grundversicherung) ohne Vergünstigungen.",
+    "mig26-sub5": "Tipps für Inhaber des Status S für 2026",
+    "mig26-p6": "Um rechtliche Komplikationen zu vermeiden und Stabilität zu wahren, empfehlen Experten:",
+    "mig26-li8": "<strong>Verfolgen Sie die offizielle Kommunikation:</strong> Die Informationen auf den Portalen des SEM (Staatssekretariat für Migration) werden dynamisch aktualisiert. Überprüfen Sie regelmässig die Anforderungen Ihres Kantons.",
+    "mig26-li9": "<strong>Investieren Sie in Bildung:</strong> Selbst wenn Sie bereits arbeiten, erhöht der Erwerb eines Schweizer Berufsqualifikationszertifikats Ihre Chancen auf eine erfolgreiche Integration und berufliches Wachstum erheblich.",
+    "mig26-li10": "<strong>Konsultieren Sie Juristen:</strong> Bei einer Änderung der Lebensumstände (z. B. Bei einem Stellenwechsel oder der Planung eines langfristigen Aufenthalts) ist es wichtig zu wissen, wie sich dies auf Ihren Migrationsstatus auswirkt.",
+    "mig26-sub6": "Fazit",
+    "mig26-p6": "Die Migrationsänderungen von 2026 zeigen, dass die Schweiz Inhaber des Status S nicht als vorübergehende Gäste, sondern als Teil ihres Wirtschaftsraums betrachtet. Obwohl der Schutz garantiert bleibt, werden die Aufenthaltsbedingungen anspruchsvoller. Veränderungsbereitschaft, Spracherwerb und eine aktive berufliche Haltung sind das Fundament, mit dem Sie sich unter allen Migrationsbedingungen sicher fühlen können.",
+    "mig26-p7": "Denken Sie daran, dass die beste Strategie in Zeiten der Unsicherheit das Streben nach maximaler persönlicher und finanzieller Autonomie ist. Unabhängig von der Zukunft des Status S werden Ihre erworbenen Fähigkeiten und Ihre Arbeitserfahrung im Schweizer System Ihr wichtigstes Kapital sein.",
 
     /* TEXT ARTIKEL BILDUNG (DE) */
     "edu-h1": "Bildung und Kindergärten für den Status S: Was sich 2026–2027 ändert",

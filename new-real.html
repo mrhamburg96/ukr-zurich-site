@@ -219,6 +219,85 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
     <div class="status-articles">
 
+      <!-- СТАТТЯ: ФІНАНСОВА ПІДТРИМКА ДЛЯ СТАТУСУ S У 2026 РОЦІ -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <div class="accordion-title-block">
+            <span class="accordion-date" data-i18n="art_fin2026_date">18.08.2026</span>
+            <h3 class="accordion-title" data-i18n="art_fin2026_title">Фінансова підтримка для статусу S у 2026 році: хто має право і як отримати</h3>
+          </div>
+          <span class="accordion-icon">&#43;</span>
+        </button>
+        
+        <div class="accordion-content">
+          <article class="article-text">
+            <p data-i18n="art_fin2026_p1">Швейцарія продовжує надавати притулок та фінансову підтримку українцям із тимчасовим захистом (Schutzstatus S). Однак у 2026 році правила надання соціальної допомоги (Sozialhilfe) стали суворішими. Фінансова підтримка більше не виплачується автоматично — вона розраховується індивідуально на основі доходів та майна.</p>
+
+            <p data-i18n="art_fin2026_p2">Розберемо детально, скільки виплачують у 2026 році, хто має право на виплати та як проходить процес оформлення.</p>
+
+            <h4 data-i18n="art_fin2026_h4_1">1. Хто має право на фінансову допомогу?</h4>
+            <p data-i18n="art_fin2026_p3">Право на державну виплату мають усі особи зі статусом S, чий сукупний дохід та наявні збереження нижчі за мінімальний прожитковий рівень, встановлений кантоном.</p>
+
+            <p><strong data-i18n="art_fin2026_crit_title">Головні критерії перевірки майна у 2026 році:</strong></p>
+            <ul style="padding-left: 20px; margin-bottom: 15px;">
+              <li data-i18n="art_fin2026_li1"><strong>Фінансові збереження:</strong> Усі грошові кошти на банківських рахунках (як у Швейцарії, так і в Україні), готівка, а також криптовалюта та цінні папери враховуються при оцінці.</li>
+              <li data-i18n="art_fin2026_li2"><strong>Майно та транспорт:</strong> Наявність дорогого майна або автомобіля у власності може стати причиною відмови чи вимоги реалізувати майно до моменту виплати допомоги.</li>
+              <li data-i18n="art_fin2026_li3"><strong>Доходи від роботи:</strong> Якщо ви працюєте (за наймом або як ФОП/Freiberufler), зарплата вираховується з вашої соціальної допомоги.</li>
+            </ul>
+
+            <h4 data-i18n="art_fin2026_h4_2">2. Скільки виплачують у 2026 році: розраховуємо цифри</h4>
+            <p data-i18n="art_fin2026_p4">У Швейцарії немає єдиного фіксованого розміру допомоги — базові ставки регулюються на кантональному рівні (SKOS / Asylhilfeverordnung). Для осіб зі статусом S застосовується ставка соціальної допомоги у сфері притулку (Asyl-Sozialhilfe), яка зазвичай на 20–30% нижча за стандартні виплати для місцевого населення.</p>
+
+            <p><strong data-i18n="art_fin2026_comp_title">Основні складові бюджету підтримки:</strong></p>
+            <ul style="padding-left: 20px; margin-bottom: 15px;">
+              <li data-i18n="art_fin2026_li4"><strong>Базова сума на особисті потреби (Grundbedarf):</strong> від 400 до 550 CHF на одну дорослу особу на місяць (покриває харчування, одяг, гігієну, мобільний зв'язок).</li>
+              <li data-i18n="art_fin2026_li5"><strong>Оплата житла (Mietkosten):</strong> Оплачується безпосередньо кантоном чи комуною (або виплачується компенсація за орендною сіткою комуни).</li>
+              <li data-i18n="art_fin2026_li6"><strong>Медична страховка (Krankenkasse):</strong> Базовий поліс KVG повністю покривається державою.</li>
+            </ul>
+
+            <div style="background-color: #f7fafc; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #1A56C4;">
+              <p><strong data-i18n="art_fin2026_ex_title">Приклад розрахунку для одинокої особи (Кантон Цюрих):</strong></p>
+              <p data-i18n="art_fin2026_ex_sub">Нараховано:</p>
+              <ul>
+                <li data-i18n="art_fin2026_ex_1">Базова сума: 500 CHF</li>
+                <li data-i18n="art_fin2026_ex_2">Оренда кімнати/квартири (ліміт): 850 CHF</li>
+                <li data-i18n="art_fin2026_ex_3">Медична страховка: 380 CHF</li>
+              </ul>
+              <p><strong data-i18n="art_fin2026_ex_total">Загальний норматив: 1 730 CHF</strong></p>
+              <p data-i18n="art_fin2026_ex_diff">Якщо людина працює частково та отримує 700 CHF (netto), соціальна служба покриє різницю (плюс додатковий заробітний бонус/Freibetrag у розмірі ~100–200 CHF для стимулювання працевлаштування).</p>
+            </div>
+
+            <h4 data-i18n="art_fin2026_h4_3">3. Як отримати виплати: покроковий алгоритм</h4>
+            <p><strong data-i18n="art_fin2026_step1_title">Крок 1. Отримання рішення та паспорта S</strong><br>
+            <span data-i18n="art_fin2026_step1_desc">Перш за все необхідно подати заявку на статус S через федеральний центр притулку (BAZ) та отримати офіційний документ — Ausweis S.</span></p>
+
+            <p><strong data-i18n="art_fin2026_step2_title">Крок 2. Звернення до соціальної служби (Sozialamt / AOZ)</strong><br>
+            <span data-i18n="art_fin2026_step2_desc">Після розподілу в кантон вас закріплюють за місцевою соціальною службою вашої комуни чи міста.</span></p>
+
+            <p><strong data-i18n="art_fin2026_step3_title">Крок 3. Подання декларації та документів</strong><br>
+            <span data-i18n="art_fin2026_step3_desc">Вам потрібно заповнити фінансову декларацію та надати:</span></p>
+            <ul style="padding-left: 20px; margin-bottom: 15px;">
+              <li data-i18n="art_fin2026_doc1">Виписки з усіх банківських рахунків (за останні 3–6 місяців).</li>
+              <li data-i18n="art_fin2026_doc2">Довідку про відсутність чи наявність доходів в Україні.</li>
+              <li data-i18n="art_fin2026_doc3">Копію трудового договору (якщо працюєте).</li>
+              <li data-i18n="art_fin2026_doc4">Договір оренди житла (Mietvertrag).</li>
+            </ul>
+
+            <h4 data-i18n="art_fin2026_h4_4">4. Обов’язки отримувачів допомоги</h4>
+            <p data-i18n="art_fin2026_p5">Отримання виплат передбачає суворі зобов'язання перед швейцарською державою:</p>
+            <ul style="padding-left: 20px; margin-bottom: 15px;">
+              <li data-i18n="art_fin2026_ob1"><strong>Пошук роботи та мовні курси:</strong> Ви зобов'язані відвідувати призначені курси німецької мови та надавати звіти про пошук роботи. Регулярна безпідставна відмова може призвести до скорочення виплат на 10–30%.</li>
+              <li data-i18n="art_fin2026_ob2"><strong>Повідомлення про поїздки:</strong> Виїзд за межі Швейцарії або короткострокові поїздки в Україну (понад встановлені ліміти) мають бути заздалегідь узгоджені із соціальним працівником.</li>
+            </ul>
+
+            <blockquote style="background: #f9f9f9; border-left: 4px solid #1A56C4; margin: 15px 0; padding: 10px 15px; font-style: italic;" data-i18n="art_fin2026_quote">
+              Завдяки дотриманню правил та прозорій звітності статус S дозволяє зберегти фінансову стабільність під час інтеграції у швейцарське суспільство.
+            </blockquote>
+          </article>
+        </div>
+      </div>
+
+      
       <!-- Стаття: Міграційні зміни 2026 року (15.08.2026) -->
       <div class="accordion-item active">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
@@ -649,6 +728,47 @@ const T = {
     "nr-title": "Статус S у Швейцарії. Актуальні новини",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
 
+    // Стаття: Фінансова підтримка для статусу S у 2026 році
+        art_fin2026_date: "18.08.2026",
+        art_fin2026_title: "Фінансова підтримка для статусу S у 2026 році: хто має право і як отримати",
+        art_fin2026_p1: "Швейцарія продовжує надавати притулок та фінансову підтримку українцям із тимчасовим захистом (Schutzstatus S). Однак у 2026 році правила надання соціальної допомоги (Sozialhilfe) стали суворішими. Фінансова підтримка більше не виплачується автоматично — вона розраховується індивідуально на основі доходів та майна.",
+        art_fin2026_p2: "Розберемо детально, скільки виплачують у 2026 році, хто має право на виплати та як проходить процес оформлення.",
+        art_fin2026_h4_1: "1. Хто має право на фінансову допомогу?",
+        art_fin2026_p3: "Право на державну виплату мають усі особи зі статусом S, чий сукупний дохід та наявні збереження нижчі за мінімальний прожитковий рівень, встановлений кантоном.",
+        art_fin2026_crit_title: "Головні критерії перевірки майна у 2026 році:",
+        art_fin2026_li1: "<strong>Фінансові збереження:</strong> Усі грошові кошти на банківських рахунках (як у Швейцарії, так і в Україні), готівка, а також криптовалюта та цінні папери враховуються при оцінці.",
+        art_fin2026_li2: "<strong>Майно та транспорт:</strong> Наявність дорогого майна або автомобіля у власності може стати причиною відмови чи вимоги реалізувати майно до моменту виплати допомоги.",
+        art_fin2026_li3: "<strong>Доходи від роботи:</strong> Якщо ви працюєте (за наймом або як ФОП/Freiberufler), зарплата вираховується з вашої соціальної допомоги.",
+        art_fin2026_h4_2: "2. Скільки виплачують у 2026 році: розраховуємо цифри",
+        art_fin2026_p4: "У Швейцарії немає єдиного фіксованого розміру допомоги — базові ставки регулюються на кантональному рівні (SKOS / Asylhilfeverordnung). Для осіб зі статусом S застосовується ставка соціальної допомоги у сфері притулку (Asyl-Sozialhilfe), яка зазвичай на 20–30% нижча за стандартні виплати для місцевого населення.",
+        art_fin2026_comp_title: "Основні складові бюджету підтримки:",
+        art_fin2026_li4: "<strong>Базова сума на особисті потреби (Grundbedarf):</strong> від 400 до 550 CHF на одну дорослу особу на місяць (покриває харчування, одяг, гігієну, мобільний зв'язок).",
+        art_fin2026_li5: "<strong>Оплата житла (Mietkosten):</strong> Оплачується безпосередньо кантоном чи комуною (або виплачується компенсація за орендною сіткою комуни).",
+        art_fin2026_li6: "<strong>Медична страховка (Krankenkasse):</strong> Базовий поліс KVG повністю покривається державою.",
+        art_fin2026_ex_title: "Приклад розрахунку для одинокої особи (Кантон Цюрих):",
+        art_fin2026_ex_sub: "Нараховано:",
+        art_fin2026_ex_1: "Базова сума: 500 CHF",
+        art_fin2026_ex_2: "Оренда кімнати/квартири (ліміт): 850 CHF",
+        art_fin2026_ex_3: "Медична страховка: 380 CHF",
+        art_fin2026_ex_total: "Загальний норматив: 1 730 CHF",
+        art_fin2026_ex_diff: "Якщо людина працює частково та отримує 700 CHF (netto), соціальна служба покриє різницю (плюс додатковий заробітний бонус/Freibetrag у розмірі ~100–200 CHF для стимулювання працевлаштування).",
+        art_fin2026_h4_3: "3. Як отримати виплати: покроковий алгоритм",
+        art_fin2026_step1_title: "Крок 1. Отримання рішення та паспорта S",
+        art_fin2026_step1_desc: "Перш за все необхідно подати заявку на статус S через федеральний центр притулку (BAZ) та отримати офіційний документ — Ausweis S.",
+        art_fin2026_step2_title: "Крок 2. Звернення до соціальної служби (Sozialamt / AOZ)",
+        art_fin2026_step2_desc: "Після розподілу в кантон вас закріплюють за місцевою соціальною службою вашої комуни чи міста.",
+        art_fin2026_step3_title: "Крок 3. Подання декларації та документів",
+        art_fin2026_step3_desc: "Вам потрібно заповнити фінансову декларацію та надати:",
+        art_fin2026_doc1: "Виписки з усіх банківських рахунків (за останні 3–6 місяців).",
+        art_fin2026_doc2: "Довідку про відсутність чи наявність доходів в Україні.",
+        art_fin2026_doc3: "Копію трудового договору (якщо працюєте).",
+        art_fin2026_doc4: "Договір оренди житла (Mietvertrag).",
+        art_fin2026_h4_4: "4. Обов’язки отримувачів допомоги",
+        art_fin2026_p5: "Отримання виплат передбачає суворі зобов'язання перед швейцарською державою:",
+        art_fin2026_ob1: "<strong>Пошук роботи та мовні курси:</strong> Ви зобов'язані відвідувати призначені курси німецької мови та надавати звіти про пошук роботи. Регулярна безпідставна відмова може призвести до скорочення виплат на 10–30%.",
+        art_fin2026_ob2: "<strong>Повідомлення про поїздки:</strong> Виїзд за межі Швейцарії або короткострокові поїздки в Україну (понад встановлені ліміти) мають бути заздалегідь узгоджені із соціальним працівником.",
+        art_fin2026_quote: "Завдяки дотриманню правил та прозорій звітності статус S дозволяє зберегти фінансову стабільність під час інтеграції у швейцарське суспільство.",
+
     /* ТЕКСТ СТАТЬИ О МИГРАЦИОННЫХ ИЗМЕНЕНИЯХ (UA) */
     "mig26-h1": "Міграційні зміни 2026 року: що важливо знати власникам статусу S у Швейцарії",
     "mig26-p1": "Станом на серпень 2026 року міграційна політика Швейцарії щодо українців, які перебувають під спеціальним захистом, зазнала суттєвих трансформацій. Для власників статусу S цей період є визначальним: уряд країни продовжує курс на посилення інтеграційних вимог та перегляд умов перебування. Розуміння цих змін є необхідним для кожного, хто планує своє майбутнє в Конфедерації.",
@@ -880,6 +1000,47 @@ const T = {
     
     "nr-title": "Status S in der Schweiz. Aktuelle Nachrichten",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    // Artikel: Finanzielle Unterstützung für den Schutzstatus S im Jahr 2026
+        art_fin2026_date: "18.08.2026",
+        art_fin2026_title: "Finanzielle Unterstützung für den Schutzstatus S im Jahr 2026: Wer Anspruch hat und wie man sie erhält",
+        art_fin2026_p1: "Die Schweiz gewährt Ukrainerinnen und Ukrainern mit Schutzstatus S weiterhin Zuflucht und finanzielle Unterstützung. Im Jahr 2026 sind die Regeln für die Gewährung von Sozialhilfe jedoch strenger geworden. Finanzielle Unterstützung wird nicht mehr automatisch ausgezahlt — sie wird individuell auf der Grundlage von Einkommen und Vermögen berechnet.",
+        art_fin2026_p2: "Wir erklären im Detail, wie viel im Jahr 2026 ausgezahlt wird, wer anspruchsberechtigt ist und wie das Antragsverfahren abläuft.",
+        art_fin2026_h4_1: "1. Wer hat Anspruch auf finanzielle Unterstützung?",
+        art_fin2026_p3: "Anspruch auf staatliche Leistungen haben alle Personen mit Status S, deren Gesamteinkommen und vorhandenes Erspartes unter dem vom Kanton festgelegten Existenzminimum liegen.",
+        art_fin2026_crit_title: "Hauptkriterien für die Vermögensprüfung im Jahr 2026:",
+        art_fin2026_li1: "<strong>Finanzielle Ersparnisse:</strong> Alle Gelder auf Bankkonten (sowohl in der Schweiz als auch in der Ukraine), Bargeld sowie Kryptowährungen und Wertpapiere werden bei der Bewertung berücksichtigt.",
+        art_fin2026_li2: "<strong>Vermögen und Fahrzeuge:</strong> Der Besitz von wertvollem Eigentum oder einem Auto kann zur Ablehnung führen oder die Anforderung nach sich ziehen, das Vermögen vor der Auszahlung der Hilfe zu verwerten.",
+        art_fin2026_li3: "<strong>Einkommen aus Erwerbstätigkeit:</strong> Wenn Sie arbeiten (angestellt oder freiberuflich/selbstständig), wird der Lohn von Ihrer Sozialhilfe abgezogen.",
+        art_fin2026_h4_2: "2. Wie viel wird 2026 ausgezahlt: Berechnungsbeispiele",
+        art_fin2026_p4: "In der Schweiz gibt es keinen einheitlichen Festbetrag für die Unterstützung — die Basissätze werden auf kantonaler Ebene geregelt (SKOS / Asylhilfeverordnung). Für Personen mit Status S gilt der Sozialhilfesatz im Asylbereich (Asyl-Sozialhilfe), der in der Regel 20–30% niedriger ist als die Standardleistungen für die einheimische Bevölkerung.",
+        art_fin2026_comp_title: "Hauptbestandteile des Unterstützungsbudgets:",
+        art_fin2026_li4: "<strong>Grundbedarf für persönliche Bedürfnisse:</strong> zwischen 400 und 550 CHF pro erwachsene Person und Monat (deckt Nahrung, Kleidung, Hygiene, Mobilfunk ab).",
+        art_fin2026_li5: "<strong>Wohnkosten (Mietkosten):</strong> Werden direkt vom Kanton oder der Gemeinde übernommen (oder nach den Mietkostenrichtlinien der Gemeinde entschädigt).",
+        art_fin2026_li6: "<strong>Krankenversicherung (Krankenkasse):</strong> Die KVG-Grundversicherung wird vollständig vom Staat übernommen.",
+        art_fin2026_ex_title: "Berechnungsbeispiel für eine Einzelperson (Kanton Zürich):",
+        art_fin2026_ex_sub: "Berechnet:",
+        art_fin2026_ex_1: "Grundbedarf: 500 CHF",
+        art_fin2026_ex_2: "Zimmermiete / Wohnungsmiete (Obergrenze): 850 CHF",
+        art_fin2026_ex_3: "Krankenversicherung: 380 CHF",
+        art_fin2026_ex_total: "Gesamtnormativ: 1 730 CHF",
+        art_fin2026_ex_diff: "Wenn eine Person Teilzeit arbeitet und 700 CHF (netto) verdient, übernimmt der Sozialdienst die Differenz (zuzüglich eines Erwerbsfreibetrags von ~100–200 CHF zur Förderung der Arbeitsaufnahme).",
+        art_fin2026_h4_3: "3. Wie man Leistungen erhält: Schritt-für-Schritt-Anleitung",
+        art_fin2026_step1_title: "Schritt 1. Erhalt des Entscheids und des Ausweises S",
+        art_fin2026_step1_desc: "Zunächst müssen Sie den Status S über ein Bundesasylzentrum (BAZ) beantragen und das offizielle Dokument erhalten — den Ausweis S.",
+        art_fin2026_step2_title: "Schritt 2. Kontaktaufnahme mit dem Sozialamt (Sozialamt / AOZ)",
+        art_fin2026_step2_desc: "Nach der Zuweisung zu einem Kanton werden Sie dem lokalen Sozialdienst Ihrer Gemeinde oder Stadt zugewiesen.",
+        art_fin2026_step3_title: "Schritt 3. Einreichen der Erklärung und der Dokumente",
+        art_fin2026_step3_desc: "Sie müssen eine Finanzerklärung ausfüllen und folgende Unterlagen einreichen:",
+        art_fin2026_doc1: "Auszüge aller Bankkonten (der letzten 3–6 Monate).",
+        art_fin2026_doc2: "Bescheinigung über das Vorhandensein oder Nichtvorhandensein von Einkünften in der Ukraine.",
+        art_fin2026_doc3: "Kopie des Arbeitsvertrags (falls Sie erwerbstätig sind).",
+        art_fin2026_doc4: "Mietvertrag.",
+        art_fin2026_h4_4: "4. Pflichten der Leistungsempfänger",
+        art_fin2026_p5: "Der Bezug von Sozialhilfe bringt strenge Verpflichtungen gegenüber dem Schweizer Staat mit sich:",
+        art_fin2026_ob1: "<strong>Arbeitssuche und Sprachkurse:</strong> Sie sind verpflichtet, zugewiesene Deutschkurse zu besuchen und Nachweise über Ihre Arbeitsbemühungen vorzulegen. Regelmäßige unbegründete Weigerungen können zu einer Kürzung der Leistungen um 10–30% führen.",
+        art_fin2026_ob2: "<strong>Meldung von Reisen:</strong> Auslandsreisen oder Kurzreisen in die Ukraine (über die festgelegten Grenzen hinaus) müssen im Voraus mit dem Sozialarbeiter abgesprochen werden.",
+        art_fin2026_quote: "Dank der Einhaltung der Regeln und einer transparenten Berichterstattung ermöglicht der Status S die Wahrung der finanziellen Stabilität während der Integration in die Schweizer Gesellschaft.",
 
     /* TEXT ARTIKEL MIGRATIONSÄNDERUNGEN (DE) */
     "mig26-h1": "Migrationsänderungen 2026: Was Inhaber des Schutzstatus S in der Schweiz wissen müssen",

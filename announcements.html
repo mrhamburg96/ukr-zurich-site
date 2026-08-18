@@ -196,6 +196,47 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   .events-grid { grid-template-columns: 1fr; }
   .page-title { font-size: 2rem !important; }
 }
+  /* Контейнер шапки страницы */
+.page-header-box {
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+}
+
+.header-text {
+  max-width: 650px;
+  text-align: left;
+}
+
+.header-image {
+  flex-shrink: 0;
+  max-width: 280px;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+  .page-header-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header-text {
+    text-align: center;
+  }
+  .header-image {
+    max-width: 200px;
+    margin-top: 15px;
+  }
+}
 </style>
 </head>
 <body>
@@ -234,9 +275,14 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 <main class="container page-content">
   <div class="page-header-box">
+  <div class="header-text">
     <h1 class="page-title" id="page-events-title">Найближчі події та набори</h1>
-    <p id="page-events-sub" style="color:var(--text2); font-size:1.1rem;">Приєднуйтесь до наших зустрічей, секцій, театральної студії та культурних заходів у Цюриху.</p>
+    <p id="page-events-sub">Приєднуйтесь до наших зустрічей, секцій, театральної студії та культурних заходів у Цюриху.</p>
   </div>
+  <div class="header-image">
+    <img src="announcement-foto1.webp" alt="Анонс подій">
+  </div>
+</div>
   
   <!-- Сетка карточек -->
   <div class="events-grid">

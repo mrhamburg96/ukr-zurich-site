@@ -600,7 +600,7 @@
 <body>
 
     <!-- Шапка сайта -->
-   <header class="site-header">
+  <header class="site-header">
     <!-- 1. Логотип -->
     <div class="header-brand">
         <div class="flags-container">
@@ -609,32 +609,32 @@
         </div>
         <div class="brand-text">
             <span class="brand-highlight">UAGZ</span>
-            <div class="brand-subtext">
+            <div class="brand-subtext" data-translate="brand-name">
                 <span>Український інтеграційний</span>
                 <span>та громадський центр Цюриха</span>
             </div>
         </div>
     </div>
 
-    <!-- 2. Главное меню (на ПК идет по центру) -->
+    <!-- 2. Главное меню -->
     <nav class="header-nav">
-        <a href="index.html" class="nav-link">Головна</a>
-        <a href="about.html" class="nav-link">Про центр</a>
-        <a href="help.html" class="nav-link">Допомога</a>
-        <a href="events.html" class="nav-link">Події</a>
-        <a href="knowledge.html" class="nav-link">Центр знань</a>
-        <a href="announcements.html" class="nav-link">Оголошення</a>
-        <a href="volunteering.html" class="nav-link">Волонтерство</a>
-        <a href="donate.html" class="nav-link nav-link-donate">Donate</a>
-        <a href="contacts.html" class="nav-link">Контакти</a>
+        <a href="index.html" class="nav-link" data-translate="nav-home">Головна</a>
+        <a href="about.html" class="nav-link" data-translate="nav-about">Про центр</a>
+        <a href="help.html" class="nav-link" data-translate="nav-help">Допомога</a>
+        <a href="events.html" class="nav-link" data-translate="nav-events">Події</a>
+        <a href="knowledge.html" class="nav-link" data-translate="nav-knowledge">Центр знань</a>
+        <a href="announcements.html" class="nav-link" data-translate="nav-announcements">Оголошення</a>
+        <a href="volunteering.html" class="nav-link" data-translate="nav-volunteering">Волонтерство</a>
+        <a href="donate.html" class="nav-link nav-link-donate" data-translate="nav-donate">Donate</a>
+        <a href="contacts.html" class="nav-link" data-translate="nav-contacts">Контакти</a>
     </nav>
 
-    <!-- 3. Бургер-кнопка для мобильного (на ПК автоматически скрыта) -->
+    <!-- 3. Бургер-кнопка -->
     <button class="burger-btn" aria-label="Меню" onclick="document.querySelector('.header-nav').classList.toggle('open')">
         <i class="fi fi-br-menu-burger"></i>
     </button>
 
-    <!-- 4. Переключатель языков (Теперь строго СПРАВА на ПК) -->
+    <!-- 4. Переключатель языков -->
     <div class="lang-switch">
         <span class="lang-item active-lang" onclick="changeLanguage('uk')">UA</span>
         <span class="lang-item" onclick="changeLanguage('de')">DE</span>
@@ -653,8 +653,8 @@
 
   <!-- Красная мерцающая ссылка с переходом на cv-pro -->
   <a href="https://mrhamburg96.github.io/cv-pro/" class="resume-link" target="_blank">
-    <span class="desktop-text">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →</span>
-    <span class="mobile-text">Створення резюме — Lebenslauf erstellen →</span>
+    <span class="desktop-text" data-translate="cv-link-desktop">Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →</span>
+    <span class="mobile-text" data-translate="cv-link-mobile">Створення резюме — Lebenslauf erstellen →</span>
   </a>
 </div>
         <!-- Основная сетка страницы -->
@@ -1154,7 +1154,7 @@
     </main>
 
     <!-- Скрипт плавного открытия аккордеона и UA/DE локализации -->
-    <script>
+   <script>
         // --- 1. Логика Аккордеона ---
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
@@ -1171,19 +1171,43 @@
             });
         });
 
+        // --- 2. Функция переключения языка ---
+        function changeLanguage(lang) {
+            // Переключение активности кнопок UA / DE
+            document.querySelectorAll('.lang-item').forEach(item => {
+                item.classList.remove('active-lang');
+            });
+            const activeBtn = document.querySelector(`.lang-item[onclick="changeLanguage('${lang}')"]`);
+            if (activeBtn) activeBtn.classList.add('active-lang');
+
+            // Замена текста всех элементов с data-translate
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Обновление lang в html
+            document.documentElement.lang = lang;
+        }
         // --- 2. Локализация (Словарь UA/DE) ---
         const translations = {
             uk: {
                 "page-title": "UAGZ - Робота",
-                "brand-name": "Український інтеграційний та громадський центр Цюриха",
+                "brand-name": "<span>Український інтеграційний</span><span>та громадський центр Цюриха</span>",
                 "nav-home": "Головна",
-                "nav-events": "Заходи",
+                "nav-about": "Про центр",
+                "nav-help": "Допомога",
+                "nav-events": "Події",
                 "nav-knowledge": "Центр знань",
+                "nav-announcements": "Оголошення",
                 "nav-volunteering": "Волонтерство",
-                "nav-donate": "❤️ Донат",
+                "nav-donate": "Donate",
                 "nav-contacts": "Контакти",
                 "back-btn": "← Назад до Центр знань",
-                "cv-link": "Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →",
+                "cv-link-desktop": "Резюме та супровідний лист для Швейцарії — Lebenslauf erstellen →",
+                "cv-link-mobile": "Створення резюме — Lebenslauf erstellen →"
 
                 "art7-title": "Робота для українців у Цюриху: можливості для статусу S та B",
 "art7-body": `
@@ -1571,15 +1595,20 @@
             },
             de: {
                 "page-title": "UAGZ - Arbeit",
-                "brand-name": "Ukrainisches Integrations- und Kulturzentrum Zürich",
+                "brand-name": "<span>Ukrainisches Integrations- und</span><span>Kulturzentrum Zürich</span>",
                 "nav-home": "Startseite",
+                "nav-about": "Über das Zentrum",
+                "nav-help": "Hilfe",
                 "nav-events": "Veranstaltungen",
                 "nav-knowledge": "Wissenszentrum",
+                "nav-announcements": "Ankündigungen",
                 "nav-volunteering": "Freiwilligenarbeit",
-                "nav-donate": "❤️ Spenden",
+                "nav-donate": "Spenden",
                 "nav-contacts": "Kontakte",
                 "back-btn": "← Zurück zum Wissenszentrum",
-                "cv-link": "Lebenslauf und Motivationsschreiben für die Schweiz — Lebenslauf erstellen →",
+                "cv-link-desktop": "Lebenslauf und Motivationsschreiben für die Schweiz — Lebenslauf erstellen →",
+                "cv-link-mobile": "Lebenslauf erstellen — Lebenslauf erstellen →"
+            
 
                 "art7-title": "Arbeit für Ukrainer in Zürich: Chancen mit Schutzstatus S und Aufenthaltsbewilligung B",
 "art7-body": `

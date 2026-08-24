@@ -283,6 +283,38 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
   <!-- Лента событий (новые статьи добавляются на первое место) -->
   <div class="events-feed">
+
+    <!-- Событие 5 (24.08.2026 — День Незалежності України) -->
+    <div class="event-card" id="event-new-5">
+      <div class="event-preview">
+        <div class="event-meta">
+          <div class="event-date" id="ev5-date">24.08.2026 · Цюрих</div>
+          <h3 class="event-title" id="ev5-title">Друзі, з Днем Незалежності України!</h3>
+          <p class="event-excerpt" id="ev5-excerpt">Від щирого серця колектив Українського інтеграційного та громадського центру Цюриха (UAGZ) вітає вас із національним святом — Днем Незалежності України!</p>
+        </div>
+        <img src="events-foto5.webp" alt="День Незалежності України" class="event-thumb">
+      </div>
+
+      <button class="event-toggle-btn" onclick="toggleEvent('event-new-5', this)" id="ev5-btn">Читати далі ➔</button>
+
+      <div class="event-details">
+        <div class="event-expanded-layout">
+          <div>
+            <img src="events-foto5.1.webp" alt="День Незалежності України" class="event-expanded-img">
+          </div>
+          <div class="event-expanded-text">
+            <p id="ev5-p1">Шановні українці, друзі та партнери!</p>
+            <p id="ev5-p2">Від щирого серця колектив Українського інтеграційного та громадського центру Цюриха (UAGZ) вітає вас із національним святом — Днем Незалежності України!</p>
+            <p id="ev5-p3">Цей день має особливе значення для кожного з нас. Сьогодні незалежність — це не просто історична дата у календарі чи формальний атрибут державності. Це справжній символ незламності, мужності, свободи та єдності нашого народу. Це непохитне право українців самостійно визначати своє майбутнє, говорити рідною мовою, шанувати власні традиції та будувати вільну європейську країну.</p>
+            <p id="ev5-p4">Для нашої спільноти тут, у Швейцарії, це свято сповнене глибокого змісту. Навіть перебуваючи за тисячі кілометрів від рідного дому, ми щодня відчуваємо нерозривний зв'язок з Україною. Кожен наш успіх, кожен культурний проєкт, кожна дитяча ініціатива, мовний курс чи інтеграційний захід спрямовані на те, щоб зберегти українську ідентичність, підтримати одне одного та наблизити мирне майбутнє нашої Батьківщини. Ми пишаємося стійкістю українців, які тримають стрій на передовій, і силою духу тих, хто продовжує працювати заради України в різних куточках світу.</p>
+            <p id="ev5-p5">У цей святковий день ми висловлюємо щиру вдячність Збройним Силам України, завдяки яким ми маємо возможность жити, працювати і представляти нашу культуру за кордоном. Низький уклін кожному герою і героїні за їхній безпрецедентний подвиг. Ми також дякуємо швейцарським партнерам, місцевим громадам та всім небайдужим людям за солідарність, гуманітарну допомогу і всебічну підтримку, яку ми відчуваємо від перших днів повномасштабного випробування.</p>
+            <p id="ev5-p6">Бажаємо всім нам міцного здоров'я, невичерпної енергії, віри та оптимізму. Нехай у ваших серцях завжди горить вогонь патріотизму, а в родинах панує злагода, затишок і тепло. Віримо в непохитну силу нашого духу, у нашу перемогу та у світле майбутнє процвітаючої, вільної і єдиної України!</p>
+            <p id="ev5-p7">Зі святом! Слава Україні!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!-- Событие 4 (05.07.2026 — Родинне Коло II) -->
 <div class="event-card" id="event-new-4">
   <div class="event-preview">
@@ -469,6 +501,19 @@ const T = {
     "art-p8": "Разом ми зможемо створити більше можливостей для українців та зробити вагомий внесок у розвиток спільноти Цюриха.",
 
     "sec-events-title": "Наші події",
+
+    /* Переводы для события 5 (24.08.2026) */
+    "ev5-date": "24.08.2026 · Цюрих",
+    "ev5-title": "Друзі, з Днем Незалежності України!",
+    "ev5-excerpt": "Від щирого серця колектив Українського інтеграційного та громадського центру Цюриха (UAGZ) вітає вас із національним святом — Днем Незалежності України!",
+    "ev5-btn": "Читати далі ➔",
+    "ev5-p1": "Шановні українці, друзі та партнери!",
+    "ev5-p2": "Від щирого серця колектив Українського інтеграційного та громадського центру Цюриха (UAGZ) вітає вас із національним святом — Днем Незалежності України!",
+    "ev5-p3": "Цей день має особливе значення для кожного з нас. Сьогодні незалежність — це не просто історична дата у календарі чи формальний атрибут державності. Це справжній символ незламності, мужності, свободи та єдності нашого народу. Це непохитне право українців самостійно визначати своє майбутнє, говорити рідною мовою, шанувати власні традиції та будувати вільну європейську країну.",
+    "ev5-p4": "Для нашої спільноти тут, у Швейцарії, це свято сповнене глибокого змісту. Навіть перебуваючи за тисячі кілометрів від рідного дому, ми щодня відчуваємо нерозривний зв'язок з Україною. Кожен наш успіх, кожен культурний проєкт, кожна дитяча ініціатива, мовний курс чи інтеграційний захід спрямовані на те, щоб зберегти українську ідентичність, підтримати одне одного та наблизити мирне майбутнє нашої Батьківщини. Ми пишаємося стійкістю українців, які тримають стрій на передовій, і силою духу тих, хто продовжує працювати заради України в різних куточках світу.",
+    "ev5-p5": "У цей святковий день ми висловлюємо щиру вдячність Збройним Силам України, завдяки яким ми маємо возможность жити, працювати і представляти нашу культуру за кордоном. Низький уклін кожному герою і героїні за їхній безпрецедентний подвиг. Ми також дякуємо швейцарським партнерам, місцевим громадам та всім небайдужим людям за солідарність, гуманітарну допомогу і всебічну підтримку, яку ми відчуваємо від перших днів повномасштабного випробування.",
+    "ev5-p6": "Бажаємо всім нам міцного здоров'я, невичерпної енергії, віри та оптимізму. Нехай у ваших серцях завжди горить вогонь патріотизму, а в родинах панує злагода, затишок і тепло. Віримо в непохитну силу нашого духу, у нашу перемогу та у світле майбутнє процвітаючої, вільної і єдиної України!",
+    "ev5-p7": "Зі святом! Слава Україні!",
     /* Переводы для события 4 (05.07.2026) */
     "ev4-date": "05.07.2026 · Цюрих",
     "ev4-title": "Родинна зустріч української спільноти в Цюриху — «Родинне Коло II»",
@@ -554,6 +599,18 @@ const T = {
     "art-p8": "Gemeinsam können wir mehr Möglichkeiten für Ukrainer schaffen und einen bedeutenden Beitrag zur Entwicklung der Gemeinschaft in Zürich leisten.",
 
     "sec-events-title": "Unsere Ereignisse",
+    /* Немецкий перевод для события 5 (24.08.2026) */
+    "ev5-date": "24.08.2026 · Zürich",
+    "ev5-title": "Liebe Freunde, alles Gute zum Unabhängigkeitstag der Ukraine!",
+    "ev5-excerpt": "Das Team des Ukrainischen Integrations- und Kulturzentrums Zürich (UAGZ) gratuliert Ihnen von ganzem Herzen zum Nationalfeiertag — dem Unabhängigkeitstag der Ukraine!",
+    "ev5-btn": "Mehr erfahren ➔",
+    "ev5-p1": "Liebe Ukrainerinnen und Ukrainer, liebe Freunde und Partner!",
+    "ev5-p2": "Das Team des Ukrainischen Integrations- und Kulturzentrums Zürich (UAGZ) gratuliert Ihnen von ganzem Herzen zum Nationalfeiertag — dem Unabhängigkeitstag der Ukraine!",
+    "ev5-p3": "Dieser Tag hat für jeden von uns eine besondere Bedeutung. Heute ist Unabhängigkeit nicht nur ein historisches Datum im Kalender oder ein formales Attribut der Staatlichkeit. Es ist ein wahres Symbol für Unbeugsamkeit, Mut, Freiheit und die Einheit unseres Volkes. Es ist das unumstößliche Recht der Ukrainer, ihre Zukunft selbst zu bestimmen, ihre Muttersprache zu sprechen, ihre Traditionen zu ehren und ein freies europäisches Land aufzubauen.",
+    "ev5-p4": "Für unsere Gemeinschaft hier in der Schweiz ist dieser Feiertag von tiefer Bedeutung erfüllt. Auch Tausende von Kilometern von unserer Heimat entfernt spüren wir jeden Tag die unzertrennliche Verbindung zur Ukraine. Jeder unserer Erfolge, jedes Kulturprojekt, jede Kinderinitiative, jeder Sprachkurs oder jedes Integrationsevent zielt darauf ab, die ukrainische Identität zu bewahren, einander zu unterstützen und die friedliche Zukunft unserer Heimat näher zu bringen. Wir sind stolz auf die Standhaftigkeit der Ukrainer an der Front und auf die Seelenstärke derer, die sich in verschiedenen Teilen der Welt weiterhin für die Ukraine einsetzen.",
+    "ev5-p5": "An diesem Festtag sprechen wir den Streitkräften der Ukraine unseren aufrichtigen Dank aus, dank derer wir die Möglichkeit haben, im Ausland zu leben, zu arbeiten и unsere Kultur zu vertreten. Tiefste Verneigung vor jedem Helden und jeder Heldin für ihre Präzedenzlose Tat. Wir danken auch den Schweizer Partnern, den lokalen Gemeinden und allen engagierten Menschen für die Solidarität, die humanitäre Hilfe und die umfassende Unterstützung, die wir seit den ersten Tagen der großflächigen Prüfung spüren.",
+    "ev5-p6": "Wir wünschen uns allen gute Gesundheit, unerschöpfliche Energie, Glauben und Optimismus. Möge in Ihren Herzen stets das Feuer des Patriotismus brennen und in Ihren Familien Harmonie, Geborgenheit und Wärme herrschen. Wir glauben an die unerschütterliche Kraft unseres Geistes, an unseren Sieg und an die helle Zukunft einer blühenden, freien und vereinten Ukraine!",
+    "ev5-p7": "Schöne Feiertage! Ruhm der Ukraine!",
     /* Немецкий перевод для события 4 (05.07.2026) */
     "ev4-date": "05.07.2026 · Zürich",
     "ev4-title": "Familientreffen der ukrainischen Gemeinschaft in Zürich — «Familienkreis II»",

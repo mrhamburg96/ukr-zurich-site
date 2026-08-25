@@ -284,6 +284,47 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   <!-- Лента событий (новые статьи добавляются на первое место) -->
   <div class="events-feed">
 
+    <!-- Событие 6 (25.08.2026 — Звіт про подію: «Родинне Коло III») -->
+    <div class="event-card" id="event-new-6">
+      <div class="event-preview">
+        <div class="event-meta">
+          <div class="event-date" id="ev6-date">25.08.2026 · Цюрих</div>
+          <h3 class="event-title" id="ev6-title">Звіт про подію: «Родинне Коло III» (23 серпня 2026 року)</h3>
+          <p class="event-excerpt" id="ev6-excerpt">23 серпня 2026 року в Цюриху відбулася особлива подія — чергова тепла зустріч українських родин «Родинне Коло III», присвячена єдності нашої спільноти та прийдешнім святам України...</p>
+        </div>
+        <img src="events-foto6.webp" alt="Родинне Коло III" class="event-thumb">
+      </div>
+
+      <button class="event-toggle-btn" onclick="toggleEvent('event-new-6', this)" id="ev6-btn">Читати далі ➔</button>
+
+      <div class="event-details">
+        <div class="event-expanded-layout">
+          <div>
+            <img src="events-foto6.1.webp" alt="Родинне Коло III" class="event-expanded-img">
+          </div>
+          <div class="event-expanded-text">
+            <p id="ev6-p1">23 серпня 2026 року в Цюриху відбулася особлива подія — чергова тепла зустріч українських родин «Родинне Коло III», присвячена єдності нашої спільноти та прийдешнім святам України. Захід об’єднав дорослих і дітей у затишній атмосфері взаємної підтримки, творчості та національного тепла.</p>
+            
+            <p id="ev6-p2">Програма заходу була наповнена яскравими емоціями. Особливою традицією зустрічей стала спільна творчість: учасники в традиційних вишиванках створювали пам’ятні арт-об’єкти, залишаючи яскраві відбитки долоньок у кольорах державного прапора на спільному полотні. Це стало символом нашої нерозривної єдності, згуртованості та віри в майбутнє.</p>
+
+            <img src="events-foto6.2.webp" alt="Родинне Коло III - Спільна творчість" class="event-expanded-img" style="margin: 15px 0;">
+
+            <p id="ev6-p3">Для маленьких учасників та їхніх батьків провели майстер-класи з розпису декоративних елементів і створення пам’ятних сувенірів. Кожна дитина мала можливість проявити творчі здібності, а спільна праця та щирі усмішки наповнили простір радістю. Такі ініціативи відіграють важливу роль у психологічній підтримці та адаптації сімей, допомагаючи зберігати українську ідентичність та культуру далеко від дому.</p>
+
+            <img src="events-foto6.3.webp" alt="Родинне Коло III - Майстер-класи" class="event-expanded-img" style="margin: 15px 0;">
+
+            <p id="ev6-p4">Колектив Українського інтеграційного та громадського центру Цюриха (UAGZ) висловлює щиру подяку всім гостям за активну участь, теплу енергетику та довіру. «Родинне Коло» вкотре довело, що українці за кордоном — це велика, дружна і міцна родина, яка завжди підтримує одне одного.</p>
+
+            <img src="events-foto6.4.webp" alt="Родинне Коло III - Атмосфера" class="event-expanded-img" style="margin: 15px 0;">
+
+            <p id="ev6-p5">Дякуємо кожному, хто був із нами цього дня! Продовжуємо триматися разом та творити добро заради нашого майбутнього.</p>
+
+            <img src="events-foto6.5.webp" alt="Родинне Коло III - Спільнота UAGZ" class="event-expanded-img" style="margin: 15px 0;">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Событие 5 (24.08.2026 — День Незалежності України) -->
     <div class="event-card" id="event-new-5">
       <div class="event-preview">
@@ -502,6 +543,17 @@ const T = {
 
     "sec-events-title": "Наші події",
 
+    /* Переводы для события 6 (25.08.2026) */
+    "ev6-date": "25.08.2026 · Цюрих",
+    "ev6-title": "Звіт про подію: «Родинне Коло III» (23 серпня 2026 року)",
+    "ev6-excerpt": "23 серпня 2026 року в Цюриху відбулася особлива подія — чергова тепла зустріч українських родин «Родинне Коло III», присвячена єдності нашої спільноти та прийдешнім святам України...",
+    "ev6-btn": "Читати далі ➔",
+    "ev6-p1": "23 серпня 2026 року в Цюриху відбулася особлива подія — чергова тепла зустріч українських родин «Родинне Коло III», присвячена єдності нашої спільноти та прийдешнім святам України. Захід об’єднав дорослих і дітей у затишній атмосфері взаємної підтримки, творчості та національного тепла.",
+    "ev6-p2": "Програма заходу була наповнена яскравими емоціями. Особливою традицією зустрічей стала спільна творчість: учасники в традиційних вишиванках створювали пам’ятні арт-об’єкти, залишаючи яскраві відбитки долоньок у кольорах державного прапора на спільному полотні. Це стало символом нашої нерозривної єдності, згуртованості та віри в майбутнє.",
+    "ev6-p3": "Для маленьких учасників та їхніх батьків провели майстер-класи з розпису декоративних елементів і створення пам’ятних сувенірів. Кожна дитина мала можливість проявити творчі здібності, а спільна праця та щирі усмішки наповнили простір радістю. Такі ініціативи відіграють важливу роль у психологічній підтримці та адаптації сімей, допомагаючи зберігати українську ідентичність та культуру далеко від дому.",
+    "ev6-p4": "Колектив Українського інтеграційного та громадського центру Цюриха (UAGZ) висловлює щиру подяку всім гостям за активну участь, теплу енергетику та довіру. «Родинне Коло» вкотре довело, що українці за кордоном — це велика, дружна і міцна родина, яка завжди підтримує одне одного.",
+    "ev6-p5": "Дякуємо кожному, хто був із нами цього дня! Продовжуємо триматися разом та творити добро заради нашого майбутнього.",
+
     /* Переводы для события 5 (24.08.2026) */
     "ev5-date": "24.08.2026 · Цюрих",
     "ev5-title": "Друзі, з Днем Незалежності України!",
@@ -599,6 +651,17 @@ const T = {
     "art-p8": "Gemeinsam können wir mehr Möglichkeiten für Ukrainer schaffen und einen bedeutenden Beitrag zur Entwicklung der Gemeinschaft in Zürich leisten.",
 
     "sec-events-title": "Unsere Ereignisse",
+
+    /* Немецкий перевод для события 6 (25.08.2026) */
+    "ev6-date": "25.08.2026 · Zürich",
+    "ev6-title": "Veranstaltungsbericht: «Familienkreis III» (23. August 2026)",
+    "ev6-excerpt": "Am 23. August 2026 fand in Zürich ein besonderes Ereignis statt — ein weiteres warmes Treffen ukrainischer Familien «Familienkreis III», das der Einheit unserer Gemeinschaft gewidmet war...",
+    "ev6-btn": "Mehr erfahren ➔",
+    "ev6-p1": "Am 23. August 2026 fand in Zürich ein besonderes Ereignis statt — ein weiteres warmes Treffen ukrainischer Familien «Familienkreis III», das der Einheit unserer Gemeinschaft und den bevorstehenden Feiertagen der Ukraine gewidmet war. Die Veranstaltung brachte Erwachsene und Kinder in einer gemütlichen Atmosphäre gegenseitiger Unterstützung, Kreativität und nationaler Wärme zusammen.",
+    "ev6-p2": "Das Programm der Veranstaltung war voller lebendiger Emotionen. Zu einer besonderen Tradition der Treffen ist das gemeinsame Schaffen geworden: Die Teilnehmer in traditionellen Wyschywankas schufen denkwürdige Kunstobjekte und hinterließen bunte Handabdrücke in den Farben der Staatsflagge auf einer gemeinsamen Leinwand. Dies wurde zu einem Symbol unserer unzertrennlichen Einheit, unseres Zusammenhalts und des Glaubens an die Zukunft.",
+    "ev6-p3": "Für die kleinen Teilnehmer und ihre Eltern wurden Workshops zum Bemalen von Dekorationselementen und Gestalten von Erinnerungssouvernirs durchgeführt. Jedes Kind hatte die Möglichkeit, seine kreativen Fähigkeiten zu zeigen, und die gemeinsame Arbeit sowie das aufrichtige Lächeln erfüllten den Raum mit Freude. Solche Initiativen spielen eine wichtige Rolle bei der psychologischen Unterstützung und Anpassung von Familien und helfen, die ukrainische Identität und Kultur fernab der Heimat zu bewahren.",
+    "ev6-p4": "Das Team des Ukrainischen Integrations- und Kulturzentrums Zürich (UAGZ) spricht allen Gästen seinen aufrichtigen Dank für die aktive Teilnahme, die warme Energie und das Vertrauen aus. Der «Familienkreis» hat einmal mehr bewiesen, dass Ukrainer im Ausland eine große, freundliche und starke Familie sind, die einander immer unterstützt.",
+    "ev6-p5": "Wir danken jedem, der an diesem Tag bei uns war! Wir halten weiterhin zusammen und tun Gutes für unsere Zukunft.",
     /* Немецкий перевод для события 5 (24.08.2026) */
     "ev5-date": "24.08.2026 · Zürich",
     "ev5-title": "Liebe Freunde, alles Gute zum Unabhängigkeitstag der Ukraine!",

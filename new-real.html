@@ -219,6 +219,48 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
     <div class="status-articles">
 
+      <!-- Стаття: Статус S у 2026 році: часті помилки та як їх уникнути (25.08.2026) -->
+      <div class="accordion-item active">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="err26-h1">Статус S у 2026 році: часті помилки та як їх уникнути</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content" style="max-height: 4000px;">
+          <div class="accordion-inner">
+            <span class="article-date">25.08.2026</span>
+            <p id="err26-p1" class="article-p"></p>
+            <p id="err26-p2" class="article-p"></p>
+
+            <h3 id="err26-sub1"></h3>
+            <ul class="article-list">
+              <li id="err26-li1"></li>
+              <li id="err26-li2"></li>
+            </ul>
+
+            <h3 id="err26-sub2"></h3>
+            <ul class="article-list">
+              <li id="err26-li3"></li>
+              <li id="err26-li4"></li>
+            </ul>
+
+            <h3 id="err26-sub3"></h3>
+            <ul class="article-list">
+              <li id="err26-li5"></li>
+              <li id="err26-li6"></li>
+            </ul>
+
+            <h3 id="err26-sub4"></h3>
+            <ul class="article-list">
+              <li id="err26-li7"></li>
+              <li id="err26-li8"></li>
+            </ul>
+
+            <h3 id="err26-sub5"></h3>
+            <p id="err26-p3" class="article-p"></p>
+          </div>
+        </div>
+      </div>
+
       <!-- Стаття: Фінансова підтримка для статусу S у 2026 році (18.08.2026) -->
       <div class="accordion-item active">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
@@ -715,6 +757,25 @@ const T = {
     "nr-title": "Статус S у Швейцарії. Актуальні новини",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
 
+    /* ТЕКСТ СТАТЬИ О ОШИБКАХ СТАТУСА S (UA) */
+    "err26-h1": "Статус S у 2026 році: часті помилки та як їх уникнути",
+    "err26-p1": "Захисний статус S для громадян України, які вимушено виїхали за кордон через повномасштабну війну, залишається чинним у Швейцарії. У 2026 році правові та адміністративні нюанси цього режиму стали ще більш деталізованими. Швейцарські органи ретельно моніторять дотримання правил перебування, зайнятості та соціального забезпечення.",
+    "err26-p2": "Щоб уникнути ризику втрати допомоги, проблем з міграційними службами або скорочення виплат, важливо знати ключові підводні камені. Розглянемо найпоширеніші помилки власників статусу S у 2026 році та дієві поради, як їх успішно оминути.",
+    "err26-sub1": "1. Порушення правил виїзду за межі Швейцарії та Шенгенської зони",
+    "err26-li1": "<strong>У чому ризик:</strong> Одна з найдавніших, але й найчастіших помилок — самовільне тривале перебування за межами Швейцарії чи в Україні. Статус S прив'язаний до вашого постійного місця проживання у Швейцарії. Якщо ви виїжджаєте на термін, що перевищує дозволені ліміти (або не повідомляєте міграційну службу кантону про поїздку), це розцінюється як відмова від захисту. У 2026 році кантональні міграційні органи суворо перевіряють прикордонні перетини.",
+    "err26-li2": "<strong>Як уникнути:</strong> Перед будь-якою поїздкою в Україну чи інші країни обов'язково консультуйтеся зі своїм куратором або міграційною службою (Migrationsamt), оформлювайте дозвіл на виїзд і чітко дотримуйтеся дозволених термінів повернення.",
+    "err26-sub2": "2. Несвоєчасне інформування про зміни у фінансах чи зайнятості",
+    "err26-li3": "<strong>Контекст:</strong> Отримання доходу від віддаленої роботи в Україні, часткової зайнятості у Швейцарії або наявність активів часто стають причиною адміністративних конфліктів. Багато біженців намагаються поєднати український фріланс і соціальну допомогу (Sozialhilfe), забуваючи, що будь-які надходження підлягають декларуванню.",
+    "err26-li4": "<strong>Як уникнути:</strong> Будь-які зміни у вашому матеріальному стані чи поява нового заробітку вимагають негайного звіту соціальному працівнику. Прозорість у відносинах із соціальними службами рятує від звинувачень у шахрайстві та вимог повернення коштів.",
+    "err26-sub3": "3. Ігнорування інтеграційних та мовних вимог",
+    "err26-li5": "<strong>Часта помилка:</strong> У 2026 році тиск на одержувачів соціальної допомоги щодо інтеграції та виходу на ринок праці суттєво зріс. Влада вимагає активних дій для здобуття економічної незалежності. Помилкою є ігнорування листів від соціальних служб або центрів зайнятості (наприклад, AOZ), пропуск обов'язкових мовних тестів чи курсів під приводом «пошуку іншої роботи» або «особистих обставин».",
+    "err26-li6": "<strong>Як уникнути:</strong> Відповідайте на всі запити державних органів чітко у встановлені терміни. Якщо виникла непередбачувана ситуація чи об'єктивна перешкода (хвороба, відсутність у кантоні), заздалегідь письмово аргументуйте це в офіційному листі до куратора, пропонуючи альтернативні рішення.",
+    "err26-sub4": "4. Незнання правил зміни кантону (Umzug)",
+    "err26-li7": "<strong>Наслідки:</strong> Статус S видається конкретним кантоном. Самостійна оренда квартири в іншій частині Швейцарії без офіційного дозволу створює величезний правовий колапс. Ви можете втратити медичне страхування, виплати або отримати відмову в перереєстрації справи.",
+    "err26-li8": "<strong>Як уникнути:</strong> Будь-який переїзд вимагає попереднього погодження міграційних служб обох кантонів. Процедура може зайняти час, тому починайте її заздалегідь.",
+    "err26-sub5": "Висновок",
+    "err26-p3": "Зберігати статус S у 2026 році — це означає чітко грати за швейцарськими правилами, де ключовими принципами є прозорість, дотримання дедлайнів та активна участь у житті суспільства. Уникаючи цих простих процедурних помилок, ви гарантуєте собі стабільність, захищеність та спокійне майбутнє в країні.",
+    
     /* ТЕКСТ СТАТЬИ О ФИНАНСОВОЙ ПОДДЕРЖКЕ 2026 (UA) */
     "fin26-h1": "Фінансова підтримка для статусу S у 2026 році: хто має право і як отримати",
     "fin26-p1": "Швейцарія продовжує надавати притулок та фінансову підтримку українцям із тимчасовим захистом (Schutzstatus S). Однак у 2026 році правила надання соціальної допомоги (Sozialhilfe) стали суворішими. Фінансова підтримка більше не виплачується автоматично — вона розраховується індивідуально на основі доходів та майна.",
@@ -986,6 +1047,25 @@ const T = {
     
     "nr-title": "Status S in der Schweiz. Aktuelle Nachrichten",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    /* TEXT ARTIKEL STATUS S FEHLER (DE) */
+    "err26-h1": "Status S im Jahr 2026: Häufigе Fehler und wie man sie vermeidet",
+    "err26-p1": "Der Schutzstatus S für ukrainische Staatsbürger, die wegen des umfassenden Krieges ins Ausland geflohen sind, bleibt in der Schweiz weiterhin in Kraft. Im Jahr 2026 wurden die rechtlichen und administrativen Nuancen dieser Regelung noch detaillierter. Die Schweizer Behörden überwachen die Einhaltung der Aufenthalts-, Beschäftigungs- und Sozialversicherungsregeln streng.",
+    "err26-p2": "Um das Risiko eines Leistungsverlusts, von Problemen mit den Migrationsbehörden oder Kürzungen der Auszahlungen zu vermeiden, ist es wichtig, die wichtigsten Fallstricke zu kennen. Wir betrachten die häufigsten Fehler von Status-S-Inhabern im Jahr 2026 und geben praktische Tipps, wie Sie diese erfolgreich vermeiden.",
+    "err26-sub1": "1. Verletzung der Ausreiseregeln aus der Schweiz und dem Schengen-Raum",
+    "err26-li1": "<strong>Was ist das Risiko:</strong> Einer der ältesten, aber auch häufigsten Fehler ist der eigenmächtige längere Aufenthalt ausserhalb der Schweiz oder in der Ukraine. Der Status S ist an Ihren Wohnsitz in der Schweiz gebunden. Wenn Sie die zulässigen Fristen überschreiten (oder das kantonale Migrationsamt nicht informieren), gilt dies als Verzicht auf den Schutz. Im Jahr 2026 prüfen die kantonalen Migrationsbehörden die Grenzübertritte streng.",
+    "err26-li2": "<strong>Wie man es vermeidet:</strong> Konsultieren Sie vor jeder Reise in die Ukraine oder in andere Länder unbedingt Ihren Betreuer oder das Migrationsamt, beantragen Sie eine Ausreisebewilligung und halten Sie die zulässigen Rückkehrfristen strikt ein.",
+    "err26-sub2": "2. Unverzügliche Information über Änderungen der Finanzen oder Beschäftigung",
+    "err26-li3": "<strong>Kontext:</strong> Das Erzielen von Einkommen aus Remote-Arbeit in der Ukraine, Teilzeitbeschäftigung in der Schweiz oder das Vorhandensein von Vermögenswerten führt häufig zu administrativen Konflikten. Viele Geflüchtete versuchen, ukrainische Freiberuflichkeit und Sozialhilfe zu kombinieren, und vergessen dabei, dass alle Einnahmen deklarationspflichtig sind.",
+    "err26-li4": "<strong>Wie man es vermeidet:</strong> Jede Änderung Ihrer finanziellen Situation oder der Beginn einer neuen Erwerbstätigkeit erfordert einen sofortigen Bericht an den Sozialarbeiter. Transparenz gegenüber den Sozialhilfestellen schützt vor Betrugsvorwürfen und Rückforderungsansprüchen.",
+    "err26-sub3": "3. Missachtung von Integrations- und Sprachanforderungen",
+    "err26-li5": "<strong>Häufiger Fehler:</strong> Im Jahr 2026 hat der Druck auf Sozialhilfeempfänger hinsichtlich Integration und Eintritt in den Arbeitsmarkt erheblich zugenommen. Die Behörden fordern aktive Schritte zur Erlangung der wirtschaftlichen Unabhängigkeit. Ein Fehler ist das Ignorieren von Schreiben der Sozialämter oder Arbeitsämter (z. B. AOZ) sowie das Versäumen von Sprachprüfungen oder -kursen.",
+    "err26-li6": "<strong>Wie man es vermeidet:</strong> Antworten Sie auf alle Anfragen staatlicher Stellen fristgerecht. Wenn ein unvorhergesehenes Ereignis oder ein objektives Hindernis (Krankheit, Abwesenheit vom Kanton) vorliegt, begründen Sie dies vorab schriftlich beim Betreuer und schlagen Sie Alternativen vor.",
+    "err26-sub4": "4. Unkenntnis der Regeln für den Kantonswechsel (Umzug)",
+    "err26-li7": "<strong>Folgen:</strong> Der Status S wird von einem bestimmten Kanton erteilt. Das eigenmächtige Mieten einer Wohnung in einem anderen Teil der Schweiz ohne offizielle Genehmigung führt zu erheblichen rechtlichen Problemen. Sie können die Krankenversicherung, Leistungen verlieren oder eine Ablehnung der Neuregistrierung erhalten.",
+    "err26-li8": "<strong>Wie man es vermeidet:</strong> Jeder Umzug erfordert die vorherige Genehmigung der Migrationsämter beider Kantone. Das Verfahren kann Zeit in Anspruch nehmen, beginnen Sie daher frühzeitig damit.",
+    "err26-sub5": "Fazit",
+    "err26-p3": "Den Status S im Jahr 2026 zu behalten bedeutet, strikt nach den Schweizer Regeln zu spielen, bei denen Transparenz, Fristeneinhaltung und aktive Teilnahme am gesellschaftlichen Leben die Schlüsselprinzipien sind. Indem Sie diese einfachen Verfahrensfehler vermeiden, garantieren Sie sich Stabilität, Schutz und eine ruhige Zukunft im Land.",
 
     /* TEXT ARTIKEL FINANZIELLE UNTERSTÜTZUNG 2026 (DE) */
     "fin26-h1": "Finanzielle Unterstützung für den Status S im Jahr 2026: Wer hat Anspruch und wie man sie erhält",

@@ -219,6 +219,52 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
     <div class="status-articles">
 
+      <!-- Стаття: Статус S у 2026 році: актуальні закони, оновлення та офіційні зміни -->
+      <div class="accordion-item active">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="st26-h1">Статус S у 2026 році: актуальні закони, оновлення та офіційні зміни</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content" style="max-height: 4000px;">
+          <div class="accordion-inner">
+            <span class="article-date">29.08.2026</span>
+            <p id="st26-p1" class="article-p"></p>
+            <p id="st26-p2" class="article-p"></p>
+
+            <h3 id="st26-sub1"></h3>
+            <p id="st26-p3" class="article-p"></p>
+            <ul class="article-list">
+              <li id="st26-li1"></li>
+              <li id="st26-li2"></li>
+              <li id="st26-li3"></li>
+            </ul>
+
+            <h3 id="st26-sub2"></h3>
+            <p id="st26-p4" class="article-p"></p>
+            <ul class="article-list">
+              <li id="st26-li4"></li>
+              <li id="st26-li5"></li>
+            </ul>
+
+            <h3 id="st26-sub3"></h3>
+            <p id="st26-p5" class="article-p"></p>
+            <ul class="article-list">
+              <li id="st26-li6"></li>
+              <li id="st26-li7"></li>
+            </ul>
+
+            <h3 id="st26-sub4"></h3>
+            <p id="st26-p6" class="article-p"></p>
+            <ul class="article-list">
+              <li id="st26-li8"></li>
+              <li id="st26-li9"></li>
+            </ul>
+
+            <p id="st26-out" class="article-p" style="margin-top:1.5rem; font-weight:500;"></p>
+          </div>
+        </div>
+      </div>
+
       <!-- Стаття: Статус S у 2026 році: часті помилки та як їх уникнути (25.08.2026) -->
       <div class="accordion-item active">
         <button class="accordion-trigger" onclick="toggleArticle(this)">
@@ -757,6 +803,29 @@ const T = {
     "nr-title": "Статус S у Швейцарії. Актуальні новини",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
 
+    /* ТЕКСТ СТАТЬИ О СТАТУСЕ S 2026 (UA) */
+    "st26-h1": "Статус S у 2026 році: актуальні закони, оновлення та офіційні зміни",
+    "st26-p1": "Федеральна рада Швейцарії офіційно продовжила дію спеціального режиму для біженців з України до 4 березня 2028 року. Разом із цим розширено програму підтримки та інтеграції (Programme S), яка фінансується федеральним центром для кантонів.",
+    "st26-p2": "Попри продовження термінів захисту, у 2026 році міграційні правила стали жорсткішими. Вони зачіпають як загальні умови перебування, так і роботу кантональних відомств (Migrationsamt та Sozialamt).",
+    "st26-sub1": "1. Продовження термінів та п'ятирічний рубіж (дозвіл типу B)",
+    "st26-p3": "Головне адміністративне оновлення стосується українців, які перебувають у Швейцарії з перших місяців повномасштабного вторгнення (з 2022 року).",
+    "st26-li1": "У 2027 році спливає первинний п'ятирічний термін дії статусу S.",
+    "st26-li2": "Згідно із законами про притулок, після 5 років безперервного проживання власники статусу S мають право на отримання спеціального дозволу на проживання категорії B (прив'язаного до статусу S) без проходження стандартних процедур біженців.",
+    "st26-li3": "Цей дозвіл видається кантональними органами за умови дотримання інтеграційних критеріїв (знання мови, відсутність боргів, фінансова незалежність).",
+    "st26-sub2": "2. Нові обмеження для нових заявників з серпня 2026 року",
+    "st26-p4": "Федеральний уряд запровадив суттєві обмеження, які узгоджують швейцарську міграційну практику з рішеннями країн Європейського Союзу:",
+    "st26-li4": "Для нових заявників, які прибувають до Швейцарії, діють додаткові перевірки щодо виконання військових обов'язків в Україні.",
+    "st26-li5": "Ці зміни стосуються виключно нових запитів і не мають зворотної сили для осіб, які вже адаптувалися та мають чинний статус S на території конфедерації.",
+    "st26-sub3": "3. Кантональні правила виїзду та відсутності",
+    "st26-p5": "Контроль за дотриманням правил перебування безпосередньо у кантонах посилився.",
+    "st26-li6": "Зберігається правило: короткостроковий виїзд (наприклад, в Україну чи інші країни поза межами Шенгену) дозволений на термін до 15 днів сукупно за пів року без ризику втрати соціальних виплат та самого статусу S.",
+    "st26-li7": "Перебування за межами Швейцарії понад цей ліміт або перенесення центру життєвих інтересів в іншу країну є підставою для негайного анулювання захисту міграційною службою (SEM).",
+    "st26-sub4": "4. Інтеграційні тиски та соціальна допомога",
+    "st26-p6": "У 2026 році кантони активно впроваджують модель суворого моніторингу інтеграції (Integrationsmassnahmen):",
+    "st26-li8": "Одержувачі соціальної допомоги (Sozialhilfe) зобов'язані брати участь у мовних курсах та програмах працевлаштування (на зразок ініціатив структур на кшталт AOZ).",
+    "st26-li9": "Ігнорування офіційних листів, відмова від запропонованих курсів або приховування реальних доходів від підробітку тягне за собою законне скорочення виплат на рівні кантону.",
+    "st26-out": "Статус S у 2026 році трансформується з кризового механізму екстреної допомоги на більш прогнозований міграційний інструмент із чіткими критеріями контролю. Головними пріоритетами для українців залишаються прозорість у відносинах з кантональними кураторами, офіційне працевлаштування та дотримання термінів легального перебування у Швейцарії.",
+
     /* ТЕКСТ СТАТЬИ О ОШИБКАХ СТАТУСА S (UA) */
     "err26-h1": "Статус S у 2026 році: часті помилки та як їх уникнути",
     "err26-p1": "Захисний статус S для громадян України, які вимушено виїхали за кордон через повномасштабну війну, залишається чинним у Швейцарії. У 2026 році правові та адміністративні нюанси цього режиму стали ще більш деталізованими. Швейцарські органи ретельно моніторять дотримання правил перебування, зайнятості та соціального забезпечення.",
@@ -1047,6 +1116,29 @@ const T = {
     
     "nr-title": "Status S in der Schweiz. Aktuelle Nachrichten",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    /* TEXT ARTIKEL STATUS S 2026 (DE) */
+    "st26-h1": "Status S im Jahr 2026: Aktuelle Gesetze, Updates und offizielle Änderungen",
+    "st26-p1": "Der Schweizer Bundesrat hat den Schutzstatus für Geflüchtete aus der Ukraine offiziell bis zum 4. März 2028 verlängert. Gleichzeitig wurde das vom Bund für die Kantone finanzierte Integrationsprogramm (Programme S) erweitert.",
+    "st26-p2": "Trotz der Verlängerung der Schutzfristen wurden die Migrationsregeln im Jahr 2026 verschärft. Sie betreffen sowohl die allgemeinen Aufenthaltsbedingungen als auch die Arbeit der kantonalen Behörden (Migrationsamt und Sozialamt).",
+    "st26-sub1": "1. Fristverlängerungen und die Fünf-Jahres-Grenze (Bewilligung B)",
+    "st26-p3": "Das wichtigste administrative Update betrifft Ukrainerinnen und Ukrainer, die sich seit den ersten Monaten der Invasion (seit 2022) in der Schweiz aufhalten.",
+    "st26-li1": "Im Jahr 2027 läuft die ursprüngliche fünfjährige Gültigkeitsdauer des Status S ab.",
+    "st26-li2": "Gemäss Asylgesetz haben Inhaber des Status S nach 5 Jahren ununterbrochenem Aufenthalt das Recht auf eine spezielle Aufenthaltsbewilligung der Kategorie B (gekoppelt an den Status S), ohne die Standard-Asylverfahren durchlaufen zu müssen.",
+    "st26-li3": "Diese Bewilligung wird von den kantonalen Behörden erteilt, sofern die Integrationskriterien erfüllt sind (Sprachkenntnisse, Schuldenfreiheit, finanzielle Unabhängigkeit).",
+    "st26-sub2": "2. Neue Einschränkungen für Neuantragsteller ab August 2026",
+    "st26-p4": "Die Bundesregierung hat wesentliche Einschränkungen eingeführt, die die Schweizer Migrationspraxis an die Entscheide der Europäischen Union angleichen:",
+    "st26-li4": "Für Neuantragstellende, die in die Schweiz einreisen, gelten zusätzliche Prüfungen hinsichtlich der Erfüllung von Militärpflichten in der Ukraine.",
+    "st26-li5": "Diese Änderungen betreffen ausschliesslich neue Gesuche und haben keine rückwirkende Kraft für Personen, die sich bereits eingelebt haben und über einen gültigen Status S im Gebiet der Eidgenossenschaft verfügen.",
+    "st26-sub3": "3. Kantonale Ausreise- und Abwesenheitsregeln",
+    "st26-p5": "Die Kontrolle der Einhaltung der Aufenthaltsregeln direkt in den Kantonen wurde verschärft.",
+    "st26-li6": "Es gilt weiterhin die Regel: Ein Kurzaufenthalt ausserhalb der Schweiz (z. B. in die Ukraine oder andere Nicht-Schengen-Länder) ist bis zu 15 Tage kumuliert pro Halbjahr erlaubt, ohne dass das Risiko besteht, Sozialleistungen oder den Status S zu verlieren.",
+    "st26-li7": "Ein Aufenthalt ausserhalb der Schweiz über dieses Limit hinaus oder die Verlegung des Lebensmittelpunkts in ein anderes Land ist ein Grund für den sofortigen Widerruf des Schutzes durch das Staatssekretariat für Migration (SEM).",
+    "st26-sub4": "4. Integrationsdruck und Sozialhilfe",
+    "st26-p6": "Im Jahr 2026 setzen die Kantone aktiv ein Modell der strengen Integrationsüberwachung (Integrationsmassnahmen) um:",
+    "st26-li8": "Bezüger von Sozialhilfe sind verpflichtet, an Sprachkursen und Beschäftigungsprogrammen (wie Initiativen von Strukturen wie der AOZ) teilzunehmen.",
+    "st26-li9": "Das Ignorieren offizieller Schreiben, die Verweigerung angebotener Kurse oder das Verschweigen von Realeinkommen aus Nebentätigkeiten führt zu einer rechtmässigen Kürzung der Leistungen auf kantonaler Ebene.",
+    "st26-out": "Der Status S wandelt sich im Jahr 2026 von einem Krisenmechanismus der Nothilfe zu einem vorhersehbareren Migrationsinstrument mit klaren Kontrollkriterien. Die Hauptprioritäten für Ukrainer bleiben Transparenz in den Beziehungen zu den kantonalen Betreuern, offizielle Beschäftigung und die Einhaltung der Fristen für den legalen Aufenthalt in der Schweiz.",
 
     /* TEXT ARTIKEL STATUS S FEHLER (DE) */
     "err26-h1": "Status S im Jahr 2026: Häufigе Fehler und wie man sie vermeidet",

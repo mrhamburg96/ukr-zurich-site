@@ -22,7 +22,7 @@ a{text-decoration:none;color:inherit}
 
 /* Шапка */
 header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;padding:10px 0}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
+nav{display:flex;justify-space:between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1.5rem;gap:20px}
 .nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;max-width:320px}
 .nav-logo-flags{display:flex;gap:4px;flex-shrink:0}
 .flag-ua{background:linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);width:26px;height:18px;flex-shrink:0}
@@ -66,28 +66,29 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 /* Контент целевой страницы */
 .landing-content {
   padding: 1rem 0 4rem 0;
+  width: 100%;
 }
 .flyer-wrapper {
-  max-width: 900px;
-  margin: 0 auto 2.5rem auto;
+  width: 100%;
+  margin: 0 auto 2rem auto;
   text-align: center;
 }
 .flyer-img {
   width: 100%;
+  max-width: 900px;
   height: auto;
   border-radius: var(--radius);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   border: 1px solid var(--border);
-  display: block;
+  display: inline-block;
 }
 
-  
-/* Добавить для фото-галереи */
+/* Галерея из 4 фото */
 .photo-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   width: 100%;
 }
 
@@ -101,38 +102,7 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   border: 1px solid var(--border);
 }
 
-@media (max-width: 992px) {
-  .photo-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .photo-gallery {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Подвал */
-footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
-
-/* Мобильная адаптивность */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 15px !important;
-    padding: 10px 1rem !important;
-  }
-  .nav-logo { max-width: 100% !important; justify-content: center !important; }
-  .brand { align-items: center !important; }
-  .brand small { text-align: center !important; }
-  .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 10px 15px !important; padding: 0 !important; }
-  .nav-links a { font-size: 14px !important; }
-  .nav-r { width: 100% !important; justify-content: center !important; margin-top: 5px !important; gap: 15px !important; }
-}
-/* Статья (выровнена ровно по ширине галереи) */
+/* Статья под галереей */
 .article-section {
   margin-top: 2.5rem;
   width: 100%;
@@ -140,7 +110,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
 .article-title {
   color: var(--blue);
-  font-size: 1.4rem; /* Уменьшенный размер заголовка */
+  font-size: 1.35rem; /* Аккуратный сбалансированный заголовок */
   font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.3;
@@ -177,16 +147,16 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   font-size: 14.5px;
 }
 
-/* Секция: Режиссёр + Форма регистрации */
+/* Нижняя секция: Режиссёр (слева) + Форма (справа) */
 .bottom-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  margin-top: 3.5rem;
-  align-items: start;
+  gap: 2rem;
+  margin-top: 3rem;
+  align-items: stretch;
+  width: 100%;
 }
 
-/* Блок режиссёра (слева) */
 .director-card {
   display: flex;
   flex-direction: column;
@@ -201,16 +171,17 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 .director-img {
   width: 180px;
   height: 240px;
-  border-radius: 50% / 40%; /* Крупный овал */
+  border-radius: 50% / 40%; /* Овал */
   object-fit: cover;
   margin-bottom: 1.25rem;
   border: 3px solid var(--blue);
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: #eee;
 }
 
 .director-name {
   color: var(--blue-dark);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
 }
@@ -218,8 +189,8 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 .director-role {
   color: var(--purple);
   font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 1rem;
+  font-size: 13.5px;
+  margin-bottom: 0.75rem;
 }
 
 .director-bio {
@@ -228,18 +199,17 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   line-height: 1.6;
 }
 
-/* Форма регистрации (справа) */
 .reg-form-card {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
 .reg-form-title {
   color: var(--blue);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1.25rem;
 }
@@ -308,12 +278,36 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   background: var(--blue-dark);
 }
 
+/* Подвал */
+footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+
 /* Мобильная адаптивность */
+@media (max-width: 992px) {
+  .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 850px) {
-  .bottom-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .bottom-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 576px) {
+  .photo-gallery { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 10px 1rem !important;
   }
+  .nav-logo { max-width: 100% !important; justify-content: center !important; }
+  .brand { align-items: center !important; }
+  .brand small { text-align: center !important; }
+  .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 10px 15px !important; padding: 0 !important; }
+  .nav-links a { font-size: 14px !important; }
+  .nav-r { width: 100% !important; justify-content: center !important; margin-top: 5px !important; gap: 15px !important; }
 }
 </style>
 </head>
@@ -352,7 +346,6 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </header>
 
 <main class="container">
-  <!-- Блок кнопки "Назад" -->
   <div class="back-nav">
     <a href="javascript:history.back()" class="btn-back" id="btn-back">
       ← <span id="btn-back-text">Назад</span>
@@ -360,90 +353,90 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   </div>
 
   <section class="landing-content">
-    <!-- Динамический флаер (меняется при переключении языка) -->
+    <!-- 1. Динамический флаер -->
     <div class="flyer-wrapper">
       <img id="main-flyer" src="flaer-UA.webp" alt="Дитяча театральна студія" class="flyer-img">
     </div>
 
-  <!-- Галерея из 4 фото под флаером -->
-  <div class="photo-gallery">
-    <img src="theater-1.webp" alt="Театральна студія фото 1" class="photo-item">
-    <img src="theater-2.webp" alt="Театральна студія фото 2" class="photo-item">
-    <img src="theater-3.webp" alt="Театральна студія фото 3" class="photo-item">
-    <img src="theater-4.webp" alt="Театральна студія фото 4" class="photo-item">
-  </div>
-</section>
-</main>
-<!-- Блок статьи (в границах ширины галереи) -->
-  <article class="article-section">
-    <h2 class="article-title" id="art-title">«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху</h2>
-    
-    <p class="article-paragraph" id="art-p1">
-      Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.
-    </p>
-
-    <p class="article-paragraph" id="art-p2">
-      Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.
-    </p>
-
-    <p class="article-paragraph" id="art-p3">
-      Заняття побудовані у формі захопливої гри, що допомагає зняти психологічну напругу, покращити мовлення, розвинути уяву та пластику. Учасники проєкту отримають унікальну можливість випробувати себе в різних ролях, долучитися до створення творчих номерів та відчути магію театрального мистецтва.
-    </p>
-
-    <div class="article-highlight-box">
-      <p id="art-p4">Старт занять заплановано на осінні канікули 2026 року. Заняття проходять у творчій атмосфері.</p>
+    <!-- 2. Галерея из 4 фото -->
+    <div class="photo-gallery">
+      <img src="theater-1.webp" alt="Театральна студія фото 1" class="photo-item">
+      <img src="theater-2.webp" alt="Театральна студія фото 2" class="photo-item">
+      <img src="theater-3.webp" alt="Театральна студія фото 3" class="photo-item">
+      <img src="theater-4.webp" alt="Театральна студія фото 4" class="photo-item">
     </div>
 
-    <div class="article-callout" id="art-p5">
-      Подаруйте своїй дитині шанс повірити у власні сили, розкрити творчий дар та знайти надійних друзів! Кількість місць обмежена, тому поспішайте зареєструватися.
-    </div>
-  </article>
-
-  <!-- Нижняя секция: Режиссёр (слева) + Регистрация (справа) -->
-  <div class="bottom-grid">
-    <!-- Слева: Олена Самородова -->
-    <div class="director-card">
-      <img src="samorodova.jpg" alt="Олена Самородова" class="director-img">
-      <h3 class="director-name" id="dir-name">Олена Самородова</h3>
-      <span class="director-role" id="dir-role">Режисерка та керівниця проєкту</span>
-      <p class="director-bio" id="dir-bio">
-        Досвідчена театральна наставниця, яка допомагає дітям та підліткам розкрити свій творчий потенціал, опанувати сценічне мистецтво та знайти впевненість у собі.
+    <!-- 3. Статья (ровно по границам галереи) -->
+    <article class="article-section">
+      <h2 class="article-title" id="art-title">«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху</h2>
+      
+      <p class="article-paragraph" id="art-p1">
+        Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.
       </p>
+
+      <p class="article-paragraph" id="art-p2">
+        Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.
+      </p>
+
+      <p class="article-paragraph" id="art-p3">
+        Заняття побудовані у формі захопливої гри, що допомагає зняти психологічну напругу, покращити мовлення, розвинути уяву та пластику. Учасники проєкту отримають унікальну можливість випробувати себе в різних ролях, долучитися до створення творчих номерів та відчути магію театрального мистецтва.
+      </p>
+
+      <div class="article-highlight-box">
+        <p id="art-p4">Старт занять заплановано на осінні канікули 2026 року. Заняття проходять у творчій атмосфері.</p>
+      </div>
+
+      <div class="article-callout" id="art-p5">
+        Подаруйте своїй дитині шанс повірити у власні сили, розкрити творчий дар та знайти надійних друзів! Кількість місць обмежена, тому поспішайте зареєструватися.
+      </div>
+    </article>
+
+    <!-- 4. Нижняя часть: Режиссёр + Форма -->
+    <div class="bottom-grid">
+      <div class="director-card">
+        <img src="samorodova.jpg" alt="Олена Самородова" class="director-img">
+        <h3 class="director-name" id="dir-name">Олена Самородова</h3>
+        <span class="director-role" id="dir-role">Режисерка та керівниця проєкту</span>
+        <p class="director-bio" id="dir-bio">
+          Досвідчена театральна наставниця, яка допомагає дітям та підліткам розкрити свій творчий потенціал, опанувати сценічне мистецтво та знайти впевненість у собі.
+        </p>
+      </div>
+
+      <div class="reg-form-card">
+        <h3 class="reg-form-title" id="form-title">Зареєструватися на проект</h3>
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Заявку відправлено!');">
+          <div class="form-group">
+            <label id="lbl-name" for="reg-name">Ім'я та прізвище</label>
+            <input type="text" id="reg-name" class="form-input" required placeholder="Олена Іваненко">
+          </div>
+          
+          <div class="form-group">
+            <label id="lbl-email" for="reg-email">Email</label>
+            <input type="email" id="reg-email" class="form-input" required placeholder="email@example.com">
+          </div>
+
+          <div class="form-group">
+            <label id="lbl-phone" for="reg-phone">Телефон</label>
+            <input type="tel" id="reg-phone" class="form-input" required placeholder="+41 79 000 0000">
+          </div>
+
+          <div class="form-group">
+            <label id="lbl-msg" for="reg-msg">Повідомлення (вік дитини, побажання)</label>
+            <textarea id="reg-msg" class="form-textarea" placeholder="Ваше повідомлення..."></textarea>
+          </div>
+
+          <label class="form-checkbox-label">
+            <input type="checkbox" required>
+            <span id="lbl-consent">Я погоджуюся на обробку персональних даних</span>
+          </label>
+
+          <button type="submit" class="btn-submit" id="btn-submit">Надіслати заявку</button>
+        </form>
+      </div>
     </div>
+  </section>
+</main>
 
-    <!-- Справа: Форма регистрации -->
-    <div class="reg-form-card">
-      <h3 class="reg-form-title" id="form-title">Зареєструватися на проект</h3>
-      <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Заявку відправлено!');">
-        <div class="form-group">
-          <label id="lbl-name" for="reg-name">Ім'я та прізвище</label>
-          <input type="text" id="reg-name" class="form-input" required placeholder="Олена Іваненко">
-        </div>
-        
-        <div class="form-group">
-          <label id="lbl-email" for="reg-email">Email</label>
-          <input type="email" id="reg-email" class="form-input" required placeholder="email@example.com">
-        </div>
-
-        <div class="form-group">
-          <label id="lbl-phone" for="reg-phone">Телефон</label>
-          <input type="tel" id="reg-phone" class="form-input" required placeholder="+41 79 000 0000">
-        </div>
-
-        <div class="form-group">
-          <label id="lbl-msg" for="reg-msg">Повідомлення (вік дитини, побажання)</label>
-          <textarea id="reg-msg" class="form-textarea" placeholder="Ваше повідомлення..."></textarea>
-        </div>
-
-        <label class="form-checkbox-label">
-          <input type="checkbox" required>
-          <span id="lbl-consent">Я погоджуюся на обробку персональних даних</span>
-        </label>
-
-        <button type="submit" class="btn-submit" id="btn-submit">Надіслати заявку</button>
-      </form>
-    </div>
-  </div>
 <footer>
   <div class="container footer-grid">
     <div>
@@ -458,122 +451,118 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </footer>
 
 <script>
-  // Картинки для разных языков
   const flyerImages = {
     ua: 'flaer-UA.webp',
     de: 'flaer-DE.webp'
   };
 
- const T = {
-  ua: {
-    "m-home": "Головна",
-    "m-about": "Про нас",
-    "m-help": "Допомога",
-    "m-events": "Події",
-    "m-knowledge": "Центр знань",
-    "m-announcements": "Оголошення",
-    "m-volunteering": "Волонтерство",
-    "m-donate": "❤️ Донат",
-    "m-contacts": "Контакти",
-    "nav-sub": "Український інтеграційний та громадський центр Цюриха",
-    "nav-cta": "Отримати допомогу",
-    "btn-back-text": "Назад",
-    
-    "f-title": "UAGZ Цюрих",
-    "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "fc1h": "Контакти",
+  const T = {
+    ua: {
+      "m-home": "Головна",
+      "m-about": "Про нас",
+      "m-help": "Допомога",
+      "m-events": "Події",
+      "m-knowledge": "Центр знань",
+      "m-announcements": "Оголошення",
+      "m-volunteering": "Волонтерство",
+      "m-donate": "❤️ Донат",
+      "m-contacts": "Контакти",
+      "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+      "nav-cta": "Отримати допомогу",
+      "btn-back-text": "Назад",
+      "f-title": "UAGZ Цюрих",
+      "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
+      "fc1h": "Контакти",
 
-    "art-title": "«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху",
-    "art-p1": "Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.",
-    "art-p2": "Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.",
-    "art-p3": "Заняття побудовані у формі захопливої гри, що допомагає зняти психологічну напругу, покращити мовлення, розвинути уяву та пластику. Учасники проєкту отримають унікальну можливість випробувати себе в різних ролях, долучитися до створення творчих номерів та відчути магію театрального мистецтва.",
-    "art-p4": "Старт занять заплановано на осінні канікули 2026 року. Заняття проходять у творчій атмосфері.",
-    "art-p5": "Подаруйте своїй дитині шанс повірити у власні сили, розкрити творчий дар та знайти надійних друзів! Кількість місць обмежена, тому поспішайте зареєструватися.",
+      "art-title": "«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху",
+      "art-p1": "Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.",
+      "art-p2": "Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.",
+      "art-p3": "Заняття побудовані у формі захопливої гри, що допомагає зняти психологічну напругу, покращити мовлення, розвинути уяву та пластику. Учасники проєкту отримають унікальну можливість випробувати себе в різних ролях, долучитися до створення творчих номерів та відчути магію театрального мистецтва.",
+      "art-p4": "Старт занять заплановано на осінні канікули 2026 року. Заняття проходять у творчій атмосфері.",
+      "art-p5": "Подаруйте своїй дитині шанс повірити у власні сили, розкрити творчий дар та знайти надійних друзів! Кількість місць обмежена, тому поспішайте зареєструватися.",
 
-    "dir-name": "Олена Самородова",
-    "dir-role": "Режисерка та керівниця проєкту",
-    "dir-bio": "Досвідчена театральна наставниця, яка допомагає дітям та підліткам розкрити свій творчий потенціал, опанувати сценічне мистецтво та знайти впевненість у собі.",
+      "dir-name": "Олена Самородова",
+      "dir-role": "Режисерка та керівниця проєкту",
+      "dir-bio": "Досвідчена театральна наставниця, яка допомагає дітям та підліткам розкрити свій творчий потенціал, опанувати сценічне мистецтво та знайти впевненість у собі.",
 
-    "form-title": "Зареєструватися на проект",
-    "lbl-name": "Ім'я та прізвище",
-    "lbl-email": "Email",
-    "lbl-phone": "Телефон",
-    "lbl-msg": "Повідомлення (вік дитини, побажання)",
-    "lbl-consent": "Я погоджуюся на обробку персональних даних",
-    "btn-submit": "Надіслати заявку"
-  },
-  de: {
-    "m-home": "Startseite",
-    "m-about": "Über uns",
-    "m-help": "Hilfe",
-    "m-events": "Ereignisse",
-    "m-knowledge": "Wissenszentrum",
-    "m-announcements": "Ankündigungen",
-    "m-volunteering": "Freiwilligenarbeit",
-    "m-donate": "❤️ Donate",
-    "m-contacts": "Kontakte",
-    "nav-sub": "Unterstützungs- und Integrationszentrum",
-    "nav-cta": "Hilfe erhalten",
-    "btn-back-text": "Zurück",
-    
-    "f-title": "UAGZ Zürich",
-    "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "fc1h": "Kontakt",
+      "form-title": "Зареєструватися на проект",
+      "lbl-name": "Ім'я та прізвище",
+      "lbl-email": "Email",
+      "lbl-phone": "Телефон",
+      "lbl-msg": "Повідомлення (вік дитини, побажання)",
+      "lbl-consent": "Я погоджуюся на обробку персональних даних",
+      "btn-submit": "Надіслати заявку"
+    },
+    de: {
+      "m-home": "Startseite",
+      "m-about": "Über uns",
+      "m-help": "Hilfe",
+      "m-events": "Ereignisse",
+      "m-knowledge": "Wissenszentrum",
+      "m-announcements": "Ankündigungen",
+      "m-volunteering": "Freiwilligenarbeit",
+      "m-donate": "❤️ Donate",
+      "m-contacts": "Kontakte",
+      "nav-sub": "Unterstützungs- und Integrationszentrum",
+      "nav-cta": "Hilfe erhalten",
+      "btn-back-text": "Zurück",
+      "f-title": "UAGZ Zürich",
+      "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
+      "fc1h": "Kontakt",
 
-    "art-title": "«Szene der Begegnung» — Theaterprojekt für Kinder und Jugendliche in Zürich",
-    "art-p1": "Das Kinder- und Jugendtheater in Zürich eröffnet neue Horizonte für die kreative Entfaltung. Das Projekt «Szene der Begegnung» unter der Leitung von Olena Samorodova lädt Kinder und Jugendliche im Alter von 8 bis 14 Jahren ein, in die faszinierende Welt der Bühne, der Emotionen und des Selbstausdrucks einzutauchen.",
-    "art-p2": "Theater ist viel mehr als nur Schauspielen. Es ist ein einzigartiger Raum, in dem Kinder lernen, Lampenfieber zu überwinden, Kommunikationsfähigkeiten zu entwickeln, neue Freunde zu finden und sich harmonisch in einem neuen kulturellen Umfeld einzuleben. Unter der Anleitung der erfahrenen Mentorin Olena Samorodova erforschen junge Talente ihre Möglichkeiten, entfalten ihr inneres Potenzial und lernen Teamarbeit.",
-    "art-p3": "Der Unterricht ist als spielerisches Erlebnis gestaltet, das hilft, innere Spannungen abzubauen, die Sprachfähigkeit zu verbessern sowie Fantasie und Körpergefühl zu fördern. Die Teilnehmenden erhalten die einmalige Gelegenheit, sich in verschiedenen Rollen auszuprobieren, an kreativen Darbietungen mitzuwirken und die Magie der Theaterkunst zu erleben.",
-    "art-p4": "Der Kursstart ist für die Herbstferien 2026 geplant. Der Unterricht findet in einer inspirierenden und kreativen Atmosphäre statt.",
-    "art-p5": "Geben Sie Ihrem Kind die Chance, an die eigenen Kräfte zu glauben, sein kreatives Talent zu entfalten und verlässliche Freunde zu finden! Die Plätze sind begrenzt — melden Sie sich rechtzeitig an.",
+      "art-title": "«Szene der Begegnung» — Theaterprojekt für Kinder und Jugendliche in Zürich",
+      "art-p1": "Das Kinder- und Jugendtheater in Zürich eröffnet neue Horizonte für die kreative Entfaltung. Das Projekt «Szene der Begegnung» unter der Leitung von Olena Samorodova lädt Kinder und Jugendliche im Alter von 8 bis 14 Jahren ein, in die faszinierende Welt der Bühne, der Emotionen und des Selbstausdrucks einzutauchen.",
+      "art-p2": "Theater ist viel mehr als nur Schauspielen. Es ist ein einzigartiger Raum, in dem Kinder lernen, Lampenfieber zu überwinden, Kommunikationsfähigkeiten zu entwickeln, neue Freunde zu finden und sich harmonisch in einem neuen kulturellen Umfeld einzuleben. Unter der Anleitung der erfahrenen Mentorin Olena Samorodova erforschen junge Talente ihre Möglichkeiten, entfalten ihr inneres Potenzial und lernen Teamarbeit.",
+      "art-p3": "Der Unterricht ist als spielerisches Erlebnis gestaltet, das hilft, innere Spannungen abzubauen, die Sprachfähigkeit zu verbessern sowie Fantasie und Körpergefühl zu fördern. Die Teilnehmenden erhalten die einmalige Gelegenheit, sich in verschiedenen Rollen auszuprobieren, an kreativen Darbietungen mitzuwirken und die Magie der Theaterkunst zu erleben.",
+      "art-p4": "Der Kursstart ist für die Herbstferien 2026 geplant. Der Unterricht findet in einer inspirierenden und kreativen Atmosphäre statt.",
+      "art-p5": "Geben Sie Ihrem Kind die Chance, an die eigenen Kräfte zu glauben, sein kreatives Talent zu entfalten und verlässliche Freunde zu finden! Die Plätze sind begrenzt — melden Sie sich rechtzeitig an.",
 
-    "dir-name": "Olena Samorodova",
-    "dir-role": "Regisseurin und Projektleiterin",
-    "dir-bio": "Erfahrene Theaterpädagogin, die Kindern und Jugendlichen hilft, ihr kreatives Potenzial zu entfalten, Bühnenkunst zu erlernen und Selbstvertrauen zu gewinnen.",
+      "dir-name": "Olena Samorodova",
+      "dir-role": "Regisseurin und Projektleiterin",
+      "dir-bio": "Erfahrene Theaterpädagogin, die Kindern und Jugendlichen hilft, ihr kreatives Potenzial zu entfalten, Bühnenkunst zu erlernen und Selbstvertrauen zu gewinnen.",
 
-    "form-title": "Für das Projekt anmelden",
-    "lbl-name": "Vor- und Nachname",
-    "lbl-email": "E-Mail",
-    "lbl-phone": "Telefon",
-    "lbl-msg": "Nachricht (Alter des Kindes, Wünsche)",
-    "lbl-consent": "Ich stimme der Verarbeitung meiner persönlichen Daten zu",
-    "btn-submit": "Anmeldung absenden"
-  }
-};
-function setLang(lang) {
-  // Переключение активной кнопки языка
-  document.querySelectorAll('.lb').forEach(b => {
-    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
-  });
-
-  // Замена изображения флаера
-  const flyerImg = document.getElementById('main-flyer');
-  if (flyerImg && flyerImages[lang]) {
-    flyerImg.src = flyerImages[lang];
-  }
-
-  if (typeof T === 'undefined' || !T[lang]) return;
-  const dict = T[lang];
-
-  for (const [id, val] of Object.entries(dict)) {
-    const el = document.getElementById(id);
-    if (!el) continue;
-
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else {
-      el.innerHTML = val;
+      "form-title": "Für das Projekt anmelden",
+      "lbl-name": "Vor- und Nachname",
+      "lbl-email": "E-Mail",
+      "lbl-phone": "Telefon",
+      "lbl-msg": "Nachricht (Alter des Kindes, Wünsche)",
+      "lbl-consent": "Ich stimme der Verarbeitung meiner persönlichen Daten zu",
+      "btn-submit": "Anmeldung absenden"
     }
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('.lb').forEach(b => {
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+
+    const flyerImg = document.getElementById('main-flyer');
+    if (flyerImg && flyerImages[lang]) {
+      flyerImg.src = flyerImages[lang];
+    }
+
+    if (typeof T === 'undefined' || !T[lang]) return;
+    const dict = T[lang];
+
+    for (const [id, val] of Object.entries(dict)) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    }
+
+    document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+    localStorage.setItem('selectedLang', lang);
   }
 
-  document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
-  localStorage.setItem('selectedLang', lang);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('selectedLang') || 'ua';
-  setLang(savedLang);
-});
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'ua';
+    setLang(savedLang);
+  });
 </script>
 
 </body>

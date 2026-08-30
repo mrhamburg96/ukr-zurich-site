@@ -81,10 +81,36 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   display: block;
 }
 
-/* Секция под будущий контент (текст и галерея) */
-.future-content {
-  max-width: 900px;
-  margin: 0 auto;
+  
+/* Добавить для фото-галереи */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+.photo-item {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 992px) {
+  .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Подвал */
@@ -157,10 +183,20 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     </div>
 
     <!-- Заготовка для будущего блока текста и фото -->
-    <div class="future-content" id="future-content-block">
-      <!-- Сюда в дальнейшем добавится описание и галерея -->
-    </div>
-  </section>
+   <section class="landing-content">
+  <!-- Динамический флаер -->
+  <div class="flyer-wrapper">
+    <img id="main-flyer" src="flaer-UA.webp" alt="Дитяча театральна студія" class="flyer-img">
+  </div>
+
+  <!-- Галерея из 4 фото под флаером -->
+  <div class="photo-gallery">
+    <img src="theater-1.webp" alt="Театральна студія фото 1" class="photo-item">
+    <img src="theater-2.webp" alt="Театральна студія фото 2" class="photo-item">
+    <img src="theater-3.webp" alt="Театральна студія фото 3" class="photo-item">
+    <img src="theater-4.webp" alt="Театральна студія фото 4" class="photo-item">
+  </div>
+</section>
 </main>
 
 <footer>

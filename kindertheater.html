@@ -132,6 +132,63 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   .nav-links a { font-size: 14px !important; }
   .nav-r { width: 100% !important; justify-content: center !important; margin-top: 5px !important; gap: 15px !important; }
 }
+  /* Блок статьи под галереей */
+.article-section {
+  margin-top: 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.article-title {
+  color: var(--blue);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.article-paragraph {
+  color: var(--text2);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.article-highlight-box {
+  background: var(--purple-bg);
+  border-left: 4px solid var(--purple);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+}
+
+.article-highlight-box p {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.article-callout {
+  background: var(--blue-light);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  color: var(--blue-dark);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .article-section {
+    padding: 1.5rem;
+  }
+  .article-title {
+    font-size: 1.4rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -191,7 +248,30 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   </div>
 </section>
 </main>
+<!-- Блок статьи -->
+  <article class="article-section">
+    <h2 class="article-title" id="art-title">«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху</h2>
+    
+    <p class="article-paragraph" id="art-p1">
+      Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.
+    </p>
 
+    <p class="article-paragraph" id="art-p2">
+      Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.
+    </p>
+
+    <p class="article-paragraph" id="art-p3">
+      Заняття побудовані у формі захопливої гри, що допомагає зняти психологічну напругу, покращити мовлення, розвинути уяву та пластику. Учасники проєкту отримають унікальну можливість випробувати себе в різних ролях, долучитися до створення творчих номерів та відчути магію театрального мистецтва.
+    </p>
+
+    <div class="article-highlight-box">
+      <p id="art-p4">Старт занять заплановано на осінні канікули 2026 року. Заняття проходять у творчій атмосфері.</p>
+    </div>
+
+    <div class="article-callout" id="art-p5">
+      Подаруйте своїй дитині шанс повірити у власні сили, розкрити творчий дар та знайти надійних друзів! Кількість місць обмежена, тому поспішайте зареєструватися.
+    </div>
+  </article>
 <footer>
   <div class="container footer-grid">
     <div>
@@ -212,7 +292,7 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     de: 'flaer-DE.webp'
   };
 
-  const T = {
+ const T = {
   ua: {
     "m-home": "Головна",
     "m-about": "Про нас",
@@ -229,7 +309,13 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     
     "f-title": "UAGZ Цюрих",
     "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "fc1h": "Контакти"
+    "fc1h": "Контакти",
+    "art-title": "«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху",
+    "art-p1": "Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.",
+    "art-p2": "Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.",
+    "art-p3": "Заняття побудовані у формі захопливої гри, що допомагає зняти психологічну напругу, покращити мовлення, розвинути уяву та пластику. Учасники проєкту отримають унікальну можливість випробувати себе в різних ролях, долучитися до створення творчих номерів та відчути магію театрального мистецтва.",
+    "art-p4": "Старт занять заплановано на осінні канікули 2026 року. Заняття проходять у творчій атмосфері.",
+    "art-p5": "Подаруйте своїй дитині шанс повірити у власні сили, розкрити творчий дар та знайти надійних друзів! Кількість місць обмежена, тому поспішайте зареєструватися."
   },
   de: {
     "m-home": "Startseite",
@@ -247,10 +333,15 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
     
     "f-title": "UAGZ Zürich",
     "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
-    "fc1h": "Kontakt"
+    "fc1h": "Kontakt",
+    "art-title": "«Szene der Begegnung» — Theaterprojekt für Kinder und Jugendliche in Zürich",
+    "art-p1": "Das Kinder- und Jugendtheater in Zürich eröffnet neue Horizonte für die kreative Entfaltung. Das Projekt «Szene der Begegnung» unter der Leitung von Olena Samorodova lädt Kinder und Jugendliche im Alter von 8 bis 14 Jahren ein, in die faszinierende Welt der Bühne, der Emotionen und des Selbstausdrucks einzutauchen.",
+    "art-p2": "Theater ist viel mehr als nur Schauspielen. Es ist ein einzigartiger Raum, in dem Kinder lernen, Lampenfieber zu überwinden, Kommunikationsfähigkeiten zu entwickeln, neue Freunde zu finden und sich harmonisch in einem neuen kulturellen Umfeld einzuleben. Unter der Anleitung der erfahrenen Mentorin Olena Samorodova erforschen junge Talente ihre Möglichkeiten, entfalten ihr inneres Potenzial und lernen Teamarbeit.",
+    "art-p3": "Der Unterricht ist als spielerisches Erlebnis gestaltet, das hilft, innere Spannungen abzubauen, die Sprachfähigkeit zu verbessern sowie Fantasie und Körpergefühl zu fördern. Die Teilnehmenden erhalten die einmalige Gelegenheit, sich in verschiedenen Rollen auszuprobieren, an kreativen Darbietungen mitzuwirken und die Magie der Theaterkunst zu erleben.",
+    "art-p4": "Der Kursstart ist für die Herbstferien 2026 geplant. Der Unterricht findet in einer inspirierenden und kreativen Atmosphäre statt.",
+    "art-p5": "Geben Sie Ihrem Kind die Chance, an die eigenen Kräfte zu glauben, sein kreatives Talent zu entfalten und verlässliche Freunde zu finden! Die Plätze sind begrenzt — melden Sie sich rechtzeitig an."
   }
 };
-
 function setLang(lang) {
   // Переключение активной кнопки языка
   document.querySelectorAll('.lb').forEach(b => {

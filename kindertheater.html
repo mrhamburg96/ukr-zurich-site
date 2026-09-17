@@ -405,25 +405,25 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
       <div class="reg-form-card">
         <h3 class="reg-form-title" id="form-title">Зареєструватися на проект</h3>
-        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Заявку відправлено!');">
+        <form id="reg-form">
           <div class="form-group">
             <label id="lbl-name" for="reg-name">Ім'я та прізвище</label>
-            <input type="text" id="reg-name" class="form-input" required placeholder="Олена Іваненко">
+            <input type="text" id="reg-name" name="name" class="form-input" required placeholder="Олена Іваненко">
           </div>
           
           <div class="form-group">
             <label id="lbl-email" for="reg-email">Email</label>
-            <input type="email" id="reg-email" class="form-input" required placeholder="email@example.com">
+            <input type="email" id="reg-email" name="email" class="form-input" required placeholder="email@example.com">
           </div>
 
           <div class="form-group">
             <label id="lbl-phone" for="reg-phone">Телефон</label>
-            <input type="tel" id="reg-phone" class="form-input" required placeholder="+41 79 000 0000">
+            <input type="tel" id="reg-phone" name="phone" class="form-input" required placeholder="+41 79 000 0000">
           </div>
 
           <div class="form-group">
             <label id="lbl-msg" for="reg-msg">Повідомлення (вік дитини, побажання)</label>
-            <textarea id="reg-msg" class="form-textarea" placeholder="Ваше повідомлення..."></textarea>
+            <textarea id="reg-msg" name="message" class="form-textarea" placeholder="Ваше повідомлення..."></textarea>
           </div>
 
           <label class="form-checkbox-label">
@@ -452,6 +452,9 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 </footer>
 
 <script>
+  // ВСТАВЬТЕ СЮДА ССЫЛКУ, ПОЛУЧЕННУЮ В ШАГЕ 1:
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySHP104AEzb-MpKo9ihY0nR9mJzlhGZikQVNBd0pKoJ5qK-_UTbN9WScjUQHQMv-SBfw/exec';
+
   const flyerImages = {
     ua: 'flaer-UA.webp',
     de: 'flaer-DE.webp'
@@ -492,7 +495,10 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       "lbl-phone": "Телефон",
       "lbl-msg": "Повідомлення (вік дитини, побажання)",
       "lbl-consent": "Я погоджуюся на обробку персональних даних",
-      "btn-submit": "Надіслати заявку"
+      "btn-submit": "Надіслати заявку",
+      "msg-sending": "Надсилання...",
+      "msg-success": "Заявку успішно відправлено!",
+      "msg-error": "Помилка відправки. Спробуйте пізніше."
     },
     de: {
       "m-home": "Startseite",
@@ -528,7 +534,10 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       "lbl-phone": "Telefon",
       "lbl-msg": "Nachricht (Alter des Kindes, Wünsche)",
       "lbl-consent": "Ich stimme der Verarbeitung meiner persönlichen Daten zu",
-      "btn-submit": "Anmeldung absenden"
+      "btn-submit": "Anmeldung absenden",
+      "msg-sending": "Wird gesendet...",
+      "msg-success": "Anmeldung erfolgreich versendet!",
+      "msg-error": "Fehler beim Senden. Bitte versuchen Sie es später erneut."
     }
   };
 
@@ -563,6 +572,51 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
   document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLang') || 'ua';
     setLang(savedLang);
+
+    // Обработчик отправки формы в Google Таблицу
+    const regForm = document.getElementById('reg-form');
+    if (regForm) {
+      regForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const currentLang = localStorage.getItem('selectedLang') || 'ua';
+        const dict = T[currentLang] || T.ua;
+        const btnSubmit = document.getElementById('btn-submit');
+        
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('de-CH') + ' ' + now.toLocaleTimeString('de-CH', {hour: '2-digit', minute:'2-digit'});
+
+        const formData = {
+          date: dateStr,
+          name: document.getElementById('reg-name').value,
+          email: document.getElementById('reg-email').value,
+          phone: document.getElementById('reg-phone').value,
+          message: document.getElementById('reg-msg').value
+        };
+
+        btnSubmit.disabled = true;
+        btnSubmit.innerText = dict['msg-sending'] || 'Надсилання...';
+
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        })
+        .then(() => {
+          alert(dict['msg-success'] || 'Заявку успішно відправлено!');
+          regForm.reset();
+        })
+        .catch(err => {
+          console.error(err);
+          alert(dict['msg-error'] || 'Помилка відправки.');
+        })
+        .finally(() => {
+          btnSubmit.disabled = false;
+          btnSubmit.innerText = dict['btn-submit'] || 'Надіслати заявку';
+        });
+      });
+    }
   });
 </script>
 

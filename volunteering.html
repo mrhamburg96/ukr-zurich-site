@@ -232,6 +232,70 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
   .uagz-footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .uagz-f-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
+  /* Блок анонса Mahlzeit mit Herz */
+.announcement-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin: 3rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.announcement-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.announcement-list {
+  list-style: none;
+  margin: 1.25rem 0;
+  padding: 0;
+}
+.announcement-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 0.8rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.announcement-list li::before {
+  content: "•";
+  color: var(--blue);
+  font-weight: bold;
+  font-size: 1.4rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+/* Галерея 3 фото в ряд */
+.vol-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 2rem 0 3rem 0;
+}
+.vol-gallery-img {
+  width: 100%;
+  aspect-ratio: 600 / 338;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+  .vol-gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .announcement-box {
+    padding: 1.25rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -275,7 +339,24 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1200
 
   <h1 class="page-title" id="eco-title"></h1>
   <div class="vol-section article-text" id="eco-text"></div>
+<!-- Блок анонса Mahlzeit mit Herz -->
+  <div class="announcement-box">
+    <h2 class="announcement-title" id="ann-mahlzeit-title"></h2>
+    <div id="ann-mahlzeit-body" class="article-text"></div>
+  </div>
 
+  <!-- 3 фото в ряд (600x338) -->
+  <div class="vol-gallery">
+    <img src="volunteers-logo1.webp" alt="Mahlzeit mit Herz photo 1" class="vol-gallery-img">
+    <img src="volunteers-logo2.webp" alt="Mahlzeit mit Herz photo 2" class="vol-gallery-img">
+    <img src="volunteers-logo3.webp" alt="Mahlzeit mit Herz photo 3" class="vol-gallery-img">
+  </div>
+
+  <!-- Статья про Foodsharing -->
+  <div class="vol-section article-text" style="margin-bottom: 3rem;">
+    <h2 class="section-title" id="foodsharing-title" style="margin-top: 1rem;"></h2>
+    <div id="foodsharing-text"></div>
+  </div>
   <h2 class="section-title" id="vol-title"></h2>
   <div class="vol-section">
     <p id="vol-p1" style="color:var(--text2); font-size:1.1rem; text-align:center;"></p>
@@ -382,6 +463,11 @@ const T = {
     "vol-box-h": "Як ви можете допомогти?",
     "vol-box-p": "Нам завжди потрібні викладачі німецької мови, перекладачі, організатори дитячих заходів та координатори проєктів. Навіть 2 години вашого часу на тиждень — це величезний внесок.",
     "btn-open-form": "Приєднатися",
+    "ann-mahlzeit-title": "Поділіться теплом і змініть життя на краще з проєктом «Mahlzeit mit Herz»!",
+    "ann-mahlzeit-body": "<p>Запрошуємо вас стати частиною нашої дружньої команди та зробити реальний внесок у підтримку тих, хто цього потребує. Волонтерство в «Mahlzeit mit Herz» — це не просто допомога, це жива солідарність, турбота та тепло, які ми створюємо разом.</p><p><strong>Чому варто приєднатися до нас?</strong></p><ul class='announcement-list'><li><strong>Зручна та екологічна логістика:</strong> Для виконання завдань ми надаємо в користування вантажні велосипеди (cargo-bike), що робить перевезення легким, зручним та цікавим.</li><li><strong>Офіційний облік годин:</strong> Усі відпрацьовані години волонтерства чітко фіксуються та можуть бути офіційно надані вашим соціальним працівникам (Sozialarbeiter).</li><li><strong>Інвестиція у ваше майбутнє:</strong> Після завершення співпраці ви отримуєте офіційний диплом волонтера, який стане вагомим бонусом до резюме та помітно підвищить ваш статус і шанси при подальшому працевлаштуванні.</li></ul><p>Зробіть крок назустріч новим можливостям, корисним знайомствам і важливій справі. Зігрійте серця інших і знайдіть своє покликання!</p><p><strong>Зв'яжіться з нами або приєднуйтеся до команди вже сьогодні!</strong></p>",
+    
+    "foodsharing-title": "Фудшеринг та адресна продуктова допомога: Як це працює у Швейцарії",
+    "foodsharing-text": "<p>Фудшеринг (Foodsharing) — це глобальний та соціально важливий рух, спрямований на збереження якісних продуктів харчування та запобігання їх безпідставному утилізуванню. У сучасних європейських країнах, зокрема у Швейцарії, щодня залишаються тонни свіжих та повністю придатних до споживання продуктів. Завдяки розгалуженій мережі партнерських супермаркетів, пекарень, фермерських господарств та ресторанів, ці товари вилучаються з торговельного обігу ще до закінчення терміну придатності та перенаправляються тим, хто опинився у складних життєвих обставинах.</p><p>Для нашої громади у Цюриху напрямок фудшерингу став не лише способом підтримки українських родин, а й важливим елементом екологічної відповідальності. Оперативна доставка свіжих овочів, фруктів, хлібобулочних виробів та молочних продуктів вимагає чіткої та злагодженої логістичної системи. Саме тут на допомогу приходять наші волонтери, які забезпечують швидкий та дбайливий забір харчових наборів і їх безпосередній розподіл серед тих, хто має нагальну потребу в продуктових пакетах.</p><p>Використання сучасних вантажних велосипедів (cargo-bikes) робить цю місію повністю екологічною та мобільною. Волонтери мають змогу легко пересуватися міськими вулицями, уникаючи заторів та не забруднюючи довкілля викидами CO₂. Така система дозволяє максимально швидко доправляти продукти від пунктів збору до адресних отримувачів або ком'юніті-центрів, зберігаючи первинну якість та свіжість кожного набору.</p><p>Окрім безпосередньої матеріальної допомоги, фудшеринг виконує глибшу соціальну функцію. Він формує у суспільстві культуру свідомого споживання, зменшує навантаження на навколишнє середовище та сприяє зміцненню взаємоповаги між місцевими мешканцями та новоприбулими українцями. Беручи участь у таких ініціативах, кожен волонтер відчуває реальну віддачу від своєї праці, допомагаючи зберігати ресурси планети та даруючи турботу тим, хто цього найбільше потребує сьогодні.</p>",
     
     "f-title-text": "Реєстрація волонтера",
     "f-sub-text": "Ми зв'яжемося з вами найближчим часом!",
@@ -405,6 +491,12 @@ const T = {
     "vol-box-h": "Wie können Sie helfen?",
     "vol-box-p": "Wir suchen immer Deutschlehrer, Übersetzer, Organisatoren von Kinderaktivitäten und Projektkoordinatoren. Selbst 2 Stunden Zeit pro Woche sind ein riesiger Beitrag.",
     "btn-open-form": "Mitmachen",
+
+    "ann-mahlzeit-title": "Teilen Sie Wärme und verändern Sie Leben zum Besseren mit dem Projekt «Mahlzeit mit Herz»!",
+    "ann-mahlzeit-body": "<p>Wir laden Sie ein, Teil unseres freundlichen Teams zu werden und einen realen Beitrag zur Unterstützung derjenigen zu leisten, die es brauchen. Ehrenamt bei «Mahlzeit mit Herz» ist nicht nur Hilfe — es ist lebendige Solidarität, Fürsorge und Wärme, die wir gemeinsam schaffen.</p><p><strong>Warum lohnt es sich, mitzumachen?</strong></p><ul class='announcement-list'><li><strong>Bequeme und ökologische Logistik:</strong> Für die Aufgaben stellen wir Lastenräder (Cargo-Bikes) zur Verfügung, was den Transport leicht, praktisch und spannend macht.</li><li><strong>Offizielle Erfassung der Stunden:</strong> Alle geleisteten Ehrenamtsstunden werden genau erfasst und können Ihren Sozialarbeitern offiziell vorgelegt werden.</li><li><strong>Investition in Ihre Zukunft:</strong> Nach Abschluss der Zusammenarbeit erhalten Sie ein offizielles Freiwilligendiplom, das Ihren Lebenslauf bereichert und Ihre Chancen bei der Arbeitssuche erhöht.</li></ul><p>Machen Sie einen Schritt auf neue Möglichkeiten, nützliche Kontakte und eine wichtige Sache zu. Wärmen Sie die Herzen anderer und finden Sie Ihre Berufung!</p><p><strong>Kontaktieren Sie uns oder werden Sie noch heute Teil unseres Teams!</strong></p>",
+    
+    "foodsharing-title": "Foodsharing und gezielte Lebensmittelhilfe: Wie es in der Schweiz funktioniert",
+    "foodsharing-text": "<p>Foodsharing ist eine globale und sozial wichtige Bewegung, die darauf abzielt, qualitativ hochwertige Lebensmittel zu retten und deren unnötige Verschwendung zu verhindern. In modernen europäischen Ländern, insbesondere in der Schweiz, bleiben täglich Tonnen frischer und vollkommen genießbarer Produkte übrig. Dank eines weitverzweigten Netzwerks von Partnersupermärkten, Bäckereien, Bauernhöfen und Restaurants werden diese Waren vor Ablauf des Mindesthaltbarkeitsdatums aus dem Handel genommen und an Menschen in schwierigen Lebenslagen weitergeleitet.</p><p>Für unsere Gemeinschaft in Zürich ist der Bereich Foodsharing nicht nur eine Möglichkeit zur Unterstützung ukrainischer Familien geworden, sondern auch ein wichtiges Element ökologischer Verantwortung. Die schnelle Lieferung von frischem Gemüse, Obst, Backwaren und Milchprodukten erfordert ein präzises und gut koordiniertes Logistiksystem. Genau hier kommen unsere Freiwilligen ins Spiel, die für die schnelle und sorgfältige Abholung von Lebensmittelpaketen und deren Verteilung an Bedürftige sorgen.</p><p>Der Einsatz moderner Lastenräder (Cargo-Bikes) macht diese Mission vollständig ökologisch und mobil. Die Freiwilligen können sich leicht durch die Stadt bewegen, Staus vermeiden und die Umwelt nicht mit CO₂-Emissionen belasten. Dieses System ermöglicht es, Lebensmittel extrem schnell von den Sammelstellen zu den Empfängern oder Community-Zentren zu bringen, wobei die Frische jedes Pakets erhalten bleibt.</p><p>Neben der direkten materiellen Hilfe erfüllt Foodsharing eine tiefere soziale Funktion. Es fördert eine Kultur des bewussten Konsums in der Gesellschaft, reduziert die Umweltbelastung und stärkt den gegenseitigen Respekt zwischen Anwohnern und neu angekommenen Ukrainern. Durch die Teilnahme an solchen Initiativen spürt jeder Freiwillige den konkreten Nutzen seiner Arbeit, hilft Ressourcen zu schonen und schenkt denjenigen Fürsorge, die sie heute am meisten brauchen.</p>",
 
     "f-title-text": "Registrierung als Freiwilliger",
     "f-sub-text": "Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen!",

@@ -277,6 +277,43 @@ nav{display:flex;justify-space:between;align-items:center;max-width:1200px;margi
 .btn-submit:hover {
   background: var(--blue-dark);
 }
+  /* Секция партнеров */
+.partners-section {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.partners-title {
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.partners-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.partner-logo {
+  max-height: 48px; /* Небольшой аккуратный размер */
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(20%);
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.partner-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-2px);
+}
 
 /* Подвал */
 footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--border);margin-top:4rem}
@@ -436,6 +473,14 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       </div>
     </div>
   </section>
+  <!-- Секція Партнери -->
+<section class="partners-section">
+  <h3 class="partners-title" id="partners-title">Наші партнери</h3>
+  <div class="partners-grid">
+    <img src="logo-migros-kinder.webp" alt="Migros Kulturprozent" class="partner-logo">
+    <img src="logo-std-kinder.webp" alt="Stadt Zürich" class="partner-logo">
+  </div>
+</section>
 </main>
 
 <footer>
@@ -478,6 +523,8 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
       "fc1h": "Контакти",
 
+      "partners-title": "Наші партнери",
+
       "art-title": "«Сцена зустрічі» — театральний проєкт для дітей та підлітків у Цюриху",
       "art-p1": "Дитяче та підліткове театральне мистецтво в Цюриху відкриває нові горизонти для творчого розвитку. Проєкт «Szene der Begegnung», яким керує Олена Самородова, запрошує дітей та підлітків віком від 8 до 14 років поринути у захопливий світ сцени, емоцій та самовираження.",
       "art-p2": "Театр — це набагато більше, ніж просто гра на сцені. Це унікальний простір, де діти вчаться долати страх публічних виступів, розвивають комунікативні навички, знаходять нових друзів та гармонійно адаптуються в новому культурному середовищі. Під керівництвом досвідченої наставниці Олени Самородової юні таланти досліджують свої можливості, розкривають внутрішній потенціал та вчаться працювати в команді.",
@@ -516,6 +563,8 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
       "f-title": "UAGZ Zürich",
       "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
       "fc1h": "Kontakt",
+
+      "partners-title": "Unsere Partner",
 
       "art-title": "«Szene der Begegnung» — Theaterprojekt für Kinder und Jugendliche in Zürich",
       "art-p1": "Das Kinder- und Jugendtheater in Zürich eröffnet neue Horizonte für die kreative Entfaltung. Das Projekt «Szene der Begegnung» unter der Leitung von Olena Samorodova lädt Kinder und Jugendliche im Alter von 8 bis 14 Jahren ein, in die faszinierende Welt der Bühne, der Emotionen und des Selbstausdrucks einzutauchen.",

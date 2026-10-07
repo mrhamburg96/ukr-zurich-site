@@ -219,6 +219,45 @@ footer{background:var(--surface);padding:3rem 0;border-top:1px solid var(--borde
 
     <div class="status-articles">
 
+      <!-- Стаття: Подорожі та поїздки в Україну зі статусом S у 2026 році -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleArticle(this)">
+          <span id="trv26-h1">Подорожі та поїздки в Україну зі статусом S у 2026 році: дозволені терміни та правила</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content" style="max-height: 4000px;">
+          <div class="accordion-inner">
+            <span class="article-date">07.10.2026</span>
+            <p id="trv26-p1" class="article-p"></p>
+            
+            <h3 id="trv26-sub1"></h3>
+            <p id="trv26-p2" class="article-p"></p>
+            <ul class="article-list">
+              <li id="trv26-li1"></li>
+              <li id="trv26-li2"></li>
+              <li id="trv26-li3"></li>
+            </ul>
+
+            <h3 id="trv26-sub2"></h3>
+            <p id="trv26-p3" class="article-p"></p>
+            <ul class="article-list">
+              <li id="trv26-li4"></li>
+              <li id="trv26-li5"></li>
+            </ul>
+
+            <h3 id="trv26-sub3"></h3>
+            <p id="trv26-p4" class="article-p"></p>
+
+            <h3 id="trv26-sub4"></h3>
+            <ol class="article-list">
+              <li id="trv26-li6"></li>
+              <li id="trv26-li7"></li>
+              <li id="trv26-li8"></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
       <!-- Стаття: Ринок праці для статусу S у 2026 році -->
 <div class="accordion-item">
   <button class="accordion-trigger" onclick="toggleArticle(this)">
@@ -894,6 +933,29 @@ const T = {
     "nr-title": "Статус S у Швейцарії. Актуальні новини",
     "nr-sub": "Свіжі матеріали, офіційні заяви та корисна інформація для української громади.",
 
+    /* ТЕКСТ СТАТТІ ПРО ПОЇЗДКИ 2026 (UA) */
+    "trv26-h1": "Подорожі та поїздки в Україну зі статусом S у 2026 році: дозволені терміни та правила",
+    "trv26-p1": "Отримання тимчасового захисту у Швейцарії надає українським біженцям право на легальне проживання, соціальну підтримку та інтеграцію на ринку праці. Водночас питання поїздок на батьківщину суворо регламентовані міграційним законодавством Швейцарії. З наближенням актуальних термінів та оновленням правил важко переоцінити важливість дотримання встановлених лімітів, щоб уникнути ризику втрати статусу S.",
+    
+    "trv26-sub1": "Дозволені терміни перебування в Україні",
+    "trv26-p2": "Згідно з офіційними правилами Державного секретаріату з міграції Швейцарії (SEM), особи зі статусом захисту S мають право відвідувати Україну, проте тривалість таких поїздок суворо обмежена:",
+    "trv26-li1": "<strong>Ліміт днів:</strong> Загальний термін поїздок в Україну не повинен перевищувати 15 днів протягом одного півріччя.",
+    "trv26-li2": "<strong>Метод розрахунку:</strong> Період розраховується з урахуванням фактичних дат перетину кордону туди і назад. Наприклад, сума всіх поїздок за шість місяців не може виходити за межі встановленого ліміту.",
+    "trv26-li3": "<strong>Наслідки перевищення:</strong> Перебування в Україні понад 15 днів на півріччя розглядається міграційними органами як ознака того, що особа більше не потребує захисту у Швейцарії, що може стати підставою для скасування статусу S.",
+
+    "trv26-sub2": "Соціальні виплати під час поїздки",
+    "trv26-p3": "Правила фінансової допомоги під час виїзду за межі Швейцарії чітко окреслені кантональними відомствами:",
+    "trv26-li4": "<strong>Призупинення допомоги:</strong> На час перебування за кордоном (у тому числі в Україні) особа не має права на отримання швейцарської соціальної допомоги.",
+    "trv26-li5": "<strong>Обов'язок інформування:</strong> Одержувачі статусу S зобов'язані заздалегідь повідомляти своєму куратору в соціальній службі або міграційному відомстві про плановану поїздку та її дати. Несанкціоноване отримання виплат під час тривалого перебування за кордоном тягне за собою обов'язок повернення коштів та адміністративні штрафи.",
+
+    "trv26-sub3": "Загальний контекст та продовження статусу S",
+    "trv26-p4": "Федеральна рада Швейцарії ухвалила рішення про продовження дії статусу S для українців щонайменше до 4 березня 2028 року, оскільки стабілізації ситуації в Україні наразі не спостерігається. Це рішення забезпечує правову визначеність для біженців, кантонів та роботодавців приблизно на 18 місяців вперед. Водночас з кінця літа 2026 року впроваджено додаткові критерії та обмеження для нових заявників (зокрема щодо дотримання військових обов'язків в Україні), однак для осіб із чинним статусом S правила поїздок залишаються стандартними.",
+
+    "trv26-sub4": "Практичні рекомендації для мандрівників",
+    "trv26-li6": "<strong>Фіксуйте дати:</strong> Ретельно рахуйте дні кожної поїздки, щоб не перевищити ліміт у 15 днів за півріччя.",
+    "trv26-li7": "<strong>Повідомляйте відомства:</strong> Завжди попереджайте міграційну службу та соціального працівника про виїзд з країни.",
+    "trv26-li8": "<strong>Зберігайте квитки:</strong> Зберігайте посадкові талони та чеки на транспорт, щоб у разі запиту підтвердити точну тривалість перебування поза межами Швейцарії.",
+
     /* ТЕКСТ СТАТТІ ПРО РИНОК ПРАЦІ 2026 (UA) */
 "mkt26-h1": "Ринок праці для статусу S у 2026 році: де шукати роботу та які галузі відкриті",
 "mkt26-p1": "Отримання статусу S відкрило для тисяч українців можливість легально проживати та працювати в Швейцарії. Проте інтеграція у швейцарський ринок праці має свої специфічні нюанси, особливості законодавства та регіональні відмінності. У 2026 році економіка Швейцарії демонструє стабільність, а попит на кваліфікованих спеціалістів залишається високим у кількох ключових секторах.",
@@ -1266,6 +1328,29 @@ const T = {
     
     "nr-title": "Status S in der Schweiz. Aktuelle Nachrichten",
     "nr-sub": "Aktuelle Materialien, offizielle Erklärungen und nützliche Informationen für die ukrainische Gemeinschaft.",
+
+    /* TEXT ARTIKEL REISEN 2026 (DE) */
+    "trv26-h1": "Reisen in die Ukraine mit dem Status S im Jahr 2026: Zulässige Fristen und Regeln",
+    "trv26-p1": "Der Erhalt des vorübergehenden Schutzes in der Schweiz gewährt ukrainischen Geflüchteten das Recht auf legalen Aufenthalt, soziale Unterstützung und Integration in den Arbeitsmarkt. Gleichzeitig sind Heimatreisen durch das Schweizer Migrationsrecht streng geregelt. Mit dem Herannahen der aktuellen Fristen und den Regelaktualisierungen ist die Einhaltung der festgelegten Limits von entscheidender Bedeutung, um das Risiko eines Verlusts des Status S zu vermeiden.",
+    
+    "trv26-sub1": "Zulässige Aufenthaltsdauer in der Ukraine",
+    "trv26-p2": "Gemäss den offiziellen Regeln des Staatssekretariats für Migration (SEM) haben Personen mit Schutzstatus S das Recht, die Ukraine zu besuchen, die Dauer solcher Reisen ist jedoch streng begrenzt:",
+    "trv26-li1": "<strong>Tageslimit:</strong> Die Gesamtdauer der Reisen in die Ukraine darf 15 Tage pro Halbjahr nicht überschreiten.",
+    "trv26-li2": "<strong>Berechnungsmethode:</strong> Der Zeitraum wird anhand der tatsächlichen Daten des Grenzübertritts für Hin- und Rückreise berechnet. Beispielsweise darf die Summe aller Reisen innerhalb von sechs Monaten das festgelegte Limit nicht überschreiten.",
+    "trv26-li3": "<strong>Folgen einer Überschreitung:</strong> Ein Aufenthalt in der Ukraine von mehr als 15 Tagen pro Halbjahr wird von den Migrationsbehörden als Zeichen dafür gewertet, dass die Person keinen Schutz in der Schweiz mehr benötigt, was zum Widerruf des Status S führen kann.",
+
+    "trv26-sub2": "Sozialleistungen während der Reise",
+    "trv26-p3": "Die Regeln für finanzielle Unterstützung bei Auslandsreisen sind von den kantonalen Behörden klar festgelegt:",
+    "trv26-li4": "<strong>Auszahlungsstopp:</strong> Während des Aufenthalts im Ausland (einschliesslich der Ukraine) besteht kein Anspruch auf Schweizer Sozialhilfe.",
+    "trv26-li5": "<strong>Informationspflicht:</strong> Inhaber des Status S sind verpflichtet, ihren Betreuer beim Sozialamt oder der Migrationsbehörde vorab über die geplante Reise und deren Daten zu informieren. Der unberechtigte Bezug von Leistungen während eines längeren Auslandsaufenthalts zieht eine Rückforderungspflicht und administrative Bussen nach sich.",
+
+    "trv26-sub3": "Gesamtkontext und Verlängerung des Status S",
+    "trv26-p4": "Der Schweizer Bundesrat hat beschlossen, den Status S für Ukrainerinnen und Ukrainer mindestens bis zum 4. März 2028 zu verlängern, da derzeit keine Stabilisierung der Lage in der Ukraine absehbar ist. Dieser Beschluss bietet Geflüchteten, Kantonen und Arbeitgebern Rechtssicherheit für rund 18 Monate im Voraus. Gleichzeitig wurden seit Ende Sommer 2026 zusätzliche Kriterien und Einschränkungen für Neuantragsteller eingeführt (insbesondere bezüglich der Erfüllung von Militärpflichten in der Ukraine), für Personen mit bestehendem Status S bleiben die Reiseregeln jedoch unverändert.",
+
+    "trv26-sub4": "Praktische Empfehlungen für Reisende",
+    "trv26-li6": "<strong>Daten dokumentieren:</strong> Zählen Sie die Tage jeder Reise genau nach, um das Limit von 15 Tagen pro Halbjahr nicht zu überschreiten.",
+    "trv26-li7": "<strong>Behörden informieren:</strong> Informieren Sie das Migrationsamt und den Sozialarbeiter immer vor der Ausreise aus dem Land.",
+    "trv26-li8": "<strong>Tickets aufbewahren:</strong> Bewahren Sie Bordkarten und Transportbelege auf, um im Bedarfsfall die genaue Dauer des Aufenthalts ausserhalb der Schweiz nachzuweisen.",
 
     /* TEXT DES ARTIKELS ÜBER DEN ARBEITSMARKT 2026 (DE) */
 "mkt26-h1": "Arbeitsmarkt für den Schutzstatus S im Jahr 2026: Wo Sie Arbeit finden und welche Branchen offen sind",

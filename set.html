@@ -1,1 +1,585 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шукаємо сильних людей у команду — UAGZ</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Базовые сбросы и стили страницы */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --blue: #1A56C4;
+      --blue-dark: #0F3A8A;
+      --blue-light: #E8F1FD;
+      --text: #111827;
+      --text2: #4B5563;
+      --text3: #9CA3AF;
+      --border: #E5E7EB;
+      --surface: #F9FAFB;
+      --white: #ffffff;
+      --radius: 16px;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
+    /* Шапка сайта */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 10px 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      gap: 20px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      max-width: 320px;
+    }
+    .nav-logo-flags {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .flag-ua {
+      background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);
+      width: 26px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .flag-ch {
+      background: #D52B1E;
+      width: 18px;
+      height: 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .flag-ch::before, .flag-ch::after {
+      content: '';
+      background: #fff;
+      position: absolute;
+    }
+    .flag-ch::before { width: 4px; height: 12px; }
+    .flag-ch::after { width: 12px; height: 4px; }
+    
+    .brand {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand small {
+      font-size: 10px;
+      color: var(--text3);
+      font-weight: 400;
+      line-height: 1.2;
+      white-space: normal;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text2);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .btn-donate-nav {
+      background: none;
+      border: none;
+      color: #D52B1E;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .nav-r {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .lang-sw {
+      display: flex;
+      gap: 4px;
+      background: var(--surface);
+      padding: 2px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .lb {
+      background: none;
+      border: none;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text2);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lb.on {
+      background: #fff;
+      color: var(--blue);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Медиа для мобильного меню */
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+      }
+      .nav-links {
+        justify-content: center !important;
+        gap: 10px 15px !important;
+      }
+    }
+
+    /* Главный контент страницы */
+    .page-content {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    /* Стили изображений */
+    .hero-img, .footer-img {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      display: block;
+    }
+    .hero-img {
+      margin-bottom: 2.5rem;
+    }
+    .footer-img {
+      margin-top: 3.5rem;
+    }
+
+    /* Заголовок страницы */
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--blue);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    /* Текстовые блоки */
+    .intro-text {
+      font-size: 1.15rem;
+      color: var(--text2);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .job-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .job-title-badge {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .job-h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .job-lead {
+      font-size: 1.05rem;
+      color: var(--text2);
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .job-section-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .job-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1.25rem;
+    }
+    .job-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.4rem;
+      color: var(--text2);
+    }
+    .job-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    /* Блок призыва к действию */
+    .callout-box {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      padding: 2rem 1.5rem;
+      background: var(--blue-light);
+      border-radius: var(--radius);
+    }
+    .callout-h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .callout-sub {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-apply {
+      display: inline-block;
+      background: var(--blue);
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 14px rgba(26, 86, 196, 0.3);
+    }
+    .btn-apply:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Подвал */
+    footer {
+      background: var(--surface);
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА -->
+  <header>
+    <nav>
+      <a class="nav-logo" href="./index.html">
+        <div class="nav-logo-flags">
+          <div class="flag-ua"></div>
+          <div class="flag-ch"></div>
+        </div>
+        <span class="brand">UAGZ<small id="nav-sub">Український інтеграційний та громадський центр Цюриха</small></span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" id="m-home">Головна</a></li>
+        <li><a href="about.html" id="m-about">Про нас</a></li>
+        <li><a href="help.html" id="m-help">Допомога</a></li>
+        <li><a href="events.html" id="m-events">Події</a></li>
+        <li><a href="knowledge.html" id="m-knowledge">Центр знань</a></li>
+        <li><a href="announcements.html" class="active" id="m-announcements">Оголошення</a></li>
+        <li><a href="volunteering.html" id="m-volunteering">Волонтерство</a></li>
+        <li><button class="btn-donate-nav" id="m-donate">❤️ Донат</button></li>
+        <li><a href="contacts.html" id="m-contacts">Контакти</a></li>
+      </ul>
+      
+      <div class="nav-r">
+        <div class="lang-sw">
+          <button class="lb on" data-lang="ua" onclick="setLang('ua')">UA</button>
+          <button class="lb" data-lang="de" onclick="setLang('de')">DE</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main class="container page-content">
+
+    <!-- Первое фото -->
+    <img src="set-foto1.webp" alt="UAGZ Команда" class="hero-img" width="1279" height="854">
+
+    <!-- Заголовок -->
+    <h1 class="page-title" id="p-title">ШУКАЄМО СИЛЬНИХ ЛЮДЕЙ У КОМАНДУ</h1>
+
+    <!-- Вводный текст -->
+    <div class="intro-text">
+      <p id="p-intro1">Ми будуємо та розвиваємо нові проєкти у Швейцарії й шукаємо людей, які хочуть створювати, впливати та зростати разом із нами.</p>
+      <p id="p-intro2" style="margin-top: 1rem; font-weight: 500; color: var(--text);">Нам важливі не лише дипломи та записи у CV.<br>Ми цінуємо мислення, відповідальність, швидкість, ініціативу та здатність доводити справу до результату.</p>
+    </div>
+
+    <!-- ВАКАНСИЯ 1 -->
+    <div class="job-box">
+      <span class="job-title-badge" id="j1-badge">КЕРІВНИК ПРОЄКТІВ</span>
+      <h2 class="job-h2" id="j1-title">Project Manager — керівник проєктів</h2>
+      <p class="job-lead" id="j1-lead">Вам належить вести проєкти від ідеї до реалізації.</p>
+
+      <p class="job-section-title" id="j1-resp-title">Ваша зона відповідальності:</p>
+      <ul class="job-list">
+        <li id="j1-r1">планування та запуск нових проєктів;</li>
+        <li id="j1-r2">формування і координація команди;</li>
+        <li id="j1-r3">управління строками, бюджетами та пріоритетами;</li>
+        <li id="j1-r4">переговори з партнерами, клієнтами та підрядниками;</li>
+        <li id="j1-r5">контроль виконання та відповідальність за кінцевий результат.</li>
+      </ul>
+
+      <p style="color: var(--text2);" id="j1-search"><strong>Ми шукаємо:</strong> самостійну, системну та амбітну людину, яка не чекає постійних інструкцій, а бачить завдання, знаходить рішення і рухає проєкт уперед.</p>
+    </div>
+
+    <!-- ВАКАНСИЯ 2 -->
+    <div class="job-box">
+      <span class="job-title-badge" id="j2-badge">ПОМІЧНИК КЕРІВНИКА</span>
+      <h2 class="job-h2" id="j2-title">Executive / Project Assistant — помічник керівника / проєктний асистент</h2>
+      <p class="job-lead" id="j2-lead">Це позиція для людини, яка хоче бути безпосередньо всередині процесів, працювати поруч із керівником та поступово брати на себе більше відповідальності.</p>
+
+      <p class="job-section-title" id="j2-tasks-title">Ваші завдання:</p>
+      <ul class="job-list">
+        <li id="j2-t1">організація щоденної роботи та зустрічей;</li>
+        <li id="j2-t2">ведення ділової комунікації;</li>
+        <li id="j2-t3">робота з документами та інформацією;</li>
+        <li id="j2-t4">координація доручень і контроль строків;</li>
+        <li id="j2-t5">взаємодія з партнерами та виконавцями;</li>
+        <li id="j2-t6">підтримка запуску та розвитку нових проєктів.</li>
+      </ul>
+
+      <p style="color: var(--text2);" id="j2-req">Для нас важливі надійність, інтелект, швидкість навчання, організованість та ініціативність.</p>
+    </div>
+
+    <!-- ПРИЗЫВ К ДЕЙСТВИЮ -->
+    <div class="callout-box">
+      <h3 class="callout-h3" id="c-h3">НЕ ШУКАЙТЕ ПРОСТО РОБОТУ.</h3>
+      <p class="callout-sub" id="c-sub">ЗНАЙДІТЬ ПРОЄКТ, У ЯКОМУ МОЖНА ВИРОСТИ.</p>
+      <p style="margin-bottom: 1.5rem; color: var(--text2);" id="c-text">Якщо вам близький такий підхід — розкажіть нам про себе.</p>
+      <a href="contacts.html" class="btn-apply" id="btn-apply">ПРИЄДНАТИСЯ ДО КОМАНДИ</a>
+    </div>
+
+    <!-- Второе фото -->
+    <img src="set-foto2.webp" alt="Приєднуйтесь до UAGZ" class="footer-img" width="1279" height="854">
+
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3 id="f-title" style="margin-bottom:1rem;color:var(--blue)">UAGZ Цюрих</h3>
+        <p id="f-desc" style="color:var(--text2)">Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ</p>
+      </div>
+      <div>
+        <h3 id="fc1h" style="margin-bottom:1rem;color:var(--blue)">Контакти</h3>
+        <p style="color:var(--text2)">Email: info@ukr-zurich.ch</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- СКТИПТ ПЕРЕВОДОВ (UA / DE) -->
+  <script>
+    const T = {
+      ua: {
+        "nav-sub": "Український інтеграційний та громадський центр Цюриха",
+        "m-home": "Головна",
+        "m-about": "Про нас",
+        "m-help": "Допомога",
+        "m-events": "Події",
+        "m-knowledge": "Центр знань",
+        "m-announcements": "Оголошення",
+        "m-volunteering": "Волонтерство",
+        "m-donate": "❤️ Донат",
+        "m-contacts": "Контакти",
+
+        "p-title": "ШУКАЄМО СИЛЬНИХ ЛЮДЕЙ У КОМАНДУ",
+        "p-intro1": "Ми будуємо та розвиваємо нові проєкти у Швейцарії й шукаємо людей, які хочуть створювати, впливати та зростати разом із нами.",
+        "p-intro2": "Нам важливі не лише дипломи та записи у CV.<br>Ми цінуємо мислення, відповідальність, швидкість, ініціативу та здатність доводити справу до результату.",
+
+        "j1-badge": "КЕРІВНИК ПРОЄКТІВ",
+        "j1-title": "Project Manager — керівник проєктів",
+        "j1-lead": "Вам належить вести проєкти від ідеї до реалізації.",
+        "j1-resp-title": "Ваша зона відповідальності:",
+        "j1-r1": "планування та запуск нових проєктів;",
+        "j1-r2": "формування і координація команди;",
+        "j1-r3": "управління строками, бюджетами та пріоритетами;",
+        "j1-r4": "переговори з партнерами, клієнтами та підрядниками;",
+        "j1-r5": "контроль виконання та відповідальність за кінцевий результат.",
+        "j1-search": "<strong>Ми шукаємо:</strong> самостійну, системну та амбітну людину, яка не чекає постійних інструкцій, а бачить завдання, знаходить рішення і рухає проєкт уперед.",
+
+        "j2-badge": "ПОМІЧНИК КЕРІВНИКА",
+        "j2-title": "Executive / Project Assistant — помічник керівника / проєктний асистент",
+        "j2-lead": "Це позиція для людини, яка хоче бути безпосередньо всередині процесів, працювати поруч із керівником та поступово брати на себе більше відповідальності.",
+        "j2-tasks-title": "Ваші завдання:",
+        "j2-t1": "організація щоденної роботи та зустрічей;",
+        "j2-t2": "ведення ділової комунікації;",
+        "j2-t3": "робота з документами та інформацією;",
+        "j2-t4": "координація доручень і контроль строків;",
+        "j2-t5": "взаємодія з партнерами та виконавцями;",
+        "j2-t6": "підтримка запуску та розвитку нових проєктів.",
+        "j2-req": "Для нас важливі надійність, інтелект, швидкість навчання, організованість та ініціативність.",
+
+        "c-h3": "НЕ ШУКАЙТЕ ПРОСТО РОБОТУ.",
+        "c-sub": "ЗНАЙДІТЬ ПРОЄКТ, У ЯКОМУ МОЖНА ВИРОСТИ.",
+        "c-text": "Якщо вам близький такий підхід — розкажіть нам про себе.",
+        "btn-apply": "ПРИЄДНАТИСЯ ДО КОМАНДИ",
+
+        "f-title": "UAGZ Цюрих",
+        "f-desc": "Український інтеграційний та громадський центр Цюриха<br>Gemeinnütziger Verein · © 2026 UAGZ",
+        "fc1h": "Контакти"
+      },
+      de: {
+        "nav-sub": "Ukrainisches Integrations- und Gemeindezentrum Zürich",
+        "m-home": "Startseite",
+        "m-about": "Über uns",
+        "m-help": "Hilfe",
+        "m-events": "Ereignisse",
+        "m-knowledge": "Wissenszentrum",
+        "m-announcements": "Ankündigungen",
+        "m-volunteering": "Freiwilligenarbeit",
+        "m-donate": "❤️ Spenden",
+        "m-contacts": "Kontakte",
+
+        "p-title": "WIR SUCHEN STARKE MENSCHEN FÜR UNSER TEAM",
+        "p-intro1": "Wir bauen und entwickeln neue Projekte in der Schweiz und suchen Menschen, die gemeinsam mit uns gestalten, Einfluss nehmen und wachsen möchten.",
+        "p-intro2": "Uns sind nicht nur Diplome und CVs wichtig.<br>Wir schätzen Denken, Verantwortung, Schnelligkeit, Initiative und die Fähigkeit, Dinge zu Ergebnissen zu führen.",
+
+        "j1-badge": "PROJEKTLEITER",
+        "j1-title": "Project Manager — Projektleiter",
+        "j1-lead": "Sie werden Projekte von der Idee bis zur Umsetzung leiten.",
+        "j1-resp-title": "Ihr Verantwortungsbereich:",
+        "j1-r1": "Planung und Start neuer Projekte;",
+        "j1-r2": "Teambildung und Teamkoordination;",
+        "j1-r3": "Management von Fristen, Budgets und Prioritäten;",
+        "j1-r4": "Verhandlungen mit Partnern, Kunden und Auftragnehmern;",
+        "j1-r5": "Ausführungskontrolle und Verantwortung für das Endergebnis.",
+        "j1-search": "<strong>Wir suchen:</strong> Eine selbstständige, systematische und ehrgeizige Person, die nicht auf ständige Anweisungen wartet, sondern Aufgaben sieht, Lösungen findet und das Projekt vorantreibt.",
+
+        "j2-badge": "MANAGEMENT-ASSISTENT",
+        "j2-title": "Executive / Project Assistant — Assistent der Geschäftsführung / Projektassistent",
+        "j2-lead": "Dies ist eine Position für jemanden, der direkt in den Prozessen sein, eng mit der Leitung zusammenarbeiten und schrittweise mehr Verantwortung übernehmen möchte.",
+        "j2-tasks-title": "Ihre Aufgaben:",
+        "j2-t1": "Organisation der täglichen Arbeit und Meetings;",
+        "j2-t2": "Führung der Geschäftskommunikation;",
+        "j2-t3": "Arbeit mit Dokumenten und Informationen;",
+        "j2-t4": "Koordination von Aufgaben und Fristenkontrolle;",
+        "j2-t5": "Interaktion mit Partnern und Ausführenden;",
+        "j2-t6": "Unterstützung beim Start und der Entwicklung neuer Projekte.",
+        "j2-req": "Zuverlässigkeit, Intelligenz, schnelle Auffassungsgabe, Organisationsfähigkeit und Initiative sind uns wichtig.",
+
+        "c-h3": "SUCHEN SIE NICHT NUR EINEN JOB.",
+        "c-sub": "FINDEN SIE EIN PROJEKT, IN DEM SIE WACHSEN KÖNNEN.",
+        "c-text": "Wenn Ihnen dieser Ansatz zusagt — erzählen Sie uns von sich.",
+        "btn-apply": "DEM TEAM BEITRETEN",
+
+        "f-title": "UAGZ Zürich",
+        "f-desc": "Ukrainisches Integrations- und Kulturzentrum Zürich<br>Gemeinnütziger Verein · © 2026 UAGZ",
+        "fc1h": "Kontakt"
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lb').forEach(b => {
+        b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+      });
+
+      if (typeof T === 'undefined' || !T[lang]) return;
+      const dict = T[lang];
+
+      for (const [id, val] of Object.entries(dict)) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else {
+          el.innerHTML = val;
+        }
+      }
+
+      document.documentElement.lang = lang === 'ua' ? 'uk' : 'de';
+      localStorage.setItem('selectedLang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('selectedLang') || 'ua';
+      setLang(savedLang);
+    });
+  </script>
+</body>
+</html>
